@@ -55,6 +55,25 @@ function BuildWithUsContent() {
         </p>
       </div>
 
+      {/* Dedicated Founding Board & Advisory Circle Banner */}
+      <div className="p-5 bg-stone-900/90 border-l-4 border-brand-ruby rounded-r-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-white font-serif font-bold text-sm">
+            <Scale className="w-4 h-4 text-brand-ruby" />
+            <span>Interested in Fiduciary Governance or the Advisory Circle?</span>
+          </div>
+          <p className="text-xs text-stone-400 max-w-xl">
+            We are actively beginning exploratory conversations with prospective Founding Board directors and Advisory Circle subject-matter leaders.
+          </p>
+        </div>
+        <a
+          href="/governance"
+          className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded text-xs font-mono uppercase tracking-wider font-bold shrink-0 border border-stone-700 hover:border-brand-ruby transition-colors"
+        >
+          View Board & Advisory Pathways →
+        </a>
+      </div>
+
       {!submitted ? (
         <form onSubmit={handleSubmit} className="bg-brand-charcoal border border-stone-800 rounded-xl p-6 sm:p-8 space-y-6 shadow-xl">
           <div className="grid gap-4 sm:grid-cols-2">

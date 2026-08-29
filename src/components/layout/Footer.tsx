@@ -88,6 +88,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/governance" className="hover:text-stone-200 transition-colors text-brand-ruby font-medium">
+                  Founding Board & Governance
+                </Link>
+              </li>
+              <li>
                 <Link href="/build-with-us" className="hover:text-stone-200 transition-colors">
                   Collaborator Intake
                 </Link>

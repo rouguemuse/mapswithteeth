@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Compass, Layers, ShieldCheck, ArrowRight, Target, Sparkles } from "lucide-react";
+import { FoundingBoardSection } from "@/components/governance/FoundingBoardSection";
 
 export default function AboutPage() {
   return (
@@ -79,13 +80,18 @@ export default function AboutPage() {
         </p>
       </section>
 
+      {/* Governance & Founding Board Section */}
+      <section className="pt-4">
+        <FoundingBoardSection />
+      </section>
+
       {/* Next Step CTAs */}
       <div className="border-t border-stone-800 pt-6 flex flex-wrap gap-4">
         <Link
           href="/support"
           className="px-5 py-2.5 bg-brand-ruby hover:bg-red-700 text-white rounded-lg text-xs font-bold flex items-center gap-2 shadow-md"
         >
-          <span>View Pilot Framework & Governance</span>
+          <span>View Pilot Framework & Support</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
         <Link
