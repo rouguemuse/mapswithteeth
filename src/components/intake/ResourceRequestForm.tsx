@@ -71,12 +71,12 @@ export function ResourceRequestForm() {
             <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
               Sometimes the thing that unlocks help has nothing obvious to do with domestic violence. Your job, industry history, children, pets, public school, union membership, or county may reveal emergency hardship funds that would never appear in a standard domestic violence search.
             </p>
-            <div className="mt-3 p-3 bg-stone-900/80 rounded border border-stone-800 text-[11px] text-stone-400 space-y-1">
-              <div>
-                <strong className="text-stone-300">Data-Minimization Notice:</strong> We do not ask for your Social Security number, full home address, perpetrator&apos;s name, or detailed abuse narratives. You do not need to prove what happened in order to ask us to look for resources.
+            <div className="mt-3 p-3 bg-red-950/40 border border-brand-ruby/60 rounded-lg text-xs text-red-200 space-y-1">
+              <div className="text-[11px] leading-relaxed">
+                <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
               </div>
-              <div className="text-[10px] text-stone-500 font-mono">
-                System Status: Production-ready application architecture / public-resource prototype. Submissions calculate immediate local matching pathways. No private data is stored in unencrypted browser storage.
+              <div className="text-[10px] text-stone-400 font-mono pt-1">
+                Data Minimization: Zero SSN, zero full address, zero abuse narrative. Submissions calculate immediate local matching pathways without remote persistence.
               </div>
             </div>
           </div>

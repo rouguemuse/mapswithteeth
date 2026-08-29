@@ -1,5 +1,5 @@
-import React from "react";
-import { Scale, CheckCircle2, AlertTriangle, ShieldCheck, Clock, BookOpen, Layers } from "lucide-react";
+﻿import React from "react";
+import { Scale, CheckCircle2, AlertTriangle, ShieldCheck, Clock, BookOpen, Layers, CheckSquare, Sparkles } from "lucide-react";
 
 export default function HowWeResearchPage() {
   return (
@@ -7,22 +7,122 @@ export default function HowWeResearchPage() {
       {/* Header */}
       <div className="border-b border-stone-800 pb-6">
         <span className="text-xs font-mono uppercase tracking-widest text-brand-ruby font-bold block mb-1">
-          Research Standards & Source Hierarchy
+          RESEARCH STANDARDS & ACCESS INTELLIGENCE
         </span>
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
           How We Research Resources
         </h1>
         <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
-          High-stakes situations require verified information. Maps With Teeth does not rely on automated AI scrapers or unvetted secondary directories. Transparency in our sourcing is our core accountability standard.
+          High-stakes situations require verified, granular access intelligence. Maps With Teeth does not rely on automated AI web scrapers or unvetted secondary directories. We evaluate what it actually takes to reach help in the real world.
         </p>
       </div>
+
+      {/* Practical Access Conditions */}
+      <section className="space-y-4 bg-brand-charcoal border border-stone-800 rounded-xl p-6">
+        <div className="flex items-center gap-2 text-white">
+          <CheckSquare className="w-5 h-5 text-brand-ruby" />
+          <h2 className="text-xl font-serif font-bold">
+            1. Evaluating Practical Access Conditions (Not Merely Existence)
+          </h2>
+        </div>
+        <p className="text-xs text-stone-300 leading-relaxed">
+          Standard directories simply record that an agency exists. Maps With Teeth evaluates <strong>eleven specific real-world access conditions</strong> before surfacing a pathway:
+        </p>
+
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 text-xs font-mono text-stone-300">
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>1. Eligibility:</strong> Concrete qualifying limits
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>2. Geography:</strong> Strict county/jurisdiction lines
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>3. Documentation:</strong> Required IDs, leases, paystubs
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>4. Wait Time:</strong> Realistic processing timelines
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>5. Shelter Rule:</strong> Whether shelter stay is forced
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>6. Transportation:</strong> Transit & gas accessibility
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>7. Cost / Fee:</strong> Hidden deposits or out-of-pocket costs
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>8. Referral Rule:</strong> Advocate/police mandate
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>9. Availability:</strong> Current funding cycle status
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800">
+            <strong>10. Verification:</strong> Date of last research audit
+          </div>
+          <div className="p-2.5 bg-stone-900/80 rounded border border-stone-800 sm:col-span-2 lg:col-span-1">
+            <strong>11. Handoff:</strong> Documented referral outcome
+          </div>
+        </div>
+      </section>
+
+      {/* Multi-Tier Verification Levels */}
+      <section className="space-y-4">
+        <div className="flex items-center gap-2">
+          <ShieldCheck className="w-5 h-5 text-brand-ruby" />
+          <h2 className="text-xl font-serif font-bold text-white">
+            2. Multi-Tier Verification Levels
+          </h2>
+        </div>
+        <p className="text-xs text-stone-300">
+          Rather than treating all listings as equally verified, our data model distinguishes among four transparent tiers:
+        </p>
+
+        <div className="grid gap-3 sm:grid-cols-2 text-xs">
+          <div className="p-4 bg-brand-charcoal border border-stone-800 rounded-lg space-y-1">
+            <span className="text-xs font-mono font-bold text-emerald-400 block">
+              ● AGENCY-CONFIRMED
+            </span>
+            <p className="text-stone-300 leading-relaxed text-[11px]">
+              Directly verified through communication with program administrators to confirm active budget, current intake criteria, and application protocols.
+            </p>
+          </div>
+
+          <div className="p-4 bg-brand-charcoal border border-stone-800 rounded-lg space-y-1">
+            <span className="text-xs font-mono font-bold text-sky-400 block">
+              ● PUBLICLY DOCUMENTED
+            </span>
+            <p className="text-stone-300 leading-relaxed text-[11px]">
+              Verified through official government statutes, published administrative codes (PUCT, Texas Property Code), IRS forms, or formal program guidelines.
+            </p>
+          </div>
+
+          <div className="p-4 bg-brand-charcoal border border-stone-800 rounded-lg space-y-1">
+            <span className="text-xs font-mono font-bold text-amber-400 block">
+              ● FIELD-VERIFIED (PILOT)
+            </span>
+            <p className="text-stone-300 leading-relaxed text-[11px]">
+              Validated through hands-on referral attempts in our Central Texas pilot to record real-world friction and successful handoff rates.
+            </p>
+          </div>
+
+          <div className="p-4 bg-brand-charcoal border border-stone-800 rounded-lg space-y-1">
+            <span className="text-xs font-mono font-bold text-stone-400 block">
+              ● COMMUNITY-REPORTED LEAD
+            </span>
+            <p className="text-stone-300 leading-relaxed text-[11px]">
+              Identified through community submissions or secondary discovery; explicitly flagged as a lead while undergoing independent source audit.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Source Hierarchy */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
           <Scale className="w-5 h-5 text-brand-ruby" />
           <h2 className="text-xl font-serif font-bold text-white">
-            1. Authoritative Sourcing Hierarchy
+            3. Authoritative Sourcing Hierarchy
           </h2>
         </div>
         <p className="text-xs text-stone-300">
@@ -52,7 +152,7 @@ export default function HowWeResearchPage() {
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5 text-brand-ruby" />
           <h2 className="text-xl font-serif font-bold text-white">
-            2. Staleness Monitoring & Re-Verification
+            4. Staleness Monitoring & Re-Verification
           </h2>
         </div>
         <p className="text-xs text-stone-300 leading-relaxed">
@@ -77,39 +177,13 @@ export default function HowWeResearchPage() {
         </div>
       </section>
 
-      {/* Verified vs Lead Distinction */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-brand-ruby" />
-          <h2 className="text-xl font-serif font-bold text-white">
-            3. Verified Resources vs. Resource Leads
-          </h2>
-        </div>
-        <p className="text-xs text-stone-300 leading-relaxed">
-          A resource is marked <strong>VERIFIED CURRENT</strong> only when our researchers have confirmed current guidelines, application mechanisms, and active funding. When a promising program is identified but awaiting confirmation, it is explicitly labeled <strong>RESOURCE LEAD</strong>. We never represent a lead as guaranteed assistance.
-        </p>
-      </section>
-
-      {/* Archive Policy */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-2">
-          <BookOpen className="w-5 h-5 text-brand-ruby" />
-          <h2 className="text-xl font-serif font-bold text-white">
-            4. Archive Policy (Never Silently Delete)
-          </h2>
-        </div>
-        <p className="text-xs text-stone-300 leading-relaxed">
-          When funding-dependent programs close, we do not silently delete them. We archive the entry with a historical marker. This preserves institutional memory, identifies funding gaps for policy researchers, and helps recognize successor programs when new funding cycles begin.
-        </p>
-      </section>
-
       {/* Legal Disclaimer */}
       <div className="p-4 bg-stone-900 border border-stone-800 rounded-lg text-xs text-stone-400 space-y-2">
         <strong className="text-stone-200 block font-mono uppercase text-[11px]">
           Educational Information Notice:
         </strong>
         <p>
-          The statutory summaries and directory entries on Maps With Teeth are provided for educational and navigational purposes only and do not constitute formal legal advice. Laws change and judicial interpretations vary by jurisdiction. For specific legal counsel in Texas, consult the Texas Advocacy Project or a qualified legal aid attorney.
+          The statutory summaries and directory entries on Maps With Teeth are provided for educational and navigational purposes only and do not constitute formal legal advice. Maps With Teeth is an independent initiative and is not a government agency, legal aid provider, or emergency crisis hotline.
         </p>
       </div>
     </div>

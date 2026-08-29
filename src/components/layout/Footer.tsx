@@ -93,6 +93,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/feedback" className="hover:text-stone-200 transition-colors text-amber-400 font-medium">
+                  Stakeholder Feedback / Review
+                </Link>
+              </li>
+              <li>
                 <Link href="/build-with-us" className="hover:text-stone-200 transition-colors">
                   Collaborator Intake
                 </Link>

@@ -76,6 +76,14 @@ function BuildWithUsContent() {
 
       {!submitted ? (
         <form onSubmit={handleSubmit} className="bg-brand-charcoal border border-stone-800 rounded-xl p-6 sm:p-8 space-y-6 shadow-xl">
+          {/* Privacy & Emergency Warning */}
+          <div className="p-3 bg-red-950/40 border border-brand-ruby/60 rounded-lg flex items-start gap-2 text-xs text-red-200">
+            <ShieldCheck className="w-4 h-4 text-brand-ruby shrink-0 mt-0.5" />
+            <p className="text-[11px] leading-relaxed">
+              <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
+            </p>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-bold text-stone-200 mb-1">

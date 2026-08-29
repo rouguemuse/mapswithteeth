@@ -18,7 +18,7 @@ export default function SupportPage() {
           Support Maps With Teeth & Central Texas Pilot
         </h1>
         <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
-          Maps With Teeth is planned as a fiscally sponsored charitable initiative. We believe in radical financial transparency, strict fiduciary oversight, and clear budgeting before accepting institutional or philanthropic contributions.
+          Maps With Teeth is currently an independent public-interest initiative preparing to launch its Central Texas pilot under comprehensive fiscal sponsorship. We believe in radical financial transparency, strict fiduciary oversight, and clear budgeting before accepting institutional or philanthropic contributions.
         </p>
       </div>
 
@@ -29,6 +29,16 @@ export default function SupportPage() {
           <h2 className="text-xl font-serif font-bold">
             Organizational Structure: Fiscally Sponsored Launch
           </h2>
+        </div>
+
+        {/* Explicit Tax-Deductibility & Entity Disclosure */}
+        <div className="p-3 bg-stone-900 border border-stone-700 rounded-lg text-xs text-stone-300 font-mono space-y-1">
+          <strong className="text-amber-400 block uppercase text-[11px]">
+            Institutional & Tax Disclosure:
+          </strong>
+          <p>
+            Maps With Teeth is currently an independent public-interest initiative and is not currently a 501(c)(3) tax-exempt organization. Direct contributions made prior to the execution of formal fiscal sponsorship are not currently tax-deductible.
+          </p>
         </div>
 
         <p className="text-xs text-stone-300 leading-relaxed">
@@ -51,7 +61,7 @@ export default function SupportPage() {
         </div>
 
         <p className="text-[11px] text-stone-400 italic">
-          *Important Transparency Notice: We do not process direct credit-card donations on this website until our formal fiscal sponsorship agreement is executed. Interested funders and institutional donors are invited to contact us directly.
+          *Notice: We do not process direct credit-card donations on this prototype until our formal fiscal sponsorship agreement is executed. Interested funders, labor funds, and institutional partners are invited to contact us directly.
         </p>
       </section>
 

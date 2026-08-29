@@ -1,8 +1,10 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { ResourceStackGenerator } from "@/components/resources/ResourceStackGenerator";
+import { StageRoadmapSection } from "@/components/home/StageRoadmapSection";
+import { StakeholderFeedbackSection } from "@/components/feedback/StakeholderFeedbackSection";
 import {
   Compass,
   ArrowRight,
@@ -17,70 +19,120 @@ import {
   MapPin,
   Briefcase,
   Dog,
+  MessageSquareQuote,
+  Scale,
+  ShieldAlert,
 } from "lucide-react";
 
 export default function HomePage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Editorial Hero Section */}
-      <section className="relative border-b border-stone-800 bg-brand-charcoal py-12 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative border-b border-stone-800 bg-brand-charcoal py-12 sm:py-18 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-6">
+          {/* Logo & Restrained Status Marker */}
           <div className="flex flex-col items-center gap-3">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-stone-900 border border-stone-700/80 p-2 shadow-2xl flex items-center justify-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-stone-900 border border-stone-700/80 p-2 shadow-2xl flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Maps With Teeth"
-                width={96}
-                height={96}
+                width={80}
+                height={80}
                 className="object-contain"
                 priority
               />
             </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-900 border border-stone-700 text-stone-300 rounded-full text-xs font-mono uppercase tracking-widest">
-              <Compass className="w-3.5 h-3.5 text-brand-ruby" />
-              <span>Barrier-First Resource Intelligence</span>
+
+            {/* Restrained Stage Marker */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-950 border border-stone-700 text-stone-300 rounded-full text-xs font-mono uppercase tracking-widest">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT</span>
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black text-white tracking-tight leading-[1.1]">
-            Sometimes the resource you need <br className="hidden sm:inline" />
-            <span className="text-brand-ruby italic font-serif">isn&apos;t a domestic violence resource.</span>
-          </h1>
+          {/* Substantive Hero Framing */}
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black text-white tracking-tight leading-[1.1]">
+              Help exists. <br />
+              <span className="text-brand-ruby italic font-serif">Access is another question.</span>
+            </h1>
 
-          <p className="text-base sm:text-lg text-stone-300 max-w-3xl mx-auto leading-relaxed font-sans">
-            Maps With Teeth searches across statutory escape routes, workplace benevolence funds, utility regulations, professional societies, community action agencies, and unexpected funding sources to locate practical ways around the obstacles that keep people stuck.
-          </p>
+            <p className="text-base sm:text-lg text-stone-200 max-w-3xl mx-auto leading-relaxed font-sans font-medium">
+              Maps With Teeth is a barrier-first resource intelligence system that maps not only where help exists, but what it actually takes to reach it.
+            </p>
 
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <p className="text-xs sm:text-sm text-stone-400 max-w-2xl mx-auto leading-relaxed font-mono">
+              Eligibility rules · Documentation requirements · County boundaries · Waitlists · Transportation gaps · Referral loops · Dead ends
+            </p>
+
+            <p className="text-xs sm:text-sm text-stone-300 max-w-2xl mx-auto font-sans font-semibold pt-1 text-stone-200">
+              &ldquo;We are building the missing layer between a resource directory and a successful handoff.&rdquo;
+            </p>
+          </div>
+
+          {/* Restrained Organizational Disclosure */}
+          <div className="max-w-2xl mx-auto p-3 bg-stone-950/80 rounded-lg border border-stone-800 text-[11px] text-stone-400 font-mono space-y-1">
+            <p className="text-stone-300">
+              Maps With Teeth is an independent public-interest initiative currently validating a barrier-first approach to resource navigation and systems accountability.
+            </p>
+            <p className="text-stone-500 text-[10px]">
+              Disclosure: Maps With Teeth is not currently a 501(c)(3), government agency, emergency service, or legal-services provider.
+            </p>
+          </div>
+
+          {/* Prioritized CTA Hierarchy */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            {/* Primary Action 1: Explore the Pilot */}
             <Link
-              href="/find-help"
-              className="px-6 py-3.5 bg-brand-ruby hover:bg-red-700 text-white rounded-lg text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5"
+              href="/texas"
+              className="px-6 py-3.5 bg-brand-ruby hover:bg-red-700 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5"
             >
-              <span>Find a Way Through</span>
-              <ArrowRight className="w-4 h-4" />
+              <MapPin className="w-4 h-4" />
+              <span>Explore the Pilot</span>
             </Link>
 
+            {/* Primary Action 2: Partner / Give Feedback */}
             <Link
-              href="/ask-us-to-look"
-              className="px-6 py-3.5 bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-200 hover:text-white rounded-lg text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm"
+              href="/feedback"
+              className="px-6 py-3.5 bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-200 hover:text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Ask Us to Look</span>
+              <MessageSquareQuote className="w-4 h-4 text-amber-400" />
+              <span>Partner / Give Feedback</span>
+            </Link>
+
+            {/* Secondary Action 1: Find a Way Through Directory */}
+            <Link
+              href="/find-help"
+              className="px-4 py-3 bg-transparent hover:bg-stone-900/60 border border-stone-800 text-stone-400 hover:text-stone-200 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors"
+            >
+              <span>Barrier Explorer</span>
+            </Link>
+
+            {/* Secondary Action 2: Support the Build */}
+            <Link
+              href="/support"
+              className="px-4 py-3 bg-transparent hover:bg-stone-900/60 border border-stone-800 text-stone-400 hover:text-stone-200 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors"
+            >
+              <span>Support the Build</span>
             </Link>
           </div>
 
           {/* Defining Idea Callout */}
-          <div className="pt-8 max-w-2xl mx-auto">
-            <div className="p-4 bg-stone-950/80 border-l-2 border-brand-ruby rounded text-left text-xs text-stone-300 leading-relaxed font-mono">
-              <strong className="text-white block font-sans text-sm mb-1">The Core Idea:</strong>
+          <div className="pt-6 max-w-2xl mx-auto">
+            <div className="p-4 bg-stone-950/90 border-l-2 border-brand-ruby rounded text-left text-xs text-stone-300 leading-relaxed font-mono">
+              <strong className="text-white block font-sans text-sm mb-1">The Core Principle:</strong>
               &ldquo;People do not experience their problem as a service category. They experience a barrier.&rdquo;
-              <span className="block text-[11px] text-stone-400 mt-1">
-                Whether you need $40 of gas, temporary dog boarding, early lease termination, or a separated phone line, we map solutions that actually remove that bottleneck.
+              <span className="block text-[11px] text-stone-400 mt-1 font-sans">
+                Sometimes the resource you need isn&apos;t a domestic violence shelter—it&apos;s a $40 gas voucher, an electric deposit waiver, safe pet boarding, or a statutory lease termination.
               </span>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* BUILT / TESTING / PROPOSED Roadmap */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <StageRoadmapSection />
       </section>
 
       {/* The 3 Resource Layers */}
@@ -216,6 +268,11 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Stakeholder Pressure-Testing Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        <StakeholderFeedbackSection />
       </section>
     </div>
   );

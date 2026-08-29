@@ -13,13 +13,13 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
 
   const navLinks = [
     { name: "Find Help", href: "/find-help" },
-    { name: "Texas", href: "/texas" },
-    { name: "Other Ways Through", href: "/other-ways-through" },
+    { name: "Texas Pilot", href: "/texas" },
+    { name: "Other Ways", href: "/other-ways-through" },
     { name: "Ask Us to Look", href: "/ask-us-to-look", highlight: true },
     { name: "How We Research", href: "/how-we-research" },
     { name: "About", href: "/about" },
+    { name: "Feedback", href: "/feedback" },
     { name: "Build With Us", href: "/build-with-us" },
-    { name: "Support", href: "/support" },
   ];
 
   return (

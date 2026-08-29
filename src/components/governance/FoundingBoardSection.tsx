@@ -203,6 +203,14 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
                 </button>
               </div>
 
+              {/* Privacy & Emergency Warning */}
+              <div className="p-3 bg-red-950/40 border border-brand-ruby/60 rounded-lg flex items-start gap-2 text-xs text-red-200">
+                <AlertCircle className="w-4 h-4 text-brand-ruby shrink-0 mt-0.5" />
+                <p className="text-[11px] leading-relaxed">
+                  <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
+                </p>
+              </div>
+
               {/* Form Grid */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
