@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FoundingBoardSection } from "@/components/governance/FoundingBoardSection";
-import { Shield, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default function GovernancePage() {
   return (
@@ -9,7 +9,7 @@ export default function GovernancePage() {
       <div>
         <Link
           href="/about"
-          className="inline-flex items-center gap-1.5 text-xs text-stone-400 hover:text-white font-mono transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs text-stone-600 hover:text-brand-charcoal font-mono transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to About Maps With Teeth</span>

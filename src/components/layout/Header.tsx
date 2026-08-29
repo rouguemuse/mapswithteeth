@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Menu, X, Shield, Search, Sparkles } from "lucide-react";
-
+import { Menu, X, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
@@ -23,12 +22,12 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
   ];
 
   return (
-    <header className="bg-brand-charcoal text-stone-100 border-b border-stone-800 sticky top-0 z-40 shadow-md">
+    <header className="bg-brand-paper text-brand-charcoal border-b border-brand-sand sticky top-0 z-40 shadow-sm backdrop-blur-md bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo & Editorial Title */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded bg-stone-900 border border-stone-700 flex items-center justify-center p-1 group-hover:border-brand-ruby transition-colors overflow-hidden shrink-0 shadow-inner">
+            <div className="w-10 h-10 rounded bg-brand-ivory border border-stone-300 flex items-center justify-center p-1 group-hover:border-brand-oxblood transition-colors overflow-hidden shrink-0 shadow-sm">
               <Image
                 src="/logo.png"
                 alt="Maps With Teeth Logo"
@@ -39,10 +38,10 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               />
             </div>
             <div>
-              <span className="font-serif font-black tracking-wider text-lg uppercase text-white block leading-none">
+              <span className="font-serif font-black tracking-wider text-base sm:text-lg uppercase text-brand-charcoal block leading-none">
                 MAPS WITH TEETH
               </span>
-              <span className="text-[10px] tracking-widest uppercase text-stone-400 font-mono block mt-0.5">
+              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-500 font-mono block mt-0.5">
                 Barrier-First Resource Intelligence
               </span>
             </div>
@@ -56,12 +55,12 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded text-xs uppercase tracking-wider font-semibold transition-colors ${
+                  className={`px-3 py-1.5 rounded text-xs uppercase tracking-wider font-semibold font-mono transition-all ${
                     link.highlight
-                      ? "bg-brand-ruby text-white hover:bg-red-700 font-bold ml-1 shadow-sm"
+                      ? "bg-brand-oxblood text-white hover:bg-red-900 font-bold ml-1 shadow-sm"
                       : isActive
-                      ? "text-white bg-stone-800 border-b-2 border-brand-ruby"
-                      : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                      ? "text-brand-charcoal bg-stone-200/70 border-b-2 border-brand-oxblood font-bold"
+                      : "text-stone-600 hover:text-brand-charcoal hover:bg-stone-200/50"
                   }`}
                 >
                   {link.name}
@@ -74,49 +73,37 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded text-stone-300 hover:text-white hover:bg-stone-800 focus:outline-none"
-              aria-label="Toggle navigation menu"
+              className="p-2 rounded text-stone-600 hover:text-brand-charcoal hover:bg-stone-200 focus:outline-none"
+              aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-brand-charcoal" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-brand-charcoal border-b border-stone-800 px-4 pt-2 pb-6 space-y-1 animate-fadeIn">
+        <div className="lg:hidden border-t border-brand-sand bg-brand-paper px-4 pt-3 pb-6 space-y-1 animate-fadeIn shadow-lg">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2.5 rounded text-sm font-semibold tracking-wide uppercase ${
+                className={`block px-3 py-2.5 rounded text-xs font-mono uppercase tracking-wider font-semibold transition-colors ${
                   link.highlight
-                    ? "bg-brand-ruby text-white font-bold"
+                    ? "bg-brand-oxblood text-white font-bold text-center mt-2 shadow-sm"
                     : isActive
-                    ? "bg-stone-800 text-white border-l-4 border-brand-ruby"
-                    : "text-stone-300 hover:bg-stone-800 hover:text-white"
+                    ? "text-brand-charcoal bg-stone-200 font-bold border-l-4 border-brand-oxblood pl-3"
+                    : "text-stone-700 hover:text-brand-charcoal hover:bg-stone-100"
                 }`}
               >
                 {link.name}
               </Link>
             );
           })}
-          <div className="pt-3 border-t border-stone-800 mt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenSafeBrowsing();
-              }}
-              className="w-full text-left px-3 py-2 text-xs text-stone-400 hover:text-white flex items-center gap-2"
-            >
-              <Shield className="w-4 h-4 text-brand-ruby" />
-              <span>Digital Safety & Device Privacy Notice</span>
-            </button>
-          </div>
         </div>
       )}
     </header>

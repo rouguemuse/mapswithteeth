@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { ALL_RESOURCES } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
-import { Search, Filter, Layers, CheckCircle2, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 function FindHelpContent() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,20 +43,20 @@ function FindHelpContent() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <div className="border-b border-stone-800 pb-6">
-        <span className="text-xs font-mono uppercase tracking-widest text-brand-ruby font-bold block mb-1">
+      <div className="border-b border-brand-sand pb-6">
+        <span className="text-xs font-mono uppercase tracking-widest text-brand-oxblood font-bold block mb-1">
           Directory & Barrier Explorer
         </span>
-        <h1 className="text-3xl font-serif font-bold text-white">
+        <h1 className="text-3xl font-serif font-bold text-brand-charcoal">
           Find a Way Through
         </h1>
-        <p className="text-xs sm:text-sm text-stone-400 mt-2 max-w-3xl leading-relaxed">
+        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
           Filter through our verified Texas state/county programs and nationwide obscure assistance libraries by the specific barrier you need solved.
         </p>
       </div>
 
       {/* Filter Controls */}
-      <div className="bg-brand-charcoal border border-stone-800 rounded-xl p-5 space-y-4">
+      <div className="bg-brand-paper border border-brand-sand rounded-xl p-5 space-y-4 shadow-sm">
         {/* Search Bar */}
         <div className="relative">
           <Search className="w-4 h-4 text-stone-400 absolute left-3 top-3" />
@@ -65,12 +65,12 @@ function FindHelpContent() {
             placeholder="Search by keyword, city, bill type, or deliverable (e.g., 'gas', 'electric deposit', 'boarding', 'Travis')..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-stone-900 border border-stone-700 rounded-lg pl-9 pr-4 py-2 text-xs text-white placeholder-stone-500 focus:border-brand-ruby focus:outline-none"
+            className="w-full bg-brand-ivory border border-stone-300 rounded-lg pl-9 pr-4 py-2 text-xs text-brand-charcoal placeholder-stone-500 focus:border-brand-oxblood focus:outline-none"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-2.5 text-stone-400 hover:text-white"
+              className="absolute right-3 top-2.5 text-stone-400 hover:text-brand-charcoal"
             >
               <X className="w-4 h-4" />
             </button>
@@ -80,13 +80,13 @@ function FindHelpContent() {
         {/* Filter Pills */}
         <div className="grid gap-3 sm:grid-cols-3">
           <div>
-            <label className="block text-[11px] text-stone-400 mb-1 font-mono uppercase">
+            <label className="block text-[11px] text-stone-600 mb-1 font-mono uppercase font-bold">
               Filter by Barrier:
             </label>
             <select
               value={selectedBarrier}
               onChange={(e) => setSelectedBarrier(e.target.value)}
-              className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2 text-xs text-white"
+              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
             >
               <option value="ALL">All Barriers ({BARRIER_CATEGORIES.length})</option>
               {BARRIER_CATEGORIES.map((b) => (
@@ -98,13 +98,13 @@ function FindHelpContent() {
           </div>
 
           <div>
-            <label className="block text-[11px] text-stone-400 mb-1 font-mono uppercase">
+            <label className="block text-[11px] text-stone-600 mb-1 font-mono uppercase font-bold">
               Geographic Layer:
             </label>
             <select
               value={selectedScope}
               onChange={(e) => setSelectedScope(e.target.value)}
-              className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2 text-xs text-white"
+              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
             >
               <option value="ALL">All Layers (Texas + Nationwide)</option>
               <option value="TEXAS">Texas Deep Dive Programs (State & Counties)</option>
@@ -112,22 +112,22 @@ function FindHelpContent() {
             </select>
           </div>
 
-          <div className="flex flex-col justify-end gap-2 pt-1">
-            <label className="flex items-center gap-2 text-xs text-stone-300 cursor-pointer">
+          <div className="flex flex-col justify-end gap-2 pt-1 font-sans">
+            <label className="flex items-center gap-2 text-xs text-stone-700 cursor-pointer">
               <input
                 type="checkbox"
                 checked={filterNoPolice}
                 onChange={(e) => setFilterNoPolice(e.target.checked)}
-                className="rounded bg-stone-900 border-stone-700 text-brand-ruby"
+                className="rounded bg-brand-ivory border-stone-300 text-brand-oxblood focus:ring-0"
               />
               <span>No Police Report Required</span>
             </label>
-            <label className="flex items-center gap-2 text-xs text-stone-300 cursor-pointer">
+            <label className="flex items-center gap-2 text-xs text-stone-700 cursor-pointer">
               <input
                 type="checkbox"
                 checked={filterNoShelter}
                 onChange={(e) => setFilterNoShelter(e.target.checked)}
-                className="rounded bg-stone-900 border-stone-700 text-brand-ruby"
+                className="rounded bg-brand-ivory border-stone-300 text-brand-oxblood focus:ring-0"
               />
               <span>No Shelter Stay Required</span>
             </label>
@@ -137,7 +137,7 @@ function FindHelpContent() {
 
       {/* Results Header */}
       <div className="flex items-center justify-between">
-        <span className="text-xs font-mono text-stone-400 uppercase tracking-wider">
+        <span className="text-xs font-mono text-stone-600 uppercase tracking-wider font-bold">
           Showing <strong>{filteredResources.length}</strong> verified resources
         </span>
       </div>
@@ -154,7 +154,7 @@ function FindHelpContent() {
 
 export default function FindHelpPage() {
   return (
-    <React.Suspense fallback={<div className="p-8 text-center text-xs text-stone-400">Loading directory...</div>}>
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-stone-500 font-mono">Loading directory...</div>}>
       <FindHelpContent />
     </React.Suspense>
   );

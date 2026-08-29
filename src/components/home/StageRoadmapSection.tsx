@@ -1,13 +1,13 @@
-﻿import React from "react";
+import React from "react";
 import { CheckCircle2, FlaskConical, Milestone } from "lucide-react";
 
 export function StageRoadmapSection() {
   const stages = [
     {
       badge: "BUILT",
-      badgeColor: "bg-emerald-950/80 text-emerald-300 border-emerald-800",
+      badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-300",
       icon: CheckCircle2,
-      iconColor: "text-emerald-400",
+      iconColor: "text-emerald-700",
       title: "Active in This Prototype",
       description: "Functional tools, taxonomy structures, and legal frameworks fully implemented and browsable on this site today.",
       items: [
@@ -20,9 +20,9 @@ export function StageRoadmapSection() {
     },
     {
       badge: "TESTING / PILOT",
-      badgeColor: "bg-amber-950/80 text-amber-300 border-amber-800",
+      badgeColor: "bg-amber-50 text-amber-800 border-amber-300",
       icon: FlaskConical,
-      iconColor: "text-amber-400",
+      iconColor: "text-amber-700",
       title: "Central Texas Field Validation",
       description: "Active pilot methodologies being pressure-tested with regional stakeholders in Travis, Williamson, Hays, and Bastrop counties.",
       items: [
@@ -34,9 +34,9 @@ export function StageRoadmapSection() {
     },
     {
       badge: "PROPOSED / LONGER TERM",
-      badgeColor: "bg-stone-900 text-stone-300 border-stone-700",
+      badgeColor: "bg-stone-100 text-stone-800 border-stone-300",
       icon: Milestone,
-      iconColor: "text-brand-ruby",
+      iconColor: "text-brand-oxblood",
       title: "Future Institutional Roadmap",
       description: "Strategic capabilities planned for post-pilot expansion following fiscal sponsorship execution and formal governance.",
       items: [
@@ -50,21 +50,21 @@ export function StageRoadmapSection() {
 
   return (
     <section className="space-y-6">
-      <div className="border-b border-stone-800 pb-4 flex flex-wrap items-center justify-between gap-2">
+      <div className="border-b border-brand-sand pb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-brand-ruby font-bold block mb-1">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-brand-oxblood font-bold block mb-1">
             METHODOLOGY & TRANSPARENCY
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal tracking-tight">
             Distinguishing What Is Built, Testing, and Proposed
           </h2>
         </div>
-        <span className="text-xs font-mono text-stone-400">
+        <span className="text-xs font-mono text-stone-500">
           Accountability Standard
         </span>
       </div>
 
-      <p className="text-xs sm:text-sm text-stone-300 max-w-3xl leading-relaxed">
+      <p className="text-xs sm:text-sm text-stone-600 max-w-3xl leading-relaxed font-sans">
         High-stakes systems require complete transparency. We explicitly distinguish between what is already built in this prototype, what is currently being validated in the Central Texas pilot, and what is proposed for future phases.
       </p>
 
@@ -74,7 +74,7 @@ export function StageRoadmapSection() {
           return (
             <div
               key={idx}
-              className="bg-brand-charcoal border border-stone-800 rounded-xl p-5 flex flex-col justify-between space-y-4 shadow-lg"
+              className="bg-brand-paper border border-brand-sand rounded-xl p-5 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -87,14 +87,14 @@ export function StageRoadmapSection() {
                 </div>
 
                 <div>
-                  <h3 className="text-base font-serif font-bold text-white">{stage.title}</h3>
-                  <p className="text-[11px] text-stone-400 mt-1 leading-snug">{stage.description}</p>
+                  <h3 className="text-base font-serif font-bold text-brand-charcoal">{stage.title}</h3>
+                  <p className="text-[11px] text-stone-500 mt-1 leading-snug font-sans">{stage.description}</p>
                 </div>
 
-                <ul className="space-y-2 text-xs text-stone-300 font-sans pt-2 border-t border-stone-800/80">
+                <ul className="space-y-2 text-xs text-stone-700 font-sans pt-2 border-t border-brand-sand">
                   {stage.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-1.5 text-[11px] leading-relaxed">
-                      <span className="text-stone-500 shrink-0 font-mono">•</span>
+                      <span className="text-brand-oxblood shrink-0 font-mono font-bold">•</span>
                       <span>{item}</span>
                     </li>
                   ))}

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { StakeholderFeedbackSection } from "@/components/feedback/StakeholderFeedbackSection";
 import { ArrowLeft, MessageSquareQuote } from "lucide-react";

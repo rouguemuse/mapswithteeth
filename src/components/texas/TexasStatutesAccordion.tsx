@@ -14,10 +14,10 @@ export function TexasStatutesAccordion() {
         return (
           <div
             key={statute.id}
-            className={`border rounded-lg transition-all ${
+            className={`border rounded-xl transition-all ${
               isOpen
-                ? "bg-brand-charcoal border-stone-700 shadow-md"
-                : "bg-stone-900/60 border-stone-800 hover:border-stone-700"
+                ? "bg-brand-paper border-stone-400 shadow-md"
+                : "bg-brand-paper border-brand-sand hover:border-stone-400 shadow-sm"
             }`}
           >
             <button
@@ -25,36 +25,36 @@ export function TexasStatutesAccordion() {
               className="w-full p-4 text-left flex items-center justify-between gap-3 focus:outline-none"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded bg-stone-950 border border-stone-800 flex items-center justify-center text-brand-ruby shrink-0">
+                <div className="w-8 h-8 rounded bg-brand-ivory border border-stone-300 flex items-center justify-center text-brand-oxblood shrink-0 shadow-sm">
                   <Scale className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm font-bold text-white">{statute.title}</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-950 border border-stone-800 text-amber-300">
+                    <span className="text-sm font-bold font-serif text-brand-charcoal">{statute.title}</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-ivory border border-stone-300 text-stone-800 font-bold">
                       {statute.citation}
                     </span>
                   </div>
-                  <p className="text-xs text-stone-400 mt-0.5 line-clamp-1">{statute.summary}</p>
+                  <p className="text-xs text-stone-600 mt-0.5 line-clamp-1 font-sans">{statute.summary}</p>
                 </div>
               </div>
 
-              <div className="text-stone-400">
+              <div className="text-stone-500">
                 {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </div>
             </button>
 
             {isOpen && (
-              <div className="px-4 pb-5 pt-2 border-t border-stone-800 text-xs text-stone-300 space-y-4 animate-fadeIn">
-                <p className="text-sm leading-relaxed text-stone-200">{statute.summary}</p>
+              <div className="px-4 pb-5 pt-2 border-t border-brand-sand text-xs text-stone-700 space-y-4 animate-fadeIn">
+                <p className="text-sm leading-relaxed text-stone-800 font-sans">{statute.summary}</p>
 
                 {/* Key Rights */}
-                <div className="bg-stone-950/60 border border-stone-800 rounded p-3">
-                  <h4 className="text-[11px] font-mono uppercase tracking-wider text-stone-400 mb-1.5 flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-brand-ruby" />
+                <div className="bg-brand-ivory border border-brand-sand rounded-lg p-3.5 shadow-sm">
+                  <h4 className="text-[11px] font-mono uppercase tracking-wider text-brand-charcoal mb-1.5 flex items-center gap-1 font-bold">
+                    <ShieldCheck className="w-3.5 h-3.5 text-brand-oxblood" />
                     <span>Statutory Protections:</span>
                   </h4>
-                  <ul className="list-disc list-inside space-y-1 text-stone-300">
+                  <ul className="list-disc list-inside space-y-1 text-stone-800 font-sans">
                     {statute.keyRights.map((right, i) => (
                       <li key={i}>{right}</li>
                     ))}
@@ -62,43 +62,52 @@ export function TexasStatutesAccordion() {
                 </div>
 
                 {/* Nuances & Exceptions */}
-                <div className="bg-amber-950/20 border border-amber-900/40 rounded p-3 text-amber-200">
-                  <h4 className="text-[11px] font-mono uppercase tracking-wider text-amber-400 mb-1.5 flex items-center gap-1">
-                    <AlertTriangle className="w-3.5 h-3.5" />
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3.5 text-stone-800 shadow-sm">
+                  <h4 className="text-[11px] font-mono uppercase tracking-wider text-amber-900 mb-1.5 flex items-center gap-1 font-bold">
+                    <AlertTriangle className="w-3.5 h-3.5 text-amber-700" />
                     <span>Critical Legal Nuances & Exceptions:</span>
                   </h4>
-                  <ul className="space-y-1 text-stone-300">
+                  <ul className="space-y-1 text-stone-800 font-sans">
                     {statute.nuancesAndExceptions.map((nuance, i) => (
                       <li key={i}>• {nuance}</li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Required Documentation */}
-                <div>
-                  <h4 className="text-[11px] font-mono uppercase tracking-wider text-stone-400 mb-1 flex items-center gap-1">
-                    <FileText className="w-3.5 h-3.5 text-brand-ruby" />
-                    <span>Required Documentation:</span>
-                  </h4>
-                  <ul className="list-disc list-inside space-y-0.5 text-stone-400">
-                    {statute.requiredDocumentation.map((doc, i) => (
-                      <li key={i}>{doc}</li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Requirements & Documents */}
+                <div className="grid gap-3 sm:grid-cols-2 pt-1 font-mono text-[11px]">
+                  <div className="bg-brand-ivory p-3 rounded-lg border border-brand-sand">
+                    <strong className="text-brand-charcoal block mb-1 uppercase text-[10px]">
+                      Required Documentation:
+                    </strong>
+                    <ul className="space-y-1 text-stone-700 font-sans text-xs">
+                      {statute.requiredDocumentation.map((doc, i) => (
+                        <li key={i}>• {doc}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-                {/* Authoritative Citation Link */}
-                <div className="pt-2 border-t border-stone-800 flex items-center justify-between text-[11px] text-stone-400">
-                  <span>Administering Agency: <strong>{statute.administeringAgency}</strong></span>
-                  <a
-                    href={statute.authoritativeSourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-ruby hover:underline flex items-center gap-1"
-                  >
-                    <span>Official Texas Statute Text</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="bg-brand-ivory p-3 rounded-lg border border-brand-sand">
+                    <strong className="text-brand-charcoal block mb-1 uppercase text-[10px]">
+                      Statutory Procedure:
+                    </strong>
+                    <ul className="space-y-1 text-stone-700 font-sans text-xs">
+                      {statute.procedureSteps.map((step, i) => (
+                        <li key={i}>• {step}</li>
+                      ))}
+                    </ul>
+                    {statute.authoritativeSourceUrl && (
+                      <a
+                        href={statute.authoritativeSourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 mt-2.5 text-brand-oxblood hover:underline font-bold"
+                      >
+                        <FileText className="w-3.5 h-3.5" />
+                        <span>Official Texas Capitol Statute →</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             )}

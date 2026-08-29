@@ -30,28 +30,28 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
       <div>
         <Link
           href="/texas"
-          className="inline-flex items-center gap-1.5 text-xs text-stone-400 hover:text-white font-mono transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs text-stone-600 hover:text-brand-charcoal font-mono transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Texas Statewide Overview</span>
         </Link>
       </div>
 
-      <div className="border-b border-stone-800 pb-6">
+      <div className="border-b border-brand-sand pb-6">
         <div className="flex flex-wrap items-center gap-2 mb-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-brand-ruby font-bold">
+          <span className="text-xs font-mono uppercase tracking-widest text-brand-oxblood font-bold">
             {county.region === "CENTRAL_TEXAS_PILOT" ? "Central Texas Pilot Region" : "Gulf Coast Deep Dive"}
           </span>
           {county.isPilotRegion && (
-            <span className="px-2 py-0.5 rounded bg-red-950/70 border border-brand-ruby text-red-300 text-[10px] font-mono uppercase">
+            <span className="px-2 py-0.5 rounded bg-amber-100 border border-amber-300 text-amber-900 text-[10px] font-mono uppercase font-bold">
               Pilot Cohort
             </span>
           )}
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-brand-charcoal tracking-tight">
           Help in {county.name}
         </h1>
-        <p className="text-xs sm:text-sm text-stone-400 mt-1">
+        <p className="text-xs sm:text-sm text-stone-600 mt-1 font-mono">
           County Seat: <strong>{county.seat}</strong> • Major Cities: {county.majorCities.join(", ")}
         </p>
       </div>
@@ -59,36 +59,36 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
       <CountySelector currentSlug={county.slug} />
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="bg-brand-charcoal border border-stone-800 rounded-lg p-4 space-y-1">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-400 flex items-center gap-1">
-            <Home className="w-3.5 h-3.5 text-brand-ruby" />
+        <div className="bg-brand-paper border border-brand-sand rounded-xl p-4 space-y-1 shadow-sm">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 flex items-center gap-1 font-bold">
+            <Home className="w-3.5 h-3.5 text-brand-oxblood" />
             <span>Crisis Shelter Partner</span>
           </span>
-          <p className="text-xs text-stone-200 font-bold">{county.emergencyShelterPartner}</p>
+          <p className="text-xs text-brand-charcoal font-bold font-sans">{county.emergencyShelterPartner}</p>
         </div>
 
-        <div className="bg-brand-charcoal border border-stone-800 rounded-lg p-4 space-y-1">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-400 flex items-center gap-1">
-            <Shield className="w-3.5 h-3.5 text-brand-ruby" />
+        <div className="bg-brand-paper border border-brand-sand rounded-xl p-4 space-y-1 shadow-sm">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 flex items-center gap-1 font-bold">
+            <Shield className="w-3.5 h-3.5 text-brand-oxblood" />
             <span>Legal Aid Provider</span>
           </span>
-          <p className="text-xs text-stone-200 font-bold">{county.legalAidProvider}</p>
+          <p className="text-xs text-brand-charcoal font-bold font-sans">{county.legalAidProvider}</p>
         </div>
 
-        <div className="bg-brand-charcoal border border-stone-800 rounded-lg p-4 space-y-1">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-400 flex items-center gap-1">
-            <Building2 className="w-3.5 h-3.5 text-brand-ruby" />
+        <div className="bg-brand-paper border border-brand-sand rounded-xl p-4 space-y-1 shadow-sm">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 flex items-center gap-1 font-bold">
+            <Building2 className="w-3.5 h-3.5 text-brand-oxblood" />
             <span>Community Action (CSBG)</span>
           </span>
-          <p className="text-xs text-stone-200 font-bold">{county.communityActionAgency}</p>
+          <p className="text-xs text-brand-charcoal font-bold font-sans">{county.communityActionAgency}</p>
         </div>
       </div>
 
       <section className="space-y-4">
-        <div className="flex items-center justify-between border-b border-stone-800 pb-3">
+        <div className="flex items-center justify-between border-b border-brand-sand pb-3">
           <div className="flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-amber-400" />
-            <h2 className="text-xl font-serif font-bold text-white">
+            <DollarSign className="w-5 h-5 text-amber-700" />
+            <h2 className="text-xl font-serif font-bold text-brand-charcoal">
               Emergency Funds & Micro-Aid in {county.name}
             </h2>
           </div>
@@ -98,21 +98,21 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
           {county.keyLocalFunds.map((fund, idx) => (
             <div
               key={idx}
-              className="bg-brand-charcoal border border-stone-800 rounded-lg p-4 space-y-2"
+              className="bg-brand-paper border border-brand-sand rounded-xl p-4 space-y-2 shadow-sm"
             >
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-bold text-white">{fund.name}</h3>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-900 text-amber-300 border border-stone-800">
+                <h3 className="text-sm font-bold text-brand-charcoal font-serif">{fund.name}</h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-ivory text-stone-800 border border-stone-300">
                   {fund.focus}
                 </span>
               </div>
-              <p className="text-xs text-stone-300 leading-relaxed">{fund.description}</p>
+              <p className="text-xs text-stone-700 leading-relaxed font-sans">{fund.description}</p>
               {fund.website && (
                 <a
                   href={fund.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-brand-ruby hover:underline inline-block pt-1 font-semibold"
+                  className="text-xs text-brand-oxblood hover:underline inline-block pt-1 font-bold font-mono"
                 >
                   Visit Organization Portal →
                 </a>
@@ -124,8 +124,8 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
 
       {localResources.length > 0 && (
         <section className="space-y-4">
-          <div className="border-b border-stone-800 pb-3">
-            <h2 className="text-xl font-serif font-bold text-white">
+          <div className="border-b border-brand-sand pb-3">
+            <h2 className="text-xl font-serif font-bold text-brand-charcoal">
               Verified County Directory Entries ({localResources.length})
             </h2>
           </div>

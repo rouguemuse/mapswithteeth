@@ -1,22 +1,14 @@
 import React from "react";
 import { SAMPLE_DOCKETS } from "@/data/sampleInvestigationDockets";
 import { ALL_RESOURCES } from "@/data/resources";
-import { TEXAS_STATUTES } from "@/data/texasData";
 import {
   FileText,
-  Shield,
-  Layers,
-  AlertCircle,
-  CheckCircle2,
-  Clock,
-  MapPin,
   TrendingDown,
   Database,
 } from "lucide-react";
 
 export default function AdminPage() {
   const verifiedCount = ALL_RESOURCES.filter((r) => r.verificationStatus === "VERIFIED CURRENT").length;
-  const leadCount = ALL_RESOURCES.filter((r) => r.isLead || r.verificationStatus === "UNVERIFIED LEAD").length;
 
   const failureReasons = [
     ["NO_FUNDS", "Out of funds / Budget exhausted", "42%"],
@@ -42,26 +34,26 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 font-sans">
       {/* Header */}
-      <div className="border-b border-stone-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+      <div className="border-b border-brand-sand pb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-brand-ruby font-bold block mb-1">
+          <span className="text-xs font-mono uppercase tracking-widest text-brand-oxblood font-bold block mb-1">
             RESEARCH & RESOURCE INTELLIGENCE DASHBOARD
           </span>
-          <h1 className="text-3xl font-serif font-bold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-brand-charcoal tracking-tight">
             State Coverage & Systemic Failure Tracker
           </h1>
-          <p className="text-xs sm:text-sm text-stone-400 mt-1">
+          <p className="text-xs sm:text-sm text-stone-600 mt-1">
             Internal audit metrics, dead-end taxonomy patterns, and sample Resource Graph investigation dockets.
           </p>
         </div>
 
         <div className="flex items-center gap-3 text-xs font-mono">
-          <div className="px-3 py-1.5 bg-stone-900 border border-emerald-800 text-emerald-300 rounded">
+          <div className="px-3 py-1.5 bg-brand-paper border border-emerald-300 text-emerald-900 font-bold rounded shadow-sm">
             <strong>{verifiedCount}</strong> Verified Resources
           </div>
-          <div className="px-3 py-1.5 bg-stone-900 border border-stone-700 text-stone-300 rounded">
+          <div className="px-3 py-1.5 bg-brand-paper border border-stone-300 text-brand-charcoal rounded shadow-sm">
             <strong>{ALL_RESOURCES.length}</strong> Total Records
           </div>
         </div>
@@ -69,33 +61,33 @@ export default function AdminPage() {
 
       {/* 12-Pillar Coverage Matrix */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between border-b border-stone-800 pb-3">
+        <div className="flex items-center justify-between border-b border-brand-sand pb-3">
           <div className="flex items-center gap-2">
-            <Database className="w-5 h-5 text-brand-ruby" />
-            <h2 className="text-xl font-serif font-bold text-white">
+            <Database className="w-5 h-5 text-brand-oxblood" />
+            <h2 className="text-xl font-serif font-bold text-brand-charcoal">
               12-Pillar Resource Investigation Matrix
             </h2>
           </div>
-          <span className="text-xs font-mono text-stone-400">
+          <span className="text-xs font-mono text-stone-600">
             Gold-Standard Benchmark: <strong>Texas Pilot Region</strong>
           </span>
         </div>
 
-        <div className="bg-brand-charcoal border border-stone-800 rounded-xl overflow-hidden shadow-md">
+        <div className="bg-brand-paper border border-brand-sand rounded-xl overflow-hidden shadow-sm">
           <table className="w-full text-left text-xs">
-            <thead className="bg-stone-950 text-stone-400 font-mono uppercase text-[10px] border-b border-stone-800">
+            <thead className="bg-brand-ivory text-brand-charcoal font-mono uppercase text-[10px] border-b border-brand-sand">
               <tr>
-                <th className="p-3">Research Pillar</th>
-                <th className="p-3">Texas Pilot Depth</th>
-                <th className="p-3">Nationwide Library Status</th>
+                <th className="p-3 font-bold">Research Pillar</th>
+                <th className="p-3 font-bold">Texas Pilot Depth</th>
+                <th className="p-3 font-bold">Nationwide Library Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-800 text-stone-300 font-mono">
+            <tbody className="divide-y divide-brand-sand text-stone-700 font-mono">
               {pillars.map((p, idx) => (
-                <tr key={idx} className="hover:bg-stone-900/50">
-                  <td className="p-3 font-sans font-medium text-white">{p.name}</td>
-                  <td className="p-3 text-emerald-400">{p.tx}</td>
-                  <td className="p-3 text-stone-400">{p.national}</td>
+                <tr key={idx} className="hover:bg-brand-ivory/50 transition-colors">
+                  <td className="p-3 font-sans font-medium text-brand-charcoal">{p.name}</td>
+                  <td className="p-3 text-emerald-800 font-bold">{p.tx}</td>
+                  <td className="p-3 text-stone-600">{p.national}</td>
                 </tr>
               ))}
             </tbody>
@@ -105,24 +97,24 @@ export default function AdminPage() {
 
       {/* Dead End Taxonomy */}
       <section className="space-y-4">
-        <div className="flex items-center gap-2 border-b border-stone-800 pb-3">
-          <TrendingDown className="w-5 h-5 text-brand-ruby" />
-          <h2 className="text-xl font-serif font-bold text-white">
+        <div className="flex items-center gap-2 border-b border-brand-sand pb-3">
+          <TrendingDown className="w-5 h-5 text-brand-oxblood" />
+          <h2 className="text-xl font-serif font-bold text-brand-charcoal">
             Systemic Failure & Dead-End Taxonomy
           </h2>
         </div>
-        <p className="text-xs text-stone-300">
+        <p className="text-xs text-stone-700">
           Tracking why traditional referral loops fail in order to refine our Resource Graph and inform future Gap Fund policies:
         </p>
 
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
           {failureReasons.map(([code, label, pct], idx) => (
-            <div key={idx} className="p-3 bg-brand-charcoal border border-stone-800 rounded-lg space-y-1">
+            <div key={idx} className="p-3 bg-brand-paper border border-brand-sand rounded-xl space-y-1 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-brand-ruby font-bold">#{code}</span>
-                <span className="text-xs font-mono text-amber-300 font-bold">{pct}</span>
+                <span className="text-[10px] font-mono text-brand-oxblood font-bold">#{code}</span>
+                <span className="text-xs font-mono text-amber-900 font-bold">{pct}</span>
               </div>
-              <p className="text-xs text-stone-300 font-sans leading-snug">{label}</p>
+              <p className="text-xs text-stone-700 font-sans leading-snug">{label}</p>
             </div>
           ))}
         </div>
@@ -130,47 +122,47 @@ export default function AdminPage() {
 
       {/* Live Sample Resource Graph Dockets */}
       <section className="space-y-4">
-        <div className="flex items-center gap-2 border-b border-stone-800 pb-3">
-          <FileText className="w-5 h-5 text-brand-ruby" />
-          <h2 className="text-xl font-serif font-bold text-white">
+        <div className="flex items-center gap-2 border-b border-brand-sand pb-3">
+          <FileText className="w-5 h-5 text-brand-oxblood" />
+          <h2 className="text-xl font-serif font-bold text-brand-charcoal">
             Sample Resource Graph Investigation Dockets
           </h2>
         </div>
 
         <div className="space-y-4">
           {SAMPLE_DOCKETS.map((doc) => (
-            <div key={doc.docketId} className="bg-brand-charcoal border border-stone-800 rounded-xl p-5 space-y-4 text-xs">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-3">
+            <div key={doc.docketId} className="bg-brand-paper border border-brand-sand rounded-xl p-5 space-y-4 text-xs shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-sand pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded bg-stone-950 border border-stone-700 font-mono text-amber-300 font-bold text-[11px]">
+                  <span className="px-2 py-0.5 rounded bg-brand-ivory border border-stone-300 font-mono text-stone-800 font-bold text-[11px]">
                     {doc.docketId}
                   </span>
-                  <span className="text-stone-300 font-bold">{doc.locationSummary}</span>
+                  <span className="text-brand-charcoal font-bold font-sans">{doc.locationSummary}</span>
                 </div>
-                <span className="text-stone-400 font-mono text-[10px]">
+                <span className="text-stone-600 font-mono text-[10px]">
                   Barrier: {doc.primaryBarrierSummary}
                 </span>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <h4 className="text-[11px] font-mono uppercase text-stone-400 font-bold mb-1.5">
+                  <h4 className="text-[11px] font-mono uppercase text-brand-charcoal font-bold mb-1.5">
                     Identified Levers:
                   </h4>
-                  <ul className="space-y-1 list-disc list-inside text-stone-300">
+                  <ul className="space-y-1 list-disc list-inside text-stone-700 font-sans">
                     {doc.resourceLevers.map((l, i) => (
                       <li key={i}>
-                        <strong className="text-white">{l.lever}:</strong> {l.whyItMatters}
+                        <strong className="text-brand-charcoal">{l.lever}:</strong> {l.whyItMatters}
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-[11px] font-mono uppercase text-stone-400 font-bold mb-1.5">
+                  <h4 className="text-[11px] font-mono uppercase text-brand-charcoal font-bold mb-1.5">
                     Prioritized Research Pathway:
                   </h4>
-                  <ol className="space-y-1 text-stone-300 font-mono text-[11px]">
+                  <ol className="space-y-1 text-stone-700 font-mono text-[11px]">
                     {doc.researchPaths.map((p, i) => (
                       <li key={i}>{p}</li>
                     ))}

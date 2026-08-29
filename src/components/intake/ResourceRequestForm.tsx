@@ -57,38 +57,38 @@ export function ResourceRequestForm() {
   return (
     <div className="max-w-4xl mx-auto my-8 px-4">
       {!submitted ? (
-        <div className="bg-brand-charcoal border border-stone-800 rounded-xl p-6 sm:p-8 shadow-2xl">
-          <div className="border-b border-stone-800 pb-5 mb-6">
-            <div className="flex items-center gap-2 text-brand-ruby mb-2">
+        <div className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-8 shadow-md">
+          <div className="border-b border-brand-sand pb-5 mb-6">
+            <div className="flex items-center gap-2 text-brand-oxblood mb-2">
               <Compass className="w-5 h-5" />
               <span className="text-xs font-mono font-bold tracking-widest uppercase">
                 Structured Resource Discovery Intake
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal tracking-tight">
               Help Me Find a Way Through
             </h1>
-            <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
               Sometimes the thing that unlocks help has nothing obvious to do with domestic violence. Your job, industry history, children, pets, public school, union membership, or county may reveal emergency hardship funds that would never appear in a standard domestic violence search.
             </p>
-            <div className="mt-3 p-3 bg-red-950/40 border border-brand-ruby/60 rounded-lg text-xs text-red-200 space-y-1">
+            <div className="mt-3 p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs text-brand-oxblood space-y-1 shadow-sm">
               <div className="text-[11px] leading-relaxed">
                 <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
               </div>
-              <div className="text-[10px] text-stone-400 font-mono pt-1">
+              <div className="text-[10px] text-stone-600 font-mono pt-1">
                 Data Minimization: Zero SSN, zero full address, zero abuse narrative. Submissions calculate immediate local matching pathways without remote persistence.
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs font-mono text-stone-400 mb-6 border-b border-stone-800/60 pb-3">
-            <span className={step === 1 ? "text-brand-ruby font-bold" : ""}>1. The Barrier</span>
+          <div className="flex items-center justify-between text-xs font-mono text-stone-500 mb-6 border-b border-brand-sand pb-3">
+            <span className={step === 1 ? "text-brand-oxblood font-bold" : ""}>1. The Barrier</span>
             <span>→</span>
-            <span className={step === 2 ? "text-brand-ruby font-bold" : ""}>2. Work & Background</span>
+            <span className={step === 2 ? "text-brand-oxblood font-bold" : ""}>2. Work & Background</span>
             <span>→</span>
-            <span className={step === 3 ? "text-brand-ruby font-bold" : ""}>3. Household & Pets</span>
+            <span className={step === 3 ? "text-brand-oxblood font-bold" : ""}>3. Household & Pets</span>
             <span>→</span>
-            <span className={step === 4 ? "text-brand-ruby font-bold" : ""}>4. What Failed & Urgency</span>
+            <span className={step === 4 ? "text-brand-oxblood font-bold" : ""}>4. What Failed & Urgency</span>
           </div>
 
           <form onSubmit={handleSubmit}>

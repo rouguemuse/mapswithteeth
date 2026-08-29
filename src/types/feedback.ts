@@ -1,4 +1,4 @@
-﻿export type StakeholderDomain =
+export type StakeholderDomain =
   | "LABOR_UNION"
   | "ELECTED_PUBLIC_SECTOR"
   | "SURVIVOR_SERVICES"
