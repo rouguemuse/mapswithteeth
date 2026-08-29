@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { INDUSTRY_OPTIONS } from "@/data/industries";
 import { ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
 import { matchIntakeToResources } from "@/data/matcher";
 import { ResourceCard } from "./ResourceCard";
-import { Layers, Sparkles, Dog, Briefcase, MapPin } from "lucide-react";
+import { Layers, Sparkles, Dog, Briefcase, MapPin, ArrowRight } from "lucide-react";
 
-export function ResourceStackGenerator() {
+export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) {
   const [selectedBarriers, setSelectedBarriers] = useState<string[]>([
     "money-now",
     "rent-deposit",
@@ -37,12 +38,14 @@ export function ResourceStackGenerator() {
     failedChannels: [],
   });
 
+  const displayedMatches = maxCards ? matchResult.matches.slice(0, maxCards) : matchResult.matches;
+
   return (
-    <div className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-8 shadow-md my-8 space-y-6">
+    <div className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-10 shadow-sm space-y-8">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brand-sand pb-5">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-brand-sand pb-6">
         <div>
-          <div className="flex items-center gap-2 text-brand-oxblood mb-1">
+          <div className="flex items-center gap-2 text-brand-oxblood mb-1.5">
             <Layers className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
               Combinable Barrier Solver
@@ -51,12 +54,12 @@ export function ResourceStackGenerator() {
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal">
             Your Resource Stack: Ways Through
           </h2>
-          <p className="text-xs text-stone-600 mt-1 max-w-2xl font-sans">
+          <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-2xl font-sans leading-relaxed">
             Single agencies rarely solve an entire crisis. Select your simultaneous barriers to assemble an integrated, multi-vector pathway.
           </p>
         </div>
 
-        <div className="px-3 py-1.5 bg-brand-ivory border border-stone-300 rounded-lg text-xs font-mono text-stone-800 shadow-sm">
+        <div className="px-3.5 py-1.5 bg-brand-ivory border border-stone-300 rounded-lg text-xs font-mono text-stone-800 shadow-sm">
           <strong>{matchResult.matches.length} Potential Pathways</strong> Surfaced
         </div>
       </div>
@@ -64,7 +67,7 @@ export function ResourceStackGenerator() {
       {/* Interactive Levers Selector */}
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Levers: Location & Work */}
-        <div className="space-y-4 bg-brand-ivory p-4 rounded-lg border border-stone-300 shadow-sm">
+        <div className="space-y-4 bg-brand-ivory p-5 rounded-xl border border-stone-300 shadow-sm">
           <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal flex items-center gap-1.5 font-mono">
             <MapPin className="w-3.5 h-3.5 text-brand-oxblood" />
             <span>1. Location & Pilot Region</span>
@@ -75,7 +78,7 @@ export function ResourceStackGenerator() {
             <select
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
-              className="w-full bg-brand-paper border border-stone-300 rounded px-2.5 py-1.5 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
             >
               <option value="TX">Texas (Deep Research Pilot)</option>
               <option value="US">Nationwide / Other State</option>
@@ -88,7 +91,7 @@ export function ResourceStackGenerator() {
               <select
                 value={selectedCounty}
                 onChange={(e) => setSelectedCounty(e.target.value)}
-                className="w-full bg-brand-paper border border-stone-300 rounded px-2.5 py-1.5 text-xs text-brand-charcoal focus:border-brand-oxblood"
+                className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
               >
                 {ALL_TEXAS_COUNTIES.map((c) => (
                   <option key={c.slug} value={c.name.replace(" County", "")}>
@@ -107,7 +110,7 @@ export function ResourceStackGenerator() {
             <select
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="w-full bg-brand-paper border border-stone-300 rounded px-2.5 py-1.5 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
             >
               {INDUSTRY_OPTIONS.map((ind) => (
                 <option key={ind.id} value={ind.id}>
@@ -117,7 +120,7 @@ export function ResourceStackGenerator() {
             </select>
           </div>
 
-          <div className="pt-2 border-t border-brand-sand flex items-center gap-2">
+          <div className="pt-3 border-t border-brand-sand flex items-center gap-2">
             <input
               type="checkbox"
               id="hasAnimalCheck"
@@ -133,47 +136,53 @@ export function ResourceStackGenerator() {
         </div>
 
         {/* Levers: Select Barriers */}
-        <div className="lg:col-span-2 bg-brand-ivory p-4 rounded-lg border border-stone-300 shadow-sm">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal mb-3 flex items-center gap-1.5 font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-brand-oxblood" />
-            <span>2. What specific barriers are keeping you stuck?</span>
-          </h3>
+        <div className="lg:col-span-2 bg-brand-ivory p-5 rounded-xl border border-stone-300 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal mb-3 flex items-center gap-1.5 font-mono">
+              <Sparkles className="w-3.5 h-3.5 text-brand-oxblood" />
+              <span>2. What specific barriers are keeping you stuck?</span>
+            </h3>
 
-          <div className="flex flex-wrap gap-1.5 max-h-52 overflow-y-auto pr-1">
-            {BARRIER_CATEGORIES.map((cat) => {
-              const isSelected = selectedBarriers.includes(cat.id);
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => toggleBarrier(cat.id)}
-                  className={`text-xs px-2.5 py-1 rounded border transition-all text-left flex items-center gap-1.5 font-mono ${
-                    isSelected
-                      ? "bg-brand-oxblood text-white border-red-900 font-bold shadow-sm"
-                      : "bg-brand-paper text-stone-700 border-stone-300 hover:border-stone-400 hover:text-brand-charcoal"
-                  }`}
-                >
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
+            <div className="flex flex-wrap gap-1.5 max-h-56 overflow-y-auto pr-1">
+              {BARRIER_CATEGORIES.map((cat) => {
+                const isSelected = selectedBarriers.includes(cat.id);
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => toggleBarrier(cat.id)}
+                    className={`text-xs px-2.5 py-1.5 rounded-lg border transition-all text-left flex items-center gap-1.5 font-mono ${
+                      isSelected
+                        ? "bg-brand-oxblood text-white border-red-900 font-bold shadow-sm"
+                        : "bg-brand-paper text-stone-700 border-stone-300 hover:border-stone-400 hover:text-brand-charcoal"
+                    }`}
+                  >
+                    <span>{cat.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
+
+          <p className="text-[11px] text-stone-500 font-mono pt-3 border-t border-brand-sand mt-4">
+            Toggle obstacles to dynamically reconfigure the underlying statutory, grant, and municipal intelligence stack.
+          </p>
         </div>
       </div>
 
       {/* Stacked Results Architecture */}
-      <div className="space-y-4 pt-2">
-        <div className="flex items-center justify-between border-b border-brand-sand pb-2">
+      <div className="space-y-6 pt-2">
+        <div className="flex items-center justify-between border-b border-brand-sand pb-3">
           <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal font-mono">
-            Assembled Combinable Resource Vectors:
+            Representative Resource Vectors ({displayedMatches.length} of {matchResult.matches.length} Shown):
           </h3>
-          <span className="text-[11px] text-stone-500 italic">
-            Each resource solves a distinct piece of the barrier matrix
+          <span className="text-[11px] text-stone-500 font-mono italic">
+            Each resource addresses a distinct node in the barrier matrix
           </span>
         </div>
 
-        {matchResult.matches.length > 0 ? (
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {matchResult.matches.map((m) => (
+        {displayedMatches.length > 0 ? (
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {displayedMatches.map((m) => (
               <ResourceCard
                 key={m.resource.id}
                 resource={m.resource}
@@ -183,10 +192,24 @@ export function ResourceStackGenerator() {
             ))}
           </div>
         ) : (
-          <div className="p-8 text-center bg-brand-ivory rounded border border-stone-300 text-stone-600 text-xs font-mono">
+          <div className="p-8 text-center bg-brand-ivory rounded-xl border border-stone-300 text-stone-600 text-xs font-mono">
             No exact preset match for this combination. Try selecting additional barrier levers or submit an investigation request.
           </div>
         )}
+
+        {/* Prominent CTA to Explore Full Directory */}
+        <div className="pt-6 border-t border-brand-sand flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-stone-600 font-mono">
+            Full directory contains Texas statutory codes, nationwide industry funds, utility waivers, and pet foster networks.
+          </div>
+          <Link
+            href="/find-help"
+            className="px-6 py-3.5 bg-brand-paper hover:bg-stone-200 border border-stone-300 text-brand-charcoal hover:border-brand-oxblood rounded-lg text-xs font-bold font-mono uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all group shrink-0"
+          >
+            <span>Explore All Resources in Directory</span>
+            <ArrowRight className="w-4 h-4 text-brand-oxblood group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </div>
   );
