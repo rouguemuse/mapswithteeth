@@ -1,9 +1,9 @@
 ﻿"use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { MatchResult } from "@/data/matcher";
 import { ResourceCard } from "../resources/ResourceCard";
-import { FileText, Compass, ArrowRight, CornerDownRight, ShieldCheck } from "lucide-react";
+import { FileText, Compass, ArrowRight, CornerDownRight, ShieldCheck, CheckCircle2, Loader2, Send } from "lucide-react";
 
 export function InstantResults({
   matchResult,
@@ -12,6 +12,54 @@ export function InstantResults({
   matchResult: MatchResult;
   onReset: () => void;
 }) {
+  const [emailContact, setEmailContact] = useState("");
+  const [optInConfirmation, setOptInConfirmation] = useState(false);
+  const [isRouting, setIsRouting] = useState(false);
+  const [docketTransmitted, setDocketTransmitted] = useState(false);
+  const [routingError, setRoutingError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
+
+  const handleTransmitDocket = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsRouting(true);
+    setRoutingError(null);
+
+    try {
+      // Strictly non-identifying metadata payload
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category: "RESOURCE_DISCOVERY",
+          data: {
+            docketId: matchResult.docket.docketId,
+            state: matchResult.docket.locationSummary.split(" · ")[0] || "TX",
+            county: matchResult.docket.locationSummary.split(" · ")[1] || "Regional",
+            primaryBarriers: matchResult.docket.resourceLevers.map((l) => l.lever),
+            matchCount: matchResult.matches.length,
+            email: emailContact.trim() || undefined,
+            optInConfirmation: optInConfirmation && emailContact.trim().length > 0,
+            contactPreference: emailContact.trim() ? "Follow-up email requested" : "Anonymous log / No contact",
+            timestamp: new Date().toISOString(),
+          },
+          _hp: honeypot,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to transmit docket reference.");
+      }
+
+      setDocketTransmitted(true);
+    } catch (err: any) {
+      setRoutingError(err.message || "An error occurred while routing the docket.");
+    } finally {
+      setIsRouting(false);
+    }
+  };
+
   return (
     <div className="space-y-8 animate-fadeIn select-none font-sans">
       {/* Header Summary Banner */}
@@ -65,7 +113,7 @@ export function InstantResults({
 
       {/* Generated Research Docket */}
       <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
-        <div className="border-b border-[#D9D1C4] pb-4 flex items-center justify-between">
+        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[#971F26]">
             <FileText className="w-5 h-5" />
             <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
@@ -105,6 +153,94 @@ export function InstantResults({
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Optional Follow-up Routing Card */}
+        <div className="pt-4 border-t border-[#D9D1C4]">
+          {!docketTransmitted ? (
+            <form onSubmit={handleTransmitDocket} className="bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg p-4 space-y-3">
+              <input
+                type="text"
+                name="_hp"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              <div className="flex items-center gap-2">
+                <Send className="w-4 h-4 text-[#971F26]" />
+                <span className="text-xs font-bold font-mono text-[#1C1D1D] uppercase">
+                  Transmit Docket Reference to Research Team (Optional)
+                </span>
+              </div>
+              <p className="text-[11px] text-stone-700 font-sans leading-relaxed">
+                If you would like our research team to investigate additional obscure funds for Docket #{matchResult.docket.docketId}, you can transmit this non-identifying reference. <em>No personal narrative, SSN, or address is ever transmitted.</em>
+              </p>
+
+              {routingError && (
+                <div className="p-2 bg-[#FDF2F2] border border-[#971F26] text-xs text-[#971F26] font-mono">
+                  {routingError}
+                </div>
+              )}
+
+              <div className="grid gap-3 sm:grid-cols-12 items-center">
+                <div className="sm:col-span-7">
+                  <input
+                    type="email"
+                    maxLength={150}
+                    placeholder="Optional: Enter email if you want follow-up..."
+                    value={emailContact}
+                    onChange={(e) => setEmailContact(e.target.value)}
+                    className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded p-2 text-xs text-[#1C1D1D] placeholder-stone-500 font-mono focus:outline-none"
+                  />
+                </div>
+
+                <div className="sm:col-span-5">
+                  <button
+                    type="submit"
+                    disabled={isRouting}
+                    className="w-full py-2 px-3 bg-[#971F26] hover:bg-red-900 disabled:opacity-60 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                  >
+                    {isRouting ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Routing...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Route Docket to Research</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {emailContact.trim().length > 0 && (
+                <label className="flex items-center gap-2 text-[11px] text-stone-700 cursor-pointer pt-1 font-mono">
+                  <input
+                    type="checkbox"
+                    checked={optInConfirmation}
+                    onChange={(e) => setOptInConfirmation(e.target.checked)}
+                    className="accent-[#971F26]"
+                  />
+                  <span>Send me an email confirmation containing this docket reference ID</span>
+                </label>
+              )}
+            </form>
+          ) : (
+            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg text-center space-y-1.5 animate-fadeIn">
+              <div className="flex items-center justify-center gap-1.5 text-[#971F26] font-bold text-xs font-mono uppercase">
+                <CheckCircle2 className="w-4 h-4 text-[#971F26]" />
+                <span>Docket Reference Routed to resources@mapswithteeth.org</span>
+              </div>
+              <p className="text-[11px] text-stone-700 font-sans">
+                Reference ID <strong>#{matchResult.docket.docketId}</strong> has been logged for our researchers. Zero identifying personal records were transmitted.
+              </p>
+            </div>
+          )}
         </div>
       </div>
 

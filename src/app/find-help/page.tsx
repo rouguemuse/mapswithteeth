@@ -1,12 +1,14 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { PUBLIC_RESOURCES } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
-import { Search, X, Info, Compass, SlidersHorizontal, ShieldAlert, Check } from "lucide-react";
+import { ResourceSuggestionModal } from "@/components/resources/ResourceSuggestionModal";
+import { Search, X, Info, Compass, SlidersHorizontal, ShieldAlert, Check, PlusCircle } from "lucide-react";
 
 function FindHelpContent() {
+  const [suggestionModalOpen, setSuggestionModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBarrier, setSelectedBarrier] = useState<string>("ALL");
   const [selectedScope, setSelectedScope] = useState<string>("ALL");
@@ -57,12 +59,23 @@ function FindHelpContent() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Resource Intelligence & Navigation
-        </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
-          Resources are reviewed individually and display their current verification status and review date. Filter by barrier category, geographic jurisdiction, or specific access friction to locate actionable routes through crisis.
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+              Resource Intelligence & Navigation
+            </h1>
+            <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
+              Resources are reviewed individually and display their current verification status and review date. Filter by barrier category, geographic jurisdiction, or specific access friction to locate actionable routes through crisis.
+            </p>
+          </div>
+          <button
+            onClick={() => setSuggestionModalOpen(true)}
+            className="px-3.5 py-2 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded text-xs font-mono font-bold uppercase tracking-wider shrink-0 flex items-center gap-1.5 shadow-2xs transition-colors"
+          >
+            <PlusCircle className="w-3.5 h-3.5 text-[#971F26]" />
+            <span>Suggest a Resource</span>
+          </button>
+        </div>
       </div>
 
       {/* Filter Controls (Atlas Ledger Style) */}
@@ -194,6 +207,11 @@ function FindHelpContent() {
           </div>
         )}
       </div>
+
+      <ResourceSuggestionModal
+        isOpen={suggestionModalOpen}
+        onClose={() => setSuggestionModalOpen(false)}
+      />
     </div>
   );
 }

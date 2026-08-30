@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Resource } from "@/types/resource";
 import { VerificationBadge } from "./VerificationBadge";
-import { X, ExternalLink, ShieldCheck, FileCheck, AlertTriangle, Scale, CheckCircle2, DollarSign, Info } from "lucide-react";
+import { ResourceSuggestionModal } from "./ResourceSuggestionModal";
+import { X, ExternalLink, ShieldCheck, FileCheck, AlertTriangle, Scale, CheckCircle2, DollarSign, Info, Edit3 } from "lucide-react";
 
 export function ResourceDetailModal({
   resource,
@@ -14,6 +15,7 @@ export function ResourceDetailModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const [correctionModalOpen, setCorrectionModalOpen] = useState(false);
   if (!isOpen) return null;
 
   const whatItHelps = resource.whatItCanHelpWith || resource.whatItActuallyProvides;
@@ -149,12 +151,21 @@ export function ResourceDetailModal({
 
         {/* Footer Actions */}
         <div className="mt-6 pt-4 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-3 font-mono">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-[#EEE8DD] hover:bg-stone-300 text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider border border-[#1C1D1D]"
-          >
-            Close Dossier
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 bg-[#EEE8DD] hover:bg-stone-300 text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider border border-[#1C1D1D]"
+            >
+              Close Dossier
+            </button>
+            <button
+              onClick={() => setCorrectionModalOpen(true)}
+              className="px-3 py-2 text-stone-700 hover:text-[#971F26] text-xs font-mono font-bold flex items-center gap-1.5 hover:underline"
+            >
+              <Edit3 className="w-3.5 h-3.5" />
+              <span>Suggest Update / Correction</span>
+            </button>
+          </div>
 
           {(resource.website || resource.sourceUrl || resource.applicationLink) && (
             <a
@@ -169,6 +180,12 @@ export function ResourceDetailModal({
           )}
         </div>
       </div>
+
+      <ResourceSuggestionModal
+        isOpen={correctionModalOpen}
+        onClose={() => setCorrectionModalOpen(false)}
+        initialResourceName={resource.name}
+      />
     </div>
   );
 }

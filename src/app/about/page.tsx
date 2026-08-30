@@ -1,9 +1,14 @@
-﻿import React from "react";
+﻿"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { Compass, ArrowRight, ShieldCheck, Scale, AlertCircle } from "lucide-react";
+import { Compass, ArrowRight, ShieldCheck, Scale, AlertCircle, Mail } from "lucide-react";
 import { FoundingBoardSection } from "@/components/governance/FoundingBoardSection";
+import { GeneralContactModal } from "@/components/contact/GeneralContactModal";
 
 export default function AboutPage() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
       {/* Header */}
@@ -81,21 +86,36 @@ export default function AboutPage() {
       </div>
 
       {/* Next Step CTAs */}
-      <div className="border-t border-[#D9D1C4] pt-6 flex flex-wrap gap-4 font-mono">
-        <Link
-          href="/feedback"
-          className="px-6 py-3 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+      <div className="border-t border-[#D9D1C4] pt-6 flex flex-wrap items-center justify-between gap-4 font-mono">
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/feedback"
+            className="px-5 py-2.5 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+          >
+            <span>Give Strategic Feedback</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/build-with-us"
+            className="px-5 py-2.5 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+          >
+            <span>Build With Us</span>
+          </Link>
+        </div>
+
+        <button
+          onClick={() => setContactModalOpen(true)}
+          className="px-4 py-2.5 text-stone-700 hover:text-[#971F26] text-xs font-mono font-bold flex items-center gap-1.5 hover:underline"
         >
-          <span>Give Strategic Feedback</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-        <Link
-          href="/build-with-us"
-          className="px-6 py-3 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
-        >
-          <span>Build With Us</span>
-        </Link>
+          <Mail className="w-4 h-4 text-[#971F26]" />
+          <span>General Contact / Inquiries</span>
+        </button>
       </div>
+
+      <GeneralContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { PILOT_CONFIG } from "@/data/pilotBudget";
 import { Shield, Building2, DollarSign, ArrowRight } from "lucide-react";
+import { SupportInquiryForm } from "@/components/support/SupportInquiryForm";
 
 export default function SupportPage() {
   return (
@@ -119,22 +120,9 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Funder & Sponsor Contact CTA */}
-      <section className="bg-brand-paper border border-brand-sand rounded-xl p-6 space-y-4 shadow-sm">
-        <h2 className="text-lg font-serif font-bold text-brand-charcoal">
-          Interested in Funding or Sponsoring This Work?
-        </h2>
-        <p className="text-xs text-stone-700 leading-relaxed font-sans">
-          If you represent a charitable foundation, fiscal sponsor, or philanthropic entity interested in reviewing our detailed project narrative and pilot milestones, please connect through our collaborator portal.
-        </p>
-
-        <Link
-          href="/build-with-us"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold font-mono uppercase tracking-wider transition-colors shadow-sm"
-        >
-          <span>Contact Maps With Teeth / Funder Intake</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+      {/* Direct Support & Inquiry Form */}
+      <section>
+        <SupportInquiryForm />
       </section>
     </div>
   );

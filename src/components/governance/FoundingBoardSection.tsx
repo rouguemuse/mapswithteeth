@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Shield, Users, CheckCircle2, ArrowRight, Sparkles, Scale, AlertCircle } from "lucide-react";
+import { Shield, Users, CheckCircle2, ArrowRight, Sparkles, Scale, AlertCircle, Loader2 } from "lucide-react";
 import { TARGET_COMPETENCIES } from "@/data/governance";
 import { BoardCandidateSubmission } from "@/types/governance";
 
@@ -9,7 +9,11 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
   const [activeFormType, setActiveFormType] = useState<"FOUNDING_BOARD" | "ADVISORY_CIRCLE" | null>(
     defaultExpanded ? "FOUNDING_BOARD" : null
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [confirmationSent, setConfirmationSent] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const [formData, setFormData] = useState<Partial<BoardCandidateSubmission>>({
     fullName: "",
@@ -33,9 +37,39 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category: "GOVERNANCE",
+          data: {
+            ...formData,
+            pathway: activeFormType,
+            dateSubmitted: new Date().toISOString(),
+          },
+          _hp: honeypot,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit governance interest.");
+      }
+
+      setSubmitted(true);
+      setConfirmationSent(Boolean(result.confirmationSent));
+    } catch (err: any) {
+      setErrorMessage(err.message || "An error occurred while sending your profile. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,6 +217,23 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
         <div className="mt-8 pt-8 border-t border-[#D9D1C4] animate-fadeIn">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-md">
+              {/* Honeypot hidden input */}
+              <input
+                type="text"
+                name="_hp"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              {errorMessage && (
+                <div className="p-3 bg-[#FDF2F2] border-2 border-[#971F26] rounded text-xs text-[#971F26] font-mono">
+                  <strong>Submission Error:</strong> {errorMessage}
+                </div>
+              )}
+
               <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <span className="text-[10px] font-mono uppercase text-[#971F26] font-bold block">
@@ -220,6 +271,7 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
                   <input
                     type="text"
                     required
+                    maxLength={100}
                     placeholder="e.g. Jordan Rivera"
                     value={formData.fullName || ""}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -234,23 +286,23 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
                   <input
                     type="email"
                     required
+                    maxLength={150}
                     placeholder="jordan@organization.org"
                     value={formData.email || ""}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
                   />
                 </div>
-              </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                    Current Role or Organization <span className="text-brand-oxblood">*</span>
+                    Current Role / Affiliation <span className="text-brand-oxblood">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Managing Director / Senior Counsel / Executive Director"
+                    maxLength={120}
+                    placeholder="e.g. Senior Counsel / Executive Director / Former Caseworker"
                     value={formData.currentRole || ""}
                     onChange={(e) => setFormData({ ...formData, currentRole: e.target.value })}
                     className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
@@ -259,11 +311,12 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
 
                 <div>
                   <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                    LinkedIn or Professional Profile URL
+                    LinkedIn / Professional Profile (Optional)
                   </label>
                   <input
                     type="url"
-                    placeholder="https://linkedin.com/in/username"
+                    maxLength={200}
+                    placeholder="https://linkedin.com/in/..."
                     value={formData.linkedInUrl || ""}
                     onChange={(e) => setFormData({ ...formData, linkedInUrl: e.target.value })}
                     className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
@@ -274,94 +327,94 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
               {/* Area of Expertise Checkboxes */}
               <div>
                 <label className="block text-xs font-bold text-brand-charcoal mb-2 font-mono">
-                  Area(s) of Expertise (Select all that apply) <span className="text-brand-oxblood">*</span>
+                  Primary Areas of Competency & Alignment:
                 </label>
-                <div className="grid gap-2 sm:grid-cols-2 text-xs text-stone-700 font-sans">
-                  {TARGET_COMPETENCIES.map((c, idx) => (
-                    <label
-                      key={idx}
-                      className="flex items-start gap-2 p-2 bg-brand-paper rounded border border-stone-300 hover:border-stone-400 cursor-pointer shadow-sm"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={(formData.areaOfExpertise || []).includes(c.area)}
-                        onChange={() => handleCheckboxToggle(c.area)}
-                        className="mt-0.5 accent-brand-oxblood"
-                      />
-                      <span className="text-[11px] leading-tight">{c.area}</span>
-                    </label>
-                  ))}
+                <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {TARGET_COMPETENCIES.map((comp) => {
+                    const isChecked = (formData.areaOfExpertise || []).includes(comp.area);
+                    return (
+                      <label
+                        key={comp.area}
+                        className={`p-2.5 rounded-lg border text-xs flex items-center gap-2 cursor-pointer transition-colors ${
+                          isChecked
+                            ? "bg-brand-paper border-brand-oxblood text-brand-charcoal font-semibold"
+                            : "bg-brand-paper border-stone-300 text-stone-700 hover:border-stone-400"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => handleCheckboxToggle(comp.area)}
+                          className="accent-brand-oxblood rounded"
+                        />
+                        <span>{comp.area}</span>
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Text Areas */}
-              <div>
-                <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                  Relevant Experience & Background <span className="text-brand-oxblood">*</span>
-                </label>
-                <textarea
-                  rows={3}
-                  required
-                  placeholder="Summarize your professional background, specific domain expertise, and accomplishments relevant to Maps With Teeth..."
-                  value={formData.relevantExperience || ""}
-                  onChange={(e) => setFormData({ ...formData, relevantExperience: e.target.value })}
-                  className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                  Prior Board, Advisory, or Fiduciary Experience
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="List any past or current nonprofit, civic, advisory, or corporate boards you have served on..."
-                  value={formData.priorBoardExperience || ""}
-                  onChange={(e) => setFormData({ ...formData, priorBoardExperience: e.target.value })}
-                  className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                  Why Maps With Teeth interests you <span className="text-brand-oxblood">*</span>
-                </label>
-                <textarea
-                  rows={3}
-                  required
-                  placeholder="What draws you to the barrier-first principle and cross-system resource navigation?"
-                  value={formData.whyInterested || ""}
-                  onChange={(e) => setFormData({ ...formData, whyInterested: e.target.value })}
-                  className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-                />
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
+              {/* Deep Narrative Questions */}
+              <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                    Potential Conflicts of Interest (if any)
+                    Relevant Experience & Background Summary <span className="text-brand-oxblood">*</span>
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. None / Leadership role at related regional agency"
-                    value={formData.potentialConflicts || ""}
-                    onChange={(e) => setFormData({ ...formData, potentialConflicts: e.target.value })}
-                    className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                    Availability / Expected Capacity <span className="text-brand-oxblood">*</span>
-                  </label>
-                  <input
-                    type="text"
+                  <textarea
+                    rows={3}
                     required
-                    placeholder="e.g. 4-6 hours/month / Quarterly strategic sessions"
-                    value={formData.expectedCapacity || ""}
-                    onChange={(e) => setFormData({ ...formData, expectedCapacity: e.target.value })}
+                    maxLength={3000}
+                    placeholder="Briefly describe your background in public systems, legal compliance, survivor services, labor, finance, or technology..."
+                    value={formData.relevantExperience || ""}
+                    onChange={(e) => setFormData({ ...formData, relevantExperience: e.target.value })}
                     className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
+                    Why are you interested in helping build Maps With Teeth governance? <span className="text-brand-oxblood">*</span>
+                  </label>
+                  <textarea
+                    rows={3}
+                    required
+                    maxLength={3000}
+                    placeholder="What draws you to the barrier-first principle and cross-system resource navigation?"
+                    value={formData.whyInterested || ""}
+                    onChange={(e) => setFormData({ ...formData, whyInterested: e.target.value })}
+                    className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                  />
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
+                      Potential Conflicts of Interest (if any)
+                    </label>
+                    <input
+                      type="text"
+                      maxLength={500}
+                      placeholder="e.g. None / Leadership role at related regional agency"
+                      value={formData.potentialConflicts || ""}
+                      onChange={(e) => setFormData({ ...formData, potentialConflicts: e.target.value })}
+                      className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
+                      Availability / Expected Capacity <span className="text-brand-oxblood">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      maxLength={120}
+                      placeholder="e.g. 4-6 hours/month / Quarterly strategic sessions"
+                      value={formData.expectedCapacity || ""}
+                      onChange={(e) => setFormData({ ...formData, expectedCapacity: e.target.value })}
+                      className="w-full bg-brand-paper border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -372,10 +425,20 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-3 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-sm transition-colors shrink-0"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-6 py-3 bg-brand-oxblood hover:bg-red-900 disabled:opacity-60 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-sm transition-colors shrink-0"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Submit Interest</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Routing to Governance Inbox...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-4 h-4" />
+                      <span>Submit Interest</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>
@@ -386,8 +449,13 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
               </div>
               <h3 className="text-xl font-serif font-bold text-brand-charcoal">Thank you for your interest.</h3>
               <p className="text-xs text-stone-700 max-w-md mx-auto leading-relaxed font-sans">
-                Your profile has been received by our leadership team. We are scheduling exploratory conversations with prospective founding leaders on a rolling basis as we structure our initial governance framework.
+                Your profile has been securely routed to <strong>governance@mapswithteeth.org</strong>. We are scheduling exploratory conversations with prospective founding leaders on a rolling basis as we structure our initial governance framework.
               </p>
+              {confirmationSent && (
+                <p className="text-[11px] text-[#971F26] font-mono font-bold">
+                  ✓ An acknowledgement email has been sent to {formData.email}.
+                </p>
+              )}
               <button
                 onClick={() => setSubmitted(false)}
                 className="text-xs text-brand-oxblood hover:underline font-mono pt-2 block mx-auto font-bold"

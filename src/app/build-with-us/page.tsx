@@ -3,10 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { CollaboratorRole, CollaboratorSubmission } from "@/types/collaborator";
-import { HeartHandshake, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Scale, Compass } from "lucide-react";
+import { HeartHandshake, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Scale, Compass, Loader2 } from "lucide-react";
 
 function BuildWithUsContent() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [confirmationSent, setConfirmationSent] = useState(false);
+  const [referenceId, setReferenceId] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
+
   const [formData, setFormData] = useState<CollaboratorSubmission>({
     name: "",
     email: "",
@@ -18,10 +24,40 @@ function BuildWithUsContent() {
     dateSubmitted: new Date().toISOString(),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category: "PARTNERSHIP",
+          data: {
+            ...formData,
+            dateSubmitted: new Date().toISOString(),
+          },
+          _hp: honeypot,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit partnership intake.");
+      }
+
+      setSubmitted(true);
+      setConfirmationSent(Boolean(result.confirmationSent));
+      setReferenceId(result.referenceId || null);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err: any) {
+      setErrorMessage(err.message || "An error occurred while sending your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const roleOptions: [CollaboratorRole, string][] = [
@@ -81,6 +117,23 @@ function BuildWithUsContent() {
 
       {!submitted ? (
         <form onSubmit={handleSubmit} className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-atlas">
+          {/* Honeypot hidden input */}
+          <input
+            type="text"
+            name="_hp"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
+          {errorMessage && (
+            <div className="p-3 bg-[#FDF2F2] border-2 border-[#971F26] rounded text-xs text-[#971F26] font-mono">
+              <strong>Submission Error:</strong> {errorMessage}
+            </div>
+          )}
+
           {/* Privacy & Emergency Warning */}
           <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-md flex items-start gap-2 text-xs text-[#971F26] shadow-2xs">
             <ShieldCheck className="w-4 h-4 text-[#971F26] shrink-0 mt-0.5" />
@@ -97,6 +150,7 @@ function BuildWithUsContent() {
               <input
                 type="text"
                 required
+                maxLength={100}
                 placeholder="Jane Doe"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -111,6 +165,7 @@ function BuildWithUsContent() {
               <input
                 type="email"
                 required
+                maxLength={150}
                 placeholder="jane@example.org"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -124,6 +179,7 @@ function BuildWithUsContent() {
               </label>
               <input
                 type="text"
+                maxLength={120}
                 placeholder="Agency, Union, or Independent"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
@@ -156,6 +212,7 @@ function BuildWithUsContent() {
             <textarea
               rows={4}
               required
+              maxLength={3000}
               placeholder="Tell us about your background, regional focus, data leads, legal expertise, or institutional interest..."
               value={formData.howToCollaborate}
               onChange={(e) => setFormData({ ...formData, howToCollaborate: e.target.value })}
@@ -165,9 +222,17 @@ function BuildWithUsContent() {
 
           <button
             type="submit"
-            className="w-full py-3 bg-[#971F26] hover:bg-red-900 text-white font-mono font-bold uppercase tracking-wider text-xs rounded-md shadow-2xs transition-colors"
+            disabled={isSubmitting}
+            className="w-full py-3 bg-[#971F26] hover:bg-red-900 disabled:opacity-60 text-white font-mono font-bold uppercase tracking-wider text-xs rounded-md shadow-2xs transition-colors flex items-center justify-center gap-2"
           >
-            Submit Working Coalition Intake →
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Routing to Partnership Inbox...</span>
+              </>
+            ) : (
+              <span>Submit Working Coalition Intake →</span>
+            )}
           </button>
         </form>
       ) : (
@@ -179,11 +244,16 @@ function BuildWithUsContent() {
             Intake Received
           </h2>
           <p className="text-xs text-stone-700 max-w-md mx-auto font-sans leading-relaxed">
-            Thank you for stepping forward to strengthen the Maps With Teeth ecosystem. Our research leads will review your submission and reach out.
+            Thank you for stepping forward to strengthen the Maps With Teeth ecosystem. Your message has been routed to <strong>partners@mapswithteeth.org</strong>.
           </p>
+          {confirmationSent && (
+            <p className="text-[11px] text-[#971F26] font-mono font-bold">
+              ✓ An acknowledgement email has been sent to {formData.email}.
+            </p>
+          )}
           <Link
             href="/"
-            className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#971F26] hover:underline"
+            className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#971F26] hover:underline pt-2"
           >
             <span>← Return to System Overview</span>
           </Link>
