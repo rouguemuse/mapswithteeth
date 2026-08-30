@@ -1,15 +1,15 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Image from "next/image";
 
 interface LogoProps {
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   className?: string;
   variant?: "full" | "mark";
 }
 
-export function LogoIcon({ size = 44, className = "" }: { size?: number; className?: string }) {
+export function LogoIcon({ size = 40, className = "" }: { size?: number; className?: string }) {
   return (
     <div
       style={{ width: size, height: size }}
@@ -29,10 +29,11 @@ export function LogoIcon({ size = 44, className = "" }: { size?: number; classNa
 
 export function Logo({ size = "md", className = "", variant = "full" }: LogoProps) {
   const heightClasses = {
-    sm: "h-9 sm:h-10",
-    md: "h-12 sm:h-14",
-    lg: "h-16 sm:h-18",
-    xl: "h-20 sm:h-24",
+    xs: "h-7 sm:h-8",
+    sm: "h-8 sm:h-9",
+    md: "h-9 sm:h-10",
+    lg: "h-12 sm:h-14",
+    xl: "h-16 sm:h-18",
   };
 
   return (
