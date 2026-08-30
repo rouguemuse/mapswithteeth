@@ -1,15 +1,121 @@
 ﻿import React from "react";
-import { CheckCircle2, FlaskConical, Milestone, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, FlaskConical, Milestone, ShieldCheck, ArrowRight, Layers, FileText, Shuffle, Scale, AlertTriangle, Building } from "lucide-react";
 
 export function BuiltTestingProposedSection() {
+  const stages = [
+    {
+      stage: "STAGE 01",
+      name: "Resource Intelligence",
+      status: "LIVE / ACTIVE BUILD",
+      statusBadge: "V0 LIVE",
+      statusClass: "bg-[#E8F3EB] border-[#2D5A3D] text-[#2D5A3D]",
+      icon: <CheckCircle2 className="w-4 h-4 text-[#2D5A3D]" />,
+      description: "Barrier-first discovery for when conventional crisis hotlines fail or stall.",
+      items: [
+        "Barrier-first resource search (No ID, pets, transit, after-hours)",
+        "Texas Deep Dive (statutory rights & 254-county scope)",
+        "Other Ways Through (nationwide & industry benevolence funds)",
+        "Access friction tagging & unadvertised condition rules",
+        "Deterministic progressive qualification engine",
+        "Ask Us to Look (structured investigation intake)",
+      ],
+    },
+    {
+      stage: "STAGE 02",
+      name: "Survivor Organizer & Originals Vault",
+      status: "PROTOTYPE / DEVELOPMENT ROADMAP",
+      statusBadge: "PROTOTYPE",
+      statusClass: "bg-[#FEF3C7] border-[#D97706] text-[#92400E]",
+      icon: <FileText className="w-4 h-4 text-[#92400E]" />,
+      description: "Survivor-controlled documentation architecture. Tell it once. Carry it forward.",
+      items: [
+        "Personal chronology (incidents, dates, communications, agencies)",
+        "Originals Vault: cryptographic file hashing & metadata preservation",
+        "Distinguish original proof from annotations and summaries",
+        "Provenance tracking: record where every document originated",
+        "Exportable scoped packets (share only what is needed)",
+        "Zero surveillance: zero automatic sharing with agencies",
+      ],
+    },
+    {
+      stage: "STAGE 03",
+      name: "Bridge & Continuity Receipts",
+      status: "CONTINUITY PILOT ROADMAP",
+      statusBadge: "PILOT ROADMAP",
+      statusClass: "bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D]",
+      icon: <Shuffle className="w-4 h-4 text-[#971F26]" />,
+      description: "Stopping context from vanishing when moving between agencies or counties.",
+      items: [
+        "Continuity Receipts: Who, When, Reference, What was presented",
+        "Referral-chain tracking (Agency A → Receipt → Agency B)",
+        "Preserve what action was taken vs. declined with stated reasons",
+        "Cross-county jurisdictional handoff preservation",
+        "Next decision-owner identification and pending document checklists",
+        "Survivor-held continuity receipts (user controls what follows)",
+      ],
+    },
+    {
+      stage: "STAGE 04",
+      name: "Context Before Closure",
+      status: "FIELD PILOT ROADMAP",
+      statusBadge: "FIELD PILOT",
+      statusClass: "bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D]",
+      icon: <Scale className="w-4 h-4 text-[#1C1D1D]" />,
+      description: "Documenting why cases stop, what was left unreviewed, and where responsibility moved.",
+      items: [
+        "Decision & decline documentation (jurisdiction, eligibility, capacity)",
+        "Reviewed vs. unreviewed context logging",
+        "Detect circular referral runarounds (A sends to B, B sends to A)",
+        "Escalation signal: 'No Functioning Decision-Owner Identified'",
+        "Closed is not the same as resolved tracking",
+        "Procedural gap identification for legal and advocacy escalations",
+      ],
+    },
+    {
+      stage: "STAGE 05",
+      name: "Bad Maps — System Intelligence",
+      status: "SYSTEM INTELLIGENCE ROADMAP",
+      statusBadge: "SYSTEMS RESEARCH",
+      statusClass: "bg-[#FDF2F2] border-[#971F26] text-[#971F26]",
+      icon: <AlertTriangle className="w-4 h-4 text-[#971F26]" />,
+      description: "Aggregated, deidentified pattern analysis of where institutional pathways break.",
+      items: [
+        "Deidentified referral-loop and dead-end mapping",
+        "County-line failure tracking across municipal borders",
+        "Ghost programs (published eligibility vs. real-world access)",
+        "Conflicting jurisdiction instruction heatmaps",
+        "Public-interest systems research (never scoring individual survivors)",
+        "Actionable reform evidence for policy advocates and funders",
+      ],
+    },
+    {
+      stage: "STAGE 06",
+      name: "Partner Infrastructure",
+      status: "LONG HORIZON",
+      statusBadge: "LONG HORIZON",
+      statusClass: "bg-stone-200 border-stone-400 text-stone-700",
+      icon: <Building className="w-4 h-4 text-stone-600" />,
+      description: "Interoperable, consent-based partner handoff standards for allied organizations.",
+      items: [
+        "Consent-based partner handoff protocols",
+        "Interoperable continuity packets for participating agencies",
+        "Strict governance and role-based cryptographic access controls",
+        "Advocate and navigator verification workflows",
+        "High-assurance privacy architecture",
+        "Institutional continuity integration",
+      ],
+    },
+  ];
+
   return (
     <section className="space-y-8 select-none font-sans">
       <div className="border-b border-[#D9D1C4] pb-5 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs sm:text-[13px] font-mono uppercase tracking-wider text-[#971F26] font-bold">
-            STAGE DISCLOSURE & DEVELOPMENT HORIZON
+            STAGE DISCLOSURE & FULL PRODUCT ROADMAP
           </span>
-          <span className="coord-tick text-stone-700">[PROTOTYPE · FIELD VALIDATION · ROADMAP]</span>
+          <span className="coord-tick text-stone-700">[STAGE 01 TO STAGE 06]</span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
@@ -17,156 +123,78 @@ export function BuiltTestingProposedSection() {
         </h2>
 
         <p className="text-base sm:text-[17px] text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
-          Maps With Teeth is in active development. We distinguish working prototype features from pilot research and future institutional ideas.
+          Maps With Teeth is an end-to-end initiative combining Resource Intelligence and Continuity Infrastructure. We are transparent about what is operational today versus our pilot and development roadmap.
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {/* Column 1: Active in this prototype */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-7 space-y-4 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3 font-mono text-xs">
-            <span className="text-emerald-900 font-bold uppercase flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-              <span>STAGE 01 · OPERATIONAL</span>
-            </span>
-            <span className="px-2 py-0.5 rounded bg-[#F5F1E8] border border-[#1C1D1D] text-[#1C1D1D] font-bold text-[11px]">
-              V0 LIVE
-            </span>
-          </div>
+      {/* 6-Stage Comprehensive Grid */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {stages.map((st) => (
+          <div
+            key={st.stage}
+            className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3.5 shadow-2xs flex flex-col justify-between"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
+                <span className="font-bold uppercase flex items-center gap-1.5 text-stone-900">
+                  {st.icon}
+                  <span>{st.stage}</span>
+                </span>
+                <span className={`px-2 py-0.5 rounded border text-[10px] font-bold font-mono ${st.statusClass}`}>
+                  {st.statusBadge}
+                </span>
+              </div>
 
-          <div>
-            <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Active in This Prototype
-            </h3>
-            <p className="text-sm text-stone-700 font-sans mt-0.5">
-              Features currently functioning in this public release.
-            </p>
-          </div>
+              <div>
+                <h3 className="text-lg font-serif font-bold text-[#1C1D1D] leading-tight">
+                  {st.name}
+                </h3>
+                <span className="text-[10px] font-mono text-stone-600 block mt-0.5 uppercase tracking-wider font-semibold">
+                  STATUS: {st.status}
+                </span>
+                <p className="text-xs text-stone-800 font-sans mt-1.5 leading-snug">
+                  {st.description}
+                </p>
+              </div>
 
-          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Barrier-first resource search</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Texas Deep Dive (statutes & Central TX counties)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Other Ways Through (national & industry funds)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Friction tagging & access conditions</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Verification & evidence status metadata</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Ask Us to Look (structured gap intake)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Community feedback & pressure testing</span>
-            </li>
-          </ul>
+              <ul className="space-y-1.5 text-xs text-stone-900 font-sans pt-1 border-t border-[#D9D1C4]/70">
+                {st.items.map((it, idx) => (
+                  <li key={idx} className="flex items-start gap-1.5">
+                    <span className="text-[#971F26] font-bold font-mono text-[10px] mt-0.5">•</span>
+                    <span className="leading-tight">{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Explicit Safety & Positioning Statement */}
+      <div className="p-5 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl space-y-3 font-mono text-xs">
+        <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase tracking-wider text-xs">
+          <ShieldCheck className="w-4 h-4" />
+          <span>Product Positioning & Boundaries</span>
         </div>
 
-        {/* Column 2: Central Texas Field Validation */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-7 space-y-4 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3 font-mono text-xs">
-            <span className="text-amber-950 font-bold uppercase flex items-center gap-1.5">
-              <FlaskConical className="w-4 h-4 text-amber-800" />
-              <span>STAGE 02 · PILOT IN PROGRESS</span>
-            </span>
-            <span className="px-2 py-0.5 rounded bg-[#F5F1E8] border border-[#1C1D1D] text-[#1C1D1D] font-bold text-[11px]">
-              TESTING
-            </span>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Central Texas Field Validation
-            </h3>
-            <p className="text-sm text-stone-700 font-sans mt-0.5">
-              Active research with regional advocates and workers.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans text-xs sm:text-sm">
+          <div className="p-3 bg-[#EEE8DD] border border-[#D9D1C4] rounded space-y-1">
+            <strong className="font-mono text-xs text-[#2D5A3D] uppercase block">
+              ✓ What Maps With Teeth Is:
+            </strong>
+            <p className="text-stone-800 leading-snug">
+              Barrier-first resource intelligence, survivor-controlled documentation, continuity receipt infrastructure, referral & handoff intelligence, and public-interest systems gap research.
             </p>
           </div>
 
-          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Deeper county-level verification (Travis, WilCo, Harris)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Tracking where referrals fail in real-world practice</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Eligibility and intake friction monitoring</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Resource availability & funding freeze changes</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Pathway outcomes and verification auditing</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Handoff and context-loss patterns across systems</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 3: Future Institutional Roadmap */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-7 space-y-4 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3 font-mono text-xs">
-            <span className="text-[#971F26] font-bold uppercase flex items-center gap-1.5">
-              <Milestone className="w-4 h-4 text-[#971F26]" />
-              <span>STAGE 03 · FUTURE PROPOSAL</span>
-            </span>
-            <span className="px-2 py-0.5 rounded bg-[#F5F1E8] border border-[#1C1D1D] text-[#1C1D1D] font-bold text-[11px]">
-              HORIZON
-            </span>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Future Institutional Roadmap
-            </h3>
-            <p className="text-sm text-stone-700 font-sans mt-0.5">
-              Proposed long-term systems infrastructure.
+          <div className="p-3 bg-[#EEE8DD] border border-[#D9D1C4] rounded space-y-1">
+            <strong className="font-mono text-xs text-[#971F26] uppercase block">
+              ✕ What Maps With Teeth Is Not:
+            </strong>
+            <p className="text-stone-800 leading-snug">
+              Not an emergency 911 service, legal-services provider, law enforcement database, allegation adjudication engine, surveillance tool, or automatic cross-agency sharing system.
             </p>
           </div>
-
-          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Bridge / Continuity Receipt pilot</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Structured cross-agency handoff methods</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Survivor-controlled Organizer & context tools</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Institutional partner casework workflows</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Stronger zero-knowledge privacy & security architecture</span>
-            </li>
-          </ul>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -13,11 +13,11 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
   // Desktop Navigation items
   const mainNav = [
     { name: "Find Help", href: "/find-help" },
-    { name: "Texas Deep Dive", href: "/texas" },
     { name: "Other Ways Through", href: "/other-ways-through" },
-    { name: "How We Research", href: "/how-we-research" },
+    { name: "Texas Deep Dive", href: "/texas" },
+    { name: "Bridge & Continuity", href: "/bridge" },
+    { name: "How It Works", href: "/how-it-works" },
     { name: "About", href: "/about" },
-    { name: "Feedback", href: "/feedback" },
     { name: "Support", href: "/support" },
   ];
 
@@ -31,7 +31,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           </Link>
 
           {/* Desktop Navigation & Primary CTA */}
-          <div className="hidden lg:flex items-center justify-end flex-1 gap-4 font-mono">
+          <div className="hidden lg:flex items-center justify-end flex-1 gap-3.5 font-mono">
             {/* Top-Level Links */}
             <nav className="flex items-center space-x-1">
               {mainNav.map((link) => {
@@ -40,7 +40,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                    className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
                       isActive
                         ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-b-2 border-[#971F26]"
                         : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
@@ -55,7 +55,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             {/* Single Primary Oxblood CTA on Far Right */}
             <Link
               href="/ask-us-to-look"
-              className="px-4 py-2 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono shadow-2xs transition-all border border-[#971F26] shrink-0"
+              className="px-3.5 py-2 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono shadow-2xs transition-all border border-[#971F26] shrink-0"
             >
               Ask Us to Look
             </Link>
@@ -81,18 +81,18 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
 
         {/* Persistent Subline Beneath Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between border-t border-[#D9D1C4]/60 py-1 text-[10px] font-mono text-stone-600 tracking-wider">
-          <span>Texas-first research. Nationwide pathways where we find them.</span>
-          <span className="text-[#971F26] font-bold">[CENTRAL TEXAS PILOT & NATIONAL ROUTES]</span>
+          <span>Barrier-first resource intelligence & continuity infrastructure.</span>
+          <span className="text-[#971F26] font-bold">[RESOURCE INTELLIGENCE + BRIDGE CONTINUITY]</span>
         </div>
       </div>
 
       {/* Mobile Drawer Menu (Explicitly Grouped) */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-[#D9D1C4] bg-[#F5F1E8] px-4 pt-3 pb-6 space-y-4 shadow-lg font-mono">
-          {/* Group 1: FIND HELP */}
+          {/* Group 1: RESOURCE INTELLIGENCE */}
           <div className="space-y-1">
             <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              FIND HELP
+              RESOURCE INTELLIGENCE
             </div>
             <Link
               href="/find-help"
@@ -104,22 +104,22 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               Find a Way Through
             </Link>
             <Link
-              href="/texas"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname.startsWith("/texas") ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
-            >
-              Texas Deep Dive
-            </Link>
-            <Link
               href="/other-ways-through"
               onClick={() => setMobileMenuOpen(false)}
               className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
                 pathname === "/other-ways-through" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
               }`}
             >
-              Resources Beyond Texas (Other Ways Through)
+              Other Ways Through (Lateral Funds)
+            </Link>
+            <Link
+              href="/texas"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
+                pathname.startsWith("/texas") ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
+              }`}
+            >
+              Texas Deep Dive (254 Counties)
             </Link>
             <Link
               href="/ask-us-to-look"
@@ -128,23 +128,23 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 pathname === "/ask-us-to-look" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
               }`}
             >
-              Ask Us to Look
+              Ask Us to Look (Intake Engine)
             </Link>
           </div>
 
-          {/* Group 2: ABOUT THE WORK */}
+          {/* Group 2: CONTINUITY & ARCHITECTURE */}
           <div className="space-y-1 pt-2">
             <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              ABOUT THE WORK
+              CONTINUITY & INITIATIVE
             </div>
             <Link
-              href="/how-we-research"
+              href="/bridge"
               onClick={() => setMobileMenuOpen(false)}
               className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/how-we-research" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
+                pathname === "/bridge" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
               }`}
             >
-              How We Research
+              Bridge (Continuity Receipts)
             </Link>
             <Link
               href="/how-it-works"
@@ -153,14 +153,16 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 pathname === "/how-it-works" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
               }`}
             >
-              What&apos;s Built / Testing / Proposed
+              How It Works (Full Architecture)
             </Link>
             <Link
-              href="/how-it-works#bridge"
+              href="/how-we-research"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 rounded text-xs uppercase tracking-wider text-stone-700 hover:bg-[#EEE8DD]"
+              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
+                pathname === "/how-we-research" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
+              }`}
             >
-              Bridge (Continuity Model)
+              How We Research & Verify
             </Link>
             <Link
               href="/about"
@@ -169,7 +171,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 pathname === "/about" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
               }`}
             >
-              About
+              About the Initiative
             </Link>
             <Link
               href="/feedback"

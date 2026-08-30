@@ -5,162 +5,302 @@ import {
   ArrowRight,
   ShieldCheck,
   Search,
-  Filter,
   CheckCircle2,
   AlertTriangle,
   Layers,
   MapPin,
   Briefcase,
-  Sparkles
+  Sparkles,
+  Shuffle,
+  FolderArchive,
+  Fingerprint,
+  Scale,
+  Building,
+  FileText,
+  FileCheck
 } from "lucide-react";
 
 export default function HowItWorksPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 select-none font-sans">
       {/* Editorial Header */}
-      <div className="border-b border-[#D9D1C4] pb-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Compass className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              SYSTEM THESIS & NAVIGATION WORKFLOW
+              SYSTEM ARCHITECTURE & PRODUCT MODEL
             </span>
           </div>
-          <span className="coord-tick">[ARCHITECTURE: BARRIER-FIRST-V0]</span>
+          <span className="coord-tick">[FULL SYSTEM SPECIFICATION]</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight">
           How Maps With Teeth Works
         </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
-          Most resource systems categorize help by agency type. Maps With Teeth maps help by the practical barriers standing between a person and safety.
+        <p className="text-base sm:text-lg text-stone-900 mt-2 max-w-3xl leading-relaxed font-sans font-medium">
+          Maps With Teeth is designed as an integrated system with two connected halves: <strong>Resource Intelligence</strong> to find a reachable way through, and <strong>Continuity Infrastructure</strong> to preserve and carry context through disconnected systems.
         </p>
       </div>
 
-      {/* 3-Pillar Core Mechanics */}
-      <div className="grid gap-6 md:grid-cols-3">
-        {/* Pillar 1 */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg p-5 space-y-3 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
-            <span className="font-bold text-[#971F26]">PILLAR 01</span>
-            <span className="stamp-verified text-[9px] py-0.5 px-1.5">CONDITIONS</span>
-          </div>
-          <h2 className="text-lg font-serif font-bold text-[#1C1D1D]">1. Exposing Access Friction</h2>
-          <p className="text-xs text-stone-800 leading-relaxed font-sans">
-            Every resource listing explicitly documents &ldquo;The Catch&rdquo;—advocate referral rules, congregate shelter requirements, income limits, and required paperwork—before you waste critical time.
+      {/* High-Level 2-Halves Visual Comparison */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas">
+          <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
+            PART A · FRONT-END DISCOVERY
+          </span>
+          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            Resource Intelligence
+          </h2>
+          <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+            Traditional directories hand you eight phone numbers. Maps With Teeth surfaces the two obscure pathways you can actually access, the exact documentation you need, what could block you, and what to try if they say no.
           </p>
+          <div className="pt-2 text-xs font-mono font-bold text-[#971F26] flex items-center gap-1">
+            <span>Layers: Search · Texas Deep Dive · Other Ways Through</span>
+          </div>
         </div>
 
-        {/* Pillar 2 */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg p-5 space-y-3 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
-            <span className="font-bold text-[#971F26]">PILLAR 02</span>
-            <span className="stamp-verified text-[9px] py-0.5 px-1.5">LATERAL BYPASS</span>
-          </div>
-          <h2 className="text-lg font-serif font-bold text-[#1C1D1D]">2. Finding Other Ways Through</h2>
-          <p className="text-xs text-stone-800 leading-relaxed font-sans">
-            When standard crisis hotlines are backlogged, we map condition-dependent funds tied to work background, companion animals, utility regulations, and federal statutory rights.
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas">
+          <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
+            PART B · CONTINUITY INFRASTRUCTURE
+          </span>
+          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            Context & Continuity Layer
+          </h2>
+          <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+            A referral is not a handoff. Maps With Teeth preserves what happened at each institutional touchpoint, locks unreviewed evidence, identifies circular runarounds, and flags when no functioning decision-owner exists.
           </p>
-        </div>
-
-        {/* Pillar 3 */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg p-5 space-y-3 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
-            <span className="font-bold text-[#971F26]">PILLAR 03</span>
-            <span className="stamp-alert text-[9px] py-0.5 px-1.5">FIELD AUDITED</span>
+          <div className="pt-2 text-xs font-mono font-bold text-[#971F26] flex items-center gap-1">
+            <span>Layers: Organizer · Originals Vault · Bridge · Bad Maps</span>
           </div>
-          <h2 className="text-lg font-serif font-bold text-[#1C1D1D]">3. Investigative Verification</h2>
-          <p className="text-xs text-stone-800 leading-relaxed font-sans">
-            Every entry undergoes a 10-step newsroom audit protocol with transparent verification stamps, review timestamps, and strict 90-day staleness quarantines.
-          </p>
         </div>
       </div>
 
-      {/* The 3 Resource Layers Grid */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
-        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
+      {/* ============================================================ */}
+      {/* PART A: RESOURCE INTELLIGENCE */}
+      {/* ============================================================ */}
+      <section className="space-y-8 pt-4">
+        <div className="border-b border-[#D9D1C4] pb-4 flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-[#1C1D1D] text-white flex items-center justify-center font-mono text-sm font-bold">
+            A
+          </div>
           <div>
-            <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
-              SYSTEM ARCHITECTURE
+            <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
+              PART A: FINDING A WAY THROUGH
             </span>
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Three Distinct Resource Layers
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+              Resource Intelligence Architecture
             </h2>
           </div>
-          <span className="coord-tick">[INDEX: CENTRAL TX PILOT & US]</span>
         </div>
 
+        <div className="p-5 bg-[#F5F1E8] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl font-sans space-y-2">
+          <p className="text-sm sm:text-base font-serif italic text-[#1C1D1D]">
+            &ldquo;Traditional directories tell you where doors are. Maps With Teeth asks whether they open.&rdquo;
+          </p>
+          <p className="text-xs text-stone-700 font-mono">
+            Deterministic qualification · Access friction audits · Verification timestamps
+          </p>
+        </div>
+
+        {/* 3 Resource Intelligence Layers */}
         <div className="space-y-4">
-          <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold text-[#971F26] uppercase">LAYER 01</span>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Texas Field Pilot & Statutory Remedies</h3>
-              </div>
-              <p className="text-xs text-stone-800 font-sans">
-                County-specific intelligence across Travis, Williamson, Bastrop, Hays, and Harris counties + statutory escape rights under Texas Property Code § 92.016 and PUCT § 25.478.
-              </p>
+          {/* Layer 1 */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
+            <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
+              <span className="font-bold text-[#971F26] uppercase">LAYER 01 · STATE & LOCAL JURISDICTIONS</span>
+              <span className="px-2 py-0.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded text-[10px] font-bold">
+                TEXAS 254-COUNTY SCOPE
+              </span>
             </div>
-            <Link
-              href="/texas"
-              className="px-4 py-2 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider shrink-0 text-center"
-            >
-              Explore Texas Pilot →
-            </Link>
+            <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+              Texas Deep Dive & Statutory Rights
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+              Local shelter rosters and enforceable statutory protections that exist without municipal funding queues—including <strong>Texas Property Code § 92.016</strong> (lease termination without police reports), <strong>Texas PUC § 25.478</strong> (electric deposit waivers), and school district McKinney-Vento transport coordinators.
+            </p>
           </div>
 
-          <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold text-[#971F26] uppercase">LAYER 02</span>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Other Ways Through: Lateral Hardship Funds</h3>
-              </div>
-              <p className="text-xs text-stone-800 font-sans">
-                Nationwide funds based on food/beverage tenure, music/craft occupations, companion animal boarding, telecom line separation (Safe Connections Act), and IRS IP PIN tax protections.
-              </p>
+          {/* Layer 2 */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
+            <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
+              <span className="font-bold text-[#971F26] uppercase">LAYER 02 · LATERAL BYPASS & BENEVOLENCE</span>
+              <span className="px-2 py-0.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded text-[10px] font-bold">
+                MULTI-STATE & INDUSTRY
+              </span>
             </div>
-            <Link
-              href="/other-ways-through"
-              className="px-4 py-2 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider shrink-0 text-center"
-            >
-              Browse Lateral Funds →
-            </Link>
+            <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+              Other Ways Through: Lateral Hardship Funds
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+              Condition-dependent relief pathways operating entirely outside conventional shelter backlogs—such as culinary hardship grants (Southern Smoke, CORE Gives, Giving Kitchen), craft artist aid (CERF+), companion animal foster boarding (RedRover Safe Escape, APA PASS), and federal telecom mandates (Safe Connections Act 47 U.S.C. § 345).
+            </p>
           </div>
 
-          <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold text-[#971F26] uppercase">LAYER 03</span>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Ask Us to Look: Structured Investigation Docket</h3>
-              </div>
-              <p className="text-xs text-stone-800 font-sans">
-                Interactive discovery intake calculating immediate potential matching levers from your job, pets, and previous gatekeeper failures—without requiring an abuse narrative.
-              </p>
+          {/* Layer 3 */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
+            <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
+              <span className="font-bold text-[#971F26] uppercase">LAYER 03 · DETERMINISTIC QUALIFICATION</span>
+              <span className="px-2 py-0.5 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] rounded text-[10px] font-bold">
+                FACT-BASED MATCHER
+              </span>
             </div>
-            <Link
-              href="/ask-us-to-look"
-              className="px-4 py-2 bg-[#971F26] hover:bg-red-900 text-white rounded text-xs font-mono font-bold uppercase tracking-wider shrink-0 text-center"
-            >
-              Start Investigation →
-            </Link>
+            <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+              Ask Us to Look: Dynamic Intake & Audit Trails
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+              Nothing surfaces without a reason. The matching engine evaluates candidate eligibility rules directly against verified user facts, dynamically prompting only for unresolved conditions and generating transparent factual audit trails.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Navigation Footer Strip */}
-      <div className="border-t border-[#D9D1C4] pt-6 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-        <Link
-          href="/how-we-research"
-          className="text-[#971F26] font-bold hover:underline inline-flex items-center gap-1"
-        >
-          <span>View 10-Step Research Methodology →</span>
-        </Link>
-        <Link
-          href="/find-help"
-          className="text-[#1C1D1D] font-bold hover:underline inline-flex items-center gap-1"
-        >
-          <span>Explore All Resources →</span>
-        </Link>
+      {/* ============================================================ */}
+      {/* PART B: CONTINUITY INFRASTRUCTURE */}
+      {/* ============================================================ */}
+      <section className="space-y-8 pt-4">
+        <div className="border-b border-[#D9D1C4] pb-4 flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-[#971F26] text-white flex items-center justify-center font-mono text-sm font-bold">
+            B
+          </div>
+          <div>
+            <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
+              PART B: PRESERVING AND CARRYING CONTEXT
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+              Continuity Infrastructure Architecture
+            </h2>
+          </div>
+        </div>
+
+        <div className="p-5 bg-[#F5F1E8] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl font-sans space-y-2">
+          <p className="text-sm sm:text-base font-serif italic text-[#1C1D1D]">
+            &ldquo;Tell it once. Carry it forward.&rdquo;
+          </p>
+          <p className="text-xs text-stone-700 font-mono">
+            Survivor-controlled records · Provenance tracking · No functioning decision-owner detection
+          </p>
+        </div>
+
+        {/* 4 Continuity Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Pillar 1: Organizer & Originals Vault */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                <FolderArchive className="w-4 h-4" />
+                <span>1. SURVIVOR ORGANIZER & ORIGINALS VAULT</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+                Organize What Happened
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+                Structure incidents, communications, agencies contacted, people involved, report numbers, and deadlines into a clear chronological timeline. The <strong>Originals Vault</strong> preserves original files, filenames, and metadata with cryptographic hashes (SHA-256) to maintain provenance without altering evidence.
+              </p>
+            </div>
+            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
+              Status: Prototype / Development Roadmap
+            </div>
+          </div>
+
+          {/* Pillar 2: Bridge & Continuity Receipts */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                <Shuffle className="w-4 h-4" />
+                <span>2. BRIDGE & CONTINUITY RECEIPTS</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+                Carry Context Forward
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+                Standardizes touchpoint records (Who, When, Reference #, What was presented, What happened, Why, and What happens next). When a referral occurs, the receipt ensures the receiving organization knows where the previous agency stopped.
+              </p>
+            </div>
+            <div className="pt-2 flex items-center justify-between border-t border-[#D9D1C4]">
+              <span className="text-[11px] font-mono text-stone-600">Status: Continuity Pilot Roadmap</span>
+              <Link href="/bridge" className="text-xs font-mono font-bold text-[#971F26] hover:underline">
+                Explore Bridge →
+              </Link>
+            </div>
+          </div>
+
+          {/* Pillar 3: Context Before Closure */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                <Scale className="w-4 h-4" />
+                <span>3. CONTEXT BEFORE CLOSURE</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+                Verify What Was Actually Resolved
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+                Prevents premature case closure from masking unresolved crises. Records reviewed vs. unreviewed context, tracks where responsibility was transferred, detects circular runarounds, and flags when no functioning decision-owner exists.
+              </p>
+            </div>
+            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
+              Status: Field Pilot Roadmap
+            </div>
+          </div>
+
+          {/* Pillar 4: Bad Maps */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                <AlertTriangle className="w-4 h-4" />
+                <span>4. BAD MAPS (SYSTEMS INTELLIGENCE)</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+                Expose Where Systems Break
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+                Deidentified and aggregated pattern analysis of recurring referral dead ends, county-line jurisdictional disputes, ghost program listings, and frontline statutory non-compliance. Provides empirical evidence for policy reform.
+              </p>
+            </div>
+            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
+              Status: System Intelligence Roadmap
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Long-Horizon: Partner Infrastructure */}
+      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-3 font-mono text-xs">
+        <div className="flex items-center gap-2 text-stone-700 font-bold uppercase">
+          <Building className="w-4 h-4" />
+          <span>STAGE 06 · LONG-HORIZON ROADMAP: PARTNER INFRASTRUCTURE</span>
+        </div>
+        <p className="font-sans text-xs sm:text-sm text-stone-800 leading-relaxed">
+          Future components include consent-based partner handoffs, interoperable continuity packet standards, cryptographic access controls, and structured organizational workflows for allied agencies.
+        </p>
+      </section>
+
+      {/* Bottom CTA Block */}
+      <div className="border-t border-[#D9D1C4] pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono">
+        <div className="space-y-1 text-xs">
+          <span className="font-bold text-[#1C1D1D] uppercase block">EXPLORE MAPS WITH TEETH</span>
+          <p className="text-stone-700 font-sans">
+            Test the live resource intelligence engine or review our dedicated Bridge documentation.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/bridge"
+            className="px-5 py-2.5 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+          >
+            <span>Bridge Continuity Page</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/ask-us-to-look"
+            className="px-5 py-2.5 bg-[#971F26] hover:bg-red-900 text-white rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+          >
+            <span>Launch Intake Engine</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </div>
   );

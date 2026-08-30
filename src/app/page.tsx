@@ -1,9 +1,10 @@
-import React from "react";
+﻿import React from "react";
 import { HeroThesisSection } from "@/components/home/HeroThesisSection";
 import { WhatAreYouTryingToSolveSection } from "@/components/home/WhatAreYouTryingToSolveSection";
 import { BuildAWayThroughSection } from "@/components/home/BuildAWayThroughSection";
 import { TheTeethSection } from "@/components/home/TheTeethSection";
 import { TexasVsNationwideSection } from "@/components/home/TexasVsNationwideSection";
+import { ContinuityTransitionSection } from "@/components/home/ContinuityTransitionSection";
 import { HowWeKnowSection } from "@/components/home/HowWeKnowSection";
 import { BuiltTestingProposedSection } from "@/components/home/BuiltTestingProposedSection";
 import { HomeSupportSection } from "@/components/home/HomeSupportSection";
@@ -36,27 +37,32 @@ export default function HomePage() {
         <TexasVsNationwideSection />
       </section>
 
-      {/* 6. How We Know What We Know (5 Verification Tiers) */}
+      {/* 6. TRANSITION: Getting Through the Door Isn't the End of the Problem (Resource Intelligence -> Continuity Infrastructure) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <HowWeKnowSection />
+        <ContinuityTransitionSection />
       </section>
 
-      {/* 7. Built / Testing / Proposed (Stage-Disclosure Roadmap) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <BuiltTestingProposedSection />
-      </section>
-
-      {/* 8. Help Fund the Paths Between the Gaps (Direct Support) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <HomeSupportSection />
-      </section>
-
-      {/* 9. Bridge / Continuity Architecture */}
+      {/* 7. Bridge & Continuity Receipts */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <BridgeSection />
       </section>
 
-      {/* 10. Pressure-Test the Model / Stakeholder & Community Feedback */}
+      {/* 8. How We Know What We Know (5 Verification Tiers) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HowWeKnowSection />
+      </section>
+
+      {/* 9. Full 6-Stage Roadmap: What is built, what we're testing, what comes next */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BuiltTestingProposedSection />
+      </section>
+
+      {/* 10. Help Fund the Paths Between the Gaps (Direct Support) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HomeSupportSection />
+      </section>
+
+      {/* 11. Pressure-Test the Model / Stakeholder & Community Feedback */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StakeholderFeedbackSection />
       </section>

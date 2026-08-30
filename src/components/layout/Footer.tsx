@@ -8,65 +8,94 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-stone-800">
           {/* Brand & Editorial Thesis */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-4 space-y-4">
             <div className="flex items-center gap-3 text-white">
               <div className="p-2.5 rounded bg-[#F5F1E8] border border-stone-700 shrink-0 inline-flex">
                 <Logo size="sm" />
               </div>
             </div>
-            <p className="text-stone-200 text-sm sm:text-[14.5px] font-sans leading-relaxed">
-              <strong className="text-white">Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the model deeply. Other Ways Through collects useful national, multi-state, and location-specific pathways wherever we find them.
+            <p className="text-stone-200 text-xs sm:text-[13.5px] font-sans leading-relaxed">
+              <strong className="text-white">Two Connected Halves:</strong> Resource Intelligence to find reachable paths around barriers, and Continuity Infrastructure to preserve context across disconnected systems.
             </p>
-            <div className="text-xs text-stone-400 font-mono">
-              [INITIATIVE: BARRIER-FIRST RESOURCE INTELLIGENCE · CENTRAL TX PILOT & BEYOND]
+            <div className="text-[11px] text-stone-400 font-mono">
+              [INITIATIVE: BARRIER-FIRST RESOURCE INTELLIGENCE & CONTINUITY INFRASTRUCTURE]
             </div>
           </div>
 
-          {/* Core Navigation */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Column 1: Resource Intelligence */}
+          <div className="md:col-span-3 space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Resource Navigation
+              Resource Intelligence
             </h4>
-            <ul className="grid grid-cols-2 gap-2.5 text-xs sm:text-[13px]">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
                 <Link href="/find-help" className="text-stone-300 hover:text-white transition-colors">
-                  Find Help
-                </Link>
-              </li>
-              <li>
-                <Link href="/texas" className="text-stone-300 hover:text-white transition-colors">
-                  Texas Deep Dive
+                  Find a Way Through
                 </Link>
               </li>
               <li>
                 <Link href="/other-ways-through" className="text-stone-300 hover:text-white transition-colors">
-                  Other Ways Through
+                  Other Ways Through (Lateral Aid)
+                </Link>
+              </li>
+              <li>
+                <Link href="/texas" className="text-stone-300 hover:text-white transition-colors">
+                  Texas Deep Dive (254 Counties)
                 </Link>
               </li>
               <li>
                 <Link href="/ask-us-to-look" className="text-red-400 hover:underline font-bold">
-                  Ask Us to Look
+                  Ask Us to Look (Intake Engine)
                 </Link>
               </li>
               <li>
                 <Link href="/how-we-research" className="text-stone-300 hover:text-white transition-colors">
-                  How We Research
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-it-works#bridge" className="text-stone-300 hover:text-white transition-colors">
-                  Bridge (Continuity)
+                  How We Research & Verify
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Governance & Participation */}
+          {/* Column 2: Continuity Infrastructure */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Initiative & Governance
+              Continuity & Bridge
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px]">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
+              <li>
+                <Link href="/bridge" className="text-stone-300 hover:text-white transition-colors">
+                  Bridge (Continuity Receipts)
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-it-works" className="text-stone-300 hover:text-white transition-colors">
+                  How It Works (Full Architecture)
+                </Link>
+              </li>
+              <li>
+                <Link href="/bridge#closure" className="text-stone-300 hover:text-white transition-colors">
+                  Context Before Closure
+                </Link>
+              </li>
+              <li>
+                <Link href="/bridge#bad-maps" className="text-stone-300 hover:text-white transition-colors">
+                  Bad Maps (System Intelligence)
+                </Link>
+              </li>
+              <li>
+                <Link href="/safety" className="text-stone-300 hover:text-white transition-colors">
+                  Digital Safety & Privacy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Initiative & Governance */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
+              Initiative
+            </h4>
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
                 <Link href="/about" className="text-stone-300 hover:text-white transition-colors">
                   About
@@ -89,12 +118,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/support" className="text-stone-300 hover:text-white transition-colors">
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link href="/safety" className="text-stone-300 hover:text-white transition-colors">
-                  Digital Safety
+                  Support the Work
                 </Link>
               </li>
             </ul>
@@ -102,10 +126,10 @@ export function Footer() {
         </div>
 
         {/* Institutional Disclosure & Legal Notice */}
-        <div className="pt-6 space-y-3 text-xs sm:text-[12.5px] text-stone-400">
+        <div className="pt-6 space-y-3 text-xs text-stone-400">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="max-w-3xl leading-relaxed">
-              <strong className="text-stone-300">Institutional Notice:</strong> Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency service, legal-services provider, or substitute for emergency assistance.
+              <strong className="text-stone-300">Institutional Notice:</strong> Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency 911 service, law-enforcement database, legal-services provider, or substitute for emergency assistance.
             </p>
             <p className="text-[11px] text-stone-400 shrink-0 font-mono">
               © {new Date().getFullYear()} Maps With Teeth
