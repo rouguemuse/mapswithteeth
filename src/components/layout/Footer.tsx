@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 
@@ -15,27 +15,27 @@ export function Footer() {
               </div>
             </div>
             <p className="text-stone-300 text-xs font-sans leading-relaxed">
-              <strong>The Barrier-First Principle:</strong> Help may technically exist. Maps With Teeth shows whether a person can actually reach it—mapping across statutory escape routes, workplaces, professional associations, utilities, and condition-dependent funds to locate practical ways through broken systems.
+              <strong>Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the model deeply. Other Ways Through collects useful national, multi-state, and location-specific pathways wherever we find them.
             </p>
             <div className="text-[10px] text-stone-500 font-mono">
-              [SYSTEM: CENTRAL TEXAS PILOT · INDEX: ATLAS-2026-V0]
+              [INITIATIVE: BARRIER-FIRST RESOURCE INTELLIGENCE · CENTRAL TX PILOT & BEYOND]
             </div>
           </div>
 
           {/* Core Navigation */}
-          <div className="md:col-span-3 space-y-3">
+          <div className="md:col-span-4 space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">
-              System Navigation
+              Resource Navigation
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="grid grid-cols-2 gap-2 text-xs">
               <li>
                 <Link href="/find-help" className="hover:text-white transition-colors">
-                  Find Help (Directory)
+                  Find Help
                 </Link>
               </li>
               <li>
                 <Link href="/texas" className="hover:text-white transition-colors">
-                  Texas Pilot & Statutes
+                  Texas Deep Dive
                 </Link>
               </li>
               <li>
@@ -45,7 +45,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/ask-us-to-look" className="text-[#971F26] hover:underline font-bold">
-                  Ask Us to Look (Intake Docket)
+                  Ask Us to Look
                 </Link>
               </li>
               <li>
@@ -53,38 +53,48 @@ export function Footer() {
                   How We Research
                 </Link>
               </li>
+              <li>
+                <Link href="/how-it-works#bridge" className="hover:text-white transition-colors">
+                  Bridge (Continuity)
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Governance & Participation */}
-          <div className="md:col-span-4 space-y-3">
+          <div className="md:col-span-3 space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">
               Initiative & Governance
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  About Maps With Teeth
-                </Link>
-              </li>
-              <li>
-                <Link href="/governance" className="hover:text-white transition-colors">
-                  Governance & Founding Board
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="/feedback" className="hover:text-white transition-colors">
-                  Stakeholder & Survivor Feedback
+                  Feedback
                 </Link>
               </li>
               <li>
                 <Link href="/build-with-us" className="hover:text-white transition-colors">
-                  Built With Us (Research & Code)
+                  Build With Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/governance" className="hover:text-white transition-colors">
+                  Governance
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="hover:text-white transition-colors">
+                  Support
                 </Link>
               </li>
               <li>
                 <Link href="/safety" className="hover:text-white transition-colors">
-                  Digital Safety & Quick Exit Info
+                  Digital Safety
                 </Link>
               </li>
             </ul>
@@ -93,12 +103,12 @@ export function Footer() {
 
         {/* Institutional Disclosure & Legal Notice */}
         <div className="pt-6 space-y-3 text-[11px] text-stone-500">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="max-w-3xl leading-relaxed">
-              <strong>Mandatory Institutional Notice:</strong> Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3) nonprofit, government agency, emergency service, crisis hotline, or legal-services provider.
+              <strong>Institutional Notice:</strong> Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency service, legal-services provider, or substitute for emergency assistance.
             </p>
-            <p className="text-[10px] text-stone-600 shrink-0">
-              © 2026 Maps With Teeth Initiative · Austin, TX
+            <p className="text-[10px] text-stone-600 shrink-0 font-mono">
+              © 2026 Maps With Teeth Initiative
             </p>
           </div>
         </div>

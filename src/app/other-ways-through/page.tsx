@@ -85,10 +85,10 @@ export default function OtherWaysThroughPage() {
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Other Ways Through: Lateral Safety Nets
+          Other Ways Through: Lateral Pathways Beyond Texas
         </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
-          When the primary agency door is locked, alternate pathways may still exist outside the traditional domestic violence network. These condition-dependent resources leverage work history, companion animals, telecom statutes, or federal tax relief.
+        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-4xl leading-relaxed font-sans">
+          <strong>Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the barrier-first model deeply. <em>Other Ways Through</em> collects useful national, multi-state, and location-specific pathways wherever we find them—leveraging work history, companion animals, telecom statutes, or federal tax relief when obvious local options fail.
         </p>
       </div>
 

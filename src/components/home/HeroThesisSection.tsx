@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export function HeroThesisSection() {
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto py-6 sm:py-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* LEFT COLUMN: 60% Editorial Headline, Framing & CTAs */}
+          {/* LEFT COLUMN: Editorial Headline, Framing & CTAs */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
             {/* Outlined Status Pill */}
             <div>
@@ -59,9 +59,13 @@ export function HeroThesisSection() {
               {/* Compact Barrier List (Field Notation) */}
               <div className="p-3.5 bg-[#EEE8DD] border-l-3 border-[#971F26] border border-[#D9D1C4] rounded-r-md font-mono text-[11px] sm:text-xs tracking-wider text-stone-800 leading-relaxed uppercase">
                 <p className="font-bold">
-                  ELIGIBILITY RULES · DOCUMENTATION · COUNTY LINES · WAITLISTS · REFERRAL REQUIREMENTS · TRANSPORTATION · SHELTER PREREQUISITES · PROGRAMS THAT EXIST ON PAPER BUT CANNOT ACTUALLY BE ACCESSED.
+                  ELIGIBILITY RULES · DOCUMENTATION · COUNTY LINES · WAITLISTS · REFERRAL REQUIREMENTS · TRANSPORTATION · SHELTER PREREQUISITES · FUNDING GAPS
                 </p>
               </div>
+
+              <p className="text-xs sm:text-sm font-sans text-stone-700 italic">
+                Programs can exist on paper and still be practically unreachable.
+              </p>
 
               {/* Core Proposition */}
               <div className="text-xs sm:text-sm font-sans space-y-1 text-stone-800">
@@ -69,7 +73,7 @@ export function HeroThesisSection() {
                   Not another resource directory.
                 </p>
                 <p className="text-stone-700">
-                  A map of what gets in the way—and the routes that may still be open.
+                  A map of what gets in the way — and the routes that may still be open.
                 </p>
               </div>
             </div>
@@ -80,12 +84,12 @@ export function HeroThesisSection() {
                 href="/find-help"
                 className="px-6 sm:px-8 py-3.5 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5 border border-[#971F26]"
               >
-                <span>EXPLORE THE RESOURCES</span>
+                <span>FIND A WAY THROUGH</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
               <Link
-                href="/how-we-research"
+                href="/how-it-works"
                 className="px-6 sm:px-8 py-3.5 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
               >
                 <span>SEE HOW THE PILOT WORKS</span>
@@ -106,7 +110,7 @@ export function HeroThesisSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: 40% Annotated Barrier-Flow Atlas Diagram */}
+          {/* RIGHT COLUMN: Annotated Barrier-Flow Atlas Diagram */}
           <div className="lg:col-span-5 relative">
             <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 shadow-md relative overflow-hidden bg-grid-diagram">
               {/* Atlas Diagram Header */}
@@ -140,112 +144,105 @@ export function HeroThesisSection() {
                 </div>
 
                 {/* 2. ELIGIBLE? */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-stone-300" />
+                <div className="relative flex items-center">
+                  <div className="w-full p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#EEE8DD]" />
                     <span>ELIGIBLE?</span>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
-                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
-                    <span className="field-annotation text-xs text-[#971F26] font-bold">Income limits</span>
-                  </div>
+                  <span className="absolute left-full ml-3 text-[11px] text-stone-700 italic font-mono whitespace-nowrap hidden sm:inline-block">
+                    ┄ Income limits
+                  </span>
                 </div>
 
-                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
                 {/* 3. DOCUMENTS? */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                    <FileText className="w-3.5 h-3.5 text-stone-300" />
+                <div className="relative flex items-center">
+                  <div className="w-full p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                    <FileText className="w-3.5 h-3.5 text-[#EEE8DD]" />
                     <span>DOCUMENTS?</span>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
-                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
-                    <span className="field-annotation text-xs text-[#971F26] font-bold">Hard to get</span>
-                  </div>
+                  <span className="absolute left-full ml-3 text-[11px] text-stone-700 italic font-mono whitespace-nowrap hidden sm:inline-block">
+                    ┄ Hard to get
+                  </span>
                 </div>
 
-                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
                 {/* 4. RIGHT COUNTY? */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                    <MapPin className="w-3.5 h-3.5 text-stone-300" />
+                <div className="relative flex items-center">
+                  <div className="w-full p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                    <MapPin className="w-3.5 h-3.5 text-[#EEE8DD]" />
                     <span>RIGHT COUNTY?</span>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
-                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
-                    <span className="field-annotation text-xs text-[#971F26] font-bold">Boundaries</span>
-                  </div>
+                  <span className="absolute left-full ml-3 text-[11px] text-stone-700 italic font-mono whitespace-nowrap hidden sm:inline-block">
+                    ┄ Boundaries
+                  </span>
                 </div>
 
-                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
                 {/* 5. REFERRAL? */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                    <KeyRound className="w-3.5 h-3.5 text-stone-300" />
+                <div className="relative flex items-center">
+                  <div className="w-full p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                    <KeyRound className="w-3.5 h-3.5 text-[#EEE8DD]" />
                     <span>REFERRAL?</span>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
-                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
-                    <span className="field-annotation text-xs text-[#971F26] font-bold">Gatekeeper req.</span>
-                  </div>
+                  <span className="absolute left-full ml-3 text-[11px] text-stone-700 italic font-mono whitespace-nowrap hidden sm:inline-block">
+                    ┄ Gatekeeper req.
+                  </span>
                 </div>
 
-                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
                 {/* 6. WAITLIST? */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                    <Clock className="w-3.5 h-3.5 text-stone-300" />
+                <div className="relative flex items-center">
+                  <div className="w-full p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                    <Clock className="w-3.5 h-3.5 text-[#EEE8DD]" />
                     <span>WAITLIST?</span>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
-                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
-                    <span className="field-annotation text-xs text-[#971F26] font-bold">Weeks or months</span>
-                  </div>
+                  <span className="absolute left-full ml-3 text-[11px] text-stone-700 italic font-mono whitespace-nowrap hidden sm:inline-block">
+                    ┄ Weeks/months
+                  </span>
                 </div>
 
-                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
-                {/* 7. DEAD END */}
-                <div className="p-2 sm:p-2.5 bg-[#971F26] text-white border-2 border-[#1C1D1D] rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-sm">
-                  <XOctagon className="w-4 h-4 text-white" />
-                  <span>DEAD END (PROGRAM BLOCKED)</span>
+                {/* 7. DEAD END & RED THREAD BREAKOUT */}
+                <div className="p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold border border-red-900 shadow-xs">
+                  <XOctagon className="w-3.5 h-3.5 text-[#971F26]" />
+                  <span>DEAD END</span>
                 </div>
 
-                {/* ROUGH OXBLOOD ROUTE ARROW: OTHER WAY THROUGH */}
-                <div className="mt-4 pt-3 border-t-2 border-dashed border-[#971F26]">
+                {/* The Red Thread Lateral Escape Arrow */}
+                <div className="pt-2 flex flex-col items-center">
+                  <div className="text-[#971F26] flex items-center gap-1 font-mono text-xs font-bold">
+                    <CornerDownRight className="w-5 h-5 animate-bounce" />
+                    <span>LATERAL ESCAPE ROUTE</span>
+                  </div>
+
+                  {/* Red Thread Highlight Banner */}
                   <Link
                     href="/other-ways-through"
-                    className="group block p-3 bg-[#F5F1E8] border-2 border-[#971F26] rounded-lg shadow-sm hover:bg-white transition-all"
+                    className="w-full mt-2 py-3 px-4 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-center font-mono text-xs font-bold tracking-wider uppercase shadow-md transition-transform hover:scale-[1.02] flex items-center justify-center gap-2 border border-[#971F26]"
                   >
-                    <div className="flex items-center justify-between font-mono font-bold text-xs text-[#971F26]">
-                      <span className="flex items-center gap-1.5 uppercase tracking-wider">
-                        <CornerDownRight className="w-4 h-4" />
-                        <span>OTHER WAY THROUGH →</span>
-                      </span>
-                      <span className="stamp-alert text-[9px] py-0.5">
-                        LATERAL BYPASS
-                      </span>
-                    </div>
-
-                    {/* Handwritten Supporting Line */}
-                    <p className="field-annotation text-xs sm:text-sm font-handwriting text-stone-900 mt-1.5 leading-snug">
-                      &ldquo;There are other routes. We help you find them.&rdquo;
-                    </p>
+                    <Sparkles className="w-4 h-4 text-amber-300" />
+                    <span>OTHER WAY THROUGH</span>
                   </Link>
+
+                  <p className="mt-2 field-annotation text-xs sm:text-sm font-handwriting text-stone-800 text-center">
+                    &ldquo;There are other routes. We help you find them.&rdquo;
+                  </p>
                 </div>
               </div>
             </div>
@@ -253,11 +250,22 @@ export function HeroThesisSection() {
         </div>
       </div>
 
-      {/* Bottom Restrained Info Strip */}
-      <div className="border-t border-[#D9D1C4] bg-[#EEE8DD] py-2.5 px-4 text-center mt-6">
-        <p className="text-[10px] sm:text-[11px] font-mono text-stone-700 max-w-4xl mx-auto leading-relaxed">
-          Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency service, or legal-services provider.
-        </p>
+      {/* Bottom Disclaimer Band */}
+      <div className="w-full border-t border-[#1C1D1D] bg-[#1C1D1D] text-stone-300 py-3.5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono">
+          <div className="flex items-center gap-2">
+            <span className="text-[#971F26] font-bold">●</span>
+            <p className="leading-tight text-stone-300">
+              Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency service, or legal-services provider.
+            </p>
+          </div>
+          <Link
+            href="/about"
+            className="text-stone-400 hover:text-white shrink-0 uppercase tracking-wider font-bold transition-colors"
+          >
+            Learn more about our work →
+          </Link>
+        </div>
       </div>
     </section>
   );

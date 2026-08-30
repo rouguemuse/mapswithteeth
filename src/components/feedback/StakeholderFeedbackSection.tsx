@@ -70,49 +70,34 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
   ];
 
   return (
-    <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-10 shadow-sm space-y-8 relative overflow-hidden bg-grid-atlas select-none font-sans">
+    <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 shadow-sm space-y-8 relative overflow-hidden bg-grid-atlas select-none font-sans">
       {/* Editorial Header */}
       <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Compass className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              INSTITUTIONAL & PRE-PILOT REVIEW
+              FIELD VALIDATION & REALITY-CHECK
             </span>
           </div>
-          <span className="coord-tick">[STAKEHOLDER REVIEW COHORT]</span>
+          <span className="coord-tick">[FEEDBACK ROUTED TO TEAM]</span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Help Pressure-Test the Model
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+          Help pressure-test the map.
         </h2>
 
         <p className="text-xs sm:text-sm text-stone-700 leading-relaxed max-w-3xl font-sans">
-          Maps With Teeth is currently seeking feedback from people who understand public systems, labor, survivor services, community organizations, technology, legal systems, and frontline resource delivery.
+          Maps With Teeth will only be useful if people tell us where the published version of a resource does not match reality.
         </p>
 
         <div className="p-4 bg-[#F5F1E8] rounded-lg border-2 border-[#1C1D1D] space-y-2 shadow-2xs">
           <span className="text-xs font-bold text-[#1C1D1D] font-mono uppercase tracking-wider block">
-            We especially want to know:
+            We want to hear from:
           </span>
-          <ul className="grid gap-2 sm:grid-cols-2 text-xs text-stone-800 font-sans">
-            <li className="flex items-start gap-1.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Where would this approach fail in real frontline practice?</span>
-            </li>
-            <li className="flex items-start gap-1.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>What critical systems, funds, or escape routes are we missing?</span>
-            </li>
-            <li className="flex items-start gap-1.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>What would make this genuinely useful to caseworkers and organizers?</span>
-            </li>
-            <li className="flex items-start gap-1.5">
-              <span className="text-[#971F26] font-bold font-mono">•</span>
-              <span>Who else should be involved in shaping this model early?</span>
-            </li>
-          </ul>
+          <p className="text-xs text-stone-700 font-sans leading-relaxed">
+            People who tried to use a resource · Advocates · Legal and public-service professionals · Community organizations · Researchers · Frontline workers · People who know a pathway we&apos;re missing.
+          </p>
         </div>
       </div>
 
@@ -168,12 +153,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
 
             <div>
               <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
-                Organization / Affiliation:
+                Organization / Perspective:
               </label>
               <input
                 type="text"
                 maxLength={120}
-                placeholder="Agency, Union, or Independent"
+                placeholder="Agency, Union, Advocate, or Independent"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                 className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
@@ -201,12 +186,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
           <div className="space-y-4 pt-2">
             <div>
               <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
-                1. Where would this approach fail in real frontline practice?
+                1. What did the program say it offered vs. what happened when someone tried to use it?
               </label>
               <textarea
                 rows={3}
                 maxLength={3000}
-                placeholder="Identify administrative bottlenecks, verification traps, or unaddressed realities..."
+                placeholder="Describe the discrepancy between paper eligibility and actual intake..."
                 value={formData.whereWouldThisFail}
                 onChange={(e) => setFormData({ ...formData, whereWouldThisFail: e.target.value })}
                 className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
@@ -215,12 +200,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
 
             <div>
               <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
-                2. What critical systems, funds, or escape routes are we missing?
+                2. What requirement was missing from public info, or was the resource frozen/closed?
               </label>
               <textarea
                 rows={3}
                 maxLength={3000}
-                placeholder="Mention union relief funds, obscure statutes, ministerial alliances, or alternative funds..."
+                placeholder="Mention unwritten documentation requirements, funding freezes, disconnected numbers, or waitlist closures..."
                 value={formData.missingSystemsOrStakeholders}
                 onChange={(e) => setFormData({ ...formData, missingSystemsOrStakeholders: e.target.value })}
                 className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
@@ -229,28 +214,14 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
 
             <div>
               <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
-                3. What would make this genuinely useful to caseworkers, organizers, and survivors?
+                3. Is there another route that actually worked in practice?
               </label>
               <textarea
                 rows={3}
                 maxLength={3000}
-                placeholder="Formatting, exportable dockets, direct verification contacts..."
+                placeholder="Share lateral funds, union benevolent accounts, ministerial relief, or legal escape clauses that succeeded..."
                 value={formData.whatMakesThisUsefulToFrontline}
                 onChange={(e) => setFormData({ ...formData, whatMakesThisUsefulToFrontline: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
-                4. General Notes or Collaboration Interest:
-              </label>
-              <textarea
-                rows={2}
-                maxLength={3000}
-                placeholder="Any additional strategic thoughts or availability for pilot briefing conversations..."
-                value={formData.generalNotes}
-                onChange={(e) => setFormData({ ...formData, generalNotes: e.target.value })}
                 className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
@@ -267,7 +238,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 <span>Routing to Stakeholder Review Inbox...</span>
               </>
             ) : (
-              <span>Submit Stakeholder Feedback →</span>
+              <span>Submit feedback →</span>
             )}
           </button>
         </form>

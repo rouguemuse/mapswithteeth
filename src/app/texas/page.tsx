@@ -70,10 +70,10 @@ export default function TexasPage() {
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Texas Pilot: Field Intelligence & Statutory Routes
+          Texas Deep Dive: Field Intelligence & Statutory Routes
         </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
-          Texas is the initial operating ground and proof-of-concept pilot for Maps With Teeth. We map concrete statutory escape rights, municipal failure points, and obscure emergency relief funds across Central Texas.
+        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-4xl leading-relaxed font-sans">
+          <strong>Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the model deeply to expose real frontline barriers—mapping statewide statutes (Tex. Prop. Code § 92.016, PUCT § 25.478, CVC) alongside county-level referral gates, funding status, and municipal failure points.
         </p>
       </div>
 
