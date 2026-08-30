@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
+import { HeroThesisSection } from "@/components/home/HeroThesisSection";
 import { ResourceStackGenerator } from "@/components/resources/ResourceStackGenerator";
 import { StageRoadmapSection } from "@/components/home/StageRoadmapSection";
 import { StakeholderFeedbackSection } from "@/components/feedback/StakeholderFeedbackSection";
@@ -16,75 +16,8 @@ import {
 export default function HomePage() {
   return (
     <div className="space-y-24 sm:space-y-32 pb-24">
-      {/* Simplified Hero Section */}
-      <section className="relative border-b border-brand-sand bg-brand-paper py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-grid-ledger">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Logo & Restrained Stage Marker */}
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-ivory border border-stone-300 p-2 shadow-sm flex items-center justify-center">
-              <Image
-                src="/logo.png"
-                alt="Maps With Teeth"
-                width={80}
-                height={80}
-                className="object-contain"
-                priority
-              />
-            </div>
-
-            {/* Stage Marker */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-ivory border border-stone-300 text-stone-800 rounded-full text-xs font-mono uppercase tracking-widest shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-amber-600" />
-              <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT</span>
-            </div>
-          </div>
-
-          {/* Core Substantive Framing */}
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-brand-charcoal tracking-tight leading-[1.12]">
-              Help exists. <br />
-              <span className="text-brand-oxblood italic font-serif">Access is another question.</span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-stone-800 max-w-2xl mx-auto leading-relaxed font-sans font-medium">
-              Maps With Teeth is a barrier-first resource intelligence system that maps not only where help exists, but what it actually takes to reach it.
-            </p>
-
-            <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed font-mono">
-              Eligibility rules · Documentation requirements · County boundaries · Waitlists · Transportation gaps · Referral loops · Dead ends
-            </p>
-          </div>
-
-          {/* Two Primary Stakeholder CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Link
-              href="/texas"
-              className="px-7 py-3.5 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5"
-            >
-              <MapPin className="w-4 h-4" />
-              <span>Explore the Pilot</span>
-            </Link>
-
-            <Link
-              href="/feedback"
-              className="px-7 py-3.5 bg-brand-paper hover:bg-stone-200 border border-stone-300 text-brand-charcoal rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
-            >
-              <MessageSquareQuote className="w-4 h-4 text-amber-700" />
-              <span>Partner / Give Feedback</span>
-            </Link>
-          </div>
-
-          {/* Compact Framing & Disclosure Note */}
-          <div className="pt-4 max-w-2xl mx-auto space-y-2 text-center text-xs text-stone-600 font-mono">
-            <p className="text-brand-charcoal font-sans font-medium text-xs">
-              &ldquo;We are building the missing layer between a resource directory and a successful handoff.&rdquo;
-            </p>
-            <p className="text-[10px] text-stone-500">
-              Maps With Teeth is an independent public-interest initiative · Not currently a 501(c)(3), government agency, or legal-services provider.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* 60/40 Asymmetric Hero with System Thesis Diagram */}
+      <HeroThesisSection />
 
       {/* BUILT / TESTING / PROPOSED Roadmap */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

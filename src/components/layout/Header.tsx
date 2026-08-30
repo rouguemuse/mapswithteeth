@@ -26,22 +26,22 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo & Editorial Title */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded bg-brand-ivory border border-stone-300 flex items-center justify-center p-1 group-hover:border-brand-oxblood transition-colors overflow-hidden shrink-0 shadow-sm">
+          <Link href="/" className="flex items-center gap-3.5 group">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-brand-ivory border-2 border-stone-400/80 flex items-center justify-center p-1.5 group-hover:border-brand-oxblood transition-all overflow-hidden shrink-0 shadow-sm">
               <Image
                 src="/logo.png"
                 alt="Maps With Teeth Logo"
-                width={40}
-                height={40}
+                width={48}
+                height={48}
                 className="object-contain"
                 priority
               />
             </div>
             <div>
-              <span className="font-serif font-black tracking-wider text-base sm:text-lg uppercase text-brand-charcoal block leading-none">
+              <span className="font-serif font-black tracking-tight text-lg sm:text-xl uppercase text-brand-charcoal block leading-none">
                 MAPS WITH TEETH
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-500 font-mono block mt-0.5">
+              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-600 font-mono font-bold block mt-1">
                 Barrier-First Resource Intelligence
               </span>
             </div>
