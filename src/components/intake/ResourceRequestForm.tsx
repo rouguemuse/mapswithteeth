@@ -6,9 +6,8 @@ import { ResourceIntakeData } from "@/types/intake";
 import { Step1Barrier } from "./Step1Barrier";
 import { Step2Work } from "./Step2Work";
 import { Step3Household } from "./Step3Household";
-import { Step4Failed } from "./Step4Failed";
 import { InstantResults } from "./InstantResults";
-import { Compass, AlertTriangle, ShieldCheck } from "lucide-react";
+import { Compass, ShieldCheck } from "lucide-react";
 
 export function ResourceRequestForm() {
   const [step, setStep] = useState<number>(1);
@@ -27,23 +26,36 @@ export function ResourceRequestForm() {
     zipCode: "",
     currentIndustry: "restaurant-food-service",
     recentIndustries: [],
-    freeTextWork: "",
-    isEmployed: true,
-    recentlyLaidOff: false,
-    isUnionMember: false,
-    unionName: "",
-    hasProfessionalLicense: false,
+    workStatus: "EMPLOYED",
     hasDependentChildren: false,
     childInPublicSchool: false,
+    housingStatus: "RENTAL_LEASE",
     hasAnimal: false,
-    animalType: ["DOG"],
-    animalNeeds: ["BOARDING"],
     transportationStatus: "OWN_VEHICLE",
-    transportationNeeds: ["GAS"],
+    sharedCellularPlan: false,
+    maritalTaxStatus: "SINGLE",
+    militaryVeteranConnection: false,
+    unionMembership: false,
     failedChannels: [],
     failedReason: undefined,
     failedNotes: "",
-    acceptableSolutions: [],
+
+    // Conditional facts
+    hospitalityHoursPerWeek: "30_PLUS",
+    hospitalityTenureMonths: "6_PLUS_MO",
+    hospitalityRecentWork90Days: false,
+    hospitalityCrisisWithin6Mo: false,
+    musicTenureYears: "5_PLUS_YRS",
+    musicCommercialReleases: "6_PLUS_RELEASES",
+    fleeingWithPet: false,
+    connectedWithDVAdvocate: false,
+    enteringOrInDVShelter: false,
+    sharesMobileContractWithAbuser: false,
+    hasTexasLeaseAgreement: false,
+    hasDocumentationForLeaseBreak: false,
+    electricUtilityInTexas: false,
+    hasSurvivorVerificationLetter: false,
+    childLacksFixedRegularNighttimeResidence: false
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -63,21 +75,24 @@ export function ResourceRequestForm() {
               <div className="flex items-center gap-2 text-[#971F26]">
                 <Compass className="w-5 h-5" />
                 <span className="text-xs font-mono font-bold tracking-widest uppercase">
-                  STRUCTURED INTAKE DOCKET GENERATOR
+                  PROGRESSIVE QUALIFICATION ENGINE · DETERMINISTIC MATCHING
                 </span>
               </div>
-              <span className="coord-tick">[INTAKE ENGINE: V0]</span>
+              <span className="coord-tick">[INTAKE ENGINE: V1.0]</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
               Ask Us to Look: Map Your Escape Route
             </h1>
             <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
-              Sometimes the key that unlocks relief has nothing obvious to do with domestic violence. Your job, industry history, companion animals, public school enrollment, union membership, or county jurisdiction may reveal emergency funds outside traditional shelter channels.
+              <strong>Nothing surfaces without a reason.</strong> Sometimes the key that unlocks relief has nothing obvious to do with domestic violence. Your job, industry history, companion animals, public school enrollment, or shared mobile contracts may reveal emergency funds and legal rights outside traditional shelter channels.
             </p>
-            <div className="mt-3 p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-md text-xs text-[#971F26] space-y-1 shadow-2xs">
-              <div className="text-[11px] leading-relaxed text-stone-900">
-                <strong className="text-[#971F26]">Data Minimization & Privacy Standard:</strong> Zero SSN, zero full address, and zero abuse narrative required. Submissions run in-memory to calculate immediate potential pathways.
+            <div className="mt-3 p-3.5 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md text-xs space-y-1 shadow-2xs">
+              <div className="text-[11px] leading-relaxed text-stone-900 flex items-start gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#2D5A3D] shrink-0 mt-0.5" />
+                <span>
+                  <strong className="text-[#1C1D1D]">Privacy & Data Minimization:</strong> Sensitive intake responses are evaluated in-memory and are not intentionally persisted to local storage. Zero names, zero SSNs, and zero abuse narratives required.
+                </span>
               </div>
             </div>
           </div>
@@ -85,10 +100,9 @@ export function ResourceRequestForm() {
           {/* Stepper Tabs */}
           <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#D9D1C4] font-mono text-xs">
             {[
-              ["1. Barriers", 1],
-              ["2. Work History", 2],
-              ["3. Household & Pets", 3],
-              ["4. What Failed", 4],
+              ["1. Needs & Geography", 1],
+              ["2. Qualification Levers", 2],
+              ["3. Conditional Verification", 3],
             ].map(([label, stepNum]) => (
               <button
                 key={stepNum}
@@ -105,42 +119,43 @@ export function ResourceRequestForm() {
             ))}
           </div>
 
-          {/* Wizard Steps Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {step === 1 && (
-              <Step1Barrier
-                formData={formData}
-                setFormData={setFormData}
-                onNext={() => setStep(2)}
-              />
-            )}
+          {step === 1 && (
+            <Step1Barrier
+              formData={formData}
+              setFormData={setFormData}
+              onNext={() => {
+                setStep(2);
+                window.scrollTo({ top: 100, behavior: "smooth" });
+              }}
+            />
+          )}
 
-            {step === 2 && (
-              <Step2Work
-                formData={formData}
-                setFormData={setFormData}
-                onNext={() => setStep(3)}
-                onBack={() => setStep(1)}
-              />
-            )}
+          {step === 2 && (
+            <Step2Work
+              formData={formData}
+              setFormData={setFormData}
+              onNext={() => {
+                setStep(3);
+                window.scrollTo({ top: 100, behavior: "smooth" });
+              }}
+              onBack={() => {
+                setStep(1);
+                window.scrollTo({ top: 100, behavior: "smooth" });
+              }}
+            />
+          )}
 
-            {step === 3 && (
-              <Step3Household
-                formData={formData}
-                setFormData={setFormData}
-                onNext={() => setStep(4)}
-                onBack={() => setStep(2)}
-              />
-            )}
-
-            {step === 4 && (
-              <Step4Failed
-                formData={formData}
-                setFormData={setFormData}
-                onBack={() => setStep(3)}
-              />
-            )}
-          </form>
+          {step === 3 && (
+            <Step3Household
+              formData={formData}
+              setFormData={setFormData}
+              onSubmit={handleSubmit}
+              onBack={() => {
+                setStep(2);
+                window.scrollTo({ top: 100, behavior: "smooth" });
+              }}
+            />
+          )}
         </div>
       ) : (
         matchResult && (

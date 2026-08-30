@@ -46,60 +46,79 @@ export type FailedReason =
   | "OTHER";
 
 export interface ResourceIntakeData {
-  // 1. Barriers & Needs
+  // 1. Barriers, Needs & Geography (Step 1)
   primaryBarriers: string[];
   solvingNarrative?: string;
   amountScale?: AmountScale;
   partialHelpImpact?: PartialHelpImpact;
   urgency: UrgencyTimeline;
-
-  // 2. Location
   state: string;
   county?: string;
   city?: string;
   zipCode?: string;
-
-  // 3. Work & Professional
-  currentIndustry?: string;
-  recentIndustries: string[];
-  freeTextWork?: string;
-  isEmployed?: boolean;
-  recentlyLaidOff?: boolean;
-  isSelfEmployed?: boolean;
-  isUnionMember?: boolean;
-  unionName?: string;
-  hasProfessionalLicense?: boolean;
-  licenseType?: string;
-  worksForNationalCompany?: boolean;
-  isStudentOrTrainee?: boolean;
-
-  // 4. Family & Household
-  hasDependentChildren?: boolean;
-  childAgeRanges?: string[];
-  childInPublicSchool?: boolean;
-  isPregnant?: boolean;
-
-  // 5. Pets
-  hasAnimal?: boolean;
-  animalType?: ("DOG" | "CAT" | "SERVICE_ANIMAL" | "OTHER")[];
-  animalNeeds?: ("FOSTER" | "BOARDING" | "DEPOSIT" | "VET_CARE" | "TRANSPORT" | "PET_FRIENDLY_HOUSING")[];
-
-  // 6. Transportation
-  transportationStatus?: "OWN_VEHICLE" | "SHARED_VEHICLE" | "BORROWED_VEHICLE" | "VEHICLE_UNAVAILABLE" | "PUBLIC_TRANSIT" | "RIDESHARE_ONLY" | "NO_RELIABLE_TRANSPORT";
-  transportationNeeds?: ("GAS" | "REPAIR" | "REGISTRATION" | "INSURANCE" | "REPLACEMENT" | "RIDE" | "BUS_PASS" | "FLIGHT" | "RELOCATION_TRANSIT")[];
-
-  // 7. Community Connections
-  communityConnections?: string[];
-
-  // 8. Systems & Benefits
-  activeBenefits?: string[];
-
-  // 9. What has failed already?
   failedChannels: FailedChannel[];
   failedReason?: FailedReason;
   failedNotes?: string;
 
-  // 10. Flexibility in Solutions
+  // 2. Broad Qualification Levers (Step 2)
+  workStatus?: "EMPLOYED" | "RECENTLY_EMPLOYED_6_12_MO" | "UNEMPLOYED" | "SELF_EMPLOYED" | "OTHER";
+  currentIndustry?: string;
+  recentIndustries: string[];
+  hasDependentChildren?: boolean;
+  childInPublicSchool?: boolean;
+  housingStatus?: "RENTAL_LEASE" | "HOMEOWNER" | "DOUBLED_UP_TEMPORARY" | "SHELTER" | "UNHOUSED" | "OTHER";
+  hasAnimal?: boolean;
+  animalType?: ("DOG" | "CAT" | "SERVICE_ANIMAL" | "OTHER")[];
+  transportationStatus?: "OWN_VEHICLE" | "SHARED_VEHICLE" | "BORROWED_VEHICLE" | "VEHICLE_UNAVAILABLE" | "PUBLIC_TRANSIT" | "RIDESHARE_ONLY" | "NO_RELIABLE_TRANSPORT";
+  sharedCellularPlan?: boolean;
+  maritalTaxStatus?: "SINGLE" | "MARRIED_JOINT_TAX" | "MARRIED_SEPARATING" | "COERCED_TAX_DEBT" | "NONE";
+  militaryVeteranConnection?: boolean;
+  unionMembership?: boolean;
+  unionName?: string;
+  professionalAffiliations?: string[];
+
+  // 3. Conditional Detailed Facts (Step 3 - Triggered by Program Families)
+  hospitalityHoursPerWeek?: "UNDER_30" | "30_PLUS" | "UNSURE";
+  hospitalityTenureMonths?: "UNDER_3_MO" | "3_TO_5_MO" | "6_PLUS_MO";
+  hospitalityRecentWork90Days?: boolean;
+  hospitalityCrisisWithin6Mo?: boolean;
+
+  musicTenureYears?: "UNDER_5_YRS" | "5_PLUS_YRS";
+  musicCommercialReleases?: "FEWER_THAN_6" | "6_PLUS_RELEASES";
+
+  writerPublishedPortfolio?: boolean;
+  craftArtistProfessional?: boolean;
+
+  fleeingWithPet?: boolean;
+  connectedWithDVAdvocate?: boolean;
+  enteringOrInDVShelter?: boolean;
+
+  sharesMobileContractWithAbuser?: boolean;
+
+  hasTexasLeaseAgreement?: boolean;
+  hasDocumentationForLeaseBreak?: boolean;
+
+  electricUtilityInTexas?: boolean;
+  hasSurvivorVerificationLetter?: boolean;
+
+  childLacksFixedRegularNighttimeResidence?: boolean;
+
+  // Compatibility fields
+  isEmployed?: boolean;
+  recentlyLaidOff?: boolean;
+  isSelfEmployed?: boolean;
+  isUnionMember?: boolean;
+  hasProfessionalLicense?: boolean;
+  licenseType?: string;
+  worksForNationalCompany?: boolean;
+  isStudentOrTrainee?: boolean;
+  childAgeRanges?: string[];
+  isPregnant?: boolean;
+  freeTextWork?: string;
+  animalNeeds?: ("FOSTER" | "BOARDING" | "DEPOSIT" | "VET_CARE" | "TRANSPORT" | "PET_FRIENDLY_HOUSING")[];
+  transportationNeeds?: ("GAS" | "REPAIR" | "REGISTRATION" | "INSURANCE" | "REPLACEMENT" | "RIDE" | "BUS_PASS" | "FLIGHT" | "RELOCATION_TRANSIT")[];
+  communityConnections?: string[];
+  activeBenefits?: string[];
   acceptableSolutions?: string[];
 }
 

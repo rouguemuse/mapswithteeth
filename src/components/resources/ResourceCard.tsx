@@ -25,10 +25,12 @@ export function ResourceCard({
   resource,
   matchReason,
   matchedTags,
+  matchCertainty,
 }: {
   resource: Resource;
   matchReason?: string;
   matchedTags?: string[];
+  matchCertainty?: string;
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -84,7 +86,7 @@ export function ResourceCard({
 
           {/* Optional Match Reason Badge */}
           {matchReason && (
-            <MatchReasonBadge reason={matchReason} matchedTags={matchedTags} />
+            <MatchReasonBadge reason={matchReason} matchedTags={matchedTags} matchCertainty={matchCertainty} />
           )}
 
           {/* 1. WHAT IT ACTUALLY HELPS WITH / PROVIDES */}

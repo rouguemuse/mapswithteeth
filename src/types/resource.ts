@@ -88,6 +88,49 @@ export type PaymentMethod =
   | "VENDOR_DIRECT"
   | "NON_MONETARY_SERVICE";
 
+export type CriterionType = "REQUIRED" | "SUPPORTING" | "EXCLUSIONARY" | "UNKNOWN";
+export type CriterionStatus = "VERIFIED" | "NEEDS_REVIEW" | "STALE";
+export type CriterionOperator =
+  | "EQUALS"
+  | "NOT_EQUALS"
+  | "IN"
+  | "NOT_IN"
+  | "GREATER_THAN_OR_EQUAL"
+  | "LESS_THAN_OR_EQUAL"
+  | "BOOLEAN_TRUE"
+  | "BOOLEAN_FALSE"
+  | "CONTAINS"
+  | "EXISTS";
+
+export interface ResourceEligibilityCriterion {
+  criterionId: string;
+  factKey: string;
+  label: string;
+  operator: CriterionOperator;
+  expectedValue?: any;
+  criterionType: CriterionType;
+  primarySourceUrl: string;
+  verificationDate: string;
+  sourceNote: string;
+  status: CriterionStatus;
+  caveats?: string;
+}
+
+export type MatchCertainty =
+  | "LIKELY_MATCH"
+  | "WORTH_CHECKING"
+  | "NEEDS_INFORMATION"
+  | "FILTERED_OUT";
+
+export interface EvaluatedCriterion {
+  criterion: ResourceEligibilityCriterion;
+  isSatisfied: boolean;
+  isKnown: boolean;
+  isExclusionaryTriggered: boolean;
+  userFactValue: any;
+  auditExplanation: string;
+}
+
 export interface Resource {
   id: string;
   name: string;
@@ -107,9 +150,13 @@ export interface Resource {
   category?: string;
   matchTags: string[];
 
+  // Structured Deterministic Eligibility Criteria
+  eligibilityCriteria?: ResourceEligibilityCriterion[];
+  qualifierFamily?: string; // e.g. "HOSPITALITY", "MUSIC", "PETS", "TELECOM", "TEXAS_STATUTE", "PUBLIC_SCHOOL", "WRITING"
+
   // What it can actually help pay for or accomplish
   whatItCanHelpWith: string;
-  whatItActuallyProvides: string; // alias for backwards compatibility
+  whatItActuallyProvides: string;
   assistanceShapes: AssistanceShape[];
 
   // Financial mechanics & limits
@@ -133,7 +180,7 @@ export interface Resource {
 
   // Action steps
   whatToDoNext: string;
-  howToApply: string; // alias for backwards compatibility
+  howToApply: string;
   expectedProcess?: string;
 
   // Source & Verification Audit Trail
@@ -141,7 +188,7 @@ export interface Resource {
   primaryAuthoritativeSource: string;
   secondarySourceUrl?: string;
   lastReviewedDate: string;
-  dateLastVerified: string; // alias for backwards compatibility
+  dateLastVerified: string;
   verificationStatus: VerificationStatus;
   isLead?: boolean;
 
@@ -156,18 +203,24 @@ export interface Resource {
   petSpecific?: boolean;
   childrenSpecific?: boolean;
 
-  // Dense Operational Intelligence Fields (Mockup Alignment)
+  // Dense Operational Intelligence Fields
   whyMissed?: string;
   workaround?: string;
   accessNotes?: string;
   badgeLabels?: string[];
-  matchCertainty?: "LIKELY_MATCH" | "WORTH_CHECKING" | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
+  matchCertainty?: MatchCertainty;
 }
 
 export interface ResourceMatch {
   resource: Resource;
   matchedTags: string[];
   matchReason: string;
+  matchCertainty: MatchCertainty;
   matchType: "LOCATION" | "WORK_HISTORY" | "PET" | "FAMILY" | "TRANSPORTATION" | "BARRIER_EXPENSE" | "NATIONWIDE";
-  matchCertainty?: "LIKELY_MATCH" | "WORTH_CHECKING" | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
+  evaluatedCriteria?: EvaluatedCriterion[];
+  satisfiedCriteria?: EvaluatedCriterion[];
+  unansweredCriteria?: EvaluatedCriterion[];
+  exclusionaryCriteria?: EvaluatedCriterion[];
+  auditSentences?: string[];
+  triggeringFacts?: string[];
 }

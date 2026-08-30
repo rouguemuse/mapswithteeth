@@ -1,7 +1,6 @@
-﻿"use client";
-
+"use client";
 import React, { useState } from "react";
-import { Resource } from "@/types/resource";
+import { Resource, MatchCertainty } from "@/types/resource";
 import { ResourceDetailModal } from "@/components/resources/ResourceDetailModal";
 import {
   Utensils,
@@ -26,7 +25,7 @@ import {
 interface DenseResourceCardProps {
   resource: Resource;
   whySurfacedFact?: string;
-  matchCertainty?: "LIKELY_MATCH" | "WORTH_CHECKING" | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
+  matchCertainty?: MatchCertainty | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
   matchedTags?: string[];
   isSaved?: boolean;
   onToggleSave?: () => void;

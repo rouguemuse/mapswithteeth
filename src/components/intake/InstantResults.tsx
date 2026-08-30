@@ -84,29 +84,34 @@ export function InstantResults({
 
         {/* Match Breakdown Pills */}
         <div className="flex flex-wrap gap-2 text-xs font-mono text-stone-800">
-          {matchResult.breakdown.locationCount > 0 && (
-            <span className="stamp-verified bg-[#F5F1E8]">
-              📍 {matchResult.breakdown.locationCount} County / Location Matches
+          {matchResult.breakdown.likelyMatchCount > 0 && (
+            <span className="stamp-verified bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] font-bold">
+              ✓ {matchResult.breakdown.likelyMatchCount} Likely Matches (All Criteria Met)
+            </span>
+          )}
+          {matchResult.breakdown.worthCheckingCount > 0 && (
+            <span className="stamp-verified bg-[#FEF3C7] border border-[#D97706] text-[#92400E] font-bold">
+              ◐ {matchResult.breakdown.worthCheckingCount} Worth Checking
+            </span>
+          )}
+          {matchResult.breakdown.statutoryCount > 0 && (
+            <span className="stamp-verified bg-[#1C1D1D] text-white font-bold">
+              ⚖ {matchResult.breakdown.statutoryCount} Statutory Rights
             </span>
           )}
           {matchResult.breakdown.workCount > 0 && (
             <span className="stamp-verified bg-[#F5F1E8]">
-              💼 {matchResult.breakdown.workCount} Work / Industry Hardship Funds
+              💼 {matchResult.breakdown.workCount} Industry Relief Funds
             </span>
           )}
           {matchResult.breakdown.petCount > 0 && (
             <span className="stamp-verified bg-[#F5F1E8]">
-              🐕 {matchResult.breakdown.petCount} Companion Animal Boarding/Foster
+              🐕 {matchResult.breakdown.petCount} Pet Safe Boarding
             </span>
           )}
-          {matchResult.breakdown.utilityCount > 0 && (
+          {matchResult.breakdown.telecomCount > 0 && (
             <span className="stamp-verified bg-[#F5F1E8]">
-              ⚡ {matchResult.breakdown.utilityCount} Utility Deposit Waivers
-            </span>
-          )}
-          {matchResult.breakdown.nationwideCount > 0 && (
-            <span className="stamp-verified bg-[#F5F1E8]">
-              🛡️ {matchResult.breakdown.nationwideCount} Nationwide Escape Rights
+              📱 {matchResult.breakdown.telecomCount} Line Separation Protections
             </span>
           )}
         </div>
