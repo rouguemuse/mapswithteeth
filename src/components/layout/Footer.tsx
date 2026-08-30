@@ -1,7 +1,6 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
-import { Shield, ShieldAlert, FileText, ArrowUpRight } from "lucide-react";
-import { LogoIcon } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   return (
@@ -11,16 +10,8 @@ export function Footer() {
           {/* Brand & Editorial Thesis */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3 text-white">
-              <div className="p-1 rounded bg-[#F5F1E8] border border-stone-700 shrink-0">
-                <LogoIcon size={32} />
-              </div>
-              <div>
-                <span className="font-mono font-black text-lg tracking-[0.2em] uppercase block leading-none text-white">
-                  MAPS WITH TEETH
-                </span>
-                <span className="text-[9px] text-[#971F26] font-bold uppercase tracking-widest block mt-1">
-                  BARRIER-FIRST RESOURCE INTELLIGENCE
-                </span>
+              <div className="p-2.5 rounded bg-[#F5F1E8] border border-stone-700 shrink-0 inline-flex">
+                <Logo size="sm" />
               </div>
             </div>
             <p className="text-stone-300 text-xs font-sans leading-relaxed">
