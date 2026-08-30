@@ -1,70 +1,116 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #F3EFE7;
-  --foreground: #1C1B1A;
+  --background: #F5F1E8;
+  --foreground: #1C1D1D;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Subtle Topographic & Cartographic Ledger Textures */
-.bg-topo-pattern {
-  background-image: radial-gradient(#A8A29A 0.75px, transparent 0.75px), radial-gradient(#A8A29A 0.75px, #F3EFE7 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  background-color: #F3EFE7;
+/* Subtle Topographic, Atlas & Cartographic Textures */
+.bg-topo-atlas {
+  background-image: radial-gradient(#D9D1C4 1px, transparent 1px), radial-gradient(#D9D1C4 1px, #F5F1E8 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
 }
 
 .bg-grid-ledger {
-  background-size: 24px 24px;
+  background-size: 20px 20px;
   background-image: 
-    linear-gradient(to right, rgba(168, 162, 154, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168, 162, 154, 0.15) 1px, transparent 1px);
+    linear-gradient(to right, rgba(217, 209, 196, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 209, 196, 0.45) 1px, transparent 1px);
 }
 
-/* Field-note Marginalia & Stamp Utilities */
-.field-note {
-  font-family: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.05em;
-  color: #394247;
-  border-left: 2px solid #7A2026;
-  padding-left: 0.5rem;
+.bg-grid-atlas {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(217, 209, 196, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 209, 196, 0.3) 1px, transparent 1px);
 }
 
-.verification-stamp {
-  border: 1px solid #394247;
-  font-family: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+/* Rough Editorial Underline */
+.underline-rough {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-rough::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 3px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0,4 Q25,1 50,4 T100,4' fill='none' stroke='%23971F26' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* Stamped Research Badges */
+.stamp-verified {
+  border: 1.5px dashed #1C1D1D;
+  font-family: 'Space Mono', 'JetBrains Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-size: 0.625rem;
-  padding: 0.125rem 0.375rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
+  background-color: #EEE8DD;
 }
 
-/* Red Route / Broken Pathway Thread */
-.route-thread {
-  position: relative;
+.stamp-alert {
+  border: 1.5px dashed #971F26;
+  color: #971F26;
+  font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #F8EFEF;
 }
-.route-thread::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 6px;
-  bottom: 6px;
-  width: 2px;
-  background-color: #7A2026;
+
+/* Field-note Marginalia & Leader Lines */
+.field-annotation {
+  font-family: 'Caveat', 'Kalam', cursive;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  color: #971F26;
+  transform: rotate(-1.5deg);
+}
+
+.field-annotation-dark {
+  font-family: 'Caveat', 'Kalam', cursive;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  color: #1C1D1D;
+  transform: rotate(-1deg);
+}
+
+/* Coordinate ticks and registration markers */
+.coord-tick {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  color: #78726A;
+  text-transform: uppercase;
 }
 
 @keyframes fadeIn {

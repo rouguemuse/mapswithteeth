@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Sparkles } from "lucide-react";
-import Image from "next/image";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,49 +18,32 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     { name: "How We Research", href: "/how-we-research" },
     { name: "About", href: "/about" },
     { name: "Feedback", href: "/feedback" },
-    { name: "Build With Us", href: "/build-with-us" },
+    { name: "Built With Us", href: "/build-with-us" },
   ];
 
   return (
-    <header className="bg-brand-paper text-brand-charcoal border-b border-brand-sand sticky top-0 z-40 shadow-sm backdrop-blur-md bg-opacity-95">
+    <header className="bg-[#F5F1E8] text-[#1C1D1D] border-b border-[#D9D1C4] sticky top-0 z-40 backdrop-blur-md bg-opacity-95 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Brand Logo & Editorial Title */}
-          <Link href="/" className="flex items-center gap-3.5 group">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-brand-ivory border-2 border-stone-400/80 flex items-center justify-center p-1.5 group-hover:border-brand-oxblood transition-all overflow-hidden shrink-0 shadow-sm">
-              <Image
-                src="/logo.png"
-                alt="Maps With Teeth Logo"
-                width={48}
-                height={48}
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div>
-              <span className="font-serif font-black tracking-tight text-lg sm:text-xl uppercase text-brand-charcoal block leading-none">
-                MAPS WITH TEETH
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-600 font-mono font-bold block mt-1">
-                Barrier-First Resource Intelligence
-              </span>
-            </div>
+        <div className="flex items-center justify-between h-20 sm:h-22">
+          {/* Rebuilt Brand Logo & Wordmark */}
+          <Link href="/" className="flex items-center group py-2">
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1 font-mono">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded text-xs uppercase tracking-wider font-semibold font-mono transition-all ${
+                  className={`px-3 py-1.5 rounded text-[11px] uppercase tracking-wider transition-all ${
                     link.highlight
-                      ? "bg-brand-oxblood text-white hover:bg-red-900 font-bold ml-1 shadow-sm"
+                      ? "bg-[#971F26] hover:bg-red-900 text-white font-bold ml-1.5 shadow-sm border border-[#971F26]"
                       : isActive
-                      ? "text-brand-charcoal bg-stone-200/70 border-b-2 border-brand-oxblood font-bold"
-                      : "text-stone-600 hover:text-brand-charcoal hover:bg-stone-200/50"
+                      ? "text-[#1C1D1D] bg-[#EEE8DD] border-b-2 border-[#971F26] font-bold"
+                      : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
                   }`}
                 >
                   {link.name}
@@ -73,10 +56,10 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded text-stone-600 hover:text-brand-charcoal hover:bg-stone-200 focus:outline-none"
-              aria-label="Toggle Menu"
+              className="p-2 rounded border border-[#D9D1C4] bg-[#EEE8DD] text-[#1C1D1D] hover:bg-stone-200 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-brand-charcoal" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -84,7 +67,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-brand-sand bg-brand-paper px-4 pt-3 pb-6 space-y-1 animate-fadeIn shadow-lg">
+        <div className="lg:hidden border-t border-[#D9D1C4] bg-[#F5F1E8] px-4 pt-3 pb-6 space-y-1.5 shadow-lg font-mono">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
             return (
@@ -92,12 +75,12 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2.5 rounded text-xs font-mono uppercase tracking-wider font-semibold transition-colors ${
+                className={`block px-3 py-2.5 rounded text-xs uppercase tracking-wider transition-colors ${
                   link.highlight
-                    ? "bg-brand-oxblood text-white font-bold text-center mt-2 shadow-sm"
+                    ? "bg-[#971F26] text-white font-bold text-center mt-2 shadow-sm"
                     : isActive
-                    ? "text-brand-charcoal bg-stone-200 font-bold border-l-4 border-brand-oxblood pl-3"
-                    : "text-stone-700 hover:text-brand-charcoal hover:bg-stone-100"
+                    ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26] pl-3"
+                    : "text-stone-800 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]"
                 }`}
               >
                 {link.name}

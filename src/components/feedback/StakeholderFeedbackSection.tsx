@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
-import { MessageSquareQuote, CheckCircle2, ShieldAlert, Sparkles } from "lucide-react";
+import { MessageSquareQuote, CheckCircle2, ShieldAlert, Sparkles, Compass } from "lucide-react";
 import { StakeholderDomain, StakeholderFeedbackSubmission } from "@/types/feedback";
 
 export function StakeholderFeedbackSection({ isStandalonePage = false }: { isStandalonePage?: boolean }) {
@@ -35,54 +35,49 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
   ];
 
   return (
-    <section className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-10 shadow-md space-y-8 relative overflow-hidden">
+    <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-10 shadow-sm space-y-8 relative overflow-hidden bg-grid-atlas select-none font-sans">
       {/* Editorial Header */}
-      <div className="border-b border-brand-sand pb-6 space-y-3">
-        <div className="flex items-center gap-2 text-brand-oxblood">
-          <MessageSquareQuote className="w-5 h-5" />
-          <span className="text-xs font-mono font-bold tracking-widest uppercase">
-            INSTITUTIONAL & PRE-PILOT REVIEW
-          </span>
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2 text-[#971F26]">
+            <Compass className="w-5 h-5" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+              INSTITUTIONAL & PRE-PILOT REVIEW
+            </span>
+          </div>
+          <span className="coord-tick">[STAKEHOLDER REVIEW COHORT]</span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal tracking-tight">
-          Help pressure-test the model
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+          Help Pressure-Test the Model
         </h2>
 
         <p className="text-xs sm:text-sm text-stone-700 leading-relaxed max-w-3xl font-sans">
           Maps With Teeth is currently seeking feedback from people who understand public systems, labor, survivor services, community organizations, technology, legal systems, and frontline resource delivery.
         </p>
 
-        <div className="p-4 bg-brand-ivory rounded-lg border border-stone-300 space-y-2 shadow-sm">
-          <span className="text-xs font-bold text-brand-charcoal font-mono uppercase tracking-wider block">
+        <div className="p-4 bg-[#F5F1E8] rounded-lg border-2 border-[#1C1D1D] space-y-2 shadow-2xs">
+          <span className="text-xs font-bold text-[#1C1D1D] font-mono uppercase tracking-wider block">
             We especially want to know:
           </span>
-          <ul className="grid gap-2 sm:grid-cols-2 text-xs text-stone-700 font-sans">
-            <li className="flex items-start gap-2">
-              <span className="text-brand-oxblood font-bold shrink-0 font-mono">•</span>
-              <span><strong>Where would this fail in practice?</strong> What edge cases or institutional bottlenecks are unaddressed?</span>
+          <ul className="grid gap-2 sm:grid-cols-2 text-xs text-stone-800 font-sans">
+            <li className="flex items-start gap-1.5">
+              <span className="text-[#971F26] font-bold font-mono">•</span>
+              <span>Where would this approach fail in real frontline practice?</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-brand-oxblood font-bold shrink-0 font-mono">•</span>
-              <span><strong>What systems or stakeholders are missing?</strong> Which labor funds, statutory nuances, or agencies should be included?</span>
+            <li className="flex items-start gap-1.5">
+              <span className="text-[#971F26] font-bold font-mono">•</span>
+              <span>What critical systems, funds, or escape routes are we missing?</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-brand-oxblood font-bold shrink-0 font-mono">•</span>
-              <span><strong>What would make this useful to organizations already doing the work?</strong> How can this reduce caseload burnout?</span>
+            <li className="flex items-start gap-1.5">
+              <span className="text-[#971F26] font-bold font-mono">•</span>
+              <span>What would make this genuinely useful to caseworkers and organizers?</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-brand-oxblood font-bold shrink-0 font-mono">•</span>
-              <span><strong>Who should be part of the pilot conversation?</strong> Which Central Texas or regional stakeholders must be at the table?</span>
+            <li className="flex items-start gap-1.5">
+              <span className="text-[#971F26] font-bold font-mono">•</span>
+              <span>Who else should be involved in shaping this model early?</span>
             </li>
           </ul>
-        </div>
-
-        {/* Universal Privacy & Emergency Protection Warning */}
-        <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2 text-xs text-brand-oxblood shadow-sm">
-          <ShieldAlert className="w-4 h-4 text-brand-oxblood shrink-0 mt-0.5" />
-          <p className="text-[11px] leading-relaxed">
-            <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
-          </p>
         </div>
       </div>
 
@@ -90,46 +85,44 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Your Name <span className="text-brand-oxblood">*</span>
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Your Name:
               </label>
               <input
                 type="text"
                 required
-                placeholder="e.g. Alex Morgan"
-                value={formData.fullName || ""}
+                placeholder="Jane Doe"
+                value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Email Address <span className="text-brand-oxblood">*</span>
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Email Address:
               </label>
               <input
                 type="email"
                 required
-                placeholder="alex@organization.org"
-                value={formData.email || ""}
+                placeholder="jane@example.org"
+                value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
-          </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Professional Domain / Perspective <span className="text-brand-oxblood">*</span>
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Perspective / Background:
               </label>
               <select
                 value={formData.domain}
                 onChange={(e) => setFormData({ ...formData, domain: e.target.value as StakeholderDomain })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal focus:border-brand-oxblood"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
               >
-                {domainOptions.map(([val, label]) => (
-                  <option key={val} value={val}>
+                {domainOptions.map(([id, label]) => (
+                  <option key={id} value={id}>
                     {label}
                   </option>
                 ))}
@@ -137,102 +130,78 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Organization / Agency / Union / Affiliation
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Organization / Role (Optional):
               </label>
               <input
                 type="text"
-                placeholder="e.g. Central Labor Council / Legislative Office / Legal Aid"
-                value={formData.organization || ""}
+                placeholder="Union Local, Agency, or Independent"
+                value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
           </div>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                1. Where would this fail in practice? <span className="text-stone-500 font-normal font-sans">(What frontline friction, legal bottlenecks, or implementation flaws do you anticipate?)</span>
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                1. Where would this approach fail in real frontline practice?
               </label>
               <textarea
                 rows={3}
-                placeholder="Share specific failure points, agency pushback, verification hurdles, or resource fatigue issues..."
-                value={formData.whereWouldThisFail || ""}
+                placeholder="Tell us where assumptions break down, where gatekeepers will block access, or where practical barriers intervene..."
+                value={formData.whereWouldThisFail}
                 onChange={(e) => setFormData({ ...formData, whereWouldThisFail: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                2. What systems, programs, or stakeholders are missing? <span className="text-stone-500 font-normal font-sans">(Industry funds, union benevolence funds, public agencies, local nuances)</span>
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                2. What critical systems, resources, or escape routes are we missing?
               </label>
               <textarea
                 rows={3}
-                placeholder="List specific programs, municipal codes, union hardship funds, or community organizations that should be added..."
-                value={formData.missingSystemsOrStakeholders || ""}
+                placeholder="Obscure funds, union hardship programs, municipal rules, statutory protections, or community relief mechanisms..."
+                value={formData.missingSystemsOrStakeholders}
                 onChange={(e) => setFormData({ ...formData, missingSystemsOrStakeholders: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                3. What would make this genuinely useful to organizations already doing the work?
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                3. Who else should be in this conversation?
               </label>
               <textarea
                 rows={2}
-                placeholder="How could this reduce duplicate administrative labor or aid frontline case managers?"
-                value={formData.whatMakesThisUsefulToFrontline || ""}
-                onChange={(e) => setFormData({ ...formData, whatMakesThisUsefulToFrontline: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                4. Who should be part of the pilot conversation in Central Texas / Texas?
-              </label>
-              <textarea
-                rows={2}
-                placeholder="Names of agencies, coalition leaders, union representatives, or researchers we should connect with..."
-                value={formData.whoShouldBeInPilotConversation || ""}
+                placeholder="Specific labor leaders, advocates, public officials, or community organizers we should consult..."
+                value={formData.whoShouldBeInPilotConversation}
                 onChange={(e) => setFormData({ ...formData, whoShouldBeInPilotConversation: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
           </div>
 
-          <div className="pt-2 border-t border-brand-sand flex items-center justify-between">
-            <span className="text-[11px] text-stone-500 font-mono">
-              Evaluated strictly for systems design & pilot refinement.
-            </span>
-
-            <button
-              type="submit"
-              className="px-6 py-3 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-colors"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Share Feedback</span>
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full py-3 bg-[#971F26] hover:bg-red-900 text-white font-mono font-bold uppercase tracking-wider text-xs rounded-md shadow-2xs transition-colors"
+          >
+            Submit Strategic Review Feedback →
+          </button>
         </form>
       ) : (
-        <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-8 text-center space-y-3 animate-fadeIn">
-          <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-400 flex items-center justify-center text-emerald-700 mx-auto">
-            <CheckCircle2 className="w-6 h-6" />
+        <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-8 text-center space-y-4 shadow-2xs">
+          <div className="w-12 h-12 rounded-full bg-[#EEE8DD] border-2 border-[#1C1D1D] flex items-center justify-center text-[#971F26] mx-auto">
+            <CheckCircle2 className="w-6 h-6 text-[#971F26]" />
           </div>
-          <h3 className="text-xl font-serif font-bold text-brand-charcoal">Thank you for pressure-testing Maps With Teeth.</h3>
-          <p className="text-xs text-stone-700 max-w-md mx-auto leading-relaxed font-sans">
-            Your review will directly inform our Central Texas pilot methodology, failure-point tracking, and stakeholder outreach.
+          <h3 className="text-2xl font-serif font-bold text-[#1C1D1D]">
+            Strategic Review Received
+          </h3>
+          <p className="text-xs text-stone-700 max-w-md mx-auto font-sans leading-relaxed">
+            Thank you for pressure-testing Maps With Teeth. Your frontline and institutional insights directly guide our research docket and verification rules.
           </p>
-          <button
-            onClick={() => setSubmitted(false)}
-            className="text-xs text-brand-oxblood hover:underline font-mono pt-2 block mx-auto font-bold"
-          >
-            Submit additional feedback
-          </button>
         </div>
       )}
     </section>

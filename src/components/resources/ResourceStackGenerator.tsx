@@ -7,7 +7,7 @@ import { INDUSTRY_OPTIONS } from "@/data/industries";
 import { ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
 import { matchIntakeToResources } from "@/data/matcher";
 import { ResourceCard } from "./ResourceCard";
-import { Layers, Sparkles, Dog, Briefcase, MapPin, ArrowRight } from "lucide-react";
+import { Layers, Sparkles, Dog, Briefcase, MapPin, ArrowRight, Compass, Check } from "lucide-react";
 
 export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) {
   const [selectedBarriers, setSelectedBarriers] = useState<string[]>([
@@ -41,44 +41,42 @@ export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) 
   const displayedMatches = maxCards ? matchResult.matches.slice(0, maxCards) : matchResult.matches;
 
   return (
-    <div className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-10 shadow-sm space-y-8">
+    <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-10 shadow-sm space-y-8 bg-grid-atlas select-none">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-brand-sand pb-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D9D1C4] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-brand-oxblood mb-1.5">
-            <Layers className="w-5 h-5" />
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              Combinable Barrier Solver
-            </span>
+          <div className="flex items-center gap-2 text-[#971F26] mb-1.5 font-mono font-bold text-xs tracking-widest uppercase">
+            <Layers className="w-4 h-4" />
+            <span>COMBINABLE BARRIER SOLVER</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
             Your Resource Stack: Ways Through
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-2xl font-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-stone-700 mt-1 max-w-2xl font-sans leading-relaxed">
             Single agencies rarely solve an entire crisis. Select your simultaneous barriers to assemble an integrated, multi-vector pathway.
           </p>
         </div>
 
-        <div className="px-3.5 py-1.5 bg-brand-ivory border border-stone-300 rounded-lg text-xs font-mono text-stone-800 shadow-sm">
-          <strong>{matchResult.matches.length} Potential Pathways</strong> Surfaced
+        <div className="stamp-verified bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D] text-xs py-1.5 px-3">
+          <strong>{matchResult.matches.length} POTENTIAL PATHWAYS</strong>
         </div>
       </div>
 
       {/* Interactive Levers Selector */}
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Levers: Location & Work */}
-        <div className="space-y-4 bg-brand-ivory p-5 rounded-xl border border-stone-300 shadow-sm">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal flex items-center gap-1.5 font-mono">
-            <MapPin className="w-3.5 h-3.5 text-brand-oxblood" />
+        <div className="space-y-4 bg-[#F5F1E8] p-5 rounded-lg border-2 border-[#1C1D1D] shadow-xs">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-[#1C1D1D] flex items-center gap-1.5 font-mono">
+            <MapPin className="w-3.5 h-3.5 text-[#971F26]" />
             <span>1. Location & Pilot Region</span>
           </h3>
 
           <div>
-            <label className="block text-[11px] text-stone-600 mb-1 font-mono">State:</label>
+            <label className="block text-[11px] text-stone-700 mb-1 font-mono font-bold">State Jurisdiction:</label>
             <select
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
-              className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-[#EEE8DD] border border-[#1C1D1D] rounded-md px-3 py-2 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
             >
               <option value="TX">Texas (Deep Research Pilot)</option>
               <option value="US">Nationwide / Other State</option>
@@ -87,11 +85,11 @@ export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) 
 
           {selectedState === "TX" && (
             <div>
-              <label className="block text-[11px] text-stone-600 mb-1 font-mono">Texas County:</label>
+              <label className="block text-[11px] text-stone-700 mb-1 font-mono font-bold">Texas County Jurisdiction:</label>
               <select
                 value={selectedCounty}
                 onChange={(e) => setSelectedCounty(e.target.value)}
-                className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
+                className="w-full bg-[#EEE8DD] border border-[#1C1D1D] rounded-md px-3 py-2 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
               >
                 {ALL_TEXAS_COUNTIES.map((c) => (
                   <option key={c.slug} value={c.name.replace(" County", "")}>
@@ -103,14 +101,14 @@ export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) 
           )}
 
           <div>
-            <label className="block text-[11px] text-stone-600 mb-1 flex items-center gap-1 font-mono">
-              <Briefcase className="w-3 h-3 text-brand-oxblood" />
-              <span>Work in Past 12 Mo:</span>
+            <label className="block text-[11px] text-stone-700 mb-1 flex items-center gap-1 font-mono font-bold">
+              <Briefcase className="w-3 h-3 text-[#971F26]" />
+              <span>Work in Past 12 Months:</span>
             </label>
             <select
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="w-full bg-brand-paper border border-stone-300 rounded-lg px-3 py-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-[#EEE8DD] border border-[#1C1D1D] rounded-md px-3 py-2 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
             >
               {INDUSTRY_OPTIONS.map((ind) => (
                 <option key={ind.id} value={ind.id}>
@@ -120,95 +118,85 @@ export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) 
             </select>
           </div>
 
-          <div className="pt-3 border-t border-brand-sand flex items-center gap-2">
-            <input
-              type="checkbox"
-              id="hasAnimalCheck"
-              checked={hasAnimal}
-              onChange={(e) => setHasAnimal(e.target.checked)}
-              className="rounded bg-brand-paper border-stone-300 text-brand-oxblood focus:ring-0"
-            />
-            <label htmlFor="hasAnimalCheck" className="text-xs text-stone-700 flex items-center gap-1 cursor-pointer font-sans">
-              <Dog className="w-3.5 h-3.5 text-amber-700" />
-              <span>I have a dog or pet needing safe care</span>
+          <div className="pt-1">
+            <label className="flex items-center gap-2 cursor-pointer text-xs font-mono font-bold text-[#1C1D1D]">
+              <input
+                type="checkbox"
+                checked={hasAnimal}
+                onChange={(e) => setHasAnimal(e.target.checked)}
+                className="rounded border-[#1C1D1D] text-[#971F26] focus:ring-[#971F26] w-4 h-4"
+              />
+              <span className="flex items-center gap-1">
+                <Dog className="w-3.5 h-3.5 text-[#971F26]" />
+                <span>Pet / Animal In Household</span>
+              </span>
             </label>
           </div>
         </div>
 
         {/* Levers: Select Barriers */}
-        <div className="lg:col-span-2 bg-brand-ivory p-5 rounded-xl border border-stone-300 shadow-sm flex flex-col justify-between">
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal mb-3 flex items-center gap-1.5 font-mono">
-              <Sparkles className="w-3.5 h-3.5 text-brand-oxblood" />
-              <span>2. What specific barriers are keeping you stuck?</span>
+        <div className="lg:col-span-2 space-y-4 bg-[#F5F1E8] p-5 rounded-lg border-2 border-[#1C1D1D] shadow-xs">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1C1D1D] flex items-center gap-1.5 font-mono">
+              <Compass className="w-3.5 h-3.5 text-[#971F26]" />
+              <span>2. Select Active Obstacles & Friction Points</span>
             </h3>
-
-            <div className="flex flex-wrap gap-1.5 max-h-56 overflow-y-auto pr-1">
-              {BARRIER_CATEGORIES.map((cat) => {
-                const isSelected = selectedBarriers.includes(cat.id);
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => toggleBarrier(cat.id)}
-                    className={`text-xs px-2.5 py-1.5 rounded-lg border transition-all text-left flex items-center gap-1.5 font-mono ${
-                      isSelected
-                        ? "bg-brand-oxblood text-white border-red-900 font-bold shadow-sm"
-                        : "bg-brand-paper text-stone-700 border-stone-300 hover:border-stone-400 hover:text-brand-charcoal"
-                    }`}
-                  >
-                    <span>{cat.label}</span>
-                  </button>
-                );
-              })}
-            </div>
+            <span className="text-[10px] font-mono text-[#971F26] font-bold">
+              {selectedBarriers.length} Selected
+            </span>
           </div>
 
-          <p className="text-[11px] text-stone-500 font-mono pt-3 border-t border-brand-sand mt-4">
-            Toggle obstacles to dynamically reconfigure the underlying statutory, grant, and municipal intelligence stack.
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {BARRIER_CATEGORIES.slice(0, 9).map((b) => {
+              const isSelected = selectedBarriers.includes(b.id);
+              return (
+                <button
+                  key={b.id}
+                  onClick={() => toggleBarrier(b.id)}
+                  className={`p-2.5 rounded-md text-left transition-all border text-xs font-mono flex items-start gap-2 ${
+                    isSelected
+                      ? "bg-[#1C1D1D] text-white border-[#1C1D1D] font-bold shadow-xs"
+                      : "bg-[#EEE8DD] text-stone-800 border-[#D9D1C4] hover:border-[#1C1D1D]"
+                  }`}
+                >
+                  <span className="shrink-0 mt-0.5">
+                    {isSelected ? <Check className="w-3 h-3 text-[#971F26]" /> : "•"}
+                  </span>
+                  <span className="leading-tight">{b.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <p className="text-[11px] font-mono text-stone-600">
+            [TIP] Combining industry background + pet needs + statutory rights produces alternate pathways outside standard shelter lines.
           </p>
         </div>
       </div>
 
-      {/* Stacked Results Architecture */}
-      <div className="space-y-6 pt-2">
-        <div className="flex items-center justify-between border-b border-brand-sand pb-3">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal font-mono">
-            Representative Resource Vectors ({displayedMatches.length} of {matchResult.matches.length} Shown):
+      {/* Surfaced Stack Results */}
+      <div className="space-y-4 pt-4 border-t border-[#D9D1C4]">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-serif font-bold text-[#1C1D1D]">
+            Surfaced Multi-Vector Pathway ({displayedMatches.length})
           </h3>
-          <span className="text-[11px] text-stone-500 font-mono italic">
-            Each resource addresses a distinct node in the barrier matrix
-          </span>
-        </div>
-
-        {displayedMatches.length > 0 ? (
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {displayedMatches.map((m) => (
-              <ResourceCard
-                key={m.resource.id}
-                resource={m.resource}
-                matchReason={m.matchReason}
-                matchedTags={m.matchedTags}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="p-8 text-center bg-brand-ivory rounded-xl border border-stone-300 text-stone-600 text-xs font-mono">
-            No exact preset match for this combination. Try selecting additional barrier levers or submit an investigation request.
-          </div>
-        )}
-
-        {/* Prominent CTA to Explore Full Directory */}
-        <div className="pt-6 border-t border-brand-sand flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-stone-600 font-mono">
-            Full directory contains Texas statutory codes, nationwide industry funds, utility waivers, and pet foster networks.
-          </div>
           <Link
             href="/find-help"
-            className="px-6 py-3.5 bg-brand-paper hover:bg-stone-200 border border-stone-300 text-brand-charcoal hover:border-brand-oxblood rounded-lg text-xs font-bold font-mono uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all group shrink-0"
+            className="text-xs font-mono font-bold text-[#971F26] hover:underline flex items-center gap-1"
           >
-            <span>Explore All Resources in Directory</span>
-            <ArrowRight className="w-4 h-4 text-brand-oxblood group-hover:translate-x-1 transition-transform" />
+            <span>Explore All 30 Cataloged Pathways →</span>
           </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {displayedMatches.map((m) => (
+            <ResourceCard
+              key={m.resource.id}
+              resource={m.resource}
+              matchReason={m.matchReason}
+              matchedTags={m.matchedTags}
+            />
+          ))}
         </div>
       </div>
     </div>

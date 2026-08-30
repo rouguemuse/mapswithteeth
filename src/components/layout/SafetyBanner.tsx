@@ -30,30 +30,30 @@ export function SafetyBanner({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () =>
   if (!showBanner) return null;
 
   return (
-    <aside aria-label="Emergency safety bar" className="bg-brand-dark text-stone-200 border-b border-stone-800 text-xs px-3 py-2 sm:px-4">
+    <aside aria-label="Emergency safety bar" className="bg-[#1C1D1D] text-[#EEE8DD] border-b border-stone-800 text-xs px-3 py-1.5 sm:px-4 select-none z-50">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <ShieldAlert className="w-4 h-4 text-brand-ruby shrink-0" />
+        <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono">
+          <ShieldAlert className="w-3.5 h-3.5 text-[#971F26] shrink-0" />
           <span>
-            <strong className="text-white font-medium">Safety Alert:</strong> If someone monitors your device, browsing history may remain visible. Press <kbd className="bg-stone-800 text-stone-300 px-1 py-0.5 rounded border border-stone-700 text-[10px] font-mono">ESC</kbd> twice or click Quick Exit to leave instantly.
+            <strong className="text-white font-bold">SAFETY NOTICE:</strong> If your device is monitored, browsing this site may be visible. Press <kbd className="bg-stone-800 text-stone-300 px-1 py-0.5 rounded border border-stone-700 text-[10px] font-mono">ESC twice</kbd> to leave.
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button
             onClick={onOpenSafeBrowsing}
-            className="text-stone-300 hover:text-white underline text-xs flex items-center gap-1 font-medium transition-colors"
+            className="text-stone-300 hover:text-white underline text-[11px] font-mono flex items-center gap-1 transition-colors"
           >
-            <Eye className="w-3.5 h-3.5" />
+            <Eye className="w-3 h-3 text-stone-400" />
             <span>Digital Safety Guide</span>
           </button>
 
           <button
             onClick={triggerQuickExit}
-            className="bg-brand-ruby hover:bg-red-700 text-white font-bold px-3 py-1 rounded text-xs flex items-center gap-1 transition-colors shadow-sm"
+            className="bg-[#971F26] hover:bg-red-900 text-white font-mono font-bold px-2.5 py-1 rounded text-[10px] sm:text-xs flex items-center gap-1.5 transition-all shadow-sm tracking-wider uppercase"
             title="Immediately redirect to Weather.com (Esc key twice)"
           >
-            <LogOut className="w-3.5 h-3.5" />
+            <LogOut className="w-3 h-3" />
             <span>QUICK EXIT</span>
           </button>
         </div>

@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { CollaboratorRole, CollaboratorSubmission } from "@/types/collaborator";
-import { HeartHandshake, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Scale } from "lucide-react";
+import { HeartHandshake, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Scale, Compass } from "lucide-react";
 
 function BuildWithUsContent() {
   const [submitted, setSubmitted] = useState(false);
@@ -38,17 +39,21 @@ function BuildWithUsContent() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 select-none font-sans">
       {/* Header */}
-      <div className="border-b border-brand-sand pb-6">
-        <div className="flex items-center gap-2 text-brand-oxblood mb-2">
-          <HeartHandshake className="w-5 h-5" />
-          <span className="text-xs font-mono font-bold tracking-widest uppercase">
-            Collaborator Intake & Partnership
-          </span>
+      <div className="border-b border-[#D9D1C4] pb-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2 text-[#971F26]">
+            <HeartHandshake className="w-5 h-5" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+              COLLABORATOR INTAKE & FIELD PARTNERSHIP
+            </span>
+          </div>
+          <span className="coord-tick">[WORKING COALITION: CENTRAL TX]</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-brand-charcoal tracking-tight">
-          Help Build Maps With Teeth
+
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+          Built With Us: Build the Coalition
         </h1>
         <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
           Building a truly comprehensive barrier-first resource intelligence platform requires cross-disciplinary collaboration. We invite fiscal sponsors, attorneys, advocates, researchers, technologists, trade partners, and funders to join our working coalition.
@@ -56,37 +61,37 @@ function BuildWithUsContent() {
       </div>
 
       {/* Dedicated Founding Board & Advisory Circle Banner */}
-      <div className="p-5 bg-brand-paper border border-brand-sand border-l-4 border-l-brand-oxblood rounded-r-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+      <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] border-l-6 border-l-[#971F26] rounded-r-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-brand-charcoal font-serif font-bold text-sm">
-            <Scale className="w-4 h-4 text-brand-oxblood" />
+          <div className="flex items-center gap-2 text-[#1C1D1D] font-serif font-bold text-sm">
+            <Scale className="w-4 h-4 text-[#971F26]" />
             <span>Interested in Fiduciary Governance or the Advisory Circle?</span>
           </div>
-          <p className="text-xs text-stone-600 max-w-xl font-sans">
+          <p className="text-xs text-stone-700 max-w-xl font-sans">
             We are actively beginning exploratory conversations with prospective Founding Board directors and Advisory Circle subject-matter leaders.
           </p>
         </div>
-        <a
+        <Link
           href="/governance"
-          className="px-4 py-2 bg-brand-ivory hover:bg-stone-200 text-brand-charcoal rounded text-xs font-mono uppercase tracking-wider font-bold shrink-0 border border-stone-300 hover:border-brand-oxblood transition-colors shadow-sm"
+          className="px-4 py-2 bg-[#F5F1E8] hover:bg-stone-200 text-[#1C1D1D] rounded text-xs font-mono uppercase tracking-wider font-bold shrink-0 border border-[#1C1D1D] transition-colors shadow-2xs"
         >
-          View Board & Advisory Pathways →
-        </a>
+          View Governance Pathways →
+        </Link>
       </div>
 
       {!submitted ? (
-        <form onSubmit={handleSubmit} className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-8 space-y-6 shadow-md">
+        <form onSubmit={handleSubmit} className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-atlas">
           {/* Privacy & Emergency Warning */}
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2 text-xs text-brand-oxblood shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-brand-oxblood shrink-0 mt-0.5" />
-            <p className="text-[11px] leading-relaxed">
+          <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-md flex items-start gap-2 text-xs text-[#971F26] shadow-2xs">
+            <ShieldCheck className="w-4 h-4 text-[#971F26] shrink-0 mt-0.5" />
+            <p className="text-[11px] leading-relaxed text-stone-900">
               <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
                 Your Name / Primary Contact:
               </label>
               <input
@@ -95,111 +100,93 @@ function BuildWithUsContent() {
                 placeholder="Jane Doe"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] placeholder-stone-400 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
                 Email Address:
               </label>
               <input
                 type="email"
                 required
-                placeholder="jane@organization.org"
+                placeholder="jane@example.org"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] placeholder-stone-400 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
-          </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Organization / Firm / Affiliation (if applicable):
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Organization / Affiliation:
               </label>
               <input
                 type="text"
-                placeholder="e.g. Legal Aid of NW Texas / Independent"
+                placeholder="Agency, Union, or Independent"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] placeholder-stone-400 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-                Geographic Base / Location:
+              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+                Primary Collaborative Role:
               </label>
-              <input
-                type="text"
-                placeholder="e.g. Austin, TX / Houston, TX / Remote"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
-              />
+              <select
+                value={formData.role}
+                onChange={(e) => setFormData({ ...formData, role: e.target.value as CollaboratorRole })}
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
+              >
+                {roleOptions.map(([id, label]) => (
+                  <option key={id} value={id}>
+                    {label}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-              How would you like to collaborate?
-            </label>
-            <select
-              value={formData.role}
-              onChange={(e) => setFormData({ ...formData, role: e.target.value as CollaboratorRole })}
-              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal focus:border-brand-oxblood"
-            >
-              {roleOptions.map(([val, label]) => (
-                <option key={val} value={val}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-brand-charcoal mb-1 font-mono">
-              What specific expertise, resource, or partnership would you like to contribute?
+            <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              How would you like to collaborate with Maps With Teeth?
             </label>
             <textarea
               rows={4}
               required
-              placeholder="e.g., We are an established 501(c)(3) interested in discussing fiscal sponsorship / I am an attorney who can audit Texas housing statutes / We are a pet foster group in Central Texas / We want to fund the Central Texas pilot..."
+              placeholder="Tell us about your background, regional focus, data leads, legal expertise, or institutional interest..."
               value={formData.howToCollaborate}
               onChange={(e) => setFormData({ ...formData, howToCollaborate: e.target.value })}
-              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2.5 text-xs text-brand-charcoal placeholder-stone-400 focus:border-brand-oxblood focus:outline-none"
+              className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] placeholder-stone-400 focus:border-[#971F26] focus:outline-none font-sans"
             />
           </div>
 
-          <div className="pt-2 border-t border-brand-sand flex justify-end">
-            <button
-              type="submit"
-              className="px-6 py-3 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-colors"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Submit Collaboration Profile</span>
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full py-3 bg-[#971F26] hover:bg-red-900 text-white font-mono font-bold uppercase tracking-wider text-xs rounded-md shadow-2xs transition-colors"
+          >
+            Submit Working Coalition Intake →
+          </button>
         </form>
       ) : (
-        <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-8 text-center space-y-4 shadow-sm animate-fadeIn">
-          <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-400 flex items-center justify-center text-emerald-700 mx-auto">
-            <CheckCircle2 className="w-6 h-6" />
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-8 text-center space-y-4 shadow-sm">
+          <div className="w-12 h-12 rounded-full bg-[#F5F1E8] border-2 border-[#1C1D1D] flex items-center justify-center text-[#971F26] mx-auto">
+            <CheckCircle2 className="w-6 h-6 text-[#971F26]" />
           </div>
-          <h2 className="text-2xl font-serif font-bold text-brand-charcoal">
-            Thank you for building with Maps With Teeth.
+          <h2 className="text-2xl font-serif font-bold text-[#1C1D1D]">
+            Intake Received
           </h2>
-          <p className="text-xs text-stone-700 max-w-lg mx-auto leading-relaxed font-sans">
-            Your collaboration profile has been recorded in our collaborator database. Our leadership team reviews partner inquiries on a rolling basis as we structure our Central Texas pilot.
+          <p className="text-xs text-stone-700 max-w-md mx-auto font-sans leading-relaxed">
+            Thank you for stepping forward to strengthen the Maps With Teeth ecosystem. Our research leads will review your submission and reach out.
           </p>
-          <button
-            onClick={() => setSubmitted(false)}
-            className="text-xs text-brand-oxblood hover:underline font-mono font-bold"
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#971F26] hover:underline"
           >
-            Submit Another Collaboration Profile
-          </button>
+            <span>← Return to System Overview</span>
+          </Link>
         </div>
       )}
     </div>
@@ -208,7 +195,7 @@ function BuildWithUsContent() {
 
 export default function BuildWithUsPage() {
   return (
-    <React.Suspense fallback={<div className="p-8 text-center text-xs text-stone-500 font-mono">Loading form...</div>}>
+    <React.Suspense fallback={<div className="p-10 font-mono text-xs">Loading collaborator intake...</div>}>
       <BuildWithUsContent />
     </React.Suspense>
   );

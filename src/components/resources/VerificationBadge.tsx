@@ -1,63 +1,63 @@
 ﻿import React from "react";
-import { CheckCircle2, AlertCircle, Clock, ShieldCheck, Scale, FileText } from "lucide-react";
+import { CheckCircle2, AlertCircle, Clock, ShieldCheck, Scale, FileText, AlertTriangle } from "lucide-react";
 import { VerificationStatus } from "@/types/resource";
 
 export function VerificationBadge({
   status,
   lastVerifiedDate,
   reopeningDate,
+  customTag,
 }: {
-  status: VerificationStatus;
+  status: VerificationStatus | string;
   lastVerifiedDate?: string;
   reopeningDate?: string;
+  customTag?: string;
 }) {
   switch (status) {
     case "AGENCY_CONFIRMED":
+    case "VERIFIED":
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-emerald-50 text-emerald-900 border border-emerald-300 font-bold shadow-sm">
-          <ShieldCheck className="w-3 h-3 text-emerald-700" />
-          <span>Agency Confirmed {lastVerifiedDate ? `· ${lastVerifiedDate}` : ""}</span>
+        <span className="stamp-verified bg-[#EEE8DD] border-[#1C1D1D] text-[#1C1D1D] text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider shadow-2xs">
+          <ShieldCheck className="w-3 h-3 text-[#1C1D1D]" />
+          <span>[AGENCY CONFIRMED{lastVerifiedDate ? ` · ${lastVerifiedDate}` : ""}]</span>
         </span>
       );
     case "OFFICIAL_SOURCE_CHECKED":
+    case "STATUTORY_RIGHT":
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-blue-50 text-blue-900 border border-blue-200 font-bold shadow-sm">
-          <Scale className="w-3 h-3 text-blue-700" />
-          <span>Official Source Checked {lastVerifiedDate ? `· ${lastVerifiedDate}` : ""}</span>
+        <span className="stamp-verified bg-[#EEE8DD] border-[#1C1D1D] text-[#1C1D1D] text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider shadow-2xs">
+          <Scale className="w-3 h-3 text-[#1C1D1D]" />
+          <span>[OFFICIAL SOURCE CHECKED{lastVerifiedDate ? ` · ${lastVerifiedDate}` : ""}]</span>
         </span>
       );
     case "PUBLIC_SOURCE_CHECKED":
+    case "WEB_VERIFIED":
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-stone-100 text-stone-800 border border-stone-300 font-semibold shadow-sm">
-          <FileText className="w-3 h-3 text-stone-600" />
-          <span>Public Source Checked {lastVerifiedDate ? `· ${lastVerifiedDate}` : ""}</span>
+        <span className="stamp-verified bg-[#F5F1E8] border-stone-600 text-stone-800 text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider shadow-2xs">
+          <FileText className="w-3 h-3 text-stone-700" />
+          <span>[PUBLIC SOURCE CHECKED{lastVerifiedDate ? ` · ${lastVerifiedDate}` : ""}]</span>
         </span>
       );
     case "TEMPORARILY_CLOSED":
+    case "WAITLIST":
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-red-50 text-brand-oxblood border border-red-300 font-bold shadow-sm">
-          <AlertCircle className="w-3 h-3 text-brand-oxblood" />
-          <span>Temporarily Closed {reopeningDate ? `(Reopening: ${reopeningDate})` : ""}</span>
+        <span className="stamp-alert bg-[#FDF2F2] border-[#971F26] text-[#971F26] text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider shadow-2xs">
+          <AlertCircle className="w-3 h-3 text-[#971F26]" />
+          <span>[TEMPORARILY CLOSED{reopeningDate ? ` · REOPENS ${reopeningDate}` : ""}]</span>
         </span>
       );
-    case "NEEDS_REVERIFICATION":
+    case "CALL_TO_CONFIRM":
+    case "ELIGIBILITY_UNCLEAR":
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-50 text-amber-900 border border-amber-300 font-semibold">
-          <Clock className="w-3 h-3 text-amber-700" />
-          <span>Needs Re-verification (Hidden from Public)</span>
-        </span>
-      );
-    case "CLOSED":
-      return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-stone-200 text-stone-700 border border-stone-400">
-          <AlertCircle className="w-3 h-3 text-stone-600" />
-          <span>Program Terminated / Closed</span>
+        <span className="stamp-alert bg-[#FFFDF5] border-amber-800 text-amber-900 text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider">
+          <AlertTriangle className="w-3 h-3 text-amber-800" />
+          <span>[CALL TO CONFIRM · ELIGIBILITY COMPLEX]</span>
         </span>
       );
     default:
       return (
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-stone-100 text-stone-700 border border-stone-300">
-          <span>{status}</span>
+        <span className="stamp-verified bg-[#EEE8DD] border-stone-500 text-stone-700 text-[9px] sm:text-[10px] py-0.5 px-2 font-mono uppercase font-bold tracking-wider">
+          <span>[{customTag || status}]</span>
         </span>
       );
   }

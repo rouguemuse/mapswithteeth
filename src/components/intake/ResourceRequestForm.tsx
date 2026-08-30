@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { matchIntakeToResources, MatchResult } from "@/data/matcher";
@@ -8,7 +8,7 @@ import { Step2Work } from "./Step2Work";
 import { Step3Household } from "./Step3Household";
 import { Step4Failed } from "./Step4Failed";
 import { InstantResults } from "./InstantResults";
-import { Compass } from "lucide-react";
+import { Compass, AlertTriangle, ShieldCheck } from "lucide-react";
 
 export function ResourceRequestForm() {
   const [step, setStep] = useState<number>(1);
@@ -55,43 +55,58 @@ export function ResourceRequestForm() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-8 px-4">
+    <div className="max-w-4xl mx-auto my-8 px-4 select-none font-sans">
       {!submitted ? (
-        <div className="bg-brand-paper border border-brand-sand rounded-xl p-6 sm:p-8 shadow-md">
-          <div className="border-b border-brand-sand pb-5 mb-6">
-            <div className="flex items-center gap-2 text-brand-oxblood mb-2">
-              <Compass className="w-5 h-5" />
-              <span className="text-xs font-mono font-bold tracking-widest uppercase">
-                Structured Resource Discovery Intake
-              </span>
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 shadow-sm bg-grid-atlas">
+          <div className="border-b border-[#D9D1C4] pb-5 mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div className="flex items-center gap-2 text-[#971F26]">
+                <Compass className="w-5 h-5" />
+                <span className="text-xs font-mono font-bold tracking-widest uppercase">
+                  STRUCTURED INTAKE DOCKET GENERATOR
+                </span>
+              </div>
+              <span className="coord-tick">[INTAKE ENGINE: V0]</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-brand-charcoal tracking-tight">
-              Help Me Find a Way Through
+
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+              Ask Us to Look: Map Your Escape Route
             </h1>
             <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
-              Sometimes the thing that unlocks help has nothing obvious to do with domestic violence. Your job, industry history, children, pets, public school, union membership, or county may reveal emergency hardship funds that would never appear in a standard domestic violence search.
+              Sometimes the key that unlocks relief has nothing obvious to do with domestic violence. Your job, industry history, companion animals, public school enrollment, union membership, or county jurisdiction may reveal emergency funds outside traditional shelter channels.
             </p>
-            <div className="mt-3 p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs text-brand-oxblood space-y-1 shadow-sm">
-              <div className="text-[11px] leading-relaxed">
-                <strong>Privacy & Emergency Notice:</strong> Please do not submit sensitive personal records, case documents, medical information, or identifying survivor information through this form. This prototype is not monitored for emergencies.
-              </div>
-              <div className="text-[10px] text-stone-600 font-mono pt-1">
-                Data Minimization: Zero SSN, zero full address, zero abuse narrative. Submissions calculate immediate local matching pathways without remote persistence.
+            <div className="mt-3 p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-md text-xs text-[#971F26] space-y-1 shadow-2xs">
+              <div className="text-[11px] leading-relaxed text-stone-900">
+                <strong className="text-[#971F26]">Data Minimization & Privacy Standard:</strong> Zero SSN, zero full address, and zero abuse narrative required. Submissions run in-memory to calculate immediate potential pathways.
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs font-mono text-stone-500 mb-6 border-b border-brand-sand pb-3">
-            <span className={step === 1 ? "text-brand-oxblood font-bold" : ""}>1. The Barrier</span>
-            <span>→</span>
-            <span className={step === 2 ? "text-brand-oxblood font-bold" : ""}>2. Work & Background</span>
-            <span>→</span>
-            <span className={step === 3 ? "text-brand-oxblood font-bold" : ""}>3. Household & Pets</span>
-            <span>→</span>
-            <span className={step === 4 ? "text-brand-oxblood font-bold" : ""}>4. What Failed & Urgency</span>
+          {/* Stepper Tabs */}
+          <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#D9D1C4] font-mono text-xs">
+            {[
+              ["1. Barriers", 1],
+              ["2. Work History", 2],
+              ["3. Household & Pets", 3],
+              ["4. What Failed", 4],
+            ].map(([label, stepNum]) => (
+              <button
+                key={stepNum}
+                type="button"
+                onClick={() => setStep(stepNum as number)}
+                className={`text-xs uppercase tracking-wider pb-1 transition-all ${
+                  step === stepNum
+                    ? "text-[#971F26] border-b-2 border-[#971F26] font-bold"
+                    : "text-stone-600 hover:text-[#1C1D1D]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
 
-          <form onSubmit={handleSubmit}>
+          {/* Wizard Steps Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
             {step === 1 && (
               <Step1Barrier
                 formData={formData}
@@ -99,6 +114,7 @@ export function ResourceRequestForm() {
                 onNext={() => setStep(2)}
               />
             )}
+
             {step === 2 && (
               <Step2Work
                 formData={formData}
@@ -107,6 +123,7 @@ export function ResourceRequestForm() {
                 onBack={() => setStep(1)}
               />
             )}
+
             {step === 3 && (
               <Step3Household
                 formData={formData}
@@ -115,6 +132,7 @@ export function ResourceRequestForm() {
                 onBack={() => setStep(2)}
               />
             )}
+
             {step === 4 && (
               <Step4Failed
                 formData={formData}
@@ -124,12 +142,17 @@ export function ResourceRequestForm() {
             )}
           </form>
         </div>
-      ) : matchResult ? (
-        <InstantResults
-          matchResult={matchResult}
-          onReset={() => setSubmitted(false)}
-        />
-      ) : null}
+      ) : (
+        matchResult && (
+          <InstantResults
+            matchResult={matchResult}
+            onReset={() => {
+              setSubmitted(false);
+              setStep(1);
+            }}
+          />
+        )
+      )}
     </div>
   );
 }

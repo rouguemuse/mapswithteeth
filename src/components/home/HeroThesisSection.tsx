@@ -2,49 +2,83 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowDown, ShieldAlert, Sparkles, CornerDownRight, CheckCircle2, XCircle } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowDown,
+  Search,
+  SlidersHorizontal,
+  FileText,
+  MapPin,
+  KeyRound,
+  Clock,
+  XOctagon,
+  Compass,
+  CornerDownRight,
+  Sparkles
+} from "lucide-react";
 
 export function HeroThesisSection() {
   return (
-    <section className="relative border-b border-brand-sand bg-brand-paper overflow-hidden bg-grid-ledger min-h-[75vh] lg:min-h-[80vh] flex flex-col justify-between pt-10 sm:pt-14 pb-0">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto py-6 sm:py-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left 60%: Headline, Framing & Primary CTAs */}
+    <section className="relative border-b border-[#D9D1C4] bg-[#F5F1E8] bg-grid-ledger overflow-hidden min-h-[75vh] lg:min-h-[82vh] flex flex-col justify-between pt-8 sm:pt-12 pb-0 select-none">
+      {/* Decorative Cartographic Coordinate Marks */}
+      <div className="absolute top-3 left-4 coord-tick hidden sm:block">
+        [LAT 30°16'02"N · LON 97°44'35"W]
+      </div>
+      <div className="absolute top-3 right-4 coord-tick hidden sm:block">
+        [INDEX REF: ATLAS-TX-2026-V0]
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto py-6 sm:py-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* LEFT COLUMN: 60% Editorial Headline, Framing & CTAs */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
-            {/* Eyebrow */}
+            {/* Outlined Status Pill */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-ivory border border-stone-300 text-stone-800 rounded-md text-[11px] font-mono uppercase tracking-widest font-bold shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EEE8DD] border border-[#1C1D1D] text-[#1C1D1D] rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#971F26] animate-pulse" />
                 <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT</span>
               </div>
             </div>
 
-            {/* Headline */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-brand-charcoal tracking-tight leading-[1.12]">
+            {/* Editorial Headline */}
+            <div className="space-y-1">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-[1.12]">
                 Help exists. <br />
-                <span className="text-brand-oxblood italic font-serif font-normal">Access is another question.</span>
+                <span className="text-[#971F26] italic font-serif underline-rough">
+                  Access is another question.
+                </span>
               </h1>
             </div>
 
-            {/* Explanation Body */}
-            <div className="space-y-3 text-stone-800 text-sm sm:text-base leading-relaxed font-sans">
-              <p className="text-base sm:text-lg text-brand-charcoal font-semibold">
+            {/* Supporting Copy */}
+            <div className="space-y-4 text-[#1C1D1D]">
+              <p className="text-base sm:text-lg font-medium leading-relaxed font-sans text-stone-900">
                 Maps With Teeth maps the barriers between people and the help they’re supposed to be able to reach.
               </p>
-              <p className="text-xs sm:text-sm text-stone-600 font-mono leading-normal">
-                Eligibility rules. Documentation. County lines. Waitlists. Referral requirements. Transportation. Shelter prerequisites. Programs that exist on paper but cannot actually be accessed.
-              </p>
-              <p className="text-xs sm:text-sm text-brand-charcoal font-medium">
-                Not another resource directory. A map of what gets in the way—and the routes that may still be open.
-              </p>
+
+              {/* Compact Barrier List (Field Notation) */}
+              <div className="p-3.5 bg-[#EEE8DD] border-l-3 border-[#971F26] border border-[#D9D1C4] rounded-r-md font-mono text-[11px] sm:text-xs tracking-wider text-stone-800 leading-relaxed uppercase">
+                <p className="font-bold">
+                  ELIGIBILITY RULES · DOCUMENTATION · COUNTY LINES · WAITLISTS · REFERRAL REQUIREMENTS · TRANSPORTATION · SHELTER PREREQUISITES · PROGRAMS THAT EXIST ON PAPER BUT CANNOT ACTUALLY BE ACCESSED.
+                </p>
+              </div>
+
+              {/* Core Proposition */}
+              <div className="text-xs sm:text-sm font-sans space-y-1 text-stone-800">
+                <p className="font-semibold text-[#1C1D1D]">
+                  Not another resource directory.
+                </p>
+                <p className="text-stone-700">
+                  A map of what gets in the way—and the routes that may still be open.
+                </p>
+              </div>
             </div>
 
-            {/* Primary Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+            {/* Primary & Secondary CTAs */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <Link
                 href="/find-help"
-                className="px-6 sm:px-7 py-3.5 bg-brand-oxblood hover:bg-red-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5"
+                className="px-6 sm:px-8 py-3.5 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5 border border-[#971F26]"
               >
                 <span>EXPLORE THE RESOURCES</span>
                 <ArrowRight className="w-4 h-4" />
@@ -52,19 +86,19 @@ export function HeroThesisSection() {
 
               <Link
                 href="/how-we-research"
-                className="px-6 sm:px-7 py-3.5 bg-brand-paper hover:bg-stone-200 border border-stone-400 text-brand-charcoal rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
+                className="px-6 sm:px-8 py-3.5 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
               >
                 <span>SEE HOW THE PILOT WORKS</span>
               </Link>
             </div>
 
-            {/* Stakeholder Callout (Underneath, smaller) */}
+            {/* Small Partner / Feedback Callout */}
             <div className="pt-2">
               <p className="text-xs text-stone-600 font-sans">
                 For advocates, researchers, public agencies, labor, and community partners:{" "}
                 <Link
                   href="/feedback"
-                  className="text-brand-oxblood font-mono font-bold hover:underline inline-flex items-center gap-1"
+                  className="text-[#971F26] font-mono font-bold hover:underline inline-flex items-center gap-1"
                 >
                   Help us pressure-test the model. Give Feedback →
                 </Link>
@@ -72,103 +106,144 @@ export function HeroThesisSection() {
             </div>
           </div>
 
-          {/* Right 40%: The Thesis System Diagram */}
+          {/* RIGHT COLUMN: 40% Annotated Barrier-Flow Atlas Diagram */}
           <div className="lg:col-span-5 relative">
-            <div className="bg-brand-ivory border-2 border-stone-300 rounded-2xl p-5 sm:p-6 shadow-md relative overflow-hidden">
-              {/* Field Note Header Badge */}
-              <div className="flex items-center justify-between border-b border-stone-300 pb-3 mb-4 font-mono text-[10px]">
-                <span className="text-stone-500 font-bold uppercase tracking-wider">
-                  [SYSTEM THESIS DIAGRAM]
+            <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 shadow-md relative overflow-hidden bg-grid-atlas">
+              {/* Atlas Diagram Header */}
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3 mb-4 font-mono text-[10px]">
+                <span className="text-[#1C1D1D] font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Compass className="w-3.5 h-3.5 text-[#971F26]" />
+                  <span>BARRIER FLOW ANALYSIS</span>
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-brand-paper border border-stone-300 text-stone-600">
-                  FIG. 01 · DEAD-END FUNNEL
+                <span className="px-2 py-0.5 rounded bg-[#F5F1E8] border border-[#1C1D1D] text-[#1C1D1D] font-bold">
+                  FIG. 01 · ACCESS FUNNEL
                 </span>
               </div>
 
-              {/* Diagram Body */}
-              <div className="relative space-y-2">
-                {/* 1. Resource Found */}
-                <div className="p-2.5 bg-brand-paper border border-stone-300 rounded-lg text-center font-mono text-xs font-bold text-brand-charcoal shadow-sm">
-                  RESOURCE FOUND
+              {/* Upper Handwritten Field Note */}
+              <div className="mb-3 text-center">
+                <p className="field-annotation text-sm sm:text-base font-handwriting text-stone-800">
+                  &ldquo;The system is supposed to help. But access has conditions.&rdquo;
+                </p>
+              </div>
+
+              {/* The Vertical Barrier Stack */}
+              <div className="space-y-2 relative">
+                {/* 1. RESOURCE FOUND */}
+                <div className="p-2 sm:p-2.5 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-xs">
+                  <Search className="w-3.5 h-3.5 text-[#EEE8DD]" />
+                  <span>RESOURCE FOUND</span>
                 </div>
 
-                <div className="flex justify-center text-stone-400">
+                <div className="flex justify-center text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
-                {/* 2. Eligible? */}
-                <div className="p-2 bg-brand-paper/80 border border-stone-300 rounded text-center font-mono text-[11px] text-stone-700">
-                  ELIGIBLE?
-                </div>
-
-                <div className="flex justify-center text-stone-400">
-                  <ArrowDown className="w-3.5 h-3.5" />
-                </div>
-
-                {/* 3. Documents? */}
-                <div className="p-2 bg-brand-paper/80 border border-stone-300 rounded text-center font-mono text-[11px] text-stone-700">
-                  DOCUMENTS?
-                </div>
-
-                <div className="flex justify-center text-stone-400">
-                  <ArrowDown className="w-3.5 h-3.5" />
-                </div>
-
-                {/* 4. Right County? with Lateral Breakout Fork */}
-                <div className="relative">
-                  <div className="p-2 bg-brand-paper/80 border border-stone-300 rounded text-center font-mono text-[11px] text-stone-700">
-                    RIGHT COUNTY?
+                {/* 2. ELIGIBLE? */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-stone-300" />
+                    <span>ELIGIBLE?</span>
                   </div>
-
-                  {/* Lateral Breakout Connector */}
-                  <div className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-0.5 bg-brand-oxblood" />
+                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
+                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
+                    <span className="field-annotation text-xs text-[#971F26] font-bold">Income limits</span>
+                  </div>
                 </div>
 
-                <div className="flex justify-center text-stone-400">
+                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
-                {/* 5. Referral? */}
-                <div className="p-2 bg-brand-paper/80 border border-stone-300 rounded text-center font-mono text-[11px] text-stone-700">
-                  REFERRAL?
+                {/* 3. DOCUMENTS? */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                    <FileText className="w-3.5 h-3.5 text-stone-300" />
+                    <span>DOCUMENTS?</span>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
+                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
+                    <span className="field-annotation text-xs text-[#971F26] font-bold">Hard to get</span>
+                  </div>
                 </div>
 
-                <div className="flex justify-center text-stone-400">
+                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
-                {/* 6. Waitlist */}
-                <div className="p-2 bg-brand-paper/80 border border-stone-300 rounded text-center font-mono text-[11px] text-stone-700">
-                  WAITLIST
+                {/* 4. RIGHT COUNTY? */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                    <MapPin className="w-3.5 h-3.5 text-stone-300" />
+                    <span>RIGHT COUNTY?</span>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
+                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
+                    <span className="field-annotation text-xs text-[#971F26] font-bold">Boundaries</span>
+                  </div>
                 </div>
 
-                <div className="flex justify-center text-stone-400">
+                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
                   <ArrowDown className="w-3.5 h-3.5" />
                 </div>
 
-                {/* 7. Dead End Node */}
-                <div className="p-2.5 bg-stone-200 border-2 border-stone-400 rounded-lg text-center font-mono text-xs font-bold text-stone-700 flex items-center justify-center gap-1.5 shadow-inner">
-                  <XCircle className="w-3.5 h-3.5 text-stone-500" />
-                  <span>DEAD END (SYSTEM BLOCKED)</span>
+                {/* 5. REFERRAL? */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                    <KeyRound className="w-3.5 h-3.5 text-stone-300" />
+                    <span>REFERRAL?</span>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
+                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
+                    <span className="field-annotation text-xs text-[#971F26] font-bold">Gatekeeper req.</span>
+                  </div>
                 </div>
 
-                {/* OXBLOOD BREAKOUT PATH */}
-                <div className="mt-4 pt-3 border-t-2 border-dashed border-brand-oxblood/40">
+                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </div>
+
+                {/* 6. WAITLIST? */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 p-2 bg-[#1C1D1D] text-white rounded-md flex items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                    <Clock className="w-3.5 h-3.5 text-stone-300" />
+                    <span>WAITLIST?</span>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0 w-28 sm:w-32">
+                    <span className="w-3 h-0.5 bg-[#971F26] border-t border-dashed border-[#971F26]" />
+                    <span className="field-annotation text-xs text-[#971F26] font-bold">Weeks or months</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-start pl-[20%] sm:pl-[22%] text-stone-500">
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </div>
+
+                {/* 7. DEAD END */}
+                <div className="p-2 sm:p-2.5 bg-[#971F26] text-white border-2 border-[#1C1D1D] rounded-md flex items-center justify-center gap-2 font-mono text-xs font-bold shadow-sm">
+                  <XOctagon className="w-4 h-4 text-white" />
+                  <span>DEAD END (PROGRAM BLOCKED)</span>
+                </div>
+
+                {/* ROUGH OXBLOOD ROUTE ARROW: OTHER WAY THROUGH */}
+                <div className="mt-4 pt-3 border-t-2 border-dashed border-[#971F26]">
                   <Link
                     href="/other-ways-through"
-                    className="group block p-3.5 bg-brand-paper border-2 border-brand-oxblood rounded-xl shadow-md hover:bg-brand-ivory transition-all"
+                    className="group block p-3 bg-[#F5F1E8] border-2 border-[#971F26] rounded-lg shadow-sm hover:bg-white transition-all"
                   >
-                    <div className="flex items-center justify-between text-brand-oxblood font-mono font-bold text-xs">
-                      <span className="flex items-center gap-1.5">
-                        <CornerDownRight className="w-4 h-4 text-brand-oxblood" />
+                    <div className="flex items-center justify-between font-mono font-bold text-xs text-[#971F26]">
+                      <span className="flex items-center gap-1.5 uppercase tracking-wider">
+                        <CornerDownRight className="w-4 h-4" />
                         <span>OTHER WAY THROUGH →</span>
                       </span>
-                      <span className="text-[10px] uppercase tracking-wider bg-red-100 text-brand-oxblood px-2 py-0.5 rounded font-mono">
+                      <span className="stamp-alert text-[9px] py-0.5">
                         LATERAL BYPASS
                       </span>
                     </div>
-                    <p className="text-[11px] text-stone-700 font-sans mt-1.5 leading-snug">
-                      Statutory escape rights · Industry emergency funds · Pet foster networks · FCC phone line separations
+
+                    {/* Handwritten Supporting Line */}
+                    <p className="field-annotation text-xs sm:text-sm font-handwriting text-stone-900 mt-1.5 leading-snug">
+                      &ldquo;There are other routes. We help you find them.&rdquo;
                     </p>
                   </Link>
                 </div>
@@ -178,9 +253,9 @@ export function HeroThesisSection() {
         </div>
       </div>
 
-      {/* Bottom Restrained Info Strip (Moved out of emotional center) */}
-      <div className="border-t border-brand-sand bg-brand-ivory/80 py-3 px-4 text-center mt-6">
-        <p className="text-[11px] sm:text-xs font-mono text-stone-600 max-w-4xl mx-auto leading-relaxed">
+      {/* Bottom Restrained Info Strip */}
+      <div className="border-t border-[#D9D1C4] bg-[#EEE8DD] py-2.5 px-4 text-center mt-6">
+        <p className="text-[10px] sm:text-[11px] font-mono text-stone-700 max-w-4xl mx-auto leading-relaxed">
           Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency service, or legal-services provider.
         </p>
       </div>

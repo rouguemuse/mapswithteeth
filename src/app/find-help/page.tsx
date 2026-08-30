@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { PUBLIC_RESOURCES } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
-import { Search, X, Info } from "lucide-react";
+import { Search, X, Info, Compass, SlidersHorizontal, ShieldAlert, Check } from "lucide-react";
 
 function FindHelpContent() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,13 +42,22 @@ function FindHelpContent() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 select-none font-sans">
       {/* Header */}
-      <div className="border-b border-brand-sand pb-6">
-        <span className="text-xs font-mono uppercase tracking-widest text-brand-oxblood font-bold block mb-1">
-          Public Resource Library · Central Texas Pilot
-        </span>
-        <h1 className="text-3xl font-serif font-bold text-brand-charcoal">
+      <div className="border-b border-[#D9D1C4] pb-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2 text-[#971F26]">
+            <Compass className="w-5 h-5" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+              BARRIER-FIRST EXPLORER · CENTRAL TEXAS PILOT & NATIONWIDE
+            </span>
+          </div>
+          <span className="coord-tick">
+            [CATALOG: 30 VERIFIED PATHWAYS]
+          </span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
           Resource Intelligence & Navigation
         </h1>
         <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-3xl leading-relaxed font-sans">
@@ -56,22 +65,22 @@ function FindHelpContent() {
         </p>
       </div>
 
-      {/* Filter Controls */}
-      <div className="bg-brand-paper border border-brand-sand rounded-xl p-5 space-y-4 shadow-sm">
+      {/* Filter Controls (Atlas Ledger Style) */}
+      <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-sm bg-grid-atlas">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="w-4 h-4 text-stone-400 absolute left-3 top-3" />
+          <Search className="w-4 h-4 text-stone-600 absolute left-3.5 top-3" />
           <input
             type="text"
             placeholder="Search by keyword, city, bill type, deliverable, or statute (e.g., 'gas', 'lease', 'deposit', 'Travis', '§ 92.016')..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-brand-ivory border border-stone-300 rounded-lg pl-9 pr-4 py-2 text-xs text-brand-charcoal placeholder-stone-500 focus:border-brand-oxblood focus:outline-none"
+            className="w-full bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md pl-10 pr-10 py-2.5 text-xs text-[#1C1D1D] placeholder-stone-600 focus:border-[#971F26] focus:outline-none font-mono font-medium"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-2.5 text-stone-400 hover:text-brand-charcoal"
+              className="absolute right-3.5 top-2.5 text-stone-500 hover:text-[#1C1D1D]"
             >
               <X className="w-4 h-4" />
             </button>
@@ -81,13 +90,13 @@ function FindHelpContent() {
         {/* Filter Selects & Checkboxes */}
         <div className="grid gap-3 sm:grid-cols-3">
           <div>
-            <label className="block text-[11px] text-stone-600 mb-1 font-mono uppercase font-bold">
+            <label className="block text-[11px] text-[#1C1D1D] mb-1 font-mono uppercase font-bold">
               Filter by Barrier:
             </label>
             <select
               value={selectedBarrier}
               onChange={(e) => setSelectedBarrier(e.target.value)}
-              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
             >
               <option value="ALL">All Barriers ({BARRIER_CATEGORIES.length})</option>
               {BARRIER_CATEGORIES.map((b) => (
@@ -99,13 +108,13 @@ function FindHelpContent() {
           </div>
 
           <div>
-            <label className="block text-[11px] text-stone-600 mb-1 font-mono uppercase font-bold">
+            <label className="block text-[11px] text-[#1C1D1D] mb-1 font-mono uppercase font-bold">
               Geographic Scope:
             </label>
             <select
               value={selectedScope}
               onChange={(e) => setSelectedScope(e.target.value)}
-              className="w-full bg-brand-ivory border border-stone-300 rounded-lg p-2 text-xs text-brand-charcoal focus:border-brand-oxblood"
+              className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
             >
               <option value="ALL">All Layers (Texas + Nationwide)</option>
               <option value="TEXAS">Texas Pilot & Statewide Remedies</option>
@@ -113,69 +122,85 @@ function FindHelpContent() {
             </select>
           </div>
 
-          <div className="flex flex-col justify-end gap-2 pt-1 font-sans">
-            <label className="flex items-center gap-2 text-xs text-stone-700 cursor-pointer">
+          <div className="flex flex-col justify-end gap-2 pt-1 font-mono text-xs">
+            <label className="flex items-center gap-2 cursor-pointer font-bold text-[#1C1D1D]">
               <input
                 type="checkbox"
                 checked={filterNoPolice}
                 onChange={(e) => setFilterNoPolice(e.target.checked)}
-                className="rounded bg-brand-ivory border-stone-300 text-brand-oxblood focus:ring-0"
+                className="rounded border-[#1C1D1D] text-[#971F26] focus:ring-[#971F26] w-4 h-4"
               />
               <span>No Police Report Required</span>
             </label>
-            <label className="flex items-center gap-2 text-xs text-stone-700 cursor-pointer">
+
+            <label className="flex items-center gap-2 cursor-pointer font-bold text-[#1C1D1D]">
               <input
                 type="checkbox"
                 checked={filterNoShelter}
                 onChange={(e) => setFilterNoShelter(e.target.checked)}
-                className="rounded bg-brand-ivory border-stone-300 text-brand-oxblood focus:ring-0"
+                className="rounded border-[#1C1D1D] text-[#971F26] focus:ring-[#971F26] w-4 h-4"
               />
-              <span>No DV Shelter Stay Required</span>
+              <span>No Shelter Stay Required</span>
             </label>
           </div>
         </div>
       </div>
 
-      {/* Results Header */}
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-mono text-stone-600 uppercase tracking-wider font-bold">
-          Showing <strong>{filteredResources.length}</strong> public resources in demonstration library
-        </span>
-      </div>
+      {/* Result Count and Grid */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+          <span className="text-xs font-mono text-stone-700 font-bold uppercase tracking-wider">
+            Showing {filteredResources.length} Filtered Pathways
+          </span>
+          {(searchQuery || selectedBarrier !== "ALL" || selectedScope !== "ALL" || filterNoPolice || filterNoShelter) && (
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedBarrier("ALL");
+                setSelectedScope("ALL");
+                setFilterNoPolice(false);
+                setFilterNoShelter(false);
+              }}
+              className="text-xs text-[#971F26] hover:underline font-mono font-bold"
+            >
+              Reset Filters
+            </button>
+          )}
+        </div>
 
-      {/* Resource Grid */}
-      {filteredResources.length > 0 ? (
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {filteredResources.map((resource) => (
-            <ResourceCard key={resource.id} resource={resource} />
-          ))}
-        </div>
-      ) : (
-        <div className="bg-brand-paper border border-brand-sand rounded-xl p-8 text-center space-y-3">
-          <Info className="w-6 h-6 text-stone-400 mx-auto" />
-          <p className="text-sm font-semibold text-brand-charcoal font-serif">No resources matched your current filter criteria.</p>
-          <p className="text-xs text-stone-600 font-sans">Try resetting the barrier or geography filter, or clearing search keywords.</p>
-          <button
-            onClick={() => {
-              setSearchQuery("");
-              setSelectedBarrier("ALL");
-              setSelectedScope("ALL");
-              setFilterNoPolice(false);
-              setFilterNoShelter(false);
-            }}
-            className="px-4 py-2 bg-brand-ivory border border-stone-300 text-xs font-mono text-brand-charcoal rounded hover:bg-stone-200"
-          >
-            Reset All Filters
-          </button>
-        </div>
-      )}
+        {filteredResources.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredResources.map((resource) => (
+              <ResourceCard key={resource.id} resource={resource} />
+            ))}
+          </div>
+        ) : (
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-8 text-center space-y-3">
+            <Info className="w-6 h-6 text-stone-500 mx-auto" />
+            <p className="text-base font-bold text-[#1C1D1D] font-serif">No resources matched the active filters.</p>
+            <p className="text-xs text-stone-600 font-mono">Try clearing your search query or selecting a broader barrier category.</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedBarrier("ALL");
+                setSelectedScope("ALL");
+                setFilterNoPolice(false);
+                setFilterNoShelter(false);
+              }}
+              className="px-4 py-2 bg-[#971F26] text-white rounded-md text-xs font-mono font-bold uppercase"
+            >
+              Reset All Filters
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export default function FindHelpPage() {
   return (
-    <React.Suspense fallback={<div className="p-8 text-center text-xs text-stone-500 font-mono">Loading resource directory...</div>}>
+    <React.Suspense fallback={<div className="p-10 font-mono text-xs">Loading resource library...</div>}>
       <FindHelpContent />
     </React.Suspense>
   );
