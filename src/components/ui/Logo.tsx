@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ interface LogoProps {
   variant?: "full" | "mark";
 }
 
-export function LogoIcon({ size = 40, className = "" }: { size?: number; className?: string }) {
+export function LogoIcon({ size = 48, className = "" }: { size?: number; className?: string }) {
   return (
     <div
       style={{ width: size, height: size }}
@@ -18,8 +18,8 @@ export function LogoIcon({ size = 40, className = "" }: { size?: number; classNa
       <Image
         src="/logo.png"
         alt="Maps With Teeth Icon"
-        width={360}
-        height={240}
+        width={600}
+        height={400}
         className="object-cover object-left h-full w-auto max-w-none mix-blend-multiply scale-125 origin-left"
         priority
       />
@@ -29,11 +29,11 @@ export function LogoIcon({ size = 40, className = "" }: { size?: number; classNa
 
 export function Logo({ size = "md", className = "", variant = "full" }: LogoProps) {
   const heightClasses = {
-    xs: "h-7 sm:h-8",
-    sm: "h-8 sm:h-9",
-    md: "h-9 sm:h-10",
-    lg: "h-12 sm:h-14",
-    xl: "h-16 sm:h-18",
+    xs: "h-8 sm:h-9",
+    sm: "h-10 sm:h-12",
+    md: "h-12 sm:h-14 md:h-16",
+    lg: "h-16 sm:h-20",
+    xl: "h-22 sm:h-28",
   };
 
   return (
@@ -41,8 +41,8 @@ export function Logo({ size = "md", className = "", variant = "full" }: LogoProp
       <Image
         src="/logo.png"
         alt="Maps With Teeth — Barrier-First Resource Intelligence"
-        width={600}
-        height={380}
+        width={800}
+        height={500}
         className={`w-auto ${heightClasses[size]} object-contain mix-blend-multiply group-hover:opacity-95 transition-opacity`}
         priority
       />

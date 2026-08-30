@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -23,9 +23,9 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
   return (
     <header className="bg-[#F5F1E8] text-[#1C1D1D] border-b border-[#D9D1C4] sticky top-0 z-40 backdrop-blur-md bg-opacity-95 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-18 gap-4 md:gap-8">
+        <div className="flex items-center justify-between h-18 sm:h-20 gap-4 md:gap-8">
           {/* Brand Block */}
-          <Link href="/" className="flex items-center shrink-0 py-1 focus:outline-none">
+          <Link href="/" className="flex items-center shrink-0 py-1.5 focus:outline-none">
             <Logo size="md" />
           </Link>
 
