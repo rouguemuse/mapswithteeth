@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MatchResult } from "@/data/matcher";
+import { MatchResult } from "@/data/dynamicMatcher";
 import { ResourceCard } from "../resources/ResourceCard";
 import { DenseResourceCard } from "@/components/other-ways-through/DenseResourceCard";
 import { FileText, Compass, ArrowRight, CornerDownRight, ShieldCheck, CheckCircle2, Loader2, Send } from "lucide-react";
@@ -268,6 +268,7 @@ export function InstantResults({
                 whySurfacedFact={m.matchReason}
                 matchCertainty={m.matchCertainty || (m.resource.isStatutoryRight ? "STATUTORY_RIGHT" : "LIKELY_MATCH")}
                 matchedTags={m.matchedTags}
+                evidenceRequired={m.evidenceRequired || m.resource.documentationRequired}
               />
             ))}
           </div>

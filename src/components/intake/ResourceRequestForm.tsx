@@ -1,11 +1,11 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
-import { matchIntakeToResources, MatchResult } from "@/data/matcher";
+import { matchIntakeDynamically, MatchResult } from "@/data/dynamicMatcher";
 import { ResourceIntakeData } from "@/types/intake";
 import { Step1Barrier } from "./Step1Barrier";
 import { Step2Work } from "./Step2Work";
-import { Step3Household } from "./Step3Household";
+import { Step3DynamicQuestions } from "./Step3DynamicQuestions";
 import { InstantResults } from "./InstantResults";
 import { Compass, ShieldCheck } from "lucide-react";
 
@@ -60,7 +60,7 @@ export function ResourceRequestForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const results = matchIntakeToResources(formData);
+    const results = matchIntakeDynamically(formData);
     setMatchResult(results);
     setSubmitted(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -146,7 +146,7 @@ export function ResourceRequestForm() {
           )}
 
           {step === 3 && (
-            <Step3Household
+            <Step3DynamicQuestions
               formData={formData}
               setFormData={setFormData}
               onSubmit={handleSubmit}

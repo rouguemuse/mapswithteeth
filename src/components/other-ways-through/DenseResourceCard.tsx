@@ -19,7 +19,8 @@ import {
   AlertTriangle,
   ExternalLink,
   BookOpen,
-  Info
+  Info,
+  FileText
 } from "lucide-react";
 
 interface DenseResourceCardProps {
@@ -27,6 +28,7 @@ interface DenseResourceCardProps {
   whySurfacedFact?: string;
   matchCertainty?: MatchCertainty | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
   matchedTags?: string[];
+  evidenceRequired?: string[];
   isSaved?: boolean;
   onToggleSave?: () => void;
 }
@@ -36,6 +38,7 @@ export function DenseResourceCard({
   whySurfacedFact,
   matchCertainty,
   matchedTags,
+  evidenceRequired,
   isSaved,
   onToggleSave,
 }: DenseResourceCardProps) {
@@ -221,6 +224,21 @@ export function DenseResourceCard({
             </div>
           </div>
         </div>
+
+        {/* Evidence & Verification Requirement (Distinguished from Eligibility) */}
+        {evidenceRequired && evidenceRequired.length > 0 && (
+          <div className="mt-3 pt-2.5 border-t border-[#D9D1C4] flex items-start gap-2 text-[11px] text-stone-800 bg-[#F5F1E8] p-2 rounded-xs border border-[#E5DEC9]">
+            <FileText className="w-3.5 h-3.5 text-stone-600 shrink-0 mt-0.5" />
+            <div className="leading-snug">
+              <strong className="text-[#1C1D1D] font-mono text-[9.5px] uppercase tracking-wider block">
+                Evidence / Documentation You May Need to Produce:
+              </strong>
+              <p className="text-stone-700 text-[10.5px]">
+                {evidenceRequired.join(" · ")}
+              </p>
+            </div>
+          </div>
+        )}
       </article>
 
       {/* Full Verification Docket Modal */}

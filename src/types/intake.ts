@@ -78,6 +78,7 @@ export interface ResourceIntakeData {
   professionalAffiliations?: string[];
 
   // 3. Conditional Detailed Facts (Step 3 - Triggered by Program Families)
+  hospitalityWeeklyHours?: "UNDER_30" | "30_PLUS" | "UNSURE";
   hospitalityHoursPerWeek?: "UNDER_30" | "30_PLUS" | "UNSURE";
   hospitalityTenureMonths?: "UNDER_3_MO" | "3_TO_5_MO" | "6_PLUS_MO";
   hospitalityRecentWork90Days?: boolean;

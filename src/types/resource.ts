@@ -1,3 +1,5 @@
+import { ResourceTrigger, ResourceRequirement, ResourceExclusion } from "./qualification";
+
 export type AssistanceShape =
   | "DIRECT_CASH"
   | "REIMBURSEMENT"
@@ -150,9 +152,15 @@ export interface Resource {
   category?: string;
   matchTags: string[];
 
-  // Structured Deterministic Eligibility Criteria
+  // 4 Core Resource-Driven Qualification Concepts
+  triggers?: ResourceTrigger[];
+  requirements?: ResourceRequirement[];
+  exclusions?: ResourceExclusion[];
+  evidenceRequired?: string[];
+
+  // Structured Deterministic Eligibility Criteria (legacy / helper)
   eligibilityCriteria?: ResourceEligibilityCriterion[];
-  qualifierFamily?: string; // e.g. "HOSPITALITY", "MUSIC", "PETS", "TELECOM", "TEXAS_STATUTE", "PUBLIC_SCHOOL", "WRITING"
+  qualifierFamily?: string;
 
   // What it can actually help pay for or accomplish
   whatItCanHelpWith: string;
@@ -223,4 +231,5 @@ export interface ResourceMatch {
   exclusionaryCriteria?: EvaluatedCriterion[];
   auditSentences?: string[];
   triggeringFacts?: string[];
+  evidenceRequired?: string[];
 }
