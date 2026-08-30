@@ -1,10 +1,17 @@
-﻿export interface FieldNote {
+﻿export type CredibilityState =
+  | "DIRECTLY_CONFIRMED"
+  | "PRACTITIONER_REPORTED"
+  | "UNCONFIRMED_FIELD_NOTE";
+
+export interface FieldNote {
   id: string;
   quote: string;
   sourceRole: string;
   location: string;
   timeAgo: string;
   category: "SHELTER" | "PETS" | "SCHOOLS" | "LEGAL" | "UTILITIES" | "HOSPITALITY" | "TRANSPORT";
+  credibilityState: CredibilityState;
+  credibilityLabel: string;
   verifiedStatuteOrProgram?: string;
 }
 
@@ -16,6 +23,9 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Central Texas",
     timeAgo: "2d ago",
     category: "SHELTER",
+    credibilityState: "PRACTITIONER_REPORTED",
+    credibilityLabel: "PRACTITIONER REPORTED",
+    verifiedStatuteOrProgram: "Central TX Shelter Protocol",
   },
   {
     id: "fn-2",
@@ -24,6 +34,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Texas",
     timeAgo: "5d ago",
     category: "PETS",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "RedRover Safe Escape / APA PASS",
   },
   {
@@ -33,6 +45,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Public School District",
     timeAgo: "1w ago",
     category: "SCHOOLS",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "McKinney-Vento Act (42 U.S.C. § 11431)",
   },
   {
@@ -42,15 +56,19 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Federal / Nationwide",
     timeAgo: "3d ago",
     category: "LEGAL",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "47 U.S.C. § 345 / 47 CFR Part 64",
   },
   {
     id: "fn-5",
-    quote: "Food & beverage hardship grants pay landlords and electric utilities directly within 72 hours once 6-month culinary paystubs are verified.",
+    quote: "Food & beverage hardship grants pay landlords and electric utilities directly within 72 hours once culinary paystubs are verified.",
     sourceRole: "Hospitality Mutual Aid Organizer",
     location: "Nationwide",
     timeAgo: "1w ago",
     category: "HOSPITALITY",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "Giving Kitchen / Southern Smoke",
   },
   {
@@ -60,6 +78,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Texas ERCOT Region",
     timeAgo: "2w ago",
     category: "UTILITIES",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "Texas PUC Subst. R. § 25.478",
   },
   {
@@ -69,6 +89,19 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Travis & Williamson Cos.",
     timeAgo: "3w ago",
     category: "LEGAL",
+    credibilityState: "DIRECTLY_CONFIRMED",
+    credibilityLabel: "DIRECTLY CONFIRMED",
     verifiedStatuteOrProgram: "Tex. Prop. Code § 92.016",
   },
+  {
+    id: "fn-8",
+    quote: "County-line address mismatches often trigger automatic hotline declines. Asking for 'cross-county reciprocal shelter placement' forces intake to check partner shelter beds.",
+    sourceRole: "Crisis Line Worker",
+    location: "Texas Regional",
+    timeAgo: "4d ago",
+    category: "SHELTER",
+    credibilityState: "UNCONFIRMED_FIELD_NOTE",
+    credibilityLabel: "UNCONFIRMED FIELD NOTE",
+    verifiedStatuteOrProgram: "Inter-Agency Reciprocal Network",
+  }
 ];

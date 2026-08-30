@@ -77,8 +77,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "name": "Giving Kitchen Emergency Financial Assistance",
     "organization": "Giving Kitchen",
     "state": "US",
-    "geography": "Nationwide (Food Service)",
-    "scope": "NATIONWIDE",
+    "geography": "Select States (GA, TN, NC, SC) · Stability Network (Nationwide)",
+    "scope": "SELECT_STATES",
+    "availabilityBadge": "SELECT STATES",
     "category": "INDUSTRY_EMERGENCY_FUNDS",
     "barrierCategories": [
       "industry-hardship",
@@ -105,7 +106,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "paymentMethod": "DIRECT_TO_VENDOR",
     "typicalAmount": "$500 to $2,500 for rent and utility payments",
     "knownFundingLimits": "Covers monthly housing and utility bills paid directly to creditors",
-    "eligibility": "Food service workers (restaurants, catering, concessions, cafeteria, bar) who have worked in food service for at least 6 continuous months and experienced a qualifying crisis.",
+    "eligibility": "Food service workers (restaurants, catering, concessions, cafeteria, bar) who have worked in food service for at least 6 continuous months and experienced a qualifying crisis within the defined application window.",
     "documentationRequired": [
       "Proof of food service employment (paystubs showing 6+ months in food service)",
       "Copy of current residential lease agreement",
@@ -119,9 +120,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "Foodservice industry (minimum 6 months)",
     "applicationWindow": "Year-round application portal",
     "whatCanBlockAccess": [
-      "Strictly limited to food service workers",
-      "Requires landlord cooperation to receive vendor payment",
-      "Does not pay debt, phone bills, or disburse direct cash to applicant"
+      "Direct financial relief grants prioritized for food service workers in GA, TN, NC, SC (and expanding regional rollouts)",
+      "Stability Network case navigation is nationwide; direct cash/vendor assistance depends on regional funding capacity",
+      "Requires landlord/utility vendor cooperation to receive direct check/ACH disbursement"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -135,9 +136,12 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Giving Kitchen 501(c)(3) Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
     "isStatutoryRight": false,
-    "notes": "Dedicated safety net for foodservice workers nationwide."
+    "whyMissed": "Most people assume emergency rental help only comes from county social services or 211 waitlists.",
+    "workaround": "Food service workers in eligible states bypass municipal backlogs through direct-to-landlord benevolence grants.",
+    "accessNotes": "Direct financial aid prioritized in GA, TN, NC, SC; Stability Network navigation available nationwide.",
+    "notes": "Dedicated safety net for foodservice workers."
   },
   {
     "id": "core-children-of-restaurant-employees",
@@ -175,24 +179,25 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     ],
     "paymentMethod": "DIRECT_TO_VENDOR",
     "typicalAmount": "$1,000 to $4,000 for family living and medical expenses",
-    "knownFundingLimits": "Based on documented family need and vendor invoices",
-    "eligibility": "Food and beverage employees with at least one legal dependent child (18 or under) who have worked in food/beverage for at least 3 months and experienced a qualifying crisis.",
+    "knownFundingLimits": "Based on documented family need and vendor invoices; one lifetime grant per family",
+    "eligibility": "Parent, legal guardian, or primary caregiver supporting a legal dependent child (18 or under, or legal adult dependent with disability) who currently works in food/beverage or worked in food/beverage within the past 90 days (or documented qualifying leave), and experienced a qualifying crisis within 90 days.",
     "documentationRequired": [
-      "Proof of food/beverage employment (recent paystub)",
+      "Proof of food/beverage employment within past 90 days (recent paystub or leave documentation)",
       "Proof of legal dependency for child (birth certificate, tax return, or custody order)",
-      "Documentation of qualifying crisis event",
+      "Documentation of qualifying crisis event (medical record, police/advocate report, natural disaster)",
       "Itemized invoices for rent, utilities, or medical bills"
     ],
     "referralRequirement": "None (self-apply online)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "Demonstrated financial hardship",
-    "employmentDependency": "Food & Beverage service with at least 1 dependent child",
-    "applicationWindow": "Year-round intake",
+    "employmentDependency": "Food & Beverage service (past 90 days) supporting at least 1 dependent child",
+    "applicationWindow": "Within 90 days of qualifying crisis event",
     "whatCanBlockAccess": [
-      "Must have legal custody of at least one minor child (18 or under)",
-      "Food & beverage employment required",
-      "Direct vendor payment model"
+      "Must support a legal dependent child (18 or under, or adult child with disability)",
+      "Food & beverage employment required within past 90 days or on documented qualifying leave",
+      "Qualifying circumstance must have occurred within the past 90 days (domestic violence is qualifying)",
+      "Limited to one Crisis Stabilization Grant per family lifetime under currently published criteria"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -203,11 +208,14 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "whatToDoNext": "Apply online at coregives.org/apply/ and submit child dependency and employment proof.",
     "howToApply": "Apply online at coregives.org/apply/.",
     "sourceUrl": "https://coregives.org/apply/",
-    "primaryAuthoritativeSource": "CORE Gives 501(c)(3) Program Guidelines",
+    "primaryAuthoritativeSource": "CORE Gives 501(c)(3) Published Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
     "isStatutoryRight": false,
+    "whyMissed": "Culinary workers rarely realize their industry has an endowed family foundation that helps with rent and bills.",
+    "workaround": "Direct foundation grant paid to housing and utility providers with zero DV shelter stay required.",
+    "accessNotes": "Requires food/bev work in past 90 days, dependent minor child, and crisis within 90 days. One lifetime grant per family.",
     "notes": "Specialized assistance for restaurant workers supporting minor children."
   },
   {
