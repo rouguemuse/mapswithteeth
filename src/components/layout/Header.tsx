@@ -18,6 +18,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     { name: "How We Research", href: "/how-we-research" },
     { name: "About", href: "/about" },
     { name: "Feedback", href: "/feedback" },
+    { name: "Support", href: "/support" },
   ];
 
   return (
@@ -178,6 +179,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               }`}
             >
               Feedback & Pressure Testing
+            </Link>
+            <Link
+              href="/support"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
+                pathname === "/support" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
+              }`}
+            >
+              Support the Work
             </Link>
             <Link
               href="/build-with-us"

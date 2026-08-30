@@ -17,7 +17,7 @@ export function StripeDonationModule() {
   const [customAmount, setCustomAmount] = useState<string>("");
   const [showConfigNotice, setShowConfigNotice] = useState(false);
 
-  // Universal Stripe Payment Links (Customers choose what to pay)
+  // Universal Stripe Payment Links (read from environment variables)
   const universalOneTimeUrl = process.env.NEXT_PUBLIC_STRIPE_ONETIME_URL;
   const universalMonthlyUrl = process.env.NEXT_PUBLIC_STRIPE_MONTHLY_URL;
 
@@ -111,7 +111,8 @@ export function StripeDonationModule() {
       setShowConfigNotice(true);
       return;
     }
-    window.open(url, "_blank", "noopener,noreferrer");
+    // Open checkout in the same tab as requested
+    window.location.href = url;
   };
 
   return (
@@ -127,11 +128,11 @@ export function StripeDonationModule() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Fund Independent Barrier Intelligence
+          Help fund the paths between the gaps.
         </h2>
 
         <p className="text-base text-stone-800 max-w-3xl leading-relaxed font-sans font-medium">
-          Maps With Teeth is independent and ad-free. We do not sell user data, charge frontline caseworkers, or accept pay-for-placement directory sponsorships. Community contributions directly fund rigorous field verification and the Central Texas Survivor Gap Fund.
+          Maps With Teeth is being built and pressure-tested as an independent public-interest initiative. Support helps fund resource verification, field research, infrastructure, and the development of tools designed to make fragmented systems easier to navigate.
         </p>
       </div>
 
@@ -206,7 +207,7 @@ export function StripeDonationModule() {
             })}
           </div>
 
-          {/* Custom Amount / Pick Your Amount Input */}
+          {/* Custom Amount / Pick Your Amount Input (One-time) */}
           <div className="pt-2">
             <div
               onClick={() => {
@@ -267,12 +268,12 @@ export function StripeDonationModule() {
               <span>Stripe Payment Link Required</span>
             </div>
             <p className="font-sans leading-relaxed text-stone-800">
-              To activate direct payments, generate a Payment Link in your Stripe Dashboard (with <em>&quot;Customers choose what to pay&quot;</em> enabled) and add <code>NEXT_PUBLIC_STRIPE_ONETIME_URL</code> and <code>NEXT_PUBLIC_STRIPE_MONTHLY_URL</code> to your environment variables.
+              To activate direct checkout, create a Payment Link in your Stripe Dashboard and set <code>NEXT_PUBLIC_STRIPE_ONETIME_URL</code> and <code>NEXT_PUBLIC_STRIPE_MONTHLY_URL</code> in your environment variables.
             </p>
           </div>
         )}
 
-        {/* Action Button: Checkout with Stripe */}
+        {/* Action Button: Checkout with Stripe (Same Tab) */}
         <form onSubmit={handleProceedToStripe} className="pt-2">
           <button
             type="submit"
@@ -286,19 +287,22 @@ export function StripeDonationModule() {
 
           <p className="text-xs text-stone-600 font-mono text-center mt-3 flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-700 inline" />
-            <span>256-bit encrypted checkout handled securely by Stripe. No card data touches our servers.</span>
+            <span>256-bit encrypted checkout hosted securely by Stripe. No card information is collected on our servers.</span>
           </p>
         </form>
       </div>
 
-      {/* Financial Transparency & Fiduciary Notice */}
+      {/* Required Legal Disclosure and Fiduciary Boundary */}
       <div className="max-w-2xl mx-auto p-5 bg-[#F5F1E8] border border-[#D9D1C4] rounded-xl text-xs sm:text-[13px] text-stone-800 font-mono space-y-2 shadow-2xs">
         <div className="flex items-center gap-2 text-[#1C1D1D] font-bold uppercase text-xs">
           <Info className="w-4 h-4 text-[#971F26]" />
-          <span>Fiduciary Disclosure & Receipt Protocol</span>
+          <span>Fiduciary Disclosure & Tax Notice</span>
         </div>
         <p className="leading-relaxed font-sans text-stone-800">
-          Maps With Teeth is currently preparing its launch under comprehensive fiscal sponsorship. Stripe receipts are automatically generated and emailed immediately upon checkout. For institutional grants, corporate matching, or donor-advised funds (DAFs), please contact <strong>hello@mapswithteeth.org</strong>.
+          Maps With Teeth is an independent public-interest initiative in development and is not currently a 501(c)(3). Contributions are not currently tax-deductible unless otherwise stated.
+        </p>
+        <p className="text-[11px] font-sans text-stone-600 italic pt-1 border-t border-[#D9D1C4]">
+          Contributions support ongoing open research, verification, and digital safety tools. They do not purchase services, guarantee individual assistance, or grant priority access to emergency resources.
         </p>
       </div>
     </div>

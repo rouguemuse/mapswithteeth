@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { HeroThesisSection } from "@/components/home/HeroThesisSection";
 import { WhatAreYouTryingToSolveSection } from "@/components/home/WhatAreYouTryingToSolveSection";
 import { BuildAWayThroughSection } from "@/components/home/BuildAWayThroughSection";
@@ -6,6 +6,7 @@ import { TheTeethSection } from "@/components/home/TheTeethSection";
 import { TexasVsNationwideSection } from "@/components/home/TexasVsNationwideSection";
 import { HowWeKnowSection } from "@/components/home/HowWeKnowSection";
 import { BuiltTestingProposedSection } from "@/components/home/BuiltTestingProposedSection";
+import { HomeSupportSection } from "@/components/home/HomeSupportSection";
 import { BridgeSection } from "@/components/home/BridgeSection";
 import { StakeholderFeedbackSection } from "@/components/feedback/StakeholderFeedbackSection";
 
@@ -45,12 +46,17 @@ export default function HomePage() {
         <BuiltTestingProposedSection />
       </section>
 
-      {/* 8. Bridge / Continuity Architecture */}
+      {/* 8. Help Fund the Paths Between the Gaps (Direct Support) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HomeSupportSection />
+      </section>
+
+      {/* 9. Bridge / Continuity Architecture */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <BridgeSection />
       </section>
 
-      {/* 9. Pressure-Test the Model / Stakeholder & Community Feedback */}
+      {/* 10. Pressure-Test the Model / Stakeholder & Community Feedback */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StakeholderFeedbackSection />
       </section>
