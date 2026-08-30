@@ -69,7 +69,7 @@ export function HowWeKnowSection() {
                   <span>{t.tier}</span>
                 </div>
 
-                <p className="text-sm text-stone-900 font-sans leading-relaxed">
+                <p className="text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed font-normal">
                   {t.description}
                 </p>
               </div>

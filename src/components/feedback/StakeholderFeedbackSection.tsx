@@ -132,7 +132,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Jane Doe"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
@@ -147,7 +147,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="jane@example.org"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
@@ -161,7 +161,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Agency, Union, Advocate, or Independent"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
@@ -194,7 +194,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Describe the discrepancy between paper eligibility and actual intake..."
                 value={formData.whereWouldThisFail}
                 onChange={(e) => setFormData({ ...formData, whereWouldThisFail: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 placeholder:italic focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
@@ -208,7 +208,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Mention unwritten documentation requirements, funding freezes, disconnected numbers, or waitlist closures..."
                 value={formData.missingSystemsOrStakeholders}
                 onChange={(e) => setFormData({ ...formData, missingSystemsOrStakeholders: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 placeholder:italic focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
@@ -222,7 +222,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Share lateral funds, union benevolent accounts, ministerial relief, or legal escape clauses that succeeded..."
                 value={formData.whatMakesThisUsefulToFrontline}
                 onChange={(e) => setFormData({ ...formData, whatMakesThisUsefulToFrontline: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] placeholder:text-stone-500 placeholder:italic focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
           </div>

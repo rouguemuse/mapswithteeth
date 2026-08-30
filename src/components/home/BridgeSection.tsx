@@ -33,7 +33,7 @@ export function BridgeSection() {
 
         <div className="p-4 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
           <span className="text-[#971F26] font-bold block uppercase text-xs">CLARIFICATION 02</span>
-          <p className="font-bold text-base text-[#1C1D1D] font-serif">Not fact-finding.</p>
+          <p className="font-bold text-base text-[#1C1D1D] font-serif">Not a finding.</p>
           <p className="text-xs sm:text-sm text-stone-700 font-sans leading-normal">Not a determination that someone&apos;s allegations are true or false.</p>
         </div>
 

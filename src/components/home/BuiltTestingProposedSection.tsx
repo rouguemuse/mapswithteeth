@@ -43,32 +43,32 @@ export function BuiltTestingProposedSection() {
             </p>
           </div>
 
-          <ul className="space-y-2.5 text-sm sm:text-[14.5px] text-stone-900 font-sans">
-            <li className="flex items-start gap-2">
+          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Barrier-first resource search</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Texas Deep Dive (statutes & Central TX counties)</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Other Ways Through (national & industry funds)</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Friction tagging & access conditions</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Verification & evidence status metadata</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Ask Us to Look (structured gap intake)</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Community feedback & pressure testing</span>
             </li>
@@ -96,28 +96,28 @@ export function BuiltTestingProposedSection() {
             </p>
           </div>
 
-          <ul className="space-y-2.5 text-sm sm:text-[14.5px] text-stone-900 font-sans">
-            <li className="flex items-start gap-2">
+          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Deeper county-level verification (Travis, WilCo, Harris)</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Tracking where referrals fail in real-world practice</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Eligibility and intake friction monitoring</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Resource availability & funding freeze changes</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Pathway outcomes and verification auditing</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Handoff and context-loss patterns across systems</span>
             </li>
@@ -145,24 +145,24 @@ export function BuiltTestingProposedSection() {
             </p>
           </div>
 
-          <ul className="space-y-2.5 text-sm sm:text-[14.5px] text-stone-900 font-sans">
-            <li className="flex items-start gap-2">
+          <ul className="space-y-3 text-sm sm:text-[14.5px] text-stone-900 font-sans leading-relaxed">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Bridge / Continuity Receipt pilot</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Structured cross-agency handoff methods</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Survivor-controlled Organizer & context tools</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Institutional partner casework workflows</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2.5">
               <span className="text-[#971F26] font-bold font-mono">•</span>
               <span>Stronger zero-knowledge privacy & security architecture</span>
             </li>
