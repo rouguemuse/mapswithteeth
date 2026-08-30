@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { Heart, ShieldCheck, DollarSign, Calendar, ArrowRight, Sparkles, ExternalLink, Info, AlertCircle } from "lucide-react";
@@ -17,9 +17,10 @@ export function StripeDonationModule() {
   const [customAmount, setCustomAmount] = useState<string>("");
   const [showConfigNotice, setShowConfigNotice] = useState(false);
 
-  // Universal Stripe Payment Links (read from environment variables)
-  const universalOneTimeUrl = process.env.NEXT_PUBLIC_STRIPE_ONETIME_URL;
-  const universalMonthlyUrl = process.env.NEXT_PUBLIC_STRIPE_MONTHLY_URL;
+  // Universal Stripe Payment Links (read from environment variables with live default)
+  const LIVE_STRIPE_DONATION_URL = "https://donate.stripe.com/6oU14p4Ar4aY5mSazz9oc00";
+  const universalOneTimeUrl = process.env.NEXT_PUBLIC_STRIPE_ONETIME_URL || LIVE_STRIPE_DONATION_URL;
+  const universalMonthlyUrl = process.env.NEXT_PUBLIC_STRIPE_MONTHLY_URL || LIVE_STRIPE_DONATION_URL;
 
   const oneTimeTiers: DonationTier[] = [
     {

@@ -1,9 +1,9 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { Heart, ArrowRight, ShieldCheck, ExternalLink, Info } from "lucide-react";
 
 export function HomeSupportSection() {
-  const stripeUrl = process.env.NEXT_PUBLIC_STRIPE_ONETIME_URL;
+  const stripeUrl = process.env.NEXT_PUBLIC_STRIPE_ONETIME_URL || "https://donate.stripe.com/6oU14p4Ar4aY5mSazz9oc00";
 
   return (
     <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 shadow-sm space-y-6 select-none font-sans relative overflow-hidden bg-grid-atlas">
