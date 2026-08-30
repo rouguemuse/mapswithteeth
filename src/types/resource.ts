@@ -1,4 +1,4 @@
-﻿export type AssistanceShape =
+export type AssistanceShape =
   | "DIRECT_CASH"
   | "REIMBURSEMENT"
   | "VENDOR_PAYMENT"
@@ -155,6 +155,13 @@ export interface Resource {
   industrySpecific?: string[];
   petSpecific?: boolean;
   childrenSpecific?: boolean;
+
+  // Dense Operational Intelligence Fields (Mockup Alignment)
+  whyMissed?: string;
+  workaround?: string;
+  accessNotes?: string;
+  badgeLabels?: string[];
+  matchCertainty?: "LIKELY_MATCH" | "WORTH_CHECKING" | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
 }
 
 export interface ResourceMatch {
@@ -162,4 +169,5 @@ export interface ResourceMatch {
   matchedTags: string[];
   matchReason: string;
   matchType: "LOCATION" | "WORK_HISTORY" | "PET" | "FAMILY" | "TRANSPORTATION" | "BARRIER_EXPENSE" | "NATIONWIDE";
+  matchCertainty?: "LIKELY_MATCH" | "WORTH_CHECKING" | "STATUTORY_RIGHT" | "RESEARCHED_WORKAROUND";
 }

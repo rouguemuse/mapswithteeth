@@ -1,8 +1,9 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { MatchResult } from "@/data/matcher";
 import { ResourceCard } from "../resources/ResourceCard";
+import { DenseResourceCard } from "@/components/other-ways-through/DenseResourceCard";
 import { FileText, Compass, ArrowRight, CornerDownRight, ShieldCheck, CheckCircle2, Loader2, Send } from "lucide-react";
 
 export function InstantResults({
@@ -254,12 +255,13 @@ export function InstantResults({
         </div>
 
         {matchResult.matches.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-3.5">
             {matchResult.matches.map((m) => (
-              <ResourceCard
+              <DenseResourceCard
                 key={m.resource.id}
                 resource={m.resource}
-                matchReason={m.matchReason}
+                whySurfacedFact={m.matchReason}
+                matchCertainty={m.matchCertainty || (m.resource.isStatutoryRight ? "STATUTORY_RIGHT" : "LIKELY_MATCH")}
                 matchedTags={m.matchedTags}
               />
             ))}

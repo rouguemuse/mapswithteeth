@@ -1,211 +1,339 @@
-"use client";
+﻿"use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import { OTHER_WAYS_THROUGH_RESOURCES } from "@/data/otherWaysThrough";
-import { ResourceCard } from "@/components/resources/ResourceCard";
+import { PUBLIC_RESOURCES } from "@/data/resources";
+import { DenseResourceCard } from "@/components/other-ways-through/DenseResourceCard";
+import { FieldNotesRail } from "@/components/other-ways-through/FieldNotesRail";
+import { Resource } from "@/types/resource";
 import {
-  Briefcase,
+  Search,
+  X,
   Compass,
+  SlidersHorizontal,
+  Bookmark,
+  Info,
   ArrowRight,
-  CornerDownRight,
-  AlertTriangle,
-  XOctagon,
   ShieldCheck,
-  Zap,
-  Info
+  CheckCircle2,
+  FileText,
+  HelpCircle,
+  Sparkles,
+  Layers,
+  FileCheck,
+  Moon,
+  Clock,
+  ShieldAlert,
+  PawPrint,
+  MapPin,
+  Smartphone,
+  Car,
+  IdCard
 } from "lucide-react";
 
 export default function OtherWaysThroughPage() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("ALL");
+  const [searchQuery, setSearchQuery] = useState<string>("Transportation loss + housing instability + safety concerns");
+  const [selectedBarriers, setSelectedBarriers] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<string>("relevant");
+  const [savedDockets, setSavedDockets] = useState<string[]>([]);
 
-  const routeExamples = [
-    {
-      title: "Hospitality / Food & Beverage Worker in Eviction Crisis",
-      standard: "211 Municipal Rent Assistance",
-      barrier: "30-day intake backlog / Monthly funding allocation exhausted within 4 hours",
-      deadEnd: "Notice to Vacate Issued",
-      alternate: "Southern Smoke Foundation / Giving Kitchen Emergency Grant",
-      alternateType: "Industry Hardship ($1,000–$2,500 Direct to Landlord)",
-      action: "Requires 6+ months in F&B, 30+ hrs/wk; proof of unforeseen crisis.",
-    },
-    {
-      title: "Survivor Trapped by Companion Dog / Cat",
-      standard: "Local Domestic Violence Shelter Intake",
-      barrier: "Congregate facility strictly prohibits companion animals / No on-site kennels",
-      deadEnd: "Forced to Abandon Pet or Remain in Danger",
-      alternate: "RedRover Relief Safe Escape + Safe Havens Network",
-      alternateType: "Dedicated Boarding Grant (Up to 45 Days)",
-      action: "Advocate applies on survivor behalf; grant pays commercial boarding/vet directly.",
-    },
-    {
-      title: "Shared Family Phone Account / Mobile Stalking",
-      standard: "Carrier Retail Customer Service Counter",
-      barrier: "Carrier refuses line change without primary account holder consent/password",
-      deadEnd: "Survivor Device Monitored via Shared Cloud",
-      alternate: "Federal Safe Connections Act (47 U.S.C. § 345 / 47 CFR § 64)",
-      alternateType: "Mandatory Statutory Separation (2 Business Days)",
-      action: "Submit survivor documentation letter; carrier must separate line without penalty + Lifeline.",
-    },
-    {
-      title: "Coerced Debt & Shared Joint Tax Interception",
-      standard: "Standard Annual Tax Filing",
-      barrier: "Abuser files fraudulent joint return / Intercepts child tax credit refund",
-      deadEnd: "IRS Audit & Coerced Tax Liability",
-      alternate: "IRS Identity Protection PIN (IP PIN) + Form 8857 Innocent Spouse",
-      alternateType: "Federal Tax Shield (§ 6015)",
-      action: "Opt into 6-digit IP PIN to block unauthorized returns; file Form 8857 for liability separation.",
-    },
+  // Combined verified resource catalog for Other Ways Through
+  const catalog: Resource[] = useMemo(() => {
+    const map = new Map<string, Resource>();
+    OTHER_WAYS_THROUGH_RESOURCES.forEach((r) => map.set(r.id, r));
+    PUBLIC_RESOURCES.forEach((r) => {
+      if (!map.has(r.id)) map.set(r.id, r);
+    });
+    return Array.from(map.values());
+  }, []);
+
+  const barrierOptions = [
+    { id: "no-id", label: "No ID / Docs", icon: <IdCard className="w-3.5 h-3.5" /> },
+    { id: "no-car", label: "No Car / Transit Lost", icon: <Car className="w-3.5 h-3.5" /> },
+    { id: "after-hours", label: "After-Hours", icon: <Moon className="w-3.5 h-3.5" /> },
+    { id: "waitlist-issue", label: "Waitlist Issue", icon: <Clock className="w-3.5 h-3.5" /> },
+    { id: "coercive-control", label: "Coercive Control", icon: <ShieldAlert className="w-3.5 h-3.5" /> },
+    { id: "pet-barrier", label: "Pet Barrier", icon: <PawPrint className="w-3.5 h-3.5" /> },
+    { id: "county-mismatch", label: "County Mismatch", icon: <MapPin className="w-3.5 h-3.5" /> },
+    { id: "phone-unsafe", label: "Phone Unsafe / Monitored", icon: <Smartphone className="w-3.5 h-3.5" /> },
   ];
 
-  const filtered = OTHER_WAYS_THROUGH_RESOURCES.filter((r) => {
-    if (selectedFilter === "ALL") return true;
-    if (selectedFilter === "INDUSTRY") return r.category === "INDUSTRY_EMERGENCY_FUNDS" || r.barrierCategories.includes("industry-hardship");
-    if (selectedFilter === "PETS") return r.category === "PETS_AND_FAMILY" || r.barrierCategories.includes("pets");
-    if (selectedFilter === "COMMUNICATIONS") return r.category === "COMMUNICATIONS_AND_PRIVACY" || r.barrierCategories.includes("phone-tech-safety");
-    if (selectedFilter === "TAXES_LEGAL") return r.category === "TAXES_AND_LEGAL" || r.barrierCategories.includes("taxes-identity-docs");
-    if (selectedFilter === "DENTAL_MEDICAL") return r.category === "MEDICAL_AND_DENTAL" || r.barrierCategories.includes("medical-dental");
-    if (selectedFilter === "GRANTS") return r.category === "EMERGENCY_FINANCIAL_AID" || r.paymentMethod === "DIRECT_TO_APPLICANT" || r.paymentMethod === "DIRECT_TO_VENDOR";
-    return true;
-  });
+  const toggleBarrier = (id: string) => {
+    setSelectedBarriers((prev) => {
+      const next = prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id];
+      // Update natural search query string to reflect active levers
+      if (next.length === 0) {
+        setSearchQuery("");
+      } else {
+        const labels = next.map((bId) => barrierOptions.find((o) => o.id === bId)?.label || bId);
+        setSearchQuery(labels.join(" + "));
+      }
+      return next;
+    });
+  };
+
+  const clearFilters = () => {
+    setSelectedBarriers([]);
+    setSearchQuery("");
+  };
+
+  const toggleSaveDocket = (id: string) => {
+    setSavedDockets((prev) =>
+      prev.includes(id) ? prev.filter((d) => d !== id) : [...prev, id]
+    );
+  };
+
+  // Filter and sort catalog
+  const filteredResources = useMemo(() => {
+    let list = catalog;
+
+    // Filter by situational barrier pills
+    if (selectedBarriers.length > 0) {
+      list = list.filter((r) => {
+        const tags = (r.matchTags || []).map((t) => t.toLowerCase());
+        const cats = (r.barrierCategories || []).map((c) => c.toLowerCase());
+        const frictions = (r.accessFrictions || []).map((f) => f.toLowerCase());
+        const id = r.id.toLowerCase();
+
+        return selectedBarriers.some((b) => {
+          if (b === "no-id") return frictions.includes("no_id") || tags.includes("id_flexible") || !frictions.includes("identity_documents");
+          if (b === "no-car") return tags.includes("gas") || tags.includes("bus") || tags.includes("transit") || tags.includes("rideshare") || tags.includes("transport") || cats.includes("transportation");
+          if (b === "pet-barrier") return r.petSpecific || tags.includes("pets") || tags.includes("pet") || tags.includes("dog") || tags.includes("cat") || cats.includes("pets");
+          if (b === "phone-unsafe") return id.includes("connection") || tags.includes("phone") || tags.includes("tech_safety") || cats.includes("phone-tech-safety");
+          if (b === "county-mismatch") return r.scope === "NATIONWIDE" || r.scope === "TEXAS_STATEWIDE";
+          if (b === "coercive-control") return r.isStatutoryRight || tags.includes("statutory_right") || id.includes("prop-code") || id.includes("connection");
+          if (b === "waitlist-issue") return !frictions.includes("waitlist_possible") || r.isStatutoryRight;
+          if (b === "after-hours") return tags.includes("same_day") || frictions.includes("same_day_possible");
+          return true;
+        });
+      });
+    }
+
+    // Filter by search query if user typed custom keywords
+    if (searchQuery.trim() && selectedBarriers.length === 0) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter((r) => {
+        const text = `${r.name} ${r.organization} ${r.whatItCanHelpWith} ${r.whatItActuallyProvides} ${r.eligibility} ${r.statuteCitation || ""}`.toLowerCase();
+        return text.includes(q);
+      });
+    }
+
+    return list;
+  }, [catalog, selectedBarriers, searchQuery]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
-      {/* Editorial Header */}
-      <div className="border-b border-[#D9D1C4] pb-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 select-none font-sans">
+      
+      {/* 1. Header & Breadcrumb Tracker */}
+      <div className="border-b border-[#D9D1C4] pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
           <div className="flex items-center gap-2 text-[#971F26]">
-            <Compass className="w-5 h-5" />
+            <Compass className="w-4 h-4" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              LAYER 2 · CONDITION-DEPENDENT ESCAPE ROUTES
+              LATERAL INTELLIGENCE ENGINE · CENTRAL TEXAS & NATIONAL PATHWAYS
             </span>
           </div>
-          <span className="coord-tick">
-            [TAXONOMY: LATERAL-BYPASS-LIBRARY]
+          <span className="coord-tick text-[10px]">
+            [ACTIVE DOCKETS: {catalog.length} VERIFIED ROUTES]
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Other Ways Through: Lateral Pathways Beyond Texas
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+          Other Ways Through
         </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-4xl leading-relaxed font-sans">
-          <strong>Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the barrier-first model deeply. <em>Other Ways Through</em> collects useful national, multi-state, and location-specific pathways wherever we find them—leveraging work history, companion animals, telecom statutes, or federal tax relief when obvious local options fail.
+        <p className="text-xs sm:text-[13px] text-stone-700 mt-1 max-w-4xl leading-relaxed font-sans">
+          <strong>Find the ways others miss.</strong> When front-door programs fail due to full shelters, waitlists, police report requirements, or county boundaries, lateral intelligence surfaces verified exceptions, statutory rights, and industry hardship relief.
         </p>
       </div>
 
-      {/* Branching Route Diagrams (Standard Route → Barrier → Dead End → Lateral Route) */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
-        <div className="border-b border-[#D9D1C4] pb-4">
-          <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
-            ANATOMY OF A LATERAL BYPASS
-          </span>
-          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
-            Branching Case Studies: How Alternate Routes Work
-          </h2>
-          <p className="text-xs text-stone-700 mt-1 font-sans">
-            Standard emergency aid systems frequently produce dead ends. Here is how lateral investigation maps around institutional obstacles:
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {routeExamples.map((ex, idx) => (
-            <div
-              key={idx}
-              className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg p-5 space-y-3.5 shadow-2xs"
-            >
-              <div className="border-b border-[#D9D1C4] pb-2 font-mono text-[10px] flex items-center justify-between">
-                <span className="font-bold text-[#1C1D1D] uppercase">CASE #{idx + 1}</span>
-                <span className="stamp-verified text-[9px] py-0.5 px-1.5">MAPPED LATERAL ROUTE</span>
-              </div>
-
-              <h3 className="font-serif font-bold text-base text-[#1C1D1D] leading-snug">
-                {ex.title}
-              </h3>
-
-              {/* Step Sequence */}
-              <div className="space-y-2 text-xs font-mono">
-                {/* Standard Channel */}
-                <div className="p-2 bg-[#EEE8DD] border border-[#D9D1C4] rounded flex items-center gap-2">
-                  <span className="text-stone-500 font-bold uppercase text-[9px] shrink-0">STANDARD:</span>
-                  <span className="text-[#1C1D1D] truncate">{ex.standard}</span>
-                </div>
-
-                {/* Barrier Failure */}
-                <div className="p-2 bg-[#FDF2F2] border border-[#971F26] rounded text-[#971F26] text-[11px]">
-                  <span className="font-bold uppercase text-[9px] block">BARRIER / FAILURE:</span>
-                  <span className="font-sans font-medium text-stone-900">{ex.barrier}</span>
-                </div>
-
-                {/* Dead End */}
-                <div className="p-2 bg-[#1C1D1D] text-white rounded text-[11px] flex items-center gap-1.5 font-bold">
-                  <XOctagon className="w-3.5 h-3.5 text-[#971F26]" />
-                  <span>DEAD END: {ex.deadEnd}</span>
-                </div>
-
-                {/* Lateral Bypass Solution */}
-                <div className="p-3 bg-[#F5F1E8] border-2 border-[#971F26] rounded-md text-[#971F26] space-y-1">
-                  <div className="flex items-center justify-between font-bold text-xs uppercase">
-                    <span className="flex items-center gap-1">
-                      <CornerDownRight className="w-3.5 h-3.5" />
-                      <span>OTHER WAY THROUGH:</span>
-                    </span>
-                    <span className="stamp-alert text-[8px] py-0.5">BYPASS</span>
-                  </div>
-                  <p className="font-serif font-bold text-[#1C1D1D] text-xs sm:text-[13px]">{ex.alternate}</p>
-                  <p className="font-mono text-[10px] text-stone-700 font-bold">{ex.alternateType}</p>
-                  <p className="font-sans text-[11px] text-stone-800 leading-snug pt-1">{ex.action}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Filter Tabs */}
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-3">
-          <div>
-            <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
-              SEARCH & FILTER
+      {/* 2. Search by situation or barriers */}
+      <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-4 shadow-sm bg-grid-atlas">
+        <div>
+          <div className="flex items-center justify-between mb-2 font-mono text-xs">
+            <span className="font-bold text-[#1C1D1D] uppercase tracking-wider flex items-center gap-1.5">
+              <Search className="w-3.5 h-3.5 text-[#971F26]" />
+              Search by situation or barriers
             </span>
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Explore Condition-Dependent Directory ({filtered.length} Resources)
-            </h2>
+            <span className="text-[10px] text-stone-600">Enter keywords, expenses, or obstacle combinations</span>
           </div>
-          <span className="coord-tick">
-            [AUDIT: AUGUST 2026]
-          </span>
+
+          {/* Composite Search Bar */}
+          <div className="flex items-center gap-2">
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 text-stone-500 absolute left-3.5 top-3" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="e.g. Transportation loss + housing instability + safety concerns..."
+                className="w-full bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md pl-10 pr-10 py-2 text-xs sm:text-sm text-[#1C1D1D] font-mono font-medium placeholder-stone-500 focus:outline-none focus:border-[#971F26]"
+              />
+              {searchQuery && (
+                <button
+                  onClick={clearFilters}
+                  className="absolute right-3 top-2.5 text-stone-500 hover:text-[#1C1D1D]"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            <button
+              onClick={() => alert("Search saved to your local session docket.")}
+              className="px-3.5 py-2 bg-[#F5F1E8] hover:bg-stone-200 border-2 border-[#1C1D1D] rounded-md text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors"
+            >
+              <Bookmark className="w-3.5 h-3.5 text-[#971F26]" />
+              <span className="hidden sm:inline">Save search</span>
+            </button>
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {[
-            ["ALL", "All Condition-Dependent Programs"],
-            ["INDUSTRY", "Food / Music / Craft / Writing Hardship"],
-            ["PETS", "Pet Safe Boarding & Foster"],
-            ["COMMUNICATIONS", "Safe Connections Act & Tech Safety"],
-            ["TAXES_LEGAL", "IRS IP PIN & Innocent Spouse Relief"],
-            ["DENTAL_MEDICAL", "Restorative Dental & Medical Repair"],
-            ["GRANTS", "Emergency Vendor Micro-Grants"],
-          ].map(([id, label]) => (
-            <button
-              key={id}
-              onClick={() => setSelectedFilter(id)}
-              className={`px-3 py-1.5 rounded-md text-xs font-mono transition-all border ${
-                selectedFilter === id
-                  ? "bg-[#1C1D1D] text-white font-bold border-[#1C1D1D] shadow-xs"
-                  : "bg-[#EEE8DD] text-stone-800 border-[#D9D1C4] hover:border-[#1C1D1D]"
-              }`}
-            >
-              <span>{label}</span>
-            </button>
-          ))}
+        {/* Filter by barriers */}
+        <div>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2 font-mono text-[11px]">
+            <span className="text-stone-700 font-semibold">
+              Filter by barriers <span className="text-stone-500">(show me routes that work even when these are true):</span>
+            </span>
+            {selectedBarriers.length > 0 && (
+              <button
+                onClick={clearFilters}
+                className="text-[#971F26] hover:underline font-bold"
+              >
+                Clear all ({selectedBarriers.length})
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {barrierOptions.map((b) => {
+              const active = selectedBarriers.includes(b.id);
+              return (
+                <button
+                  key={b.id}
+                  onClick={() => toggleBarrier(b.id)}
+                  className={`px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all flex items-center gap-1.5 border ${
+                    active
+                      ? "bg-[#1C1D1D] text-white border-[#1C1D1D] shadow-xs"
+                      : "bg-[#F5F1E8] text-[#1C1D1D] border-[#1C1D1D] hover:bg-stone-200"
+                  }`}
+                >
+                  {b.icon}
+                  <span>{b.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      {/* Resource Result Cards */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((resource) => (
-          <ResourceCard key={resource.id} resource={resource} />
-        ))}
+      {/* 3. Notice Banner */}
+      <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-lg text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="flex items-center gap-2.5 text-stone-900">
+          <div className="w-6 h-6 rounded-full bg-[#971F26] text-white flex items-center justify-center shrink-0">
+            <Layers className="w-3.5 h-3.5" />
+          </div>
+          <p className="text-[11.5px] leading-snug">
+            <strong>Showing exceptions, workarounds, and overlooked pathways</strong>—routes standard directories often miss. Not every fit is perfect. Read access notes and verification.
+          </p>
+        </div>
+
+        <Link
+          href="/how-we-research"
+          className="text-xs font-mono font-bold text-[#971F26] hover:underline shrink-0 flex items-center gap-1 self-end sm:self-auto"
+        >
+          <span>How we verify</span>
+          <Info className="w-3.5 h-3.5" />
+        </Link>
+      </div>
+
+      {/* 4. Main 2-Column Grid (Cards Left, Rail Right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Left / Center Results Column (8 of 12 cols on desktop) */}
+        <div className="lg:col-span-8 space-y-4">
+          
+          {/* Results Toolbar */}
+          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
+            <span className="font-bold text-[#1C1D1D]">
+              {filteredResources.length} verified {filteredResources.length === 1 ? "pathway" : "pathways"} located
+            </span>
+
+            <div className="flex items-center gap-3">
+              <label className="flex items-center gap-1.5 text-stone-600 text-[11px]">
+                <span>Sort by:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-[#F5F1E8] border border-[#1C1D1D] rounded px-2 py-0.5 text-xs text-[#1C1D1D] font-bold focus:outline-none"
+                >
+                  <option value="relevant">Most relevant</option>
+                  <option value="verified">Recently verified</option>
+                  <option value="statutory">Statutory rights first</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          {/* Scannable Dense Cards Stack */}
+          {filteredResources.length > 0 ? (
+            <div className="space-y-3.5">
+              {filteredResources.map((res) => (
+                <DenseResourceCard
+                  key={res.id}
+                  resource={res}
+                  isSaved={savedDockets.includes(res.id)}
+                  onToggleSave={() => toggleSaveDocket(res.id)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 bg-[#EEE8DD] border-2 border-dashed border-[#1C1D1D] rounded-xl text-center space-y-3">
+              <p className="text-sm font-serif font-bold text-[#1C1D1D]">
+                No verified pathways match all selected barrier filters simultaneously.
+              </p>
+              <p className="text-xs text-stone-600 max-w-md mx-auto">
+                Try clearing one or more barrier pills to widen the lateral candidate pool.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="px-4 py-2 bg-[#1C1D1D] text-white rounded text-xs font-mono font-bold uppercase tracking-wider"
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
+
+          {/* Ask Us to Look Callout at Bottom of Results */}
+          <div className="mt-8 p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm bg-grid-atlas">
+            <div className="space-y-1">
+              <div className="flex items-center gap-1.5 text-[#971F26] font-mono text-xs font-bold uppercase">
+                <Sparkles className="w-4 h-4" />
+                <span>Need a tailored investigation docket?</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
+                Ask Us to Look
+              </h3>
+              <p className="text-xs text-stone-700 max-w-xl">
+                Run your specific work history, child enrollment, pets, vehicle status, and county through our progressive qualification engine.
+              </p>
+            </div>
+
+            <Link
+              href="/ask-us-to-look"
+              className="px-4 py-2.5 bg-[#971F26] text-white hover:bg-red-800 rounded text-xs font-mono font-bold uppercase tracking-wider shrink-0 shadow-xs flex items-center gap-1.5 transition-colors"
+            >
+              <span>Launch Intake Engine</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Rail Column (4 of 12 cols on desktop) */}
+        <div className="lg:col-span-4 space-y-6">
+          <FieldNotesRail />
+        </div>
+
       </div>
     </div>
   );
