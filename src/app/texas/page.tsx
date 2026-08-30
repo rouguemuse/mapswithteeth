@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { TEXAS_RESOURCES } from "@/data/resources/texas";
 import { TexasStatutesAccordion } from "@/components/texas/TexasStatutesAccordion";
@@ -78,7 +78,7 @@ export default function TexasPage() {
       </div>
 
       {/* Field Operation Canvas: Regional Coverage Dossier */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-atlas">
+      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D9D1C4] pb-4">
           <div>
             <span className="text-[10px] font-mono text-[#971F26] uppercase tracking-wider font-bold block">

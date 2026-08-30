@@ -41,7 +41,7 @@ export function ResourceStackGenerator({ maxCards = 6 }: { maxCards?: number }) 
   const displayedMatches = maxCards ? matchResult.matches.slice(0, maxCards) : matchResult.matches;
 
   return (
-    <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-10 shadow-sm space-y-8 bg-grid-atlas select-none">
+    <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-10 shadow-sm space-y-8 bg-grid-diagram select-none">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D9D1C4] pb-6">
         <div>

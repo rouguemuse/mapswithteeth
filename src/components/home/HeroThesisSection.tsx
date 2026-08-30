@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -44,7 +44,7 @@ export function HeroThesisSection() {
             <div className="space-y-1">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-[1.12]">
                 Help exists. <br />
-                <span className="text-[#971F26] italic font-serif underline-rough">
+                <span className="text-[#971F26] italic font-serif">
                   Access is another question.
                 </span>
               </h1>
@@ -108,7 +108,7 @@ export function HeroThesisSection() {
 
           {/* RIGHT COLUMN: 40% Annotated Barrier-Flow Atlas Diagram */}
           <div className="lg:col-span-5 relative">
-            <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 shadow-md relative overflow-hidden bg-grid-atlas">
+            <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 shadow-md relative overflow-hidden bg-grid-diagram">
               {/* Atlas Diagram Header */}
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3 mb-4 font-mono text-[10px]">
                 <span className="text-[#1C1D1D] font-bold uppercase tracking-wider flex items-center gap-1.5">

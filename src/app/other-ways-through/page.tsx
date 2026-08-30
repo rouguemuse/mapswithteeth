@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { OTHER_WAYS_THROUGH_RESOURCES } from "@/data/otherWaysThrough";
@@ -93,7 +93,7 @@ export default function OtherWaysThroughPage() {
       </div>
 
       {/* Branching Route Diagrams (Standard Route → Barrier → Dead End → Lateral Route) */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-atlas">
+      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
         <div className="border-b border-[#D9D1C4] pb-4">
           <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
             ANATOMY OF A LATERAL BYPASS
