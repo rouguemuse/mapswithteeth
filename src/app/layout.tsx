@@ -24,7 +24,7 @@ export default function RootLayout({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="bg-brand-dark text-stone-100 flex flex-col min-h-screen antialiased selection:bg-brand-ruby selection:text-white">
+      <body className="bg-[#F5F1E8] text-[#1C1D1D] flex flex-col min-h-screen antialiased selection:bg-brand-ruby selection:text-white">
         <SafetyBanner onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
         <Header onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
         <main className="flex-grow">{children}</main>
