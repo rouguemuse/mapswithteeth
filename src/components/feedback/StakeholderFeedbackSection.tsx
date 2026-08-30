@@ -76,26 +76,26 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
         <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Compass className="w-5 h-5" />
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+            <span className="text-xs sm:text-[13px] font-mono font-bold tracking-wider uppercase">
               FIELD VALIDATION & REALITY-CHECK
             </span>
           </div>
-          <span className="coord-tick">[FEEDBACK ROUTED TO TEAM]</span>
+          <span className="coord-tick text-stone-700">[FEEDBACK ROUTED TO TEAM]</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
           Help pressure-test the map.
         </h2>
 
-        <p className="text-xs sm:text-sm text-stone-700 leading-relaxed max-w-3xl font-sans">
+        <p className="text-base sm:text-[17px] text-stone-900 leading-relaxed max-w-3xl font-sans font-medium">
           Maps With Teeth will only be useful if people tell us where the published version of a resource does not match reality.
         </p>
 
-        <div className="p-4 bg-[#F5F1E8] rounded-lg border-2 border-[#1C1D1D] space-y-2 shadow-2xs">
-          <span className="text-xs font-bold text-[#1C1D1D] font-mono uppercase tracking-wider block">
+        <div className="p-4 bg-[#F5F1E8] rounded-xl border-2 border-[#1C1D1D] space-y-2 shadow-2xs">
+          <span className="text-xs sm:text-[13px] font-bold text-[#1C1D1D] font-mono uppercase tracking-wider block">
             We want to hear from:
           </span>
-          <p className="text-xs text-stone-700 font-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
             People who tried to use a resource · Advocates · Legal and public-service professionals · Community organizations · Researchers · Frontline workers · People who know a pathway we&apos;re missing.
           </p>
         </div>
@@ -115,14 +115,14 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
           />
 
           {errorMessage && (
-            <div className="p-3 bg-[#FDF2F2] border-2 border-[#971F26] rounded text-xs text-[#971F26] font-mono">
+            <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded text-xs sm:text-sm text-[#971F26] font-mono font-bold">
               <strong>Submission Error:</strong> {errorMessage}
             </div>
           )}
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 Your Name:
               </label>
               <input
@@ -132,12 +132,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Jane Doe"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 Email Address:
               </label>
               <input
@@ -147,12 +147,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="jane@example.org"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 Organization / Perspective:
               </label>
               <input
@@ -161,18 +161,18 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Agency, Union, Advocate, or Independent"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 Perspective Domain:
               </label>
               <select
                 value={formData.domain}
                 onChange={(e) => setFormData({ ...formData, domain: e.target.value as StakeholderDomain })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] font-mono"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] font-mono font-medium"
               >
                 {domainOptions.map(([id, label]) => (
                   <option key={id} value={id}>
@@ -185,7 +185,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
 
           <div className="space-y-4 pt-2">
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 1. What did the program say it offered vs. what happened when someone tried to use it?
               </label>
               <textarea
@@ -194,12 +194,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Describe the discrepancy between paper eligibility and actual intake..."
                 value={formData.whereWouldThisFail}
                 onChange={(e) => setFormData({ ...formData, whereWouldThisFail: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 2. What requirement was missing from public info, or was the resource frozen/closed?
               </label>
               <textarea
@@ -208,12 +208,12 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Mention unwritten documentation requirements, funding freezes, disconnected numbers, or waitlist closures..."
                 value={formData.missingSystemsOrStakeholders}
                 onChange={(e) => setFormData({ ...formData, missingSystemsOrStakeholders: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#1C1D1D] mb-1 font-mono uppercase">
+              <label className="block text-xs sm:text-[13px] font-bold text-[#1C1D1D] mb-1.5 font-mono uppercase">
                 3. Is there another route that actually worked in practice?
               </label>
               <textarea
@@ -222,7 +222,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
                 placeholder="Share lateral funds, union benevolent accounts, ministerial relief, or legal escape clauses that succeeded..."
                 value={formData.whatMakesThisUsefulToFrontline}
                 onChange={(e) => setFormData({ ...formData, whatMakesThisUsefulToFrontline: e.target.value })}
-                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-2.5 text-xs text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
+                className="w-full bg-[#F5F1E8] border border-[#1C1D1D] rounded-md p-3 text-xs sm:text-sm text-[#1C1D1D] focus:border-[#971F26] focus:outline-none font-sans"
               />
             </div>
           </div>
@@ -230,7 +230,7 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 bg-[#971F26] hover:bg-red-900 disabled:opacity-60 text-white font-mono font-bold uppercase tracking-wider text-xs rounded-md shadow-2xs transition-colors flex items-center justify-center gap-2"
+            className="w-full py-4 bg-[#971F26] hover:bg-red-900 disabled:opacity-60 text-white font-mono font-bold uppercase tracking-wider text-xs sm:text-sm rounded-md shadow-2xs transition-colors flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <>
@@ -247,14 +247,14 @@ export function StakeholderFeedbackSection({ isStandalonePage = false }: { isSta
           <div className="w-12 h-12 rounded-full bg-[#EEE8DD] border-2 border-[#1C1D1D] flex items-center justify-center text-[#971F26] mx-auto">
             <CheckCircle2 className="w-6 h-6 text-[#971F26]" />
           </div>
-          <h3 className="text-2xl font-serif font-bold text-[#1C1D1D]">
+          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
             Feedback Transmitted
           </h3>
-          <p className="text-xs text-stone-700 max-w-lg mx-auto font-sans leading-relaxed">
+          <p className="text-sm text-stone-800 max-w-lg mx-auto font-sans leading-relaxed">
             Thank you for pressure-testing Maps With Teeth. Your feedback has been securely routed to <strong>feedback@mapswithteeth.org</strong>.
           </p>
           {confirmationSent && (
-            <p className="text-[11px] text-[#971F26] font-mono font-bold">
+            <p className="text-xs sm:text-sm text-[#971F26] font-mono font-bold">
               ✓ An acknowledgement email has been sent to {formData.email}.
             </p>
           )}

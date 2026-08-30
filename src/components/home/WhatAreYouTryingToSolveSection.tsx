@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, DollarSign, Zap, Home, ShieldAlert, Car, Smartphone, FileCheck, HelpCircle } from "lucide-react";
+import { ChevronRight, DollarSign, Zap, Home, ShieldAlert, Car, Smartphone, FileCheck, HelpCircle } from "lucide-react";
 
 export function WhatAreYouTryingToSolveSection() {
   const problems = [
@@ -55,24 +55,26 @@ export function WhatAreYouTryingToSolveSection() {
   ];
 
   return (
-    <section className="bg-[#1C1D1D] text-[#F5F1E8] rounded-2xl p-6 sm:p-10 border-2 border-stone-800 shadow-xl space-y-8 select-none font-sans relative overflow-hidden">
-      <div className="border-b border-stone-800 pb-5 space-y-2">
+    <section className="bg-[#1C1B1A] text-[#F5F1E8] rounded-2xl p-6 sm:p-10 border-2 border-stone-800 shadow-xl space-y-8 select-none font-sans relative overflow-hidden">
+      {/* Header */}
+      <div className="border-b border-stone-800 pb-5 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold">
+          <span className="text-xs sm:text-[13px] font-mono uppercase tracking-wider text-red-400 font-bold">
             PROBLEM-FIRST NAVIGATION
           </span>
-          <span className="coord-tick text-stone-400">[NO PREVIOUS SYSTEM KNOWLEDGE REQUIRED]</span>
+          <span className="coord-tick text-stone-300">[NO PREVIOUS SYSTEM KNOWLEDGE REQUIRED]</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
           What are you actually trying to solve?
         </h2>
 
-        <p className="text-xs sm:text-sm text-stone-300 max-w-3xl leading-relaxed font-sans">
+        <p className="text-base sm:text-[17px] text-stone-100 max-w-3xl leading-relaxed font-sans font-normal">
           You should not need to know which agency, program category, or funding stream might apply before you can look for help.
         </p>
       </div>
 
+      {/* 8 Problem Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {problems.map((p, idx) => {
           const Icon = p.icon;
@@ -80,37 +82,38 @@ export function WhatAreYouTryingToSolveSection() {
             <Link
               key={idx}
               href={`/find-help?barrier=${p.barrierQuery}`}
-              className="bg-[#242424] hover:bg-[#2D2D2D] border border-stone-700 hover:border-[#971F26] rounded-xl p-5 flex flex-col justify-between transition-all group shadow-sm hover:-translate-y-0.5"
+              className="bg-[#242424] hover:bg-[#2A2A2A] border border-stone-700 hover:border-red-500 rounded-xl p-5 flex flex-col justify-between transition-all group shadow-sm hover:-translate-y-0.5"
             >
-              <div className="space-y-2.5">
-                <div className="w-8 h-8 rounded bg-[#1C1D1D] border border-stone-700 flex items-center justify-center text-[#971F26] group-hover:text-red-400">
-                  <Icon className="w-4 h-4" />
+              <div className="space-y-3">
+                <div className="w-9 h-9 rounded bg-[#1C1B1A] border border-stone-700 flex items-center justify-center text-red-400 group-hover:text-amber-300 transition-colors">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-sm font-bold text-white group-hover:text-amber-200 transition-colors font-serif leading-snug">
+                <h3 className="text-base sm:text-[17px] font-bold text-white group-hover:text-amber-200 transition-colors font-serif leading-snug">
                   {p.title}
                 </h3>
-                <p className="text-xs text-stone-400 leading-relaxed font-sans line-clamp-3">
+                <p className="text-sm sm:text-[14.5px] text-stone-200 leading-relaxed font-sans">
                   {p.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-stone-800 flex items-center justify-between text-[11px] font-mono text-stone-400 group-hover:text-white">
-                <span>View Pathways</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#971F26] group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-3.5 border-t border-stone-800 flex items-center justify-between text-xs sm:text-[13px] font-mono font-bold text-stone-200 group-hover:text-white">
+                <span className="tracking-wide">View Pathways</span>
+                <ChevronRight className="w-4 h-4 text-red-400 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           );
         })}
       </div>
 
+      {/* Bottom Action Strip */}
       <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-stone-800 font-mono">
-        <span className="text-xs text-stone-400">
+        <span className="text-sm text-stone-200">
           Select any situation above to filter real-world solutions directly by problem type.
         </span>
 
         <Link
           href="/find-help"
-          className="px-6 py-3 bg-[#971F26] hover:bg-red-800 text-white rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-md shrink-0"
+          className="px-6 py-3.5 bg-[#971F26] hover:bg-red-700 text-white rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-md shrink-0"
         >
           <span>Show me possible ways through →</span>
         </Link>
