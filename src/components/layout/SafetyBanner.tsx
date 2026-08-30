@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
-import { ShieldAlert, LogOut, Eye, X } from "lucide-react";
+import { ShieldAlert, LogOut, ArrowRight } from "lucide-react";
 
 export function SafetyBanner({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
   const [showBanner, setShowBanner] = useState(true);
@@ -23,37 +23,35 @@ export function SafetyBanner({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () =>
   }, []);
 
   const triggerQuickExit = () => {
-    // Overwrite history and immediately redirect to safe neutral website
     window.location.replace("https://www.weather.com");
   };
 
   if (!showBanner) return null;
 
   return (
-    <aside aria-label="Emergency safety bar" className="bg-[#1C1D1D] text-stone-400 border-b border-stone-800 text-[11px] px-3 py-1 sm:px-4 select-none z-50 font-mono">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5 text-[11px]">
-          <ShieldAlert className="w-3 h-3 text-[#971F26] shrink-0" />
+    <aside aria-label="Emergency safety bar" className="bg-[#1C1B1A] text-stone-300 border-b border-stone-800 text-[11px] px-3 py-1.5 sm:px-4 select-none z-50 font-mono">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2 text-[11px] text-stone-300">
+          <ShieldAlert className="w-3.5 h-3.5 text-[#7A2026] shrink-0" />
           <span>
-            <strong className="text-stone-300 font-bold uppercase">Safety notice:</strong> If device is monitored, press <kbd className="bg-stone-800 text-stone-300 px-1 py-0.2 rounded border border-stone-700 text-[9px] font-mono">ESC twice</kbd> to leave.
+            <strong className="text-stone-200 font-bold uppercase tracking-wider">SAFETY ALERT:</strong> If someone monitors your device, browsing history may remain visible. Press <kbd className="bg-stone-800 text-stone-200 px-1 py-0.5 rounded border border-stone-700 text-[10px] font-mono">ESC</kbd> twice or click Quick Exit to leave instantly.
           </span>
         </div>
 
-        <div className="flex items-center gap-3 text-[11px]">
+        <div className="flex items-center gap-4 text-[11px]">
           <button
             onClick={onOpenSafeBrowsing}
-            className="text-stone-400 hover:text-stone-200 underline text-[10px] sm:text-[11px] flex items-center gap-1 transition-colors"
+            className="text-stone-300 hover:text-white underline text-[11px] transition-colors"
           >
-            <Eye className="w-3 h-3 text-stone-400" />
-            <span>Digital Safety Guide</span>
+            Digital Safety Guide
           </button>
 
           <button
             onClick={triggerQuickExit}
-            className="bg-[#971F26] hover:bg-red-900 text-white font-bold px-2 py-0.5 rounded text-[9px] sm:text-[10px] flex items-center gap-1 transition-all shadow-xs tracking-wider uppercase"
+            className="bg-[#7A2026] hover:bg-[#5C181D] text-white font-bold px-2.5 py-1 rounded text-[10px] flex items-center gap-1.5 transition-all shadow-xs tracking-wider uppercase"
             title="Immediately redirect to Weather.com (Esc key twice)"
           >
-            <LogOut className="w-2.5 h-2.5" />
+            <ArrowRight className="w-3 h-3" />
             <span>QUICK EXIT</span>
           </button>
         </div>
