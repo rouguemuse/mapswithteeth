@@ -8,112 +8,134 @@ import {
   Car,
   AlertTriangle,
   Compass,
+  Sparkles,
+  Layers
 } from "lucide-react";
 
 export function TheTeethSection() {
   const teethPillars = [
     {
       title: "Eligibility",
-      description: "Who qualifies — and who gets screened out.",
+      subtitle: "Who qualifies — and who gets screened out.",
       icon: SlidersHorizontal,
       code: "01",
+      detail: "Income limits, household definitions, categorical exclusions.",
     },
     {
       title: "Documentation",
-      description: "What you must produce before anyone will act.",
+      subtitle: "What you must produce before anyone will act.",
       icon: FileText,
       code: "02",
+      detail: "Photo ID, birth certificates, pay stubs, police reports, protective orders.",
     },
     {
       title: "Geography",
-      description: "County, city, ZIP, jurisdiction, residency and service-area restrictions.",
+      subtitle: "County, city, ZIP, jurisdiction, residency and service-area restrictions.",
       icon: MapPin,
       code: "03",
+      detail: "County line locks, municipal boundaries, residency tenure minimums.",
     },
     {
       title: "Referral Gates",
-      description: "Whether you can apply yourself or need an advocate, shelter, caseworker, officer, employer, school or other intermediary.",
+      subtitle: "Whether you can apply yourself or need an intermediary.",
       icon: KeyRound,
       code: "04",
+      detail: "Shelter advocate, caseworker, officer, employer, or institutional sponsor required.",
     },
     {
       title: "Timing",
-      description: "Waitlists, application windows, deadlines and funding cycles.",
+      subtitle: "Waitlists, application windows, deadlines and funding cycles.",
       icon: Clock,
       code: "05",
+      detail: "Monthly funding caps exhausted in hours, multi-month queues, retroactive deadlines.",
     },
     {
       title: "Access Conditions",
-      description: "Transportation, phone, internet, appointment, in-person or shelter-stay requirements.",
+      subtitle: "Physical and technical hurdles required to apply.",
       icon: Car,
       code: "06",
+      detail: "Transportation, phone line, in-person appointments, or mandatory shelter stays.",
     },
     {
       title: "Current Friction",
-      description: "Funding freezes, disconnected numbers, programs that technically exist but are not currently usable.",
+      subtitle: "Programs that exist on paper but are not currently usable.",
       icon: AlertTriangle,
       code: "07",
+      detail: "Funding freezes, unstaffed intake lines, paused applications, broken portals.",
     },
   ];
 
   return (
-    <section className="space-y-8 select-none font-sans">
-      {/* Section Header */}
-      <div className="border-b border-[#D9D1C4] pb-6 space-y-2">
+    <section className="bg-[#1C1B1A] text-[#F5F1E8] rounded-2xl p-6 sm:p-10 border-2 border-stone-800 shadow-xl space-y-8 select-none font-sans relative overflow-hidden bg-grid-diagram">
+      {/* Editorial Header */}
+      <div className="border-b border-stone-800 pb-6 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold flex items-center gap-1.5">
-            <Compass className="w-3.5 h-3.5" />
-            <span>THE BARRIER-FIRST METHODOLOGY</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold flex items-center gap-1.5 bg-[#252525] px-3 py-1 rounded-full border border-stone-700">
+            <Compass className="w-3.5 h-3.5 text-red-400" />
+            <span>THE CORE DIFFERENTIATOR · 7 AUDITED FRICTION VECTORS</span>
           </span>
-          <span className="coord-tick">[7 FRICTION LEVERS AUDITED]</span>
+          <span className="coord-tick text-stone-400">[BARRIER-FIRST METHODOLOGY]</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
           What gives the map teeth?
         </h2>
 
-        <p className="text-xs sm:text-sm text-stone-700 max-w-3xl leading-relaxed font-sans">
-          A normal directory tells you that a resource exists. That is not enough. Maps With Teeth also tracks the conditions around actually reaching it.
+        <p className="text-sm sm:text-base text-stone-300 max-w-3xl leading-relaxed font-sans">
+          A normal directory tells you that a resource exists. <strong className="text-white font-semibold">That is not enough.</strong> Maps With Teeth tracks the conditions, barriers, and unwritten rules around actually reaching it.
         </p>
       </div>
 
-      {/* 7 Teeth Pillars Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* The 7 Teeth Pillars Grid + Centerpiece Callout */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {teethPillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
             <div
               key={pillar.title}
-              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-3 shadow-2xs hover:shadow-sm transition-all"
+              className="bg-[#242424] hover:bg-[#2A2A2A] border border-stone-700 hover:border-[#971F26] rounded-xl p-5 space-y-3 transition-all group shadow-sm flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
-                <span className="text-[#971F26] font-bold">THE TEETH · {pillar.code}</span>
-                <Icon className="w-4 h-4 text-[#1C1D1D]" />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between border-b border-stone-800 pb-2.5 font-mono text-[10px]">
+                  <span className="text-red-400 font-bold tracking-widest">
+                    THE TEETH · {pillar.code}
+                  </span>
+                  <div className="w-6 h-6 rounded bg-[#1C1B1A] border border-stone-700 flex items-center justify-center text-stone-300 group-hover:text-red-400">
+                    <Icon className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+
+                <h3 className="text-base font-serif font-bold text-white group-hover:text-amber-200 transition-colors">
+                  {pillar.title}
+                </h3>
+
+                <p className="text-xs text-stone-300 font-sans leading-relaxed font-medium">
+                  {pillar.subtitle}
+                </p>
               </div>
 
-              <h3 className="text-base font-serif font-bold text-[#1C1D1D]">
-                {pillar.title}
-              </h3>
-
-              <p className="text-xs text-stone-700 leading-relaxed font-sans">
-                {pillar.description}
+              <p className="text-[11px] text-stone-400 font-mono italic pt-2 border-t border-stone-800/80">
+                {pillar.detail}
               </p>
             </div>
           );
         })}
 
-        {/* Featured Callout Card */}
-        <div className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 flex flex-col justify-between shadow-sm sm:col-span-2 lg:col-span-3 xl:col-span-1">
-          <span className="text-[10px] font-mono text-amber-300 uppercase tracking-widest font-bold block">
-            CORE PRINCIPLE
-          </span>
-          <div className="my-auto py-2">
-            <p className="text-xl sm:text-2xl font-serif font-bold text-white italic leading-tight">
-              &ldquo;Listed does not mean reachable.&rdquo;
-            </p>
+        {/* Highlight Thesis Callout Card */}
+        <div className="bg-gradient-to-br from-[#7A2026] to-[#451014] text-white border-2 border-red-800 rounded-xl p-6 flex flex-col justify-between shadow-lg sm:col-span-2 lg:col-span-1">
+          <div className="space-y-1">
+            <span className="text-[10px] font-mono text-amber-300 uppercase tracking-widest font-bold block">
+              PROJECT THESIS
+            </span>
+            <div className="pt-2">
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-white italic leading-tight">
+                &ldquo;Listed does not mean reachable.&rdquo;
+              </p>
+            </div>
           </div>
-          <p className="text-[11px] text-stone-400 font-sans leading-relaxed">
-            We track the real friction points so people don&apos;t waste critical time pursuing dead ends.
+
+          <p className="text-xs text-red-100 font-sans leading-relaxed mt-4 pt-3 border-t border-red-800/60">
+            We map the friction points before people invest critical emotional energy and time in pathways that lead to dead ends.
           </p>
         </div>
       </div>

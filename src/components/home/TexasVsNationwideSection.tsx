@@ -58,14 +58,14 @@ export function TexasVsNationwideSection() {
             <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2.5 font-mono text-[10px]">
               <span className="font-bold text-[#971F26] uppercase flex items-center gap-1.5">
                 <Globe className="w-3.5 h-3.5" />
-                <span>NATIONAL & INDUSTRY</span>
+                <span>NATIONWIDE & MULTI-STATE</span>
               </span>
-              <span className="stamp-verified text-[9px] py-0.5 px-1.5">MULTI-STATE</span>
+              <span className="stamp-verified text-[9px] py-0.5 px-1.5">ALL 50 STATES</span>
             </div>
 
             <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">OTHER WAYS THROUGH</h3>
-            <p className="text-xs font-bold text-[#1C1D1D] font-mono">
-              Useful programs do not stop at state lines.
+            <p className="text-xs font-bold text-[#971F26] font-mono">
+              National, multi-state, and location-specific resources beyond the Texas pilot.
             </p>
             <p className="text-xs text-stone-700 leading-relaxed font-sans">
               A growing collection of national programs, uncommon assistance, specialized funds, industry-specific help, unusual eligibility routes, and programs discovered outside the Texas pilot.

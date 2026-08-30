@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import {
   ExternalLink,
   SlidersHorizontal,
   Compass,
+  Sparkles
 } from "lucide-react";
 
 export function BuildAWayThroughSection() {
@@ -56,7 +57,7 @@ export function BuildAWayThroughSection() {
     );
   };
 
-  // Filter resources dynamically to select 3 high-detail representative pathways
+  // Filter resources dynamically to select 3 representative pathways
   const surfacedResources = React.useMemo(() => {
     let pool = PUBLIC_RESOURCES;
 
@@ -99,7 +100,6 @@ export function BuildAWayThroughSection() {
       );
     }
 
-    // Default top 3 representative resources
     if (pool.length < 3) {
       pool = PUBLIC_RESOURCES;
     }
@@ -142,7 +142,7 @@ export function BuildAWayThroughSection() {
               <button
                 key={opt.id}
                 onClick={() => setSelectedProblem(opt.id)}
-                className={`w-full text-left p-3 rounded-lg border text-xs transition-all font-sans ${
+                className={`w-full text-left p-2.5 rounded-lg border text-xs transition-all font-sans ${
                   selectedProblem === opt.id
                     ? "bg-[#1C1D1D] text-white font-bold border-[#1C1D1D] shadow-xs"
                     : "bg-[#EEE8DD] text-stone-800 border-[#D9D1C4] hover:border-[#1C1D1D]"
@@ -190,26 +190,26 @@ export function BuildAWayThroughSection() {
         </div>
       </div>
 
-      {/* Step 3: 3 Rich Representative Results */}
+      {/* Step 3: Streamlined & Scannable Resource Cards */}
       <div className="space-y-4 pt-2">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-3">
           <div className="flex items-center gap-2 text-[#1C1D1D] font-serif font-bold text-lg">
             <span className="w-5 h-5 rounded-full bg-[#971F26] text-white flex items-center justify-center text-[10px] font-mono">
               3
             </span>
-            <span>See pathways that may fit the situation you actually have:</span>
+            <span>Matching Pathways ({surfacedResources.length} Surfaced):</span>
           </div>
-          <span className="coord-tick">[SHOWING 3 REPRESENTATIVE DOSSIERS]</span>
+          <span className="coord-tick">[CLICK ANY CARD FOR FULL AUDIT DOSSIER]</span>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {surfacedResources.map((resource) => (
             <div
               key={resource.id}
-              className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-5 flex flex-col justify-between hover:shadow-md transition-all shadow-xs space-y-4"
+              className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-5 flex flex-col justify-between hover:shadow-md transition-all shadow-xs space-y-3"
             >
-              {/* Card Header & Verification */}
-              <div className="space-y-2">
+              <div className="space-y-2.5">
+                {/* 1. Verification Status & Timestamp */}
                 <div className="flex items-center justify-between gap-2 border-b border-[#D9D1C4] pb-2">
                   <VerificationBadge status={resource.verificationStatus} />
                   <span className="text-[10px] font-mono text-stone-600">
@@ -217,54 +217,49 @@ export function BuildAWayThroughSection() {
                   </span>
                 </div>
 
+                {/* Title & Organization */}
                 <div>
                   <h3 className="text-base font-serif font-bold text-[#1C1D1D] leading-snug">
                     {resource.name}
                   </h3>
                   <p className="text-[11px] font-mono text-stone-600">
-                    {resource.organization}
+                    {resource.organization} · {resource.county ? `${resource.county} Co., TX` : (resource.state === 'TX' ? 'Texas' : 'Nationwide')}
                   </p>
                 </div>
 
-                {/* Expose: What it helps with */}
-                <div className="p-2.5 bg-[#EEE8DD] rounded border border-[#D9D1C4] space-y-1">
+                {/* 2. What It Does */}
+                <div className="space-y-0.5">
                   <span className="text-[9px] font-mono uppercase font-bold text-[#971F26] block">
-                    WHAT IT HELPS WITH:
+                    WHAT IT DOES:
                   </span>
-                  <p className="text-xs text-stone-900 font-sans leading-relaxed">
+                  <p className="text-xs text-stone-900 font-sans leading-snug line-clamp-2">
                     {resource.whatItCanHelpWith || resource.whatItActuallyProvides}
                   </p>
                 </div>
 
-                {/* Expose: Who can use it & Where it works */}
-                <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-stone-800">
-                  <div className="p-2 bg-[#EEE8DD] rounded border border-[#D9D1C4]">
-                    <span className="text-[9px] text-stone-500 uppercase block font-bold">WHO CAN USE:</span>
-                    <span className="truncate block">{resource.eligibility}</span>
-                  </div>
-                  <div className="p-2 bg-[#EEE8DD] rounded border border-[#D9D1C4]">
-                    <span className="text-[9px] text-stone-500 uppercase block font-bold">WHERE IT WORKS:</span>
-                    <span className="truncate block">{resource.county ? `${resource.county} Co., TX` : (resource.state === 'TX' ? 'Texas Statewide' : 'Nationwide')}</span>
-                  </div>
+                {/* 3. Who It Fits */}
+                <div className="text-[11px] font-sans text-stone-800">
+                  <strong className="font-mono text-[9px] uppercase text-stone-600 block font-bold">WHO IT FITS:</strong>
+                  <p className="text-xs text-stone-700 line-clamp-1">{resource.eligibility}</p>
                 </div>
 
-                {/* Expose: Known Barriers / Friction */}
+                {/* 4. Key Barriers Bypassed / Access Conditions */}
                 <div className="space-y-1">
                   <span className="text-[9px] font-mono uppercase font-bold text-stone-600 block">
-                    KNOWN ACCESS CONDITIONS:
+                    KEY ACCESS CONDITIONS:
                   </span>
                   <div className="flex flex-wrap gap-1">
                     {resource.policeReportRequired === false && (
                       <span className="text-[9px] px-1.5 py-0.5 bg-emerald-100 border border-emerald-300 text-emerald-900 rounded font-mono font-bold">
-                        ✓ No Police Report Required
+                        ✓ No Police Report
                       </span>
                     )}
                     {resource.shelterConnectionRequired === false && (
                       <span className="text-[9px] px-1.5 py-0.5 bg-emerald-100 border border-emerald-300 text-emerald-900 rounded font-mono font-bold">
-                        ✓ No Shelter Stay Required
+                        ✓ No Shelter Stay
                       </span>
                     )}
-                    {resource.accessFrictions.slice(0, 2).map((f, i) => (
+                    {resource.accessFrictions.slice(0, 1).map((f, i) => (
                       <span key={i} className="text-[9px] px-1.5 py-0.5 bg-amber-50 border border-amber-300 text-amber-900 rounded font-mono">
                         {f.replace(/_/g, " ")}
                       </span>
@@ -272,21 +267,20 @@ export function BuildAWayThroughSection() {
                   </div>
                 </div>
 
-                {/* Expose: What you'll need */}
-                <div className="text-[11px] font-sans text-stone-700">
-                  <strong className="font-mono text-[10px] text-stone-900 uppercase">What you&apos;ll need: </strong>
-                  {resource.documentationRequired.length > 0
-                    ? resource.documentationRequired.slice(0, 2).join(", ")
-                    : "Self-attestation or standard intake."}
-                </div>
+                {/* 5. Why It May Be Useful */}
+                {resource.notes && (
+                  <div className="p-2 bg-[#EEE8DD] rounded border border-[#D9D1C4] text-[11px] text-stone-700 italic font-sans line-clamp-2">
+                    &ldquo;{resource.notes}&rdquo;
+                  </div>
+                )}
               </div>
 
-              {/* Action Button to Open Full Dossier Modal */}
+              {/* Action Button: View Full Dossier */}
               <button
                 onClick={() => setActiveModalResource(resource)}
-                className="w-full py-2 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                className="w-full mt-2 py-2 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
-                <span>View Full Verification Dossier</span>
+                <span>View Full Dossier</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#971F26]" />
               </button>
             </div>
@@ -294,10 +288,10 @@ export function BuildAWayThroughSection() {
         </div>
 
         {/* Explore All CTA */}
-        <div className="pt-4 flex justify-center">
+        <div className="pt-3 flex justify-center">
           <Link
             href="/find-help"
-            className="px-8 py-3.5 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm transition-all"
+            className="px-8 py-3 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm transition-all"
           >
             <span>Explore all Ways Through →</span>
           </Link>
