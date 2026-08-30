@@ -1,4 +1,4 @@
-export type AssistanceShape =
+﻿export type AssistanceShape =
   | "DIRECT_CASH"
   | "REIMBURSEMENT"
   | "VENDOR_PAYMENT"
@@ -70,13 +70,23 @@ export type AvailabilityBadge =
   | "LOCAL PROGRAM — CHECK AVAILABILITY";
 
 export type VerificationStatus =
-  | "VERIFIED CURRENT"
-  | "LIKELY CURRENT — NEEDS REVIEW"
-  | "LOCAL / FUNDING DEPENDENT"
-  | "TEMPORARILY CLOSED"
-  | "WAITLIST"
-  | "HISTORICAL / DO NOT RELY ON"
-  | "UNVERIFIED LEAD";
+  | "AGENCY_CONFIRMED"
+  | "OFFICIAL_SOURCE_CHECKED"
+  | "PUBLIC_SOURCE_CHECKED"
+  | "TEMPORARILY_CLOSED"
+  | "NEEDS_REVERIFICATION"
+  | "CLOSED";
+
+export type PaymentMethod =
+  | "DIRECT_TO_APPLICANT"
+  | "DIRECT_TO_VENDOR"
+  | "STATUTORY_RIGHT"
+  | "SERVICE_DIRECT"
+  | "WAIVER"
+  | "REIMBURSEMENT"
+  | "SURVIVOR_DIRECT"
+  | "VENDOR_DIRECT"
+  | "NON_MONETARY_SERVICE";
 
 export interface Resource {
   id: string;
@@ -85,35 +95,66 @@ export interface Resource {
   state: string; // 'TX' or 'US' or 2-letter state code
   county?: string;
   cities?: string[];
+  geography?: string;
   scope: GeographicScope;
-  availabilityBadge: AvailabilityBadge;
+  availabilityBadge?: AvailabilityBadge;
   website?: string;
   phone?: string;
   email?: string;
   applicationLink?: string;
   barrierCategories: string[];
   serviceCategories?: string[];
+  category?: string;
   matchTags: string[];
-  whatItActuallyProvides: string;
+
+  // What it can actually help pay for or accomplish
+  whatItCanHelpWith: string;
+  whatItActuallyProvides: string; // alias for backwards compatibility
   assistanceShapes: AssistanceShape[];
-  paymentMethod: "SURVIVOR_DIRECT" | "VENDOR_DIRECT" | "NON_MONETARY_SERVICE" | "REIMBURSEMENT";
+
+  // Financial mechanics & limits
+  paymentMethod: PaymentMethod;
   typicalAmount?: string;
+  knownFundingLimits?: string;
+
+  // Eligibility & Target User
   eligibility: string;
   documentationRequired: string[];
+  referralRequirement?: string;
+  shelterConnectionRequired?: boolean;
+  policeReportRequired?: boolean;
+  incomeRestriction?: string;
+  employmentDependency?: string;
+  applicationWindow?: string;
+
+  // Prominently exposed friction / THE CATCH
+  whatCanBlockAccess: string[];
   accessFrictions: AccessFriction[];
-  isLead: boolean;
-  industrySpecific?: string[];
-  petSpecific?: boolean;
-  childrenSpecific?: boolean;
-  howToApply: string;
+
+  // Action steps
+  whatToDoNext: string;
+  howToApply: string; // alias for backwards compatibility
   expectedProcess?: string;
+
+  // Source & Verification Audit Trail
   sourceUrl: string;
   primaryAuthoritativeSource: string;
   secondarySourceUrl?: string;
-  dateLastVerified: string;
+  lastReviewedDate: string;
+  dateLastVerified: string; // alias for backwards compatibility
   verificationStatus: VerificationStatus;
+  isLead?: boolean;
+
+  // Statutory Rights & Closures
+  isStatutoryRight?: boolean;
+  statuteCitation?: string;
+  reopeningDate?: string;
+
   notes?: string;
   importantLimitations?: string;
+  industrySpecific?: string[];
+  petSpecific?: boolean;
+  childrenSpecific?: boolean;
 }
 
 export interface ResourceMatch {

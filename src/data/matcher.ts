@@ -1,6 +1,6 @@
 import { Resource, ResourceMatch } from "@/types/resource";
 import { ResourceIntakeData, ResearchDocket } from "@/types/intake";
-import { ALL_RESOURCES } from "./resources";
+import { PUBLIC_RESOURCES } from "./resources";
 import { INDUSTRY_OPTIONS } from "./industries";
 
 export interface MatchResult {
@@ -36,7 +36,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
     }
   });
 
-  ALL_RESOURCES.forEach((resource) => {
+  PUBLIC_RESOURCES.forEach((resource) => {
     if (matchedResourceIds.has(resource.id)) return;
 
     // Check Industry matches
@@ -56,7 +56,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
 
   // 2. Check Pet Matches
   if (data.hasAnimal) {
-    ALL_RESOURCES.forEach((resource) => {
+    PUBLIC_RESOURCES.forEach((resource) => {
       if (matchedResourceIds.has(resource.id)) return;
 
       if (resource.petSpecific || resource.matchTags.includes("PET")) {
@@ -73,7 +73,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
 
   // 3. Check Location & County Matches
   if (isTexas) {
-    ALL_RESOURCES.forEach((resource) => {
+    PUBLIC_RESOURCES.forEach((resource) => {
       if (matchedResourceIds.has(resource.id)) return;
 
       // County specific check
@@ -114,7 +114,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
     data.primaryBarriers?.includes("utility-deposit") ||
     data.acceptableSolutions?.includes("UTILITY_DEPOSIT_WAIVER")
   ) {
-    ALL_RESOURCES.forEach((resource) => {
+    PUBLIC_RESOURCES.forEach((resource) => {
       if (matchedResourceIds.has(resource.id)) return;
 
       if (
@@ -140,7 +140,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
     data.primaryBarriers?.includes("car-repair-dispute") ||
     data.primaryBarriers?.includes("long-distance-relocation")
   ) {
-    ALL_RESOURCES.forEach((resource) => {
+    PUBLIC_RESOURCES.forEach((resource) => {
       if (matchedResourceIds.has(resource.id)) return;
 
       if (
@@ -164,7 +164,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
   }
 
   // 6. Add High-Confidence Nationwide Escape Tools
-  ALL_RESOURCES.forEach((resource) => {
+  PUBLIC_RESOURCES.forEach((resource) => {
     if (matchedResourceIds.has(resource.id)) return;
 
     if (resource.scope === "NATIONWIDE" && !resource.industrySpecific) {

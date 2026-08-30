@@ -117,7 +117,7 @@ export default function HomePage() {
               </span>
               <h3 className="text-lg font-serif font-bold text-brand-charcoal">Texas Deep Dive</h3>
               <p className="text-xs text-stone-600 leading-relaxed font-sans">
-                Exhaustive statutory escape mechanisms (Tex. Prop. Code § 92.016 lease break, PUCT § 25.478 utility deposit waiver, CVC up to $5,000 relocation) + Travis, Williamson, Harris & Central Texas county funds.
+                Audited statutory escape mechanisms (Tex. Prop. Code § 92.016 lease break, PUCT § 25.478 utility deposit waiver, CVC up to $5,000 relocation) + Travis, Williamson, Harris & Central Texas county pilot funds.
               </p>
             </div>
             <Link

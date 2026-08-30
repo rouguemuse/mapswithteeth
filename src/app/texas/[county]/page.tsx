@@ -126,7 +126,7 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
         <section className="space-y-4">
           <div className="border-b border-brand-sand pb-3">
             <h2 className="text-xl font-serif font-bold text-brand-charcoal">
-              Verified County Directory Entries ({localResources.length})
+              County Directory Entries ({localResources.length})
             </h2>
           </div>
 
