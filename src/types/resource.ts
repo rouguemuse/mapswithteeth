@@ -99,7 +99,16 @@ export interface ClaimEvidence {
   sourceUrl: string;
   sourceTitle: string;
   sourcePublisher: string;
-  sourceType: "PRIMARY_STATUTE" | "GOVERNMENT_PORTAL" | "501C3_STANDARDS" | "AGENCY_STAFF" | "PUBLIC_AUDIT";
+  sourceType:
+    | "PRIMARY_STATUTE"
+    | "GOVERNMENT_PORTAL"
+    | "501C3_STANDARDS"
+    | "OFFICIAL_501C3_STANDARDS"
+    | "OFFICIAL_PROVIDER_DOCUMENTATION"
+    | "ACADEMIC_RESEARCH"
+    | "MANUFACTURER_DOCUMENTATION"
+    | "AGENCY_STAFF"
+    | "PUBLIC_AUDIT";
   checkedAt: string;
   effectiveDateOrPublishedDate: string;
   sourceLocator: string;
@@ -117,8 +126,25 @@ export interface ClaimProvenance {
 
 export interface VerificationProvenance {
   verificationDate: string;
-  verificationMethod: "DIRECT_AGENCY_INTERVIEW" | "OFFICIAL_GOVERNMENT_PORTAL" | "PRIMARY_STATUTE" | "OFFICIAL_501C3_STANDARDS" | "PUBLIC_RECORD_AUDIT";
-  sourceType: "AGENCY_STAFF" | "PRIMARY_STATUTE" | "GOVERNMENT_PORTAL" | "501C3_STANDARDS" | "PUBLIC_AUDIT";
+  verificationMethod:
+    | "DIRECT_AGENCY_INTERVIEW"
+    | "OFFICIAL_GOVERNMENT_PORTAL"
+    | "PRIMARY_STATUTE"
+    | "OFFICIAL_501C3_STANDARDS"
+    | "OFFICIAL_PROVIDER_DOCUMENTATION"
+    | "ACADEMIC_RESEARCH"
+    | "MANUFACTURER_DOCUMENTATION"
+    | "PUBLIC_RECORD_AUDIT";
+  sourceType:
+    | "AGENCY_STAFF"
+    | "PRIMARY_STATUTE"
+    | "GOVERNMENT_PORTAL"
+    | "501C3_STANDARDS"
+    | "OFFICIAL_501C3_STANDARDS"
+    | "OFFICIAL_PROVIDER_DOCUMENTATION"
+    | "ACADEMIC_RESEARCH"
+    | "MANUFACTURER_DOCUMENTATION"
+    | "PUBLIC_AUDIT";
   confirmingEntity: string;
   confirmingRole?: string;
   criteriaConfirmed: string[];

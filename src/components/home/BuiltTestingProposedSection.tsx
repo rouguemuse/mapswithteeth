@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { PRODUCT_MATURITY_STAGES } from "@/data/productMaturity";
+import { PRODUCT_MATURITY_STAGES } from "@/data/taxonomy/productMaturity";
 import { CheckCircle2, FileText, Shuffle, Scale, AlertTriangle, Building, ArrowRight, ShieldCheck } from "lucide-react";
 
 export function BuiltTestingProposedSection() {

@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BARRIER_CATEGORIES } from "@/data/barriers";
-import { INDUSTRY_OPTIONS } from "@/data/industries";
+import { BARRIER_CATEGORIES } from "@/data/taxonomy/barriers";
+import { INDUSTRY_OPTIONS } from "@/data/taxonomy/industries";
 import { ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
-import { matchIntakeToResources } from "@/data/matcher";
+import { matchIntakeToResources } from "@/domain/matching/matcher";
 import { ResourceCard } from "./ResourceCard";
 import { Layers, Sparkles, Dog, Briefcase, MapPin, ArrowRight, Compass, Check } from "lucide-react";
 

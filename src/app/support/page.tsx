@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { PILOT_CONFIG } from "@/data/pilotBudget";
+import { PILOT_CONFIG } from "@/content/initiative/pilotBudget";
 import { Shield, Building2, DollarSign, ArrowRight, Heart, Info, CheckCircle2, Scale } from "lucide-react";
 import { StripeDonationModule } from "@/components/support/StripeDonationModule";
 import { SupportInquiryForm } from "@/components/support/SupportInquiryForm";

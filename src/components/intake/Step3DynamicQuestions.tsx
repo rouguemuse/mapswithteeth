@@ -3,7 +3,7 @@
 import React from "react";
 import { ResourceIntakeData } from "@/types/intake";
 import { FACT_DEFINITIONS } from "@/data/factsRegistry";
-import { getTriggeredCandidateProfiles, getUnresolvedFactKeys } from "@/data/dynamicMatcher";
+import { getTriggeredCandidateProfiles, getUnresolvedFactKeys } from "@/domain/matching/dynamicMatcher";
 import { WhyAskingTooltip } from "./WhyAskingTooltip";
 import { ArrowRight, ArrowLeft, Sparkles, CheckCircle2, ShieldCheck, HelpCircle } from "lucide-react";
 

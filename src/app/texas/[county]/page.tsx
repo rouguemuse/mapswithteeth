@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCountyBySlug, ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
-import { TEXAS_RESOURCES } from "@/data/resources/texas";
+import { TEXAS_RESOURCES } from "@/data/resources/states/tx";
 import { CountySelector } from "@/components/texas/CountySelector";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { MapPin, ArrowLeft, Building2, Home, Shield, DollarSign, Compass, AlertCircle } from "lucide-react";

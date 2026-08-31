@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React, { useState } from "react";
-import { TEXAS_STATUTES } from "@/data/texasData";
+import { TEXAS_STATUTES } from "@/data/statutes/texasStatutes";
 import { Scale, ChevronDown, ChevronUp, ExternalLink, ShieldCheck, FileText, AlertTriangle } from "lucide-react";
 
 export function TexasStatutesAccordion() {
