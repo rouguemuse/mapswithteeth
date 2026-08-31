@@ -243,6 +243,11 @@ export interface Resource {
   whyMissed?: string;
   workaround?: string;
   accessNotes?: string;
+  whatToAsk?: string;
+  whatToDoIfDenied?: string;
+  responseTime?: string;
+  occupationRequirements?: string[];
+  tenureRequirements?: string;
   badgeLabels?: string[];
   matchCertainty?: MatchCertainty;
 }

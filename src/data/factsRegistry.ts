@@ -1,4 +1,4 @@
-﻿import { FactDefinition } from "@/types/qualification";
+import { FactDefinition } from "@/types/qualification";
 import { INDUSTRY_OPTIONS } from "./industries";
 
 export const FACT_DEFINITIONS: Record<string, FactDefinition> = {
@@ -139,7 +139,7 @@ export const FACT_DEFINITIONS: Record<string, FactDefinition> = {
     id: "sharesMobileContractWithAbuser",
     label: "Do you share the mobile service contract with the person you are separating from?",
     type: "boolean",
-    whyAsked: "Under federal statute (47 U.S.C. § 345), carriers must separate your line within 2 business days without fees, contract penalties, or abuser notification.",
+    whyAsked: "Under federal statute (47 U.S.C. § 345), carriers must separate your line within 2 business days without fees, contract penalties, or primary account holder approval. Note: Account holders may receive notice of account updates.",
     category: "TELECOM",
     defaultValue: false
   },

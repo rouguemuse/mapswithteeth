@@ -776,7 +776,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Society of St. Vincent de Paul Diocesan Council of Austin",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "ACTIVE_VERIFIED",
+    "verificationStatus": "ACTIVE_PARTIALLY_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Provides fast micro-grants where large government systems have waiting periods.",
     "claimProvenances": [

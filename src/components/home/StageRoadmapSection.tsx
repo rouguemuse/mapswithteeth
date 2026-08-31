@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { CheckCircle2, FlaskConical, Milestone, ShieldCheck, Search, Scale } from "lucide-react";
 
 export function StageRoadmapSection() {
@@ -11,7 +11,7 @@ export function StageRoadmapSection() {
       title: "Active in This Prototype",
       description: "Functional tools, taxonomy structures, and statutory frameworks fully implemented and browsable on this site today.",
       items: [
-        "Barrier Taxonomy: 30+ structured obstacle categories mapped across legal, financial, tech, and housing domains.",
+        "Barrier Taxonomy: Structured obstacle categories mapped across legal, financial, tech, and housing domains.",
         "Texas Statutory Research: Independently audited Texas escape codes (CVC $5k relocation, ACP CCP Ch. 58, Lease break § 92.016, PUCT electric deposit waiver).",
         "Layer 2 Resource Library: Nationwide & industry-specific benevolence funds (F&B, music, arts, telecom line separation, pet safe boarding).",
         "Resource Data Model: Structured friction flags (no police report, no shelter stay) and field-level primary citations.",

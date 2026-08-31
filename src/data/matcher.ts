@@ -166,7 +166,7 @@ function buildFactAuditSentence(
     const facts: string[] = ["share a mobile service contract with the person you are separating from"];
     triggeringFacts.push(...facts);
     return {
-      sentence: `You told us you ${facts[0]}. Under federal law (47 U.S.C. § 345), carriers must separate your line within 2 business days with $0 fee and zero abuser notification.`,
+      sentence: `You told us you ${facts[0]}. Under federal law (47 U.S.C. § 345), carriers must separate your line within 2 business days with $0 fee and no primary account holder approval required. (Review carrier notification timing before submitting if discovery creates a safety risk).`,
       triggeringFacts
     };
   }

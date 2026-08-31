@@ -152,7 +152,7 @@ export default function HowItWorksPage() {
               Condition-dependent relief pathways operating entirely outside conventional shelter backlogs—such as culinary hardship grants (Southern Smoke, CORE Gives, Giving Kitchen), craft artist aid (CERF+), companion animal foster boarding (RedRover Safe Escape, APA PASS), and federal telecom mandates (Safe Connections Act 47 U.S.C. § 345).
             </p>
             <div className="pt-2 border-t border-[#D9D1C4]/70 flex items-center justify-between text-xs font-mono">
-              <span className="text-stone-600">30+ Audited Lateral Dockets with Friction Analysis</span>
+              <span className="text-stone-600">Audited Lateral Dockets with Friction Analysis</span>
               <Link href="/other-ways-through" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
                 <span>Explore Other Ways Through</span>
                 <ArrowRight className="w-3 h-3" />

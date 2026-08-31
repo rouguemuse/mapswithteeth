@@ -160,8 +160,8 @@ function buildFactAuditSentence(
     return `You told us you ${facts.join(" and ")}. RedRover Safe Escape covers commercial pet boarding when emergency shelters cannot house animals.`;
   }
 
-  if (resourceId === "safe-connections-act-separation") {
-    return "You told us you share a mobile service contract with the person you are separating from. Under federal law (47 U.S.C. § 345), carriers must separate your line within 2 business days with $0 fee and zero abuser notification.";
+  if (resourceId === "safe-connections-act-separation" || resourceId === "fcc-safe-connections-act-line-separation") {
+    return "You told us you share a mobile service contract with the person you are separating from. Under federal law (47 U.S.C. § 345), carriers must separate your line within 2 business days with $0 fee and no primary account holder approval required. (Review carrier notification timing before submitting if discovery creates a safety risk).";
   }
 
   if (resourceId === "tx-prop-code-92-016") {

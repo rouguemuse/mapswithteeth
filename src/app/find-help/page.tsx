@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -56,7 +56,7 @@ function FindHelpContent() {
             </span>
           </div>
           <span className="coord-tick">
-            [CATALOG: 30 VERIFIED PATHWAYS]
+            [CATALOG: {PUBLIC_RESOURCES.length} AUDITED PATHWAYS]
           </span>
         </div>
 

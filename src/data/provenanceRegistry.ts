@@ -1,4 +1,4 @@
-﻿import { VerificationProvenance } from "@/types/resource";
+import { VerificationProvenance } from "@/types/resource";
 
 export const RESOURCE_PROVENANCE_REGISTRY: Record<string, VerificationProvenance> = {
   "tx-oag-cvc-relocation": {
@@ -396,10 +396,10 @@ export const RESOURCE_PROVENANCE_REGISTRY: Record<string, VerificationProvenance
     confirmingEntity: "Social Security Administration (SSA)",
     criteriaConfirmed: [
       "20 CFR § 422.103(e)(2) domestic violence and harassment authority",
-      "POMS RM 10225.065 & RM 10225.066 procedure requirements",
+      "POMS RM 10220.200 - RM 10220.220 procedure requirements",
       "Credit and administrative continuity complications explicitly qualified"
     ],
-    verificationNotes: "Re-verified against current SSA POMS RM 10225.065 (Domestic Violence) and SSA Publication No. 05-10093.",
+    verificationNotes: "Re-verified against current SSA POMS RM 10220.200 (Domestic Violence / HALE) and SSA Publication No. 05-10093.",
     nextScheduledReviewDate: "2026-11-30"
   }
 };

@@ -1632,7 +1632,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
     "typicalAmount": "Free official federal identity reissuance",
-    "knownFundingLimits": "Administrative federal remedy under 20 CFR § 422.103(e)(2) and SSA POMS RM 10225.065 / RM 10225.066",
+    "knownFundingLimits": "Administrative federal remedy under 20 CFR § 422.103(e)(2) and SSA POMS RM 10220.200 - RM 10220.220 (HALE Policy)",
     "eligibility": "Must provide third-party evidence documenting ongoing domestic violence, harassment, abuse, or life endangerment linked to the abuser's misuse or knowledge of the existing SSN.",
     "documentationRequired": [
       "Form SS-5 (Application for a Social Security Card)",
@@ -1646,19 +1646,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "Ongoing administrative evaluation",
     "whatCanBlockAccess": [
-      "STRICT EVIDENCE THRESHOLD: SSA requires third-party corroborating documentation establishing ongoing danger or misuse of the SSN by the abuser",
-      "PRIOR LIABILITIES REMAIN: Assigning a new SSN does not erase prior tax debts, child support orders, or commercial credit liabilities",
-      "CREDIT RESET: Credit reporting agencies create a new file with no historical credit score; credit history must be built from scratch"
+      "STRICT EVIDENCE THRESHOLD: SSA requires third-party corroborating documentation establishing ongoing danger, harassment, or misuse of the SSN by the abuser (police reports, court restraining orders, medical records, or shelter advocate affidavits)",
+      "PRIOR RECORDS & LIABILITIES PERSIST: A new SSN does not erase prior tax debts, child support obligations, or legal records associated with the former number; records may continue to exist under both numbers",
+      "CREDIT & ADMINISTRATIVE FRICTION: A new SSN does not guarantee a completely fresh credit identity. Credit reporting agencies may cross-link the files, or conversely, past credit and employment records can become difficult to associate with the new number, creating severe ongoing administrative complications with financial institutions, employers, and government agencies"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
       "IDENTITY_DOCUMENTS",
       "WALK_IN"
     ],
-    "whatToDoNext": "Gather your primary identity documents and third-party evidence packet. Make an in-person appointment at your local Social Security Administration Field Office and request an SSN change under 20 CFR § 422.103(e)(2) and POMS RM 10225.065.",
+    "whatToDoNext": "Gather your primary identity documents and third-party evidence packet. Make an in-person appointment at your local Social Security Administration Field Office and request an SSN change under 20 CFR § 422.103(e)(2) and POMS RM 10220.200.",
     "howToApply": "Schedule an appointment at a local SSA Field Office with Form SS-5 and evidence packet.",
     "sourceUrl": "https://secure.ssa.gov/poms.nsf/lnx/0110220200",
-    "primaryAuthoritativeSource": "Social Security Administration POMS RM 10220.200 - RM 10220.220 / POMS RM 10225.060 (HALE Policy)",
+    "primaryAuthoritativeSource": "Social Security Administration POMS RM 10220.200 - RM 10220.220 / 20 CFR § 422.103(e)(2) (Harassment, Abuse, and Life Endangerment - HALE Policy)",
     "lastReviewedDate": "2026-08-31",
     "dateLastVerified": "2026-08-31",
     "verificationStatus": "ACTIVE_VERIFIED",
@@ -1669,18 +1669,18 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "confirmingEntity": "Social Security Administration (SSA)",
       "criteriaConfirmed": [
         "20 CFR § 422.103(e)(2) domestic violence and harassment authority",
-        "POMS RM 10225.065 & RM 10225.066 procedure requirements",
+        "POMS RM 10220.200 - RM 10220.220 procedure requirements",
         "Credit and administrative continuity complications explicitly qualified"
       ],
-      "verificationNotes": "Re-verified against current SSA POMS RM 10225.065 (Domestic Violence) and SSA Publication No. 05-10093.",
+      "verificationNotes": "Re-verified against current SSA POMS RM 10220.200 (Domestic Violence / HALE) and SSA Publication No. 05-10093.",
       "nextScheduledReviewDate": "2026-11-30"
     },
     "isStatutoryRight": true,
-    "statuteCitation": "SSA POMS RM 10220.200 (Harassment, Abuse, and Life Endangerment)",
-    "whyMissed": "SSA does not advertise this route publicly on general consumer pages; it is an internal administrative procedure governed by POMS RM 10225.065.",
-    "workaround": "While SSA generally prohibits changing SSNs, 20 CFR § 422.103(e)(2) and POMS RM 10225.065 explicitly authorize assignment of a different Social Security Number when evidence proves an abuser or stalker is using the existing SSN to locate, harass, or endanger the survivor.",
-    "accessNotes": "Schedule in-person appointment at local SSA Field Office. Bring Form SS-5, birth certificate/passport, and third-party corroborating documentation (protective orders, advocate letters, or medical records). Major Warning: A new SSN does not guarantee a new credit identity and can create severe administrative hurdles with past records.",
-    "notes": "Governed by 20 CFR § 422.103(e)(2) and POMS RM 10225.065. An extreme remedy that requires extensive third-party documentation and creates significant credit and record-keeping complications.",
+    "statuteCitation": "20 CFR § 422.103(e)(2) / SSA POMS RM 10220.200",
+    "whyMissed": "SSA does not advertise this route publicly on general consumer pages; it is an internal administrative procedure governed by POMS RM 10220.200.",
+    "workaround": "While SSA generally prohibits changing SSNs, 20 CFR § 422.103(e)(2) and POMS RM 10220.200 explicitly authorize assignment of a different Social Security Number when evidence proves an abuser or stalker is using the existing SSN to locate, harass, or endanger the survivor.",
+    "accessNotes": "Schedule in-person appointment at local SSA Field Office. Bring Form SS-5, birth certificate/passport, and third-party corroborating documentation (protective orders, advocate letters, or medical records). Major Access Friction: A new SSN does not guarantee a clean credit break and can create ongoing administrative hurdles with historical records.",
+    "notes": "Governed by 20 CFR § 422.103(e)(2) and POMS RM 10220.200. An administrative remedy requiring extensive third-party documentation and creating significant credit and record-linking complications.",
     "claimProvenances": [
       {
         "claim": "SSA assigns new SSN under Harassment, Abuse, and Life Endangerment (HALE) policy",
