@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -89,7 +89,7 @@ function BuildWithUsContent() {
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Built With Us: Build the Coalition
+          Build With Us: Join the Working Coalition
         </h1>
         <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
           Building a truly comprehensive barrier-first resource intelligence platform requires cross-disciplinary collaboration. We invite fiscal sponsors, attorneys, advocates, researchers, technologists, trade partners, and funders to join our working coalition.

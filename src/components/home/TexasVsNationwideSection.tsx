@@ -31,7 +31,7 @@ export function TexasVsNationwideSection() {
                 <MapPin className="w-4 h-4" />
                 <span>STATE & COUNTY DEPTH</span>
               </span>
-              <span className="stamp-verified text-[10px] py-0.5 px-2">PILOT REGION</span>
+              <span className="stamp-verified text-[10px] py-0.5 px-2">CENTRAL TX PILOT</span>
             </div>
 
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">TEXAS DEEP DIVE</h3>
@@ -60,7 +60,7 @@ export function TexasVsNationwideSection() {
                 <Globe className="w-4 h-4" />
                 <span>NATIONWIDE & MULTI-STATE</span>
               </span>
-              <span className="stamp-verified text-[10px] py-0.5 px-2">ALL 50 STATES</span>
+              <span className="stamp-verified text-[10px] py-0.5 px-2">MULTI-STATE & US</span>
             </div>
 
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">OTHER WAYS THROUGH</h3>

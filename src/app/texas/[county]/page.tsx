@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCountyBySlug, ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
@@ -48,8 +48,8 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
             </span>
           </div>
           {county.isPilotRegion && (
-            <span className="stamp-verified bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D] text-[10px] py-0.5 px-2">
-              [PILOT COHORT ACTIVE]
+            <span className="stamp-verified bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D] text-[10px] py-0.5 px-2 font-mono uppercase font-bold">
+              [PILOT FOCUS REGION]
             </span>
           )}
         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -64,40 +64,57 @@ export function BuildAWayThroughSection() {
     if (selectedProblem === "HOUSING_DEPOSIT" || selectedProblem === "LEAVE_UNSAFE_LEASE") {
       pool = pool.filter(
         (r) =>
-          r.id === "tx-prop-code-92-016" ||
-          r.id === "travis-county-fss" ||
-          r.id === "giving-kitchen" ||
-          r.id === "safe-alliance-housing" ||
-          r.barrierCategories.includes("HOUSING")
+          r.id === "tx-statute-lease-termination" ||
+          r.id === "travis-county-family-support" ||
+          r.id === "giving-kitchen-crisis-grants" ||
+          r.id === "safe-alliance-austin" ||
+          r.barrierCategories.includes("rent-deposit") ||
+          r.barrierCategories.includes("lease-escape") ||
+          r.barrierCategories.includes("safe-stay")
       );
     } else if (selectedProblem === "UTILITY_RECONNECTION") {
       pool = pool.filter(
         (r) =>
-          r.id === "puc-subst-r-25-478" ||
-          r.id === "community-action-network-csbg" ||
-          r.barrierCategories.includes("UTILITY")
+          r.id === "tx-puct-utility-waiver" ||
+          r.id === "owbc-community-action-wilco" ||
+          r.id === "the-caring-place-georgetown" ||
+          r.barrierCategories.includes("utility-deposit")
       );
     } else if (selectedProblem === "PHONE_PRIVACY") {
       pool = pool.filter(
         (r) =>
-          r.id === "fcc-safe-connections-act" ||
-          r.barrierCategories.includes("COMMUNICATIONS") ||
-          r.barrierCategories.includes("LEGAL")
+          r.id === "safe-connections-act-separation" ||
+          r.id === "nnedv-techsafety-clinic" ||
+          r.barrierCategories.includes("phone-controlled") ||
+          r.barrierCategories.includes("device-car-tracking")
       );
     } else if (selectedProblem === "PET_BOARDING") {
       pool = pool.filter(
         (r) =>
-          r.id === "redrover-safe-escape" ||
-          r.id === "austin-pets-alive-pass" ||
-          r.barrierCategories.includes("PETS")
+          r.id === "redrover-relief-safe-escape" ||
+          r.id === "safe-havens-for-pets" ||
+          r.barrierCategories.includes("pets") ||
+          r.petSpecific === true
       );
     } else if (selectedProblem === "FOOD_INDUSTRY_HARDSHIP") {
       pool = pool.filter(
         (r) =>
-          r.id === "southern-smoke-emergency-relief" ||
-          r.id === "giving-kitchen" ||
-          r.id === "musicares-emergency-financial-grant"
+          r.id === "southern-smoke-foundation" ||
+          r.id === "giving-kitchen-crisis-grants" ||
+          r.id === "core-children-of-restaurant-employees" ||
+          r.id === "musicares-emergency-financial" ||
+          r.barrierCategories.includes("industry-hardship")
       );
+    }
+
+    // Apply friction filtering if requested
+    if (selectedFrictions.includes("NO_POLICE_REPORT")) {
+      const noPolice = pool.filter((r) => r.policeReportRequired === false);
+      if (noPolice.length >= 2) pool = noPolice;
+    }
+    if (selectedFrictions.includes("NO_SHELTER_STAY")) {
+      const noShelter = pool.filter((r) => r.shelterConnectionRequired === false);
+      if (noShelter.length >= 2) pool = noShelter;
     }
 
     if (pool.length < 3) {

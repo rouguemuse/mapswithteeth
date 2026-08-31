@@ -165,7 +165,7 @@ export default function HowWeResearchPage() {
         <div className="grid gap-4 sm:grid-cols-2 text-xs font-mono">
           <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
             <span className="stamp-verified text-[10px] py-0.5 mb-1">
-              [AGENCY CONFIRMED]
+              [DIRECTLY CONFIRMED]
             </span>
             <p className="text-stone-800 font-sans text-xs pt-1">
               Directly confirmed via written communication or interview with program leadership to confirm current budget availability and application criteria.
@@ -174,7 +174,7 @@ export default function HowWeResearchPage() {
 
           <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
             <span className="stamp-verified text-[10px] py-0.5 mb-1">
-              [OFFICIAL SOURCE CHECKED]
+              [PRIMARY SOURCE VERIFIED]
             </span>
             <p className="text-stone-800 font-sans text-xs pt-1">
               Verified against Texas Capitol statutes, Texas Administrative Code (TAC), FCC regulations, or IRS official publications.

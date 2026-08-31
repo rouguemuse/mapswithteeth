@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
@@ -31,7 +31,7 @@ export default function BridgePage() {
               CONTINUITY INFRASTRUCTURE LAYER · STAGE 03
             </span>
           </div>
-          <StatusBadge type="product" status="PILOT" label="STAGE 03 PILOT" timestamp="FIELD TESTING" />
+          <StatusBadge type="product" status="PROTOTYPE" label="STAGE 03 PROTOTYPE" timestamp="FIELD SPECIFICATION" />
         </div>
 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
@@ -121,14 +121,14 @@ export default function BridgePage() {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-dashed border-[#1C1D1D] pb-4">
             <div>
               <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest block font-bold">
-                MAPS WITH TEETH CONTINUITY RECEIPT SPECIMEN
+                MAPS WITH TEETH CONTINUITY RECEIPT SPECIMEN · [PROTOTYPE]
               </span>
               <span className="font-bold text-base sm:text-lg text-[#1C1D1D] font-mono">
                 RECEIPT ID: CR-2026-TX-08942
               </span>
             </div>
             <span className="px-2.5 py-1 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] font-mono font-bold text-xs rounded-xs">
-              ✓ CONTEXT LOCKED
+              ✓ CONTEXT DOCUMENTED
             </span>
           </div>
 
@@ -189,8 +189,8 @@ export default function BridgePage() {
           </div>
 
           <div className="border-t border-[#D9D1C4] pt-3 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-stone-600">
-            <span>Cryptographic Fingerprint: SHA256:7f8a91b...c402</span>
-            <span>Stored in Survivor Originals Vault</span>
+            <span>Prototype Format: Reference Record Only</span>
+            <span>Controlled by user · Not automatically shared with any organization</span>
           </div>
         </div>
       </section>

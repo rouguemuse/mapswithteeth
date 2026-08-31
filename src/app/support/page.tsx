@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { PILOT_CONFIG } from "@/data/pilotBudget";
 import { Shield, Building2, DollarSign, ArrowRight, Heart, Info, CheckCircle2, Scale } from "lucide-react";
@@ -52,7 +52,7 @@ export default function SupportPage() {
         </div>
 
         <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans pt-1">
-          Rather than prematurely establishing an expensive disconnected bureaucracy, Maps With Teeth is structured to launch under comprehensive <strong>Fiscal Sponsorship</strong>. This model provides:
+          Rather than prematurely establishing an expensive disconnected bureaucracy, Maps With Teeth is actively establishing a comprehensive <strong>Fiscal Sponsorship</strong> framework for its pilot operations. When formally active, this governance model provides:
         </p>
 
         <div className="grid gap-2.5 sm:grid-cols-2 text-xs sm:text-sm text-stone-800 font-mono">
