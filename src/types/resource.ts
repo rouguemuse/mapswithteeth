@@ -87,6 +87,27 @@ export type VerificationStatus =
   | "NEEDS_REVERIFICATION"
   | "CLOSED";
 
+export type ClaimSupportLevel =
+  | "DIRECTLY_SUPPORTED"
+  | "PARTIALLY_SUPPORTED"
+  | "INFERRED"
+  | "UNVERIFIED";
+
+export interface ClaimEvidence {
+  claimId: string;
+  claim: string;
+  sourceUrl: string;
+  sourceTitle: string;
+  sourcePublisher: string;
+  sourceType: "PRIMARY_STATUTE" | "GOVERNMENT_PORTAL" | "501C3_STANDARDS" | "AGENCY_STAFF" | "PUBLIC_AUDIT";
+  checkedAt: string;
+  effectiveDateOrPublishedDate: string;
+  sourceLocator: string;
+  supportLevel: ClaimSupportLevel;
+  quotedOrParaphrasedEvidence: string;
+  reviewerNote?: string;
+}
+
 export interface ClaimProvenance {
   claim: string;
   primarySourceUrl: string;
@@ -103,6 +124,7 @@ export interface VerificationProvenance {
   criteriaConfirmed: string[];
   verificationNotes: string;
   nextScheduledReviewDate: string;
+  claimEvidences?: ClaimEvidence[];
 }
 
 export type PaymentMethod =
@@ -226,6 +248,7 @@ export interface Resource {
   verificationStatus: VerificationStatus;
   provenance?: VerificationProvenance;
   claimProvenances?: ClaimProvenance[];
+  claimEvidences?: ClaimEvidence[];
   isLead?: boolean;
 
   // Statutory Rights & Closures

@@ -950,19 +950,19 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
     "geography": "Nationwide (Documented Severe Stalking/Abuse)",
     "currentStatus": "PUBLISHED",
     "verificationTier": "PRIMARY_STATUTE",
-    "primarySource": "20 CFR § 422.103(e)(2) / SSA POMS RM 10220.200 - RM 10220.220 (HALE Policy)",
+    "primarySource": "SSA POMS RM 10220.200 / SSA Pub. No. 05-10093 / SSA POMS RM 10220.200 - RM 10220.220 (HALE Policy)",
     "lastVerified": "2026-08-31",
     "existingPublicResourceId": "ssa-number-change-dv",
     "nextResearchAction": "Published live in Resource Graph. Maintain quarterly staleness review.",
-    "notes": "Verified official procedure (20 CFR § 422.103(e)(2) & POMS RM 10220.200 - RM 10220.220). SSA allows assignment of a different SSN under Harassment, Abuse, and Life Endangerment (HALE) policy upon presentation of third-party evidence.",
+    "notes": "Verified official procedure (SSA POMS RM 10220.200 / SSA Pub. No. 05-10093 & POMS RM 10220.200 - RM 10220.220). SSA allows assignment of a different SSN under Harassment, Abuse, and Life Endangerment (HALE) policy upon presentation of third-party evidence.",
     "leadName": "SSA Social Security Number Change for DV Survivors",
     "status": "PUBLISHED",
     "isVerified": true,
     "isLiveOnSite": true,
-    "whyNotOrNotes": "Verified official procedure (20 CFR § 422.103(e)(2) & POMS RM 10220.200 - RM 10220.220). SSA allows assignment of a different SSN under Harassment, Abuse, and Life Endangerment (HALE) policy upon presentation of third-party evidence.",
+    "whyNotOrNotes": "Verified official procedure (SSA POMS RM 10220.200 / SSA Pub. No. 05-10093 & POMS RM 10220.200 - RM 10220.220). SSA allows assignment of a different SSN under Harassment, Abuse, and Life Endangerment (HALE) policy upon presentation of third-party evidence.",
     "nextAction": "Published live in Resource Graph. Maintain quarterly staleness review.",
     "targetAudienceOrGeography": "Nationwide (Documented Severe Stalking/Abuse)",
-    "authoritativeSource": "20 CFR § 422.103(e)(2) / SSA POMS RM 10220.200 - RM 10220.220 (HALE Policy)"
+    "authoritativeSource": "SSA POMS RM 10220.200 / SSA Pub. No. 05-10093 / SSA POMS RM 10220.200 - RM 10220.220 (HALE Policy)"
   },
   {
     "id": "lead-freefrom-coerced-debt",

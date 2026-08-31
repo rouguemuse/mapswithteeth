@@ -31,8 +31,8 @@ export const TEXAS_RESOURCES: Resource[] = [
       "COUNSELING",
       "POLICE_REPORT_REQUIRED"
     ],
-    "whatItCanHelpWith": "Up to $5,000 total for documented qualifying relocation deposits, moving expenses, and rent for qualifying crimes occurring after August 31, 2023. Potentially covered relocation categories under Texas OAG rules include emergency lodging, monthly rent, professional movers, rental deposits, pet deposits, storage units, relocation transportation, utility deposits/connections, transfer fees, and rental truck/van costs.",
-    "whatItActuallyProvides": "Up to $5,000 total for documented qualifying relocation deposits, moving expenses, and rent for qualifying crimes occurring after August 31, 2023. Payer of last resort; requires itemized receipts.",
+    "whatItCanHelpWith": "Up to $5,000 aggregate relocation and rental assistance for qualifying violent crimes occurring after August 31, 2023 under Tex. Code Crim. Proc. Art. 56B.106(a)(3). Limited to one move per claim, with relocation occurring within 3 years of the crime date. Eligible expenses include rental deposits, rent, moving truck rental, commercial movers, storage units, utility connection/transfer fees, relocation travel, and qualifying temporary emergency lodging.",
+    "whatItActuallyProvides": "Up to $5,000 aggregate relocation and rental assistance for qualifying crimes post-Aug 31, 2023. Payer of last resort; requires itemized documentation.",
     "assistanceShapes": [
       "REIMBURSEMENT",
       "VENDOR_PAYMENT",
@@ -46,36 +46,37 @@ export const TEXAS_RESOURCES: Resource[] = [
       "COUNSELING"
     ],
     "paymentMethod": "REIMBURSEMENT",
-    "typicalAmount": "Up to $5,000 relocation cap (post-Aug 31, 2023 offenses; based on verified documented expenses, not automatic flat grant) + up to $700/week lost wages",
-    "knownFundingLimits": "Up to $5,000 for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). Must submit itemized receipts.",
-    "eligibility": "Victims of violent crime or domestic violence in Texas who reported the incident to law enforcement (or qualifying exceptions) and incurred financial expenses directly resulting from the crime.",
+    "typicalAmount": "Up to $5,000 aggregate relocation assistance (post-Aug 31, 2023 offenses; based on verified documented expenses, not automatic flat grant) + up to $700/week lost wages",
+    "knownFundingLimits": "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). One move per incident within 3 years. Payer of last resort.",
+    "eligibility": "Victims of qualifying violent crime or domestic violence in Texas who reported the incident to law enforcement (or qualify under statutory good-cause/minor exceptions in Art. 56B.054) and incurred expenses directly resulting from the crime.",
     "documentationRequired": [
-      "Law enforcement incident report or police report number",
-      "Itemized lease agreement, utility receipts, pet deposit receipts, or moving/truck invoices",
+      "Law enforcement incident report or formal report identifier",
+      "Itemized lease agreement, utility receipts, storage invoices, or moving/truck receipts",
       "Employer wage verification form if claiming lost income"
     ],
-    "referralRequirement": "None required (can self-apply online, but shelter/hospital advocate assistance recommended)",
+    "referralRequirement": "None required (self-application online via OAG portal permitted; victim advocate assistance recommended)",
     "shelterConnectionRequired": false,
     "policeReportRequired": true,
     "incomeRestriction": "None (eligibility is based on victimization, not poverty threshold)",
     "employmentDependency": "None for relocation benefits (employment proof needed only for lost wage claims)",
-    "applicationWindow": "Generally within 3 years of the crime (statutory exceptions for family violence and child victims)",
+    "applicationWindow": "Relocation must occur within 3 years of the crime date",
     "whatCanBlockAccess": [
-      "Police report or law enforcement incident number required",
-      "Payer of last resort (collateral sources like insurance must be used first)",
-      "Reimbursement or vendor-paid only (not an instant upfront cash payment)"
+      "Police report or law enforcement incident identifier required (statutory reporting exceptions in Art. 56B.054 apply for minors and good cause)",
+      "Payer of last resort: collateral sources (such as insurance) must be applied first",
+      "Direct vendor payment or claimant reimbursement only: not an upfront cash disbursement",
+      "Processing time varies: Priority processing may be requested for qualifying urgent relocation needs"
     ],
     "accessFrictions": [
       "POLICE_REPORT_REQUIRED",
       "APPLICATION_REQUIRED",
       "WAITLIST_POSSIBLE"
     ],
-    "whatToDoNext": "Apply online through the Texas OAG Crime Victims' Portal (texasattorneygeneral.gov) or meet with a hospital/shelter victim witness counselor.",
+    "whatToDoNext": "Apply online through the Texas OAG Crime Victims' Portal (texasattorneygeneral.gov) or meet with a hospital/shelter victim witness counselor. Request priority processing if relocation is imminent.",
     "howToApply": "Apply online through the Texas OAG Crime Victims' Portal or meet with a hospital/shelter victim witness counselor.",
     "sourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
-    "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG Crime Victims' Services Division Guidelines",
-    "lastReviewedDate": "2026-08-29",
-    "dateLastVerified": "2026-08-29",
+    "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(a)(3)) / Texas OAG CVC Guidelines",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
     "verificationStatus": "ACTIVE_VERIFIED",
     "provenance": {
       "verificationDate": "2026-08-31",
@@ -83,22 +84,23 @@ export const TEXAS_RESOURCES: Resource[] = [
       "sourceType": "PRIMARY_STATUTE",
       "confirmingEntity": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG",
       "criteriaConfirmed": [
-        "Up to $5,000 relocation cap for offenses post-Aug 31, 2023",
-        "Itemized reimbursement payer-of-last-resort mandate",
-        "Police report requirement with trauma exceptions"
+        "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses (Art. 56B.106(a)(3))",
+        "One move per claim limitation within 3 years of offense",
+        "Itemized reimbursement / vendor-direct payer-of-last-resort mandate",
+        "Variable processing time with priority expedited review mechanism"
       ],
-      "verificationNotes": "Verified against Texas Code of Criminal Procedure Chapter 56B and current Texas OAG CVC guidelines.",
+      "verificationNotes": "Verified against Tex. Code Crim. Proc. Chapter 56B and current Texas OAG CVC published rules.",
       "nextScheduledReviewDate": "2026-11-30"
     },
     "isStatutoryRight": true,
-    "statuteCitation": "Tex. Code Crim. Proc. Chapter 56B",
-    "notes": "Historical limit for pre-Sept 1, 2023 crimes was $2,000. Current statutory limit is up to $5,000 total for post-Aug 31, 2023 offenses.",
-    "importantLimitations": "Funding is based on itemized eligible expense receipts and eligibility limits. Does not guarantee an automatic $5,000 payment to every claimant.",
+    "statuteCitation": "Tex. Code Crim. Proc. Art. 56B.106(a)(3)",
+    "notes": "Aggregate relocation assistance cap is $5,000 for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). Processing time varies; expedited priority review may be requested.",
+    "importantLimitations": "Assistance is paid against itemized qualifying expenses up to the statutory cap. One move per claim within 3 years.",
     "claimProvenances": [
       {
-        "claim": "Texas Crime Victims' Compensation (CVC) Relocation Assistance",
+        "claim": "Texas Crime Victims' Compensation (CVC) Relocation Assistance ($5,000 cap post-Aug 31, 2023)",
         "primarySourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
-        "sourceExcerptOrSummary": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG Crime Victims' Services Division Guidelines",
+        "sourceExcerptOrSummary": "Tex. Code Crim. Proc. Art. 56B.106(a)(3) authorizes up to $5,000 for relocation expenses for crimes occurring after August 31, 2023.",
         "verificationDate": "2026-08-31"
       }
     ]
@@ -146,7 +148,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "whatCanBlockAccess": [
       "RECOMMENDED VS. REQUIRED ROUTE: Self-application directly to the Texas OAG is permitted via online document upload or mail. Meeting with a certified ACP Enrollment Assistant is recommended, not mandatory.",
       "Private commercial entities (private landlords, banks, credit card bureaus) are not mandated by state statute to accept ACP substitute address",
-      "Mail forwarding introduces 5–10 day delivery delay for forwarded standard mail"
+      "Mail forwarding introduces approximately a 3–4 day delivery delay for forwarded first-class mail (per Texas OAG ACP guidelines)"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -342,49 +344,49 @@ export const TEXAS_RESOURCES: Resource[] = [
       "SECURITY_DEVICES",
       "STATUTORY_RIGHT"
     ],
-    "whatItCanHelpWith": "Sets statutory requirements for landlord installation of door locks, keyless deadbolts, and door viewers on all rental dwellings, and governs tenant rekeying rights during tenancies.",
-    "whatItActuallyProvides": "Statutory right to functional keyless deadbolts and rekeying mechanisms under Texas Property Code Chapter 92, Subchapter D.",
+    "whatItCanHelpWith": "Establishes specific residential security device and rekeying rights under Texas Property Code Chapter 92, Subchapter D (§§ 92.153–92.165): (1) Landlord-paid turnover rekeying (§ 92.156(a)) within 7 days of tenant turnover; (2) Tenant-requested rekeying during tenancy (§ 92.156(b)) generally at tenant expense; (3) Landlord duty to comply with tenant written request within a reasonable time, presumed to be within 7 days (§ 92.161); and (4) Statutory tenant remedies for non-compliance (§ 92.164).",
+    "whatItActuallyProvides": "Statutory rights regarding required security devices (keyless deadbolts, pin locks), landlord turnover rekeying, and tenant-requested rekeying timelines under Texas Property Code Chapter 92.",
     "assistanceShapes": [
       "LEGAL_INFORMATION",
       "LEGAL_SERVICE"
     ],
     "paymentMethod": "STATUTORY_RIGHT",
     "typicalAmount": "Statutory landlord security compliance obligations",
-    "knownFundingLimits": "Statutory rights (tenant generally pays rekey fee during ongoing lease unless landlord breached duties)",
+    "knownFundingLimits": "Statutory rights: Landlord pays turnover rekeying between tenants (§ 92.156(a)); tenant pays requested rekeying during lease (§ 92.156(b)) unless landlord breached device duties.",
     "eligibility": "All residential tenants in Texas.",
     "documentationRequired": [
-      "Written notice sent via certified mail or tracked delivery requesting lock rekeying/repair"
+      "Written notice sent via certified mail, tracked delivery, or hand delivery requesting lock rekeying/installation"
     ],
-    "referralRequirement": "None (self-execute via written notice to landlord)",
+    "referralRequirement": "None (self-executed via formal written notice to landlord)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
-    "applicationWindow": "Landlord must comply within 7 days of written notice",
+    "applicationWindow": "Landlord presumed non-compliant if failing to act within 7 days of written notice (§ 92.161)",
     "whatCanBlockAccess": [
-      "Subchapter D governs general security devices, not an automatic free lock change for domestic disputes",
-      "Tenant is generally responsible for reasonable rekey fees during ongoing lease unless landlord breached statutory duties or court protective order directs otherwise",
-      "Notice must be delivered in writing"
+      "DISTINGUISH REKEYING RIGHTS: Landlord pays for mandatory turnover rekeying at start of lease (§ 92.156(a)); rekeying requested by tenant during an ongoing lease is generally at tenant expense (§ 92.156(b))",
+      "7-DAY TIMELINE IS COMPLIANCE PRESUMPTION: § 92.161 establishes 7 days after written notice as a rebuttable presumption of reasonable compliance time",
+      "REMEDIES REQUIRE FORMAL WRITTEN NOTICE: Tenant remedies under § 92.164 (unilateral lock change + rent deduction, or lease termination) require proper prior written notice and statutory cure period"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Send formal written notice to landlord requesting rekeying. If emergency protective order with kick-out is in place, attach copy demanding exclusion of abuser.",
-    "howToApply": "Send formal written notice to landlord requesting rekeying. If emergency protective order with kick-out is in place, attach copy demanding exclusion of abuser.",
+    "whatToDoNext": "Send formal written notice to landlord requesting rekeying under Tex. Prop. Code § 92.156(b). If court protective order with kick-out is in place, attach copy demanding exclusion of abuser.",
+    "howToApply": "Send formal written notice to landlord requesting rekeying under Tex. Prop. Code § 92.156(b).",
     "sourceUrl": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm#92.153",
     "primaryAuthoritativeSource": "Texas Property Code Chapter 92, Subchapter D (§§ 92.153–92.165)",
-    "lastReviewedDate": "2026-08-29",
-    "dateLastVerified": "2026-08-29",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Prop. Code §§ 92.153–92.165",
-    "notes": "Requires landlords to have functional keyless deadbolts and window latches on all residential rentals.",
+    "notes": "Distinguishes landlord-paid turnover rekeying (§ 92.156(a)) from tenant-requested mid-lease rekeying (§ 92.156(b)) and 7-day reasonable-time presumption (§ 92.161).",
     "claimProvenances": [
       {
-        "claim": "Residential Rekeying & Security Device Protections",
+        "claim": "Residential Rekeying & Security Device Protections (Tex. Prop. Code §§ 92.153–92.165)",
         "primarySourceUrl": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm#92.153",
-        "sourceExcerptOrSummary": "Texas Property Code Chapter 92, Subchapter D (§§ 92.153–92.165)",
+        "sourceExcerptOrSummary": "Tex. Prop. Code §§ 92.153–92.165 governs mandatory security devices, turnover rekeying, tenant mid-lease requests, and 7-day compliance presumption.",
         "verificationDate": "2026-08-31"
       }
     ]

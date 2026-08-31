@@ -1,4 +1,8 @@
-import { VerificationProvenance } from "@/types/resource";
+const fs = require('fs');
+
+console.log("Generating full claim-level provenance registry...");
+
+const registryContent = `import { VerificationProvenance } from "@/types/resource";
 
 export const RESOURCE_PROVENANCE_REGISTRY: Record<string, VerificationProvenance> = {
   // ==========================================
@@ -778,3 +782,7 @@ export const RESOURCE_PROVENANCE_REGISTRY: Record<string, VerificationProvenance
 export function getVerificationProvenance(resourceId: string): VerificationProvenance | undefined {
   return RESOURCE_PROVENANCE_REGISTRY[resourceId];
 }
+`;
+
+fs.writeFileSync('src/data/provenanceRegistry.ts', registryContent, 'utf8');
+console.log("Successfully generated updated src/data/provenanceRegistry.ts");
