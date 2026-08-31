@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { ArrowRight, Shuffle, FileText, CheckCircle2, Shield, AlertTriangle } from "lucide-react";
@@ -11,7 +11,7 @@ export function BridgeSection() {
           <Shuffle className="w-4 h-4 text-[#971F26]" />
           <span>CONTINUITY INFRASTRUCTURE LAYER</span>
         </span>
-        <StatusBadge type="product" status="PILOT" label="STAGE 03 PILOT" timestamp="CONTINUITY PILOT" />
+        <StatusBadge type="product" status="PROTOTYPE" label="STAGE 03 PROTOTYPE" timestamp="PROTOTYPE SPECIFICATION" />
       </div>
 
       <div className="max-w-3xl space-y-3">

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
@@ -246,7 +246,7 @@ export default function HowItWorksPage() {
                   <Shuffle className="w-4 h-4" />
                   <span>2. BRIDGE & CONTINUITY RECEIPTS</span>
                 </div>
-                <StatusBadge type="product" status="PILOT" label="PILOT" />
+                <StatusBadge type="product" status="PROTOTYPE" label="PROTOTYPE" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Carry Context Forward

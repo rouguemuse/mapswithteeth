@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { StatusBadge, ProductStatus } from "@/components/ui/StatusBadge";
 import { CheckCircle2, FlaskConical, Milestone, ShieldCheck, ArrowRight, Layers, FileText, Shuffle, Scale, AlertTriangle, Building } from "lucide-react";
@@ -48,8 +48,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 03",
       name: "Bridge & Continuity Receipts",
-      status: "PILOT",
-      statusLabel: "PILOT",
+      status: "PROTOTYPE",
+      statusLabel: "PROTOTYPE",
       icon: <Shuffle className="w-4 h-4 text-[#971F26]" />,
       description: "Stopping context from vanishing when moving between agencies or counties.",
       items: [

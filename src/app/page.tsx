@@ -3,6 +3,7 @@ import { HeroThesisSection } from "@/components/home/HeroThesisSection";
 import { WhatAreYouTryingToSolveSection } from "@/components/home/WhatAreYouTryingToSolveSection";
 import { BuildAWayThroughSection } from "@/components/home/BuildAWayThroughSection";
 import { TheTeethSection } from "@/components/home/TheTeethSection";
+import { NavigationComparisonSection } from "@/components/home/NavigationComparisonSection";
 import { TexasVsNationwideSection } from "@/components/home/TexasVsNationwideSection";
 import { ContinuityTransitionSection } from "@/components/home/ContinuityTransitionSection";
 import { HowWeKnowSection } from "@/components/home/HowWeKnowSection";
@@ -32,37 +33,42 @@ export default function HomePage() {
         <TheTeethSection />
       </section>
 
-      {/* 5. Texas Deep Dive / Other Ways Through / Ask Us to Look */}
+      {/* 5. Traditional Resource Navigation vs. Maps With Teeth (How Information is Handled) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <NavigationComparisonSection />
+      </section>
+
+      {/* 6. Texas Deep Dive / Other Ways Through / Ask Us to Look */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TexasVsNationwideSection />
       </section>
 
-      {/* 6. TRANSITION: Getting Through the Door Isn't the End of the Problem (Resource Intelligence -> Continuity Infrastructure) */}
+      {/* 7. TRANSITION: Getting Through the Door Isn't the End of the Problem (Resource Intelligence -> Continuity Infrastructure) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ContinuityTransitionSection />
       </section>
 
-      {/* 7. Bridge & Continuity Receipts */}
+      {/* 8. Bridge & Continuity Receipts */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <BridgeSection />
       </section>
 
-      {/* 8. How We Know What We Know (5 Verification Tiers) */}
+      {/* 9. How We Know What We Know (5 Verification Tiers) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HowWeKnowSection />
       </section>
 
-      {/* 9. Full 6-Stage Roadmap: What is built, what we're testing, what comes next */}
+      {/* 10. Full 6-Stage Roadmap: What is built, what we're testing, what comes next */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <BuiltTestingProposedSection />
       </section>
 
-      {/* 10. Help Fund the Paths Between the Gaps (Direct Support) */}
+      {/* 11. Help Fund the Paths Between the Gaps (Direct Support) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HomeSupportSection />
       </section>
 
-      {/* 11. Pressure-Test the Model / Stakeholder & Community Feedback */}
+      {/* 12. Pressure-Test the Model / Stakeholder & Community Feedback */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StakeholderFeedbackSection />
       </section>
