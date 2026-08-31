@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import Link from "next/link";
+import { StatusBadge } from "@/components/ui/StatusBadge";
 import { ArrowRight, Shuffle, FileText, CheckCircle2, Shield, AlertTriangle } from "lucide-react";
 
 export function BridgeSection() {
@@ -10,7 +11,7 @@ export function BridgeSection() {
           <Shuffle className="w-4 h-4 text-[#971F26]" />
           <span>CONTINUITY INFRASTRUCTURE LAYER</span>
         </span>
-        <span className="coord-tick text-stone-700">[STAGE 03 · CONTINUITY PILOT]</span>
+        <StatusBadge type="product" status="PILOT" label="STAGE 03 PILOT" timestamp="CONTINUITY PILOT" />
       </div>
 
       <div className="max-w-3xl space-y-3">
@@ -25,55 +26,55 @@ export function BridgeSection() {
 
       {/* Visual Referral Chain Example */}
       <div className="p-4 sm:p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-3">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-[#971F26] font-bold block">
+        <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold block">
           THE CONTINUITY RECEIPT CHAIN (HOW IT PRESERVES CONTEXT)
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2.5 font-mono text-xs text-stone-900">
-          <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-md space-y-1">
-            <span className="text-[10px] font-bold text-[#971F26] block uppercase">STEP 1 · AGENCY A</span>
-            <p className="font-serif font-bold text-sm text-[#1C1D1D]">Police / Crisis Intake</p>
-            <p className="text-[11px] font-sans text-stone-700 leading-tight">Incident recorded. Labeled &apos;civil matter&apos;.</p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-stone-900">
+          <div className="p-3.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-md space-y-1 shadow-2xs">
+            <span className="text-[10px] font-mono font-bold text-[#971F26] block uppercase">STEP 1 · AGENCY A</span>
+            <p className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">Police / Crisis Intake</p>
+            <p className="text-xs font-sans text-stone-700 leading-snug">Incident recorded. Labeled &apos;civil matter&apos;.</p>
           </div>
 
-          <div className="p-3 bg-[#E8F3EB] border border-[#2D5A3D] rounded-md space-y-1">
-            <span className="text-[10px] font-bold text-[#2D5A3D] block uppercase">RECEIPT 01 GENERATED</span>
-            <p className="font-serif font-bold text-sm text-[#2D5A3D]">Who · When · Ref #</p>
-            <p className="text-[11px] font-sans text-stone-800 leading-tight">Preserves evidence offered & stated decline reason.</p>
+          <div className="p-3.5 bg-[#E8F3EB] border border-[#2D5A3D] rounded-md space-y-1 shadow-2xs">
+            <span className="text-[10px] font-mono font-bold text-[#2D5A3D] block uppercase">RECEIPT 01 GENERATED</span>
+            <p className="font-serif font-bold text-sm sm:text-base text-[#2D5A3D]">Who · When · Ref #</p>
+            <p className="text-xs font-sans text-stone-800 leading-snug">Preserves evidence offered & stated decline reason.</p>
           </div>
 
-          <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-md space-y-1">
-            <span className="text-[10px] font-bold text-[#971F26] block uppercase">STEP 2 · AGENCY B</span>
-            <p className="font-serif font-bold text-sm text-[#1C1D1D]">Shelter / County Program</p>
-            <p className="text-[11px] font-sans text-stone-700 leading-tight">Declines for county mismatch. Refers onward.</p>
+          <div className="p-3.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-md space-y-1 shadow-2xs">
+            <span className="text-[10px] font-mono font-bold text-[#971F26] block uppercase">STEP 2 · AGENCY B</span>
+            <p className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">Shelter / County Program</p>
+            <p className="text-xs font-sans text-stone-700 leading-snug">Declines for county mismatch. Refers onward.</p>
           </div>
 
-          <div className="p-3 bg-[#F5F1E8] border-2 border-[#971F26] rounded-md space-y-1 bg-[#FDF2F2]">
-            <span className="text-[10px] font-bold text-[#971F26] block uppercase">RECEIPT 02 · ESCALATION</span>
-            <p className="font-serif font-bold text-sm text-[#971F26]">Decision-Owner Flag</p>
-            <p className="text-[11px] font-sans text-stone-900 leading-tight">Flags circular loop. Legal advocate receives complete packet.</p>
+          <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-md space-y-1 shadow-2xs">
+            <span className="text-[10px] font-mono font-bold text-[#971F26] block uppercase">RECEIPT 02 · ESCALATION</span>
+            <p className="font-serif font-bold text-sm sm:text-base text-[#971F26]">Decision-Owner Flag</p>
+            <p className="text-xs font-sans text-stone-900 leading-snug">Flags circular loop. Legal advocate receives complete packet.</p>
           </div>
         </div>
       </div>
 
       {/* 3 Explicit Clarifications */}
-      <div className="grid gap-4 sm:grid-cols-3 pt-2 font-mono">
-        <div className="p-4 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
-          <span className="text-[#971F26] font-bold block uppercase text-xs">CLARIFICATION 01</span>
+      <div className="grid gap-4 sm:grid-cols-3 pt-2">
+        <div className="p-4 sm:p-5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
+          <span className="text-[#971F26] font-mono font-bold block uppercase text-xs">CLARIFICATION 01</span>
           <p className="font-bold text-base text-[#1C1D1D] font-serif">Survivor-Controlled</p>
-          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-normal">The record belongs to the person navigating. Nothing is automatically shared with any agency.</p>
+          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-relaxed">The record belongs to the person navigating. Nothing is automatically shared with any agency.</p>
         </div>
 
-        <div className="p-4 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
-          <span className="text-[#971F26] font-bold block uppercase text-xs">CLARIFICATION 02</span>
+        <div className="p-4 sm:p-5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
+          <span className="text-[#971F26] font-mono font-bold block uppercase text-xs">CLARIFICATION 02</span>
           <p className="font-bold text-base text-[#1C1D1D] font-serif">Not An Adjudication</p>
-          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-normal">Does not determine whether an allegation is true or false; records what was presented and decided.</p>
+          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-relaxed">Does not determine whether an allegation is true or false; records what was presented and decided.</p>
         </div>
 
-        <div className="p-4 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
-          <span className="text-[#971F26] font-bold block uppercase text-xs">CLARIFICATION 03</span>
+        <div className="p-4 sm:p-5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 shadow-2xs">
+          <span className="text-[#971F26] font-mono font-bold block uppercase text-xs">CLARIFICATION 03</span>
           <p className="font-bold text-base text-[#1C1D1D] font-serif">Zero Surveillance</p>
-          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-normal">No centralized government tracking, cross-agency backdoors, or inter-agency surveillance.</p>
+          <p className="text-xs sm:text-sm text-stone-700 font-sans leading-relaxed">No centralized government tracking, cross-agency backdoors, or inter-agency surveillance.</p>
         </div>
       </div>
 

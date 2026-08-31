@@ -1,11 +1,12 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { BARRIER_CATEGORIES } from "@/data/barriers";
 import { PUBLIC_RESOURCES } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { ResourceSuggestionModal } from "@/components/resources/ResourceSuggestionModal";
-import { Search, X, Info, Compass, SlidersHorizontal, ShieldAlert, Check, PlusCircle } from "lucide-react";
+import { Search, X, Info, Compass, SlidersHorizontal, ShieldAlert, Check, PlusCircle, ArrowRight } from "lucide-react";
 
 function FindHelpContent() {
   const [suggestionModalOpen, setSuggestionModalOpen] = useState(false);
@@ -82,18 +83,18 @@ function FindHelpContent() {
       <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-sm bg-grid-atlas">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="w-4 h-4 text-stone-600 absolute left-3.5 top-3" />
+          <Search className="w-4 h-4 text-stone-600 absolute left-3.5 top-3.5" />
           <input
             type="text"
-            placeholder="Search by keyword, city, bill type, deliverable, or statute (e.g., 'gas', 'lease', 'deposit', 'Travis', '§ 92.016')..."
+            placeholder="Search by keyword, city, deliverable, or statute (e.g., 'gas', 'lease', 'deposit', 'Travis', '§ 92.016')..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md pl-10 pr-10 py-2.5 text-xs text-[#1C1D1D] placeholder-stone-600 focus:border-[#971F26] focus:outline-none font-mono font-medium"
+            className="w-full bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md pl-10 pr-10 py-2.5 text-xs sm:text-sm text-[#1C1D1D] placeholder-stone-600 focus:border-[#971F26] focus:outline-none font-sans font-medium"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-3.5 top-2.5 text-stone-500 hover:text-[#1C1D1D]"
+              className="absolute right-3.5 top-3 text-stone-500 hover:text-[#1C1D1D]"
             >
               <X className="w-4 h-4" />
             </button>
@@ -188,22 +189,37 @@ function FindHelpContent() {
             ))}
           </div>
         ) : (
-          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-8 text-center space-y-3">
-            <Info className="w-6 h-6 text-stone-500 mx-auto" />
-            <p className="text-base font-bold text-[#1C1D1D] font-serif">No resources matched the active filters.</p>
-            <p className="text-xs text-stone-600 font-mono">Try clearing your search query or selecting a broader barrier category.</p>
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setSelectedBarrier("ALL");
-                setSelectedScope("ALL");
-                setFilterNoPolice(false);
-                setFilterNoShelter(false);
-              }}
-              className="px-4 py-2 bg-[#971F26] text-white rounded-md text-xs font-mono font-bold uppercase"
-            >
-              Reset All Filters
-            </button>
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-8 text-center space-y-4 shadow-sm">
+            <Info className="w-8 h-8 text-[#971F26] mx-auto" />
+            <div className="space-y-1">
+              <p className="text-lg font-bold text-[#1C1D1D] font-serif">
+                No pathway currently satisfies every selected condition simultaneously.
+              </p>
+              <p className="text-xs sm:text-sm text-stone-700 max-w-md mx-auto font-sans leading-relaxed">
+                This does not mean no help exists. Try broadening geography or clearing specific friction filters.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3 pt-2 font-mono text-xs">
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedBarrier("ALL");
+                  setSelectedScope("ALL");
+                  setFilterNoPolice(false);
+                  setFilterNoShelter(false);
+                }}
+                className="px-4 py-2 bg-[#1C1D1D] text-white rounded font-bold uppercase tracking-wider hover:bg-stone-800"
+              >
+                Reset All Filters
+              </button>
+              <Link
+                href="/ask-us-to-look"
+                className="px-4 py-2 bg-[#971F26] text-white rounded font-bold uppercase tracking-wider hover:bg-red-900 flex items-center gap-1.5"
+              >
+                <span>Launch Ask Us to Look</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         )}
       </div>

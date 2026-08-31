@@ -11,6 +11,8 @@ export function ContinuityTransitionSection() {
       detail: "Search around barriers, discover unlisted lateral funds, and verify true access conditions before wasting critical time.",
       icon: <Search className="w-4 h-4 text-white" />,
       tag: "RESOURCE INTELLIGENCE",
+      link: "/other-ways-through",
+      linkText: "Find Routes",
     },
     {
       step: "02",
@@ -19,6 +21,8 @@ export function ContinuityTransitionSection() {
       detail: "A survivor-controlled chronology and Originals Vault to store dates, agencies, evidence hashes, and communications.",
       icon: <FolderArchive className="w-4 h-4 text-white" />,
       tag: "SURVIVOR ORGANIZER",
+      link: "/bridge#organizer",
+      linkText: "View Organizer",
     },
     {
       step: "03",
@@ -27,6 +31,8 @@ export function ContinuityTransitionSection() {
       detail: "Generate Continuity Receipts between agencies and counties so critical facts don't vanish with every referral.",
       icon: <Shuffle className="w-4 h-4 text-white" />,
       tag: "BRIDGE CONTINUITY",
+      link: "/bridge",
+      linkText: "Explore Bridge",
     },
     {
       step: "04",
@@ -35,6 +41,8 @@ export function ContinuityTransitionSection() {
       detail: "Preserve what was reviewed vs. unreviewed, stated reasons for denial, and flag when no functioning decision-owner exists.",
       icon: <CheckCircle className="w-4 h-4 text-white" />,
       tag: "CONTEXT BEFORE CLOSURE",
+      link: "/bridge#closure",
+      linkText: "View Closure",
     },
     {
       step: "05",
@@ -43,6 +51,8 @@ export function ContinuityTransitionSection() {
       detail: "Aggregated, deidentified intelligence that tracks systemic referral loops, jurisdiction runarounds, and procedural gaps.",
       icon: <AlertTriangle className="w-4 h-4 text-white" />,
       tag: "BAD MAPS",
+      link: "/bridge#bad-maps",
+      linkText: "View Systems Intel",
     },
   ];
 
@@ -80,7 +90,7 @@ export function ContinuityTransitionSection() {
         <div className="hidden lg:block absolute top-[46px] left-6 right-6 h-0.5 bg-[#971F26] z-0" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
-          {steps.map((item, idx) => (
+          {steps.map((item) => (
             <div
               key={item.step}
               className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-4 sm:p-5 flex flex-col justify-between space-y-3 shadow-2xs hover:border-[#971F26] transition-colors"
@@ -99,27 +109,25 @@ export function ContinuityTransitionSection() {
                   <h3 className="font-serif font-bold text-base sm:text-lg text-[#1C1D1D] leading-tight">
                     {item.title}
                   </h3>
-                  <p className="font-mono text-xs text-stone-900 font-bold mt-1 leading-snug">
+                  <p className="font-sans text-xs sm:text-[13px] text-stone-900 font-bold mt-1 leading-snug">
                     {item.action}
                   </p>
                 </div>
 
-                <p className="text-xs text-stone-700 font-sans leading-relaxed pt-1">
+                <p className="text-xs sm:text-[12.5px] text-stone-700 font-sans leading-relaxed pt-1">
                   {item.detail}
                 </p>
               </div>
 
-              {idx === 2 && (
-                <div className="pt-2 border-t border-[#D9D1C4]">
-                  <Link
-                    href="/bridge"
-                    className="text-[11px] font-mono font-bold text-[#971F26] hover:underline flex items-center gap-1"
-                  >
-                    <span>Explore Bridge</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              )}
+              <div className="pt-2 border-t border-[#D9D1C4]">
+                <Link
+                  href={item.link}
+                  className="text-xs font-mono font-bold text-[#971F26] hover:underline flex items-center gap-1"
+                >
+                  <span>{item.linkText}</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -138,10 +146,10 @@ export function ContinuityTransitionSection() {
 
         <Link
           href="/how-it-works"
-          className="px-5 py-2.5 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-2 transition-colors shadow-2xs shrink-0 self-start sm:self-auto"
+          className="px-5 py-2.5 bg-[#1C1D1D] hover:bg-stone-800 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs shrink-0 transition-colors"
         >
-          <span>See the full system architecture</span>
-          <ArrowRight className="w-3.5 h-3.5 text-red-400" />
+          <span>Full Architecture Spec</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
     </section>

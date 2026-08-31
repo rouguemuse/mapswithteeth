@@ -1,15 +1,23 @@
 ﻿import React from "react";
 import Link from "next/link";
+import { StatusBadge, ProductStatus } from "@/components/ui/StatusBadge";
 import { CheckCircle2, FlaskConical, Milestone, ShieldCheck, ArrowRight, Layers, FileText, Shuffle, Scale, AlertTriangle, Building } from "lucide-react";
 
 export function BuiltTestingProposedSection() {
-  const stages = [
+  const stages: {
+    stage: string;
+    name: string;
+    status: ProductStatus;
+    statusLabel: string;
+    icon: React.ReactNode;
+    description: string;
+    items: string[];
+  }[] = [
     {
       stage: "STAGE 01",
       name: "Resource Intelligence",
-      status: "LIVE / ACTIVE BUILD",
-      statusBadge: "V0 LIVE",
-      statusClass: "bg-[#E8F3EB] border-[#2D5A3D] text-[#2D5A3D]",
+      status: "LIVE",
+      statusLabel: "LIVE",
       icon: <CheckCircle2 className="w-4 h-4 text-[#2D5A3D]" />,
       description: "Barrier-first discovery for when conventional crisis hotlines fail or stall.",
       items: [
@@ -24,9 +32,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 02",
       name: "Survivor Organizer & Originals Vault",
-      status: "PROTOTYPE / DEVELOPMENT ROADMAP",
-      statusBadge: "PROTOTYPE",
-      statusClass: "bg-[#FEF3C7] border-[#D97706] text-[#92400E]",
+      status: "PROTOTYPE",
+      statusLabel: "PROTOTYPE",
       icon: <FileText className="w-4 h-4 text-[#92400E]" />,
       description: "Survivor-controlled documentation architecture. Tell it once. Carry it forward.",
       items: [
@@ -41,9 +48,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 03",
       name: "Bridge & Continuity Receipts",
-      status: "CONTINUITY PILOT ROADMAP",
-      statusBadge: "PILOT ROADMAP",
-      statusClass: "bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D]",
+      status: "PILOT",
+      statusLabel: "PILOT",
       icon: <Shuffle className="w-4 h-4 text-[#971F26]" />,
       description: "Stopping context from vanishing when moving between agencies or counties.",
       items: [
@@ -58,9 +64,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 04",
       name: "Context Before Closure",
-      status: "FIELD PILOT ROADMAP",
-      statusBadge: "FIELD PILOT",
-      statusClass: "bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D]",
+      status: "PILOT",
+      statusLabel: "FIELD PILOT",
       icon: <Scale className="w-4 h-4 text-[#1C1D1D]" />,
       description: "Documenting why cases stop, what was left unreviewed, and where responsibility moved.",
       items: [
@@ -75,9 +80,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 05",
       name: "Bad Maps — System Intelligence",
-      status: "SYSTEM INTELLIGENCE ROADMAP",
-      statusBadge: "SYSTEMS RESEARCH",
-      statusClass: "bg-[#FDF2F2] border-[#971F26] text-[#971F26]",
+      status: "ACTIVE_RESEARCH",
+      statusLabel: "ACTIVE RESEARCH",
       icon: <AlertTriangle className="w-4 h-4 text-[#971F26]" />,
       description: "Aggregated, deidentified pattern analysis of where institutional pathways break.",
       items: [
@@ -92,9 +96,8 @@ export function BuiltTestingProposedSection() {
     {
       stage: "STAGE 06",
       name: "Partner Infrastructure",
-      status: "LONG HORIZON",
-      statusBadge: "LONG HORIZON",
-      statusClass: "bg-stone-200 border-stone-400 text-stone-700",
+      status: "PLANNED",
+      statusLabel: "PLANNED",
       icon: <Building className="w-4 h-4 text-stone-600" />,
       description: "Interoperable, consent-based partner handoff standards for allied organizations.",
       items: [
@@ -140,19 +143,14 @@ export function BuiltTestingProposedSection() {
                   {st.icon}
                   <span>{st.stage}</span>
                 </span>
-                <span className={`px-2 py-0.5 rounded border text-[10px] font-bold font-mono ${st.statusClass}`}>
-                  {st.statusBadge}
-                </span>
+                <StatusBadge type="product" status={st.status} label={st.statusLabel} />
               </div>
 
               <div>
                 <h3 className="text-lg font-serif font-bold text-[#1C1D1D] leading-tight">
                   {st.name}
                 </h3>
-                <span className="text-[10px] font-mono text-stone-600 block mt-0.5 uppercase tracking-wider font-semibold">
-                  STATUS: {st.status}
-                </span>
-                <p className="text-xs text-stone-800 font-sans mt-1.5 leading-snug">
+                <p className="text-xs sm:text-sm text-stone-800 font-sans mt-1.5 leading-snug">
                   {st.description}
                 </p>
               </div>
@@ -161,7 +159,7 @@ export function BuiltTestingProposedSection() {
                 {st.items.map((it, idx) => (
                   <li key={idx} className="flex items-start gap-1.5">
                     <span className="text-[#971F26] font-bold font-mono text-[10px] mt-0.5">•</span>
-                    <span className="leading-tight">{it}</span>
+                    <span className="leading-snug">{it}</span>
                   </li>
                 ))}
               </ul>

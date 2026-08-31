@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import Link from "next/link";
+import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
   Compass,
   ArrowRight,
@@ -45,33 +46,45 @@ export default function HowItWorksPage() {
 
       {/* High-Level 2-Halves Visual Comparison */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas">
-          <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
-            PART A · FRONT-END DISCOVERY
-          </span>
-          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
-            Resource Intelligence
-          </h2>
-          <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-            Traditional directories hand you eight phone numbers. Maps With Teeth surfaces the two obscure pathways you can actually access, the exact documentation you need, what could block you, and what to try if they say no.
-          </p>
-          <div className="pt-2 text-xs font-mono font-bold text-[#971F26] flex items-center gap-1">
-            <span>Layers: Search · Texas Deep Dive · Other Ways Through</span>
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas flex flex-col justify-between">
+          <div className="space-y-2">
+            <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
+              PART A · FRONT-END DISCOVERY
+            </span>
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
+              Resource Intelligence
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+              Traditional directories hand you eight phone numbers. Maps With Teeth surfaces the two obscure pathways you can actually access, the exact documentation you need, what could block you, and what to try if they say no.
+            </p>
+          </div>
+          <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+            <span className="text-[#2D5A3D] font-bold">STATUS: LIVE / ACTIVE BUILD</span>
+            <Link href="/other-ways-through" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+              <span>Explore Routes</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
 
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas">
-          <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
-            PART B · CONTINUITY INFRASTRUCTURE
-          </span>
-          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
-            Context & Continuity Layer
-          </h2>
-          <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-            A referral is not a handoff. Maps With Teeth preserves what happened at each institutional touchpoint, locks unreviewed evidence, identifies circular runarounds, and flags when no functioning decision-owner exists.
-          </p>
-          <div className="pt-2 text-xs font-mono font-bold text-[#971F26] flex items-center gap-1">
-            <span>Layers: Organizer · Originals Vault · Bridge · Bad Maps</span>
+        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-3 shadow-sm bg-grid-atlas flex flex-col justify-between">
+          <div className="space-y-2">
+            <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase tracking-wider block">
+              PART B · CONTINUITY INFRASTRUCTURE
+            </span>
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
+              Context & Continuity Layer
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+              A referral is not a handoff. Maps With Teeth preserves what happened at each institutional touchpoint, locks unreviewed evidence, identifies circular runarounds, and flags when no functioning decision-owner exists.
+            </p>
+          </div>
+          <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+            <span className="text-[#92400E] font-bold">STATUS: PILOT & ROADMAP</span>
+            <Link href="/bridge" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+              <span>Explore Bridge</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
       </div>
@@ -109,9 +122,7 @@ export default function HowItWorksPage() {
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
             <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
               <span className="font-bold text-[#971F26] uppercase">LAYER 01 · STATE & LOCAL JURISDICTIONS</span>
-              <span className="px-2 py-0.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded text-[10px] font-bold">
-                TEXAS 254-COUNTY SCOPE
-              </span>
+              <StatusBadge type="product" status="LIVE" label="LIVE" timestamp="TEXAS 254-COUNTY" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
               Texas Deep Dive & Statutory Rights
@@ -119,15 +130,20 @@ export default function HowItWorksPage() {
             <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
               Local shelter rosters and enforceable statutory protections that exist without municipal funding queues—including <strong>Texas Property Code § 92.016</strong> (lease termination without police reports), <strong>Texas PUC § 25.478</strong> (electric deposit waivers), and school district McKinney-Vento transport coordinators.
             </p>
+            <div className="pt-2 border-t border-[#D9D1C4]/70 flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Explore Travis, Williamson, Bastrop, Hays & Statewide</span>
+              <Link href="/texas" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>View Texas Deep Dive</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
           {/* Layer 2 */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
             <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
               <span className="font-bold text-[#971F26] uppercase">LAYER 02 · LATERAL BYPASS & BENEVOLENCE</span>
-              <span className="px-2 py-0.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded text-[10px] font-bold">
-                MULTI-STATE & INDUSTRY
-              </span>
+              <StatusBadge type="product" status="LIVE" label="LIVE" timestamp="MULTI-STATE & INDUSTRY" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
               Other Ways Through: Lateral Hardship Funds
@@ -135,15 +151,20 @@ export default function HowItWorksPage() {
             <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
               Condition-dependent relief pathways operating entirely outside conventional shelter backlogs—such as culinary hardship grants (Southern Smoke, CORE Gives, Giving Kitchen), craft artist aid (CERF+), companion animal foster boarding (RedRover Safe Escape, APA PASS), and federal telecom mandates (Safe Connections Act 47 U.S.C. § 345).
             </p>
+            <div className="pt-2 border-t border-[#D9D1C4]/70 flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">30+ Audited Lateral Dockets with Friction Analysis</span>
+              <Link href="/other-ways-through" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>Explore Other Ways Through</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
           {/* Layer 3 */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
             <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-xs">
               <span className="font-bold text-[#971F26] uppercase">LAYER 03 · DETERMINISTIC QUALIFICATION</span>
-              <span className="px-2 py-0.5 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] rounded text-[10px] font-bold">
-                FACT-BASED MATCHER
-              </span>
+              <StatusBadge type="product" status="LIVE" label="LIVE" timestamp="FACT MATCHER" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
               Ask Us to Look: Dynamic Intake & Audit Trails
@@ -151,6 +172,13 @@ export default function HowItWorksPage() {
             <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
               Nothing surfaces without a reason. The matching engine evaluates candidate eligibility rules directly against verified user facts, dynamically prompting only for unresolved conditions and generating transparent factual audit trails.
             </p>
+            <div className="pt-2 border-t border-[#D9D1C4]/70 flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Zero Generative Guesswork · Pure Resource Eligibility</span>
+              <Link href="/ask-us-to-look" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>Launch Intake Engine</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -187,9 +215,12 @@ export default function HowItWorksPage() {
           {/* Pillar 1: Organizer & Originals Vault */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
-                <FolderArchive className="w-4 h-4" />
-                <span>1. SURVIVOR ORGANIZER & ORIGINALS VAULT</span>
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+                <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                  <FolderArchive className="w-4 h-4" />
+                  <span>1. SURVIVOR ORGANIZER & ORIGINALS VAULT</span>
+                </div>
+                <StatusBadge type="product" status="PROTOTYPE" label="PROTOTYPE" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Organize What Happened
@@ -198,17 +229,24 @@ export default function HowItWorksPage() {
                 Structure incidents, communications, agencies contacted, people involved, report numbers, and deadlines into a clear chronological timeline. The <strong>Originals Vault</strong> preserves original files, filenames, and metadata with cryptographic hashes (SHA-256) to maintain provenance without altering evidence.
               </p>
             </div>
-            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
-              Status: Prototype / Development Roadmap
+            <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Zero Surveillance · Scoped Packets</span>
+              <Link href="/bridge#organizer" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>View Organizer Model</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
 
           {/* Pillar 2: Bridge & Continuity Receipts */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
-                <Shuffle className="w-4 h-4" />
-                <span>2. BRIDGE & CONTINUITY RECEIPTS</span>
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+                <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                  <Shuffle className="w-4 h-4" />
+                  <span>2. BRIDGE & CONTINUITY RECEIPTS</span>
+                </div>
+                <StatusBadge type="product" status="PILOT" label="PILOT" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Carry Context Forward
@@ -217,10 +255,11 @@ export default function HowItWorksPage() {
                 Standardizes touchpoint records (Who, When, Reference #, What was presented, What happened, Why, and What happens next). When a referral occurs, the receipt ensures the receiving organization knows where the previous agency stopped.
               </p>
             </div>
-            <div className="pt-2 flex items-center justify-between border-t border-[#D9D1C4]">
-              <span className="text-[11px] font-mono text-stone-600">Status: Continuity Pilot Roadmap</span>
-              <Link href="/bridge" className="text-xs font-mono font-bold text-[#971F26] hover:underline">
-                Explore Bridge →
+            <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Standard Specimen & Handoff Chain</span>
+              <Link href="/bridge" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>Explore Bridge Page</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
@@ -228,9 +267,12 @@ export default function HowItWorksPage() {
           {/* Pillar 3: Context Before Closure */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
-                <Scale className="w-4 h-4" />
-                <span>3. CONTEXT BEFORE CLOSURE</span>
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+                <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                  <Scale className="w-4 h-4" />
+                  <span>3. CONTEXT BEFORE CLOSURE</span>
+                </div>
+                <StatusBadge type="product" status="PILOT" label="FIELD PILOT" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Verify What Was Actually Resolved
@@ -239,17 +281,24 @@ export default function HowItWorksPage() {
                 Prevents premature case closure from masking unresolved crises. Records reviewed vs. unreviewed context, tracks where responsibility was transferred, detects circular runarounds, and flags when no functioning decision-owner exists.
               </p>
             </div>
-            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
-              Status: Field Pilot Roadmap
+            <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Decision-Owner Gap Detection</span>
+              <Link href="/bridge#closure" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>View Closure Logic</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
 
           {/* Pillar 4: Bad Maps */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
-                <AlertTriangle className="w-4 h-4" />
-                <span>4. BAD MAPS (SYSTEMS INTELLIGENCE)</span>
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+                <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+                  <AlertTriangle className="w-4 h-4" />
+                  <span>4. BAD MAPS (SYSTEMS INTELLIGENCE)</span>
+                </div>
+                <StatusBadge type="product" status="ACTIVE_RESEARCH" label="RESEARCH" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Expose Where Systems Break
@@ -258,8 +307,12 @@ export default function HowItWorksPage() {
                 Deidentified and aggregated pattern analysis of recurring referral dead ends, county-line jurisdictional disputes, ghost program listings, and frontline statutory non-compliance. Provides empirical evidence for policy reform.
               </p>
             </div>
-            <div className="pt-2 text-[11px] font-mono text-stone-600 border-t border-[#D9D1C4]">
-              Status: System Intelligence Roadmap
+            <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
+              <span className="text-stone-600">Aggregated Systems Research</span>
+              <Link href="/bridge#bad-maps" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
+                <span>View Bad Maps Research</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
         </div>
@@ -267,11 +320,14 @@ export default function HowItWorksPage() {
 
       {/* Long-Horizon: Partner Infrastructure */}
       <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-3 font-mono text-xs">
-        <div className="flex items-center gap-2 text-stone-700 font-bold uppercase">
-          <Building className="w-4 h-4" />
-          <span>STAGE 06 · LONG-HORIZON ROADMAP: PARTNER INFRASTRUCTURE</span>
+        <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+          <div className="flex items-center gap-2 text-stone-800 font-bold uppercase">
+            <Building className="w-4 h-4 text-stone-700" />
+            <span>STAGE 06 · PARTNER INFRASTRUCTURE</span>
+          </div>
+          <StatusBadge type="product" status="PLANNED" label="LONG HORIZON" />
         </div>
-        <p className="font-sans text-xs sm:text-sm text-stone-800 leading-relaxed">
+        <p className="font-sans text-xs sm:text-sm text-stone-800 leading-relaxed pt-1">
           Future components include consent-based partner handoffs, interoperable continuity packet standards, cryptographic access controls, and structured organizational workflows for allied agencies.
         </p>
       </section>

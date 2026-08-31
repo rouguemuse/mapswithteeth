@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { TEXAS_RESOURCES } from "@/data/resources/texas";
 import { TexasStatutesAccordion } from "@/components/texas/TexasStatutesAccordion";
@@ -72,19 +72,63 @@ export default function TexasPage() {
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
           Texas Deep Dive: Field Intelligence & Statutory Routes
         </h1>
-        <p className="text-xs sm:text-sm text-stone-700 mt-2 max-w-4xl leading-relaxed font-sans">
+        <p className="text-sm sm:text-base text-stone-800 mt-2 max-w-4xl leading-relaxed font-sans font-medium">
           <strong>Texas-first, not Texas-only:</strong> Central Texas is where we&apos;re testing the model deeply to expose real frontline barriers—mapping statewide statutes (Tex. Prop. Code § 92.016, PUCT § 25.478, CVC) alongside county-level referral gates, funding status, and municipal failure points.
         </p>
       </div>
 
+      {/* Quick Orientation Layer: What are you looking for? */}
+      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs">
+        <span className="text-xs font-mono font-bold text-[#971F26] uppercase tracking-wider block">
+          ORIENTATION · WHAT ARE YOU LOOKING FOR?
+        </span>
+        <div className="flex flex-wrap gap-2 text-xs font-mono">
+          <a
+            href="#statutes"
+            className="px-3 py-2 bg-[#F5F1E8] border border-[#1C1D1D] hover:bg-[#1C1D1D] hover:text-white rounded transition-colors font-bold shadow-2xs flex items-center gap-1.5"
+          >
+            <Scale className="w-3.5 h-3.5" />
+            <span>FIND A STATUTORY RIGHT</span>
+          </a>
+          <a
+            href="#counties"
+            className="px-3 py-2 bg-[#F5F1E8] border border-[#1C1D1D] hover:bg-[#1C1D1D] hover:text-white rounded transition-colors font-bold shadow-2xs flex items-center gap-1.5"
+          >
+            <MapPin className="w-3.5 h-3.5" />
+            <span>FIND HELP IN MY COUNTY</span>
+          </a>
+          <a
+            href="#statewide-dockets"
+            className="px-3 py-2 bg-[#F5F1E8] border border-[#1C1D1D] hover:bg-[#1C1D1D] hover:text-white rounded transition-colors font-bold shadow-2xs flex items-center gap-1.5"
+          >
+            <Building2 className="w-3.5 h-3.5" />
+            <span>SEE PROGRAMS WITH UNUSUAL ELIGIBILITY</span>
+          </a>
+          <a
+            href="#service-gaps"
+            className="px-3 py-2 bg-[#F5F1E8] border border-[#1C1D1D] hover:bg-[#1C1D1D] hover:text-white rounded transition-colors font-bold shadow-2xs flex items-center gap-1.5"
+          >
+            <AlertTriangle className="w-3.5 h-3.5" />
+            <span>SEE KNOWN SERVICE GAPS</span>
+          </a>
+          <a
+            href="#full-docket"
+            className="px-3 py-2 bg-[#971F26] text-white border border-[#971F26] hover:bg-red-900 rounded transition-colors font-bold shadow-2xs flex items-center gap-1.5"
+          >
+            <FileSearch className="w-3.5 h-3.5" />
+            <span>EXPLORE THE FULL RESEARCH DOCKET</span>
+          </a>
+        </div>
+      </section>
+
       {/* Field Operation Canvas: Regional Coverage Dossier */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
+      <section id="counties" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D9D1C4] pb-4">
           <div>
             <span className="text-[10px] font-mono text-[#971F26] uppercase tracking-wider font-bold block">
               RESEARCH REGISTRY · AUGUST 2026 AUDIT
             </span>
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
               Central Texas Pilot Counties & Coverage Matrix
             </h2>
           </div>
@@ -105,10 +149,10 @@ export default function TexasPage() {
               </div>
               <div>
                 <h3 className="font-serif font-bold text-base text-[#1C1D1D]">{c.name}</h3>
-                <p className="text-xs text-stone-600 font-sans mt-0.5">{c.focus}</p>
+                <p className="text-xs text-stone-700 font-sans mt-0.5 leading-snug">{c.focus}</p>
               </div>
-              <div className="flex items-center justify-between text-[11px] font-mono pt-1">
-                <span className="text-stone-500">Coverage Level:</span>
+              <div className="flex items-center justify-between text-[11px] font-mono pt-1 border-t border-[#D9D1C4]/60">
+                <span className="text-stone-600">Coverage Level:</span>
                 <span className="font-bold text-[#1C1D1D]">{c.coverage}</span>
               </div>
             </div>
@@ -122,20 +166,20 @@ export default function TexasPage() {
       </section>
 
       {/* Statutory Escape Frameworks Section */}
-      <section className="space-y-4">
+      <section id="statutes" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-3">
           <div className="flex items-center gap-2">
             <Scale className="w-5 h-5 text-[#971F26]" />
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
               Texas Statutory Escape Routes (Non-Discretionary Rights)
             </h2>
           </div>
-          <span className="text-[11px] font-mono text-stone-600 font-bold">
+          <span className="text-xs font-mono text-stone-600 font-bold">
             Audited Against Texas Statutes · August 2026
           </span>
         </div>
 
-        <p className="text-xs text-stone-700 max-w-3xl font-sans">
+        <p className="text-xs sm:text-sm text-stone-800 max-w-3xl font-sans leading-relaxed">
           Unlike discretionary charities with exhausted budgets, statutory escape mechanisms are enforceable rights established in the Texas Property Code, Utilities Code, and Code of Criminal Procedure.
         </p>
 
@@ -143,7 +187,7 @@ export default function TexasPage() {
       </section>
 
       {/* Documented Failure Points & Known Gaps */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
+      <section id="service-gaps" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
         <div className="border-b border-[#D9D1C4] pb-4">
           <div className="flex items-center gap-2 text-[#971F26] mb-1">
             <AlertTriangle className="w-4 h-4" />
@@ -151,10 +195,10 @@ export default function TexasPage() {
               DOCUMENTED FAILURE POINTS
             </span>
           </div>
-          <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
             Known Gaps & Institutional Bottlenecks in Central Texas
           </h2>
-          <p className="text-xs text-stone-700 mt-1 font-sans">
+          <p className="text-xs sm:text-sm text-stone-700 mt-1 font-sans leading-relaxed">
             Our fieldwork identifies specific points where survivor navigation breaks down. These failure modes inform alternate route recommendations.
           </p>
         </div>
@@ -180,13 +224,13 @@ export default function TexasPage() {
                 OPEN INVESTIGATION DOCKETS
               </span>
             </div>
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
               What We Still Don’t Know (Community Intelligence Wanted)
             </h2>
           </div>
           <Link
             href="/feedback"
-            className="px-4 py-2 bg-[#971F26] text-white rounded-md text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-red-900 shadow-2xs"
+            className="px-4 py-2 bg-[#971F26] text-white rounded-md text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-red-900 shadow-2xs transition-colors"
           >
             <MessageSquarePlus className="w-3.5 h-3.5" />
             <span>Submit Local Intel →</span>
@@ -195,8 +239,8 @@ export default function TexasPage() {
 
         <div className="space-y-3">
           {openIntelligenceQuestions.map((q, idx) => (
-            <div key={idx} className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-md flex items-start gap-3 text-xs text-stone-900 font-sans">
-              <span className="font-mono font-bold text-[#971F26] shrink-0">[INTEL #{idx + 1}]</span>
+            <div key={idx} className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-md flex items-start gap-3 text-xs sm:text-sm text-stone-900 font-sans leading-snug">
+              <span className="font-mono font-bold text-[#971F26] shrink-0 text-xs">[INTEL #{idx + 1}]</span>
               <p className="font-medium">{q}</p>
             </div>
           ))}
@@ -204,13 +248,13 @@ export default function TexasPage() {
       </section>
 
       {/* Statewide Verified Texas Resources */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3">
+      <section id="statewide-dockets" className="space-y-4">
+        <div id="full-docket" className="flex items-center justify-between border-b border-[#D9D1C4] pb-3">
           <div>
             <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
               STATEWIDE AUDITED CATALOG
             </span>
-            <h2 className="text-xl font-serif font-bold text-[#1C1D1D]">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
               Statewide Texas Programs & Direct Services
             </h2>
           </div>

@@ -29,12 +29,46 @@ import {
   MapPin,
   Smartphone,
   Car,
-  IdCard
+  IdCard,
+  RotateCcw,
+  Sparkle
 } from "lucide-react";
 
 export default function OtherWaysThroughPage() {
-  const [searchQuery, setSearchQuery] = useState<string>("Transportation loss + housing instability + safety concerns");
-  const [selectedBarriers, setSelectedBarriers] = useState<string[]>([]);
+  // Scenario presets for intuitive demo navigation
+  const scenarioPresets = [
+    {
+      id: "demo-mixed",
+      label: "Transportation loss + housing instability + safety concerns",
+      barriers: ["no-car", "coercive-control"],
+    },
+    {
+      id: "hospitality-rent",
+      label: "Food & beverage worker needing rental relief",
+      barriers: [],
+      query: "food beverage restaurant culinary kitchen",
+    },
+    {
+      id: "phone-separation",
+      label: "Coercive phone tracking / shared cell plan",
+      barriers: ["phone-unsafe"],
+    },
+    {
+      id: "pet-housing",
+      label: "Fleeing with companion animal / pet barrier",
+      barriers: ["pet-barrier"],
+    },
+    {
+      id: "school-transport",
+      label: "School transport & emergency assistance",
+      barriers: [],
+      query: "mckinney school education bus transit",
+    },
+  ];
+
+  const [activeScenarioId, setActiveScenarioId] = useState<string>("demo-mixed");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedBarriers, setSelectedBarriers] = useState<string[]>(["no-car", "coercive-control"]);
   const [sortBy, setSortBy] = useState<string>("relevant");
   const [savedDockets, setSavedDockets] = useState<string[]>([]);
 
@@ -59,21 +93,21 @@ export default function OtherWaysThroughPage() {
     { id: "phone-unsafe", label: "Phone Unsafe / Monitored", icon: <Smartphone className="w-3.5 h-3.5" /> },
   ];
 
+  const selectScenario = (preset: typeof scenarioPresets[0]) => {
+    setActiveScenarioId(preset.id);
+    setSelectedBarriers(preset.barriers);
+    setSearchQuery(preset.query || "");
+  };
+
   const toggleBarrier = (id: string) => {
+    setActiveScenarioId("");
     setSelectedBarriers((prev) => {
-      const next = prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id];
-      // Update natural search query string to reflect active levers
-      if (next.length === 0) {
-        setSearchQuery("");
-      } else {
-        const labels = next.map((bId) => barrierOptions.find((o) => o.id === bId)?.label || bId);
-        setSearchQuery(labels.join(" + "));
-      }
-      return next;
+      return prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id];
     });
   };
 
   const clearFilters = () => {
+    setActiveScenarioId("");
     setSelectedBarriers([]);
     setSearchQuery("");
   };
@@ -98,11 +132,11 @@ export default function OtherWaysThroughPage() {
 
         return selectedBarriers.some((b) => {
           if (b === "no-id") return frictions.includes("no_id") || tags.includes("id_flexible") || !frictions.includes("identity_documents");
-          if (b === "no-car") return tags.includes("gas") || tags.includes("bus") || tags.includes("transit") || tags.includes("rideshare") || tags.includes("transport") || cats.includes("transportation");
+          if (b === "no-car") return tags.includes("gas") || tags.includes("bus") || tags.includes("transit") || tags.includes("rideshare") || tags.includes("transport") || cats.includes("transportation") || id.includes("mckinney");
           if (b === "pet-barrier") return r.petSpecific || tags.includes("pets") || tags.includes("pet") || tags.includes("dog") || tags.includes("cat") || cats.includes("pets");
           if (b === "phone-unsafe") return id.includes("connection") || tags.includes("phone") || tags.includes("tech_safety") || cats.includes("phone-tech-safety");
           if (b === "county-mismatch") return r.scope === "NATIONWIDE" || r.scope === "TEXAS_STATEWIDE";
-          if (b === "coercive-control") return r.isStatutoryRight || tags.includes("statutory_right") || id.includes("prop-code") || id.includes("connection");
+          if (b === "coercive-control") return r.isStatutoryRight || tags.includes("statutory_right") || id.includes("prop-code") || id.includes("connection") || id.includes("puc");
           if (b === "waitlist-issue") return !frictions.includes("waitlist_possible") || r.isStatutoryRight;
           if (b === "after-hours") return tags.includes("same_day") || frictions.includes("same_day_possible");
           return true;
@@ -111,10 +145,10 @@ export default function OtherWaysThroughPage() {
     }
 
     // Filter by search query if user typed custom keywords
-    if (searchQuery.trim() && selectedBarriers.length === 0) {
+    if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter((r) => {
-        const text = `${r.name} ${r.organization} ${r.whatItCanHelpWith} ${r.whatItActuallyProvides} ${r.eligibility} ${r.statuteCitation || ""}`.toLowerCase();
+        const text = `${r.name} ${r.organization} ${r.whatItCanHelpWith} ${r.whatItActuallyProvides} ${r.eligibility} ${r.statuteCitation || ""} ${(r.matchTags || []).join(" ")}`.toLowerCase();
         return text.includes(q);
       });
     }
@@ -147,75 +181,63 @@ export default function OtherWaysThroughPage() {
         </p>
       </div>
 
-      {/* 2. Search by situation or barriers */}
-      <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-4 shadow-sm bg-grid-atlas">
-        <div>
-          <div className="flex items-center justify-between mb-2 font-mono text-xs">
-            <span className="font-bold text-[#1C1D1D] uppercase tracking-wider flex items-center gap-1.5">
-              <Search className="w-3.5 h-3.5 text-[#971F26]" />
-              Search by situation or barriers
-            </span>
-            <span className="text-[10px] text-stone-600">Enter keywords, expenses, or obstacle combinations</span>
-          </div>
-
-          {/* Composite Search Bar */}
-          <div className="flex items-center gap-2">
-            <div className="relative flex-1">
-              <Search className="w-4 h-4 text-stone-500 absolute left-3.5 top-3" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="e.g. Transportation loss + housing instability + safety concerns..."
-                className="w-full bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-md pl-10 pr-10 py-2 text-xs sm:text-sm text-[#1C1D1D] font-mono font-medium placeholder-stone-500 focus:outline-none focus:border-[#971F26]"
-              />
-              {searchQuery && (
-                <button
-                  onClick={clearFilters}
-                  className="absolute right-3 top-2.5 text-stone-500 hover:text-[#1C1D1D]"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-            </div>
-
-            <button
-              onClick={() => alert("Search saved to your local session docket.")}
-              className="px-3.5 py-2 bg-[#F5F1E8] hover:bg-stone-200 border-2 border-[#1C1D1D] rounded-md text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors"
-            >
-              <Bookmark className="w-3.5 h-3.5 text-[#971F26]" />
-              <span className="hidden sm:inline">Save search</span>
-            </button>
-          </div>
+      {/* 2. Interactive Curated Scenario Bar */}
+      <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-4 sm:p-5 space-y-3.5 shadow-2xs">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-xs font-mono font-bold text-[#971F26] uppercase tracking-wider flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Example Search Scenarios (Click to test):</span>
+          </span>
+          <span className="text-[11px] font-mono text-stone-600">
+            {filteredResources.length} verified routes matching
+          </span>
         </div>
 
-        {/* Filter by barriers */}
-        <div>
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-2 font-mono text-[11px]">
-            <span className="text-stone-700 font-semibold">
-              Filter by barriers <span className="text-stone-500">(show me routes that work even when these are true):</span>
-            </span>
-            {selectedBarriers.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {scenarioPresets.map((p) => {
+            const active = activeScenarioId === p.id;
+            return (
+              <button
+                key={p.id}
+                onClick={() => selectScenario(p)}
+                className={`px-3 py-1.5 rounded-md text-xs font-sans font-semibold transition-all border text-left ${
+                  active
+                    ? "bg-[#1C1D1D] text-white border-[#1C1D1D] shadow-xs"
+                    : "bg-[#F5F1E8] text-[#1C1D1D] border-[#D9D1C4] hover:border-[#1C1D1D]"
+                }`}
+              >
+                {p.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Barrier Filter Chips */}
+        <div className="pt-2 border-t border-[#D9D1C4] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono">
+            <span className="text-stone-700 font-semibold">Filter by specific situational obstacles:</span>
+            {(selectedBarriers.length > 0 || searchQuery) && (
               <button
                 onClick={clearFilters}
-                className="text-[#971F26] hover:underline font-bold"
+                className="text-[#971F26] hover:underline font-bold flex items-center gap-1"
               >
-                Clear all ({selectedBarriers.length})
+                <RotateCcw className="w-3 h-3" />
+                <span>Reset all filters</span>
               </button>
             )}
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {barrierOptions.map((b) => {
               const active = selectedBarriers.includes(b.id);
               return (
                 <button
                   key={b.id}
                   onClick={() => toggleBarrier(b.id)}
-                  className={`px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all flex items-center gap-1.5 border ${
+                  className={`px-2.5 py-1 rounded-md text-xs font-mono font-medium transition-all flex items-center gap-1.5 border ${
                     active
-                      ? "bg-[#1C1D1D] text-white border-[#1C1D1D] shadow-xs"
-                      : "bg-[#F5F1E8] text-[#1C1D1D] border-[#1C1D1D] hover:bg-stone-200"
+                      ? "bg-[#971F26] text-white border-[#971F26] shadow-xs"
+                      : "bg-[#F5F1E8] text-stone-800 border-[#D9D1C4] hover:border-[#1C1D1D]"
                   }`}
                 >
                   {b.icon}
@@ -227,27 +249,7 @@ export default function OtherWaysThroughPage() {
         </div>
       </div>
 
-      {/* 3. Notice Banner */}
-      <div className="p-3.5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-lg text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
-        <div className="flex items-center gap-2.5 text-stone-900">
-          <div className="w-6 h-6 rounded-full bg-[#971F26] text-white flex items-center justify-center shrink-0">
-            <Layers className="w-3.5 h-3.5" />
-          </div>
-          <p className="text-[11.5px] leading-snug">
-            <strong>Showing exceptions, workarounds, and overlooked pathways</strong>—routes standard directories often miss. Not every fit is perfect. Read access notes and verification.
-          </p>
-        </div>
-
-        <Link
-          href="/how-we-research"
-          className="text-xs font-mono font-bold text-[#971F26] hover:underline shrink-0 flex items-center gap-1 self-end sm:self-auto"
-        >
-          <span>How we verify</span>
-          <Info className="w-3.5 h-3.5" />
-        </Link>
-      </div>
-
-      {/* 4. Main 2-Column Grid (Cards Left, Rail Right) */}
+      {/* 3. Main 2-Column Grid (Cards Left, Rail Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left / Center Results Column (8 of 12 cols on desktop) */}
@@ -277,7 +279,7 @@ export default function OtherWaysThroughPage() {
 
           {/* Scannable Dense Cards Stack */}
           {filteredResources.length > 0 ? (
-            <div className="space-y-3.5">
+            <div className="space-y-3">
               {filteredResources.map((res) => (
                 <DenseResourceCard
                   key={res.id}
@@ -288,23 +290,40 @@ export default function OtherWaysThroughPage() {
               ))}
             </div>
           ) : (
-            <div className="p-8 bg-[#EEE8DD] border-2 border-dashed border-[#1C1D1D] rounded-xl text-center space-y-3">
-              <p className="text-sm font-serif font-bold text-[#1C1D1D]">
-                No verified pathways match all selected barrier filters simultaneously.
-              </p>
-              <p className="text-xs text-stone-600 max-w-md mx-auto">
-                Try clearing one or more barrier pills to widen the lateral candidate pool.
-              </p>
-              <button
-                onClick={clearFilters}
-                className="px-4 py-2 bg-[#1C1D1D] text-white rounded text-xs font-mono font-bold uppercase tracking-wider"
-              >
-                Reset Filters
-              </button>
+            /* Improved Zero Results State */
+            <div className="p-8 bg-[#EEE8DD] border-2 border-dashed border-[#1C1D1D] rounded-xl text-center space-y-4 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[#FDF2F2] border border-[#971F26] text-[#971F26] flex items-center justify-center mx-auto">
+                <SlidersHorizontal className="w-5 h-5" />
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-base font-serif font-bold text-[#1C1D1D]">
+                  No pathway currently satisfies every selected condition simultaneously.
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-700 max-w-md mx-auto font-sans leading-relaxed">
+                  This does not mean no help exists. It means the specific combination of obstacles requires widening your search scope or exploring individualized lateral exceptions.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap justify-center gap-3 font-mono text-xs">
+                <button
+                  onClick={clearFilters}
+                  className="px-4 py-2 bg-[#1C1D1D] text-white rounded font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors"
+                >
+                  Clear Barrier Filters
+                </button>
+                <Link
+                  href="/ask-us-to-look"
+                  className="px-4 py-2 bg-[#971F26] text-white rounded font-bold uppercase tracking-wider hover:bg-red-900 transition-colors flex items-center gap-1.5"
+                >
+                  <span>Launch Ask Us to Look</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           )}
 
-          {/* Ask Us to Look Callout at Bottom of Results */}
+          {/* Bottom Callout: Ask Us to Look */}
           <div className="mt-8 p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm bg-grid-atlas">
             <div className="space-y-1">
               <div className="flex items-center gap-1.5 text-[#971F26] font-mono text-xs font-bold uppercase">
@@ -314,7 +333,7 @@ export default function OtherWaysThroughPage() {
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Ask Us to Look
               </h3>
-              <p className="text-xs text-stone-700 max-w-xl">
+              <p className="text-xs text-stone-700 max-w-xl font-sans">
                 Run your specific work history, child enrollment, pets, vehicle status, and county through our progressive qualification engine.
               </p>
             </div>
