@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { PRACTITIONER_FIELD_NOTES, CredibilityState } from "@/data/fieldNotes";
+import { PRACTITIONER_FIELD_NOTES, CredibilityState } from "@/content/field-notes";
 import {
   Target,
   CheckCircle2,

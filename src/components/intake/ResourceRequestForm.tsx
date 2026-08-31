@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { matchIntakeDynamically, MatchResult } from "@/data/dynamicMatcher";
+import { matchIntakeDynamically, MatchResult } from "@/domain/matching/dynamicMatcher";
 import { ResourceIntakeData } from "@/types/intake";
 import { Step1Barrier } from "./Step1Barrier";
 import { Step2Work } from "./Step2Work";

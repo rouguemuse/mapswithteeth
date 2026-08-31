@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import React from "react";
-import { BARRIER_CATEGORIES } from "@/data/barriers";
+import { BARRIER_CATEGORIES } from "@/data/taxonomy/barriers";
 import { ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
 import { ResourceIntakeData, AmountScale, FailedChannel } from "@/types/intake";
 import { WhyAskingTooltip } from "./WhyAskingTooltip";

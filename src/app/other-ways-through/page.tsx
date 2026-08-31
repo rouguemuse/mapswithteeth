@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { OTHER_WAYS_THROUGH_RESOURCES } from "@/data/otherWaysThrough";
+import { OTHER_WAYS_THROUGH_RESOURCES } from "@/data/resources/national/nationalResources";
 import { PUBLIC_RESOURCES } from "@/data/resources";
 import { DenseResourceCard } from "@/components/other-ways-through/DenseResourceCard";
 import { FieldNotesRail } from "@/components/other-ways-through/FieldNotesRail";

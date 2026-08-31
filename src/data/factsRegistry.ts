@@ -1,5 +1,5 @@
 import { FactDefinition } from "@/types/qualification";
-import { INDUSTRY_OPTIONS } from "./industries";
+import { INDUSTRY_OPTIONS } from "@/data/taxonomy/industries";
 
 export const FACT_DEFINITIONS: Record<string, FactDefinition> = {
   currentIndustry: {

@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "audit:resources": "npx tsx scripts/audit/audit_claim_matrix.js",
+    "audit:evidence": "npx tsx scripts/audit/run_automated_evidence_qa.js",
+    "audit:duplicates": "npx tsx scripts/audit/audit_duplicates.js",
+    "audit:imports": "node scripts/audit/audit_deprecated_imports.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

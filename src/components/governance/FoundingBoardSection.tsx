@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Shield, Users, CheckCircle2, ArrowRight, Sparkles, Scale, AlertCircle, Loader2 } from "lucide-react";
-import { TARGET_COMPETENCIES } from "@/data/governance";
+import { TARGET_COMPETENCIES } from "@/content/initiative/governance";
 import { BoardCandidateSubmission } from "@/types/governance";
 
 export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpanded?: boolean }) {

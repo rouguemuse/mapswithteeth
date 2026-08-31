@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BARRIER_CATEGORIES } from "@/data/barriers";
+import { BARRIER_CATEGORIES } from "@/data/taxonomy/barriers";
 import { PUBLIC_RESOURCES } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { ResourceSuggestionModal } from "@/components/resources/ResourceSuggestionModal";

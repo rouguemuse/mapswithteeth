@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { INDUSTRY_OPTIONS } from "@/data/industries";
+import { INDUSTRY_OPTIONS } from "@/data/taxonomy/industries";
 import { ResourceIntakeData } from "@/types/intake";
 import { WhyAskingTooltip } from "./WhyAskingTooltip";
 import { ArrowRight, ArrowLeft, Briefcase, Users, PawPrint, Smartphone, ShieldCheck, Car, Scale } from "lucide-react";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MatchResult } from "@/data/dynamicMatcher";
+import { MatchResult } from "@/domain/matching/dynamicMatcher";
 import { ResourceCard } from "../resources/ResourceCard";
 import { DenseResourceCard } from "@/components/other-ways-through/DenseResourceCard";
 import { FileText, Compass, ArrowRight, CornerDownRight, ShieldCheck, CheckCircle2, Loader2, Send } from "lucide-react";

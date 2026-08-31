@@ -1,14 +1,14 @@
-/**
+﻿/**
  * MAPS WITH TEETH — MASTER RESOURCE RECONCILIATION LEDGER SCHEMA
  */
 
 export type SourceOrigin =
-  | "current catalog"
-  | "Texas statutory research"
-  | "historical resource research"
-  | "field lead"
-  | "community submission"
-  | "partner lead";
+  | "CURRENT_CATALOG"
+  | "TEXAS_STATUTORY_RESEARCH"
+  | "HISTORICAL_RESOURCE_RESEARCH"
+  | "FIELD_LEAD"
+  | "COMMUNITY_SUBMISSION"
+  | "PARTNER_LEAD";
 
 export type CoverageType =
   | "NATIONAL"
@@ -29,9 +29,9 @@ export type MasterLedgerStatus =
   | "PAUSED"
   | "FIELD_REPORTED_UNCONFIRMED"
   | "NEEDS_REVERIFICATION"
+  | "STALE"
   | "TEMPORARILY_CLOSED"
   | "CLOSED"
-  | "STALE"
   | "DUPLICATE"
   | "UNVERIFIABLE"
   | "NOT_CURRENTLY_ACCESSIBLE"
@@ -53,10 +53,10 @@ export type MasterLedgerCategory =
 export interface MasterLedgerItem {
   id: string;
   canonicalName: string;
-  provider: string;
+  provider: string | null;
   category: MasterLedgerCategory;
   categoryLabel: string;
-  subcategory: string;
+  subcategory: string | null;
 
   sourceOrigin: SourceOrigin;
   coverageType: CoverageType;
@@ -64,21 +64,24 @@ export interface MasterLedgerItem {
 
   currentStatus: MasterLedgerStatus;
   verificationTier: string;
-  primarySource: string;
-  lastVerified: string;
+  primarySource: string | null;
+  lastVerified: string | null;
 
-  existingPublicResourceId?: string;
-  reasonNotPublished?: string;
-  nextResearchAction: string;
-  notes: string;
+  existingPublicResourceId?: string | null;
+  reasonNotPublished?: string | null;
+  needsAction: boolean;
+
+  // Preserved fields
+  whyNotOrNotes: string;
+  nextAction: string;
+  isVerified: boolean;
+  isLiveOnSite: boolean;
 
   // Legacy/UI convenience compatibility
   leadName?: string;
   status?: MasterLedgerStatus;
-  isVerified?: boolean;
-  isLiveOnSite?: boolean;
-  whyNotOrNotes?: string;
-  nextAction?: string;
   targetAudienceOrGeography?: string;
   authoritativeSource?: string;
+  nextResearchAction?: string;
+  notes?: string;
 }

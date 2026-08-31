@@ -1,6 +1,6 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
-import { TEXAS_RESOURCES } from "@/data/resources/texas";
+import { TEXAS_RESOURCES } from "@/data/resources/states/tx";
 import { TexasStatutesAccordion } from "@/components/texas/TexasStatutesAccordion";
 import { CountySelector } from "@/components/texas/CountySelector";
 import { ResourceCard } from "@/components/resources/ResourceCard";
