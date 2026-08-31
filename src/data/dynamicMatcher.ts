@@ -257,13 +257,20 @@ export function evaluateCandidateProfile(
 
   let matchCertainty: MatchCertainty;
 
+  const isFullyActiveVerified =
+    resource.verificationStatus === "ACTIVE_VERIFIED" ||
+    resource.verificationStatus === "AGENCY_CONFIRMED" ||
+    resource.verificationStatus === "OFFICIAL_SOURCE_CHECKED";
+
   if (triggeredExclusions.length > 0 || hasFailedRequired) {
     matchCertainty = "FILTERED_OUT";
-  } else if (resource.isStatutoryRight) {
+  } else if (resource.verificationStatus === "PAUSED") {
+    matchCertainty = "WORTH_CHECKING";
+  } else if (resource.isStatutoryRight && isFullyActiveVerified) {
     matchCertainty = "LIKELY_MATCH";
-  } else if (unresolvedRequirements.length === 0 && satisfiedRequirements.length > 0) {
+  } else if (unresolvedRequirements.length === 0 && satisfiedRequirements.length > 0 && isFullyActiveVerified) {
     matchCertainty = "LIKELY_MATCH";
-  } else if (satisfiedRequirements.length > 0) {
+  } else if (satisfiedRequirements.length > 0 || resource.isStatutoryRight) {
     matchCertainty = "WORTH_CHECKING";
   } else {
     matchCertainty = "NEEDS_INFORMATION";

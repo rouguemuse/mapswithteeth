@@ -68,7 +68,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Southern Smoke Foundation 501(c)(3) Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Fast turnaround emergency relief for culinary, bar, and hospitality workers."
   },
@@ -136,7 +136,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Giving Kitchen 501(c)(3) Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Most people assume emergency rental help only comes from county social services or 211 waitlists.",
     "workaround": "Food service workers in eligible states bypass municipal backlogs through direct-to-landlord benevolence grants.",
@@ -211,7 +211,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "CORE Gives 501(c)(3) Published Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Culinary workers rarely realize their industry has an endowed family foundation that helps with rent and bills.",
     "workaround": "Direct foundation grant paid to housing and utility providers with zero DV shelter stay required.",
@@ -345,7 +345,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "MusiCares / Recording Academy Program Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Comprehensive crisis fund for musicians, audio engineers, tour crews, and songwriters."
   },
@@ -413,7 +413,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "The Authors League Fund 501(c)(3) Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Established emergency safety net for professional writers and dramatists."
   },
@@ -477,7 +477,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "RedRover Relief Safe Escape Official Program Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Vital lifeline when emergency DV shelters cannot house companion animals."
   },
@@ -537,7 +537,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Animal Welfare Institute (AWI) Safe Havens Mapping",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Comprehensive national directory of pet-safe domestic violence shelters."
   },
@@ -562,8 +562,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "STATUTORY_RIGHT",
       "NO_FEE"
     ],
-    "whatItCanHelpWith": "Federal law requiring wireless carriers to separate a survivor's mobile line (and lines of individuals in survivor's care) from a shared family plan within 2 business days without penalty, contract cancellation fees, credit check, or notification to the primary account holder/abuser. Also provides up to 6 months of emergency Lifeline phone subsidies.",
-    "whatItActuallyProvides": "Statutory right to immediate mobile phone line separation + up to 6 months of emergency Lifeline telephone subsidy.",
+    "whatItCanHelpWith": "Federal law requiring wireless carriers to separate a survivor's mobile line (and lines of individuals in survivor's care) from a shared family plan within 2 business days without requiring primary account holder approval, contract cancellation fees, or credit checks. Also provides up to 6 months of emergency Lifeline phone subsidies for qualifying financially distressed survivors.",
+    "whatItActuallyProvides": "Statutory right to mobile phone line separation without account holder approval + up to 6 months of emergency Lifeline telephone subsidy.",
     "assistanceShapes": [
       "PHONE_LINE_SEPARATION",
       "DEVICE_SAFETY",
@@ -575,17 +575,18 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "eligibility": "Any survivor of domestic violence, dating violence, sexual assault, stalking, or human trafficking who shares a wireless phone account with an abuser.",
     "documentationRequired": [
       "Completed carrier line separation request form",
-      "One form of qualifying verification: police report, protective order, court record, or signed statement from a licensed advocate, counselor, or medical professional"
+      "One form of qualifying verification: law enforcement record, court protective order, or signed statement from a licensed advocate, counselor, or medical professional"
     ],
     "referralRequirement": "None (can submit directly to wireless carrier)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
-    "incomeRestriction": "None for line separation; Lifeline benefit available for up to 6 months without prior income check under emergency rules",
+    "incomeRestriction": "None for line separation; emergency Lifeline benefit available for up to 6 months without prior income check under FCC rules",
     "employmentDependency": "None",
     "applicationWindow": "Carrier must process within 2 business days of completed request",
     "whatCanBlockAccess": [
+      "NOTIFICATION & SAFETY RISK: Primary-account-holder approval is not required. However, the account holder may receive notice of account changes (or observe line removals on subsequent billing cycles). Review your carrier's notification timing before submitting if discovery of the separation could create a safety risk.",
       "Must provide qualifying documentation (advocate letter, court order, or police report)",
-      "Device financing / handset payoff: Carrier cannot prevent line separation for unpaid handset debt, but remaining device financing may be subject to carrier terms",
+      "Device financing / handset payoff: Carrier cannot condition line separation on payment of unpaid handset debt, but remaining device financing remains subject to carrier terms",
       "Requires submitting request through carrier's dedicated survivor support portal"
     ],
     "accessFrictions": [
@@ -598,12 +599,28 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "howToApply": "Contact your wireless provider's dedicated Safe Connections Act department or visit fcc.gov/safe-connections-act.",
     "sourceUrl": "https://www.fcc.gov/safe-connections-act",
     "primaryAuthoritativeSource": "47 U.S.C. § 345 / FCC Rules 47 CFR Part 64, Subpart II",
-    "lastReviewedDate": "2026-08-20",
-    "dateLastVerified": "2026-08-20",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "PRIMARY_STATUTE",
+      "sourceType": "PRIMARY_STATUTE",
+      "confirmingEntity": "Federal Communications Commission (FCC)",
+      "criteriaConfirmed": [
+        "Primary account holder approval not required under 47 U.S.C. § 345",
+        "2 business day processing mandate under 47 CFR § 64.6402",
+        "Account change notification risk explicitly qualified"
+      ],
+      "verificationNotes": "Re-verified against FCC 47 CFR Part 64 Subpart II Safe Connections Act implementation order.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": true,
     "statuteCitation": "47 U.S.C. § 345 / 47 CFR Part 64",
-    "notes": "Enacted into federal law; prevents abusers from tracking or canceling survivor phone lines."
+    "whyMissed": "Most survivors assume they cannot leave a shared family phone plan without the primary account holder's password or permission.",
+    "workaround": "Under federal law (47 U.S.C. § 345), wireless carriers must separate your line within 2 business days without requiring account holder approval or penalty fees.",
+    "accessNotes": "Submit request via carrier's dedicated survivor portal with qualifying advocate/court document. Crucial Safety Note: Primary account holder approval is NOT required, but they may receive account update notifications. Plan separation timing accordingly.",
+    "notes": "Enacted under federal law; prevents abusers from controlling or terminating survivor mobile lines."
   },
   {
     "id": "nnedv-techsafety-clinic",
@@ -658,7 +675,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "National Network to End Domestic Violence Safety Net Project",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "National leader in technology-facilitated abuse prevention."
   },
@@ -719,7 +736,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "IRS Identity Protection Guidelines / Internal Revenue Manual",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "notes": "Crucial protection against fraudulent dependent claiming and coerced tax filings."
   },
@@ -782,7 +799,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "26 U.S. Code § 6015 / IRS Publication 971",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "26 U.S.C. § 6015",
     "notes": "Includes specialized domestic abuse considerations for equitable relief."
@@ -844,7 +861,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "AACD Charitable Foundation Give Back a Smile Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Restores front teeth damaged during intimate partner abuse."
   },
@@ -912,7 +929,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Modest Needs Foundation 501(c)(3) Operating Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "notes": "Safety net for working households ineligible for conventional welfare."
   },
@@ -957,11 +974,11 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
-    "applicationWindow": "Immediate (intake completed in 2–4 hours)",
+    "applicationWindow": "Coordinated via telephone conference with National Runaway Safeline",
     "whatCanBlockAccess": [
-      "Strict age window: applicant must be 12 to 21 years old",
-      "Destination must be verbally confirmed as safe by NRS advocate prior to ticket release",
-      "Requires physical access to an operating Greyhound station or connecting partner depot"
+      "Strict age limit: applicant must be 12 to 21 years old",
+      "Destination must be verified by NRS advocate as a safe parent, legal guardian, or licensed shelter",
+      "Departure timing depends on NRS conference intake, Greyhound station hours, and scheduled bus departures"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
@@ -975,11 +992,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "National Runaway Safeline & Greyhound Lines Inc. Program Charter",
     "lastReviewedDate": "2026-08-28",
     "dateLastVerified": "2026-08-28",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Categorized in social service databases exclusively under runaway youth helplines rather than family violence escape or emergency transportation.",
     "workaround": "If an eligible youth (ages 12–21) is fleeing an unsafe family home or abusive guardian, the National Runaway Safeline advocate can conduct immediate phone intake and authorize a ticket without requiring law enforcement arrest.",
-    "accessNotes": "Call 1-800-RUNAWAY (1-800-786-2929). Advocate coordinates directly with nearest Greyhound station. Ticket can be retrieved at will-call within hours."
+    "accessNotes": "Call 1-800-RUNAWAY (1-800-786-2929). Advocate coordinates directly with nearest Greyhound station. Ticket can be retrieved at will-call within hours.",
+    "claimProvenances": [
+      {
+        "claim": "Greyhound Home Free provides one-way bus tickets for youth ages 12–21 in cooperation with National Runaway Safeline",
+        "primarySourceUrl": "https://www.1800runaway.org/youth-teens/home-free-transportation",
+        "sourceExcerptOrSummary": "Youth 12-21 can receive a free one-way bus ticket home or to a verified safe alternative through NRS intake.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "salvation-army-service-extension-tx",
@@ -1003,8 +1028,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "EMERGENCY_TRAVEL",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Provides emergency travel assistance (fuel vouchers, bus passes, and 1–2 night roadside emergency motel vouchers) and micro-aid in rural Texas counties without permanent Salvation Army corps buildings.",
-    "whatItActuallyProvides": "Prepaid gas cards, Greyhound/bus vouchers, direct motel invoice payments, and emergency grocery cards.",
+    "whatItCanHelpWith": "Provides emergency assistance (such as fuel assistance, transit aid, or emergency lodging vouchers) in rural Texas counties that lack a permanent Salvation Army center, administered through local volunteer Service Units.",
+    "whatItActuallyProvides": "Discretionary emergency aid determined by the local volunteer committee on a case-by-case basis.",
     "assistanceShapes": [
       "GAS_CARD",
       "BUS_TICKET",
@@ -1012,8 +1037,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "GROCERY_CARD"
     ],
     "paymentMethod": "SURVIVOR_DIRECT",
-    "typicalAmount": "$50 to $300 in emergency vouchers or travel assistance",
-    "knownFundingLimits": "Discretionary funds allocated per rural volunteer committee; subject to monthly pool availability",
+    "typicalAmount": "Discretionary micro-aid (amounts vary by local committee budget and demonstrated emergency)",
+    "knownFundingLimits": "Discretionary funds allocated per rural volunteer committee; service types and availability depend entirely on the local committee",
     "eligibility": "Resident or transient individual in a participating rural Texas county experiencing an emergency transportation breakdown or crisis displacement.",
     "documentationRequired": [
       "Basic photo ID or proof of regional presence (flexible in emergency escape situations)",
@@ -1026,8 +1051,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "Same-day to 48 hours depending on local committee volunteer availability",
     "whatCanBlockAccess": [
-      "Only operates in rural and suburban counties that lack a permanent Salvation Army center",
-      "Managed by local volunteer committees with variable response times"
+      "OPERATIONAL VARIABILITY: Services and funding levels are NOT uniform statewide; each rural county volunteer committee operates independently with variable funding and response times",
+      "Assistance depends strictly on local committee capacity and monthly funds"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
@@ -1040,11 +1065,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Salvation Army Texas Divisional Headquarters Guidelines",
     "lastReviewedDate": "2026-08-25",
     "dateLastVerified": "2026-08-25",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_PARTIALLY_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "211 directories only index permanent Salvation Army brick-and-mortar shelter corps, missing the hundreds of volunteer Service Units in rural Texas counties.",
     "workaround": "Volunteer Service Units hold flexible emergency funds administered by local town committees (sheriffs, pastors, or librarians) who can issue instant gas vouchers, bus tickets, or 1–2 night motel stays.",
-    "accessNotes": "Ask local county sheriff dispatch, county food pantry, or call the Divisional Service Extension office for the active local volunteer committee chair."
+    "accessNotes": "Contact the Divisional Service Extension office or local county service unit representative to determine active assistance availability in your specific rural county.",
+    "claimProvenances": [
+      {
+        "claim": "Salvation Army Texas Service Extension operates volunteer committees in non-corps rural counties",
+        "primarySourceUrl": "https://salvationarmytexas.org/service-extension/",
+        "sourceExcerptOrSummary": "Service Units provide emergency assistance in counties without a Salvation Army facility. Assistance is administered by local volunteer committees.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "usbg-bartender-emergency-assistance",
@@ -1094,9 +1127,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "Beverage hospitality industry employment (bartender, barback, bar server)",
     "applicationWindow": "Within 90 days of catastrophic incident",
     "whatCanBlockAccess": [
-      "Requires verifiable bar industry employment documentation",
-      "Crisis event must be unforeseen and catastrophic",
-      "Processing time averages 2–4 weeks"
+      "PORTAL CURRENTLY PAUSED: The USBG National Charity Foundation BEAP application intake is temporarily paused and not accepting new applications.",
+      "Requires verifiable beverage hospitality employment documentation (bartender, barback, bar server)",
+      "Crisis event must be unforeseen and catastrophic"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -1110,11 +1143,20 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "USBG National Charity Foundation BEAP Operating Guidelines",
     "lastReviewedDate": "2026-08-22",
     "dateLastVerified": "2026-08-22",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "PAUSED",
     "isStatutoryRight": false,
     "whyMissed": "Located exclusively within beverage industry professional networks; non-hospitality caseworkers never think to ask about bartending or bar service history.",
     "workaround": "Open to any bartender, barback, or bar server with verifiable industry employment. Does NOT require membership in the United States Bartenders' Guild.",
-    "accessNotes": "Apply online at usbgfoundation.org/beap with paystubs, liquor server permit, or employer work schedules."
+    "accessNotes": "Apply online at usbgfoundation.org/beap with paystubs, liquor server permit, or employer work schedules.",
+    "notes": "APPLICATIONS CURRENTLY PAUSED: As of recent review, USBG BEAP application intake is temporarily closed. Monitor usbgfoundation.org/beap for reopening cycles.",
+    "claimProvenances": [
+      {
+        "claim": "USBG BEAP emergency relief grants for beverage hospitality workers",
+        "primarySourceUrl": "https://www.usbgfoundation.org/beap",
+        "sourceExcerptOrSummary": "Emergency grant intake temporarily paused pending new funding allotments.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "entertainment-community-fund",
@@ -1155,11 +1197,11 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "paymentMethod": "DIRECT_TO_VENDOR",
     "typicalAmount": "$1,000 to $3,000 based on documented need and earnings history",
     "knownFundingLimits": "Limits based on industry tenure and documented crisis bills; direct creditor payment preferred",
-    "eligibility": "Must demonstrate documented employment earnings in the performing arts or entertainment industry (performers, actors, crew, technicians, stagehands, hair/makeup, dancers, film/TV workers, musicians) with 3–5 years of industry earnings history.",
+    "eligibility": "Must demonstrate documented employment earnings in the performing arts or entertainment industry: either minimum $6,500/year in 3 of the last 5 years OR $6,500/year in 5 of the last 10 years (or 20 years industry tenure for older workers).",
     "documentationRequired": [
-      "Proof of entertainment earnings history (W-2s, 1099s, or union cards: SAG-AFTRA, IATSE, AEA, AFM)",
-      "Itemized documentation of crisis need (lease, past-due rent notice, medical bills, utility statements)",
-      "Most recent bank statements showing shortfall"
+      "Proof of qualifying entertainment earnings meeting the $6,500/year threshold (W-2s, 1099s, tax returns, or union pension/health records: SAG-AFTRA, IATSE, AEA, AFM)",
+      "Itemized crisis documentation (lease, past-due rent notice, medical bills, utility statements)",
+      "Most recent bank statements showing immediate financial deficit"
     ],
     "referralRequirement": "None (apply directly through social services intake)",
     "shelterConnectionRequired": false,
@@ -1168,9 +1210,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "Performing arts and entertainment industry work history",
     "applicationWindow": "Ongoing crisis evaluation",
     "whatCanBlockAccess": [
-      "Requires documented entertainment industry work/earnings history",
-      "Takes 1–2 weeks for social services casework review",
-      "Direct vendor disbursement required for housing and utilities"
+      "DOCUMENTED EARNINGS THRESHOLD: Must show minimum $6,500/year in 3 of the last 5 years OR 5 of the last 10 years in eligible entertainment work",
+      "Takes 1–2 weeks for social services casework evaluation",
+      "Direct vendor disbursement for rent and utilities"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -1184,11 +1226,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Entertainment Community Fund Social Services Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Filed under arts and entertainment charities rather than domestic crisis relief finders.",
     "workaround": "Covers non-performers too: technicians, grips, camera operators, stagehands, hair/makeup stylists, front-of-house staff, and administrative workers across film, television, theatre, dance, and music with 3–5 years documented industry earnings.",
-    "accessNotes": "Submit online social services intake with W-2/1099 industry tax forms or union cards (SAG-AFTRA, IATSE, Actors' Equity)."
+    "accessNotes": "Submit online social services intake with W-2/1099 industry tax forms or union cards (SAG-AFTRA, IATSE, Actors' Equity).",
+    "claimProvenances": [
+      {
+        "claim": "Entertainment Community Fund Emergency Financial Assistance earnings criteria",
+        "primarySourceUrl": "https://entertainmentcommunity.org/services-and-programs/emergency-financial-assistance",
+        "sourceExcerptOrSummary": "Eligibility requires documented earnings of at least $6,500/year for 3 of the last 5 years or 5 of the last 10 years.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "nurses-house-emergency-grants",
@@ -1255,76 +1305,11 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Nurses House 501(c)(3) Operating Charter",
     "lastReviewedDate": "2026-08-21",
     "dateLastVerified": "2026-08-21",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Specialized 501(c)(3) dedicated strictly to Registered Nurses.",
     "workaround": "Provides fast housing and medical hardship grants for RNs facing acute crisis, health emergencies, domestic violence escape, or disaster displacement.",
     "accessNotes": "Apply at nurseshouse.org with copy of active or recently active RN license, brief hardship summary, and lease/landlord contact."
-  },
-  {
-    "id": "trade-union-benevolent-funds",
-    "name": "Trade Union Emergency Hardship & Benevolent Funds",
-    "organization": "AFL-CIO / Building & Construction Trades Union Locals",
-    "state": "US",
-    "geography": "Nationwide (Union Locals across US & Texas)",
-    "scope": "NATIONWIDE",
-    "category": "INDUSTRY_EMERGENCY_FUNDS",
-    "barrierCategories": [
-      "industry-hardship",
-      "money-now",
-      "rent-deposit"
-    ],
-    "matchTags": [
-      "UNION",
-      "TRADES",
-      "CONSTRUCTION",
-      "ELECTRICIAN",
-      "LABORER",
-      "CARPENTER",
-      "PLUMBER",
-      "CASH",
-      "NO_POLICE_REPORT"
-    ],
-    "whatItCanHelpWith": "Provides confidential emergency hardship grants, dues waivers, and member-assistance micro-aid through local trade union halls (IBEW, LiUNA, UBC, SMART, Teamsters, USW) for members experiencing domestic catastrophe or sudden displacement.",
-    "whatItActuallyProvides": "Direct financial assistance checks disbursed from Business Manager Discretionary Funds or local relief committees.",
-    "assistanceShapes": [
-      "DIRECT_CASH",
-      "VENDOR_PAYMENT"
-    ],
-    "paymentMethod": "SURVIVOR_DIRECT",
-    "typicalAmount": "$500 to $2,000 at the discretion of the Local Business Manager or Executive Board",
-    "knownFundingLimits": "Governed by local union hall bylaws and benevolent fund balance",
-    "eligibility": "Must be an active member in good standing (or qualifying retired member/dependent) of a recognized trade union local.",
-    "documentationRequired": [
-      "Union card or member ID number verifying good standing",
-      "Confidential request letter or interview with Shop Steward / Business Agent"
-    ],
-    "referralRequirement": "Union Shop Steward or Business Manager contact",
-    "shelterConnectionRequired": false,
-    "policeReportRequired": false,
-    "incomeRestriction": "None (union membership dependent)",
-    "employmentDependency": "Union trades member in good standing",
-    "applicationWindow": "Immediate local review",
-    "whatCanBlockAccess": [
-      "Restricted to union members in good standing",
-      "Requires speaking directly with a local union representative"
-    ],
-    "accessFrictions": [
-      "EMPLOYMENT_PROOF",
-      "NO_POLICE_REPORT_REQUIRED",
-      "NO_SHELTER_STAY_REQUIRED"
-    ],
-    "whatToDoNext": "Contact your local union hall Business Agent or Shop Steward directly. Request a confidential consultation regarding the local's emergency relief or benevolent fund.",
-    "howToApply": "Contact your local union hall Shop Steward or Business Agent.",
-    "sourceUrl": "https://aflcio.org/community-services",
-    "primaryAuthoritativeSource": "AFL-CIO Community Services Department Standards",
-    "lastReviewedDate": "2026-08-18",
-    "dateLastVerified": "2026-08-18",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
-    "isStatutoryRight": false,
-    "whyMissed": "Internal fraternal benefits governed by local union bylaws; not publicly searchable or aggregated in 211 databases.",
-    "workaround": "Local business managers have discretionary authority to release confidential hardship checks or waive dues during catastrophic family crisis.",
-    "accessNotes": "Contact your local union hall Business Agent or Shop Steward directly and request a confidential emergency relief petition."
   },
   {
     "id": "dod-transitional-compensation",
@@ -1386,7 +1371,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "10 U.S.C. § 1059 / DoD Instruction 1342.24",
     "lastReviewedDate": "2026-08-26",
     "dateLastVerified": "2026-08-26",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "10 U.S.C. § 1059",
     "whyMissed": "Military administrative law benefit that civilian victim advocates and municipal helplines rarely understand or know how to trigger.",
@@ -1456,7 +1441,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Veterans of Foreign Wars Unmet Needs Program Guidelines",
     "lastReviewedDate": "2026-08-24",
     "dateLastVerified": "2026-08-24",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Veteran organization relief fund that civilian DV navigators rarely query for family crisis relief.",
     "workaround": "Grants of up to $1,500 for emergency rent, utilities, food, auto repairs, or transportation for service members on active duty, deployed, or discharged within the past 72 months. Paid directly to creditors.",
@@ -1509,11 +1494,11 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "policeReportRequired": false,
     "incomeRestriction": "Demonstrated emergency hardship",
     "employmentDependency": "Active duty rank E-1 to E-6 or post-9/11 wounded veteran",
-    "applicationWindow": "Ongoing crisis intake",
+    "applicationWindow": "Opens on the 1st of each month at 9:00 AM CST; closes on the 10th (or when monthly quota is reached)",
     "whatCanBlockAccess": [
-      "Restricted to rank E-1 through E-6 for non-wounded active duty",
-      "Requires documented third-party invoice/lease",
-      "Processing averages 5–10 business days"
+      "MONTHLY WINDOW: Application portal opens on the 1st of each month at 9:00 AM CST and closes on the 10th (or earlier when capacity is reached)",
+      "STRICT RANK ELIGIBILITY: Restricted to active-duty military ranks E-1 through E-6, post-9/11 wounded/ill/injured veterans of all ranks, or surviving spouses on DIC",
+      "Direct creditor payments only — requires verified landlord or mechanic invoices"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -1526,11 +1511,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Operation Homefront CFA Operating Standards",
     "lastReviewedDate": "2026-08-23",
     "dateLastVerified": "2026-08-23",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Military family support charity not indexed in municipal resource finders.",
     "workaround": "Designed specifically for enlisted ranks E-1 through E-6 (and post-9/11 wounded veterans). Covers direct mortgage/rent payments, auto repair bills, essential home repairs, and relocation moving expenses.",
-    "accessNotes": "Apply online at operationhomefront.org with current military LES, landlord contact, and repair estimates."
+    "accessNotes": "Apply online at operationhomefront.org with current military LES, landlord contact, and repair estimates.",
+    "claimProvenances": [
+      {
+        "claim": "Operation Homefront CFA financial assistance for junior enlisted and wounded veterans",
+        "primarySourceUrl": "https://operationhomefront.org/critical-financial-assistance/",
+        "sourceExcerptOrSummary": "Application window opens 1st of month at 9am CST. Covers ranks E-1 to E-6 and post-9/11 wounded veterans.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "hud-vawa-emergency-transfer",
@@ -1556,7 +1549,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "PORTABILITY",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Establishes a statutory federal right for survivors of domestic violence, dating violence, sexual assault, or stalking living in HUD-assisted housing to request an immediate emergency transfer to another safe unit or port their Housing Choice Voucher across county/state lines without lease termination penalties.",
+    "whatItCanHelpWith": "Establishes a statutory federal right under 24 CFR § 5.2005(e) for survivors in HUD-covered subsidized housing to request an emergency transfer to a safe unit, and outlines Housing Choice Voucher portability protections under 24 CFR § 982.353/354.",
     "whatItActuallyProvides": "Statutory transfer entitlement, expedited voucher portability, and protection from eviction or voucher forfeiture.",
     "assistanceShapes": [
       "LEGAL_SERVICE",
@@ -1578,9 +1571,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "Immediate upon imminent safety threat",
     "whatCanBlockAccess": [
-      "Applies only to federally subsidized housing programs (Section 8, Public Housing, LIHTC)",
-      "Housing authorities may face waitlists for internal safe units, but voucher portability must be expedited",
-      "Requires formal submission of HUD Form 5383"
+      "NO GUARANTEED UNIT AVAILABILITY: Qualifying for an emergency transfer does NOT guarantee that the housing provider has an open, safe unit immediately available",
+      "PORTABILITY SUBJECT TO PHA RULES: Porting a voucher to another jurisdiction requires coordination with the receiving Public Housing Authority (PHA) and does not guarantee expedited external housing placement",
+      "Applies only to federally subsidized housing programs (Section 8, Public Housing, LIHTC, HOME)"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
@@ -1592,12 +1585,21 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "24 CFR § 5.2005(e) / HUD VAWA Final Rule",
     "lastReviewedDate": "2026-08-27",
     "dateLastVerified": "2026-08-27",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "24 CFR § 5.2005(e)",
     "whyMissed": "Public housing tenants and Section 8 voucher holders are often falsely told that moving before their lease expires will result in permanent forfeiture of their housing assistance voucher.",
     "workaround": "Under VAWA 2022 federal law (24 CFR § 5.2005(e)), any tenant in covered housing (Section 8, Housing Choice Voucher, Public Housing, Project-Based Section 8, LIHTC) who reasonably fears imminent harm has a statutory right to an emergency transfer. The Public Housing Authority (PHA) must allow the voucher to be ported immediately across city/county/state lines without terminating assistance.",
-    "accessNotes": "Submit HUD Model Form 5383 (Emergency Transfer Request) or written statement to housing authority or property management. Does not require a police report."
+    "accessNotes": "Submit HUD Model Form 5383 (Emergency Transfer Request) or written statement to housing authority or property management. Does not require a police report.",
+    "importantLimitations": "Emergency transfer approval under VAWA grants legal priority and protection from lease termination penalties, but cannot create housing inventory where no vacant units exist.",
+    "claimProvenances": [
+      {
+        "claim": "HUD VAWA emergency transfer rights under 24 CFR § 5.2005(e) and HCV portability rules under 24 CFR § 982.353",
+        "primarySourceUrl": "https://www.hud.gov/program_offices/housing/mfh/vawa",
+        "sourceExcerptOrSummary": "Covered housing providers must adopt emergency transfer plans. Emergency transfer qualification does not guarantee immediate vacant unit availability.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "ssa-number-change-dv",
@@ -1622,49 +1624,71 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "LEGAL",
       "STATUTE"
     ],
-    "whatItCanHelpWith": "Authorizes the assignment of a brand-new Social Security Number (SSN) to a survivor of severe domestic violence, stalking, or harassment when an abuser is actively using the existing number to locate, harass, or inflict financial injury.",
-    "whatItActuallyProvides": "A completely new, clean Social Security Number issued by the federal government with cross-reference confidentiality.",
+    "whatItCanHelpWith": "Authorizes the assignment of a new Social Security Number (SSN) under SSA Harassment, Abuse, and Life Endangerment (HALE) policy when an abuser or stalker is actively using the existing SSN to locate, harass, or inflict financial injury.",
+    "whatItActuallyProvides": "Assignment of a different Social Security Number by SSA for qualifying domestic violence or endangerment cases. (Note: Does not erase past records or guarantee a fresh credit identity).",
     "assistanceShapes": [
       "DOCUMENT_REPLACEMENT",
       "LEGAL_INFORMATION"
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
     "typicalAmount": "Free official federal identity reissuance",
-    "knownFundingLimits": "Administrative federal remedy under SSA POMS RM 10225.060",
-    "eligibility": "Must provide third-party evidence documenting ongoing harassment, stalking, or severe physical danger linked to the abuser's knowledge of the existing SSN.",
+    "knownFundingLimits": "Administrative federal remedy under 20 CFR § 422.103(e)(2) and SSA POMS RM 10225.065 / RM 10225.066",
+    "eligibility": "Must provide third-party evidence documenting ongoing domestic violence, harassment, abuse, or life endangerment linked to the abuser's misuse or knowledge of the existing SSN.",
     "documentationRequired": [
       "Form SS-5 (Application for a Social Security Card)",
-      "Primary identity documents (certified U.S. birth certificate, passport, state photo ID)",
-      "Third-party corroborating evidence: police reports, court restraining orders, medical records, or detailed letters from domestic violence shelter advocates"
+      "Primary identity documents (certified U.S. birth certificate, passport, state ID)",
+      "Third-party corroborative evidence: police reports, court restraining orders, medical records, or formal letters from domestic violence shelters, legal aid, or social services documenting ongoing harassment, abuse, or life endangerment tied to SSN misuse"
     ],
-    "referralRequirement": "In-person SSA Field Office interview with documentation packet",
+    "referralRequirement": "In-person SSA Field Office interview with comprehensive documentation packet",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
     "applicationWindow": "Ongoing administrative evaluation",
     "whatCanBlockAccess": [
-      "High evidentiary threshold: requires third-party proof of ongoing danger or abuser misuse of old SSN",
-      "Does not erase previous tax, child support, or criminal liabilities",
-      "Credit history starts as a blank file; credit score must be built from scratch"
+      "STRICT EVIDENCE THRESHOLD: SSA requires third-party corroborating documentation establishing ongoing danger or misuse of the SSN by the abuser",
+      "PRIOR LIABILITIES REMAIN: Assigning a new SSN does not erase prior tax debts, child support orders, or commercial credit liabilities",
+      "CREDIT RESET: Credit reporting agencies create a new file with no historical credit score; credit history must be built from scratch"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
       "IDENTITY_DOCUMENTS",
       "WALK_IN"
     ],
-    "whatToDoNext": "Gather your identity documents and third-party evidence packet. Make an in-person appointment at your local Social Security Administration Field Office and request an SSN change under POMS RM 10225.060.",
+    "whatToDoNext": "Gather your primary identity documents and third-party evidence packet. Make an in-person appointment at your local Social Security Administration Field Office and request an SSN change under 20 CFR § 422.103(e)(2) and POMS RM 10225.065.",
     "howToApply": "Schedule an appointment at a local SSA Field Office with Form SS-5 and evidence packet.",
-    "sourceUrl": "https://secure.ssa.gov/poms.nsf/lnx/0110225060",
-    "primaryAuthoritativeSource": "Social Security Administration POMS RM 10225.060",
-    "lastReviewedDate": "2026-08-25",
-    "dateLastVerified": "2026-08-25",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "sourceUrl": "https://secure.ssa.gov/poms.nsf/lnx/0110220200",
+    "primaryAuthoritativeSource": "Social Security Administration POMS RM 10220.200 - RM 10220.220 / POMS RM 10225.060 (HALE Policy)",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "OFFICIAL_GOVERNMENT_PORTAL",
+      "sourceType": "PRIMARY_STATUTE",
+      "confirmingEntity": "Social Security Administration (SSA)",
+      "criteriaConfirmed": [
+        "20 CFR § 422.103(e)(2) domestic violence and harassment authority",
+        "POMS RM 10225.065 & RM 10225.066 procedure requirements",
+        "Credit and administrative continuity complications explicitly qualified"
+      ],
+      "verificationNotes": "Re-verified against current SSA POMS RM 10225.065 (Domestic Violence) and SSA Publication No. 05-10093.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": true,
-    "statuteCitation": "SSA POMS RM 10225.060",
-    "whyMissed": "SSA does not advertise this route publicly on general consumer pages; it is an internal administrative procedure governed by POMS RM 10225.060.",
-    "workaround": "While SSA generally prohibits changing SSNs, POMS RM 10225.060 explicitly authorizes assignment of a brand-new Social Security Number when evidence proves an abuser or stalker is using the existing SSN to locate, harass, or inflict financial ruin.",
-    "accessNotes": "Schedule in-person appointment at local SSA Field Office. Bring Form SS-5, birth certificate/passport, and third-party corroborating documentation (protective orders, advocate letters, or medical records). Note: Credit bureaus create a new file; previous credit history does not automatically carry over."
+    "statuteCitation": "SSA POMS RM 10220.200 (Harassment, Abuse, and Life Endangerment)",
+    "whyMissed": "SSA does not advertise this route publicly on general consumer pages; it is an internal administrative procedure governed by POMS RM 10225.065.",
+    "workaround": "While SSA generally prohibits changing SSNs, 20 CFR § 422.103(e)(2) and POMS RM 10225.065 explicitly authorize assignment of a different Social Security Number when evidence proves an abuser or stalker is using the existing SSN to locate, harass, or endanger the survivor.",
+    "accessNotes": "Schedule in-person appointment at local SSA Field Office. Bring Form SS-5, birth certificate/passport, and third-party corroborating documentation (protective orders, advocate letters, or medical records). Major Warning: A new SSN does not guarantee a new credit identity and can create severe administrative hurdles with past records.",
+    "notes": "Governed by 20 CFR § 422.103(e)(2) and POMS RM 10225.065. An extreme remedy that requires extensive third-party documentation and creates significant credit and record-keeping complications.",
+    "claimProvenances": [
+      {
+        "claim": "SSA assigns new SSN under Harassment, Abuse, and Life Endangerment (HALE) policy",
+        "primarySourceUrl": "https://secure.ssa.gov/poms.nsf/lnx/0110220200",
+        "sourceExcerptOrSummary": "SSA POMS RM 10220.200 allows assignment of a new SSN to victims of domestic violence upon presentation of third-party evidence documenting ongoing harassment or abuse.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "freefrom-coerced-debt-toolkit",
@@ -1724,7 +1748,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "FreeFrom National Survivor Economic Security Standards",
     "lastReviewedDate": "2026-08-26",
     "dateLastVerified": "2026-08-26",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Civil/consumer rights tool for debt cancellation rather than traditional financial charity.",
     "workaround": "Offers state-specific statutory legal templates to dispute debt forced by an abuser (credit cards, vehicle loans, utility contracts, medical debt) under the Fair Credit Reporting Act (FCRA), Fair Debt Collection Practices Act (FDCPA), and state coerced-debt laws without having to hire a private attorney.",
@@ -1752,7 +1776,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "STALKERWARE",
       "DIGITAL_SAFETY"
     ],
-    "whatItCanHelpWith": "Detects unauthorized Bluetooth tracking devices (Apple AirTags, Samsung SmartTags, Tile trackers, and Chipolo devices) hidden on vehicles, clothing, or personal belongings without alerting the tracker owner.",
+    "whatItCanHelpWith": "Performs passive background and manual scans on smartphones to detect unauthorized Bluetooth Low Energy (BLE) tracking devices (Apple AirTags, Tile, Samsung SmartTags, Chipolo).",
     "whatItActuallyProvides": "Free privacy utility application for Android and iOS that performs automated passive background scans and precise proximity signal analysis.",
     "assistanceShapes": [
       "DEVICE_SAFETY",
@@ -1772,8 +1796,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "Immediate download",
     "whatCanBlockAccess": [
-      "Requires Bluetooth and Location permissions enabled on smartphone for beacon detection",
-      "Tracker must be actively transmitting Bluetooth LE advertisements"
+      "BLE ONLY: Only detects Bluetooth Low Energy beacons; does NOT detect hardwired GPS, cellular SIM trackers, or hidden cameras",
+      "OS DIFFERENCES: Background scanning on iOS is constrained by Apple background execution limits compared to Android",
+      "Requires Bluetooth and Location permissions enabled"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
@@ -1785,11 +1810,19 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "TU Darmstadt Secure Mobile Networking Lab Privacy Research",
     "lastReviewedDate": "2026-08-24",
     "dateLastVerified": "2026-08-24",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "whyMissed": "Open-source academic security research software not indexed in social service directories.",
-    "workaround": "Actively scans for and locates hidden AirTags, Tile devices, Samsung SmartTags, and generic Bluetooth LE beacons following your vehicle or person, operating on both Android and iOS without triggering audible chirps that alert the tracker owner prematurely.",
-    "accessNotes": "Download free via Google Play Store, F-Droid, or Apple App Store. Enable background protection to receive silent alerts when an unknown beacon is traveling with you."
+    "whyMissed": "Open-source privacy research software developed by TU Darmstadt Secure Mobile Networking Lab.",
+    "workaround": "Provides periodic scanning for Bluetooth LE tracker signals across multiple tracker ecosystems on Android and iOS devices.",
+    "accessNotes": "Download free via Google Play Store, F-Droid, or Apple App Store. Enable background protection to receive silent alerts when an unknown beacon is traveling with you.",
+    "claimProvenances": [
+      {
+        "claim": "AirGuard open-source BLE tracking detection utility for Android and iOS",
+        "primarySourceUrl": "https://github.com/seemoo-lab/AirGuard",
+        "sourceExcerptOrSummary": "Detects Bluetooth Low Energy trackers including AirTags, Tile, and SmartTags. Relies on BLE signal advertisements.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "uscis-vawa-self-petition",
@@ -1850,7 +1883,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "8 U.S.C. § 1154(a)(1) / USCIS Policy Manual Vol. 3",
     "lastReviewedDate": "2026-08-27",
     "dateLastVerified": "2026-08-27",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "8 U.S.C. § 1154(a)(1)",
     "whyMissed": "Abusers frequently threaten immigrant spouses and children with immediate deportation if they leave or seek assistance.",
@@ -1914,7 +1947,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "8 U.S.C. § 1101(a)(15)(U) & (T) / USCIS Policy Guidelines",
     "lastReviewedDate": "2026-08-27",
     "dateLastVerified": "2026-08-27",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "8 U.S.C. § 1101(a)(15)(U)",
     "whyMissed": "Complex statutory immigration relief requiring specific law enforcement certification or trafficking evidence.",
@@ -1978,7 +2011,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "StrongHearts Native Helpline 501(c)(3) Operating Charter",
     "lastReviewedDate": "2026-08-25",
     "dateLastVerified": "2026-08-25",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Specialized Indigenous-led resource omitted by municipal and county-level directories.",
     "workaround": "Confidential, culturally tailored 24/7 advocacy for Native American and Alaska Native survivors. Expertly navigates complex overlapping Tribal Court, State, and Federal jurisdictional boundaries under VAWA Special Domestic Violence Criminal Jurisdiction (SDVCJ) and Indian Civil Rights Act frameworks.",
@@ -2005,14 +2038,14 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "PHYSICAL_RESTORATION",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Provides 100% pro bono facial plastic and reconstructive surgery to repair facial injuries, fractures, scars, and lacerations caused by domestic violence.",
-    "whatItActuallyProvides": "Pro bono surgical care, operating room procedures, and post-operative medical management provided by board-certified facial plastic surgeons.",
+    "whatItCanHelpWith": "Connects survivors of domestic violence who have sustained facial injuries with board-certified facial plastic surgeons providing pro bono or low-cost reconstructive surgery.",
+    "whatItActuallyProvides": "Pro bono professional surgical care provided by volunteer AAFPRS surgeons.",
     "assistanceShapes": [
       "MEDICAL",
       "OTHER"
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
-    "typicalAmount": "100% free surgical care (hospital/anesthesia fees waived or covered through foundation)",
+    "typicalAmount": "Pro bono surgical services; facility or anesthesia fees may be low-cost or require hospital charity arrangements",
     "knownFundingLimits": "Pro bono surgical network operating nationwide",
     "eligibility": "Must have sustained physical facial injuries caused by domestic violence. Survivor must be out of the abusive relationship for at least 12 months and complete a counseling/advocate intake interview.",
     "documentationRequired": [
@@ -2027,9 +2060,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "At least 12 months following physical separation from abuser",
     "whatCanBlockAccess": [
-      "Requires 12 months of separation from the abusive partner to ensure physical safety and healing",
-      "Requires advocate/therapist confirmation letter",
-      "Surgical evaluation determines medical candidacy"
+      "UNCOVERED COSTS POSSIBLE: While participating surgeons waive their professional surgical fees, hospital operating room charges, anesthesia fees, and prescription medications are not guaranteed to be free and may require separate hospital charity care applications",
+      "SEPARATION REQUIREMENT: Must be out of the abusive relationship for at least 12 months",
+      "Requires referral letter from a domestic violence advocate, counselor, or social worker"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -2042,15 +2075,23 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "AAFPRS Educational and Research Foundation Standards",
     "lastReviewedDate": "2026-08-22",
     "dateLastVerified": "2026-08-22",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Pro bono surgical specialty network outside standard social service directories.",
     "workaround": "Provides 100% pro bono surgical repair of facial injuries, fractures, and lacerations caused by domestic violence.",
-    "accessNotes": "Call 1-800-842-4546 or apply through AAFPRS Foundation with documentation from a licensed therapist or domestic violence shelter advocate confirming separation from the abusive partner for at least 12 months."
+    "accessNotes": "Call 1-800-842-4546 or apply through AAFPRS Foundation with documentation from a licensed therapist or domestic violence shelter advocate confirming separation from the abusive partner for at least 12 months.",
+    "claimProvenances": [
+      {
+        "claim": "AAFPRS Foundation FACE TO FACE pro bono and low-cost reconstructive surgery for domestic violence survivors",
+        "primarySourceUrl": "https://www.aafprs.org/AAFPRS/Community/Face_to_Face/Domestic_Violence.aspx",
+        "sourceExcerptOrSummary": "Volunteer surgeons waive surgical fees for facial injuries. Hospital and anesthesia fees vary by facility.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "removery-ink-tattoo-removal",
-    "name": "Removery INK Initiative (Forced-Branding & Human Trafficking Tattoo Removal)",
+    "name": "Removery INK-itiative (Forced-Branding & Hate Symbol Tattoo Removal)",
     "organization": "Removery Laser Tattoo Removal",
     "state": "US",
     "geography": "Nationwide (Studios across Texas & US)",
@@ -2069,7 +2110,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "PHYSICAL_RESTORATION",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Provides 100% pro bono laser tattoo removal for survivors of domestic human trafficking, commercial sexual exploitation, or intimate partner coercive branding tattoos (names, barcodes, symbols, gang markings).",
+    "whatItCanHelpWith": "Provides 100% free laser tattoo removal for survivors of domestic human trafficking, commercial sexual exploitation, or intimate partner coercive branding tattoos, as well as hate symbols and gang markings.",
     "whatItActuallyProvides": "Complete series of clinical PicoWay laser removal sessions at no cost until the tattoo is completely eliminated or safely lightened.",
     "assistanceShapes": [
       "MEDICAL",
@@ -2090,8 +2131,10 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "employmentDependency": "None",
     "applicationWindow": "Immediate rolling intake",
     "whatCanBlockAccess": [
-      "Requires physical travel to a Removery studio location (available across major Texas cities and nationwide)",
-      "Multiple laser sessions spaced 6–8 weeks apart required for complete removal"
+      "QUALIFYING CRITERIA: Restricted to hate symbols, gang tattoos, or forced human trafficking / coercive domestic violence branding",
+      "ADVOCATE VERIFICATION: Domestic violence branding / human trafficking claims require a referral or verification letter from an anti-trafficking agency, law enforcement, or domestic violence shelter advocate",
+      "PRIORITY LOCATIONS: Priority is given to visible areas (face, neck, hands) that impact safety and employment",
+      "Requires travel to a Removery clinical studio location"
     ],
     "accessFrictions": [
       "ONLINE_APPLICATION",
@@ -2104,78 +2147,18 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Removery INK Community Initiative Standards",
     "lastReviewedDate": "2026-08-24",
     "dateLastVerified": "2026-08-24",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Private clinical initiative that most non-profit and shelter intake coordinators do not know exists.",
     "workaround": "100% free, confidential PicoWay laser tattoo removal for survivors of domestic human trafficking, commercial sexual exploitation, or intimate partner coercive branding. Available across dozens of Texas and nationwide studio locations (Austin, Dallas, Houston, San Antonio).",
-    "accessNotes": "Apply online at removery.com/about/ink-initiative with a clear photo of the tattoo and brief intake details."
-  },
-  {
-    "id": "rural-ministerial-alliance-tx",
-    "name": "Rural Central Texas Ministerial Alliance Discretionary Micro-Aid",
-    "organization": "Central Texas Ecumenical Pastoral Alliances (Bastrop, Caldwell, Hays, Rural Travis)",
-    "state": "TX",
-    "geography": "Central Texas Rural Counties (Bastrop, Caldwell, Hays, East Travis)",
-    "scope": "TEXAS_COUNTY",
-    "category": "HYPERLOCAL_MICRO_AID",
-    "barrierCategories": [
-      "rural-microaid",
-      "money-now",
-      "transportation-gas"
-    ],
-    "matchTags": [
-      "TEXAS",
-      "RURAL",
-      "BASTROP",
-      "CALDWELL",
-      "HAYS",
-      "GAS_CARD",
-      "HOTEL_VOUCHER",
-      "BUS_TICKET",
-      "NO_POLICE_REPORT",
-      "NO_ID"
-    ],
-    "whatItCanHelpWith": "Provides immediate discretionary micro-aid ($50–$300) for emergency fuel gas cards, 1–2 night roadside motel vouchers, prescription medication, and bus tickets in rural Central Texas communities without formal shelter facilities.",
-    "whatItActuallyProvides": "Immediate prepaid gas cards, supermarket vouchers, roadside motel billing, or cash disbursements from pooled pastor checking accounts.",
-    "assistanceShapes": [
-      "GAS_CARD",
-      "HOTEL_VOUCHER",
-      "BUS_TICKET",
-      "DIRECT_CASH"
-    ],
-    "paymentMethod": "SURVIVOR_DIRECT",
-    "typicalAmount": "$50 to $300 in immediate discretionary micro-aid",
-    "knownFundingLimits": "Discretionary pooled fund managed by rotating town clergy; limited to local community emergency escape/transportation needs",
-    "eligibility": "Anyone physically present in participating rural Central Texas towns (Elgin, Bastrop, Lockhart, Luling, San Marcos outskirts) experiencing an acute escape bottleneck.",
-    "documentationRequired": [
-      "Informal conversation with presiding pastor or town social worker",
-      "Zero formal ID or police report required in emergency situations"
-    ],
-    "referralRequirement": "Local sheriff dispatcher, municipal library desk, or food pantry liaison",
-    "shelterConnectionRequired": false,
-    "policeReportRequired": false,
-    "incomeRestriction": "Demonstrated immediate crisis shortfall",
-    "employmentDependency": "None",
-    "applicationWindow": "Same-day emergency assistance",
-    "whatCanBlockAccess": [
-      "Informal structure requires knowing which local pastor holds the checkbook for the current month",
-      "Funding amounts are small ($50–$300) and intended as immediate bridge aid"
-    ],
-    "accessFrictions": [
-      "NO_POLICE_REPORT_REQUIRED",
-      "NO_SHELTER_STAY_REQUIRED",
-      "SAME_DAY_POSSIBLE"
-    ],
-    "whatToDoNext": "Ask the local county sheriff dispatcher, town library clerk, or local food pantry director for the contact number of the current presiding Ministerial Alliance secretary.",
-    "howToApply": "Contact local town ministerial liaison or community pantry coordinator.",
-    "sourceUrl": "https://mapswithteeth.org/texas",
-    "primaryAuthoritativeSource": "Central Texas Ecumenical Pastoral Alliances Field Audit",
-    "lastReviewedDate": "2026-08-25",
-    "dateLastVerified": "2026-08-25",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
-    "isStatutoryRight": false,
-    "whyMissed": "Completely unindexed in 211 and digital search engines; operates as pooled discretionary checking accounts managed by rotating local town pastors.",
-    "workaround": "In rural towns where no shelters exist (Elgin, Bastrop, Lockhart, Luling, San Marcos outskirts), the Ministerial Alliance pool can issue same-day $50–$300 emergency gas cards, 1–2 nights at a local roadside motel, or Greyhound vouchers. ID and documentation rules are completely flexible.",
-    "accessNotes": "Ask local county sheriff dispatchers, municipal library desks, or the local community food pantry director for the phone number of the current rotating Ministerial Alliance treasurer."
+    "accessNotes": "Apply online at removery.com/about/ink-initiative with a clear photo of the tattoo and brief intake details.",
+    "claimProvenances": [
+      {
+        "claim": "Removery INK-itiative provides free laser tattoo removal for forced branding and hate symbols",
+        "primarySourceUrl": "https://removery.com/about/ink-initiative/",
+        "sourceExcerptOrSummary": "Free tattoo removal for hate symbols, gang-related tattoos, and human trafficking/forced branding with advocate referral.",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   }
 ];

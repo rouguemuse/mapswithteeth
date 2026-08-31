@@ -48,21 +48,21 @@ export const TEXAS_STATUTES: StatuteArticle[] = [
     nuancesAndExceptions: [
       "Codified under Chapter 58, Subchapter B (Article 58.052), NOT the former Chapter 56B.",
       "Private commercial entities (credit card companies, private landlords, banks) are generally not mandated by state statute to accept ACP substitute addresses, though many do voluntarily.",
-      "Must apply through an in-person or certified designated ACP enrollment assistant (at a local family violence shelter or prosecutor's office).",
+      "Application Routes: Self-application directly to the Texas OAG (online/mail) is permitted under state rules. Applying with a certified ACP Enrollment Assistant at a local family violence shelter is recommended for safety planning.",
     ],
     requiredDocumentation: [
-      "Completed ACP Application form (certified by an official ACP Enrollment Assistant).",
-      "Evidence of qualifying offense (police report, protective order, or statement from a designated advocate).",
+      "Completed ACP Application form (can be self-submitted or advocate-certified).",
+      "Evidence of qualifying offense (police report, protective order, court record, or statement from a designated advocate).",
     ],
     procedureSteps: [
-      "1. Meet with a certified ACP Enrollment Assistant at a local domestic violence center or victim services agency.",
-      "2. Complete the confidential enrollment form and designate the OAG as legal agent for service of process.",
+      "1. Option A (Recommended): Meet with a certified ACP Enrollment Assistant at a local domestic violence center. Option B: Self-apply directly via the Texas OAG Crime Victims Portal or by mail.",
+      "2. Complete the confidential enrollment application and designate the OAG as legal agent for service of process.",
       "3. Receive official ACP participant card and substitute P.O. Box address from the OAG.",
       "4. Present the ACP card when renewing driver's license, registering for voter confidentiality, and enrolling children in school.",
     ],
     authoritativeSourceUrl: "https://www.texasattorneygeneral.gov/crime-victims/address-confidentiality-program",
     administeringAgency: "Office of the Texas Attorney General (OAG) - Crime Victims Division",
-    lastLegalAuditDate: "2026-08-01",
+    lastLegalAuditDate: "2026-08-31",
   },
   {
     id: "tx-cvc",

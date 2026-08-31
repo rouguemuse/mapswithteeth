@@ -72,12 +72,38 @@ export type AvailabilityBadge =
   | "LOCAL PROGRAM — CHECK AVAILABILITY";
 
 export type VerificationStatus =
+  | "ACTIVE_VERIFIED"
+  | "ACTIVE_PARTIALLY_VERIFIED"
+  | "PAUSED"
+  | "CONDITIONAL"
+  | "FIELD_REPORTED_UNCONFIRMED"
+  | "RESEARCHING"
+  | "STALE"
+  // Backwards compatibility aliases
   | "AGENCY_CONFIRMED"
   | "OFFICIAL_SOURCE_CHECKED"
   | "PUBLIC_SOURCE_CHECKED"
   | "TEMPORARILY_CLOSED"
   | "NEEDS_REVERIFICATION"
   | "CLOSED";
+
+export interface ClaimProvenance {
+  claim: string;
+  primarySourceUrl: string;
+  sourceExcerptOrSummary: string;
+  verificationDate: string;
+}
+
+export interface VerificationProvenance {
+  verificationDate: string;
+  verificationMethod: "DIRECT_AGENCY_INTERVIEW" | "OFFICIAL_GOVERNMENT_PORTAL" | "PRIMARY_STATUTE" | "OFFICIAL_501C3_STANDARDS" | "PUBLIC_RECORD_AUDIT";
+  sourceType: "AGENCY_STAFF" | "PRIMARY_STATUTE" | "GOVERNMENT_PORTAL" | "501C3_STANDARDS" | "PUBLIC_AUDIT";
+  confirmingEntity: string;
+  confirmingRole?: string;
+  criteriaConfirmed: string[];
+  verificationNotes: string;
+  nextScheduledReviewDate: string;
+}
 
 export type PaymentMethod =
   | "DIRECT_TO_APPLICANT"
@@ -198,6 +224,8 @@ export interface Resource {
   lastReviewedDate: string;
   dateLastVerified: string;
   verificationStatus: VerificationStatus;
+  provenance?: VerificationProvenance;
+  claimProvenances?: ClaimProvenance[];
   isLead?: boolean;
 
   // Statutory Rights & Closures

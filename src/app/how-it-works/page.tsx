@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
             </p>
           </div>
           <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
-            <span className="text-[#92400E] font-bold">STATUS: PILOT & ROADMAP</span>
+            <span className="text-stone-800 font-bold">STATUS: PROTOTYPE & ROADMAP</span>
             <Link href="/bridge" className="text-[#971F26] font-bold hover:underline flex items-center gap-1">
               <span>Explore Bridge</span>
               <ArrowRight className="w-3 h-3" />
@@ -272,7 +272,7 @@ export default function HowItWorksPage() {
                   <Scale className="w-4 h-4" />
                   <span>3. CONTEXT BEFORE CLOSURE</span>
                 </div>
-                <StatusBadge type="product" status="PILOT" label="FIELD PILOT" />
+                <StatusBadge type="product" status="PROTOTYPE" label="PROTOTYPE" />
               </div>
               <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
                 Verify What Was Actually Resolved

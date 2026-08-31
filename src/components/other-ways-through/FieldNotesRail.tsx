@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export function FieldNotesRail() {
 
   const getCredibilityBadge = (state: CredibilityState, label: string) => {
     switch (state) {
-      case "DIRECTLY_CONFIRMED":
+      case "PRIMARY_SOURCE_CONFIRMED":
         return (
           <span className="px-1.5 py-0.5 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] font-mono text-[8.5px] font-bold rounded-xs">
             ✓ {label}

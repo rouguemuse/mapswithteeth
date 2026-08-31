@@ -143,7 +143,21 @@ export function ResourceDetailModal({
             <p className="text-xs text-stone-800 font-sans">{whatNext}</p>
           </div>
 
-          {/* 5. Legal Disclaimer Notice */}
+          {/* 5. Verification Provenance & Audit Trail */}
+          {resource.provenance && (
+            <div className="p-3 bg-[#E8F3EB] border border-[#2D5A3D] rounded text-[11px] text-stone-800 space-y-1 font-mono">
+              <div className="flex items-center gap-1.5 text-[#2D5A3D] font-bold">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>VERIFICATION PROVENANCE & AUDIT TRAIL:</span>
+              </div>
+              <p>• Verified Date: {resource.provenance.verificationDate} via {resource.provenance.verificationMethod.replace(/_/g, " ")}</p>
+              <p>• Confirming Entity: {resource.provenance.confirmingEntity} {resource.provenance.confirmingRole ? `(${resource.provenance.confirmingRole})` : ""}</p>
+              <p>• Audit Notes: {resource.provenance.verificationNotes}</p>
+              <p>• Next Scheduled Review: {resource.provenance.nextScheduledReviewDate}</p>
+            </div>
+          )}
+
+          {/* 6. Legal Disclaimer Notice */}
           <div className="p-3 bg-[#F5F1E8] border border-[#D9D1C4] rounded text-[11px] text-stone-600 space-y-1 font-mono">
             <strong>Informational Summary Only:</strong> Maps With Teeth provides navigational intelligence and does not provide formal legal advice, direct crisis hotline staffing, or guaranteed grant approvals.
           </div>

@@ -3,6 +3,8 @@ export type MasterLedgerStatus =
   | "VERIFIED_NEEDS_ENTRY"
   | "RESEARCHING"
   | "CONDITIONAL"
+  | "PAUSED"
+  | "FIELD_REPORTED_UNCONFIRMED"
   | "STALE"
   | "TEMPORARILY_CLOSED"
   | "DUPLICATE"
@@ -121,16 +123,16 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
   },
   {
     id: "lead-salvation-army-service-extension",
-    leadName: "Salvation Army Service Extension (Rural Travel & Gas Vouchers)",
-    category: "TRANSPORTATION_MOBILITY",
-    categoryLabel: "Transportation & Mobility",
-    status: "PUBLISHED",
+    leadName: "Salvation Army Texas Service Extension (Rural Non-Corps Counties)",
+    category: "HYPERLOCAL_MICRO_AID",
+    categoryLabel: "Hyperlocal Micro-Aid",
+    status: "CONDITIONAL",
     isVerified: true,
     isLiveOnSite: true,
-    whyNotOrNotes: "Operates volunteer Service Units in rural Texas counties without permanent Salvation Army corps buildings; provides emergency fuel and bus vouchers.",
-    nextAction: "Published live in Resource Graph. Maintain quarterly staleness review.",
-    targetAudienceOrGeography: "Texas Rural & Suburban Counties",
-    authoritativeSource: "Salvation Army Texas Divisional Headquarters",
+    whyNotOrNotes: "PARTIALLY VERIFIED / LOCAL VARIABILITY: Service Units operate across rural Texas counties without corps buildings. Services (travel vouchers, micro-aid) and budgets are decided independently by each volunteer committee.",
+    targetAudienceOrGeography: "Texas Statewide (Rural & Suburban Counties)",
+    authoritativeSource: "Salvation Army Texas Divisional Service Extension (salvationarmytexas.org/service-extension/)",
+    nextAction: "Maintain county-level contact lookup guidance; flag local budget variability on card.",
   },
   {
     id: "lead-mckinney-vento-transportation",
@@ -206,13 +208,13 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
     leadName: "USBG Bartender Emergency Assistance Program (BEAP)",
     category: "EMPLOYMENT_INDUSTRY_RELIEF",
     categoryLabel: "Employment & Industry Relief",
-    status: "PUBLISHED",
+    status: "PAUSED",
     isVerified: true,
     isLiveOnSite: true,
-    whyNotOrNotes: "Verified. Bartenders, barbacks, and bar servers eligible for unforeseen catastrophic crisis grants. Does not require USBG membership.",
-    nextAction: "Published live in Resource Graph. Maintain quarterly staleness review.",
-    targetAudienceOrGeography: "Nationwide (Bartenders / Barbacks)",
-    authoritativeSource: "USBG National Charity Foundation BEAP Guidelines",
+    whyNotOrNotes: "APPLICATIONS TEMPORARILY PAUSED: USBG National Charity Foundation BEAP application portal is currently closed pending new funding allocations. Retained on site with PAUSED status badge.",
+    targetAudienceOrGeography: "Nationwide (Beverage / Bar Hospitality Workers)",
+    authoritativeSource: "USBG National Charity Foundation (usbgfoundation.org/beap)",
+    nextAction: "Monitor quarterly for application portal reopening.",
   },
   {
     id: "lead-musicares",
@@ -320,16 +322,16 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
   },
   {
     id: "lead-union-benevolent-funds",
-    leadName: "Trade Union Benevolent & Disaster Funds (IBEW, LiUNA, UBC, SMART)",
+    leadName: "Trade Union Emergency Hardship & Benevolent Funds (AFL-CIO / Building Trades)",
     category: "EMPLOYMENT_INDUSTRY_RELIEF",
     categoryLabel: "Employment & Industry Relief",
-    status: "PUBLISHED",
+    status: "CONDITIONAL",
     isVerified: true,
-    isLiveOnSite: true,
-    whyNotOrNotes: "Many local union halls have confidential 'Business Manager Discretionary Funds' or fraternal hardship stipends for members in good standing.",
-    nextAction: "Published live in Resource Graph. Maintain quarterly staleness review.",
-    targetAudienceOrGeography: "Nationwide (Union Members in Good Standing)",
-    authoritativeSource: "AFL-CIO Community Services Department",
+    isLiveOnSite: false,
+    whyNotOrNotes: "ACCESS INTELLIGENCE ONLY: Union benevolent funds are governed strictly by individual Local Union bylaws (IBEW, LiUNA, UBC, SMART). Converted from a monolithic public resource into intake discovery guidance.",
+    targetAudienceOrGeography: "Nationwide / Texas Union Locals",
+    authoritativeSource: "AFL-CIO Community Services Standards / Union Local Bylaws",
+    nextAction: "Provide as contextual guidance within the intake engine rather than a standalone general resource card.",
   },
   {
     id: "lead-flight-attendant-wings",
@@ -533,10 +535,10 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
     status: "PUBLISHED",
     isVerified: true,
     isLiveOnSite: true,
-    whyNotOrNotes: "Verified official procedure (POMS RM 10225.060). SSA allows assignment of a new SSN if evidence shows ongoing stalking, physical harm, or abuse linked to the old number.",
+    whyNotOrNotes: "Verified official procedure (20 CFR § 422.103(e)(2) & POMS RM 10225.065). SSA allows assignment of a different SSN if third-party evidence shows ongoing domestic violence, stalking, physical harm, or abuse linked to the old number.",
     nextAction: "Published live in Resource Graph. Maintain quarterly staleness review.",
     targetAudienceOrGeography: "Nationwide (Documented Severe Stalking/Abuse)",
-    authoritativeSource: "Social Security Administration POMS RM 10225.060",
+    authoritativeSource: "20 CFR § 422.103(e)(2) / SSA POMS RM 10225.065 & RM 10225.066",
   },
   {
     id: "lead-freefrom-coerced-debt",
@@ -859,16 +861,16 @@ export const MASTER_RECONCILIATION_LEDGER: MasterLedgerItem[] = [
   },
   {
     id: "lead-ministerial-alliance-funds",
-    leadName: "Rural Ministerial Alliance Discretionary Funds",
+    leadName: "Rural Central Texas Ministerial Alliance Discretionary Micro-Aid",
     category: "HYPERLOCAL_MICRO_AID",
     categoryLabel: "Hyperlocal Micro-Aid",
-    status: "PUBLISHED",
-    isVerified: true,
-    isLiveOnSite: true,
-    whyNotOrNotes: "Discretionary cash/voucher funds pooled by local ecumenical pastor networks in rural Central Texas (e.g. Elgin, Lockhart, Bastrop) for gas, short hotel stays, and bus tickets.",
-    nextAction: "Published live in Resource Graph. Maintain quarterly staleness review.",
-    targetAudienceOrGeography: "Central Texas Rural Towns",
-    authoritativeSource: "Local Pastoral Network Field Interviews",
+    status: "FIELD_REPORTED_UNCONFIRMED",
+    isVerified: false,
+    isLiveOnSite: false,
+    whyNotOrNotes: "FIELD REPORTED / UNCONFIRMED: Discovered through local caseworker interviews, but informal pastor pool lacks unified corporate entity or published contact. Withdrawn from public directory until each specific town alliance (Bastrop, Lockhart, Elgin) is individually verified.",
+    targetAudienceOrGeography: "Central Texas Rural Counties (Bastrop, Caldwell, Hays, East Travis)",
+    authoritativeSource: "Field Caseworker & Pastoral Interviews",
+    nextAction: "Directly contact and verify specific municipal ministerial alliances with dedicated point-of-contact phone numbers before re-publishing.",
   },
 
   // ==========================================

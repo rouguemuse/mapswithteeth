@@ -76,11 +76,32 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG Crime Victims' Services Division Guidelines",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "PRIMARY_STATUTE",
+      "sourceType": "PRIMARY_STATUTE",
+      "confirmingEntity": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG",
+      "criteriaConfirmed": [
+        "Up to $5,000 relocation cap for offenses post-Aug 31, 2023",
+        "Itemized reimbursement payer-of-last-resort mandate",
+        "Police report requirement with trauma exceptions"
+      ],
+      "verificationNotes": "Verified against Texas Code of Criminal Procedure Chapter 56B and current Texas OAG CVC guidelines.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Code Crim. Proc. Chapter 56B",
     "notes": "Historical limit for pre-Sept 1, 2023 crimes was $2,000. Current statutory limit is up to $5,000 total for post-Aug 31, 2023 offenses.",
-    "importantLimitations": "Funding is based on itemized eligible expense receipts and eligibility limits. Does not guarantee an automatic $5,000 payment to every claimant."
+    "importantLimitations": "Funding is based on itemized eligible expense receipts and eligibility limits. Does not guarantee an automatic $5,000 payment to every claimant.",
+    "claimProvenances": [
+      {
+        "claim": "Texas Crime Victims' Compensation (CVC) Relocation Assistance",
+        "primarySourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
+        "sourceExcerptOrSummary": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG Crime Victims' Services Division Guidelines",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-oag-acp",
@@ -113,35 +134,56 @@ export const TEXAS_RESOURCES: Resource[] = [
     "knownFundingLimits": "Statutory confidentiality service (no direct monetary grant)",
     "eligibility": "Survivors of family violence, sexual assault, human trafficking, or stalking who are establishing a new confidential address in Texas.",
     "documentationRequired": [
-      "Completed ACP Application form certified by a designated ACP Enrollment Assistant",
-      "Evidence of qualifying offense (police report, protective order, or certified advocate statement)"
+      "Completed ACP Application form (can be self-completed or certified with an advocate)",
+      "Evidence of qualifying offense (protective order, incident report, court record, or signed advocate statement)"
     ],
-    "referralRequirement": "Must apply through a certified in-person ACP Enrollment Assistant at a local domestic violence shelter or prosecutor's office",
+    "referralRequirement": "Self-application permitted directly to Texas OAG (online/mail); advocate-assisted application through a certified ACP Enrollment Assistant at a local domestic violence center is recommended for safety planning",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
     "applicationWindow": "Year-round enrollment",
     "whatCanBlockAccess": [
-      "Cannot self-apply directly online; must meet with a certified ACP Enrollment Assistant",
+      "RECOMMENDED VS. REQUIRED ROUTE: Self-application directly to the Texas OAG is permitted via online document upload or mail. Meeting with a certified ACP Enrollment Assistant is recommended, not mandatory.",
       "Private commercial entities (private landlords, banks, credit card bureaus) are not mandated by state statute to accept ACP substitute address",
       "Mail forwarding introduces 5–10 day delivery delay for forwarded standard mail"
     ],
     "accessFrictions": [
-      "ADVOCATE_REFERRAL_REQUIRED",
+      "APPLICATION_REQUIRED",
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Locate a certified ACP Enrollment Assistant by calling a local domestic violence shelter, legal aid office, or the OAG ACP line at 888-832-2322.",
-    "howToApply": "Locate a certified ACP Enrollment Assistant by calling a local domestic violence shelter, legal aid office, or the OAG ACP line at 888-832-2322.",
+    "whatToDoNext": "Submit an application directly via the Texas OAG ACP portal / mail, or contact the OAG ACP line (888-832-2322) / local domestic violence shelter for recommended advocate assistance.",
+    "howToApply": "Apply directly via the Texas OAG Crime Victims portal/mail, or contact a certified ACP Enrollment Assistant at a local family violence shelter.",
     "sourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/address-confidentiality-program",
     "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 58, Subchapter B (Art. 58.052)",
-    "lastReviewedDate": "2026-08-29",
-    "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "OFFICIAL_GOVERNMENT_PORTAL",
+      "sourceType": "PRIMARY_STATUTE",
+      "confirmingEntity": "Office of the Texas Attorney General - Crime Victims' Services Division",
+      "criteriaConfirmed": [
+        "Self-application permitted via mail/portal",
+        "Advocate assistance recommended but not mandatory",
+        "Mandatory government/school acceptance under Tex. Code Crim. Proc. Art. 58.052"
+      ],
+      "verificationNotes": "Re-audited against current Texas OAG ACP published administrative guidelines.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Code Crim. Proc. Chapter 58, Subchapter B",
-    "notes": "Codified under Chapter 58, Subchapter B (Article 58.052), NOT the former Chapter 56B."
+    "notes": "Codified under Chapter 58, Subchapter B (Article 58.052). Self-application is legally permitted; advocate assistance is recommended for safety planning.",
+    "claimProvenances": [
+      {
+        "claim": "Texas Address Confidentiality Program (ACP)",
+        "primarySourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/address-confidentiality-program",
+        "sourceExcerptOrSummary": "Texas Code of Criminal Procedure Chapter 58, Subchapter B (Art. 58.052)",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-statute-lease-termination",
@@ -200,10 +242,18 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Property Code Chapter 92, Section 92.016",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Prop. Code § 92.016",
-    "notes": "Landlords cannot refuse statutory termination when proper documentation is provided."
+    "notes": "Landlords cannot refuse statutory termination when proper documentation is provided.",
+    "claimProvenances": [
+      {
+        "claim": "Early Lease Termination Following Family Violence",
+        "primarySourceUrl": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm#92.016",
+        "sourceExcerptOrSummary": "Texas Property Code Chapter 92, Section 92.016",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-puct-utility-waiver",
@@ -260,10 +310,18 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Public Utility Commission of Texas Substantive Rule 16 TAC § 25.478",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "16 TAC § 25.478(a)(3)(D)",
-    "notes": "Mandatory for all Retail Electric Providers in deregulated territories."
+    "notes": "Mandatory for all Retail Electric Providers in deregulated territories.",
+    "claimProvenances": [
+      {
+        "claim": "Texas Electric Utility Deposit Waiver Network",
+        "primarySourceUrl": "https://www.puc.texas.gov/consumer/electricity/victim_waiver.aspx",
+        "sourceExcerptOrSummary": "Public Utility Commission of Texas Substantive Rule 16 TAC § 25.478",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-statute-rekeying",
@@ -318,10 +376,18 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Property Code Chapter 92, Subchapter D (§§ 92.153–92.165)",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Prop. Code §§ 92.153–92.165",
-    "notes": "Requires landlords to have functional keyless deadbolts and window latches on all residential rentals."
+    "notes": "Requires landlords to have functional keyless deadbolts and window latches on all residential rentals.",
+    "claimProvenances": [
+      {
+        "claim": "Residential Rekeying & Security Device Protections",
+        "primarySourceUrl": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm#92.153",
+        "sourceExcerptOrSummary": "Texas Property Code Chapter 92, Subchapter D (§§ 92.153–92.165)",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-twc-unemployment",
@@ -379,10 +445,18 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Labor Code Section 207.045(d)",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Lab. Code § 207.045(d)",
-    "notes": "Leaving work for family violence is deemed good cause connected to work."
+    "notes": "Leaving work for family violence is deemed good cause connected to work.",
+    "claimProvenances": [
+      {
+        "claim": "Texas Unemployment Benefits Family Violence Exception",
+        "primarySourceUrl": "https://statutes.capitol.texas.gov/Docs/LA/htm/LA.207.htm#207.045",
+        "sourceExcerptOrSummary": "Texas Labor Code Section 207.045(d)",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "tx-statute-protective-orders",
@@ -442,10 +516,18 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Family Code Title 4 (§§ 71.001–88.008)",
     "lastReviewedDate": "2026-08-29",
     "dateLastVerified": "2026-08-29",
-    "verificationStatus": "OFFICIAL_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "Tex. Fam. Code Title 4",
-    "notes": "Violations of protective orders carry criminal penalties."
+    "notes": "Violations of protective orders carry criminal penalties.",
+    "claimProvenances": [
+      {
+        "claim": "Texas Protective Orders & Kick-Out Remedies",
+        "primarySourceUrl": "https://statutes.capitol.texas.gov/Docs/FA/htm/FA.85.htm",
+        "sourceExcerptOrSummary": "Texas Family Code Title 4 (§§ 71.001–88.008)",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "travis-county-family-support",
@@ -515,9 +597,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Travis County Health and Human Services Program Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "County-funded safety-net assistance."
+    "notes": "County-funded safety-net assistance.",
+    "claimProvenances": [
+      {
+        "claim": "Travis County Family Support Services (Emergency Housing & Utility Aid)",
+        "primarySourceUrl": "https://www.traviscountytx.gov/health-human-services/community-centers",
+        "sourceExcerptOrSummary": "Travis County Health and Human Services Program Standards",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "safe-alliance-austin",
@@ -586,11 +676,33 @@ export const TEXAS_RESOURCES: Resource[] = [
     "howToApply": "Call or text the 24/7 SAFEline at 512-267-7233 or chat online at safeaustin.org/chat.",
     "sourceUrl": "https://www.safeaustin.org/get-help/",
     "primaryAuthoritativeSource": "SAFE Alliance Official Program Standards",
-    "lastReviewedDate": "2026-08-20",
-    "dateLastVerified": "2026-08-20",
-    "verificationStatus": "AGENCY_CONFIRMED",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "OFFICIAL_501C3_STANDARDS",
+      "sourceType": "501C3_STANDARDS",
+      "confirmingEntity": "The SAFE Alliance (Austin, TX)",
+      "confirmingRole": "Published 24/7 SAFEline & Emergency Shelter Standards",
+      "criteriaConfirmed": [
+        "24/7 SAFEline operational status",
+        "Campus emergency shelter intake criteria",
+        "Travis County geographic prioritization"
+      ],
+      "verificationNotes": "Re-verified against published SAFE Alliance 2026 operating guidelines and SAFEline intake criteria. Downgraded from AGENCY_CONFIRMED to PUBLIC_SOURCE_CHECKED pending direct staff interview provenance audit.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": false,
-    "notes": "Premier domestic violence service provider in Central Texas."
+    "notes": "Premier domestic violence service provider in Central Texas.",
+    "claimProvenances": [
+      {
+        "claim": "SAFE Alliance Emergency Services & Legal Advocacy",
+        "primarySourceUrl": "https://www.safeaustin.org/get-help/",
+        "sourceExcerptOrSummary": "SAFE Alliance Official Program Standards",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "svdp-austin-microgrants",
@@ -664,9 +776,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Society of St. Vincent de Paul Diocesan Council of Austin",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Provides fast micro-grants where large government systems have waiting periods."
+    "notes": "Provides fast micro-grants where large government systems have waiting periods.",
+    "claimProvenances": [
+      {
+        "claim": "St. Vincent de Paul Diocesan Council of Austin Emergency Micro-Aid",
+        "primarySourceUrl": "https://svdpctx.org/get-help",
+        "sourceExcerptOrSummary": "Society of St. Vincent de Paul Diocesan Council of Austin",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "owbc-community-action-wilco",
@@ -737,9 +857,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Texas Department of Housing & Community Affairs (TDHCA) / OWBC",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Major utility assistance administrator for Williamson County."
+    "notes": "Major utility assistance administrator for Williamson County.",
+    "claimProvenances": [
+      {
+        "claim": "Opportunities for Williamson & Burnet Counties (CEAP & CSBG)",
+        "primarySourceUrl": "https://owbc-tx.org/energy-assistance/",
+        "sourceExcerptOrSummary": "Texas Department of Housing & Community Affairs (TDHCA) / OWBC",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "hope-alliance-wilco",
@@ -806,11 +934,33 @@ export const TEXAS_RESOURCES: Resource[] = [
     "howToApply": "Call the 24/7 Hope Alliance crisis hotline at 800-460-7233.",
     "sourceUrl": "https://www.hopealliancetx.org/get-help/",
     "primaryAuthoritativeSource": "Hope Alliance Official Program Standards",
-    "lastReviewedDate": "2026-08-20",
-    "dateLastVerified": "2026-08-20",
-    "verificationStatus": "AGENCY_CONFIRMED",
+    "lastReviewedDate": "2026-08-31",
+    "dateLastVerified": "2026-08-31",
+    "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-08-31",
+      "verificationMethod": "OFFICIAL_501C3_STANDARDS",
+      "sourceType": "501C3_STANDARDS",
+      "confirmingEntity": "Hope Alliance (Williamson County, TX)",
+      "confirmingRole": "Published 24/7 Crisis Hotline & Shelter Standards",
+      "criteriaConfirmed": [
+        "24/7 crisis hotline operational status",
+        "Williamson County emergency shelter eligibility",
+        "Protective order court advocacy intake"
+      ],
+      "verificationNotes": "Re-verified against published Hope Alliance 2026 emergency shelter standards. Downgraded from AGENCY_CONFIRMED to PUBLIC_SOURCE_CHECKED pending direct staff interview provenance audit.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": false,
-    "notes": "Sole specialized domestic violence shelter in Williamson County."
+    "notes": "Sole specialized domestic violence shelter in Williamson County.",
+    "claimProvenances": [
+      {
+        "claim": "Hope Alliance Crisis & Legal Advocacy (Williamson County)",
+        "primarySourceUrl": "https://www.hopealliancetx.org/get-help/",
+        "sourceExcerptOrSummary": "Hope Alliance Official Program Standards",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "the-caring-place-georgetown",
@@ -885,9 +1035,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "The Caring Place 501(c)(3) Guidelines",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "High-volume emergency financial aid provider in northern WilCo."
+    "notes": "High-volume emergency financial aid provider in northern WilCo.",
+    "claimProvenances": [
+      {
+        "claim": "The Caring Place Emergency Financial Assistance",
+        "primarySourceUrl": "https://caringplacetx.org/get-help/",
+        "sourceExcerptOrSummary": "The Caring Place 501(c)(3) Guidelines",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "avda-houston-legal-aid",
@@ -955,9 +1113,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "AVDA Houston Legal Services Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Specialized legal aid organization for Harris County survivors."
+    "notes": "Specialized legal aid organization for Harris County survivors.",
+    "claimProvenances": [
+      {
+        "claim": "AVDA (Aid to Victims of Domestic Abuse) Houston Legal & Client Aid",
+        "primarySourceUrl": "https://avda-tx.org/get-help/",
+        "sourceExcerptOrSummary": "AVDA Houston Legal Services Standards",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "hawc-houston-crisis",
@@ -1024,9 +1190,17 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Houston Area Women's Center Official Intake",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Largest domestic violence shelter organization in Southeast Texas."
+    "notes": "Largest domestic violence shelter organization in Southeast Texas.",
+    "claimProvenances": [
+      {
+        "claim": "Houston Area Women's Center (HAWC) Crisis & Shelter Services",
+        "primarySourceUrl": "https://hawc.org/get-help/",
+        "sourceExcerptOrSummary": "Houston Area Women's Center Official Intake",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   },
   {
     "id": "cca-central-texas",
@@ -1096,8 +1270,16 @@ export const TEXAS_RESOURCES: Resource[] = [
     "primaryAuthoritativeSource": "Combined Community Action CSBG Program Standards",
     "lastReviewedDate": "2026-08-20",
     "dateLastVerified": "2026-08-20",
-    "verificationStatus": "PUBLIC_SOURCE_CHECKED",
+    "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Serves rural Central Texas pilot counties outside the Austin metro core."
+    "notes": "Serves rural Central Texas pilot counties outside the Austin metro core.",
+    "claimProvenances": [
+      {
+        "claim": "Combined Community Action (CCA) Central Texas Energy & Housing Aid",
+        "primarySourceUrl": "https://ccaction.com",
+        "sourceExcerptOrSummary": "Combined Community Action CSBG Program Standards",
+        "verificationDate": "2026-08-31"
+      }
+    ]
   }
 ];

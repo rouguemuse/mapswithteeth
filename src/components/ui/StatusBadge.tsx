@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { CheckCircle2, ShieldCheck, Scale, FileText, AlertCircle, AlertTriangle, Clock, FlaskConical, Milestone, Sparkles } from "lucide-react";
 
 export type ProductStatus =
@@ -85,21 +85,23 @@ export function StatusBadge({
 
   // Research Verification Statuses
   switch (norm) {
+    case "ACTIVE_VERIFIED":
     case "DIRECTLY_CONFIRMED":
     case "AGENCY_CONFIRMED":
       return (
         <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#E8F3EB] border-[#2D5A3D] text-[#2D5A3D] ${sizeClasses} ${className}`}>
           <ShieldCheck className="w-3 h-3 text-[#2D5A3D]" />
-          <span>{label || "DIRECTLY CONFIRMED"}{timestamp ? ` · ${timestamp}` : ""}</span>
+          <span>{label || "ACTIVE · VERIFIED"}{timestamp ? ` · ${timestamp}` : ""}</span>
         </span>
       );
+    case "ACTIVE_PARTIALLY_VERIFIED":
     case "PRIMARY_SOURCE_VERIFIED":
     case "OFFICIAL_SOURCE_CHECKED":
     case "STATUTORY_RIGHT":
       return (
         <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#EEE8DD] border-[#1C1D1D] text-[#1C1D1D] ${sizeClasses} ${className}`}>
           <Scale className="w-3 h-3 text-[#1C1D1D]" />
-          <span>{label || "PRIMARY SOURCE VERIFIED"}{timestamp ? ` · ${timestamp}` : ""}</span>
+          <span>{label || "PARTIALLY VERIFIED"}{timestamp ? ` · ${timestamp}` : ""}</span>
         </span>
       );
     case "PUBLIC_SOURCE_CHECKED":
@@ -110,21 +112,46 @@ export function StatusBadge({
           <span>{label || "PUBLIC SOURCE CHECKED"}{timestamp ? ` · ${timestamp}` : ""}</span>
         </span>
       );
+    case "PAUSED":
     case "TEMPORARILY_CLOSED":
     case "WAITLIST":
       return (
         <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FDF2F2] border-[#971F26] text-[#971F26] ${sizeClasses} ${className}`}>
           <AlertCircle className="w-3 h-3 text-[#971F26]" />
-          <span>{label || "TEMPORARILY CLOSED"}{timestamp ? ` · REOPENS ${timestamp}` : ""}</span>
+          <span>{label || "PAUSED"}{timestamp ? ` · REOPENS ${timestamp}` : ""}</span>
         </span>
       );
+    case "CONDITIONAL":
+      return (
+        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FAF5FF] border-[#7E22CE] text-[#7E22CE] ${sizeClasses} ${className}`}>
+          <Scale className="w-3 h-3 text-[#7E22CE]" />
+          <span>{label || "CONDITIONAL ACCESS"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        </span>
+      );
+    case "RESEARCHING":
+    case "ACTIVE_RESEARCH":
+      return (
+        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FFFDF5] border-[#D97706] text-[#92400E] ${sizeClasses} ${className}`}>
+          <FlaskConical className="w-3 h-3 text-[#D97706]" />
+          <span>{label || "RESEARCHING"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        </span>
+      );
+    case "FIELD_REPORTED_UNCONFIRMED":
     case "UNCONFIRMED":
     case "CALL_TO_CONFIRM":
-    default:
       return (
         <span className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border bg-[#FFFDF5] border-amber-800 text-amber-900 ${sizeClasses} ${className}`}>
           <AlertTriangle className="w-3 h-3 text-amber-800" />
           <span>{label || "UNCONFIRMED"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        </span>
+      );
+    case "STALE":
+    case "CLOSED":
+    default:
+      return (
+        <span className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border bg-[#EEE8DD] border-stone-400 text-stone-600 ${sizeClasses} ${className}`}>
+          <Clock className="w-3 h-3 text-stone-500" />
+          <span>{label || "STALE"}{timestamp ? ` · ${timestamp}` : ""}</span>
         </span>
       );
   }

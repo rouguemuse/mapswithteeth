@@ -14,10 +14,18 @@ import {
 } from "lucide-react";
 
 export default function AdminPage() {
-  const agencyConfirmedCount = ALL_RESOURCES.filter((r) => r.verificationStatus === "AGENCY_CONFIRMED").length;
-  const officialSourceCount = ALL_RESOURCES.filter((r) => r.verificationStatus === "OFFICIAL_SOURCE_CHECKED").length;
-  const publicSourceCount = ALL_RESOURCES.filter((r) => r.verificationStatus === "PUBLIC_SOURCE_CHECKED").length;
-  const tempClosedCount = ALL_RESOURCES.filter((r) => r.verificationStatus === "TEMPORARILY_CLOSED").length;
+  const activeVerifiedCount = ALL_RESOURCES.filter(
+    (r) => r.verificationStatus === "ACTIVE_VERIFIED" || r.verificationStatus === "AGENCY_CONFIRMED" || r.verificationStatus === "OFFICIAL_SOURCE_CHECKED" || r.verificationStatus === "PUBLIC_SOURCE_CHECKED"
+  ).length;
+  const partiallyVerifiedCount = ALL_RESOURCES.filter(
+    (r) => r.verificationStatus === "ACTIVE_PARTIALLY_VERIFIED" || r.verificationStatus === "CONDITIONAL"
+  ).length;
+  const pausedCount = ALL_RESOURCES.filter(
+    (r) => r.verificationStatus === "PAUSED" || r.verificationStatus === "TEMPORARILY_CLOSED"
+  ).length;
+  const researchingCount = ALL_RESOURCES.filter(
+    (r) => r.verificationStatus === "RESEARCHING" || r.verificationStatus === "FIELD_REPORTED_UNCONFIRMED"
+  ).length;
 
   const failureReasons = [
     ["NO_FUNDS", "Out of funds / Budget exhausted", "42%"],
@@ -39,16 +47,16 @@ export default function AdminPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D9D1C4] pb-4">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold block mb-1">
-              DEMONSTRATION SET BREAKDOWN
+              RESOURCE GRAPH TELEMETRY
             </span>
             <h2 className="text-2xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-              Active Resource Graph Telemetry
+              Operational Verification States
             </h2>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
             <div className="px-3 py-1.5 bg-[#EEE8DD] border border-[#1C1D1D] text-[#1C1D1D] font-bold rounded shadow-2xs">
-              <strong>{PUBLIC_RESOURCES.length}</strong> Public Demonstration Resources
+              <strong>{PUBLIC_RESOURCES.length}</strong> Public Verified Resources
             </div>
             <div className="px-3 py-1.5 bg-[#EEE8DD] border border-[#1C1D1D] text-stone-700 rounded shadow-2xs">
               <strong>{ALL_RESOURCES.length}</strong> Total Records Audited
@@ -60,37 +68,37 @@ export default function AdminPage() {
           <div className="bg-[#EEE8DD] border-2 border-emerald-700 rounded-xl p-4 shadow-2xs space-y-1">
             <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Directly Confirmed</span>
+              <span>Active Verified</span>
             </span>
-            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{agencyConfirmedCount}</p>
-            <p className="text-[11px] text-stone-700 font-sans">Directly confirmed with provider leadership</p>
+            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{activeVerifiedCount}</p>
+            <p className="text-[11px] text-stone-700 font-sans">Every material claim primary-sourced & audited</p>
           </div>
 
           <div className="bg-[#EEE8DD] border-2 border-blue-700 rounded-xl p-4 shadow-2xs space-y-1">
             <span className="text-[10px] font-mono uppercase text-blue-900 font-bold flex items-center gap-1">
               <Scale className="w-3.5 h-3.5 text-blue-700" />
-              <span>Primary Source Verified</span>
+              <span>Partially Verified</span>
             </span>
-            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{officialSourceCount}</p>
-            <p className="text-[11px] text-stone-700 font-sans">Verified against statutes, TAC, PUCT, FCC, IRS</p>
-          </div>
-
-          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-4 shadow-2xs space-y-1">
-            <span className="text-[10px] font-mono uppercase text-stone-800 font-bold flex items-center gap-1">
-              <FileCheck className="w-3.5 h-3.5 text-stone-700" />
-              <span>Public Source Checked</span>
-            </span>
-            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{publicSourceCount}</p>
-            <p className="text-[11px] text-stone-700 font-sans">Verified against active 501(c)(3) program standards</p>
+            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{partiallyVerifiedCount}</p>
+            <p className="text-[11px] text-stone-700 font-sans">Subject to local committee or boundary discretion</p>
           </div>
 
           <div className="bg-[#EEE8DD] border-2 border-[#971F26] rounded-xl p-4 shadow-2xs space-y-1">
             <span className="text-[10px] font-mono uppercase text-[#971F26] font-bold flex items-center gap-1">
               <AlertCircle className="w-3.5 h-3.5 text-[#971F26]" />
-              <span>Temporarily Closed</span>
+              <span>Paused / Suspended</span>
             </span>
-            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{tempClosedCount}</p>
-            <p className="text-[11px] text-stone-700 font-sans">Grantmaking paused (e.g. CERF+ thru Sept 30, 2026)</p>
+            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{pausedCount}</p>
+            <p className="text-[11px] text-stone-700 font-sans">Grantmaking paused (CERF+, USBG BEAP)</p>
+          </div>
+
+          <div className="bg-[#EEE8DD] border-2 border-amber-700 rounded-xl p-4 shadow-2xs space-y-1">
+            <span className="text-[10px] font-mono uppercase text-amber-900 font-bold flex items-center gap-1">
+              <FileCheck className="w-3.5 h-3.5 text-amber-700" />
+              <span>Under Research</span>
+            </span>
+            <p className="text-2xl font-serif font-bold text-[#1C1D1D]">{researchingCount}</p>
+            <p className="text-[11px] text-stone-700 font-sans">Unconfirmed field reports & pending audits</p>
           </div>
         </div>
       </section>

@@ -383,7 +383,7 @@ export function matchIntakeToResources(data: ResourceIntakeData): MatchResult {
     const sca = PUBLIC_RESOURCES.find((r) => r.id === "safe-connections-act-separation" || r.id === "fcc-safe-connections-act");
     if (sca && !matchedResourceIds.has(sca.id)) {
       matchedResourceIds.add(sca.id);
-      const sentence = "You told us you share a mobile service plan with the person you are separating from. Under the federal Safe Connections Act (47 U.S.C. § 345), carriers must separate your line within 2 business days with zero penalty and zero notification to the primary account holder.";
+      const sentence = "You told us you share a mobile service plan with the person you are separating from. Under the federal Safe Connections Act (47 U.S.C. § 345), carriers must separate your line within 2 business days with zero penalty fees and no account holder approval required. (Review carrier notification timing for safety).";
       matches.push({
         resource: sca,
         matchedTags: ["FEDERAL", "PHONE", "STATUTORY_RIGHT"],

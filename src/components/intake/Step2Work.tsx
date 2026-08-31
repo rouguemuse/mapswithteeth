@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { INDUSTRY_OPTIONS } from "@/data/industries";
@@ -185,7 +185,7 @@ export function Step2Work({
             />
             <span className="font-medium">
               I am on a shared family mobile/cellular account
-              <WhyAskingTooltip explanation="Unlocks the federal Safe Connections Act (47 U.S.C. § 345): mandatory line separation within 2 days with zero fee and no abuser notification." />
+              <WhyAskingTooltip explanation="Unlocks the federal Safe Connections Act (47 U.S.C. § 345): mandatory line separation within 2 days with zero fee and no account holder approval required (review carrier notice timing for safety)." />
             </span>
           </label>
         </div>

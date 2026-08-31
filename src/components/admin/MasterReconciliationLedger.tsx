@@ -52,6 +52,8 @@ export function MasterReconciliationLedger() {
     { id: "VERIFIED_NEEDS_ENTRY", label: "VERIFIED — NEEDS ENTRY" },
     { id: "RESEARCHING", label: "RESEARCHING" },
     { id: "CONDITIONAL", label: "CONDITIONAL" },
+    { id: "PAUSED", label: "PAUSED" },
+    { id: "FIELD_REPORTED_UNCONFIRMED", label: "FIELD REPORTED · UNCONFIRMED" },
     { id: "TEMPORARILY_CLOSED", label: "TEMPORARILY CLOSED" },
     { id: "STALE", label: "STALE" },
     { id: "PROGRAM_CONCEPT_NOT_RESOURCE", label: "PROGRAM CONCEPT" },
@@ -61,9 +63,11 @@ export function MasterReconciliationLedger() {
     const total = MASTER_RECONCILIATION_LEDGER.length;
     const published = MASTER_RECONCILIATION_LEDGER.filter((i) => i.status === "PUBLISHED").length;
     const needsEntry = MASTER_RECONCILIATION_LEDGER.filter((i) => i.status === "VERIFIED_NEEDS_ENTRY").length;
-    const researching = MASTER_RECONCILIATION_LEDGER.filter((i) => i.status === "RESEARCHING").length;
+    const researching = MASTER_RECONCILIATION_LEDGER.filter(
+      (i) => i.status === "RESEARCHING" || i.status === "FIELD_REPORTED_UNCONFIRMED"
+    ).length;
     const conditionalOrPaused = MASTER_RECONCILIATION_LEDGER.filter(
-      (i) => i.status === "CONDITIONAL" || i.status === "TEMPORARILY_CLOSED" || i.status === "STALE"
+      (i) => i.status === "CONDITIONAL" || i.status === "PAUSED" || i.status === "TEMPORARILY_CLOSED" || i.status === "STALE"
     ).length;
     const concepts = MASTER_RECONCILIATION_LEDGER.filter((i) => i.status === "PROGRAM_CONCEPT_NOT_RESOURCE").length;
 
@@ -111,6 +115,13 @@ export function MasterReconciliationLedger() {
             <span>RESEARCHING</span>
           </span>
         );
+      case "FIELD_REPORTED_UNCONFIRMED":
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#FFFDF5] text-amber-900 border border-amber-500">
+            <AlertCircle className="w-3 h-3 text-amber-700" />
+            <span>FIELD UNCONFIRMED</span>
+          </span>
+        );
       case "CONDITIONAL":
         return (
           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-purple-100 text-purple-900 border border-purple-300">
@@ -118,6 +129,7 @@ export function MasterReconciliationLedger() {
             <span>CONDITIONAL</span>
           </span>
         );
+      case "PAUSED":
       case "TEMPORARILY_CLOSED":
         return (
           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-red-100 text-[#971F26] border border-red-300">

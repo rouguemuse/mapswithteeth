@@ -1,5 +1,5 @@
-﻿export type CredibilityState =
-  | "DIRECTLY_CONFIRMED"
+export type CredibilityState =
+  | "PRIMARY_SOURCE_CONFIRMED"
   | "PRACTITIONER_REPORTED"
   | "UNCONFIRMED_FIELD_NOTE";
 
@@ -34,8 +34,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Texas",
     timeAgo: "5d ago",
     category: "PETS",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "PROGRAM GUIDELINE",
     verifiedStatuteOrProgram: "RedRover Safe Escape / APA PASS",
   },
   {
@@ -45,19 +45,19 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Public School District",
     timeAgo: "1w ago",
     category: "SCHOOLS",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "STATUTE CONFIRMED",
     verifiedStatuteOrProgram: "McKinney-Vento Act (42 U.S.C. § 11431)",
   },
   {
     id: "fn-4",
-    quote: "FCC Safe Connections Act legally requires carriers to separate your mobile line with zero cancellation fees and zero notification to the primary account holder.",
+    quote: "Under the FCC Safe Connections Act, carriers must separate your line within 2 days with zero fees and no primary account holder approval required. Review carrier notification timing for safety.",
     sourceRole: "Telecom Legal Researcher",
     location: "Federal / Nationwide",
     timeAgo: "3d ago",
     category: "LEGAL",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "STATUTE CONFIRMED",
     verifiedStatuteOrProgram: "47 U.S.C. § 345 / 47 CFR Part 64",
   },
   {
@@ -67,8 +67,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Nationwide",
     timeAgo: "1w ago",
     category: "HOSPITALITY",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "PROGRAM GUIDELINE",
     verifiedStatuteOrProgram: "Giving Kitchen / Southern Smoke",
   },
   {
@@ -78,8 +78,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Texas ERCOT Region",
     timeAgo: "2w ago",
     category: "UTILITIES",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "ADMIN CODE CONFIRMED",
     verifiedStatuteOrProgram: "Texas PUC Subst. R. § 25.478",
   },
   {
@@ -89,8 +89,8 @@ export const PRACTITIONER_FIELD_NOTES: FieldNote[] = [
     location: "Travis & Williamson Cos.",
     timeAgo: "3w ago",
     category: "LEGAL",
-    credibilityState: "DIRECTLY_CONFIRMED",
-    credibilityLabel: "DIRECTLY CONFIRMED",
+    credibilityState: "PRIMARY_SOURCE_CONFIRMED",
+    credibilityLabel: "STATUTE CONFIRMED",
     verifiedStatuteOrProgram: "Tex. Prop. Code § 92.016",
   },
   {

@@ -1,115 +1,37 @@
 import React from "react";
 import Link from "next/link";
-import { StatusBadge, ProductStatus } from "@/components/ui/StatusBadge";
-import { CheckCircle2, FlaskConical, Milestone, ShieldCheck, ArrowRight, Layers, FileText, Shuffle, Scale, AlertTriangle, Building } from "lucide-react";
+import { StatusBadge } from "@/components/ui/StatusBadge";
+import { PRODUCT_MATURITY_STAGES } from "@/data/productMaturity";
+import { CheckCircle2, FileText, Shuffle, Scale, AlertTriangle, Building, ArrowRight, ShieldCheck } from "lucide-react";
 
 export function BuiltTestingProposedSection() {
-  const stages: {
-    stage: string;
-    name: string;
-    status: ProductStatus;
-    statusLabel: string;
-    icon: React.ReactNode;
-    description: string;
-    items: string[];
-  }[] = [
-    {
-      stage: "STAGE 01",
-      name: "Resource Intelligence",
-      status: "LIVE",
-      statusLabel: "LIVE",
-      icon: <CheckCircle2 className="w-4 h-4 text-[#2D5A3D]" />,
-      description: "Barrier-first discovery for when conventional crisis hotlines fail or stall.",
-      items: [
-        "Barrier-first resource search (No ID, pets, transit, after-hours)",
-        "Texas Deep Dive (statutory rights & 254-county scope)",
-        "Other Ways Through (nationwide & industry benevolence funds)",
-        "Access friction tagging & unadvertised condition rules",
-        "Deterministic progressive qualification engine",
-        "Ask Us to Look (structured investigation intake)",
-      ],
-    },
-    {
-      stage: "STAGE 02",
-      name: "Survivor Organizer & Originals Vault",
-      status: "PROTOTYPE",
-      statusLabel: "PROTOTYPE",
-      icon: <FileText className="w-4 h-4 text-[#92400E]" />,
-      description: "Survivor-controlled documentation architecture. Tell it once. Carry it forward.",
-      items: [
-        "Personal chronology (incidents, dates, communications, agencies)",
-        "Originals Vault: cryptographic file hashing & metadata preservation",
-        "Distinguish original proof from annotations and summaries",
-        "Provenance tracking: record where every document originated",
-        "Exportable scoped packets (share only what is needed)",
-        "Zero surveillance: zero automatic sharing with agencies",
-      ],
-    },
-    {
-      stage: "STAGE 03",
-      name: "Bridge & Continuity Receipts",
-      status: "PROTOTYPE",
-      statusLabel: "PROTOTYPE",
-      icon: <Shuffle className="w-4 h-4 text-[#971F26]" />,
-      description: "Stopping context from vanishing when moving between agencies or counties.",
-      items: [
-        "Continuity Receipts: Who, When, Reference, What was presented",
-        "Referral-chain tracking (Agency A → Receipt → Agency B)",
-        "Preserve what action was taken vs. declined with stated reasons",
-        "Cross-county jurisdictional handoff preservation",
-        "Next decision-owner identification and pending document checklists",
-        "Survivor-held continuity receipts (user controls what follows)",
-      ],
-    },
-    {
-      stage: "STAGE 04",
-      name: "Context Before Closure",
-      status: "PILOT",
-      statusLabel: "FIELD PILOT",
-      icon: <Scale className="w-4 h-4 text-[#1C1D1D]" />,
-      description: "Documenting why cases stop, what was left unreviewed, and where responsibility moved.",
-      items: [
-        "Decision & decline documentation (jurisdiction, eligibility, capacity)",
-        "Reviewed vs. unreviewed context logging",
-        "Detect circular referral runarounds (A sends to B, B sends to A)",
-        "Escalation signal: 'No Functioning Decision-Owner Identified'",
-        "Closed is not the same as resolved tracking",
-        "Procedural gap identification for legal and advocacy escalations",
-      ],
-    },
-    {
-      stage: "STAGE 05",
-      name: "Bad Maps — System Intelligence",
-      status: "ACTIVE_RESEARCH",
-      statusLabel: "ACTIVE RESEARCH",
-      icon: <AlertTriangle className="w-4 h-4 text-[#971F26]" />,
-      description: "Aggregated, deidentified pattern analysis of where institutional pathways break.",
-      items: [
-        "Deidentified referral-loop and dead-end mapping",
-        "County-line failure tracking across municipal borders",
-        "Ghost programs (published eligibility vs. real-world access)",
-        "Conflicting jurisdiction instruction heatmaps",
-        "Public-interest systems research (never scoring individual survivors)",
-        "Actionable reform evidence for policy advocates and funders",
-      ],
-    },
-    {
-      stage: "STAGE 06",
-      name: "Partner Infrastructure",
-      status: "PLANNED",
-      statusLabel: "PLANNED",
-      icon: <Building className="w-4 h-4 text-stone-600" />,
-      description: "Interoperable, consent-based partner handoff standards for allied organizations.",
-      items: [
-        "Consent-based partner handoff protocols",
-        "Interoperable continuity packets for participating agencies",
-        "Strict governance and role-based cryptographic access controls",
-        "Advocate and navigator verification workflows",
-        "High-assurance privacy architecture",
-        "Institutional continuity integration",
-      ],
-    },
-  ];
+  const getStageIcon = (stageId: string) => {
+    switch (stageId) {
+      case "stage-01":
+        return <CheckCircle2 className="w-4 h-4 text-[#2D5A3D]" />;
+      case "stage-02":
+        return <FileText className="w-4 h-4 text-[#92400E]" />;
+      case "stage-03":
+        return <Shuffle className="w-4 h-4 text-[#971F26]" />;
+      case "stage-04":
+        return <Scale className="w-4 h-4 text-[#1C1D1D]" />;
+      case "stage-05":
+        return <AlertTriangle className="w-4 h-4 text-[#971F26]" />;
+      case "stage-06":
+      default:
+        return <Building className="w-4 h-4 text-stone-600" />;
+    }
+  };
+
+  const stages = PRODUCT_MATURITY_STAGES.map((s) => ({
+    stage: s.stageCode,
+    name: s.title,
+    status: s.status,
+    statusLabel: s.statusLabel,
+    icon: getStageIcon(s.stageId),
+    description: s.description,
+    items: s.deliverables,
+  }));
 
   return (
     <section className="space-y-8 select-none font-sans">
