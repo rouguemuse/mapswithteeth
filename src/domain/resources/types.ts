@@ -171,11 +171,21 @@ export type PaymentMethod =
   | "VENDOR_DIRECT"
   | "NON_MONETARY_SERVICE";
 
+export type ResourceType =
+  | "STATUTORY_RIGHT"
+  | "DIRECT_SERVICE"
+  | "FINANCIAL_ASSISTANCE"
+  | "REFERRAL_NETWORK"
+  | "DIRECTORY"
+  | "SELF_SERVICE_TOOL"
+  | "INFORMATION_ROUTE";
+
 export interface Resource {
   id: string;
   name: string;
   organization: string;
-  state?: string;
+  resourceType?: ResourceType;
+  state: string;
   county?: string;
   geography: string;
   scope: Scope;

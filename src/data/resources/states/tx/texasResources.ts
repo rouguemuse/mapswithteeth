@@ -103,7 +103,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Tex. Code Crim. Proc. Art. 56B.106(a)(3) authorizes up to $5,000 for relocation expenses for crimes occurring after August 31, 2023.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "tx-oag-acp",
@@ -185,7 +186,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Texas Code of Criminal Procedure Chapter 58, Subchapter B (Art. 58.052)",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "tx-statute-lease-termination",
@@ -255,7 +257,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Texas Property Code Chapter 92, Section 92.016",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "tx-puct-utility-waiver",
@@ -323,7 +326,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Public Utility Commission of Texas Substantive Rule 16 TAC § 25.478",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "tx-statute-rekeying",
@@ -389,7 +393,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Tex. Prop. Code §§ 92.153–92.165 governs mandatory security devices, turnover rekeying, tenant mid-lease requests, and 7-day compliance presumption.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "tx-twc-unemployment",
@@ -458,7 +463,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Texas Labor Code Section 207.045(d)",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "tx-statute-protective-orders",
@@ -529,7 +535,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Texas Family Code Title 4 (§§ 71.001–88.008)",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "travis-county-family-support",
@@ -609,7 +616,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Travis County Health and Human Services Program Standards",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "safe-alliance-austin",
@@ -704,7 +712,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "SAFE Alliance Official Program Standards",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "svdp-austin-microgrants",
@@ -788,7 +797,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Society of St. Vincent de Paul Diocesan Council of Austin",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "owbc-community-action-wilco",
@@ -869,7 +879,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Texas Department of Housing & Community Affairs (TDHCA) / OWBC",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "hope-alliance-wilco",
@@ -962,7 +973,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Hope Alliance Official Program Standards",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "the-caring-place-georgetown",
@@ -1047,7 +1059,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "The Caring Place 501(c)(3) Guidelines",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "avda-houston-legal-aid",
@@ -1125,7 +1138,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "AVDA Houston Legal Services Standards",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "hawc-houston-crisis",
@@ -1202,7 +1216,8 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Houston Area Women's Center Official Intake",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "cca-central-texas",
@@ -1282,6 +1297,7 @@ export const TEXAS_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Combined Community Action CSBG Program Standards",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   }
 ];

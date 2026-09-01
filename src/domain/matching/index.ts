@@ -1,6 +1,6 @@
-export * from "./matcher";
-export {
-  matchIntakeDynamically,
-  evaluateCondition,
-  evaluateCandidateProfile
-} from "./dynamicMatcher";
+/**
+ * MAPS WITH TEETH — DOMAIN: MATCHING MODULE
+ */
+
+export * from "./types";
+export * from "./deterministicMatcher";

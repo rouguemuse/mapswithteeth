@@ -10,7 +10,9 @@
     "audit:resources": "npx tsx scripts/audit/audit_claim_matrix.js",
     "audit:evidence": "npx tsx scripts/audit/run_automated_evidence_qa.js",
     "audit:duplicates": "npx tsx scripts/audit/audit_duplicates.js",
-    "audit:imports": "node scripts/audit/audit_deprecated_imports.js"
+    "audit:imports": "node scripts/audit/audit_deprecated_imports.js",
+    "audit:drift": "npx tsx scripts/audit/audit_evidence_matcher_drift.ts",
+    "test:matching": "npx tsx scripts/test_matching_scenarios.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

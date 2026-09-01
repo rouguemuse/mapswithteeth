@@ -233,17 +233,17 @@ export const AUTHORITATIVE_SOURCES: Record<string, AuthoritativeSourceItem> = {
   },
   "https://www.usbgfoundation.org/beap": {
     "url": "https://www.usbgfoundation.org/beap",
-    "title": "USBG National Charity Foundation BEAP Operating Guidelines",
+    "title": "USBG National Charity Foundation BEAP Guidelines",
     "publisher": "USBG National Charity Foundation",
     "sourceType": "OFFICIAL_501C3_STANDARDS",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01"
   },
-  "https://entertainmentcommunity.org/services-and-programs/emergency-financial-assistance": {
-    "url": "https://entertainmentcommunity.org/services-and-programs/emergency-financial-assistance",
-    "title": "Entertainment Community Fund Social Services Standards",
+  "https://entertainmentcommunity.org/am-i-eligible-help": {
+    "url": "https://entertainmentcommunity.org/am-i-eligible-help",
+    "title": "Entertainment Community Fund Emergency Assistance Guidelines (2026)",
     "publisher": "Entertainment Community Fund (Formerly The Actors Fund)",
     "sourceType": "OFFICIAL_501C3_STANDARDS",
-    "lastChecked": "2026-08-20"
+    "lastChecked": "2026-09-01"
   },
   "https://www.nurseshouse.org/grants/": {
     "url": "https://www.nurseshouse.org/grants/",
@@ -266,12 +266,12 @@ export const AUTHORITATIVE_SOURCES: Record<string, AuthoritativeSourceItem> = {
     "sourceType": "OFFICIAL_501C3_STANDARDS",
     "lastChecked": "2026-08-24"
   },
-  "https://operationhomefront.org/critical-financial-assistance/": {
-    "url": "https://operationhomefront.org/critical-financial-assistance/",
-    "title": "Operation Homefront CFA Operating Standards",
+  "https://operationhomefront.org/cfa-process/": {
+    "url": "https://operationhomefront.org/cfa-process/",
+    "title": "Operation Homefront Critical Financial Assistance Process (2026)",
     "publisher": "Operation Homefront",
     "sourceType": "OFFICIAL_501C3_STANDARDS",
-    "lastChecked": "2026-08-23"
+    "lastChecked": "2026-09-01"
   },
   "https://www.hud.gov/program_offices/housing/mfh/vawa": {
     "url": "https://www.hud.gov/program_offices/housing/mfh/vawa",
@@ -294,12 +294,12 @@ export const AUTHORITATIVE_SOURCES: Record<string, AuthoritativeSourceItem> = {
     "sourceType": "OFFICIAL_501C3_STANDARDS",
     "lastChecked": "2026-08-26"
   },
-  "https://github.com/seemoo-lab/AirGuard": {
-    "url": "https://github.com/seemoo-lab/AirGuard",
-    "title": "Technical University of Darmstadt SEEMOO Research & AirGuard Documentation",
-    "publisher": "Technical University of Darmstadt (Secure Mobile Networking Lab - SEEMOO)",
-    "sourceType": "ACADEMIC_RESEARCH",
-    "lastChecked": "2026-08-24"
+  "https://airguard.seemoo.de/en/": {
+    "url": "https://airguard.seemoo.de/en/",
+    "title": "Technical University of Darmstadt SEEMOO Lab Technical Documentation",
+    "publisher": "Technical University of Darmstadt (Secure Mobile Networking Lab / SEEMOO)",
+    "sourceType": "OFFICIAL_TECHNICAL_DOCUMENTATION",
+    "lastChecked": "2026-09-01"
   },
   "https://www.uscis.gov/humanitarian/battered-spouse-children-and-parents": {
     "url": "https://www.uscis.gov/humanitarian/battered-spouse-children-and-parents",
@@ -322,18 +322,18 @@ export const AUTHORITATIVE_SOURCES: Record<string, AuthoritativeSourceItem> = {
     "sourceType": "OFFICIAL_501C3_STANDARDS",
     "lastChecked": "2026-08-25"
   },
-  "https://www.aafprs.org/AAFPRS/Community/Face_to_Face/Domestic_Violence.aspx": {
-    "url": "https://www.aafprs.org/AAFPRS/Community/Face_to_Face/Domestic_Violence.aspx",
+  "https://www.aafprs.org/Professionals/Development/Humanitarian_Programs/FTF_Domestic_Violence/ERF/FTFDV.aspx": {
+    "url": "https://www.aafprs.org/Professionals/Development/Humanitarian_Programs/FTF_Domestic_Violence/ERF/FTFDV.aspx",
     "title": "AAFPRS Educational and Research Foundation Standards",
     "publisher": "American Academy of Facial Plastic and Reconstructive Surgery (AAFPRS Foundation)",
     "sourceType": "OFFICIAL_501C3_STANDARDS",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01"
   },
-  "https://removery.com/about/ink-initiative/": {
-    "url": "https://removery.com/about/ink-initiative/",
-    "title": "Removery INK Community Initiative Standards",
+  "https://removery.com/services/ink-nitiative/": {
+    "url": "https://removery.com/services/ink-nitiative/",
+    "title": "Removery INK-itiative Official Program Standards (2026)",
     "publisher": "Removery Laser Tattoo Removal",
     "sourceType": "OFFICIAL_PROVIDER_DOCUMENTATION",
-    "lastChecked": "2026-08-24"
+    "lastChecked": "2026-09-01"
   }
 };

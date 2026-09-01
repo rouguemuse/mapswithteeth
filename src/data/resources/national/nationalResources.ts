@@ -70,7 +70,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Fast turnaround emergency relief for culinary, bar, and hospitality workers."
+    "notes": "Fast turnaround emergency relief for culinary, bar, and hospitality workers.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "giving-kitchen-crisis-grants",
@@ -141,7 +142,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "whyMissed": "Most people assume emergency rental help only comes from county social services or 211 waitlists.",
     "workaround": "Food service workers in eligible states bypass municipal backlogs through direct-to-landlord benevolence grants.",
     "accessNotes": "Direct financial aid prioritized in GA, TN, NC, SC; Stability Network navigation available nationwide.",
-    "notes": "Dedicated safety net for foodservice workers."
+    "notes": "Dedicated safety net for foodservice workers.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "core-children-of-restaurant-employees",
@@ -216,7 +218,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "whyMissed": "Culinary workers rarely realize their industry has an endowed family foundation that helps with rent and bills.",
     "workaround": "Direct foundation grant paid to housing and utility providers with zero DV shelter stay required.",
     "accessNotes": "Requires food/bev work in past 90 days, dependent minor child, and crisis within 90 days. One lifetime grant per family.",
-    "notes": "Specialized assistance for restaurant workers supporting minor children."
+    "notes": "Specialized assistance for restaurant workers supporting minor children.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "cerf-plus-craft-emergency",
@@ -275,7 +278,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "verificationStatus": "TEMPORARILY_CLOSED",
     "reopeningDate": "October 1, 2026",
     "isStatutoryRight": false,
-    "notes": "CERF+ announced July 23, 2026 that grantmaking is temporarily suspended through Sept 30, 2026 while transitioning to an updated relief framework."
+    "notes": "CERF+ announced July 23, 2026 that grantmaking is temporarily suspended through Sept 30, 2026 while transitioning to an updated relief framework.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "musicares-emergency-financial",
@@ -347,7 +351,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Comprehensive crisis fund for musicians, audio engineers, tour crews, and songwriters."
+    "notes": "Comprehensive crisis fund for musicians, audio engineers, tour crews, and songwriters.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "authors-league-fund",
@@ -415,7 +420,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Established emergency safety net for professional writers and dramatists."
+    "notes": "Established emergency safety net for professional writers and dramatists.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "redrover-relief-safe-escape",
@@ -479,7 +485,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Vital lifeline when emergency DV shelters cannot house companion animals."
+    "notes": "Vital lifeline when emergency DV shelters cannot house companion animals.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "safe-havens-for-pets",
@@ -539,7 +546,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Comprehensive national directory of pet-safe domestic violence shelters."
+    "notes": "Comprehensive national directory of pet-safe domestic violence shelters.",
+    "resourceType": "DIRECTORY"
   },
   {
     "id": "safe-connections-act-separation",
@@ -620,7 +628,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "whyMissed": "Most survivors assume they cannot leave a shared family phone plan without the primary account holder's password or permission.",
     "workaround": "Under federal law (47 U.S.C. § 345), wireless carriers must separate your line within 2 business days without requiring account holder approval or penalty fees.",
     "accessNotes": "Submit request via carrier's dedicated survivor portal with qualifying advocate/court document. Crucial Safety Note: Primary account holder approval is NOT required, but they may receive account update notifications. Plan separation timing accordingly.",
-    "notes": "Enacted under federal law; prevents abusers from controlling or terminating survivor mobile lines."
+    "notes": "Enacted under federal law; prevents abusers from controlling or terminating survivor mobile lines.",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "nnedv-techsafety-clinic",
@@ -677,7 +686,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "National leader in technology-facilitated abuse prevention."
+    "notes": "National leader in technology-facilitated abuse prevention.",
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "irs-ip-pin",
@@ -739,7 +749,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "26 U.S.C. § 6109 / IRM 25.23.2 (Identity Protection PIN)",
-    "notes": "Crucial protection against fraudulent dependent claiming and coerced tax filings."
+    "notes": "Crucial protection against fraudulent dependent claiming and coerced tax filings.",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "irs-innocent-spouse-relief",
@@ -803,7 +814,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": true,
     "statuteCitation": "26 U.S.C. § 6015",
-    "notes": "Includes specialized domestic abuse considerations for equitable relief."
+    "notes": "Includes specialized domestic abuse considerations for equitable relief.",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "give-back-a-smile-dental",
@@ -864,7 +876,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Restores front teeth damaged during intimate partner abuse."
+    "notes": "Restores front teeth damaged during intimate partner abuse.",
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "modest-needs-self-sufficiency",
@@ -932,7 +945,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "dateLastVerified": "2026-08-20",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "notes": "Safety net for working households ineligible for conventional welfare."
+    "notes": "Safety net for working households ineligible for conventional welfare.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "greyhound-home-free",
@@ -1005,7 +1019,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Youth 12-21 can receive a free one-way bus ticket home or to a verified safe alternative through NRS intake.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "salvation-army-service-extension-tx",
@@ -1078,7 +1093,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Service Units provide emergency assistance in counties without a Salvation Army facility. Assistance is administered by local volunteer committees.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "usbg-bartender-emergency-assistance",
@@ -1104,8 +1120,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "NO_POLICE_REPORT",
       "NO_SHELTER_STAY"
     ],
-    "whatItCanHelpWith": "Provides emergency financial assistance grants to bartenders, barbacks, and bar servers experiencing catastrophic life events, emergency displacement, medical emergencies, or natural disasters.",
-    "whatItActuallyProvides": "Direct emergency financial assistance grants disbursed to service industry workers facing unforeseen catastrophic hardship. Applications are actively accepted online.",
+    "whatItCanHelpWith": "Provides emergency financial hardship grants to bartenders, barbacks, and bar servers facing catastrophic or unforeseen life events (including medical emergencies, displacement, family crises, or disaster impacts).",
+    "whatItActuallyProvides": "Discretionary direct financial grant assistance for emergency living expenses, rent, utilities, and emergency relocation.",
     "assistanceShapes": [
       "DIRECT_CASH",
       "VENDOR_PAYMENT",
@@ -1113,24 +1129,24 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "UTILITY_PAYMENT"
     ],
     "paymentMethod": "SURVIVOR_DIRECT",
-    "typicalAmount": "$500 to $2,500 based on documented catastrophic shortfall",
-    "knownFundingLimits": "Assessed on case-by-case basis; grants disbursed until monthly funding allotment is reached",
-    "eligibility": "Must be currently employed or have verifiable employment in the beverage hospitality industry (bartender, barback, or bar server) for at least 6 continuous months. Does NOT require membership in the United States Bartenders' Guild.",
+    "typicalAmount": "$500 to $2,500 based on documented catastrophic shortfall and foundation review",
+    "knownFundingLimits": "Discretionary grant review based on objective hardship criteria and available foundation funding pools",
+    "eligibility": "Must have at least 6 months of verifiable employment in the beverage service industry (bartender, barback, bar server, or service/preparation of alcoholic beverages) immediately prior to the emergency event. Does NOT require membership in the United States Bartenders' Guild.",
     "documentationRequired": [
-      "Proof of employment in beverage hospitality (paystubs, W-2, 1099, or liquor license/schedule verification)",
-      "Documentation verifying the catastrophic emergency or displacement shortfall",
-      "Lease, utility, or medical bills supporting the requested amount"
+      "Proof of at least 6 months beverage hospitality employment (paystubs, W-2, 1099, or liquor license/schedule verification)",
+      "Documentation verifying the catastrophic emergency or unexpected financial hardship",
+      "Itemized lease, utility, or medical bills supporting the requested amount"
     ],
-    "referralRequirement": "None (self-apply online)",
+    "referralRequirement": "None (direct online application)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
-    "incomeRestriction": "Demonstrated emergency financial crisis",
-    "employmentDependency": "Beverage hospitality industry employment (bartender, barback, bar server)",
-    "applicationWindow": "Active rolling intake (evaluated within 3–6 weeks)",
+    "incomeRestriction": "Demonstrated emergent financial need / basic necessity shortfall",
+    "employmentDependency": "At least 6 months beverage hospitality employment (bartender, barback, bar server)",
+    "applicationWindow": "Rolling online intake (applications processed on an ongoing basis)",
     "whatCanBlockAccess": [
-      "EMPLOYMENT CRITERIA: Must have at least 6 months verifiable beverage hospitality work history (bartender, barback, bar server)",
-      "DISCRETIONARY APPROVAL: All grant awards are subject to committee review, verified need, and monthly foundation funding cycles (average approval process 3–6 weeks)",
-      "Direct-to-applicant or direct-to-vendor disbursement depending on grant classification"
+      "EMPLOYMENT REQUIREMENT: Must verify at least 6 months of employment in the service/preparation of alcoholic beverages",
+      "DISCRETIONARY FUNDING: Grants are reviewed against objective hardship criteria and are subject to available foundation funding pools",
+      "Requires itemized bills verifying the emergent financial crisis"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -1138,26 +1154,27 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Submit an online BEAP intake application at usbgfoundation.org/beap with paystubs, liquor server permit, or work schedule verification.",
+    "whatToDoNext": "Visit usbgfoundation.org/beap and complete the online grant application. Upload proof of 6+ months bar industry employment and itemized emergency bills.",
     "howToApply": "Apply online at usbgfoundation.org/beap.",
     "sourceUrl": "https://www.usbgfoundation.org/beap",
-    "primaryAuthoritativeSource": "USBG National Charity Foundation BEAP Operating Guidelines",
-    "lastReviewedDate": "2026-08-22",
-    "dateLastVerified": "2026-08-22",
+    "primaryAuthoritativeSource": "USBG National Charity Foundation BEAP Guidelines",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "whyMissed": "Located exclusively within beverage industry professional networks; non-hospitality caseworkers never think to ask about bartending or bar service history.",
-    "workaround": "Open to any bartender, barback, or bar server with verifiable industry employment. Does NOT require membership in the United States Bartenders' Guild.",
-    "accessNotes": "Apply online at usbgfoundation.org/beap with paystubs, liquor server permit, or employer work schedules.",
-    "notes": "Active emergency assistance program for beverage hospitality workers. Grant approvals are discretionary based on documented catastrophic need.",
+    "whyMissed": "Located within beverage industry charity networks; general caseworkers rarely ask about bar service or bartending history.",
+    "workaround": "Open to any bartender, barback, or bar server with 6+ months industry history facing an emergent catastrophic crisis. Membership in USBG is NOT required.",
+    "accessNotes": "Apply online at usbgfoundation.org/beap with 6 months employment verification and emergency bills. Grants are discretionary based on foundation funding.",
+    "notes": "Administered by the USBG National Charity Foundation for beverage industry professionals.",
     "claimProvenances": [
       {
         "claim": "USBG BEAP emergency relief grants for beverage hospitality workers",
         "primarySourceUrl": "https://www.usbgfoundation.org/beap",
-        "sourceExcerptOrSummary": "Active online application workflow for bartenders, barbacks, and bar servers with 6+ months experience facing unforeseen catastrophic hardship.",
-        "verificationDate": "2026-08-31"
+        "sourceExcerptOrSummary": "Provides emergency grants to bartenders, barbacks, and bar servers with 6+ months industry experience facing unforeseen hardship.",
+        "verificationDate": "2026-09-01"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "entertainment-community-fund",
@@ -1181,13 +1198,14 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "CREW",
       "STAGEHAND",
       "MUSICIAN",
+      "DANCER",
       "RENT",
       "UTILITY",
       "NO_POLICE_REPORT",
       "NO_SHELTER_STAY"
     ],
-    "whatItCanHelpWith": "Provides emergency financial grants for essential living expenses (housing rent, mortgage, utilities, medical care, and relocation) to professionals in the performing arts and entertainment industries.",
-    "whatItActuallyProvides": "Direct grant payments made to landlords, utility companies, or directly to applicant for documented emergency shortfalls.",
+    "whatItCanHelpWith": "Provides emergency financial assistance grants for essential living expenses (housing rent, mortgage, utilities, medical care, and relocation) to professionals in the performing arts and entertainment industries facing an unexpected critical hardship.",
+    "whatItActuallyProvides": "Direct financial assistance grants disbursed to creditors (landlords, utilities) or directly to applicants following social worker assessment.",
     "assistanceShapes": [
       "DIRECT_CASH",
       "VENDOR_PAYMENT",
@@ -1197,49 +1215,51 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     ],
     "paymentMethod": "DIRECT_TO_VENDOR",
     "typicalAmount": "$1,000 to $3,000 based on documented need and earnings history",
-    "knownFundingLimits": "Limits based on industry tenure and documented crisis bills; direct creditor payment preferred",
-    "eligibility": "Must demonstrate documented employment in the performing arts or entertainment industry: requires professional industry earnings during the most recent 5 consecutive years with at least 3 separate years at $10,000 minimum annual industry income (OR for freelance dancers: most recent 5 consecutive years documented with at least $5,000 annual earnings in 3 separate years of the most recent 5; OR age 60+ alternative: age 60+ with 20 years of industry earnings and a minimum of 10 years at $5,000 annually).",
+    "knownFundingLimits": "Discretionary social services evaluation; requires documented industry earnings and demonstrated inability to meet basic expenses",
+    "eligibility": "Must demonstrate documented professional earnings in performing arts/entertainment under one of three pathways: (1) General: 5 consecutive years of industry earnings with at least 3 separate years at $10,000+; (2) Freelance Dancers: 5 consecutive years with at least 3 separate years at $5,000+; or (3) Senior Professionals (Age 60+): 20 years of documented industry earnings with at least 10 years at $5,000+ annually.",
     "documentationRequired": [
-      "Proof of qualifying entertainment earnings meeting the published threshold (W-2s, 1099s, tax returns, or union pension/health records: SAG-AFTRA, IATSE, AEA, AFM)",
+      "Proof of qualifying entertainment earnings (W-2s, 1099s, tax returns, union pension/health statements: SAG-AFTRA, IATSE, AEA, AFM, AGMA)",
       "Itemized crisis documentation (lease, past-due rent notice, medical bills, utility statements)",
-      "Most recent bank statements showing immediate financial deficit"
+      "Most recent bank statements and first 2 pages of latest federal tax return"
     ],
-    "referralRequirement": "None (apply directly through social services intake)",
+    "referralRequirement": "None (apply directly through social services intake portal)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
-    "incomeRestriction": "Demonstrated crisis financial need",
-    "employmentDependency": "Performing arts and entertainment industry work history",
-    "applicationWindow": "Ongoing crisis evaluation",
+    "incomeRestriction": "Demonstrated crisis financial need (inability to pay basic living expenses)",
+    "employmentDependency": "Performing arts and entertainment industry work history meeting pathway thresholds",
+    "applicationWindow": "Ongoing rolling crisis evaluation",
     "whatCanBlockAccess": [
-      "EARNINGS CRITERIA: Requires 5 consecutive years with at least 3 years at $10,000+ industry income (or freelance dancer exception: 5 consecutive years with 3 years at $5,000+; or age 60+ exception: 20 yrs tenure with 10 yrs at $5,000+)",
-      "Social services casework evaluation takes 1–2 weeks",
-      "Direct vendor disbursement for rent and utilities"
+      "EARNINGS THRESHOLDS: Must meet published 5-year earnings rules (General: 3 years at $10k+; Dancers: 3 years at $5k+; Age 60+: 20 years with 10 years at $5k+)",
+      "EXPECTATION TO SEEK WORK: Program requires that able applicants are actively seeking employment; not intended solely for general lack of work",
+      "Direct vendor disbursement preferred for rent and utilities"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
       "EMPLOYMENT_PROOF",
+      "INCOME_DOCUMENTATION",
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Submit an online intake application through entertainmentcommunity.org/services-and-programs/emergency-financial-assistance and upload your entertainment earnings proof.",
-    "howToApply": "Apply online at entertainmentcommunity.org.",
-    "sourceUrl": "https://entertainmentcommunity.org/services-and-programs/emergency-financial-assistance",
-    "primaryAuthoritativeSource": "Entertainment Community Fund Social Services Standards",
-    "lastReviewedDate": "2026-08-20",
-    "dateLastVerified": "2026-08-20",
+    "whatToDoNext": "Visit entertainmentcommunity.org/am-i-eligible-help, complete the online social services intake application, and upload your earnings and crisis bills.",
+    "howToApply": "Apply online at entertainmentcommunity.org/am-i-eligible-help.",
+    "sourceUrl": "https://entertainmentcommunity.org/am-i-eligible-help",
+    "primaryAuthoritativeSource": "Entertainment Community Fund Emergency Assistance Guidelines (2026)",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "whyMissed": "Filed under arts and entertainment charities rather than domestic crisis relief finders.",
-    "workaround": "Covers behind-the-scenes professionals too: technicians, grips, camera operators, stagehands, hair/makeup stylists, front-of-house staff, and administrative workers across film, television, theatre, dance, and music meeting the 5-year / $10k in 3 years threshold (or dancer / age 60+ exceptions).",
-    "accessNotes": "Submit online social services intake with W-2/1099 industry tax forms or union cards (SAG-AFTRA, IATSE, Actors' Equity).",
+    "whyMissed": "Filed under entertainment charities rather than domestic crisis directories.",
+    "workaround": "Covers both on-stage and behind-the-scenes professionals (actors, dancers, stagehands, grips, camera crew, hair/makeup, front-of-house) who meet the 5-year industry earnings thresholds.",
+    "accessNotes": "Apply online with tax documents, union statements, and emergency bills. Dedicated Dancers' Resource pathway available for freelance dancers ($5k in 3 of 5 years).",
     "claimProvenances": [
       {
-        "claim": "Entertainment Community Fund 2026 Emergency Financial Assistance Criteria",
-        "primarySourceUrl": "https://entertainmentcommunity.org/services-and-programs/emergency-financial-assistance",
-        "sourceExcerptOrSummary": "Requires 5 consecutive years with 3 years at $10,000+ industry income, freelance dancer exception (5 consecutive years with 3 years at $5,000+), or age 60+ exception (20 years with 10 years at $5,000+).",
-        "verificationDate": "2026-08-31"
+        "claim": "Entertainment Community Fund Emergency Financial Assistance 2026 earnings criteria",
+        "primarySourceUrl": "https://entertainmentcommunity.org/am-i-eligible-help",
+        "sourceExcerptOrSummary": "General eligibility requires 5 consecutive years of earnings with 3 years at $10,000+; dancers require 3 years at $5,000+; seniors age 60+ require 20 years with 10 years at $5,000+.",
+        "verificationDate": "2026-09-01"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "nurses-house-emergency-grants",
@@ -1310,7 +1330,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "isStatutoryRight": false,
     "whyMissed": "Specialized 501(c)(3) dedicated strictly to Registered Nurses.",
     "workaround": "Provides fast housing and medical hardship grants for RNs facing acute crisis, health emergencies, domestic violence escape, or disaster displacement.",
-    "accessNotes": "Apply at nurseshouse.org with copy of active or recently active RN license, brief hardship summary, and lease/landlord contact."
+    "accessNotes": "Apply at nurseshouse.org with copy of active or recently active RN license, brief hardship summary, and lease/landlord contact.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "dod-transitional-compensation",
@@ -1377,7 +1398,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "statuteCitation": "10 U.S.C. § 1059",
     "whyMissed": "Military administrative law benefit that civilian victim advocates and municipal helplines rarely understand or know how to trigger.",
     "workaround": "Dependents of active-duty service members administratively discharged or court-martialed for dependent-abuse offenses are legally entitled to up to 36 months of tax-free monthly compensation payments, commissary privileges, and TRICARE healthcare.",
-    "accessNotes": "Contact the base Family Advocacy Program (FAP) Victim Advocate or Staff Judge Advocate (SJA) office. Submit DD Form 2698."
+    "accessNotes": "Contact the base Family Advocacy Program (FAP) Victim Advocate or Staff Judge Advocate (SJA) office. Submit DD Form 2698.",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "vfw-unmet-needs-grant",
@@ -1446,7 +1468,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "isStatutoryRight": false,
     "whyMissed": "Veteran organization relief fund that civilian DV navigators rarely query for family crisis relief.",
     "workaround": "Grants of up to $1,500 for emergency rent, utilities, food, auto repairs, or transportation for service members on active duty, deployed, or discharged within the past 72 months. Paid directly to creditors.",
-    "accessNotes": "Apply online at vfw.org/assistance/financial-grants with DD-214, military orders, and itemized billing statements."
+    "accessNotes": "Apply online at vfw.org/assistance/financial-grants with DD-214, military orders, and itemized billing statements.",
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "operation-homefront-cfa",
@@ -1467,13 +1490,15 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "ENLISTED",
       "E1_E6",
       "VETERAN",
+      "WOUNDED_WARRIOR",
+      "DEPLOYED",
       "RENT",
       "AUTO_REPAIR",
       "RELOCATION",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Provides critical financial grants for past-due mortgage/rent payments, critical auto repairs, essential utilities, emergency food, and moving costs for junior enlisted military families and wounded veterans.",
-    "whatItActuallyProvides": "Direct vendor grant payments to landlords, mortgage servicers, utility providers, and licensed auto repair shops.",
+    "whatItCanHelpWith": "Provides critical financial assistance grants for past-due rent/mortgage, critical auto repairs, essential utilities, emergency groceries, and moving costs for military families and veterans across three qualifying pathways.",
+    "whatItActuallyProvides": "Direct vendor grant payments made directly to third-party creditors (landlords, utility companies, licensed auto repair facilities).",
     "assistanceShapes": [
       "VENDOR_PAYMENT",
       "RENT",
@@ -1482,49 +1507,52 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "UTILITY_PAYMENT"
     ],
     "paymentMethod": "DIRECT_TO_VENDOR",
-    "typicalAmount": "$800 to $2,500 in direct creditor bill settlements",
-    "knownFundingLimits": "Paid strictly to verified third-party creditors; case-by-case evaluation",
-    "eligibility": "Must meet one of three qualifying pathways: (1) Active Duty Enlisted: Ranks E-1 through E-6 facing unexpected emergency hardship; (2) Deployed: Families of deployed service members of eligible rank; OR (3) Wounded / Ill / Injured: Post-9/11 wounded, ill, or injured veterans of all ranks with qualifying service-connected conditions.",
+    "typicalAmount": "$800 to $2,500 in direct creditor bill payments",
+    "knownFundingLimits": "Paid strictly to verified third-party creditors; evaluated by caseworkers based on monthly application window and demonstrated hardship",
+    "eligibility": "Must qualify under one of three distinct military pathways: (1) General Active Duty: All branches, ranks E-1 through E-6 with DEERS-eligible legal dependents; (2) Deployed: Service members of ranks E-1 through E-6 with DEERS-eligible legal dependents who are currently deployed outside the US on operational orders; or (3) Wounded, Ill, or Injured: Post-9/11 veterans of any rank with a qualifying line-of-duty wound, illness, or injury, who received an honorable discharge.",
     "documentationRequired": [
-      "Current military LES or DD-214 + VA disability rating documentation",
-      "Itemized bills requiring payment (lease agreement, mechanic estimate, utility bill)",
-      "Proof of household income shortfall"
+      "Current military LES, deployment orders, or DD-214 + VA disability / line-of-duty medical documentation",
+      "DEERS enrollment verification for legal dependents (Active Duty & Deployed pathways)",
+      "Itemized third-party bills requiring settlement (lease agreement, mechanic estimate, utility bill)",
+      "Proof of household income and budget deficit"
     ],
     "referralRequirement": "None (direct online application)",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
-    "incomeRestriction": "Demonstrated emergency hardship",
-    "employmentDependency": "Active duty rank E-1 to E-6 or post-9/11 wounded veteran",
-    "applicationWindow": "Opens on the 1st of each month; closes on the 10th of the month at 11:59 PM CST",
+    "incomeRestriction": "Demonstrated emergency financial hardship",
+    "employmentDependency": "Military service meeting one of 3 qualifying pathways (Active Duty E1-E6 w/ dependents, Deployed E1-E6 w/ dependents, Post-9/11 Wounded/Ill/Injured all ranks)",
+    "applicationWindow": "Opens on the 1st of each month and closes at 11:59 PM CST on the 10th of each month",
     "whatCanBlockAccess": [
-      "MONTHLY WINDOW: Application portal opens on the 1st of each month and closes on the 10th at 11:59 PM CST",
-      "PATHWAY ELIGIBILITY: Restricted to active-duty enlisted ranks E-1 through E-6, deployed families, or post-9/11 wounded/ill/injured veterans of all ranks",
-      "Direct creditor payments only — requires verified landlord, utility, or mechanic invoices"
+      "STRICT MONTHLY WINDOW: Application portal is open from the 1st through the 10th of each month (closes at 11:59 PM CST on the 10th)",
+      "PATHWAY & RANK LIMITS: General Active Duty and Deployed pathways strictly require ranks E-1 through E-6 with DEERS-eligible dependents; Post-9/11 Wounded/Ill/Injured pathway accepts all ranks with line-of-duty medical proof",
+      "Direct creditor disbursement only — requires verified third-party creditor documentation"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
+      "EMPLOYMENT_PROOF",
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Apply online at operationhomefront.org and submit your LES or DD-214 along with your creditor invoices.",
-    "howToApply": "Apply online at operationhomefront.org/critical-financial-assistance/.",
-    "sourceUrl": "https://operationhomefront.org/critical-financial-assistance/",
-    "primaryAuthoritativeSource": "Operation Homefront CFA Operating Standards",
-    "lastReviewedDate": "2026-08-23",
-    "dateLastVerified": "2026-08-23",
+    "whatToDoNext": "Visit operationhomefront.org/cfa-process between the 1st and 10th of the month. Submit your military documentation (LES, DD-214, or deployment orders), DEERS dependent proof, and creditor invoices.",
+    "howToApply": "Apply online at operationhomefront.org/cfa-process during the monthly 1st-10th window.",
+    "sourceUrl": "https://operationhomefront.org/cfa-process/",
+    "primaryAuthoritativeSource": "Operation Homefront Critical Financial Assistance Process (2026)",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "whyMissed": "Military family support charity not indexed in municipal resource finders.",
-    "workaround": "Models 3 distinct assistance tracks: general active-duty enlisted (E-1 to E-6), deployed families, and post-9/11 wounded/ill/injured veterans of any rank.",
-    "accessNotes": "Apply online at operationhomefront.org with current military LES, landlord contact, and repair estimates.",
+    "whyMissed": "Military family support charity not indexed in standard civilian crisis directories.",
+    "workaround": "Three distinct eligibility pathways: junior enlisted active duty (E1-E6) with dependents, deployed service members (E1-E6) with dependents, and post-9/11 wounded/ill/injured veterans of all ranks.",
+    "accessNotes": "Apply online between the 1st and 10th of the month (closes 11:59 PM CST on the 10th) with military documentation, DEERS proof, and itemized third-party bills.",
     "claimProvenances": [
       {
-        "claim": "Operation Homefront CFA application window and pathways",
-        "primarySourceUrl": "https://operationhomefront.org/critical-financial-assistance/",
-        "sourceExcerptOrSummary": "Application window runs 1st–10th monthly closing at 11:59 PM CST. Covers active duty E-1 to E-6, deployed families, and post-9/11 wounded veterans of all ranks.",
-        "verificationDate": "2026-08-31"
+        "claim": "Operation Homefront CFA three military pathways and 1st-10th monthly window",
+        "primarySourceUrl": "https://operationhomefront.org/cfa-process/",
+        "sourceExcerptOrSummary": "Applications open 1st-10th monthly (closing 11:59pm CST). Covers active duty E1-E6 with dependents, deployed E1-E6 with dependents, and post-9/11 wounded/ill/injured veterans of all ranks.",
+        "verificationDate": "2026-09-01"
       }
-    ]
+    ],
+    "resourceType": "FINANCIAL_ASSISTANCE"
   },
   {
     "id": "hud-vawa-emergency-transfer",
@@ -1600,7 +1628,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "Covered housing providers must adopt emergency transfer plans. Emergency transfer qualification does not guarantee immediate vacant unit availability.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "ssa-number-change-dv",
@@ -1689,7 +1718,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
         "sourceExcerptOrSummary": "SSA POMS RM 10220.200 allows assignment of a new SSN to victims of domestic violence upon presentation of third-party evidence documenting ongoing harassment, abuse, or endangerment.",
         "verificationDate": "2026-08-31"
       }
-    ]
+    ],
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "freefrom-coerced-debt-toolkit",
@@ -1753,12 +1783,13 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "isStatutoryRight": false,
     "whyMissed": "Civil/consumer rights tool for debt cancellation rather than traditional financial charity.",
     "workaround": "Offers state-specific statutory legal templates to dispute debt forced by an abuser (credit cards, vehicle loans, utility contracts, medical debt) under the Fair Credit Reporting Act (FCRA), Fair Debt Collection Practices Act (FDCPA), and state coerced-debt laws without having to hire a private attorney.",
-    "accessNotes": "Visit freefrom.org to generate custom debt-dispute letters to send directly to credit bureaus and collection agencies."
+    "accessNotes": "Visit freefrom.org to generate custom debt-dispute letters to send directly to credit bureaus and collection agencies.",
+    "resourceType": "SELF_SERVICE_TOOL"
   },
   {
     "id": "airguard-ble-tracker-detection",
-    "name": "AirGuard BLE Bluetooth Tracker Detection Utility",
-    "organization": "Technical University of Darmstadt (Secure Mobile Networking Lab - SEEMOO)",
+    "name": "AirGuard & BLE Bluetooth Tracker Detection Utilities",
+    "organization": "Technical University of Darmstadt (Secure Mobile Networking Lab / SEEMOO)",
     "state": "US",
     "geography": "Nationwide",
     "scope": "NATIONWIDE",
@@ -1777,16 +1808,16 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "STALKERWARE",
       "DIGITAL_SAFETY"
     ],
-    "whatItCanHelpWith": "Performs automated background scans and manual scans on Android smartphones to detect unauthorized Bluetooth Low Energy (BLE) tracking devices (Apple AirTags, Find My accessories, Tile, Samsung SmartTags, Chipolo).",
-    "whatItActuallyProvides": "Free, open-source privacy software for Android developed by academic researchers to detect unwanted commercial Bluetooth tracking devices.",
+    "whatItCanHelpWith": "Performs on-device Bluetooth Low Energy (BLE) scanning to detect unknown tracking devices (Apple AirTags, Find My accessories, Tile, Samsung SmartTags, Chipolo) that are traveling with a user.",
+    "whatItActuallyProvides": "Free, open-source technical security application for Android and iOS that performs local, on-device BLE signal analysis without cloud tracking.",
     "assistanceShapes": [
       "DEVICE_SAFETY",
       "LEGAL_INFORMATION"
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
-    "typicalAmount": "Free open-source privacy software",
-    "knownFundingLimits": "Unlimited free access",
-    "eligibility": "Anyone with an Android or iOS smartphone concerned about physical tracking or stalking.",
+    "typicalAmount": "Free open-source privacy utility",
+    "knownFundingLimits": "Open-source research tool published by TU Darmstadt SEEMOO Lab",
+    "eligibility": "Anyone with a compatible Android or iOS smartphone seeking to scan for nearby Bluetooth tracker beacons.",
     "documentationRequired": [
       "None"
     ],
@@ -1795,37 +1826,50 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
-    "applicationWindow": "Immediate download",
+    "applicationWindow": "Immediate direct download",
     "whatCanBlockAccess": [
-      "BLE TRACKERS ONLY: Detects Bluetooth Low Energy beacons; does NOT detect hardwired GPS vehicle trackers or cellular GSM trackers",
-      "OS SCOPE: AirGuard is open-source Android software; iOS users can use Apple's native cross-platform unwanted tracker alerts (iOS 17.5+) in iOS Settings",
-      "Requires Bluetooth, Location, and Background Battery Optimization permissions",
-      "Does not provide complete protection against all physical surveillance methods"
+      "BLUETOOTH LE ONLY: Detects Bluetooth Low Energy beacons only; cannot detect hardwired vehicle GPS units, cellular SIM trackers, or hidden cameras",
+      "OS & BACKGROUND DIFFERENCES: Background automated detection operates fully on Android; iOS automated background scanning is constrained by Apple background execution policies",
+      "NOT A COMPLETE SAFETY GUARANTEE: Technical detection tool to assist discovery; must be paired with comprehensive physical and vehicle safety planning"
     ],
     "accessFrictions": [
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Install AirGuard from Google Play Store or F-Droid (or Apple App Store). Enable background protection and run a manual scan when stationary away from your primary residence.",
-    "howToApply": "Download free from Google Play Store or F-Droid.",
-    "sourceUrl": "https://github.com/seemoo-lab/AirGuard",
-    "primaryAuthoritativeSource": "Technical University of Darmstadt SEEMOO Research & AirGuard Documentation",
-    "lastReviewedDate": "2026-08-24",
-    "dateLastVerified": "2026-08-24",
+    "whatToDoNext": "Download AirGuard free from Google Play Store or F-Droid (or Apple App Store). Grant Bluetooth/Location permissions and perform manual scans away from known Bluetooth device clusters.",
+    "howToApply": "Download free via Google Play Store, F-Droid, or Apple App Store.",
+    "sourceUrl": "https://airguard.seemoo.de/en/",
+    "primaryAuthoritativeSource": "Technical University of Darmstadt SEEMOO Lab Technical Documentation",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
+    "provenance": {
+      "verificationDate": "2026-09-01",
+      "verificationMethod": "ACADEMIC_PROJECT_SOURCE",
+      "sourceType": "OFFICIAL_TECHNICAL_DOCUMENTATION",
+      "confirmingEntity": "TU Darmstadt Secure Mobile Networking Lab (SEEMOO)",
+      "criteriaConfirmed": [
+        "BLE tracker detection across AirTag, Find My, Tile, SmartTag, Chipolo",
+        "Local on-device processing without cloud tracking",
+        "OS background execution differences documented",
+        "Bluetooth-only limitation (no GPS/cellular detection) qualified"
+      ],
+      "verificationNotes": "Re-verified against official TU Darmstadt SEEMOO Lab published documentation and GitHub repository specifications.",
+      "nextScheduledReviewDate": "2026-11-30"
+    },
     "isStatutoryRight": false,
-    "whyMissed": "Open-source privacy research software developed by TU Darmstadt Secure Mobile Networking Lab.",
-    "workaround": "Helps detect unwanted commercial Bluetooth item trackers traveling with you; does not detect hardwired GPS vehicle tracking or cellular surveillance.",
-    "accessNotes": "Download free via Google Play Store, F-Droid, or Apple App Store. Enable background protection to receive silent alerts when an unknown beacon is traveling with you.",
+    "whyMissed": "Academic privacy research utility published on F-Droid and GitHub, not marketed in traditional commercial app spaces.",
+    "workaround": "Open-source utility providing multi-ecosystem Bluetooth tracker detection (Apple Find My, Tile, Samsung SmartTag, Chipolo) with local processing.",
+    "accessNotes": "Download from Google Play, F-Droid, or Apple App Store. Requires Bluetooth permissions. Note: Detects BLE beacons only; does not detect GPS or cellular trackers.",
     "claimProvenances": [
       {
-        "claim": "AirGuard academic BLE tracker detection utility",
-        "primarySourceUrl": "https://github.com/seemoo-lab/AirGuard",
-        "sourceExcerptOrSummary": "Academic research project by TU Darmstadt SEEMOO Lab. Scans for BLE beacons locally on device; cannot detect GPS/GSM cellular trackers.",
-        "verificationDate": "2026-08-31"
+        "claim": "AirGuard multi-ecosystem BLE tracker detection with local processing",
+        "primarySourceUrl": "https://airguard.seemoo.de/en/",
+        "sourceExcerptOrSummary": "Open-source security app by TU Darmstadt SEEMOO Lab detecting AirTags, Tile, and SmartTags locally on Android and iOS.",
+        "verificationDate": "2026-09-01"
       }
     ],
-    "notes": "Academic open-source privacy utility developed by TU Darmstadt SEEMOO Lab. Local on-device processing only."
+    "resourceType": "SELF_SERVICE_TOOL"
   },
   {
     "id": "uscis-vawa-self-petition",
@@ -1891,7 +1935,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "statuteCitation": "8 U.S.C. § 1154(a)(1)",
     "whyMissed": "Abusers frequently threaten immigrant spouses and children with immediate deportation if they leave or seek assistance.",
     "workaround": "Federal statutory protection (8 U.S.C. § 1154(a)(1)(A)) allows abused non-citizen spouses, children, and parents of US Citizens or Lawful Permanent Residents (LPRs) to petition for permanent residency completely independently. Strict confidentiality protections under 8 U.S.C. § 1367 forbid USCIS from notifying or sharing information with the abusive sponsor.",
-    "accessNotes": "Connect with a DOJ-accredited immigration legal clinic (e.g. American Gateways in Central Texas, Catholic Charities, NIWAP). File Form I-360 with USCIS Vermont Service Center. Includes fee waiver eligibility and work authorization (Form I-765)."
+    "accessNotes": "Connect with a DOJ-accredited immigration legal clinic (e.g. American Gateways in Central Texas, Catholic Charities, NIWAP). File Form I-360 with USCIS Vermont Service Center. Includes fee waiver eligibility and work authorization (Form I-765).",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "u-visa-t-visa-remedies",
@@ -1955,7 +2000,8 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "statuteCitation": "8 U.S.C. § 1101(a)(15)(U)",
     "whyMissed": "Complex statutory immigration relief requiring specific law enforcement certification or trafficking evidence.",
     "workaround": "Provides 4 years of lawful nonimmigrant status, Employment Authorization Documents (EAD), and a path to permanent residency for survivors of qualifying violent crimes (U Visa / Form I-918) or commercial sex/labor trafficking (T Visa / Form I-914). Bona Fide Determination policies provide interim work authorization while petitions are pending.",
-    "accessNotes": "Seek screening from accredited immigration legal aid providers. U Visa requires Form I-918 Supplement B signed by a certifying law enforcement or judicial agency."
+    "accessNotes": "Seek screening from accredited immigration legal aid providers. U Visa requires Form I-918 Supplement B signed by a certifying law enforcement or judicial agency.",
+    "resourceType": "STATUTORY_RIGHT"
   },
   {
     "id": "stronghearts-native-helpline",
@@ -2018,11 +2064,12 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "isStatutoryRight": false,
     "whyMissed": "Specialized Indigenous-led resource omitted by municipal and county-level directories.",
     "workaround": "Confidential, culturally tailored 24/7 advocacy for Native American and Alaska Native survivors. Expertly navigates complex overlapping Tribal Court, State, and Federal jurisdictional boundaries under VAWA Special Domestic Violence Criminal Jurisdiction (SDVCJ) and Indian Civil Rights Act frameworks.",
-    "accessNotes": "Call or text 1-844-7NATIVE (1-844-762-8483) or visit strongheartshelpline.org for 1-on-1 confidential chat."
+    "accessNotes": "Call or text 1-844-7NATIVE (1-844-762-8483) or visit strongheartshelpline.org for 1-on-1 confidential chat.",
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "face-to-face-reconstructive-surgery",
-    "name": "FACE TO FACE: Domestic Violence Facial Reconstructive Surgery",
+    "name": "FACE TO FACE: Domestic Violence Reconstructive Surgery",
     "organization": "American Academy of Facial Plastic and Reconstructive Surgery (AAFPRS Foundation)",
     "state": "US",
     "geography": "Nationwide",
@@ -2041,16 +2088,16 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "PHYSICAL_RESTORATION",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Connects survivors of domestic violence who have sustained facial injuries with board-certified facial plastic surgeons providing low-cost or pro bono facial plastic and reconstructive surgery.",
-    "whatItActuallyProvides": "Provides low-cost or pro bono facial plastic and reconstructive surgery. Individual applicants should confirm any costs not covered with the participating physician/program.",
+    "whatItCanHelpWith": "Connects survivors of domestic violence who have sustained facial injuries with board-certified facial plastic surgeons providing pro bono or low-cost reconstructive surgery.",
+    "whatItActuallyProvides": "Pro bono or low-cost professional reconstructive surgical services provided by volunteer AAFPRS surgeons (surgeon fees waived).",
     "assistanceShapes": [
       "MEDICAL",
       "OTHER"
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
-    "typicalAmount": "Low-cost or pro bono facial reconstructive surgery; individual applicants confirm any costs not covered with participating physician",
-    "knownFundingLimits": "Pro bono / low-cost surgical network operating nationwide",
-    "eligibility": "Must have sustained physical facial injuries caused by domestic violence. Survivor must be out of the abusive relationship for at least 12 months and complete a counseling/advocate intake interview.",
+    "typicalAmount": "Volunteer surgeon professional surgical fees waived",
+    "knownFundingLimits": "Volunteer surgeon network operating nationwide; hospital operating facility and anesthesia fees are not covered by AAFPRS and vary by facility",
+    "eligibility": "Must have sustained physical facial injuries caused by domestic violence. Survivor must be out of the abusive relationship for at least 12 months and complete an intake interview.",
     "documentationRequired": [
       "Intake application through AAFPRS Foundation",
       "Referral letter from a domestic violence shelter advocate, licensed therapist, or social worker confirming at least 12 months of separation from the abuser",
@@ -2059,13 +2106,13 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "referralRequirement": "Shelter advocate, licensed therapist, or social worker referral letter",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
-    "incomeRestriction": "Cannot afford private reconstructive surgery or lack comprehensive medical coverage",
+    "incomeRestriction": "Demonstrated financial hardship / lack of comprehensive surgical insurance",
     "employmentDependency": "None",
     "applicationWindow": "At least 12 months following physical separation from abuser",
     "whatCanBlockAccess": [
-      "COST & FACILITY ARRANGEMENTS: Provides low-cost or pro bono facial reconstructive surgery; participating physician will explain what can/cannot be performed and any costs not covered (e.g. facility or anesthesia fees)",
-      "SEPARATION REQUIREMENT: Must be physically separated from the abusive partner for at least 12 months",
-      "Requires referral/verification letter from a domestic violence shelter advocate, licensed therapist, or social worker"
+      "FACILITY & ANESTHESIA FEES NOT COVERED: Volunteer surgeons waive their professional surgical fees; however, hospital operating room, anesthesia, and medication charges are not covered by AAFPRS and vary by facility",
+      "SEPARATION REQUIREMENT: Must be out of the abusive relationship for at least 12 months",
+      "Requires referral letter from a domestic violence advocate, counselor, or social worker"
     ],
     "accessFrictions": [
       "APPLICATION_REQUIRED",
@@ -2074,27 +2121,28 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     ],
     "whatToDoNext": "Call 1-800-842-4546 or visit aafprs.org to request a FACE TO FACE intake application. Have your advocate or counselor submit a separation verification letter.",
     "howToApply": "Call 1-800-842-4546 or apply via aafprs.org.",
-    "sourceUrl": "https://www.aafprs.org/AAFPRS/Community/Face_to_Face/Domestic_Violence.aspx",
+    "sourceUrl": "https://www.aafprs.org/Professionals/Development/Humanitarian_Programs/FTF_Domestic_Violence/ERF/FTFDV.aspx",
     "primaryAuthoritativeSource": "AAFPRS Educational and Research Foundation Standards",
-    "lastReviewedDate": "2026-08-22",
-    "dateLastVerified": "2026-08-22",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Pro bono surgical specialty network outside standard social service directories.",
-    "workaround": "Participating board-certified facial plastic surgeons provide low-cost or pro bono reconstructive surgery for injuries caused by domestic violence. The assigned physician explains what can be performed and confirms any costs not covered.",
-    "accessNotes": "Call 1-800-842-4546 or apply through AAFPRS Foundation with documentation from a licensed therapist or domestic violence shelter advocate confirming separation from the abusive partner for at least 12 months.",
+    "workaround": "Volunteer board-certified facial plastic surgeons waive their professional surgical fees for reconstructive surgery to repair facial injuries caused by domestic violence (12-month separation required).",
+    "accessNotes": "Call 1-800-842-4546 or apply through AAFPRS Foundation with advocate letter. Surgeon fees are waived; operating facility and anesthesia charges vary by hospital.",
     "claimProvenances": [
       {
-        "claim": "AAFPRS Foundation FACE TO FACE low-cost or pro bono reconstructive surgery",
-        "primarySourceUrl": "https://www.aafprs.org/AAFPRS/Community/Face_to_Face/Domestic_Violence.aspx",
-        "sourceExcerptOrSummary": "Provides low-cost or pro bono facial plastic and reconstructive surgery for survivors separated for 12+ months with advocate verification. Physician confirms any uncovered costs.",
-        "verificationDate": "2026-08-31"
+        "claim": "AAFPRS Foundation FACE TO FACE reconstructive surgery for domestic violence survivors",
+        "primarySourceUrl": "https://www.aafprs.org/Professionals/Development/Humanitarian_Programs/FTF_Domestic_Violence/ERF/FTFDV.aspx",
+        "sourceExcerptOrSummary": "Volunteer surgeons provide pro bono surgical care for facial injuries to survivors out of the relationship for 12+ months with advocate referral. Facility costs not covered.",
+        "verificationDate": "2026-09-01"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   },
   {
     "id": "removery-ink-tattoo-removal",
-    "name": "Removery INK-itiative (Domestic Violence, Trafficking & Hate Tattoo Removal)",
+    "name": "Removery INK-itiative (Tattoo Removal for Survivors & Recovery)",
     "organization": "Removery Laser Tattoo Removal",
     "state": "US",
     "geography": "Nationwide (Studios across Texas & US)",
@@ -2106,39 +2154,39 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     ],
     "matchTags": [
       "TATTOO_REMOVAL",
-      "BRANDING",
-      "TRAFFICKING",
-      "FORCED_MARKINGS",
+      "DOMESTIC_VIOLENCE",
+      "HUMAN_TRAFFICKING",
+      "HATE_SYMBOLS",
+      "GANG_RECOVERY",
       "PRO_BONO",
       "PHYSICAL_RESTORATION",
       "NO_POLICE_REPORT"
     ],
-    "whatItCanHelpWith": "Provides free laser tattoo removal for eligible populations (including survivors of domestic abuse, human trafficking survivors, formerly incarcerated individuals, and former gang members) who have tattoos in visible locations (hands, neck, face) or gang/hate-related subject matter.",
-    "whatItActuallyProvides": "Clinical PicoWay laser tattoo removal provided at no cost for candidates who meet population, tattoo placement/subject matter, and advocate recommendation criteria as determined by Removery.",
+    "whatItCanHelpWith": "Provides 100% free PicoWay laser tattoo removal for individuals seeking to remove tattoos associated with domestic violence, human trafficking, hate symbols, gang affiliation, or prison history.",
+    "whatItActuallyProvides": "Complete series of professional PicoWay clinical laser tattoo removal treatments at zero cost through Removery's INK-itiative program.",
     "assistanceShapes": [
       "MEDICAL",
       "OTHER"
     ],
     "paymentMethod": "NON_MONETARY_SERVICE",
-    "typicalAmount": "Free clinical laser tattoo removal for qualifying candidates",
-    "knownFundingLimits": "Pro bono community initiative with candidate selection and intake limits determined by Removery across studio locations",
-    "eligibility": "Must be a member of an eligible population (survivors of domestic abuse, survivors of human trafficking, formerly incarcerated individuals, or former gang members) AND have tattoos located on visible areas (hands, neck, or face) and/or gang/hate-related subject matter. Requires an official advocate/agency recommendation.",
+    "typicalAmount": "100% free clinical laser tattoo removal series",
+    "knownFundingLimits": "Pro bono community initiative across all Removery studio locations in Texas (Austin, Dallas, Houston, San Antonio) and nationwide; subject to clinical evaluation and quarterly intake capacity",
+    "eligibility": "Eligible applicant categories include: (1) Survivors of domestic violence seeking tattoo removal; (2) Survivors of human trafficking; (3) Individuals with hate or gang-related symbols; and (4) Formerly incarcerated individuals. Requires a recommendation letter from a community advocate, shelter, parole officer, or social service agency.",
     "documentationRequired": [
-      "Online application with clear photo of tattoo",
-      "Official recommendation or verification letter from a domestic violence shelter, advocate, licensed counselor, social worker, or agency"
+      "Completed online INK-itiative application form",
+      "Clear, well-lit photo of the tattoo(s) requesting removal",
+      "Official recommendation or referral letter from a recognized social service agency, domestic violence shelter, counselor, or community organization"
     ],
-    "referralRequirement": "Official advocate or agency recommendation letter required",
+    "referralRequirement": "Recommendation letter from an advocate, shelter, counselor, or community agency required",
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "None",
     "employmentDependency": "None",
-    "applicationWindow": "Rolling online intake subject to studio capacity",
+    "applicationWindow": "Quarterly intake and rolling application reviews",
     "whatCanBlockAccess": [
-      "ELIGIBLE POPULATIONS: Must be a survivor of domestic abuse, survivor of human trafficking, formerly incarcerated individual, or former gang member",
-      "TATTOO CRITERIA: Tattoo must be in a visible area (hands, neck, or face) and/or involve gang/hate-related iconography",
-      "ADVOCATE RECOMMENDATION: Requires an official recommendation letter from an advocate, shelter, social worker, or referring agency",
-      "INDIVIDUAL DETERMINATION: Removery individually reviews and determines qualifying candidates based on capacity and studio locations",
-      "Requires in-person attendance at a participating Removery clinical studio"
+      "ADVOCATE RECOMMENDATION REQUIRED: Must provide a formal recommendation letter from an advocate, shelter, counselor, or social service agency",
+      "CLINICAL EVALUATION: Acceptance is subject to Removery clinical evaluation, quarterly intake capacity, and treatment feasibility",
+      "Requires physical travel to a Removery clinical studio (multiple locations across Texas and nationwide)"
     ],
     "accessFrictions": [
       "ONLINE_APPLICATION",
@@ -2146,25 +2194,26 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Visit removery.com/about/ink-initiative, submit the intake form with tattoo photo, and have your advocate or caseworker provide a recommendation letter.",
-    "howToApply": "Apply online at removery.com/about/ink-initiative/ with advocate recommendation.",
-    "sourceUrl": "https://removery.com/about/ink-initiative/",
-    "primaryAuthoritativeSource": "Removery INK Community Initiative Standards",
-    "lastReviewedDate": "2026-08-24",
-    "dateLastVerified": "2026-08-24",
+    "whatToDoNext": "Visit removery.com/services/ink-nitiative, submit the online intake form with a clear tattoo photo, and have your advocate or counselor provide a recommendation letter.",
+    "howToApply": "Apply online at removery.com/services/ink-nitiative/ with tattoo photo and advocate letter.",
+    "sourceUrl": "https://removery.com/services/ink-nitiative/",
+    "primaryAuthoritativeSource": "Removery INK-itiative Official Program Standards (2026)",
+    "lastReviewedDate": "2026-09-01",
+    "dateLastVerified": "2026-09-01",
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
-    "whyMissed": "Private clinical initiative that most non-profit and shelter intake coordinators do not know exists.",
-    "workaround": "Free laser tattoo removal for eligible populations (including domestic abuse and human trafficking survivors) with visible tattoos (hands, neck, face) or hate/gang markings upon advocate recommendation. Studios in Texas (Austin, Dallas, Houston, San Antonio) and nationwide.",
-    "accessNotes": "Apply online at removery.com/about/ink-initiative with a clear photo of the tattoo and advocate recommendation letter.",
+    "whyMissed": "Private clinical social-impact initiative not indexed in traditional municipal social service directories.",
+    "workaround": "Provides 100% free laser removal for tattoos related to domestic violence, human trafficking, hate symbols, or gang recovery with an advocate recommendation letter. Studios located in Austin, Dallas, Houston, San Antonio, and nationwide.",
+    "accessNotes": "Apply online at removery.com/services/ink-nitiative with tattoo photo and recommendation letter from a domestic violence shelter, counselor, or community agency.",
     "claimProvenances": [
       {
-        "claim": "Removery INK-itiative eligibility and placement criteria",
-        "primarySourceUrl": "https://removery.com/about/ink-initiative/",
-        "sourceExcerptOrSummary": "Free laser tattoo removal for survivors of domestic abuse, trafficking, formerly incarcerated individuals, and former gang members with visible tattoos (hands, neck, face) or hate/gang subject matter, requiring advocate recommendation.",
-        "verificationDate": "2026-08-31"
+        "claim": "Removery INK-itiative pro bono tattoo removal for domestic violence and human trafficking survivors",
+        "primarySourceUrl": "https://removery.com/services/ink-nitiative/",
+        "sourceExcerptOrSummary": "Provides free laser tattoo removal for domestic violence, human trafficking, hate symbols, and gang tattoos upon submission of application, photo, and advocate recommendation.",
+        "verificationDate": "2026-09-01"
       }
-    ]
+    ],
+    "resourceType": "DIRECT_SERVICE"
   }
 ];
 

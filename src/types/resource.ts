@@ -106,6 +106,8 @@ export interface ClaimEvidence {
     | "OFFICIAL_501C3_STANDARDS"
     | "OFFICIAL_PROVIDER_DOCUMENTATION"
     | "ACADEMIC_RESEARCH"
+    | "ACADEMIC_PROJECT_SOURCE"
+    | "OFFICIAL_TECHNICAL_DOCUMENTATION"
     | "MANUFACTURER_DOCUMENTATION"
     | "AGENCY_STAFF"
     | "PUBLIC_AUDIT";
@@ -133,6 +135,8 @@ export interface VerificationProvenance {
     | "OFFICIAL_501C3_STANDARDS"
     | "OFFICIAL_PROVIDER_DOCUMENTATION"
     | "ACADEMIC_RESEARCH"
+    | "ACADEMIC_PROJECT_SOURCE"
+    | "OFFICIAL_TECHNICAL_DOCUMENTATION"
     | "MANUFACTURER_DOCUMENTATION"
     | "PUBLIC_RECORD_AUDIT";
   sourceType:
@@ -143,6 +147,8 @@ export interface VerificationProvenance {
     | "OFFICIAL_501C3_STANDARDS"
     | "OFFICIAL_PROVIDER_DOCUMENTATION"
     | "ACADEMIC_RESEARCH"
+    | "ACADEMIC_PROJECT_SOURCE"
+    | "OFFICIAL_TECHNICAL_DOCUMENTATION"
     | "MANUFACTURER_DOCUMENTATION"
     | "PUBLIC_AUDIT";
   confirmingEntity: string;
@@ -192,6 +198,15 @@ export interface ResourceEligibilityCriterion {
   caveats?: string;
 }
 
+export type ResourceType =
+  | "STATUTORY_RIGHT"
+  | "DIRECT_SERVICE"
+  | "FINANCIAL_ASSISTANCE"
+  | "REFERRAL_NETWORK"
+  | "DIRECTORY"
+  | "SELF_SERVICE_TOOL"
+  | "INFORMATION_ROUTE";
+
 export type MatchCertainty =
   | "LIKELY_MATCH"
   | "WORTH_CHECKING"
@@ -211,6 +226,7 @@ export interface Resource {
   id: string;
   name: string;
   organization: string;
+  resourceType?: ResourceType;
   state: string; // 'TX' or 'US' or 2-letter state code
   county?: string;
   cities?: string[];

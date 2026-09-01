@@ -1,0 +1,144 @@
+# MAPS WITH TEETH — PHASE 1 DETERMINISTIC MATCHING BASELINE & FREEZE
+
+**Date:** September 1, 2026  
+**Milestone:** Phase 1 Deterministic Matching Prototype & Semantic Hardening Freeze  
+**Branch:** `main`  
+**Repository State:** Frozen baseline for Phase 2 UI and Intake integration
+
+---
+
+## 1. Executive Summary
+
+Phase 1 establishes a deterministic, explainable routing engine evaluated against the frozen 47-resource canonical registry. The matcher models five independent truth dimensions (`relevanceStatus`, `applicabilityStatus`, `eligibilityStatus`, `readinessStatus`, `availabilityStatus`), preventing the conflation of eligibility, evidence, and operational capacity. 
+
+Unknown facts are strictly preserved as unknown, ensuring that absence of information never creates inferred qualification or premature false positives.
+
+---
+
+## 2. Catalog & Verification Metrics
+
+### Canonical Registry Totals
+* **Total Canonical Resources:** 47
+* **Publicly Available Resources:** 47
+* **Duplicate Resource IDs:** 0
+
+### Operational Status Breakdown
+* **`ACTIVE` (Operationally Available):** 46
+* **`TEMPORARILY_CLOSED` (Scheduled Reopening):** 1 (`cerf-plus-craft-emergency` — resuming Oct 1, 2026)
+* **`PAUSED` / `CLOSED`:** 0
+
+### Evidence & Semantic Claim Accounting (Single Denominator Model)
+* **Total Material Semantic Claims:** 470 (10 atomic criteria per canonical resource across 47 records)
+  * **Directly Supported (Authoritative Statute / Primary Source):** 449 (95.5%)
+  * **Partially Supported (Discretionary Local Variance / Facility Fees):** 21 (4.5%)
+  * **Inferred Claims:** 0 (0.0%)
+  * **Unverified Claims:** 0 (0.0%)
+  * **Stale Citations:** 0 (0.0%)
+* **Total Structural QA Assertions:** 1,070 (Atomic field, URL, locator, and provenance checks)
+  * **Passed Structural QA:** 1,070 (100.0%)
+  * **Failed Structural QA:** 0 (0.0%)
+
+---
+
+## 3. Disposition of Key Qualification-Governing Claims
+
+| Resource ID | Governing Condition / Citation | Reconciliation Status | Verification Notes |
+|---|---|---|---|
+| `tx-oag-cvc-relocation` | Tex. Code Crim. Proc. Art. 56B.054 | `DIRECTLY_VERIFIED` | 72-hour law enforcement reporting mandate and statutory minor/good-cause exceptions verified from Texas statute. |
+| `safe-connections-act-separation` | 47 U.S.C. § 345 / 47 CFR § 64.6402 | `DIRECTLY_VERIFIED` | 2-business-day line separation timeline and advocate/court documentation options verified from FCC and federal statute. |
+| `usbg-bartender-emergency-assistance` | USBG BEAP Guidelines (2026) | `DIRECTLY_VERIFIED` | 6-month beverage service work history rule verified from USBG National Charity Foundation standards. |
+| `entertainment-community-fund` | ECF Emergency Financial Guidelines | `DIRECTLY_VERIFIED` | Earnings thresholds ($10,000/yr in 3 of 5 yrs general; $5,000/yr in 3 of 5 yrs for dancers) verified from foundation rules. |
+| `removery-ink-tattoo-removal` | Removery INK-itiative Program Rules | `PARTIALLY_VERIFIED` | Advocate recommendation letter requirement directly verified; local clinical studio scheduling and intake capacity are facility-variable. |
+| `face-to-face-reconstructive-surgery` | AAFPRS Foundation Guidelines | `PARTIALLY_VERIFIED` | 12-month physical separation rule directly verified; surgeon time is 100% pro bono but hospital facility and anesthesia fee waivers vary by facility. |
+
+---
+
+## 4. Matcher Architecture & State Model
+
+### 5-Dimensional State Flow
+
+1. **`relevanceStatus` (`RELEVANT` | `NOT_RELEVANT`):**
+   * Reason Codes: `RELEVANCE_EXPLICIT_NEED`, `RELEVANCE_CONTEXTUAL_TRIGGER`, `RELEVANCE_STATUTORY_TRIGGER`, `RELEVANCE_NOT_ESTABLISHED`.
+   * Requires direct alignment with stated barriers or narrow contextual triggers (e.g., tax controversy for innocent spouse relief; job separation for unemployment).
+2. **`availabilityStatus` (`CONFIRMED_AVAILABLE` | `CONDITIONAL` | `UNKNOWN` | `CLOSED` | `NOT_APPLICABLE`):**
+   * Directories (`safe-havens-for-pets`) evaluate as `UNKNOWN` (cannot guarantee live bed capacity).
+   * Time-gated or discretionary funds evaluate as `CONDITIONAL`.
+3. **`applicabilityStatus` (`CONFIRMED` | `POSSIBLE` | `FAILED` | `NOT_APPLICABLE`):**
+   * Evaluates geographic jurisdiction (State/County) and tenancy/employment prerequisites.
+4. **`eligibilityStatus` (`CONFIRMED` | `POSSIBLE` | `FAILED` | `NOT_APPLICABLE`):**
+   * Evaluates mandatory program rules (income thresholds, qualifying crisis criteria, work history).
+5. **`readinessStatus` (`READY` | `MISSING_INFORMATION` | `MISSING_DOCUMENTATION` | `NOT_APPLICABLE`):**
+   * Distinguishes missing user facts from evidence needed in hand for submission.
+
+### Route Tier Mapping
+* **`STRONG_ROUTE`:** RELEVANT + Applicability CONFIRMED + Eligibility CONFIRMED + Availability CONFIRMED_AVAILABLE + (READY | MISSING_DOC).
+* **`CONDITIONAL_ROUTE`:** RELEVANT + Applicability CONFIRMED + Eligibility CONFIRMED + Availability (CONDITIONAL | UNKNOWN).
+* **`POSSIBLE_ROUTE`:** RELEVANT + (Applicability POSSIBLE | Eligibility POSSIBLE | Readiness MISSING_INFO) + 0 Blockers.
+* **`BLOCKED`:** Applicability FAILED | Eligibility FAILED | Availability CLOSED | NOT_RELEVANT.
+
+---
+
+## 5. Resource Types
+
+Every canonical record is tagged with a typed `ResourceType`:
+1. `STATUTORY_RIGHT` (e.g., Tex. Prop. Code § 92.016, Safe Connections Act)
+2. `DIRECT_SERVICE` (e.g., SAFE Alliance, HAWC, Texas ACP)
+3. `FINANCIAL_ASSISTANCE` (e.g., Southern Smoke, Giving Kitchen, Operation Homefront)
+4. `REFERRAL_NETWORK`
+5. `DIRECTORY` (e.g., Safe Havens for Pets)
+6. `SELF_SERVICE_TOOL` (e.g., AirGuard BLE Tracker Detection, FreeFrom Debt Toolkit)
+7. `INFORMATION_ROUTE`
+
+---
+
+## 6. Test Suite Results (19/19 Tests Passed)
+
+### Realistic Multi-Problem Scenarios (Part 1: 8/8 Passed)
+* **Scenario A (DV + Housing + Kids, No Police Report):** Matched Texas lease termination with advocate letter; correctly blocked police-mandated CVC.
+* **Scenario B (Stalking + Phone Control + Relocation):** Matched Safe Connections Act, Texas ACP, AirGuard BLE.
+* **Scenario C (Pet Safety + Houston Shelter):** Matched RedRover Relief, Safe Havens directory; surfaced vehicle gap.
+* **Scenario D (F&B Worker + Financial Emergency):** Matched Southern Smoke, USBG BEAP; blocked Entertainment Community Fund.
+* **Scenario E (Custody Conflict + Bastrop Legal):** Matched Texas Legal Aid, Bastrop CCA; surfaced McKinney-Vento educational rights.
+* **Scenario F (No Tenancy in Texas):** Blocked Texas lease termination and rekeying.
+* **Scenario G (All Unknown Input Facts):** Produced **0 confirmed matches** and 28 possible routes (zero inferred eligibility).
+* **Scenario H (Out-of-Scope Commercial Dispute):** Produced **0 confirmed and 0 possible matches**; recorded catalog gap.
+
+### Adversarial False-Positive Prevention Tests (Part 2: 11/11 Passed)
+* **ADV 1 (Employed DV Survivor, No Job Disruption):** TWC Unemployment correctly excluded.
+* **ADV 2 (DV Survivor, No Tax Dispute):** IRS Innocent Spouse Relief correctly excluded (`NOT_RELEVANT`).
+* **ADV 3 (F&B Worker, No Qualifying Medical/Disaster Crisis):** Giving Kitchen direct grant kept as provisional `POSSIBLE` (Stability Network).
+* **ADV 4 (Non-Tenant):** Texas residential rekeying correctly `BLOCKED`.
+* **ADV 5 (Shared Phone, Missing Documents):** Safe Connections Act classified as `MISSING_DOCUMENTATION`.
+* **ADV 6 (Directory Route):** `safe-havens-for-pets` classified as `availabilityStatus: "UNKNOWN"` (never confirmed available).
+* **ADV 7 (Dynamic Income Not Evaluated):** Modest Needs classified as `POSSIBLE` with `MISSING_DOCUMENTATION` pending paystubs.
+* **ADV 8 (Ambiguous Rural County):** Salvation Army Texas Service Extension classified as `CONDITIONAL` / `POSSIBLE`.
+* **ADV 9 (Deployed Military E-7):** Operation Homefront Deployed pathway correctly `BLOCKED` for exceeding E1-E6 rank limit.
+* **ADV 10 (Wounded Post-9/11 E-7 Veteran):** Operation Homefront Wounded/Ill pathway correctly `CONFIRMED` across all ranks.
+* **ADV 11 (Active Duty Junior Enlisted Without Dependents):** Operation Homefront Active Duty pathway correctly `BLOCKED` for lack of DEERS dependents.
+
+---
+
+## 7. Quality Gate Verification
+
+| Gate Command | Result | Details |
+|---|---|---|
+| `npm run audit:resources` | **PASS** | 47/47 canonical resources verified; 0 quarantined. |
+| `npm run audit:duplicates` | **PASS** | 0 duplicate identifiers or claims. |
+| `npm run audit:imports` | **PASS** | 0 deprecated compatibility imports or research leaks. |
+| `npm run audit:evidence` | **PASS** | 470 semantic claims reconciled (449 directly supported, 21 partially supported). |
+| `npm run audit:drift` | **PASS** | 9/9 threshold rules synchronized between evidence and matcher. |
+| `npm run test:matching` | **PASS** | 19/19 scenarios and adversarial tests passed (100%). |
+| `npx tsc --noEmit` | **PASS** | 0 TypeScript compilation errors. |
+| `npm run build` | **PASS** | Next.js 15 compiled in 2.7s; 26/26 static/dynamic routes generated. |
+
+---
+
+## 8. Explicit Known Limitations
+
+1. **Partially Supported Facility / Discretionary Variances (4.5%):**
+   * `removery-ink-tattoo-removal`: Clinical intake queues and appointment availability depend on individual regional studio capacity.
+   * `face-to-face-reconstructive-surgery`: Volunteer surgeon time is 100% pro bono; operating hospital facility and anesthesia fee waivers vary by surgical facility.
+   * `salvation-army-service-extension-tx` & `svdp-austin-microgrants`: Grant approvals depend on local volunteer committee review and real-time funding availability.
+2. **Catalog Gaps Identified:**
+   * Direct vehicle repair / title loan relief for rural survivors (mitigated via McKinney-Vento transport or CVC relocation when applicable).
+   * Standalone pro bono emergency childcare networks (mitigated via shelter child advocacy and McKinney-Vento educational continuity).
