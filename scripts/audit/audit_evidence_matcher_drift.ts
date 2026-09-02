@@ -84,13 +84,29 @@ export const DRIFT_RULES: DriftRule[] = [
     ruleType: "REPORTING_PREREQUISITE",
     expectedThreshold: "Tex. Code Crim. Proc. Art. 56B.053",
     statutoryOrSourceCitation: "Tex. Code Crim. Proc. Art. 56B.053 (NOT 56B.054)",
-    governingSemanticCondition: "Reasonable period reporting mandate, child victim exemption (Art. 56B.053(b)), extraordinary circumstances extension (Art. 56B.053(c)), zero 72h rule",
+    governingSemanticCondition: "Reasonable period reporting mandate (Art. 56B.053(a)), child victim exemption (Art. 56B.053(c)), AG extraordinary circumstances extension (Art. 56B.053(b)), zero 72h rule",
     validator: (res, claim, prov) => {
       const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''} ${prov?.sourceLocator || ''}`;
       const hasCorrectStatute = text.includes("56B.053") && !text.includes("56B.054");
       const no72Hour = !text.includes("72-hour") && !text.includes("72 hours") && !text.includes("72h");
       const hasReasonablePeriod = text.includes("reasonable period");
-      return hasCorrectStatute && no72Hour && hasReasonablePeriod;
+      const noReversedSubsections = !text.includes("56B.053(b) child") && !text.includes("56B.053(c) extraordinary");
+      return hasCorrectStatute && no72Hour && hasReasonablePeriod && noReversedSubsections;
+    }
+  },
+  {
+    resourceId: "tx-oag-cvc-relocation",
+    evidenceClaimId: "tx-oag-cvc-relocation-covered-expenses",
+    field: "relocationCapCitation",
+    ruleType: "STATUTORY_CITATION",
+    expectedThreshold: "Tex. Code Crim. Proc. Art. 56B.106(c-3)",
+    statutoryOrSourceCitation: "Tex. Code Crim. Proc. Art. 56B.106(c-3)",
+    governingSemanticCondition: "$5,000 aggregate relocation and rental assistance cap under Art. 56B.106(c-3) (NOT 56B.106(a)(3))",
+    validator: (res, claim, prov) => {
+      const text = `${res.whatItCanHelpWith} ${res.typicalAmount} ${res.statuteCitation || ''} ${res.primaryAuthoritativeSource || ''} ${claim?.claimText || ''} ${claim?.sourceLocator || ''} ${prov?.sourceLocator || ''}`;
+      const has56B106c3 = text.includes("56B.106(c-3)");
+      const no56B106a3 = !text.includes("56B.106(a)(3)");
+      return has56B106c3 && no56B106a3;
     }
   },
 

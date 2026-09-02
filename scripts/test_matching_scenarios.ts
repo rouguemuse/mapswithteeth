@@ -3,9 +3,9 @@
  * 
  * Runs the deterministic matcher across:
  * - 8 Realistic Multi-Problem Scenarios (A through H)
- * - 20 Adversarial False-Positive Prevention & Statutory Errata Tests
+ * - 21 Adversarial False-Positive Prevention & Statutory Errata Tests
  * 
- * Total Test Count: 28 Scenarios Evaluated
+ * Total Test Count: 29 Scenarios Evaluated
  */
 
 import { matchSurvivorSituation } from "@/domain/matching/deterministicMatcher";
@@ -337,7 +337,7 @@ export const ADVERSARIAL_SCENARIOS: { id: string; name: string; situation: Survi
     }
   },
 
-  // 3. Texas CVC Art. 56B.053 Reporting Law Tests (ADV 15-20)
+  // 3. Texas CVC Art. 56B.053 Reporting Law Tests (ADV 15-21)
   {
     id: "CVC_AFTER_72_HOURS",
     name: "CVC After 72 Hours: Texas crime reported to law enforcement after 30 days within reasonable period (Must CONFIRM, no 72h cutoff)",
@@ -364,7 +364,8 @@ export const ADVERSARIAL_SCENARIOS: { id: string; name: string; situation: Survi
       isChildVictim: false,
       reportedToLawEnforcement: false,
       policeReportFiled: false,
-      hasExtraordinaryCircumstancesExtension: false
+      hasExtraordinaryCircumstancesExtension: false,
+      hasExtraordinaryCircumstancesExtensionGranted: false
     }
   },
   {
@@ -381,7 +382,7 @@ export const ADVERSARIAL_SCENARIOS: { id: string; name: string; situation: Survi
   },
   {
     id: "CVC_CHILD_REPORTING_EXCEPTION",
-    name: "CVC Child Exception: Child victim without police report (Must CONFIRM reporting prerequisite under Art. 56B.053(b) child exemption)",
+    name: "CVC Child Exception: Child victim without police report (Must CONFIRM reporting prerequisite under Art. 56B.053(c) child exemption)",
     situation: {
       situationId: "cvc-child",
       primaryNeeds: ["rent-deposit", "relocation"],
@@ -395,15 +396,34 @@ export const ADVERSARIAL_SCENARIOS: { id: string; name: string; situation: Survi
   },
   {
     id: "CVC_EXTRAORDINARY_CIRCUMSTANCES",
-    name: "CVC Extraordinary Circumstances: Adult victim with extraordinary circumstances extension (Must CONFIRM reporting under Art. 56B.053(c))",
+    name: "CVC Extraordinary Circumstances: Adult victim with extraordinary circumstances potentially present (Must remain POSSIBLE/UNKNOWN; NEVER automatically assumed granted under Art. 56B.053(b))",
     situation: {
       situationId: "cvc-extra",
       primaryNeeds: ["rent-deposit", "relocation"],
       state: "TX",
       domesticViolence: true,
+      age: 32,
+      isChildVictim: false,
       reportedToLawEnforcement: false,
       policeReportFiled: false,
-      hasExtraordinaryCircumstancesExtension: true
+      hasExtraordinaryCircumstancesExtension: true,
+      cvcReportingExtensionStatus: "POTENTIALLY_APPLICABLE"
+    }
+  },
+  {
+    id: "CVC_REPORTING_EXTENSION_GRANTED",
+    name: "CVC Extension Granted: Adult victim with confirmed AG extraordinary circumstances reporting extension granted (Must CONFIRM reporting prerequisite under Art. 56B.053(b))",
+    situation: {
+      situationId: "cvc-grant",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      age: 32,
+      isChildVictim: false,
+      reportedToLawEnforcement: false,
+      policeReportFiled: false,
+      hasExtraordinaryCircumstancesExtensionGranted: true,
+      cvcReportingExtensionStatus: "GRANTED"
     }
   },
   {
@@ -771,20 +791,34 @@ export function runAllMatchingScenarios() {
     if (test.id === "CVC_CHILD_REPORTING_EXCEPTION") {
       const cvc = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
       if (!cvc) {
-        console.error("FAIL: Texas CVC was blocked for child victim without police report! Art. 56B.053(b) exempts child victims.");
+        console.error("FAIL: Texas CVC was blocked for child victim without police report! Art. 56B.053(c) exempts child victims.");
         advPass = false;
       } else {
-        console.log("PASS: Texas CVC correctly CONFIRMED for child victim under Art. 56B.053(b) exemption.");
+        console.log("PASS: Texas CVC correctly CONFIRMED for child victim under Art. 56B.053(c) exemption.");
       }
     }
 
     if (test.id === "CVC_EXTRAORDINARY_CIRCUMSTANCES") {
-      const cvc = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
-      if (!cvc) {
-        console.error("FAIL: Texas CVC was blocked despite extraordinary circumstances reporting extension!");
+      const cvcMatched = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      const cvcPossible = result.possibleRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (cvcMatched) {
+        console.error("FAIL: Texas CVC was CONFIRMED solely because extraordinary circumstances potentially exist! AG extension must not be automatically assumed.");
+        advPass = false;
+      } else if (cvcPossible) {
+        console.log("PASS: Texas CVC correctly kept as POSSIBLE with MISSING_DOCUMENTATION when extraordinary circumstances are claimed but AG extension is not yet granted (Art. 56B.053(b)).");
+      } else {
+        console.error("FAIL: Texas CVC was unexpectedly missing from possible routes for extraordinary circumstances claim.");
+        advPass = false;
+      }
+    }
+
+    if (test.id === "CVC_REPORTING_EXTENSION_GRANTED") {
+      const cvcMatched = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (!cvcMatched) {
+        console.error("FAIL: Texas CVC was not confirmed despite confirmed OAG reporting extension granted under Art. 56B.053(b)!");
         advPass = false;
       } else {
-        console.log("PASS: Texas CVC correctly CONFIRMED under Art. 56B.053(c) extraordinary circumstances extension.");
+        console.log("PASS: Texas CVC correctly CONFIRMED when OAG reporting extension is granted under Art. 56B.053(b).");
       }
     }
 
@@ -792,11 +826,16 @@ export function runAllMatchingScenarios() {
       const cvcResource = ALL_RESOURCES.find(r => r.id === "tx-oag-cvc-relocation");
       const hasCorrectReportingCitation = cvcResource?.eligibility?.includes("56B.053");
       const hasWrongReportingCitation = cvcResource?.eligibility?.includes("56B.054");
+      const hasCorrectRelocationCitation = cvcResource?.whatItCanHelpWith?.includes("56B.106(c-3)");
+      const hasWrongRelocationCitation = cvcResource?.whatItCanHelpWith?.includes("56B.106(a)(3)");
       if (!hasCorrectReportingCitation || hasWrongReportingCitation) {
         console.error("FAIL: Texas CVC eligibility citation has wrong reporting statute (expected Art. 56B.053, found Art. 56B.054)!");
         advPass = false;
+      } else if (!hasCorrectRelocationCitation || hasWrongRelocationCitation) {
+        console.error("FAIL: Texas CVC relocation cap citation has wrong statute (expected Art. 56B.106(c-3), found Art. 56B.106(a)(3))!");
+        advPass = false;
       } else {
-        console.log("PASS: Texas CVC offense reporting authority verified as Art. 56B.053 (Art. 56B.054 rejected).");
+        console.log("PASS: Texas CVC offense reporting authority verified as Art. 56B.053 and relocation cap verified as Art. 56B.106(c-3).");
       }
     }
 

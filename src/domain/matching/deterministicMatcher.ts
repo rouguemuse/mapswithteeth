@@ -703,55 +703,77 @@ function evaluateQualificationTrace(
       const isChild = (typeof situation.age === "number" && situation.age < 18) || situation.isChildVictim === true;
       const reportedVal = situation.reportedToLawEnforcement !== undefined ? situation.reportedToLawEnforcement : situation.policeReportFiled;
       const hasReport = reportedVal === true || situation.policeReportNumberOrAgencyAvailable === true;
-      const hasExtension = situation.hasExtraordinaryCircumstancesExtension === true;
+      const extensionStatus = situation.cvcReportingExtensionStatus;
+      const extensionGranted = situation.hasExtraordinaryCircumstancesExtensionGranted === true || extensionStatus === "GRANTED";
+      const extensionPotentiallyApplicable = situation.hasExtraordinaryCircumstancesExtension === true || extensionStatus === "POTENTIALLY_APPLICABLE";
+      const extensionDenied = extensionStatus === "DENIED";
       const timingIssue = situation.reportTimingPotentialIssue === true || situation.reportingTimelinessStatus === "POTENTIAL_DELAY_REVIEW";
 
       if (isChild) {
         traces.push({
           conditionId: "cvc-police-report",
-          label: "Child Victim Reporting Exemption (Art. 56B.053(b))",
+          label: "Child Victim Reporting Exemption (Art. 56B.053(c))",
           requiredFactKey: "age",
           resolution: "CONFIRMED",
           survivorFactValue: situation.age || "CHILD_VICTIM",
-          auditExplanation: "Victim is a child under Tex. Code Crim. Proc. Art. 56B.053(b); law enforcement reporting requirement does not apply."
+          auditExplanation: "Victim is a child under Tex. Code Crim. Proc. Art. 56B.053(c); law enforcement reporting requirement does not apply."
+        });
+      } else if (extensionGranted) {
+        traces.push({
+          conditionId: "cvc-police-report",
+          label: "Extraordinary Circumstances Extension Granted (Art. 56B.053(b))",
+          requiredFactKey: "cvcReportingExtensionStatus",
+          resolution: "CONFIRMED",
+          survivorFactValue: "GRANTED",
+          auditExplanation: "Reporting period extended under extraordinary circumstances by OAG determination (Tex. Code Crim. Proc. Art. 56B.053(b))."
         });
       } else if (hasReport) {
         if (timingIssue) {
           traces.push({
             conditionId: "cvc-police-report",
-            label: "Law Enforcement Incident Report (Art. 56B.053)",
+            label: "Law Enforcement Incident Report (Art. 56B.053(a))",
             requiredFactKey: "reportedToLawEnforcement",
             resolution: "UNKNOWN",
             survivorFactValue: "REPORTED_WITH_POTENTIAL_TIMING_REVIEW",
-            auditExplanation: "Criminally injurious conduct reported to law enforcement; timeliness review may be required by OAG under Tex. Code Crim. Proc. Art. 56B.053(a)/(c)."
+            auditExplanation: "Criminally injurious conduct reported to law enforcement; timeliness review may be required by OAG under Tex. Code Crim. Proc. Art. 56B.053(a)/(b)."
           });
         } else {
           traces.push({
             conditionId: "cvc-police-report",
-            label: "Law Enforcement Incident Report (Art. 56B.053)",
+            label: "Law Enforcement Incident Report (Art. 56B.053(a))",
             requiredFactKey: "reportedToLawEnforcement",
             resolution: "CONFIRMED",
             survivorFactValue: true,
-            auditExplanation: "Criminally injurious conduct reported to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053)."
+            auditExplanation: "Criminally injurious conduct reported to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053(a))."
           });
         }
-      } else if (hasExtension) {
+      } else if (extensionPotentiallyApplicable) {
         traces.push({
           conditionId: "cvc-police-report",
-          label: "Extraordinary Circumstances Extension (Art. 56B.053(c))",
-          requiredFactKey: "hasExtraordinaryCircumstancesExtension",
-          resolution: "CONFIRMED",
-          survivorFactValue: true,
-          auditExplanation: "Reporting period extended under extraordinary circumstances by OAG (Tex. Code Crim. Proc. Art. 56B.053(c))."
+          label: "Extraordinary Circumstances Extension Discretion (Art. 56B.053(b))",
+          requiredFactKey: "cvcReportingExtensionStatus",
+          resolution: "UNKNOWN",
+          survivorFactValue: "POTENTIALLY_APPLICABLE",
+          auditExplanation: "Extraordinary circumstances potentially justify extension under Tex. Code Crim. Proc. Art. 56B.053(b); OAG discretionary extension cannot be assumed granted without agency determination."
         });
-      } else if (reportedVal === "UNKNOWN" || reportedVal === undefined) {
+        missingDocumentation.push("OAG Extraordinary Circumstances reporting extension application / determination");
+      } else if (extensionDenied) {
+        traces.push({
+          conditionId: "cvc-police-report",
+          label: "Extraordinary Circumstances Extension Discretion (Art. 56B.053(b))",
+          requiredFactKey: "cvcReportingExtensionStatus",
+          resolution: "FAILED",
+          survivorFactValue: "DENIED",
+          auditExplanation: "OAG reporting extension under Tex. Code Crim. Proc. Art. 56B.053(b) was denied; reporting prerequisite not met."
+        });
+      } else if (reportedVal === "UNKNOWN" || reportedVal === undefined || extensionStatus === "UNKNOWN") {
         traces.push({
           conditionId: "cvc-police-report",
           label: "Law Enforcement Incident Report (Art. 56B.053)",
           requiredFactKey: "reportedToLawEnforcement",
           resolution: "UNKNOWN",
           survivorFactValue: reportedVal,
-          auditExplanation: "Tex. Code Crim. Proc. Art. 56B.053 requires reporting criminally injurious conduct within a reasonable period (unless child victim exception applies); reporting status unknown."
+          auditExplanation: "Tex. Code Crim. Proc. Art. 56B.053 requires reporting criminally injurious conduct within a reasonable period (unless child victim exception under Art. 56B.053(c) applies); reporting status unknown."
         });
         missingDocumentation.push("Police incident report number or LE agency verification");
       } else {

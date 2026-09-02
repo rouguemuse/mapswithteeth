@@ -42,7 +42,7 @@ Unknown facts are strictly preserved as unknown, ensuring that absence of inform
 
 | Resource ID | Governing Condition / Citation | Reconciliation Status | Verification Notes |
 |---|---|---|---|
-| `tx-oag-cvc-relocation` | Tex. Code Crim. Proc. Art. 56B.053 | `DIRECTLY_VERIFIED` | Criminally injurious conduct must be reported to law enforcement within a reasonable period; child victims are exempt under Art. 56B.053(b); OAG may extend for extraordinary circumstances under Art. 56B.053(c). No 72-hour cutoff enforced. Art. 56B.054 governs application review and is not cited as a reporting deadline. |
+| `tx-oag-cvc-relocation` | Tex. Code Crim. Proc. Art. 56B.053 & Art. 56B.106(c-3) | `DIRECTLY_VERIFIED` | **Art. 56B.053(a):** Reasonable-period reporting requirement.<br>**Art. 56B.053(b):** Attorney General discretionary extension for extraordinary circumstances (discretionary review; never automatically assumed granted without agency determination).<br>**Art. 56B.053(c):** Child-victim statutory exemption from reporting requirement.<br>**Art. 56B.106(c)/(c-1):** Relocation and housing-rental compensation eligibility.<br>**Art. 56B.106(c-3):** $5,000 aggregate relocation/housing-rental compensation cap.<br>Art. 56B.054 governs application review/investigation (not a reporting deadline). |
 | `safe-connections-act-separation` | 47 U.S.C. § 345 / 47 CFR § 64.6402 | `DIRECTLY_VERIFIED` | 2-business-day line separation timeline and advocate/court documentation options verified from FCC and federal statute. |
 | `usbg-bartender-emergency-assistance` | USBG BEAP Guidelines (2026) | `DIRECTLY_VERIFIED` | 12-month (1 year) regular full- or part-time beverage service work history rule verified from USBG National Charity Foundation standards. |
 | `entertainment-community-fund` | ECF Emergency Financial Guidelines | `DIRECTLY_VERIFIED` | Earnings thresholds ($10,000/yr in 3 of 5 yrs general; $5,000/yr in 3 of 5 yrs for dancers) verified from foundation rules. |
@@ -89,7 +89,7 @@ Every canonical record is tagged with a typed `ResourceType`:
 
 ---
 
-## 6. Test Suite Results (28/28 Tests Passed)
+## 6. Test Suite Results (29/29 Tests Passed)
 
 ### Realistic Multi-Problem Scenarios (Part 1: 8/8 Passed)
 * **Scenario A (DV + Housing + Kids, No Police Report):** Matched Texas lease termination with advocate letter; correctly blocked police-mandated CVC for adult.
@@ -101,7 +101,7 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **Scenario G (All Unknown Input Facts):** Produced **0 confirmed matches** and 28 possible routes (zero inferred eligibility).
 * **Scenario H (Out-of-Scope Commercial Dispute):** Produced **0 confirmed and 0 possible matches**; recorded catalog gap.
 
-### Adversarial False-Positive Prevention & Boundary Tests (Part 2: 20/20 Passed)
+### Adversarial False-Positive Prevention & Boundary Tests (Part 2: 21/21 Passed)
 * **ADV 1 (Employed DV Survivor, No Job Disruption):** TWC Unemployment correctly excluded.
 * **ADV 2 (DV Survivor, No Tax Dispute):** IRS Innocent Spouse Relief correctly excluded (`NOT_RELEVANT`).
 * **ADV 3 (F&B Worker, No Qualifying Medical/Disaster Crisis):** Giving Kitchen direct grant kept as provisional `POSSIBLE` (Stability Network).
@@ -119,9 +119,10 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **CVC_AFTER_72_HOURS:** Texas CVC correctly `CONFIRMED` for crime report filed after 30 days within reasonable period (no 72-hour cutoff enforced).
 * **CVC_NO_REPORT:** Texas CVC correctly `BLOCKED` for adult victim with known absence of police report (Art. 56B.053).
 * **CVC_REPORT_UNKNOWN:** Texas CVC kept as `POSSIBLE` with `MISSING_DOCUMENTATION` when reporting is unknown (never confirmed).
-* **CVC_CHILD_REPORTING_EXCEPTION:** Texas CVC correctly `CONFIRMED` for child victim without police report under Art. 56B.053(b) statutory exemption.
-* **CVC_EXTRAORDINARY_CIRCUMSTANCES:** Texas CVC correctly `CONFIRMED` under Art. 56B.053(c) extraordinary circumstances extension.
-* **CVC_WRONG_STATUTE_GUARD:** Offense reporting authority verified as Art. 56B.053; rejects Art. 56B.054 substitution.
+* **CVC_CHILD_REPORTING_EXCEPTION:** Texas CVC correctly `CONFIRMED` for child victim without police report under Art. 56B.053(c) statutory exemption.
+* **CVC_EXTRAORDINARY_CIRCUMSTANCES:** Texas CVC kept as `POSSIBLE` with `MISSING_DOCUMENTATION` when extraordinary circumstances are claimed but AG extension is not yet granted (Art. 56B.053(b)). Discretionary extension is never assumed automatically granted.
+* **CVC_REPORTING_EXTENSION_GRANTED:** Texas CVC correctly `CONFIRMED` when OAG reporting extension is verified as granted under Art. 56B.053(b).
+* **CVC_WRONG_STATUTE_GUARD:** Offense reporting authority verified as Art. 56B.053 (rejecting Art. 56B.054) and relocation cap verified as Art. 56B.106(c-3) (rejecting Art. 56B.106(a)(3)).
 
 ---
 
@@ -133,8 +134,8 @@ Every canonical record is tagged with a typed `ResourceType`:
 | `npm run audit:duplicates` | **PASS** | 0 duplicate identifiers or claims. |
 | `npm run audit:imports` | **PASS** | 0 deprecated compatibility imports or research leaks. |
 | `npm run audit:evidence` | **PASS** | 470 Material Semantic Claim Vectors reconciled (449 directly supported, 21 partially supported). |
-| `npm run audit:drift` | **PASS** | 14/14 checks verified across 6 rule types (numeric, jurisdiction, rank, reporting, citation, documentation). |
-| `npm run test:matching` | **PASS** | 28/28 scenarios and adversarial tests passed (100%). |
+| `npm run audit:drift` | **PASS** | 15/15 checks verified across 6 rule types (numeric, jurisdiction, rank, reporting, citation, documentation). |
+| `npm run test:matching` | **PASS** | 29/29 scenarios and adversarial tests passed (100%). |
 | `npx tsc --noEmit` | **PASS** | 0 TypeScript compilation errors. |
 | `npm run build` | **PASS** | Next.js 15 compiled in 2.2s; 26/26 static/dynamic routes generated. |
 

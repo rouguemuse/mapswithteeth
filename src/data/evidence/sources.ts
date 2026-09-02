@@ -9,7 +9,7 @@ export interface AuthoritativeSourceItem {
 export const AUTHORITATIVE_SOURCES: Record<string, AuthoritativeSourceItem> = {
   "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program": {
     "url": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
-    "title": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(a)(3)) / Texas OAG CVC Guidelines",
+    "title": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(c-3)) / Texas OAG CVC Guidelines",
     "publisher": "Office of the Texas Attorney General (OAG)",
     "sourceType": "PRIMARY_STATUTE",
     "lastChecked": "2026-08-31"

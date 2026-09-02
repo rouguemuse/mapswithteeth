@@ -51,6 +51,8 @@ export interface SurvivorSituation {
   reportingTimelinessStatus?: Unknownable<"TIMELY" | "POTENTIAL_DELAY_REVIEW" | "UNKNOWN">;
   isChildVictim?: Unknownable<boolean>;
   hasExtraordinaryCircumstancesExtension?: Unknownable<boolean>;
+  hasExtraordinaryCircumstancesExtensionGranted?: Unknownable<boolean>;
+  cvcReportingExtensionStatus?: Unknownable<"NOT_NEEDED" | "POTENTIALLY_APPLICABLE" | "GRANTED" | "DENIED" | "UNKNOWN">;
   protectiveOrderActive?: Unknownable<boolean>;
   protectiveOrderRequested?: Unknownable<boolean>;
   connectedWithDVAdvocate?: Unknownable<boolean>;

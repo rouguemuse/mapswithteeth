@@ -233,7 +233,7 @@ console.log(`- Failed Structural QA:                ${failures.length} (0.0%)\n`
 
 console.log("=== 4. DISPOSITION OF SIX GOVERNING QUALIFICATION CLAIMS ===");
 const governingClaims = [
-  { resource: "tx-oag-cvc-relocation", status: "DIRECTLY_VERIFIED", claim: "Tex. Code Crim. Proc. Art. 56B.053 (Reasonable period reporting mandate, child victim exemption, & extraordinary circumstances extension standard)" },
+  { resource: "tx-oag-cvc-relocation", status: "DIRECTLY_VERIFIED", claim: "Tex. Code Crim. Proc. Art. 56B.053(a)/(b)/(c) reporting standard & Art. 56B.106(c-3) $5,000 relocation cap" },
   { resource: "safe-connections-act-separation", status: "DIRECTLY_VERIFIED", claim: "47 U.S.C. § 345 / 47 CFR § 64.6402 (2-business-day carrier line separation timeline)" },
   { resource: "usbg-bartender-emergency-assistance", status: "DIRECTLY_VERIFIED", claim: "USBG BEAP Guidelines (12-month / 1-year regular beverage service work history rule)" },
   { resource: "entertainment-community-fund", status: "DIRECTLY_VERIFIED", claim: "ECF 2026 Guidelines ($10k in 3/5 yrs general, $5k in 3/5 yrs for dancers)" },

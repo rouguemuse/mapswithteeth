@@ -31,8 +31,8 @@ export const TEXAS_RESOURCES: Resource[] = [
       "COUNSELING",
       "POLICE_REPORT_REQUIRED"
     ],
-    "whatItCanHelpWith": "Up to $5,000 aggregate relocation and rental assistance for qualifying violent crimes occurring after August 31, 2023 under Tex. Code Crim. Proc. Art. 56B.106(a)(3). Limited to one move per claim, with relocation occurring within 3 years of the crime date. Eligible expenses include rental deposits, rent, moving truck rental, commercial movers, storage units, utility connection/transfer fees, relocation travel, and qualifying temporary emergency lodging.",
-    "whatItActuallyProvides": "Up to $5,000 aggregate relocation and rental assistance for qualifying crimes post-Aug 31, 2023. Payer of last resort; requires itemized documentation.",
+    "whatItCanHelpWith": "Up to $5,000 aggregate relocation and rental assistance for qualifying violent crimes occurring after August 31, 2023 under Tex. Code Crim. Proc. Art. 56B.106(c-3). Limited to one move per claim, with relocation occurring within 3 years of the crime date. Eligible expenses include rental deposits, rent, moving truck rental, commercial movers, storage units, utility connection/transfer fees, relocation travel, and qualifying temporary emergency lodging.",
+    "whatItActuallyProvides": "Up to $5,000 aggregate relocation and rental assistance for qualifying crimes post-Aug 31, 2023 under Tex. Code Crim. Proc. Art. 56B.106(c-3). Payer of last resort; requires itemized documentation.",
     "assistanceShapes": [
       "REIMBURSEMENT",
       "VENDOR_PAYMENT",
@@ -46,9 +46,9 @@ export const TEXAS_RESOURCES: Resource[] = [
       "COUNSELING"
     ],
     "paymentMethod": "REIMBURSEMENT",
-    "typicalAmount": "Up to $5,000 aggregate relocation assistance (post-Aug 31, 2023 offenses; based on verified documented expenses, not automatic flat grant) + up to $700/week lost wages",
-    "knownFundingLimits": "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). One move per incident within 3 years. Payer of last resort.",
-    "eligibility": "Victims of qualifying violent crime or domestic violence in Texas who reported the criminally injurious conduct to law enforcement within a reasonable period (or qualify under statutory child-victim exception or extraordinary circumstances extension in Art. 56B.053) and incurred expenses directly resulting from the crime.",
+    "typicalAmount": "Up to $5,000 aggregate relocation assistance (post-Aug 31, 2023 offenses under Art. 56B.106(c-3); based on verified documented expenses, not automatic flat grant) + up to $700/week lost wages",
+    "knownFundingLimits": "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses under Tex. Code Crim. Proc. Art. 56B.106(c-3) ($2,000 for pre-Sept 1, 2023 crimes). One move per incident within 3 years. Payer of last resort.",
+    "eligibility": "Victims of qualifying violent crime or domestic violence in Texas who reported the criminally injurious conduct to law enforcement within a reasonable period (or qualify under statutory child-victim exception in Art. 56B.053(c) or extraordinary circumstances extension in Art. 56B.053(b)) and incurred expenses directly resulting from the crime.",
     "documentationRequired": [
       "Law enforcement incident report or formal report identifier",
       "Itemized lease agreement, utility receipts, storage invoices, or moving/truck receipts",
@@ -61,7 +61,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "employmentDependency": "None for relocation benefits (employment proof needed only for lost wage claims)",
     "applicationWindow": "Relocation must occur within 3 years of the crime date",
     "whatCanBlockAccess": [
-      "Law enforcement incident report required within a reasonable period (statutory exceptions in Art. 56B.053 apply if victim is a child or for extraordinary circumstances)",
+      "Law enforcement incident report required within a reasonable period (statutory exceptions in Art. 56B.053 apply: child victim exception under Art. 56B.053(c) or extraordinary circumstances extension under Art. 56B.053(b))",
       "Payer of last resort: collateral sources (such as insurance) must be applied first",
       "Direct vendor payment or claimant reimbursement only: not an upfront cash disbursement",
       "Processing time varies: Priority processing may be requested for qualifying urgent relocation needs"
@@ -74,7 +74,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "whatToDoNext": "Apply online through the Texas OAG Crime Victims' Portal (texasattorneygeneral.gov) or meet with a hospital/shelter victim witness counselor. Request priority processing if relocation is imminent.",
     "howToApply": "Apply online through the Texas OAG Crime Victims' Portal or meet with a hospital/shelter victim witness counselor.",
     "sourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
-    "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(a)(3)) / Texas OAG CVC Guidelines",
+    "primaryAuthoritativeSource": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(c-3)) / Texas OAG CVC Guidelines",
     "lastReviewedDate": "2026-08-31",
     "dateLastVerified": "2026-08-31",
     "verificationStatus": "ACTIVE_VERIFIED",
@@ -84,7 +84,7 @@ export const TEXAS_RESOURCES: Resource[] = [
       "sourceType": "PRIMARY_STATUTE",
       "confirmingEntity": "Texas Code of Criminal Procedure Chapter 56B / Texas OAG",
       "criteriaConfirmed": [
-        "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses (Art. 56B.106(a)(3))",
+        "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses (Art. 56B.106(c-3))",
         "One move per claim limitation within 3 years of offense",
         "Itemized reimbursement / vendor-direct payer-of-last-resort mandate",
         "Variable processing time with priority expedited review mechanism"
@@ -93,14 +93,14 @@ export const TEXAS_RESOURCES: Resource[] = [
       "nextScheduledReviewDate": "2026-11-30"
     },
     "isStatutoryRight": true,
-    "statuteCitation": "Tex. Code Crim. Proc. Art. 56B.106(a)(3)",
-    "notes": "Aggregate relocation assistance cap is $5,000 for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). Processing time varies; expedited priority review may be requested.",
+    "statuteCitation": "Tex. Code Crim. Proc. Art. 56B.106(c-3)",
+    "notes": "Aggregate relocation assistance cap is $5,000 for post-Aug 31, 2023 offenses under Art. 56B.106(c-3) ($2,000 for pre-Sept 1, 2023 crimes). Processing time varies; expedited priority review may be requested.",
     "importantLimitations": "Assistance is paid against itemized qualifying expenses up to the statutory cap. One move per claim within 3 years.",
     "claimProvenances": [
       {
         "claim": "Texas Crime Victims' Compensation (CVC) Relocation Assistance ($5,000 cap post-Aug 31, 2023)",
         "primarySourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
-        "sourceExcerptOrSummary": "Tex. Code Crim. Proc. Art. 56B.106(a)(3) authorizes up to $5,000 for relocation expenses for crimes occurring after August 31, 2023.",
+        "sourceExcerptOrSummary": "Tex. Code Crim. Proc. Art. 56B.106(c-3) authorizes up to $5,000 for relocation expenses for crimes occurring after August 31, 2023.",
         "verificationDate": "2026-08-31"
       }
     ],
