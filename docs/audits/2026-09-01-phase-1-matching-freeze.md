@@ -89,7 +89,7 @@ Every canonical record is tagged with a typed `ResourceType`:
 
 ---
 
-## 6. Test Suite Results (27/27 Tests Passed)
+## 6. Test Suite Results (28/28 Tests Passed)
 
 ### Realistic Multi-Problem Scenarios (Part 1: 8/8 Passed)
 * **Scenario A (DV + Housing + Kids, No Police Report):** Matched Texas lease termination with advocate letter; correctly blocked police-mandated CVC for adult.
@@ -101,7 +101,7 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **Scenario G (All Unknown Input Facts):** Produced **0 confirmed matches** and 28 possible routes (zero inferred eligibility).
 * **Scenario H (Out-of-Scope Commercial Dispute):** Produced **0 confirmed and 0 possible matches**; recorded catalog gap.
 
-### Adversarial False-Positive Prevention Tests (Part 2: 19/19 Passed)
+### Adversarial False-Positive Prevention & Boundary Tests (Part 2: 20/20 Passed)
 * **ADV 1 (Employed DV Survivor, No Job Disruption):** TWC Unemployment correctly excluded.
 * **ADV 2 (DV Survivor, No Tax Dispute):** IRS Innocent Spouse Relief correctly excluded (`NOT_RELEVANT`).
 * **ADV 3 (F&B Worker, No Qualifying Medical/Disaster Crisis):** Giving Kitchen direct grant kept as provisional `POSSIBLE` (Stability Network).
@@ -113,14 +113,15 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **ADV 9 (Deployed Military E-7):** Operation Homefront Deployed pathway correctly `BLOCKED` for exceeding E1-E6 rank limit.
 * **ADV 10 (Wounded Post-9/11 E-7 Veteran):** Operation Homefront Wounded/Ill pathway correctly `CONFIRMED` across all ranks.
 * **ADV 11 (Active Duty Junior Enlisted Without Dependents):** Operation Homefront Active Duty pathway correctly `BLOCKED` for lack of DEERS dependents.
-* **ADV 12 (USBG 11-Month Tenure):** USBG BEAP correctly `BLOCKED` for 11 months tenure (12-month requirement enforced).
-* **ADV 13 (USBG 12-Month Tenure):** USBG BEAP correctly `CONFIRMED` for 12 months qualifying tenure.
-* **ADV 14 (USBG Unknown Tenure):** USBG BEAP correctly kept as `POSSIBLE` with `MISSING_INFORMATION` (never confirmed).
-* **ADV 15 (CVC No 72-Hour Cutoff):** Texas CVC correctly `CONFIRMED` for crime report filed within reasonable period.
-* **ADV 16 (CVC Child Victim Exemption):** Texas CVC correctly `CONFIRMED` for child victim without police report under Art. 56B.053(b).
-* **ADV 17 (CVC Extraordinary Circumstances):** Texas CVC correctly `CONFIRMED` under Art. 56B.053(c) extension.
-* **ADV 18 (CVC Unknown Reporting):** Texas CVC correctly kept as `POSSIBLE` with `MISSING_DOCUMENTATION` (never confirmed).
-* **ADV 19 (CVC Known Absence of Reporting):** Texas CVC correctly `BLOCKED` for adult victim with known absence of police report (Art. 56B.053).
+* **USBG_11_MONTHS:** F&B bartender with 11 months tenure correctly `BLOCKED` / `FAILED` for not meeting 12-month tenure prerequisite.
+* **USBG_12_MONTHS:** F&B bartender with 12 months tenure correctly `CONFIRMED` for 12-month qualifying tenure.
+* **USBG_TENURE_UNKNOWN:** F&B bartender with UNKNOWN tenure kept as `POSSIBLE` with `MISSING_INFORMATION` (never confirmed).
+* **CVC_AFTER_72_HOURS:** Texas CVC correctly `CONFIRMED` for crime report filed after 30 days within reasonable period (no 72-hour cutoff enforced).
+* **CVC_NO_REPORT:** Texas CVC correctly `BLOCKED` for adult victim with known absence of police report (Art. 56B.053).
+* **CVC_REPORT_UNKNOWN:** Texas CVC kept as `POSSIBLE` with `MISSING_DOCUMENTATION` when reporting is unknown (never confirmed).
+* **CVC_CHILD_REPORTING_EXCEPTION:** Texas CVC correctly `CONFIRMED` for child victim without police report under Art. 56B.053(b) statutory exemption.
+* **CVC_EXTRAORDINARY_CIRCUMSTANCES:** Texas CVC correctly `CONFIRMED` under Art. 56B.053(c) extraordinary circumstances extension.
+* **CVC_WRONG_STATUTE_GUARD:** Offense reporting authority verified as Art. 56B.053; rejects Art. 56B.054 substitution.
 
 ---
 
@@ -132,8 +133,8 @@ Every canonical record is tagged with a typed `ResourceType`:
 | `npm run audit:duplicates` | **PASS** | 0 duplicate identifiers or claims. |
 | `npm run audit:imports` | **PASS** | 0 deprecated compatibility imports or research leaks. |
 | `npm run audit:evidence` | **PASS** | 470 Material Semantic Claim Vectors reconciled (449 directly supported, 21 partially supported). |
-| `npm run audit:drift` | **PASS** | 14/14 rules synchronized across 6 rule types (numeric, jurisdiction, rank, reporting, citation, documentation). |
-| `npm run test:matching` | **PASS** | 27/27 scenarios and adversarial tests passed (100%). |
+| `npm run audit:drift` | **PASS** | 14/14 checks verified across 6 rule types (numeric, jurisdiction, rank, reporting, citation, documentation). |
+| `npm run test:matching` | **PASS** | 28/28 scenarios and adversarial tests passed (100%). |
 | `npx tsc --noEmit` | **PASS** | 0 TypeScript compilation errors. |
 | `npm run build` | **PASS** | Next.js 15 compiled in 2.2s; 26/26 static/dynamic routes generated. |
 

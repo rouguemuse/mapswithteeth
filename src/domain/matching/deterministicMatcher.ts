@@ -701,27 +701,40 @@ function evaluateQualificationTrace(
 
     case "tx-oag-cvc-relocation": {
       const isChild = (typeof situation.age === "number" && situation.age < 18) || situation.isChildVictim === true;
-      const hasReport = situation.policeReportFiled === true || situation.policeReportNumberOrAgencyAvailable === true;
+      const reportedVal = situation.reportedToLawEnforcement !== undefined ? situation.reportedToLawEnforcement : situation.policeReportFiled;
+      const hasReport = reportedVal === true || situation.policeReportNumberOrAgencyAvailable === true;
       const hasExtension = situation.hasExtraordinaryCircumstancesExtension === true;
+      const timingIssue = situation.reportTimingPotentialIssue === true || situation.reportingTimelinessStatus === "POTENTIAL_DELAY_REVIEW";
 
-      if (hasReport) {
-        traces.push({
-          conditionId: "cvc-police-report",
-          label: "Law Enforcement Incident Report (Art. 56B.053)",
-          requiredFactKey: "policeReportFiled",
-          resolution: "CONFIRMED",
-          survivorFactValue: true,
-          auditExplanation: "Criminally injurious conduct reported to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053)."
-        });
-      } else if (isChild) {
+      if (isChild) {
         traces.push({
           conditionId: "cvc-police-report",
           label: "Child Victim Reporting Exemption (Art. 56B.053(b))",
           requiredFactKey: "age",
           resolution: "CONFIRMED",
           survivorFactValue: situation.age || "CHILD_VICTIM",
-          auditExplanation: "Victim is a child under Tex. Code Crim. Proc. Art. 56B.053(b); reporting requirement does not apply."
+          auditExplanation: "Victim is a child under Tex. Code Crim. Proc. Art. 56B.053(b); law enforcement reporting requirement does not apply."
         });
+      } else if (hasReport) {
+        if (timingIssue) {
+          traces.push({
+            conditionId: "cvc-police-report",
+            label: "Law Enforcement Incident Report (Art. 56B.053)",
+            requiredFactKey: "reportedToLawEnforcement",
+            resolution: "UNKNOWN",
+            survivorFactValue: "REPORTED_WITH_POTENTIAL_TIMING_REVIEW",
+            auditExplanation: "Criminally injurious conduct reported to law enforcement; timeliness review may be required by OAG under Tex. Code Crim. Proc. Art. 56B.053(a)/(c)."
+          });
+        } else {
+          traces.push({
+            conditionId: "cvc-police-report",
+            label: "Law Enforcement Incident Report (Art. 56B.053)",
+            requiredFactKey: "reportedToLawEnforcement",
+            resolution: "CONFIRMED",
+            survivorFactValue: true,
+            auditExplanation: "Criminally injurious conduct reported to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053)."
+          });
+        }
       } else if (hasExtension) {
         traces.push({
           conditionId: "cvc-police-report",
@@ -731,13 +744,13 @@ function evaluateQualificationTrace(
           survivorFactValue: true,
           auditExplanation: "Reporting period extended under extraordinary circumstances by OAG (Tex. Code Crim. Proc. Art. 56B.053(c))."
         });
-      } else if (situation.policeReportFiled === "UNKNOWN" || situation.policeReportFiled === undefined) {
+      } else if (reportedVal === "UNKNOWN" || reportedVal === undefined) {
         traces.push({
           conditionId: "cvc-police-report",
           label: "Law Enforcement Incident Report (Art. 56B.053)",
-          requiredFactKey: "policeReportFiled",
+          requiredFactKey: "reportedToLawEnforcement",
           resolution: "UNKNOWN",
-          survivorFactValue: situation.policeReportFiled,
+          survivorFactValue: reportedVal,
           auditExplanation: "Tex. Code Crim. Proc. Art. 56B.053 requires reporting criminally injurious conduct within a reasonable period (unless child victim exception applies); reporting status unknown."
         });
         missingDocumentation.push("Police incident report number or LE agency verification");
@@ -745,7 +758,7 @@ function evaluateQualificationTrace(
         traces.push({
           conditionId: "cvc-police-report",
           label: "Law Enforcement Incident Report (Art. 56B.053)",
-          requiredFactKey: "policeReportFiled",
+          requiredFactKey: "reportedToLawEnforcement",
           resolution: "FAILED",
           survivorFactValue: false,
           auditExplanation: "Texas CVC relocation assistance requires reporting to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053); no report filed and no statutory exception established."

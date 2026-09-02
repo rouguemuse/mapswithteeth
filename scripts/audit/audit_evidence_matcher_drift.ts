@@ -3,13 +3,14 @@
  * 
  * Verifies that every qualification condition, statutory citation, jurisdiction boundary,
  * rank restriction, and numeric threshold used in the deterministic matcher strictly matches
- * the canonical resource and evidence records.
+ * the canonical resource record, explicit evidence claim, and provenance entry.
  * 
  * Prevents silent divergence between the evidence matrix and routing engine.
  */
 
 import { ALL_RESOURCES } from "../../src/data/resources/registry";
 import { RESOURCE_PROVENANCE_REGISTRY } from "../../src/data/evidence/provenance";
+import { CANONICAL_CLAIM_MATRIX } from "../../src/data/evidence/claims";
 
 export type DriftRuleType =
   | "NUMERIC_THRESHOLD"
@@ -21,45 +22,56 @@ export type DriftRuleType =
 
 export interface DriftRule {
   resourceId: string;
+  evidenceClaimId: string;
   field: string;
   ruleType: DriftRuleType;
   expectedThreshold: any;
-  evidenceSourceDescription: string;
-  validator: (resource: any, provenance: any) => boolean;
+  statutoryOrSourceCitation: string;
+  governingSemanticCondition: string;
+  validator: (resource: any, claim: any, provenance: any) => boolean;
 }
 
 export const DRIFT_RULES: DriftRule[] = [
   // 1. NUMERIC THRESHOLDS
   {
     resourceId: "usbg-bartender-emergency-assistance",
+    evidenceClaimId: "usbg-bartender-emergency-assistance-eligibility-primary",
     field: "hospitalityWorkHistoryMonths",
     ruleType: "NUMERIC_THRESHOLD",
     expectedThreshold: 12,
-    evidenceSourceDescription: "USBG BEAP requires 12 months (1 year) documented beverage service employment",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.employmentDependency} ${res.whatCanBlockAccess.join(' ')} ${res.accessNotes || ''}`;
-      return (text.includes("12 months") || text.includes("1 year")) && !text.includes("6 months") && !text.includes("6-month");
+    statutoryOrSourceCitation: "USBG National Charity Foundation BEAP Guidelines (2026)",
+    governingSemanticCondition: "Requires not less than 12 months (1 year) regular beverage service employment",
+    validator: (res, claim) => {
+      const resText = `${res.eligibility} ${res.employmentDependency} ${res.whatCanBlockAccess.join(' ')} ${res.accessNotes || ''}`;
+      const claimText = `${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
+      const has12m = (resText.includes("12 months") || resText.includes("1 year")) && (claimText.includes("12 months") || claimText.includes("1 year") || claimText.includes("one year"));
+      const no6m = !resText.includes("6 months") && !resText.includes("6-month") && !claimText.includes("6 months");
+      return has12m && no6m;
     }
   },
   {
     resourceId: "face-to-face-reconstructive-surgery",
+    evidenceClaimId: "face-to-face-reconstructive-surgery-eligibility-primary",
     field: "separationDurationMonths",
     ruleType: "NUMERIC_THRESHOLD",
     expectedThreshold: 12,
-    evidenceSourceDescription: "FACE TO FACE guidelines require 12 months separation from abuser",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${res.accessNotes || ''}`;
+    statutoryOrSourceCitation: "AAFPRS Foundation FACE TO FACE Program Guidelines",
+    governingSemanticCondition: "Requires 12 months physical separation from abusive partner",
+    validator: (res, claim) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
       return text.includes("12 months") || text.includes("12-month");
     }
   },
   {
     resourceId: "greyhound-home-free",
+    evidenceClaimId: "greyhound-home-free-eligibility-primary",
     field: "ageRange",
     ruleType: "NUMERIC_THRESHOLD",
     expectedThreshold: { min: 12, max: 21 },
-    evidenceSourceDescription: "Greyhound Home Free restricted to runaway/homeless youth aged 12–21",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')}`;
+    statutoryOrSourceCitation: "National Runaway Safeline & Greyhound Home Free Program",
+    governingSemanticCondition: "Restricted to runaway/homeless youth aged 12 through 21",
+    validator: (res, claim) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
       return text.includes("12") && text.includes("21");
     }
   },
@@ -67,12 +79,14 @@ export const DRIFT_RULES: DriftRule[] = [
   // 2. REPORTING PREREQUISITES & CITATIONS
   {
     resourceId: "tx-oag-cvc-relocation",
+    evidenceClaimId: "tx-oag-cvc-relocation-eligibility-primary",
     field: "reportingPrerequisiteCitation",
     ruleType: "REPORTING_PREREQUISITE",
     expectedThreshold: "Tex. Code Crim. Proc. Art. 56B.053",
-    evidenceSourceDescription: "Texas CVC reporting prerequisite is governed by Tex. Code Crim. Proc. Art. 56B.053 with reasonable period, child victim exception, and extraordinary circumstances standard (NOT 56B.054)",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')}`;
+    statutoryOrSourceCitation: "Tex. Code Crim. Proc. Art. 56B.053 (NOT 56B.054)",
+    governingSemanticCondition: "Reasonable period reporting mandate, child victim exemption (Art. 56B.053(b)), extraordinary circumstances extension (Art. 56B.053(c)), zero 72h rule",
+    validator: (res, claim, prov) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''} ${prov?.sourceLocator || ''}`;
       const hasCorrectStatute = text.includes("56B.053") && !text.includes("56B.054");
       const no72Hour = !text.includes("72-hour") && !text.includes("72 hours") && !text.includes("72h");
       const hasReasonablePeriod = text.includes("reasonable period");
@@ -83,23 +97,27 @@ export const DRIFT_RULES: DriftRule[] = [
   // 3. RANK & CATEGORY RESTRICTIONS
   {
     resourceId: "operation-homefront-cfa",
+    evidenceClaimId: "operation-homefront-cfa-eligibility-primary",
     field: "rankLimits",
     ruleType: "RANK_CATEGORY_RESTRICTION",
     expectedThreshold: { activeDutyRank: "E1_E6", deployedRank: "E1_E6", woundedRank: "ALL_RANKS" },
-    evidenceSourceDescription: "Operation Homefront CFA limits Active Duty and Deployed to E1-E6, Wounded to all ranks",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')}`;
+    statutoryOrSourceCitation: "Operation Homefront Critical Financial Assistance Program Rules (2026)",
+    governingSemanticCondition: "Active Duty & Deployed pathways require E-1 to E-6 with DEERS dependents; Wounded pathway open to all ranks",
+    validator: (res, claim) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
       return text.includes("E-1 through E-6") || text.includes("E1-E6");
     }
   },
   {
     resourceId: "entertainment-community-fund",
+    evidenceClaimId: "entertainment-community-fund-eligibility-primary",
     field: "industrySectors",
     ruleType: "RANK_CATEGORY_RESTRICTION",
     expectedThreshold: ["PERFORMING_ARTS", "DANCE"],
-    evidenceSourceDescription: "ECF guidelines cover performing arts and dancers",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${res.matchTags.join(' ')}`;
+    statutoryOrSourceCitation: "Entertainment Community Fund Emergency Financial Assistance Guidelines (2026)",
+    governingSemanticCondition: "Restricted to performing arts workers ($10k earnings in 3/5 yrs) and dancers ($5k earnings in 3/5 yrs)",
+    validator: (res, claim) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${res.matchTags.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
       return text.toLowerCase().includes("performing arts") || text.toLowerCase().includes("entertainment");
     }
   },
@@ -107,52 +125,65 @@ export const DRIFT_RULES: DriftRule[] = [
   // 4. STATUTORY CITATIONS
   {
     resourceId: "tx-statute-lease-termination",
+    evidenceClaimId: "tx-statute-lease-termination-eligibility-primary",
     field: "statuteCitation",
     ruleType: "STATUTORY_CITATION",
     expectedThreshold: "Tex. Prop. Code § 92.016",
-    evidenceSourceDescription: "Texas statutory early lease termination is governed by Tex. Prop. Code § 92.016",
-    validator: (res) => {
-      return res.statuteCitation?.includes("92.016") || res.primaryAuthoritativeSource?.includes("92.016");
+    statutoryOrSourceCitation: "Tex. Prop. Code § 92.016",
+    governingSemanticCondition: "Special right to terminate residential lease early following domestic violence documentation",
+    validator: (res, claim) => {
+      const text = `${res.statuteCitation || ''} ${res.primaryAuthoritativeSource || ''} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
+      return text.includes("92.016");
     }
   },
   {
     resourceId: "safe-connections-act-separation",
+    evidenceClaimId: "safe-connections-act-separation-eligibility-primary",
     field: "statuteCitation",
     ruleType: "STATUTORY_CITATION",
     expectedThreshold: "47 U.S.C. § 345",
-    evidenceSourceDescription: "Safe Connections Act mobile line separation is governed by 47 U.S.C. § 345",
-    validator: (res) => {
-      return res.statuteCitation?.includes("345") || res.primaryAuthoritativeSource?.includes("345");
+    statutoryOrSourceCitation: "47 U.S.C. § 345 / 47 CFR § 64.6402",
+    governingSemanticCondition: "Mandatory mobile line separation within 2 business days upon qualifying documentation",
+    validator: (res, claim) => {
+      const text = `${res.statuteCitation || ''} ${res.primaryAuthoritativeSource || ''} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
+      return text.includes("345");
     }
   },
   {
     resourceId: "tx-statute-rekeying",
+    evidenceClaimId: "tx-statute-rekeying-eligibility-primary",
     field: "statuteCitation",
     ruleType: "STATUTORY_CITATION",
     expectedThreshold: "Tex. Prop. Code §§ 92.153–92.165",
-    evidenceSourceDescription: "Texas statutory residential rekeying is governed by Tex. Prop. Code §§ 92.153–92.165",
-    validator: (res) => {
-      return res.statuteCitation?.includes("92.153") || res.primaryAuthoritativeSource?.includes("92.153");
+    statutoryOrSourceCitation: "Tex. Prop. Code §§ 92.153–92.165",
+    governingSemanticCondition: "Mandatory residential security device rekeying upon tenant request",
+    validator: (res, claim) => {
+      const text = `${res.statuteCitation || ''} ${res.primaryAuthoritativeSource || ''} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
+      return text.includes("92.153");
     }
   },
 
   // 5. JURISDICTION RESTRICTIONS
   {
     resourceId: "tx-oag-acp",
+    evidenceClaimId: "tx-oag-acp-geography",
     field: "jurisdictionRestriction",
     ruleType: "JURISDICTION_RESTRICTION",
     expectedThreshold: "TX_STATEWIDE",
-    evidenceSourceDescription: "Texas Address Confidentiality Program restricted to Texas residents",
+    statutoryOrSourceCitation: "Tex. Code Crim. Proc. Art. 58.051 et seq.",
+    governingSemanticCondition: "Restricted to victims of crime residing in or relocating to Texas",
     validator: (res) => {
       return res.state === "TX" && (res.geography?.includes("Texas") || res.scope === "TEXAS_STATEWIDE");
     }
   },
   {
     resourceId: "safe-alliance-austin",
+    evidenceClaimId: "safe-alliance-austin-geography",
     field: "jurisdictionRestriction",
     ruleType: "JURISDICTION_RESTRICTION",
     expectedThreshold: "TRAVIS_COUNTY",
-    evidenceSourceDescription: "SAFE Alliance shelter and advocacy is localized to Travis County / Austin metro area",
+    statutoryOrSourceCitation: "SAFE Alliance Local Operating Charter (Austin, TX)",
+    governingSemanticCondition: "Direct emergency shelter and rapid rehousing restricted to Travis County / Austin metro area",
     validator: (res) => {
       return res.state === "TX" && (res.geography?.includes("Travis") || res.geography?.includes("Austin"));
     }
@@ -161,10 +192,12 @@ export const DRIFT_RULES: DriftRule[] = [
   // 6. MANDATORY DOCUMENTATION CONDITIONS
   {
     resourceId: "safe-connections-act-separation",
+    evidenceClaimId: "safe-connections-act-separation-doc-1",
     field: "mandatoryDocumentation",
     ruleType: "MANDATORY_DOCUMENTATION",
     expectedThreshold: "LINE_SEPARATION_EVIDENCE",
-    evidenceSourceDescription: "Safe Connections Act requires advocate letter, court order, or police report under 47 U.S.C. § 345",
+    statutoryOrSourceCitation: "47 U.S.C. § 345(c)",
+    governingSemanticCondition: "Requires written line separation request plus advocate statement, court order, or police report",
     validator: (res) => {
       return res.documentationRequired?.some((d: string) =>
         d.toLowerCase().includes("advocate") ||
@@ -175,12 +208,14 @@ export const DRIFT_RULES: DriftRule[] = [
   },
   {
     resourceId: "giving-kitchen-crisis-grants",
+    evidenceClaimId: "giving-kitchen-crisis-grants-eligibility-primary",
     field: "crisisPrerequisite",
     ruleType: "MANDATORY_DOCUMENTATION",
     expectedThreshold: "QUALIFYING_CRISIS",
-    evidenceSourceDescription: "Giving Kitchen direct grant requires illness, injury, disaster, or qualifying crisis",
-    validator: (res) => {
-      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')}`;
+    statutoryOrSourceCitation: "Giving Kitchen Financial Assistance Guidelines (2026)",
+    governingSemanticCondition: "Requires documented illness, injury, disaster, or qualifying catastrophic crisis",
+    validator: (res, claim) => {
+      const text = `${res.eligibility} ${res.whatCanBlockAccess.join(' ')} ${claim?.claimText || ''} ${claim?.quotedOrParaphrasedEvidence || ''}`;
       return text.toLowerCase().includes("illness") || text.toLowerCase().includes("injury") || text.toLowerCase().includes("crisis");
     }
   }
@@ -204,9 +239,10 @@ export function runDriftAudit() {
     passed++;
   }
 
-  // Check 2: Verify each drift rule against canonical resource and provenance
-  DRIFT_RULES.forEach((rule) => {
+  // Checks 2 through 14: Verify each drift rule against canonical resource, evidence claim, and provenance
+  DRIFT_RULES.forEach((rule, idx) => {
     const resource = ALL_RESOURCES.find((r) => r.id === rule.resourceId);
+    const claim = CANONICAL_CLAIM_MATRIX.find((c) => c.claimId === rule.evidenceClaimId);
     const provenance = (RESOURCE_PROVENANCE_REGISTRY as Record<string, any>)[rule.resourceId];
 
     if (!resource) {
@@ -214,13 +250,18 @@ export function runDriftAudit() {
       failed++;
       return;
     }
+    if (!claim) {
+      failures.push(`Missing canonical claim for rule: ${rule.evidenceClaimId}`);
+      failed++;
+      return;
+    }
 
-    const isValid = rule.validator(resource, provenance);
+    const isValid = rule.validator(resource, claim, provenance);
     if (!isValid) {
       failures.push(`Drift detected on ${rule.resourceId} [${rule.ruleType}] (${rule.field}): Canonical text diverges from matcher threshold.`);
       failed++;
     } else {
-      console.log(`[PASS] [${rule.ruleType}] ${rule.resourceId}: Matcher threshold (${rule.field}) synchronized with authoritative evidence.`);
+      console.log(`[PASS ${idx + 2}/14] [${rule.ruleType}] ${rule.resourceId}: Matcher threshold (${rule.field}) synchronized with authoritative evidence claim (${rule.evidenceClaimId}).`);
       passed++;
     }
   });
@@ -234,7 +275,7 @@ export function runDriftAudit() {
     failures.forEach((f) => console.error(`  * ${f}`));
     process.exit(1);
   } else {
-    console.log("PASS: 100% evidence-to-matcher synchronization verified across all rule types. Zero drift detected.\n");
+    console.log("PASS: 100% evidence-to-matcher synchronization verified across all rule types (14/14 checks). Zero drift detected.\n");
   }
 }
 
