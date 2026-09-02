@@ -56,14 +56,14 @@ export const CANONICAL_CLAIM_MATRIX: CanonicalClaimItem[] = [
     "resourceId": "tx-oag-cvc-relocation",
     "claimId": "tx-oag-cvc-relocation-eligibility-primary",
     "claimType": "ELIGIBILITY_RULE",
-    "claimText": "Eligibility: Victims of qualifying violent crime or domestic violence in Texas who reported the incident to law enforcement (or qualify under statutory good-cause/minor exceptions in Art. 56B.054) and incurred expenses directly resulting from the crime.",
+    "claimText": "Eligibility: Victims of qualifying violent crime or domestic violence in Texas who reported the criminally injurious conduct to law enforcement within a reasonable period (or qualify under statutory child-victim exception or extraordinary circumstances extension in Art. 56B.053) and incurred expenses directly resulting from the crime.",
     "sourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
     "sourceTitle": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(a)(3)) / Texas OAG CVC Guidelines",
     "sourcePublisher": "Office of the Texas Attorney General (OAG)",
-    "sourceLocator": "Tex. Code Crim. Proc. Art. 56B.106(a)(3)",
+    "sourceLocator": "Tex. Code Crim. Proc. Art. 56B.053",
     "supportLevel": "DIRECTLY_SUPPORTED",
     "reviewedAt": "2026-08-31",
-    "quotedOrParaphrasedEvidence": "Published criteria: Victims of qualifying violent crime or domestic violence in Texas who reported the incident to law enforcement (or qualify under statutory good-cause/minor exceptions in Art. 56B.054) and incurred expenses directly resulting from the crime."
+    "quotedOrParaphrasedEvidence": "Published criteria: Victims of qualifying violent crime or domestic violence in Texas who reported the criminally injurious conduct to law enforcement within a reasonable period (or qualify under statutory child-victim exception or extraordinary circumstances extension in Art. 56B.053) and incurred expenses directly resulting from the crime."
   },
   {
     "resourceId": "tx-oag-cvc-relocation",
@@ -238,14 +238,14 @@ export const CANONICAL_CLAIM_MATRIX: CanonicalClaimItem[] = [
     "resourceId": "tx-oag-cvc-relocation",
     "claimId": "tx-oag-cvc-relocation-restriction-1",
     "claimType": "SERVICE_RESTRICTION",
-    "claimText": "Service restriction / condition: Police report or law enforcement incident identifier required (statutory reporting exceptions in Art. 56B.054 apply for minors and good cause)",
+    "claimText": "Service restriction / condition: Law enforcement incident report required within a reasonable period (statutory exceptions in Art. 56B.053 apply if victim is a child or for extraordinary circumstances)",
     "sourceUrl": "https://www.texasattorneygeneral.gov/crime-victims/crime-victims-compensation-program",
     "sourceTitle": "Texas Code of Criminal Procedure Chapter 56B (Art. 56B.106(a)(3)) / Texas OAG CVC Guidelines",
     "sourcePublisher": "Office of the Texas Attorney General (OAG)",
-    "sourceLocator": "Tex. Code Crim. Proc. Art. 56B.106(a)(3)",
+    "sourceLocator": "Tex. Code Crim. Proc. Art. 56B.053",
     "supportLevel": "DIRECTLY_SUPPORTED",
     "reviewedAt": "2026-08-31",
-    "quotedOrParaphrasedEvidence": "Limitation: Police report or law enforcement incident identifier required (statutory reporting exceptions in Art. 56B.054 apply for minors and good cause)"
+    "quotedOrParaphrasedEvidence": "Limitation: Law enforcement incident report required within a reasonable period (statutory exceptions in Art. 56B.053 apply if victim is a child or for extraordinary circumstances)"
   },
   {
     "resourceId": "tx-oag-cvc-relocation",

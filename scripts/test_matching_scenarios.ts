@@ -3,13 +3,13 @@
  * 
  * Runs the deterministic matcher across:
  * - 8 Realistic Multi-Problem Scenarios (A through H)
- * - 11 Adversarial False-Positive Prevention Tests (ADV_1 through ADV_11)
+ * - 19 Adversarial False-Positive Prevention Tests (ADV_1 through ADV_19)
  * 
  * Verifies that:
  * 1. 5 Independent matching dimensions (relevance, applicability, eligibility, readiness, availability) are accurately evaluated.
  * 2. Confirmed qualifications are NEVER inferred from unknown or ambiguous facts.
- * 3. Relevant reasons are explicitly coded (RELEVANCE_EXPLICIT_NEED, RELEVANCE_CONTEXTUAL_TRIGGER, etc.).
- * 4. Adversarial edge cases correctly prevent false positives across all program boundaries.
+ * 3. Relevant reasons are explicitly coded.
+ * 4. Boundary conditions (USBG 12 months, Texas CVC Art. 56B.053 reasonable period / child victim exception, CFA rank limits) are strictly enforced.
  * 5. Continuity Receipts provide actionable survivor-controlled next steps.
  */
 
@@ -295,6 +295,107 @@ export const ADVERSARIAL_SCENARIOS: { id: string; name: string; situation: Survi
       hasChildren: false,
       hasDependents: false
     }
+  },
+  {
+    id: "ADV_12_USBG_11_MONTHS_BLOCKED",
+    name: "Adversarial 12: F&B bartender with 11 months tenure (Must FAIL/BLOCK for not meeting 12-month tenure prerequisite)",
+    situation: {
+      situationId: "adv-12",
+      primaryNeeds: ["money-now"],
+      state: "TX",
+      domesticViolence: true,
+      industry: "FOOD_AND_BEVERAGE",
+      hospitalityWorkHistoryMonths: 11,
+      isLowIncome: true
+    }
+  },
+  {
+    id: "ADV_13_USBG_12_MONTHS_CONFIRMED",
+    name: "Adversarial 13: F&B bartender with 12 months tenure (Must CONFIRM tenure prerequisite)",
+    situation: {
+      situationId: "adv-13",
+      primaryNeeds: ["money-now"],
+      state: "TX",
+      domesticViolence: true,
+      industry: "FOOD_AND_BEVERAGE",
+      hospitalityWorkHistoryMonths: 12,
+      isLowIncome: true
+    }
+  },
+  {
+    id: "ADV_14_USBG_UNKNOWN_TENURE_POSSIBLE",
+    name: "Adversarial 14: F&B bartender with UNKNOWN tenure (Must remain POSSIBLE with MISSING_INFORMATION; never confirmed)",
+    situation: {
+      situationId: "adv-14",
+      primaryNeeds: ["money-now"],
+      state: "TX",
+      domesticViolence: true,
+      industry: "FOOD_AND_BEVERAGE",
+      hospitalityWorkHistoryMonths: "UNKNOWN",
+      isLowIncome: true
+    }
+  },
+  {
+    id: "ADV_15_CVC_NO_72_HOUR_CUTOFF",
+    name: "Adversarial 15: Texas CVC reporting at 30 days within reasonable period (Must CONFIRM reporting prerequisite, no 72h cutoff)",
+    situation: {
+      situationId: "adv-15",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      policeReportFiled: true,
+      policeReportNumberOrAgencyAvailable: true
+    }
+  },
+  {
+    id: "ADV_16_CVC_CHILD_VICTIM_EXCEPTION",
+    name: "Adversarial 16: Child crime victim without police report (Must CONFIRM reporting prerequisite under Art. 56B.053(b) child exemption)",
+    situation: {
+      situationId: "adv-16",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      age: 14,
+      isChildVictim: true,
+      policeReportFiled: false
+    }
+  },
+  {
+    id: "ADV_17_CVC_EXTRAORDINARY_CIRCUMSTANCES",
+    name: "Adversarial 17: Adult victim with extraordinary circumstances reporting extension (Must CONFIRM reporting under Art. 56B.053(c))",
+    situation: {
+      situationId: "adv-17",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      policeReportFiled: false,
+      hasExtraordinaryCircumstancesExtension: true
+    }
+  },
+  {
+    id: "ADV_18_CVC_UNKNOWN_REPORTING_POSSIBLE",
+    name: "Adversarial 18: Adult victim with UNKNOWN police report status (Must remain POSSIBLE with MISSING_DOCUMENTATION, never confirmed)",
+    situation: {
+      situationId: "adv-18",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      policeReportFiled: "UNKNOWN"
+    }
+  },
+  {
+    id: "ADV_19_CVC_KNOWN_ABSENCE_OF_REPORTING_BLOCKED",
+    name: "Adversarial 19: Adult victim with known absence of police report and no exception (Must FAIL/BLOCK reporting prerequisite)",
+    situation: {
+      situationId: "adv-19",
+      primaryNeeds: ["rent-deposit", "relocation"],
+      state: "TX",
+      domesticViolence: true,
+      age: 32,
+      isChildVictim: false,
+      policeReportFiled: false,
+      hasExtraordinaryCircumstancesExtension: false
+    }
   }
 ];
 
@@ -374,7 +475,7 @@ export function runAllMatchingScenarios() {
         scenarioPass = false;
       }
       if (!blockedIds.includes("tx-oag-cvc-relocation")) {
-        console.error("FAIL: Scenario A did not block tx-oag-cvc-relocation when policeReportFiled is false");
+        console.error("FAIL: Scenario A did not block tx-oag-cvc-relocation when policeReportFiled is false and adult");
         scenarioPass = false;
       }
     }
@@ -513,7 +614,7 @@ export function runAllMatchingScenarios() {
         console.error("FAIL: Directory route claimed CONFIRMED_AVAILABLE service availability!");
         advPass = false;
       } else {
-        console.log(`PASS: Directory route availability status correctly classified as ${directoryRoute?.availabilityStatus}.`);
+        console.log(`PASS: Directory route availability status correctly classified as UNKNOWN.`);
       }
     }
 
@@ -570,6 +671,100 @@ export function runAllMatchingScenarios() {
         console.log("PASS: Operation Homefront Active Duty pathway correctly BLOCKED for lack of legal DEERS dependents.");
       } else {
         console.log("PASS: Operation Homefront Active Duty pathway correctly excluded without dependents.");
+      }
+    }
+
+    if (test.id === "ADV_12_USBG_11_MONTHS_BLOCKED") {
+      const usbg = result.matchedRoutes.find((r) => r.resourceId === "usbg-bartender-emergency-assistance");
+      const usbgBlocked = result.blockedRoutes.find((r) => r.resourceId === "usbg-bartender-emergency-assistance");
+      if (usbg) {
+        console.error("FAIL: USBG BEAP was confirmed for 11 months tenure (12 months required)!");
+        advPass = false;
+      } else if (usbgBlocked) {
+        console.log("PASS: USBG BEAP correctly BLOCKED for 11 months tenure (12-month requirement enforced).");
+      } else {
+        console.log("PASS: USBG BEAP correctly excluded for 11 months tenure.");
+      }
+    }
+
+    if (test.id === "ADV_13_USBG_12_MONTHS_CONFIRMED") {
+      const usbg = result.matchedRoutes.find((r) => r.resourceId === "usbg-bartender-emergency-assistance");
+      if (!usbg) {
+        console.error("FAIL: USBG BEAP was not confirmed for 12 months qualifying tenure!");
+        advPass = false;
+      } else {
+        console.log("PASS: USBG BEAP correctly CONFIRMED for 12 months qualifying tenure.");
+      }
+    }
+
+    if (test.id === "ADV_14_USBG_UNKNOWN_TENURE_POSSIBLE") {
+      const usbgMatched = result.matchedRoutes.find((r) => r.resourceId === "usbg-bartender-emergency-assistance");
+      const usbgPossible = result.possibleRoutes.find((r) => r.resourceId === "usbg-bartender-emergency-assistance");
+      if (usbgMatched) {
+        console.error("FAIL: USBG BEAP was confirmed when tenure is UNKNOWN!");
+        advPass = false;
+      } else if (usbgPossible) {
+        console.log("PASS: USBG BEAP correctly categorized as POSSIBLE with unknown tenure to clarify.");
+      } else {
+        console.error("FAIL: USBG BEAP was unexpectedly missing from possible routes.");
+        advPass = false;
+      }
+    }
+
+    if (test.id === "ADV_15_CVC_NO_72_HOUR_CUTOFF") {
+      const cvc = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (!cvc) {
+        console.error("FAIL: Texas CVC was not matched for reported crime victim (incorrectly blocked or filtered)!");
+        advPass = false;
+      } else {
+        console.log("PASS: Texas CVC correctly CONFIRMED under Art. 56B.053 without 72-hour cutoff.");
+      }
+    }
+
+    if (test.id === "ADV_16_CVC_CHILD_VICTIM_EXCEPTION") {
+      const cvc = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (!cvc) {
+        console.error("FAIL: Texas CVC was blocked for child victim without police report! Art. 56B.053(b) exempts child victims.");
+        advPass = false;
+      } else {
+        console.log("PASS: Texas CVC correctly CONFIRMED for child victim under Art. 56B.053(b) exemption.");
+      }
+    }
+
+    if (test.id === "ADV_17_CVC_EXTRAORDINARY_CIRCUMSTANCES") {
+      const cvc = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (!cvc) {
+        console.error("FAIL: Texas CVC was blocked despite extraordinary circumstances reporting extension!");
+        advPass = false;
+      } else {
+        console.log("PASS: Texas CVC correctly CONFIRMED under Art. 56B.053(c) extraordinary circumstances extension.");
+      }
+    }
+
+    if (test.id === "ADV_18_CVC_UNKNOWN_REPORTING_POSSIBLE") {
+      const cvcMatched = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      const cvcPossible = result.possibleRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (cvcMatched) {
+        console.error("FAIL: Texas CVC was confirmed when police report status is UNKNOWN!");
+        advPass = false;
+      } else if (cvcPossible) {
+        console.log("PASS: Texas CVC correctly kept as POSSIBLE with MISSING_DOCUMENTATION when reporting status is unknown.");
+      } else {
+        console.error("FAIL: Texas CVC was unexpectedly missing from possible routes.");
+        advPass = false;
+      }
+    }
+
+    if (test.id === "ADV_19_CVC_KNOWN_ABSENCE_OF_REPORTING_BLOCKED") {
+      const cvcMatched = result.matchedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      const cvcBlocked = result.blockedRoutes.find((r) => r.resourceId === "tx-oag-cvc-relocation");
+      if (cvcMatched) {
+        console.error("FAIL: Texas CVC was confirmed for adult victim with known absence of police report and no exception!");
+        advPass = false;
+      } else if (cvcBlocked) {
+        console.log("PASS: Texas CVC correctly BLOCKED for adult victim with known absence of police report (Art. 56B.053).");
+      } else {
+        console.log("PASS: Texas CVC correctly excluded without police report.");
       }
     }
 

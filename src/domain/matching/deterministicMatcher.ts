@@ -700,33 +700,55 @@ function evaluateQualificationTrace(
     }
 
     case "tx-oag-cvc-relocation": {
-      if (situation.policeReportFiled === true || situation.policeReportNumberOrAgencyAvailable === true) {
+      const isChild = (typeof situation.age === "number" && situation.age < 18) || situation.isChildVictim === true;
+      const hasReport = situation.policeReportFiled === true || situation.policeReportNumberOrAgencyAvailable === true;
+      const hasExtension = situation.hasExtraordinaryCircumstancesExtension === true;
+
+      if (hasReport) {
         traces.push({
           conditionId: "cvc-police-report",
-          label: "Law Enforcement Incident Report",
+          label: "Law Enforcement Incident Report (Art. 56B.053)",
           requiredFactKey: "policeReportFiled",
           resolution: "CONFIRMED",
           survivorFactValue: true,
-          auditExplanation: "Law enforcement incident report confirmed on file."
+          auditExplanation: "Criminally injurious conduct reported to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053)."
+        });
+      } else if (isChild) {
+        traces.push({
+          conditionId: "cvc-police-report",
+          label: "Child Victim Reporting Exemption (Art. 56B.053(b))",
+          requiredFactKey: "age",
+          resolution: "CONFIRMED",
+          survivorFactValue: situation.age || "CHILD_VICTIM",
+          auditExplanation: "Victim is a child under Tex. Code Crim. Proc. Art. 56B.053(b); reporting requirement does not apply."
+        });
+      } else if (hasExtension) {
+        traces.push({
+          conditionId: "cvc-police-report",
+          label: "Extraordinary Circumstances Extension (Art. 56B.053(c))",
+          requiredFactKey: "hasExtraordinaryCircumstancesExtension",
+          resolution: "CONFIRMED",
+          survivorFactValue: true,
+          auditExplanation: "Reporting period extended under extraordinary circumstances by OAG (Tex. Code Crim. Proc. Art. 56B.053(c))."
         });
       } else if (situation.policeReportFiled === "UNKNOWN" || situation.policeReportFiled === undefined) {
         traces.push({
           conditionId: "cvc-police-report",
-          label: "Law Enforcement Incident Report",
+          label: "Law Enforcement Incident Report (Art. 56B.053)",
           requiredFactKey: "policeReportFiled",
           resolution: "UNKNOWN",
           survivorFactValue: situation.policeReportFiled,
-          auditExplanation: "Statute / program requires law enforcement reporting (or statutory minor/good cause exception); status unknown."
+          auditExplanation: "Tex. Code Crim. Proc. Art. 56B.053 requires reporting criminally injurious conduct within a reasonable period (unless child victim exception applies); reporting status unknown."
         });
         missingDocumentation.push("Police incident report number or LE agency verification");
       } else {
         traces.push({
           conditionId: "cvc-police-report",
-          label: "Law Enforcement Incident Report",
+          label: "Law Enforcement Incident Report (Art. 56B.053)",
           requiredFactKey: "policeReportFiled",
           resolution: "FAILED",
           survivorFactValue: false,
-          auditExplanation: "Texas CVC relocation assistance strictly requires a law enforcement report (Tex. Code Crim. Proc. Art. 56B)."
+          auditExplanation: "Texas CVC relocation assistance requires reporting to law enforcement within a reasonable period (Tex. Code Crim. Proc. Art. 56B.053); no report filed and no statutory exception established."
         });
       }
       break;
@@ -1596,33 +1618,33 @@ function evaluateQualificationTrace(
       if (situation.industry === "FOOD_AND_BEVERAGE") {
         const tenure = situation.hospitalityWorkHistoryMonths;
         if (typeof tenure === "number") {
-          if (tenure >= 6) {
+          if (tenure >= 12) {
             traces.push({
               conditionId: "usbg-tenure",
-              label: "6-Month Beverage Hospitality Work History",
+              label: "12-Month Beverage Hospitality Work History",
               requiredFactKey: "hospitalityWorkHistoryMonths",
               resolution: "CONFIRMED",
               survivorFactValue: tenure,
-              auditExplanation: `Work history (${tenure} months) satisfies the 6-month minimum threshold.`
+              auditExplanation: `Work history (${tenure} months) satisfies the 12-month (1 year) minimum threshold.`
             });
           } else {
             traces.push({
               conditionId: "usbg-tenure",
-              label: "6-Month Beverage Hospitality Work History",
+              label: "12-Month Beverage Hospitality Work History",
               requiredFactKey: "hospitalityWorkHistoryMonths",
               resolution: "FAILED",
               survivorFactValue: tenure,
-              auditExplanation: `Tenure (${tenure} months) is below the required 6-month beverage hospitality threshold.`
+              auditExplanation: `Tenure (${tenure} months) is below the required 12-month (1 year) beverage hospitality threshold.`
             });
           }
         } else {
           traces.push({
             conditionId: "usbg-tenure",
-            label: "6-Month Beverage Hospitality Work History",
+            label: "12-Month Beverage Hospitality Work History",
             requiredFactKey: "hospitalityWorkHistoryMonths",
             resolution: "UNKNOWN",
             survivorFactValue: tenure,
-            auditExplanation: "Requires at least 6 months of documented beverage service work; tenure unknown."
+            auditExplanation: "Requires at least 12 months (1 year) of documented beverage service work; tenure unknown."
           });
         }
       } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {

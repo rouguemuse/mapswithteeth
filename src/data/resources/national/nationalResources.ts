@@ -1131,9 +1131,9 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "paymentMethod": "SURVIVOR_DIRECT",
     "typicalAmount": "$500 to $2,500 based on documented catastrophic shortfall and foundation review",
     "knownFundingLimits": "Discretionary grant review based on objective hardship criteria and available foundation funding pools",
-    "eligibility": "Must have at least 6 months of verifiable employment in the beverage service industry (bartender, barback, bar server, or service/preparation of alcoholic beverages) immediately prior to the emergency event. Does NOT require membership in the United States Bartenders' Guild.",
+    "eligibility": "Must have at least 12 months (1 year) of verifiable employment as a bartender, barback, or bar server (or service/preparation of alcoholic beverages) performed on a regular full- or part-time basis prior to the emergency event. Does NOT require membership in the United States Bartenders' Guild.",
     "documentationRequired": [
-      "Proof of at least 6 months beverage hospitality employment (paystubs, W-2, 1099, or liquor license/schedule verification)",
+      "Proof of at least 12 months (1 year) beverage hospitality employment (paystubs, W-2, 1099, or liquor license/schedule verification)",
       "Documentation verifying the catastrophic emergency or unexpected financial hardship",
       "Itemized lease, utility, or medical bills supporting the requested amount"
     ],
@@ -1141,10 +1141,10 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "shelterConnectionRequired": false,
     "policeReportRequired": false,
     "incomeRestriction": "Demonstrated emergent financial need / basic necessity shortfall",
-    "employmentDependency": "At least 6 months beverage hospitality employment (bartender, barback, bar server)",
+    "employmentDependency": "At least 12 months (1 year) beverage hospitality employment (bartender, barback, bar server)",
     "applicationWindow": "Rolling online intake (applications processed on an ongoing basis)",
     "whatCanBlockAccess": [
-      "EMPLOYMENT REQUIREMENT: Must verify at least 6 months of employment in the service/preparation of alcoholic beverages",
+      "EMPLOYMENT REQUIREMENT: Must verify at least 12 months (1 year) of regular employment in the service/preparation of alcoholic beverages",
       "DISCRETIONARY FUNDING: Grants are reviewed against objective hardship criteria and are subject to available foundation funding pools",
       "Requires itemized bills verifying the emergent financial crisis"
     ],
@@ -1154,7 +1154,7 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
       "NO_POLICE_REPORT_REQUIRED",
       "NO_SHELTER_STAY_REQUIRED"
     ],
-    "whatToDoNext": "Visit usbgfoundation.org/beap and complete the online grant application. Upload proof of 6+ months bar industry employment and itemized emergency bills.",
+    "whatToDoNext": "Visit usbgfoundation.org/beap and complete the online grant application. Upload proof of 12+ months bar industry employment and itemized emergency bills.",
     "howToApply": "Apply online at usbgfoundation.org/beap.",
     "sourceUrl": "https://www.usbgfoundation.org/beap",
     "primaryAuthoritativeSource": "USBG National Charity Foundation BEAP Guidelines",
@@ -1163,14 +1163,14 @@ export const OTHER_WAYS_THROUGH_RESOURCES: Resource[] = [
     "verificationStatus": "ACTIVE_VERIFIED",
     "isStatutoryRight": false,
     "whyMissed": "Located within beverage industry charity networks; general caseworkers rarely ask about bar service or bartending history.",
-    "workaround": "Open to any bartender, barback, or bar server with 6+ months industry history facing an emergent catastrophic crisis. Membership in USBG is NOT required.",
-    "accessNotes": "Apply online at usbgfoundation.org/beap with 6 months employment verification and emergency bills. Grants are discretionary based on foundation funding.",
+    "workaround": "Open to any bartender, barback, or bar server with 12+ months (1 year) industry history facing an emergent catastrophic crisis. Membership in USBG is NOT required.",
+    "accessNotes": "Apply online at usbgfoundation.org/beap with 12 months (1 year) employment verification and emergency bills. Grants are discretionary based on foundation funding.",
     "notes": "Administered by the USBG National Charity Foundation for beverage industry professionals.",
     "claimProvenances": [
       {
         "claim": "USBG BEAP emergency relief grants for beverage hospitality workers",
         "primarySourceUrl": "https://www.usbgfoundation.org/beap",
-        "sourceExcerptOrSummary": "Provides emergency grants to bartenders, barbacks, and bar servers with 6+ months industry experience facing unforeseen hardship.",
+        "sourceExcerptOrSummary": "Provides emergency grants to bartenders, barbacks, and bar servers with 12+ months (1 year) industry experience facing unforeseen hardship.",
         "verificationDate": "2026-09-01"
       }
     ],

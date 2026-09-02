@@ -48,7 +48,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "paymentMethod": "REIMBURSEMENT",
     "typicalAmount": "Up to $5,000 aggregate relocation assistance (post-Aug 31, 2023 offenses; based on verified documented expenses, not automatic flat grant) + up to $700/week lost wages",
     "knownFundingLimits": "Up to $5,000 aggregate relocation cap for post-Aug 31, 2023 offenses ($2,000 for pre-Sept 1, 2023 crimes). One move per incident within 3 years. Payer of last resort.",
-    "eligibility": "Victims of qualifying violent crime or domestic violence in Texas who reported the incident to law enforcement (or qualify under statutory good-cause/minor exceptions in Art. 56B.054) and incurred expenses directly resulting from the crime.",
+    "eligibility": "Victims of qualifying violent crime or domestic violence in Texas who reported the criminally injurious conduct to law enforcement within a reasonable period (or qualify under statutory child-victim exception or extraordinary circumstances extension in Art. 56B.053) and incurred expenses directly resulting from the crime.",
     "documentationRequired": [
       "Law enforcement incident report or formal report identifier",
       "Itemized lease agreement, utility receipts, storage invoices, or moving/truck receipts",
@@ -61,7 +61,7 @@ export const TEXAS_RESOURCES: Resource[] = [
     "employmentDependency": "None for relocation benefits (employment proof needed only for lost wage claims)",
     "applicationWindow": "Relocation must occur within 3 years of the crime date",
     "whatCanBlockAccess": [
-      "Police report or law enforcement incident identifier required (statutory reporting exceptions in Art. 56B.054 apply for minors and good cause)",
+      "Law enforcement incident report required within a reasonable period (statutory exceptions in Art. 56B.053 apply if victim is a child or for extraordinary circumstances)",
       "Payer of last resort: collateral sources (such as insurance) must be applied first",
       "Direct vendor payment or claimant reimbursement only: not an upfront cash disbursement",
       "Processing time varies: Priority processing may be requested for qualifying urgent relocation needs"

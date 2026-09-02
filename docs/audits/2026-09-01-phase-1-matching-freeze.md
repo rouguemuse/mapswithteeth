@@ -2,7 +2,6 @@
 
 **Date:** September 1, 2026  
 **Milestone:** Phase 1 Deterministic Matching Prototype & Semantic Hardening Freeze  
-**Commit SHA:** `1c720ba`  
 **Branch:** `main`  
 **Repository State:** Frozen baseline for Phase 2 UI and Intake integration
 
@@ -20,16 +19,13 @@ Unknown facts are strictly preserved as unknown, ensuring that absence of inform
 
 ### Canonical Registry Totals
 * **Total Canonical Resources:** 47
-* **Publicly Available Resources:** 47
+* **Publicly Visible Resources:** 47
+* **Currently Operational / ACTIVE:** 46
+* **Temporarily Closed:** 1 (`cerf-plus-craft-emergency` — scheduled reopening October 1, 2026)
 * **Duplicate Resource IDs:** 0
 
-### Operational Status Breakdown
-* **`ACTIVE` (Operationally Available):** 46
-* **`TEMPORARILY_CLOSED` (Scheduled Reopening):** 1 (`cerf-plus-craft-emergency` — resuming Oct 1, 2026)
-* **`PAUSED` / `CLOSED`:** 0
-
 ### Evidence & Semantic Claim Accounting (Single Denominator Model)
-* **Total Material Semantic Claims:** 470 (10 atomic criteria per canonical resource across 47 records)
+* **Total Material Semantic Claim Vectors:** 470 (10 standardized criteria vectors per canonical resource across 47 records)
   * **Directly Supported (Authoritative Statute / Primary Source):** 449 (95.5%)
   * **Partially Supported (Discretionary Local Variance / Facility Fees):** 21 (4.5%)
   * **Inferred Claims:** 0 (0.0%)
@@ -45,9 +41,9 @@ Unknown facts are strictly preserved as unknown, ensuring that absence of inform
 
 | Resource ID | Governing Condition / Citation | Reconciliation Status | Verification Notes |
 |---|---|---|---|
-| `tx-oag-cvc-relocation` | Tex. Code Crim. Proc. Art. 56B.054 | `DIRECTLY_VERIFIED` | 72-hour law enforcement reporting mandate and statutory minor/good-cause exceptions verified from Texas statute. |
+| `tx-oag-cvc-relocation` | Tex. Code Crim. Proc. Art. 56B.053 | `DIRECTLY_VERIFIED` | Criminally injurious conduct must be reported to law enforcement within a reasonable period; child victims are exempt under Art. 56B.053(b); OAG may extend for extraordinary circumstances under Art. 56B.053(c). No 72-hour cutoff enforced. Art. 56B.054 governs application review and is not cited as a reporting deadline. |
 | `safe-connections-act-separation` | 47 U.S.C. § 345 / 47 CFR § 64.6402 | `DIRECTLY_VERIFIED` | 2-business-day line separation timeline and advocate/court documentation options verified from FCC and federal statute. |
-| `usbg-bartender-emergency-assistance` | USBG BEAP Guidelines (2026) | `DIRECTLY_VERIFIED` | 6-month beverage service work history rule verified from USBG National Charity Foundation standards. |
+| `usbg-bartender-emergency-assistance` | USBG BEAP Guidelines (2026) | `DIRECTLY_VERIFIED` | 12-month (1 year) regular full- or part-time beverage service work history rule verified from USBG National Charity Foundation standards. |
 | `entertainment-community-fund` | ECF Emergency Financial Guidelines | `DIRECTLY_VERIFIED` | Earnings thresholds ($10,000/yr in 3 of 5 yrs general; $5,000/yr in 3 of 5 yrs for dancers) verified from foundation rules. |
 | `removery-ink-tattoo-removal` | Removery INK-itiative Program Rules | `PARTIALLY_VERIFIED` | Advocate recommendation letter requirement directly verified; local clinical studio scheduling and intake capacity are facility-variable. |
 | `face-to-face-reconstructive-surgery` | AAFPRS Foundation Guidelines | `PARTIALLY_VERIFIED` | 12-month physical separation rule directly verified; surgeon time is 100% pro bono but hospital facility and anesthesia fee waivers vary by facility. |
@@ -92,10 +88,10 @@ Every canonical record is tagged with a typed `ResourceType`:
 
 ---
 
-## 6. Test Suite Results (19/19 Tests Passed)
+## 6. Test Suite Results (27/27 Tests Passed)
 
 ### Realistic Multi-Problem Scenarios (Part 1: 8/8 Passed)
-* **Scenario A (DV + Housing + Kids, No Police Report):** Matched Texas lease termination with advocate letter; correctly blocked police-mandated CVC.
+* **Scenario A (DV + Housing + Kids, No Police Report):** Matched Texas lease termination with advocate letter; correctly blocked police-mandated CVC for adult.
 * **Scenario B (Stalking + Phone Control + Relocation):** Matched Safe Connections Act, Texas ACP, AirGuard BLE.
 * **Scenario C (Pet Safety + Houston Shelter):** Matched RedRover Relief, Safe Havens directory; surfaced vehicle gap.
 * **Scenario D (F&B Worker + Financial Emergency):** Matched Southern Smoke, USBG BEAP; blocked Entertainment Community Fund.
@@ -104,7 +100,7 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **Scenario G (All Unknown Input Facts):** Produced **0 confirmed matches** and 28 possible routes (zero inferred eligibility).
 * **Scenario H (Out-of-Scope Commercial Dispute):** Produced **0 confirmed and 0 possible matches**; recorded catalog gap.
 
-### Adversarial False-Positive Prevention Tests (Part 2: 11/11 Passed)
+### Adversarial False-Positive Prevention Tests (Part 2: 19/19 Passed)
 * **ADV 1 (Employed DV Survivor, No Job Disruption):** TWC Unemployment correctly excluded.
 * **ADV 2 (DV Survivor, No Tax Dispute):** IRS Innocent Spouse Relief correctly excluded (`NOT_RELEVANT`).
 * **ADV 3 (F&B Worker, No Qualifying Medical/Disaster Crisis):** Giving Kitchen direct grant kept as provisional `POSSIBLE` (Stability Network).
@@ -116,6 +112,14 @@ Every canonical record is tagged with a typed `ResourceType`:
 * **ADV 9 (Deployed Military E-7):** Operation Homefront Deployed pathway correctly `BLOCKED` for exceeding E1-E6 rank limit.
 * **ADV 10 (Wounded Post-9/11 E-7 Veteran):** Operation Homefront Wounded/Ill pathway correctly `CONFIRMED` across all ranks.
 * **ADV 11 (Active Duty Junior Enlisted Without Dependents):** Operation Homefront Active Duty pathway correctly `BLOCKED` for lack of DEERS dependents.
+* **ADV 12 (USBG 11-Month Tenure):** USBG BEAP correctly `BLOCKED` for 11 months tenure (12-month requirement enforced).
+* **ADV 13 (USBG 12-Month Tenure):** USBG BEAP correctly `CONFIRMED` for 12 months qualifying tenure.
+* **ADV 14 (USBG Unknown Tenure):** USBG BEAP correctly kept as `POSSIBLE` with `MISSING_INFORMATION` (never confirmed).
+* **ADV 15 (CVC No 72-Hour Cutoff):** Texas CVC correctly `CONFIRMED` for crime report filed within reasonable period.
+* **ADV 16 (CVC Child Victim Exemption):** Texas CVC correctly `CONFIRMED` for child victim without police report under Art. 56B.053(b).
+* **ADV 17 (CVC Extraordinary Circumstances):** Texas CVC correctly `CONFIRMED` under Art. 56B.053(c) extension.
+* **ADV 18 (CVC Unknown Reporting):** Texas CVC correctly kept as `POSSIBLE` with `MISSING_DOCUMENTATION` (never confirmed).
+* **ADV 19 (CVC Known Absence of Reporting):** Texas CVC correctly `BLOCKED` for adult victim with known absence of police report (Art. 56B.053).
 
 ---
 
@@ -126,11 +130,11 @@ Every canonical record is tagged with a typed `ResourceType`:
 | `npm run audit:resources` | **PASS** | 47/47 canonical resources verified; 0 quarantined. |
 | `npm run audit:duplicates` | **PASS** | 0 duplicate identifiers or claims. |
 | `npm run audit:imports` | **PASS** | 0 deprecated compatibility imports or research leaks. |
-| `npm run audit:evidence` | **PASS** | 470 semantic claims reconciled (449 directly supported, 21 partially supported). |
-| `npm run audit:drift` | **PASS** | 9/9 threshold rules synchronized between evidence and matcher. |
-| `npm run test:matching` | **PASS** | 19/19 scenarios and adversarial tests passed (100%). |
+| `npm run audit:evidence` | **PASS** | 470 Material Semantic Claim Vectors reconciled (449 directly supported, 21 partially supported). |
+| `npm run audit:drift` | **PASS** | 14/14 rules synchronized across 6 rule types (numeric, jurisdiction, rank, reporting, citation, documentation). |
+| `npm run test:matching` | **PASS** | 27/27 scenarios and adversarial tests passed (100%). |
 | `npx tsc --noEmit` | **PASS** | 0 TypeScript compilation errors. |
-| `npm run build` | **PASS** | Next.js 15 compiled in 2.7s; 26/26 static/dynamic routes generated. |
+| `npm run build` | **PASS** | Next.js 15 compiled in 2.2s; 26/26 static/dynamic routes generated. |
 
 ---
 

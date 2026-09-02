@@ -46,6 +46,8 @@ export interface SurvivorSituation {
   // Legal & Administrative Protections
   policeReportFiled?: Unknownable<boolean>;
   policeReportNumberOrAgencyAvailable?: Unknownable<boolean>;
+  isChildVictim?: Unknownable<boolean>;
+  hasExtraordinaryCircumstancesExtension?: Unknownable<boolean>;
   protectiveOrderActive?: Unknownable<boolean>;
   protectiveOrderRequested?: Unknownable<boolean>;
   connectedWithDVAdvocate?: Unknownable<boolean>;
