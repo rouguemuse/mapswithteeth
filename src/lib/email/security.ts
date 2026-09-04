@@ -1,4 +1,4 @@
-﻿/**
+/**
  * FORM PROTECTION & SECURITY UTILITY
  * 
  * Includes:

@@ -17,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Maps With Teeth | Barrier-First Resource Intelligence System</title>
+        <title>Maps With Teeth | Survivor Continuity & Resource Intelligence</title>
         <meta
           name="description"
-          content="A free nationwide resource directory and barrier-first resource intelligence system for people navigating domestic abuse, coercive control, financial abuse, and instability."
+          content="Maps With Teeth is a portable continuity and accountability layer for people navigating abuse across systems that do not share one case file, one jurisdiction, or one map."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MAPS WITH TEETH — CENTRAL FORM EMAIL ROUTING
  * 
  * Strict destination mapping for all public website forms.

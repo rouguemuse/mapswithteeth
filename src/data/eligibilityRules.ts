@@ -1,4 +1,4 @@
-﻿import { ResourceEligibilityCriterion } from "@/types/resource";
+import { ResourceEligibilityCriterion } from "@/types/resource";
 
 export const VERIFIED_ELIGIBILITY_RULES: Record<string, ResourceEligibilityCriterion[]> = {
   "southern-smoke-foundation": [

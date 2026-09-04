@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MAPS WITH TEETH — PRODUCT MATURITY & VERIFICATION SINGLE SOURCE OF TRUTH (SSOT)
  * 
  * Defines standardized lifecycle stages, verification tiers, and roadmap maturity.

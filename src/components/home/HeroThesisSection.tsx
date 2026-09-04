@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export function HeroThesisSection() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#EEE8DD] border border-[#1C1B1A] text-[#1C1B1A] rounded-full text-xs font-mono uppercase tracking-widest font-bold shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#7A2026] animate-pulse" />
-                <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT</span>
+                <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT DESIGN</span>
               </div>
             </div>
 
@@ -51,9 +51,9 @@ export function HeroThesisSection() {
             </div>
 
             {/* Supporting Copy */}
-            <div className="space-y-4 text-[#1C1B1A]">
+            <div className="space-y-4 text-[#1C1D1A]">
               <p className="text-base sm:text-[17px] font-medium leading-relaxed font-sans text-stone-900 max-w-2xl">
-                Maps With Teeth maps the barriers between people and the help they&apos;re supposed to be able to reach.
+                A portable continuity and accountability layer for people navigating abuse across systems that do not share one case file, one jurisdiction, or one map.
               </p>
 
               {/* Compact Barrier List (Field Notation) */}
@@ -70,12 +70,12 @@ export function HeroThesisSection() {
               </div>
 
               <p className="text-sm sm:text-[15px] font-sans text-stone-800 italic">
-                Programs can exist on paper and still be practically unreachable.
+                &ldquo;The survivor should not be the only person holding the whole map.&rdquo;
               </p>
 
               {/* Core Proposition */}
               <div className="text-sm sm:text-base font-sans space-y-1 text-stone-900 pt-1">
-                <p className="font-bold text-[#1C1B1A] text-base sm:text-[17px]">
+                <p className="font-bold text-[#1C1D1A] text-base sm:text-[17px]">
                   Not another resource directory.
                 </p>
                 <p className="text-stone-800 leading-relaxed">
@@ -95,11 +95,11 @@ export function HeroThesisSection() {
               </Link>
 
               <Link
-                href="/how-it-works"
-                className="px-7 py-3.5 bg-[#EEE8DD] hover:bg-[#E5DEC9] border-2 border-[#1C1B1A] text-[#1C1B1A] rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
+                href="/for-partners"
+                className="px-7 py-3.5 bg-[#EEE8DD] hover:bg-[#E5DEC9] border-2 border-[#1C1B1A] text-[#1C1D1A] rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
               >
-                <Compass className="w-4 h-4 text-stone-700" />
-                <span>SEE HOW THE PILOT WORKS</span>
+                <Users className="w-4 h-4 text-stone-700" />
+                <span>PRESSURE-TEST THE MODEL</span>
               </Link>
             </div>
 
@@ -107,15 +107,15 @@ export function HeroThesisSection() {
             <div className="pt-2">
               <div className="p-4 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md flex items-center gap-3.5 text-xs sm:text-sm text-stone-900 max-w-2xl">
                 <div className="w-9 h-9 rounded bg-[#F5F1E8] border border-[#D9D1C4] flex items-center justify-center text-[#7A2026] shrink-0">
-                  <Users className="w-4 h-4" />
+                  <Compass className="w-4 h-4" />
                 </div>
                 <div className="leading-relaxed">
-                  <span>For advocates, researchers, public agencies, labor, and community partners: </span>
+                  <span>For advocates, researchers, public agencies, labor, and potential pilot partners: </span>
                   <Link
-                    href="/feedback"
+                    href="/for-partners"
                     className="text-[#7A2026] font-mono font-bold hover:underline inline-flex items-center gap-1"
                   >
-                    Help us pressure-test the model. Give Feedback →
+                    View Partner Briefing & Roadmap →
                   </Link>
                 </div>
               </div>

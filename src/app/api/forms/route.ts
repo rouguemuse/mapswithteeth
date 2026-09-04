@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { FormCategory, FORM_ROUTING_MAP } from "@/lib/email/routing";
 import {
   checkRateLimit,

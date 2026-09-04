@@ -12,7 +12,10 @@
     "audit:duplicates": "npx tsx scripts/audit/audit_duplicates.js",
     "audit:imports": "node scripts/audit/audit_deprecated_imports.js",
     "audit:drift": "npx tsx scripts/audit/audit_evidence_matcher_drift.ts",
-    "test:matching": "npx tsx scripts/test_matching_scenarios.ts"
+    "test:matching": "npx tsx scripts/test_matching_scenarios.ts",
+    "test:ui": "npx tsx scripts/test_ui_scenarios.ts",
+    "test:reconciliation": "npx tsx scripts/test_reconciliation.ts",
+    "test:tristate": "npx tsx scripts/test_tristate_matrix.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

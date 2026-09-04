@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { StatusBadge, VerificationStatus } from "@/components/ui/StatusBadge";
 
 export function VerificationBadge({

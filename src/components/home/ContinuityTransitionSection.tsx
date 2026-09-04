@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { Search, FolderArchive, Shuffle, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
 

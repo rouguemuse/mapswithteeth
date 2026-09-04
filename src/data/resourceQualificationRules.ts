@@ -1,4 +1,4 @@
-﻿import { ResourceTrigger, ResourceRequirement, ResourceExclusion } from "@/types/qualification";
+import { ResourceTrigger, ResourceRequirement, ResourceExclusion } from "@/types/qualification";
 
 export interface ProgramQualificationProfile {
   resourceId: string;

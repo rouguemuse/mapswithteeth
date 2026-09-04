@@ -3,7 +3,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { CollaboratorRole, CollaboratorSubmission } from "@/types/collaborator";
-import { HeartHandshake, CheckCircle2, ArrowRight, ShieldCheck, Sparkles, Scale, Compass, Loader2 } from "lucide-react";
+import {
+  HeartHandshake,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Sparkles,
+  Scale,
+  Compass,
+  Loader2,
+  Users,
+  Building2,
+  HelpCircle,
+  Code2
+} from "lucide-react";
 
 function BuildWithUsContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,39 +74,98 @@ function BuildWithUsContent() {
   };
 
   const roleOptions: [CollaboratorRole, string][] = [
-    ["FISCAL_SPONSOR", "Fiscal Sponsor / Institutional Host"],
-    ["FOUNDATION_FUNDER", "Foundation / Grant Funder / Donor"],
-    ["SURVIVOR_ADVOCATE", "Domestic Violence / Survivor Advocate"],
-    ["ATTORNEY_LEGAL_RESEARCHER", "Attorney / Legal Researcher"],
-    ["TECH_PRIVACY_SPECIALIST", "Technology & Privacy / Digital Safety Specialist"],
-    ["COMMUNITY_ORGANIZER", "Community Organization / Mutual Aid / Faith Leader"],
-    ["MECHANIC_AUTO_PARTNER", "Mechanic / Auto Repair Partner"],
-    ["LOCKSMITH_PARTNER", "Locksmith / Residential Security Partner"],
-    ["PET_FOSTER_NETWORK", "Pet Foster / Veterinary Care Partner"],
-    ["RESEARCH_VOLUNTEER", "State Research Volunteer"],
+    ["FISCAL_SPONSOR", "Tier 3: Fiscal Sponsor / Institutional Host"],
+    ["FOUNDATION_FUNDER", "Tier 3: Foundation / Grant Funder / Donor"],
+    ["SURVIVOR_ADVOCATE", "Tier 1: Domestic Violence / Survivor Advocate"],
+    ["ATTORNEY_LEGAL_RESEARCHER", "Tier 1: Attorney / Legal Researcher"],
+    ["COMMUNITY_ORGANIZER", "Tier 2: Community Organization / Pilot Partner"],
+    ["PET_FOSTER_NETWORK", "Tier 2: Pet Foster / Veterinary Care Partner"],
+    ["MECHANIC_AUTO_PARTNER", "Tier 2: Mechanic / Auto Repair Partner"],
+    ["LOCKSMITH_PARTNER", "Tier 2: Locksmith / Security Partner"],
+    ["TECH_PRIVACY_SPECIALIST", "Tier 4: Technology & Privacy / Digital Safety Specialist"],
+    ["RESEARCH_VOLUNTEER", "Tier 4: State Research Volunteer"],
     ["OTHER", "Other Collaborative Capacity"],
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 select-none font-sans">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
       {/* Header */}
       <div className="border-b border-[#D9D1C4] pb-6">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
           <div className="flex items-center gap-2 text-[#971F26]">
             <HeartHandshake className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              COLLABORATOR INTAKE & FIELD PARTNERSHIP
+              COLLABORATOR INTAKE & PARTNERSHIP
             </span>
           </div>
           <span className="coord-tick">[WORKING COALITION: CENTRAL TX]</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Build With Us: Join the Working Coalition
+          Build With Us: 4 Tiers of Collaboration
         </h1>
         <p className="text-xs sm:text-sm text-stone-700 mt-2 leading-relaxed font-sans">
-          Building a truly comprehensive barrier-first resource intelligence platform requires cross-disciplinary collaboration. We invite fiscal sponsors, attorneys, advocates, researchers, technologists, trade partners, and funders to join our working coalition.
+          Building a robust continuity layer and barrier-first intelligence system requires cross-disciplinary collaboration. We engage with partners across four distinct tiers:
         </p>
+      </div>
+
+      {/* 4-Tier Hierarchy Cards */}
+      <div className="grid gap-4 sm:grid-cols-2 text-xs">
+        {/* Tier 1 */}
+        <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="font-mono font-bold text-[10px] uppercase text-[#971F26]">TIER 01</span>
+            <HelpCircle className="w-4 h-4 text-stone-600" />
+          </div>
+          <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">
+            Pressure-Test Feedback & Expert Review
+          </h3>
+          <p className="text-stone-800 font-sans leading-relaxed">
+            For frontline survivor advocates, legal aid attorneys, and navigators. Participate in 20–30 minute interviews to critique our intake taxonomy, eligibility rules, and Continuity Receipt format.
+          </p>
+        </div>
+
+        {/* Tier 2 */}
+        <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="font-mono font-bold text-[10px] uppercase text-[#971F26]">TIER 02</span>
+            <Users className="w-4 h-4 text-stone-600" />
+          </div>
+          <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">
+            Pilot & Institutional Partner Exploration
+          </h3>
+          <p className="text-stone-800 font-sans leading-relaxed">
+            For Central Texas agencies, mutual aid networks, and trade partners (mechanics, locksmiths, pet fosters) interested in participating in our 25-person 6-month pilot cohort.
+          </p>
+        </div>
+
+        {/* Tier 3 */}
+        <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="font-mono font-bold text-[10px] uppercase text-[#971F26]">TIER 03</span>
+            <Building2 className="w-4 h-4 text-stone-600" />
+          </div>
+          <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">
+            Fiscal Sponsorship & Philanthropic Interest
+          </h3>
+          <p className="text-stone-800 font-sans leading-relaxed">
+            For 501(c)(3) fiscal sponsor hosts, institutional grantmakers, family foundations, and donor-advised funds (DAFs) exploring pilot funding and governance alignment.
+          </p>
+        </div>
+
+        {/* Tier 4 */}
+        <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="font-mono font-bold text-[10px] uppercase text-[#971F26]">TIER 04</span>
+            <Code2 className="w-4 h-4 text-stone-600" />
+          </div>
+          <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D]">
+            Specialized Research & Tech Collaboration
+          </h3>
+          <p className="text-stone-800 font-sans leading-relaxed">
+            For statutory legal researchers, open-data contributors, and privacy/cryptographic engineers helping harden client-side zero-PII security and audit pipelines.
+          </p>
+        </div>
       </div>
 
       {/* Dedicated Founding Board & Advisory Circle Banner */}

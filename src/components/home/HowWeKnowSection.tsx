@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { CheckCircle2, ShieldCheck, AlertTriangle, AlertCircle, FileText, ArrowRight } from "lucide-react";
 

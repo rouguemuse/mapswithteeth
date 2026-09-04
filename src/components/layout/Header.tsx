@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -16,6 +16,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     { name: "Other Ways Through", href: "/other-ways-through" },
     { name: "Texas Deep Dive", href: "/texas" },
     { name: "Bridge & Continuity", href: "/bridge" },
+    { name: "For Partners", href: "/for-partners" },
     { name: "How It Works", href: "/how-it-works" },
     { name: "About", href: "/about" },
     { name: "Support", href: "/support" },
@@ -54,20 +55,20 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
 
             {/* Single Primary Oxblood CTA on Far Right */}
             <Link
-              href="/ask-us-to-look"
+              href="/for-partners"
               className="px-3.5 py-2 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono shadow-2xs transition-all border border-[#971F26] shrink-0"
             >
-              Ask Us to Look
+              Pressure-Test
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex lg:hidden items-center gap-2">
             <Link
-              href="/ask-us-to-look"
+              href="/for-partners"
               className="px-2.5 py-1.5 bg-[#971F26] text-white rounded text-[10px] font-mono font-bold uppercase tracking-wider shadow-xs"
             >
-              Ask Us to Look
+              For Partners
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -137,6 +138,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
               CONTINUITY & INITIATIVE
             </div>
+            <Link
+              href="/for-partners"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
+                pathname === "/for-partners" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
+              }`}
+            >
+              For Partners & Funders
+            </Link>
             <Link
               href="/bridge"
               onClick={() => setMobileMenuOpen(false)}

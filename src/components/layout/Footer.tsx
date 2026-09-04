@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 
@@ -15,10 +15,10 @@ export function Footer() {
               </div>
             </div>
             <p className="text-stone-200 text-xs sm:text-[13.5px] font-sans leading-relaxed">
-              <strong className="text-white">Two Connected Halves:</strong> Resource Intelligence to find reachable paths around barriers, and Continuity Infrastructure to preserve context across disconnected systems.
+              <strong className="text-white">Maps With Teeth:</strong> A portable continuity and accountability layer for people navigating abuse across systems that do not share one case file, one jurisdiction, or one map.
             </p>
             <div className="text-[11px] text-stone-400 font-mono">
-              [INITIATIVE: BARRIER-FIRST RESOURCE INTELLIGENCE & CONTINUITY INFRASTRUCTURE]
+              [INITIATIVE: SURVIVOR CONTINUITY & RESOURCE INTELLIGENCE]
             </div>
           </div>
 
@@ -59,9 +59,14 @@ export function Footer() {
           {/* Column 2: Continuity Infrastructure */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Continuity & Bridge
+              Continuity & Partners
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px]">
+              <li>
+                <Link href="/for-partners" className="text-red-400 hover:text-red-300 font-bold transition-colors">
+                  For Partners & Funders →
+                </Link>
+              </li>
               <li>
                 <Link href="/bridge" className="text-stone-300 hover:text-white transition-colors">
                   Bridge (Continuity Receipts)

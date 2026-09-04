@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { ChevronRight, DollarSign, Zap, Home, ShieldAlert, Car, Smartphone, FileCheck, HelpCircle } from "lucide-react";
 

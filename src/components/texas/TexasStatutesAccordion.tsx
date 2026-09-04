@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { TEXAS_STATUTES } from "@/data/statutes/texasStatutes";

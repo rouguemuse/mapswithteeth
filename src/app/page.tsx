@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { HeroThesisSection } from "@/components/home/HeroThesisSection";
 import { WhatAreYouTryingToSolveSection } from "@/components/home/WhatAreYouTryingToSolveSection";
 import { BuildAWayThroughSection } from "@/components/home/BuildAWayThroughSection";

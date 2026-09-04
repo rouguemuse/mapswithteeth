@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { MessageSquareQuote, CheckCircle2, ShieldAlert, Sparkles, Compass, Loader2 } from "lucide-react";

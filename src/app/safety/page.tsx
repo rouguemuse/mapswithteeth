@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { ShieldAlert, Smartphone, Wifi, Clock, Lock, Compass, EyeOff, LogOut, ArrowRight } from "lucide-react";
 

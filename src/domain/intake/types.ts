@@ -5,6 +5,16 @@
 
 export type Unknownable<T> = T | "UNKNOWN";
 
+export type IndustryId =
+  | "FOOD_AND_BEVERAGE"
+  | "PERFORMING_ARTS"
+  | "DANCE"
+  | "CRAFT_ARTIST"
+  | "MUSIC"
+  | "HEALTHCARE"
+  | "WRITING"
+  | "GENERAL";
+
 export interface SurvivorSituation {
   situationId?: string;
   timestamp?: string;
@@ -84,16 +94,8 @@ export interface SurvivorSituation {
   hasSafeConnectionsDocumentation?: Unknownable<boolean>;
 
   // Institutional, Union & Industry Affiliations
-  industry?: Unknownable<
-    | "FOOD_AND_BEVERAGE"
-    | "PERFORMING_ARTS"
-    | "DANCE"
-    | "CRAFT_ARTIST"
-    | "MUSIC"
-    | "HEALTHCARE"
-    | "WRITING"
-    | "GENERAL"
-  >;
+  industries?: IndustryId[];
+  industry?: Unknownable<IndustryId>; // Compatibility adapter (primary industry)
   hospitalityWorkHistoryMonths?: Unknownable<number>;
   entertainmentWorkHistoryYears?: Unknownable<number>;
   entertainmentAnnualIncomeYearsMet?: Unknownable<number>;

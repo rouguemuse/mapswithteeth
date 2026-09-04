@@ -302,9 +302,13 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
 
   // K. Industry Emergency Funds
   if (resource.category === "INDUSTRY_EMERGENCY_FUNDS") {
-    if (situation.industry && situation.industry !== "GENERAL" && situation.industry !== "UNKNOWN") {
+    const indList = situation.industries && situation.industries.length > 0
+      ? situation.industries
+      : (situation.industry && situation.industry !== "GENERAL" && situation.industry !== "UNKNOWN" ? [situation.industry] : []);
+
+    if (indList.length > 0) {
       const isFood = resource.id.includes("southern-smoke") || resource.id.includes("giving-kitchen") || resource.id.includes("core-children") || resource.id.includes("usbg");
-      if (isFood && situation.industry === "FOOD_AND_BEVERAGE") {
+      if (isFood && indList.includes("FOOD_AND_BEVERAGE")) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -312,7 +316,7 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
         };
       }
       const isMusic = resource.id === "musicares-emergency-financial";
-      if (isMusic && situation.industry === "MUSIC") {
+      if (isMusic && indList.includes("MUSIC")) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -320,7 +324,7 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
         };
       }
       const isWriting = resource.id === "authors-league-fund";
-      if (isWriting && situation.industry === "WRITING") {
+      if (isWriting && indList.includes("WRITING")) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -328,7 +332,7 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
         };
       }
       const isCraft = resource.id === "cerf-plus-craft-emergency";
-      if (isCraft && situation.industry === "CRAFT_ARTIST") {
+      if (isCraft && indList.includes("CRAFT_ARTIST")) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -336,7 +340,7 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
         };
       }
       const isNursing = resource.id === "nurses-house-emergency-grants";
-      if (isNursing && situation.industry === "HEALTHCARE") {
+      if (isNursing && indList.includes("HEALTHCARE")) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -344,7 +348,7 @@ function checkResourceRelevance(resource: Resource, situation: SurvivorSituation
         };
       }
       const isEnt = resource.id === "entertainment-community-fund";
-      if (isEnt && (situation.industry === "PERFORMING_ARTS" || situation.industry === "DANCE")) {
+      if (isEnt && (indList.includes("PERFORMING_ARTS") || indList.includes("DANCE"))) {
         return {
           isRelevant: true,
           reasonCode: "RELEVANCE_CONTEXTUAL_TRIGGER",
@@ -609,14 +613,14 @@ function evaluateQualificationTrace(
           survivorFactValue: true,
           auditExplanation: "Advocate verification letter for PUCT deposit waiver confirmed."
         });
-      } else if (situation.hasAdvocateVerificationLetter === "UNKNOWN" || situation.hasAdvocateVerificationLetter === undefined) {
+      } else {
         traces.push({
           conditionId: "puct-advocate-letter",
           label: "TCFV / Family Violence Advocate Letter",
           requiredFactKey: "hasAdvocateVerificationLetter",
           resolution: "UNKNOWN",
-          survivorFactValue: situation.hasAdvocateVerificationLetter,
-          auditExplanation: "Requires TCFV victim advocate verification letter; letter status unknown."
+          survivorFactValue: situation.hasAdvocateVerificationLetter ?? "UNKNOWN",
+          auditExplanation: "Requires TCFV victim advocate verification letter; letter status unknown or pending."
         });
         missingDocumentation.push("TCFV victim advocate verification letter for electric deposit waiver");
       }
@@ -685,14 +689,14 @@ function evaluateQualificationTrace(
           survivorFactValue: true,
           auditExplanation: "Qualifying documentation (advocate letter or protective order) confirmed."
         });
-      } else if (situation.hasAdvocateVerificationLetter === "UNKNOWN" || situation.hasAdvocateVerificationLetter === undefined) {
+      } else {
         traces.push({
           conditionId: "lease-doc",
           label: "Tex. Prop. Code § 92.016 Documentation",
           requiredFactKey: "hasAdvocateVerificationLetter",
           resolution: "UNKNOWN",
-          survivorFactValue: situation.hasAdvocateVerificationLetter,
-          auditExplanation: "Requires statutory documentation (protective order or advocate letter); availability unknown."
+          survivorFactValue: situation.hasAdvocateVerificationLetter ?? "UNKNOWN",
+          auditExplanation: "Requires statutory documentation (protective order or advocate letter); availability unknown or pending."
         });
         missingDocumentation.push("Advocate verification letter or temporary protective order");
       }
@@ -766,7 +770,7 @@ function evaluateQualificationTrace(
           survivorFactValue: "DENIED",
           auditExplanation: "OAG reporting extension under Tex. Code Crim. Proc. Art. 56B.053(b) was denied; reporting prerequisite not met."
         });
-      } else if (reportedVal === "UNKNOWN" || reportedVal === undefined || extensionStatus === "UNKNOWN") {
+      } else if (reportedVal === "UNKNOWN" || reportedVal === undefined) {
         traces.push({
           conditionId: "cvc-police-report",
           label: "Law Enforcement Incident Report (Art. 56B.053)",
@@ -854,16 +858,19 @@ function evaluateQualificationTrace(
     }
 
     case "giving-kitchen-crisis-grants": {
-      if (situation.industry === "FOOD_AND_BEVERAGE") {
+      const hasFood = situation.industries?.includes("FOOD_AND_BEVERAGE") || situation.industry === "FOOD_AND_BEVERAGE";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasFood) {
         traces.push({
           conditionId: "gk-industry",
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: situation.industry,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
           auditExplanation: "Food and beverage hospitality employment confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "gk-industry",
           label: "Food & Beverage Industry Employment",
@@ -878,8 +885,8 @@ function evaluateQualificationTrace(
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to food service workers; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to food service workers; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
 
@@ -907,16 +914,19 @@ function evaluateQualificationTrace(
     }
 
     case "core-children-of-restaurant-employees": {
-      if (situation.industry === "FOOD_AND_BEVERAGE") {
+      const hasFood = situation.industries?.includes("FOOD_AND_BEVERAGE") || situation.industry === "FOOD_AND_BEVERAGE";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasFood) {
         traces.push({
           conditionId: "core-industry",
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: situation.industry,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
           auditExplanation: "Food and beverage hospitality employment confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "core-industry",
           label: "Food & Beverage Industry Employment",
@@ -931,8 +941,8 @@ function evaluateQualificationTrace(
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Restricted to food & beverage workers; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Restricted to food & beverage workers; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
 
@@ -968,16 +978,19 @@ function evaluateQualificationTrace(
     }
 
     case "musicares-emergency-financial": {
-      if (situation.industry === "MUSIC") {
+      const hasMusic = situation.industries?.includes("MUSIC") || situation.industry === "MUSIC";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasMusic) {
         traces.push({
           conditionId: "music-industry",
           label: "Music Industry Employment / Credits",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: situation.industry,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
           auditExplanation: "Music industry career confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "music-industry",
           label: "Music Industry Employment / Credits",
@@ -992,24 +1005,27 @@ function evaluateQualificationTrace(
           label: "Music Industry Employment / Credits",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to music professionals; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to music professionals; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "authors-league-fund": {
-      if (situation.industry === "WRITING" || situation.isAuthorOrDramatist === true) {
+      const hasWriting = situation.industries?.includes("WRITING") || situation.industry === "WRITING" || situation.isAuthorOrDramatist === true;
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined) && (situation.isAuthorOrDramatist === "UNKNOWN" || situation.isAuthorOrDramatist === undefined);
+
+      if (hasWriting) {
         traces.push({
           conditionId: "writing-industry",
           label: "Professional Author / Dramatist Career",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: true,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry || true,
           auditExplanation: "Professional author/dramatist career confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "writing-industry",
           label: "Professional Author / Dramatist Career",
@@ -1024,24 +1040,27 @@ function evaluateQualificationTrace(
           label: "Professional Author / Dramatist Career",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to authors and dramatists; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to authors and dramatists; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "cerf-plus-craft-emergency": {
-      if (situation.industry === "CRAFT_ARTIST" || situation.isCraftArtistSubstantialIncome === true) {
+      const hasCraft = situation.industries?.includes("CRAFT_ARTIST") || situation.industry === "CRAFT_ARTIST" || situation.isCraftArtistSubstantialIncome === true;
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined) && (situation.isCraftArtistSubstantialIncome === "UNKNOWN" || situation.isCraftArtistSubstantialIncome === undefined);
+
+      if (hasCraft) {
         traces.push({
           conditionId: "craft-artist",
           label: "Professional Craft Artist Career",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: true,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry || true,
           auditExplanation: "Professional craft artist career confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "craft-artist",
           label: "Professional Craft Artist Career",
@@ -1056,24 +1075,27 @@ function evaluateQualificationTrace(
           label: "Professional Craft Artist Career",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to professional craft artists; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to professional craft artists; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "nurses-house-emergency-grants": {
-      if (situation.industry === "HEALTHCARE" || situation.isRegisteredNurse === true) {
+      const hasNurse = situation.industries?.includes("HEALTHCARE") || situation.industry === "HEALTHCARE" || situation.isRegisteredNurse === true;
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined) && (situation.isRegisteredNurse === "UNKNOWN" || situation.isRegisteredNurse === undefined);
+
+      if (hasNurse) {
         traces.push({
           conditionId: "nursing-license",
           label: "Registered Nurse (RN) Licensure",
           requiredFactKey: "isRegisteredNurse",
           resolution: "CONFIRMED",
-          survivorFactValue: true,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry || true,
           auditExplanation: "Registered nurse licensure confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "nursing-license",
           label: "Registered Nurse (RN) Licensure",
@@ -1088,8 +1110,8 @@ function evaluateQualificationTrace(
           label: "Registered Nurse (RN) Licensure",
           requiredFactKey: "isRegisteredNurse",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to registered nurses; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to registered nurses; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
@@ -1618,16 +1640,19 @@ function evaluateQualificationTrace(
     }
 
     case "southern-smoke-foundation": {
-      if (situation.industry === "FOOD_AND_BEVERAGE") {
+      const hasFood = situation.industries?.includes("FOOD_AND_BEVERAGE") || situation.industry === "FOOD_AND_BEVERAGE";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasFood) {
         traces.push({
           conditionId: "ss-industry",
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: situation.industry,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
           auditExplanation: "Food and beverage hospitality employment confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "ss-industry",
           label: "Food & Beverage Industry Employment",
@@ -1642,15 +1667,18 @@ function evaluateQualificationTrace(
           label: "Food & Beverage Industry Employment",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to food service workers; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to food service workers; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "usbg-bartender-emergency-assistance": {
-      if (situation.industry === "FOOD_AND_BEVERAGE") {
+      const hasFood = situation.industries?.includes("FOOD_AND_BEVERAGE") || situation.industry === "FOOD_AND_BEVERAGE";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasFood) {
         const tenure = situation.hospitalityWorkHistoryMonths;
         if (typeof tenure === "number") {
           if (tenure >= 12) {
@@ -1682,7 +1710,7 @@ function evaluateQualificationTrace(
             auditExplanation: "Requires at least 12 months (1 year) of documented beverage service work; tenure unknown."
           });
         }
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "usbg-industry",
           label: "Beverage Hospitality Industry",
@@ -1697,24 +1725,27 @@ function evaluateQualificationTrace(
           label: "Beverage Hospitality Industry",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to beverage hospitality workers; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to beverage hospitality workers; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "entertainment-community-fund": {
-      if (situation.industry === "PERFORMING_ARTS" || situation.industry === "DANCE") {
+      const hasEnt = situation.industries?.includes("PERFORMING_ARTS") || situation.industries?.includes("DANCE") || situation.industry === "PERFORMING_ARTS" || situation.industry === "DANCE";
+      const isIndUnknown = (situation.industries === undefined || situation.industries.length === 0) && (situation.industry === "UNKNOWN" || situation.industry === undefined);
+
+      if (hasEnt) {
         traces.push({
           conditionId: "ecf-industry",
           label: "Performing Arts / Entertainment Career",
           requiredFactKey: "industry",
           resolution: "CONFIRMED",
-          survivorFactValue: situation.industry,
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
           auditExplanation: "Performing arts / entertainment industry affiliation confirmed."
         });
-      } else if (situation.industry === "UNKNOWN" || situation.industry === undefined) {
+      } else if (isIndUnknown) {
         traces.push({
           conditionId: "ecf-industry",
           label: "Performing Arts / Entertainment Career",
@@ -1729,37 +1760,38 @@ function evaluateQualificationTrace(
           label: "Performing Arts / Entertainment Career",
           requiredFactKey: "industry",
           resolution: "FAILED",
-          survivorFactValue: situation.industry,
-          auditExplanation: `Program is restricted to performing arts and entertainment workers; survivor is in ${situation.industry}.`
+          survivorFactValue: situation.industries?.join(", ") || situation.industry,
+          auditExplanation: `Program is restricted to performing arts and entertainment workers; survivor is in ${situation.industries?.join(", ") || situation.industry}.`
         });
       }
       break;
     }
 
     case "irs-innocent-spouse-relief": {
-      if (situation.jointTaxLiabilityCoercion === true || situation.hasCoercedTaxDebt === true) {
+      const taxCoercionVal = situation.hasCoercedTaxDebt !== undefined ? situation.hasCoercedTaxDebt : situation.jointTaxLiabilityCoercion;
+      if (taxCoercionVal === true) {
         traces.push({
           conditionId: "tax-coercion",
           label: "Coerced Joint Tax Liability",
-          requiredFactKey: "jointTaxLiabilityCoercion",
+          requiredFactKey: "hasCoercedTaxDebt",
           resolution: "CONFIRMED",
           survivorFactValue: true,
           auditExplanation: "Joint tax return filing and coerced tax liability confirmed."
         });
-      } else if (situation.jointTaxLiabilityCoercion === "UNKNOWN" || situation.jointTaxLiabilityCoercion === undefined) {
+      } else if (taxCoercionVal === "UNKNOWN" || taxCoercionVal === undefined) {
         traces.push({
           conditionId: "tax-coercion",
           label: "Coerced Joint Tax Liability",
-          requiredFactKey: "jointTaxLiabilityCoercion",
+          requiredFactKey: "hasCoercedTaxDebt",
           resolution: "UNKNOWN",
-          survivorFactValue: situation.jointTaxLiabilityCoercion,
+          survivorFactValue: situation.hasCoercedTaxDebt ?? situation.jointTaxLiabilityCoercion ?? "UNKNOWN",
           auditExplanation: "Requires joint tax return liability resulting from spouse abuse or erroneous items; status unknown."
         });
       } else {
         traces.push({
           conditionId: "tax-coercion",
           label: "Coerced Joint Tax Liability",
-          requiredFactKey: "jointTaxLiabilityCoercion",
+          requiredFactKey: "hasCoercedTaxDebt",
           resolution: "FAILED",
           survivorFactValue: false,
           auditExplanation: "Innocent spouse relief applies only to erroneous items or unpaid taxes from joint tax returns."

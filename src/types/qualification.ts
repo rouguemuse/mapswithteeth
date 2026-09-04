@@ -1,4 +1,4 @@
-﻿export type CriterionOperator =
+export type CriterionOperator =
   | "EQUALS"
   | "NOT_EQUALS"
   | "IN"
