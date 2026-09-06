@@ -199,7 +199,7 @@ export default function ForPartnersPage() {
         </div>
 
         <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-          Maps With Teeth is not a pitch deck or concept mockup. The core resource intelligence engine, statutory database, and intake logic are fully implemented and verified against rigorous automated test suites:
+          Maps With Teeth is not a pitch deck or concept mockup. The core resource intelligence engine, canonical Resource Graph, and intake logic are fully implemented and verified against rigorous automated test suites:
         </p>
 
         {/* Verified Metrics Grid */}
@@ -207,7 +207,7 @@ export default function ForPartnersPage() {
           <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
             <div className="text-2xl sm:text-3xl font-bold text-[#971F26]">47</div>
             <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Audited Records</div>
-            <div className="text-[9.5px] text-stone-500 mt-0.5">100% primary statutes & 501(c)(3) standards</div>
+            <div className="text-[9.5px] text-stone-500 mt-0.5">Primary statutes & program standards</div>
           </div>
 
           <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
@@ -573,45 +573,53 @@ export default function ForPartnersPage() {
         </div>
       </section>
 
-      {/* SECTION 9: FOUNDER EXECUTION */}
+      {/* SECTION 9: FOUNDER & PROJECT DIRECTION */}
       <section className="space-y-4">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-              FOUNDER & LEAD ARCHITECT
+              FOUNDER & PROJECT DIRECTOR
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              Founder Execution & Architectural Rigor
+              Founder Background & Project Direction
             </h2>
           </div>
-          <span className="coord-tick">[JAYME VOLSTAD · INITIATIVE LEAD]</span>
+          <span className="coord-tick">[JAYME VOLSTAD · CENTRAL TEXAS]</span>
         </div>
 
         <div className="p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-4 shadow-xs">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#D9D1C4] pb-3">
             <div>
-              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">Jayme Volstad</h3>
-              <p className="text-xs font-mono text-stone-700">Systems & Software Architecture · Workflow Engineering · Public-Interest Design</p>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">Jayme Volstad · Founder & Project Director</h3>
+              <p className="text-xs font-mono text-stone-700">Systems & Operations Design · Public-Interest Infrastructure</p>
             </div>
             <div className="text-xs font-mono text-stone-600 bg-[#F5F1E8] px-3 py-1 rounded border border-[#D9D1C4]">
-              Central Texas Focus
+              Central Texas
             </div>
           </div>
 
           <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-            Maps With Teeth was conceived and built by <strong>Jayme Volstad</strong> from direct analysis of institutional failure patterns across criminal justice, family court, shelter bureaucracy, and municipal welfare systems. Rather than treating fragmented systems as a marketing problem, Volstad approached the issue as a formal systems architecture and workflow defect.
+            Maps With Teeth was conceived and built by <strong>Jayme Volstad</strong>, drawing on extensive experience in operations, research, systems design, and direct analysis of how people move through fragmented public and nonprofit systems. Her work is also informed by firsthand navigation of criminal-justice, family-court, victim-service, housing, and public-assistance systems.
           </p>
 
           <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-            Every piece of Maps With Teeth—from the 47-record statutory database, the deterministic fact-matcher, the tri-state intake reconciliation engine, to the automated semantic audit pipelines—was designed and implemented with deep engineering discipline. The initiative operates with zero venture-capital surveillance incentives, prioritizing survivor sovereignty and strict empirical rigor.
+            Rather than treating the problem as a lack of awareness or another resource-directory problem, Volstad designed Maps With Teeth around a structural question: <strong>what happens to context, responsibility, and next steps when a person has to move between systems that do not share the same map?</strong>
           </p>
+
+          <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+            She has led development of the project’s current prototype, including its <strong>deterministic matching system, 47-record canonical Resource Graph, progressive survivor intake, evidence and source-quality controls, and the broader Bridge continuity model being prepared for a Central Texas founding pilot.</strong>
+          </p>
+
+          <div className="pt-2 border-t border-[#D9D1C4] text-xs font-mono text-stone-700 italic">
+            The project is being developed around privacy-conscious data practices, source transparency, and a public-interest operating model.
+          </div>
 
           <div className="grid gap-2 sm:grid-cols-3 pt-2 text-xs font-mono text-stone-800">
             <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
               • Pure Deterministic Domain Logic
             </div>
             <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
-              • 100% Primary-Source Statutory Citations
+              • Authoritative Source Citations
             </div>
             <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
               • Zero Centralized Survivor PII

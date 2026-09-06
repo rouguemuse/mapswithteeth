@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Script from "next/script";
 import "./globals.css";
 import { SafetyBanner } from "@/components/layout/SafetyBanner";
 import { Header } from "@/components/layout/Header";
@@ -25,6 +26,21 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="bg-[#F5F1E8] text-[#1C1D1D] flex flex-col min-h-screen antialiased selection:bg-brand-ruby selection:text-white">
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q33EE72XJM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q33EE72XJM');
+          `}
+        </Script>
+
         <SafetyBanner onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
         <Header onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
         <main className="flex-grow">{children}</main>

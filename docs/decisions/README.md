@@ -11,3 +11,4 @@ Lightweight, chronological records of key architectural decisions governing Maps
 | **[ADR 003](./2026-08-31-evidence-claim-provenance-model.md)** | Atomic Claim-Level Evidence & Provenance Model | Accepted | 2026-08-31 |
 | **[ADR 004](./2026-08-31-status-as-metadata.md)** | Resource Status as Metadata Rather Than Folder Partitioning | Accepted | 2026-08-31 |
 | **[ADR 005](./2026-08-31-prototype-archive-lifecycle.md)** | Prototype and Archive Lifecycle Model | Accepted | 2026-08-31 |
+| **[ADR 006](./2026-09-06-bridge-expiring-disclosure-envelope.md)** | Bridge Expiring Disclosure Envelope Architecture | Proposed — pending Source of Truth adoption and legal, survivor-safety, accessibility, and technical review. | 2026-09-06 |

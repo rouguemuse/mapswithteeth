@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   SlidersHorizontal,
   FileText,
@@ -8,9 +10,13 @@ import {
   Car,
   AlertTriangle,
   Compass,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 
 export function TheTeethSection() {
+  const [showAllMobile, setShowAllMobile] = useState(false);
+
   const teethPillars = [
     {
       title: "Eligibility",
@@ -64,65 +70,69 @@ export function TheTeethSection() {
   ];
 
   return (
-    <section className="bg-[#1C1B1A] text-[#F5F1E8] rounded-2xl p-6 sm:p-10 border-2 border-stone-800 shadow-xl space-y-8 select-none font-sans relative overflow-hidden bg-grid-diagram">
+    <section className="bg-[#EEE8DD] text-[#26221F] rounded-2xl p-6 sm:p-10 border border-[#D9D1C4] shadow-xs space-y-8 select-none font-sans relative overflow-hidden bg-grid-atlas">
       {/* Editorial Header */}
-      <div className="border-b border-stone-800 pb-6 space-y-3">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs sm:text-[13px] font-mono uppercase tracking-wider text-red-400 font-bold flex items-center gap-1.5 bg-[#252525] px-3.5 py-1.5 rounded-full border border-stone-700">
-            <Compass className="w-4 h-4 text-red-400" />
-            <span>THE CORE DIFFERENTIATOR · 7 AUDITED FRICTION VECTORS</span>
+          <span className="text-xs sm:text-[13px] font-mono uppercase tracking-wider text-[#971F26] font-bold flex items-center gap-1.5 bg-[#F5F1E8] px-3.5 py-1.5 rounded-full border border-[#D9D1C4]">
+            <Compass className="w-4 h-4 text-[#971F26]" />
+            <span>CHAPTER 02 · 7 AUDITED FRICTION VECTORS</span>
           </span>
-          <span className="coord-tick text-stone-300">[BARRIER-FIRST METHODOLOGY]</span>
+          <span className="coord-tick text-stone-600">[BARRIER-FIRST METHODOLOGY]</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#26221F] tracking-tight leading-tight">
           What gives the map teeth?
         </h2>
 
-        <p className="text-base sm:text-lg text-stone-100 max-w-3xl leading-relaxed font-sans font-normal">
-          A normal directory tells you that a resource exists. <strong className="text-white font-semibold">That is not enough.</strong> Maps With Teeth tracks the conditions, barriers, and unwritten rules around actually reaching it.
+        <p className="text-base sm:text-lg text-stone-800 max-w-3xl leading-relaxed font-sans font-normal">
+          A normal directory tells you that a resource exists. <strong className="text-[#26221F] font-semibold">That is not enough.</strong> Maps With Teeth tracks the conditions, barriers, and unwritten rules around actually reaching it.
         </p>
       </div>
 
-      {/* The 7 Teeth Pillars Grid + Centerpiece Callout */}
+      {/* The 7 Teeth Pillars Grid + Centerpiece Callout (Reversed to Light/Parchment) */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {teethPillars.map((pillar) => {
+        {teethPillars.map((pillar, idx) => {
           const Icon = pillar.icon;
+          const isHiddenOnMobile = !showAllMobile && idx >= 3;
+
           return (
             <div
               key={pillar.title}
-              className="bg-[#242424] hover:bg-[#2A2A2A] border border-stone-700 hover:border-red-500 rounded-xl p-5 sm:p-6 space-y-3.5 transition-all group shadow-sm flex flex-col justify-between"
+              className={`bg-[#FAF7F2] hover:bg-white border border-[#D9D1C4] hover:border-[#971F26] rounded-xl p-5 sm:p-6 space-y-3.5 transition-all group shadow-2xs hover:shadow-xs flex flex-col justify-between ${
+                isHiddenOnMobile ? "hidden sm:flex" : "flex"
+              }`}
             >
               <div className="space-y-2.5">
-                <div className="flex items-center justify-between border-b border-stone-800 pb-2.5 font-mono text-xs">
-                  <span className="text-red-400 font-bold tracking-widest">
+                <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2.5 font-mono text-xs">
+                  <span className="text-[#971F26] font-bold tracking-widest">
                     THE TEETH · {pillar.code}
                   </span>
-                  <div className="w-7 h-7 rounded bg-[#1C1B1A] border border-stone-700 flex items-center justify-center text-stone-300 group-hover:text-red-400 transition-colors">
+                  <div className="w-7 h-7 rounded bg-[#EEE8DD] border border-[#D9D1C4] flex items-center justify-center text-stone-700 group-hover:text-[#971F26] transition-colors">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-white group-hover:text-amber-200 transition-colors">
+                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#26221F] group-hover:text-[#971F26] transition-colors">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm sm:text-[15px] text-stone-100 font-sans leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed font-medium">
                   {pillar.subtitle}
                 </p>
               </div>
 
-              <p className="text-xs sm:text-[13px] text-stone-300 font-mono italic pt-2.5 border-t border-stone-800/90 leading-normal">
+              <p className="text-xs sm:text-[12.5px] text-stone-600 font-mono italic pt-2.5 border-t border-[#D9D1C4] leading-normal">
                 {pillar.detail}
               </p>
             </div>
           );
         })}
 
-        {/* Highlight Thesis Callout Card */}
-        <div className="bg-gradient-to-br from-[#7A2026] to-[#451014] text-white border-2 border-red-800 rounded-xl p-6 sm:p-7 flex flex-col justify-between shadow-lg sm:col-span-2 lg:col-span-1">
+        {/* Highlight Thesis Callout Card (Strategic Oxblood Accent) */}
+        <div className="bg-[#971F26] text-white rounded-xl p-6 sm:p-7 flex flex-col justify-between shadow-md sm:col-span-2 lg:col-span-1">
           <div className="space-y-1">
-            <span className="text-xs font-mono text-amber-300 uppercase tracking-widest font-bold block">
+            <span className="text-xs font-mono text-amber-200 uppercase tracking-widest font-bold block">
               PROJECT THESIS
             </span>
             <div className="pt-2">
@@ -132,10 +142,32 @@ export function TheTeethSection() {
             </div>
           </div>
 
-          <p className="text-sm text-red-100 font-sans leading-relaxed mt-4 pt-3.5 border-t border-red-800/60 font-medium">
+          <p className="text-xs sm:text-sm text-red-100 font-sans leading-relaxed mt-4 pt-3.5 border-t border-red-800/80 font-normal">
             We map the friction points before people invest critical emotional energy and time in pathways that lead to dead ends.
           </p>
         </div>
+      </div>
+
+      {/* Mobile Progressive Disclosure Toggle */}
+      <div className="sm:hidden pt-1">
+        <button
+          type="button"
+          onClick={() => setShowAllMobile(!showAllMobile)}
+          aria-expanded={showAllMobile}
+          className="w-full py-3 px-4 bg-[#FAF7F2] hover:bg-white border border-[#D9D1C4] text-[#26221F] rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-2xs"
+        >
+          {showAllMobile ? (
+            <>
+              <span>Show Fewer Friction Vectors</span>
+              <ChevronUp className="w-4 h-4 text-[#971F26]" />
+            </>
+          ) : (
+            <>
+              <span>See All 7 Friction Vectors (+4 More)</span>
+              <ChevronDown className="w-4 h-4 text-[#971F26]" />
+            </>
+          )}
+        </button>
       </div>
     </section>
   );

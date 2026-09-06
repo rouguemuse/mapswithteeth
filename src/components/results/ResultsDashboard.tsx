@@ -7,6 +7,8 @@ import { SurvivorSituation, Unknownable } from "@/domain/intake/types";
 import { RouteResultCard } from "./RouteResultCard";
 import { ContinuityReceiptModal } from "./ContinuityReceiptModal";
 import { DevDiagnosticDrawer } from "./DevDiagnosticDrawer";
+import { FunderBenchmarkScenario } from "@/data/scenarios/funderBenchmarks";
+import { FunderScenarioActiveBanner } from "../intake/FunderScenarioActiveBanner";
 import {
   Compass,
   ArrowLeft,
@@ -27,6 +29,7 @@ interface ResultsDashboardProps {
   onModifySituation: () => void;
   onReset: () => void;
   onClarifyFact: (factKey: keyof SurvivorSituation, value: Unknownable<any>) => void;
+  activeScenario?: FunderBenchmarkScenario | null;
 }
 
 export function ResultsDashboard({
@@ -35,6 +38,7 @@ export function ResultsDashboard({
   onModifySituation,
   onReset,
   onClarifyFact,
+  activeScenario,
 }: ResultsDashboardProps) {
   const [selectedReceipt, setSelectedReceipt] = useState<ContinuityReceipt | null>(null);
 
@@ -57,6 +61,15 @@ export function ResultsDashboard({
 
   return (
     <div className="space-y-8 animate-fadeIn font-sans select-none">
+      {/* Active Funder Benchmark Scenario Banner */}
+      {activeScenario && (
+        <FunderScenarioActiveBanner
+          scenario={activeScenario}
+          onEditAnswers={onModifySituation}
+          onReset={onReset}
+        />
+      )}
+
       {/* Top Navigation & Safety Header */}
       <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 shadow-sm bg-grid-atlas space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D9D1C4] pb-4">

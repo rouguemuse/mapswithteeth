@@ -4,3 +4,5 @@
 
 export * from "./types";
 export * from "./receiptGenerator";
+export * from "./contactRecord";
+

@@ -12,6 +12,8 @@ import { ContextQuestionsStep } from "./ContextQuestionsStep";
 import { ConflictClarificationStep } from "./ConflictClarificationStep";
 import { IntakeReviewStep } from "./IntakeReviewStep";
 import { ResultsDashboard } from "../results/ResultsDashboard";
+import { FunderBenchmarkToolbar } from "./FunderBenchmarkToolbar";
+import { FunderBenchmarkScenario } from "@/data/scenarios/funderBenchmarks";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 
 export function SurvivorIntakeFlow() {
@@ -25,6 +27,7 @@ export function SurvivorIntakeFlow() {
   const [questionAnswers, setQuestionAnswers] = useState<Record<string, any>>({});
   const [clarificationAnswers, setClarificationAnswers] = useState<Record<string, any>>({});
   const [matchOutput, setMatchOutput] = useState<DeterministicMatchOutput | null>(null);
+  const [activeScenario, setActiveScenario] = useState<FunderBenchmarkScenario | null>(null);
 
   // Derive reconciled SurvivorSituation through pure deterministic reconciliation layer
   const reconciliation = useMemo(() => {
@@ -46,6 +49,7 @@ export function SurvivorIntakeFlow() {
     setQuestionAnswers({});
     setClarificationAnswers({});
     setMatchOutput(null);
+    setActiveScenario(null);
     window.location.replace("https://www.weather.com");
   };
 
@@ -83,6 +87,27 @@ export function SurvivorIntakeFlow() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Load a funder benchmark scenario and run matching immediately
+  const handleLoadScenario = (scenario: FunderBenchmarkScenario) => {
+    setSelectedNeedIds(scenario.selectedNeedIds);
+    setLocation(scenario.location);
+    setQuestionAnswers(scenario.questionAnswers);
+    setClarificationAnswers({});
+    setActiveScenario(scenario);
+
+    const recon = reconcileIntakeState({
+      selectedNeedIds: scenario.selectedNeedIds,
+      location: scenario.location,
+      questionAnswers: scenario.questionAnswers,
+      clarificationAnswers: {},
+    });
+
+    const output = matchSurvivorSituation(recon.reconciledSituation);
+    setMatchOutput(output);
+    setCurrentStep(5);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   // Handle inline clarification from a POSSIBLE route card in Results
   const handleClarifyFact = (field: keyof SurvivorSituation, value: Unknownable<any>) => {
     const nextClarifications = {
@@ -107,6 +132,7 @@ export function SurvivorIntakeFlow() {
     setQuestionAnswers({});
     setClarificationAnswers({});
     setMatchOutput(null);
+    setActiveScenario(null);
     setCurrentStep(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -132,6 +158,12 @@ export function SurvivorIntakeFlow() {
           <span>Quick Exit</span>
         </button>
       </div>
+
+      {/* Funder & Pilot Reviewer Benchmark Scenario Toolbar */}
+      <FunderBenchmarkToolbar
+        onLoadScenario={handleLoadScenario}
+        activeScenarioId={activeScenario?.id}
+      />
 
       {/* Step 1: Need / Problem Selector */}
       {currentStep === 1 && (
@@ -234,6 +266,7 @@ export function SurvivorIntakeFlow() {
           }}
           onReset={handleReset}
           onClarifyFact={handleClarifyFact}
+          activeScenario={activeScenario}
         />
       )}
     </div>

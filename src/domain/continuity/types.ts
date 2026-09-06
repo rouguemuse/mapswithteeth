@@ -93,3 +93,221 @@ export interface ContinuityHandoffPackage {
   catalogGaps: CatalogGap[];
   privacyNotice: string;
 }
+
+// ============================================================================
+// CONTINUITY CONTACT RECORD (STAGE 03 CORE SPECIFICATION)
+// Institutional & Legal Risk Architecture
+// ============================================================================
+
+export type VerificationLevel =
+  | "PARTICIPANT_RECORDED"
+  | "AGENCY_ACKNOWLEDGED"
+  | "PARTNER_VERIFIED";
+
+export type NonImplicationCode =
+  | "NO_SUBSTANTIATION_FINDING"
+  | "NO_EVIDENCE_AUTHENTICATION"
+  | "NO_WHOLE_MATTER_ACCEPTANCE"
+  | "NO_MAPS_INTERPRETATION_ENDORSEMENT"
+  | "NO_ROUTING_AS_MERITS_FINDING";
+
+export const MANDATORY_NON_IMPLICATION_CODES: readonly NonImplicationCode[] = [
+  "NO_SUBSTANTIATION_FINDING",
+  "NO_EVIDENCE_AUTHENTICATION",
+  "NO_WHOLE_MATTER_ACCEPTANCE",
+  "NO_MAPS_INTERPRETATION_ENDORSEMENT",
+  "NO_ROUTING_AS_MERITS_FINDING",
+] as const;
+
+export type SubstantiveAssessmentStatus =
+  | "NOT_ASSESSED"
+  | "ASSESSMENT_PENDING_OUTSIDE_THIS_RECEIPT"
+  | "SEPARATE_OFFICIAL_DECISION_REFERENCED";
+
+export type MaterialHandlingStatus =
+  | "PRESENTED_NOT_ACCEPTED"
+  | "ACCEPTED_INTO_CUSTODY"
+  | "OPENED_NOT_ASSESSED"
+  | "PARTIALLY_REVIEWED_FOR_ROUTING"
+  | "REVIEWED_FOR_ROUTING"
+  | "SUBSTANTIVE_REVIEW_OCCURS_SEPARATELY"
+  | "STATUS_UNKNOWN";
+
+export interface PresentedMaterialItem {
+  itemId: string;
+  label: string;
+  itemType: "DOCUMENT" | "CORRESPONDENCE" | "LEASE" | "INCIDENT_REPORT" | "ID_DOCUMENT" | "OTHER";
+  pageOrFileCount?: number;
+  format: "PHYSICAL_PAPER" | "DIGITAL_IMAGE" | "DIGITAL_PDF" | "VERBAL_STATEMENT" | "OTHER";
+  handlingStatus: MaterialHandlingStatus;
+  handlingNotes?: string;
+}
+
+export type IdentityVerificationStatus =
+  | "UNVERIFIED"
+  | "GOVERNMENT_PHOTO_ID_INSPECTED"
+  | "ADVOCATE_ATTESTED"
+  | "NOT_REQUESTED";
+
+export type JurisdictionScopeStatus =
+  | "WITHIN_JURISDICTION"
+  | "OUT_OF_GEOGRAPHIC_SCOPE"
+  | "SUBJECT_MATTER_EXCLUDED"
+  | "PROGRAM_CAPACITY_EXHAUSTED"
+  | "PENDING_THRESHOLD_REVIEW";
+
+export interface JurisdictionScopeDetermination {
+  status: JurisdictionScopeStatus;
+  scopeBasisCode?: string;
+  statedBoundaryOrRule?: string;
+  determinationTimestamp: string;
+}
+
+export interface SuggestedNextRoute {
+  organizationName?: string;
+  department?: string;
+  contactMethod?: string;
+  suggestionSource:
+    | "RECEIVING_ORGANIZATION"
+    | "VERIFIED_RESOURCE_GRAPH"
+    | "PARTICIPANT_RECORDED";
+  acceptanceConfirmed: boolean; // defaults to false
+  citation?: {
+    sourceUrl: string;
+    verifiedAt: string;
+    suppliedBy: "AGENCY" | "MAPS_REFERENCE";
+  };
+  deadline?: {
+    date: string;
+    source: string;
+    legalAdviceDisclaimerShown: true;
+  };
+}
+
+export interface StaffAcknowledgmentBlock {
+  isAcknowledged: boolean;
+  declinedAcknowledgment: boolean;
+  declineReasonStated?: string; // Optional; staff can decline without reason
+  signerName?: string;
+  signerRole?: string; // Required if acknowledged
+  representedOrganization?: string; // Required if acknowledged
+  acknowledgmentMethod?:
+    | "IN_PERSON_MANUAL_STAMP"
+    | "IN_PERSON_SIGNATURE"
+    | "VERIFIED_DIGITAL_TOKEN"
+    | "OFFICIAL_EMAIL_RECEIPT";
+  authorizedToAcknowledgeOnBehalf: boolean;
+  acknowledgedTimestamp?: string;
+  affirmativelyAttestedItems: {
+    confirmedMaterialReceipt: boolean;
+    confirmedMaterialInspection: boolean;
+    inspectedPagesOrFilesCount?: number;
+    confirmedIdentityInspection: boolean;
+    confirmedJurisdictionalReview: boolean;
+    conductedMinisterialIntakeOnly: boolean;
+  };
+  capacityNotice: "OFFICIAL_ORGANIZATIONAL_CAPACITY_ONLY";
+  addendumHistory?: {
+    addendumId: string;
+    timestamp: string;
+    note: string;
+    authorName: string;
+    authorRole: string;
+  }[];
+}
+
+export interface CounterpartMetadata {
+  canonicalRecordDigest: string;
+  digestAlgorithm: "SHA-256";
+  canonicalizationVersion: string;
+  copyDesignation: "PARTICIPANT_COPY" | "RECEIVING_ORGANIZATION_COPY";
+}
+
+/**
+ * Shared canonical payload that is hashed identically for both counterparts.
+ * Excludes counterpart labels, detailed trauma narratives, evidence attachments,
+ * child PII, safe shelter addresses, and device security secrets.
+ */
+export interface ContinuityContactRecordCanonicalPayload {
+  recordId: string;
+  contactTimestamp: string;
+  organizationName: string;
+  departmentOrUnit?: string;
+  intakeChannel: "IN_PERSON" | "PHONE" | "ONLINE_PORTAL" | "EMAIL" | "WRITTEN_CORRESPONDENCE";
+  incidentReferenceNumbers: string[]; // e.g. CAD log, report #, confirmation code
+  
+  // The 8 Segregated Dimensions
+  presentedMaterials: PresentedMaterialItem[];
+  identityVerification: {
+    status: IdentityVerificationStatus;
+    notes?: string;
+  };
+  jurisdictionScope: JurisdictionScopeDetermination;
+  substantiveAssessment: {
+    status: SubstantiveAssessmentStatus;
+    externalOfficialCaseNumber?: string;
+    notice: "A non-service or routing decision is never a merits finding.";
+  };
+  actionTaken: {
+    actionCode:
+      | "INTAKE_RECORD_CREATED"
+      | "SAFETY_PLAN_PROVIDED"
+      | "STATUTORY_NOTICE_SERVED"
+      | "EMERGENCY_REKEY_DISPATCHED"
+      | "INFORMATION_AND_REFERRAL_ONLY"
+      | "DECLINED_AT_INTAKE"
+      | "FORMAL_WRITTEN_DECLINATION_ISSUED";
+    actionDescription: string;
+  };
+  declineOrRerouteReason?: {
+    reasonCode: string;
+    summary: string;
+  };
+  suggestedNextRoute?: SuggestedNextRoute;
+
+  // The 5 Inviolable Non-Implication Notices
+  nonImplicationCodes: NonImplicationCode[];
+
+  // Staff acknowledgment block (optional; null if participant-recorded only)
+  acknowledgment?: StaffAcknowledgmentBlock;
+}
+
+export interface ContinuityContactRecord {
+  verificationLevel: VerificationLevel;
+  counterpart: CounterpartMetadata;
+  payload: ContinuityContactRecordCanonicalPayload;
+  
+  // Explicit calibrated digest explanation
+  digestNotice: string;
+
+  // Public Agency Retention & Discovery Warning
+  publicAgencyWarning: string;
+}
+
+/**
+ * Standalone, decoupled Disclosure Authorization.
+ * Consent is NEVER buried inside the Continuity Contact Record.
+ */
+export interface ParticipantDisclosureAuthorization {
+  authorizationId: string;
+  authorizedAt: string;
+  participantId: string;
+  targetOrganizationName: string;
+  recipientDepartmentOrRole?: string;
+  authorizedScope: {
+    allowContactRecordSharing: boolean;
+    allowIncidentNumbersSharing: boolean;
+    allowPresentedMaterialInventorySharing: boolean;
+    allowNextRouteSharing: boolean;
+    explicitlyExcludedFields: string[]; // e.g. ["narrative", "evidence_files", "children_pii", "safe_address"]
+  };
+  purposeOfDisclosure: string; // e.g., "Facilitate emergency shelter intake"
+  expirationDate: string; // reasonably time-limited
+  isRevoked: boolean;
+  revocationNotice: {
+    honestBoundaryText: string;
+    revocationTimestamp?: string;
+    revocationMethod?: string;
+  };
+}
+

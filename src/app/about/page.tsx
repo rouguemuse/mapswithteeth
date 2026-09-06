@@ -124,23 +124,29 @@ export default function AboutPage() {
         <section className="space-y-4">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
-              03 · FOUNDER EXECUTION
+              03 · FOUNDER & PROJECT DIRECTION
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
             Who built Maps With Teeth?
           </h2>
-          <div className="p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-3 shadow-xs">
+          <div className="p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-4 shadow-xs">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#D9D1C4] pb-2">
-              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">Jayme Volstad · Founder & Lead Architect</h3>
+              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">Jayme Volstad · Founder & Project Director</h3>
               <span className="text-xs font-mono text-stone-600 bg-[#F5F1E8] px-2.5 py-0.5 rounded border border-[#D9D1C4]">Central Texas</span>
             </div>
             <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-              Maps With Teeth was conceived, designed, and engineered by <strong>Jayme Volstad</strong> from direct analysis of institutional failure points across criminal justice, family court, shelter intake, and municipal assistance systems.
+              Maps With Teeth was conceived and built by <strong>Jayme Volstad</strong>, drawing on extensive experience in operations, research, systems design, and direct analysis of how people move through fragmented public and nonprofit systems. Her work is also informed by firsthand navigation of criminal-justice, family-court, victim-service, housing, and public-assistance systems.
             </p>
             <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-              Approaching the problem as a structural systems and workflow defect rather than an awareness campaign, Volstad architected the deterministic matching engine, the 47-record primary statutory database, the tri-state intake reconciliation engine, and automated semantic verification test suites. Maps With Teeth is built with strict public-interest integrity—zero surveillance capitalism, zero venture extraction, and 100% verifiable primary-source citations.
+              Rather than treating the problem as a lack of awareness or another resource-directory problem, Volstad designed Maps With Teeth around a structural question: <strong>what happens to context, responsibility, and next steps when a person has to move between systems that do not share the same map?</strong>
             </p>
+            <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+              She has led development of the project’s current prototype, including its <strong>deterministic matching system, 47-record canonical Resource Graph, progressive survivor intake, evidence and source-quality controls, and the broader Bridge continuity model being prepared for a Central Texas founding pilot.</strong>
+            </p>
+            <div className="pt-2 border-t border-[#D9D1C4] text-xs font-mono text-stone-700 italic">
+              The project is being developed around privacy-conscious data practices, source transparency, and a public-interest operating model.
+            </div>
           </div>
         </section>
 
@@ -161,7 +167,7 @@ export default function AboutPage() {
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
               <div className="text-2xl font-bold text-[#971F26]">47</div>
               <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Audited Records</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">100% primary source citations</div>
+              <div className="text-[9.5px] text-stone-500 mt-0.5">Primary & program standards</div>
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
               <div className="text-2xl font-bold text-[#971F26]">29</div>

@@ -18,6 +18,8 @@ import {
   FolderArchive,
   FileCheck
 } from "lucide-react";
+import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
+
 
 export default function BridgePage() {
   return (
@@ -102,97 +104,22 @@ export default function BridgePage() {
         </div>
       </section>
 
-      {/* 3. The Continuity Receipt */}
+      {/* 3. The Continuity Contact Record */}
       <section className="space-y-6">
         <div className="border-b border-[#D9D1C4] pb-4">
           <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-            CORE CONTINUITY SPECIFICATION
+            CORE CONTINUITY SPECIFICATION · STAGE 03
           </span>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-            The Continuity Receipt
+            The Continuity Contact Record
           </h2>
           <p className="text-sm sm:text-base text-stone-800 mt-1 leading-relaxed font-sans">
-            A standardized, survivor-held record generated at each institutional encounter to stop context from vanishing.
+            A standardized, survivor-held record of an institutional touchpoint. Designed to preserve administrative context across organizational silos without exposing frontline staff to unintentional liability, creating pretend judicial findings, or requiring agency permission to exist.
           </p>
         </div>
 
-        {/* Mock Continuity Receipt Display */}
-        <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-dashed border-[#1C1D1D] pb-4">
-            <div>
-              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest block font-bold">
-                MAPS WITH TEETH CONTINUITY RECEIPT SPECIMEN · [PROTOTYPE]
-              </span>
-              <span className="font-bold text-base sm:text-lg text-[#1C1D1D] font-mono">
-                RECEIPT ID: CR-2026-TX-08942
-              </span>
-            </div>
-            <span className="px-2.5 py-1 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] font-mono font-bold text-xs rounded-xs">
-              ✓ CONTEXT DOCUMENTED
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
-            {/* Left Column: Who / When / Reference / What was presented */}
-            <div className="space-y-3.5">
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">1. WHO & JURISDICTION</span>
-                <p className="text-stone-900 font-bold font-sans text-sm">Austin Police Dept · Victim Services Unit</p>
-                <p className="text-stone-700 text-xs font-sans">Officer J. Miller · Badge #4102 · Travis County, TX</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">2. WHEN & CONTACT METHOD</span>
-                <p className="text-stone-900 font-sans text-xs sm:text-sm">August 28, 2026 · 14:15 CST · In-Person Desk Intake</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">3. REFERENCE & IDENTIFIER</span>
-                <p className="text-stone-900 font-mono font-semibold text-xs">Incident Report #: APD-2026-0828-441</p>
-                <p className="text-stone-600 font-mono text-[11px]">Original CAD Call Log: #26-240-0891</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">4. WHAT WAS PRESENTED</span>
-                <p className="text-stone-900 font-sans text-xs leading-snug">• Coercive phone tracking via shared cellular plan</p>
-                <p className="text-stone-900 font-sans text-xs leading-snug">• Threat text messages & apartment lease copy</p>
-                <p className="text-stone-700 text-xs italic font-sans pt-1 border-t border-[#D9D1C4]/60">
-                  Evidence Offered: 14 screenshots, 1 lease agreement. Evidence Reviewed: Lease only.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column: What Happened / Why / What Happens Next */}
-            <div className="space-y-3.5">
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">5. WHAT HAPPENED & ACTION TAKEN</span>
-                <p className="text-stone-900 font-bold font-sans text-sm">Action Declined · Labeled &ldquo;Civil Dispute&rdquo;</p>
-                <p className="text-stone-700 text-xs font-sans">No formal protective order application initiated.</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">6. WHY (STATED REASON)</span>
-                <p className="text-stone-900 font-sans text-xs">Officer stated carrier account primary name is spouse.</p>
-                <p className="text-[#971F26] text-xs font-sans font-semibold pt-1 border-t border-[#D9D1C4]/60">
-                  System note: Fails to recognize federal Safe Connections Act (47 U.S.C. § 345) statutory remedy.
-                </p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#FDF2F2] border border-[#971F26] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">7. WHAT HAPPENS NEXT</span>
-                <p className="text-stone-900 font-bold font-sans text-xs sm:text-sm">Referral Destination: Legal Aid of NorthWest Texas</p>
-                <p className="text-stone-800 text-xs font-sans">Next Decision-Owner: Staff Attorney / Intake Paralegal</p>
-                <p className="text-stone-800 text-xs font-sans">Documents Needed: Signed advocate verification letter</p>
-                <p className="text-[#971F26] font-bold font-mono text-xs pt-1">Deadline: September 4, 2026</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-[#D9D1C4] pt-3 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-stone-600">
-            <span>Prototype Format: Reference Record Only</span>
-            <span>Controlled by user · Not automatically shared with any organization</span>
-          </div>
-        </div>
+        {/* Interactive Specimen Component */}
+        <ContinuityContactRecordSpecimen />
       </section>
 
       {/* 4. Context Before Closure */}
