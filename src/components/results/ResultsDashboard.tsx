@@ -6,6 +6,7 @@ import { DeterministicMatchOutput, ContinuityReceipt } from "@/domain/continuity
 import { SurvivorSituation, Unknownable } from "@/domain/intake/types";
 import { RouteResultCard } from "./RouteResultCard";
 import { ContinuityReceiptModal } from "./ContinuityReceiptModal";
+import { ContinuityContactRecordModal } from "../continuity/ContinuityContactRecordModal";
 import { DevDiagnosticDrawer } from "./DevDiagnosticDrawer";
 import { FunderBenchmarkScenario } from "@/data/scenarios/funderBenchmarks";
 import { FunderScenarioActiveBanner } from "../intake/FunderScenarioActiveBanner";
@@ -20,7 +21,8 @@ import {
   FileQuestion,
   Search,
   ExternalLink,
-  ShieldAlert
+  ShieldAlert,
+  FileText
 } from "lucide-react";
 
 interface ResultsDashboardProps {
@@ -41,6 +43,7 @@ export function ResultsDashboard({
   activeScenario,
 }: ResultsDashboardProps) {
   const [selectedReceipt, setSelectedReceipt] = useState<ContinuityReceipt | null>(null);
+  const [showContactRecordModal, setShowContactRecordModal] = useState(false);
 
   // Partition routes into the 4 architectural result tiers
   const startHereRoutes = matchOutput.matchedRoutes.filter(
@@ -127,6 +130,36 @@ export function ResultsDashboard({
               ! {catalogGaps.length} Catalog Gap{catalogGaps.length > 1 ? "s" : ""}
             </span>
           )}
+        </div>
+      </div>
+
+      {/* Continuity Infrastructure Layer Action Card */}
+      <div className="bg-[#E8E2D5] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+        <div className="space-y-1.5 max-w-2xl">
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#971F26] font-bold">
+              CONTINUITY INFRASTRUCTURE
+            </span>
+            <span className="text-[10px] font-mono bg-[#1C1D1D] text-white px-2 py-0.5 rounded font-bold">
+              STAGE 03 PILOT
+            </span>
+          </div>
+          <h3 className="text-base sm:text-lg font-serif font-bold text-[#1C1D1D]">
+            Take This Context To Your Next Appointment
+          </h3>
+          <p className="text-xs text-stone-700 leading-relaxed">
+            Don&apos;t start your story over from scratch. Generate a tamper-evident, survivor-held <strong>Continuity Contact Record</strong> documenting your presented materials, jurisdictional status, and qualification profile without central PII storage.
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setShowContactRecordModal(true)}
+            className="px-4 py-2.5 bg-[#1C1D1D] text-white rounded-lg text-xs font-mono font-bold hover:bg-stone-800 transition-colors shadow-sm flex items-center gap-2 cursor-pointer"
+          >
+            <FileText className="w-4 h-4 text-amber-300" />
+            <span>Generate Continuity Record</span>
+          </button>
         </div>
       </div>
 
@@ -298,6 +331,15 @@ export function ResultsDashboard({
       <ContinuityReceiptModal
         receipt={selectedReceipt}
         onClose={() => setSelectedReceipt(null)}
+      />
+
+      {/* Institutional Continuity Contact Record Modal */}
+      <ContinuityContactRecordModal
+        isOpen={showContactRecordModal}
+        onClose={() => setShowContactRecordModal(false)}
+        situation={situation}
+        suggestedRouteTitle={startHereRoutes[0]?.resourceName || worthCheckingRoutes[0]?.resourceName}
+        suggestedRouteReason={startHereRoutes[0]?.whyThisMayHelp || worthCheckingRoutes[0]?.whyThisMayHelp}
       />
     </div>
   );

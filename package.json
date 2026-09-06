@@ -16,7 +16,8 @@
     "test:ui": "npx tsx scripts/test_ui_scenarios.ts",
     "test:reconciliation": "npx tsx scripts/test_reconciliation.ts",
     "test:tristate": "npx tsx scripts/test_tristate_matrix.ts",
-    "test:receipt-risk": "npx tsx scripts/test_continuity_receipt_risk.ts"
+    "test:receipt-risk": "npx tsx scripts/test_continuity_receipt_risk.ts",
+    "test:continuity": "npx tsx scripts/test_continuity_receipt_risk.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
