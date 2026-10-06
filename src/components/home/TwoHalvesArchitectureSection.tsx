@@ -21,7 +21,8 @@ import {
   Search,
   FolderArchive,
   GitBranch,
-  ShieldCheck
+  ShieldCheck,
+  Code2
 } from "lucide-react";
 
 export function TwoHalvesArchitectureSection() {
@@ -35,13 +36,13 @@ export function TwoHalvesArchitectureSection() {
     {
       num: "02",
       name: "Preserve the Path",
-      deck: "Participant-held Continuity Receipts and Personal Number separation that carry across boundaries.",
+      deck: "Participant-held Continuity Receipts that carry verified encounter records across institutional silos.",
       icon: FileCheck
     },
     {
       num: "03",
       name: "Preserve the Review",
-      deck: "Agency-side Review Trace recording what was examined, what was unreviewed, and why.",
+      deck: "Agency-side Review Trace logging what was examined, what was unreviewed, and why.",
       icon: Activity
     },
     {
@@ -56,6 +57,16 @@ export function TwoHalvesArchitectureSection() {
       deck: "Bad Maps research aggregating deidentified friction points to pressure-test public policy.",
       icon: Layers
     }
+  ];
+
+  const responsibilitySequence = [
+    "WHAT WAS SENT?",
+    "WHAT WAS RECEIVED?",
+    "WHAT WAS ACCESSIBLE?",
+    "WHAT WAS REVIEWED?",
+    "WHAT WAS DECIDED?",
+    "WHO OWNS THE NEXT ACTION?",
+    "DID THAT ENTITY ACCEPT RESPONSIBILITY?"
   ];
 
   const lockedDistinctions = [
@@ -75,23 +86,54 @@ export function TwoHalvesArchitectureSection() {
       <div className="text-center space-y-3 max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EEE8DD] border border-[#1C1B1A] text-[#1C1B1A] rounded-full text-xs font-mono uppercase tracking-widest font-bold shadow-2xs">
           <span className="w-2 h-2 rounded-full bg-[#971F26]" />
-          <span>SECTION 03 · PUBLIC-INTEREST FRAMEWORK</span>
+          <span>SECTION 03 · OPERATIONAL ARCHITECTURE</span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Two Primary Working Models. One Architectural Flow.
+          Principal Model. Operational Trace. Empirical Research.
         </h2>
         <p className="text-stone-800 text-sm sm:text-base font-sans max-w-3xl mx-auto leading-relaxed">
-          Maps With Teeth is an overarching public-interest framework, not a case-management platform. It preserves human context across institutional boundaries without creating centralized dossiers or automated risk scoring.
+          Maps With Teeth is an overarching public-interest framework centered on the <strong>Continuity Receipt</strong> as its principal working model, supported by the <strong>Review Trace</strong> operational specification and <strong>Bad Maps</strong> systems research.
         </p>
 
-        {/* Governing Principle Callout */}
-        <div className="p-4 bg-[#F5F1E8] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl max-w-3xl mx-auto text-left space-y-1 mt-4">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
-            GOVERNING PRINCIPLE
+        {/* Dual Goals Banner */}
+        <div className="grid sm:grid-cols-2 gap-3 max-w-4xl mx-auto text-left pt-2">
+          <div className="p-3.5 bg-[#F5F1E8] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-lg space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+              GOVERNING GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+            </p>
+          </div>
+
+          <div className="p-3.5 bg-[#F5F1E8] border-l-4 border-l-[#1C1D1D] border border-[#D9D1C4] rounded-r-lg space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 block">
+              EXPANDED INSTITUTIONAL GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve enough continuity that a boundary between systems does not automatically become a boundary in accountability.&rdquo;
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* The Core Public-Interest Question Strip */}
+      <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-2xl border-2 border-[#1C1D1D] space-y-2 shadow-md">
+        <div className="flex items-center justify-between border-b border-stone-700 pb-2">
+          <span className="text-[11px] font-mono uppercase font-bold text-amber-300">
+            THE CORE PUBLIC-INTEREST QUESTION
           </span>
-          <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
-            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
-          </p>
+          <span className="text-[10px] font-mono text-stone-400">[MWT-CORE-QUESTION]</span>
+        </div>
+        <p className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
+          &ldquo;How do we know the handoff actually happened?&rdquo;
+        </p>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-1 font-mono text-xs text-stone-300 pt-1">
+          <span>• What was received?</span>
+          <span>• What was reviewed?</span>
+          <span>• What remained unresolved?</span>
+          <span>• Who owned the next action?</span>
+          <span>• Was responsibility actually accepted?</span>
         </div>
       </div>
 
@@ -105,7 +147,7 @@ export function TwoHalvesArchitectureSection() {
             </span>
           </div>
           <span className="text-[11px] font-mono text-stone-600 font-bold">
-            [END-TO-END CONTINUITY PROTOCOL]
+            [NAVIGATE → PRESERVE → REVIEW → SEAM → TEST]
           </span>
         </div>
 
@@ -140,147 +182,160 @@ export function TwoHalvesArchitectureSection() {
         </div>
       </div>
 
-      {/* Two Primary Working Models Grid */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* MODEL 1: CONTINUITY RECEIPT */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-sm relative bg-grid-diagram">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3">
-              <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2.5 py-1 rounded">
-                WORKING MODEL 01 · PARTICIPANT-HELD
-              </span>
-              <FileCheck className="w-5 h-5 text-[#971F26]" />
-            </div>
-
-            <div className="space-y-1">
-              <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                CROSS-SYSTEM ADMINISTRATIVE CONTINUITY
-              </span>
-              <h3 className="text-2xl font-serif font-bold text-[#1C1D1D]">
-                Continuity Receipt
-              </h3>
-            </div>
-
-            <p className="text-stone-800 text-sm leading-relaxed font-sans font-medium">
-              A participant-held cryptographic record preserving what occurred at each institutional encounter. Prevents repetitive retraumatization and lost records by verifying what was delivered, what was reviewed, and who owns the next action.
-            </p>
-
-            {/* Core Attributes */}
-            <div className="space-y-2 pt-1 font-mono text-xs">
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">1. PROVENANCE &amp; SHA-256 HASHING:</span>
-                <span className="text-stone-700 font-sans">Every presented exhibit and receipt payload receives a client-side SHA-256 digest to prove uncorrupted provenance without uploading files to a public server.</span>
-              </div>
-
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">2. DECISION-OWNER ASSIGNMENT:</span>
-                <span className="text-stone-700 font-sans">Explicitly records the specific institutional role and unit responsible for the immediate next action, eliminating unassigned handoffs.</span>
-              </div>
-
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">3. CONTEXT BEFORE CLOSURE:</span>
-                <span className="text-stone-700 font-sans">Documents what materials were reviewed, what remained unexamined, and why a matter was closed before the file exits the system.</span>
-              </div>
-            </div>
+      {/* Continuity of Responsibility Sequence */}
+      <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-7 space-y-4 shadow-sm font-mono text-xs">
+        <div className="flex items-center justify-between border-b border-stone-300 pb-2">
+          <div className="flex items-center gap-2 text-stone-900 font-bold uppercase">
+            <Activity className="w-4 h-4 text-[#971F26]" />
+            <span>CONTINUITY OF RESPONSIBILITY SEQUENCE</span>
           </div>
-
-          <div className="pt-4 border-t border-[#D9D1C4]">
-            <Link
-              href="/continuity"
-              className="w-full py-3 bg-[#971F26] hover:bg-[#7A181E] text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-xs transition-colors"
-            >
-              <span>Explore Continuity Receipt Model</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <span className="text-[#971F26] font-bold">referral ≠ successful handoff</span>
         </div>
 
-        {/* MODEL 2: PERSONAL NUMBER CONTINUITY */}
-        <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-sm relative bg-grid-diagram">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3">
-              <span className="text-[10px] font-mono font-bold uppercase bg-[#1C1D1D] text-white px-2.5 py-1 rounded">
-                WORKING MODEL 02 · STATUTORY AUTONOMY
-              </span>
-              <PhoneCall className="w-5 h-5 text-[#1C1D1D]" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2">
+          {responsibilitySequence.map((q, idx) => (
+            <div key={idx} className="p-2.5 bg-white rounded border border-stone-300 text-center space-y-1">
+              <span className="text-[10px] text-[#971F26] font-bold block">STEP 0{idx + 1}</span>
+              <span className="font-bold text-[#1C1D1D] text-[11px] block leading-tight">{q}</span>
             </div>
-
-            <div className="space-y-1">
-              <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                COMMUNICATION IDENTITY SEPARATION
-              </span>
-              <h3 className="text-2xl font-serif font-bold text-[#1C1D1D]">
-                Personal Number Continuity
-              </h3>
-            </div>
-
-            <p className="text-stone-800 text-sm leading-relaxed font-sans font-medium">
-              Separates carrier account billing authority from adult communication identity under the federal Safe Connections Act (47 U.S.C. § 345). Protects a survivor’s phone number, two-factor authentication, and contact continuity without alerting the primary account holder.
-            </p>
-
-            {/* Core Attributes */}
-            <div className="space-y-2 pt-1 font-mono text-xs">
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">1. 47 U.S.C. § 345 STATUTORY PROTOCOL:</span>
-                <span className="text-stone-700 font-sans">Provides structured notice templates and evidentiary standards (advocate verification, court orders) that mandate line separation within two business days.</span>
-              </div>
-
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">2. ZERO SURVEILLANCE &amp; NO NOTIFICATION:</span>
-                <span className="text-stone-700 font-sans">Carriers are legally prohibited from notifying the primary account holder of the separation request or revealing the survivor’s new account info.</span>
-              </div>
-
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">3. DIGITAL LIFELINE PRESERVATION:</span>
-                <span className="text-stone-700 font-sans">Prevents sudden loss of banking 2FA, legal aid communications, school alerts, and medical portal access caused by unauthorized line cancellation.</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-[#D9D1C4]">
-            <Link
-              href="/other-ways-through#telecom"
-              className="w-full py-3 bg-[#1C1D1D] hover:bg-black text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-xs transition-colors"
-            >
-              <span>See Safe Connections Act Guide</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Review Trace Supporting Specification Box */}
-      <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm font-mono text-xs">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-3">
-          <div className="flex items-center gap-2 text-stone-900 font-bold uppercase">
-            <Activity className="w-4 h-4 text-[#971F26]" />
-            <span>OPERATIONAL SPECIFICATION · REVIEW TRACE (AGENCY-SIDE SUPPORT)</span>
+      {/* PRIMARY WORKING MODEL: CONTINUITY RECEIPT (Hero Feature Card) */}
+      <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D9D1C4] pb-4">
+          <div className="space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2.5 py-1 rounded">
+              PRINCIPAL WORKING MODEL · PARTICIPANT-HELD
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+              Continuity Receipt
+            </h3>
           </div>
-          <span className="text-[11px] px-2.5 py-0.5 bg-[#EEE8DD] text-stone-800 border border-stone-400 rounded font-bold">
-            SUPPORTING SPECIFICATION · NOT A THIRD PRODUCT
-          </span>
+          <FileCheck className="w-8 h-8 text-[#971F26]" />
         </div>
 
-        <p className="font-sans text-stone-800 text-xs sm:text-sm leading-relaxed">
-          <strong>Review Trace</strong> is the agency-side operational and accountability specification that supports the Continuity Receipt. It defines a standardized administrative vocabulary so institutions can log how material was handled without pre-judging substantive merits.
+        <p className="text-stone-800 text-sm sm:text-base leading-relaxed font-sans font-medium max-w-3xl">
+          The <strong>Continuity Receipt</strong> is the primary working model of Maps With Teeth. It is a client-side cryptographic record carried by the participant to establish what occurred at each institutional encounter—documenting what was sent, what was received, what was reviewed, and who owns the next action.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
-          <div className="p-2 bg-white rounded border border-stone-300">
-            <strong className="text-[#2D5A3D] block">RECEIVED</strong>
-            <span className="text-stone-600">Material logged in intake.</span>
+        <div className="grid md:grid-cols-3 gap-4 font-mono text-xs">
+          <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 space-y-1">
+            <span className="font-bold text-[#1C1D1D] block">1. PROVENANCE &amp; SHA-256 HASHES:</span>
+            <span className="text-stone-700 font-sans text-[12px] block">Client-side SHA-256 digests verify record authenticity without uploading private survivor files to a central server.</span>
           </div>
-          <div className="p-2 bg-white rounded border border-stone-300">
-            <strong className="text-[#1C1D1D] block">REVIEWED</strong>
-            <span className="text-stone-600">Substantively evaluated.</span>
+
+          <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 space-y-1">
+            <span className="font-bold text-[#1C1D1D] block">2. NEXT-DECISION OWNERSHIP:</span>
+            <span className="text-stone-700 font-sans text-[12px] block">Explicitly binds a specific institutional role and unit to the next action, preventing unowned handoffs.</span>
           </div>
-          <div className="p-2 bg-white rounded border border-stone-300">
-            <strong className="text-amber-700 block">UNAVAILABLE</strong>
-            <span className="text-stone-600">Held by third party.</span>
+
+          <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 space-y-1">
+            <span className="font-bold text-[#1C1D1D] block">3. CONTEXT BEFORE CLOSURE:</span>
+            <span className="text-stone-700 font-sans text-[12px] block">Logs reviewed vs. unexamined materials before administrative file exit, preventing false closure conclusions.</span>
           </div>
-          <div className="p-2 bg-white rounded border border-stone-300">
-            <strong className="text-[#971F26] block">UNREVIEWED (REASON)</strong>
-            <span className="text-stone-600">Omitted with cause.</span>
+        </div>
+
+        <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[#D9D1C4]">
+          <span className="text-xs font-mono text-stone-600">Standard Specimen · Client-Side Digest</span>
+          <Link
+            href="/continuity"
+            className="px-5 py-2.5 bg-[#971F26] hover:bg-[#7A181E] text-white rounded font-mono font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-xs"
+          >
+            <span>Explore Continuity Receipt Model</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+
+      {/* Review Trace & Personal Number Continuity Implementation Grid */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Review Trace Supporting Specification */}
+        <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between border-b border-stone-300 pb-2">
+              <span className="text-[10px] font-mono font-bold uppercase bg-[#1C1D1D] text-white px-2 py-0.5 rounded">
+                SUPPORTING SPECIFICATION · AGENCY SIDE
+              </span>
+              <Activity className="w-4 h-4 text-[#1C1D1D]" />
+            </div>
+
+            <h4 className="text-xl font-serif font-bold text-[#1C1D1D]">
+              Review Trace Specification
+            </h4>
+
+            <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+              The institutional counterpart supporting the Continuity Receipt. Provides standardized administrative statuses (Received, Accessible, Reviewed, Unreviewed Reason, Unavailable) so agencies can account for what they did with identified material without pre-judging substantive claim merits.
+            </p>
+
+            <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+              <div className="p-2 bg-white rounded border border-stone-200">
+                <strong className="text-[#2D5A3D] block">RECEIVED</strong>
+                <span className="text-stone-600">In agency custody.</span>
+              </div>
+              <div className="p-2 bg-white rounded border border-stone-200">
+                <strong className="text-[#1C1D1D] block">REVIEWED</strong>
+                <span className="text-stone-600">Substantively examined.</span>
+              </div>
+              <div className="p-2 bg-white rounded border border-stone-200">
+                <strong className="text-amber-700 block">UNAVAILABLE</strong>
+                <span className="text-stone-600">Held by third party.</span>
+              </div>
+              <div className="p-2 bg-white rounded border border-stone-200">
+                <strong className="text-[#971F26] block">UNREVIEWED (REASON)</strong>
+                <span className="text-stone-600">Omitted with stated cause.</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-stone-300">
+            <Link
+              href="/continuity/safeguards#review-trace"
+              className="text-xs font-mono font-bold text-[#971F26] hover:underline flex items-center gap-1"
+            >
+              <span>View Review Trace Vocabulary</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Personal Number Continuity (Worked Implementation Example) */}
+        <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between border-b border-stone-300 pb-2">
+              <span className="text-[10px] font-mono font-bold uppercase bg-stone-700 text-white px-2 py-0.5 rounded">
+                APPLICATION EXAMPLE · SAFE CONNECTIONS ACT
+              </span>
+              <PhoneCall className="w-4 h-4 text-stone-800" />
+            </div>
+
+            <h4 className="text-xl font-serif font-bold text-[#1C1D1D]">
+              Personal Number Continuity
+            </h4>
+
+            <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+              A concrete application of the continuity standard under the Safe Connections Act (47 U.S.C. § 345). Demonstrates how a distinction that an administrative carrier system normally collapses—separating billing authority from adult communication identity—is preserved across boundaries to protect banking 2FA and emergency contact access.
+            </p>
+
+            <div className="p-3 bg-white rounded border border-stone-200 font-mono text-xs space-y-1">
+              <span className="font-bold text-[#1C1D1D] block">WORKED APPLICATION ATTRIBUTES:</span>
+              <span className="text-stone-600 font-sans text-[11px] block">
+                • 47 U.S.C. § 345 statutory line separation notice templates<br />
+                • Zero account-holder notification or data leakage<br />
+                • Preserves vital two-factor auth for benefits, banks &amp; courts
+              </span>
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-stone-300">
+            <Link
+              href="/other-ways-through#telecom"
+              className="text-xs font-mono font-bold text-[#1C1D1D] hover:underline flex items-center gap-1"
+            >
+              <span>Explore Safe Connections Act Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </div>

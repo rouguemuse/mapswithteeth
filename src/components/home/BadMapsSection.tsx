@@ -15,58 +15,61 @@ import {
   Scale,
   Building2,
   Users,
-  Activity
+  Activity,
+  BarChart3,
+  Layers,
+  ShieldCheck
 } from "lucide-react";
 
 export function BadMapsSection() {
-  const failurePatterns = [
+  const empiricalSamples = [
     {
-      title: "Circular Referral Loops",
-      tag: "DEAD ROUTE: A → B → A",
-      sample: "n=14 observed cases",
-      description:
-        "Police refer survivor to a shelter; shelter requires a civil protective order from court; court clerk instructs survivor to file an offense report with police first.",
-      impact: "Survivor spends days in transit; no agency takes initial jurisdiction."
+      title: "Verified Handoff Rate",
+      count: "6 of 24 observable referrals",
+      sample: "n=24 cohort",
+      deck: "Sent ≠ Received / Acknowledged",
+      triState: "14 Confirmed Gaps · 6 No Gap · 4 Unknown",
+      impact: "Sending agency closes file as 'referred out' while receiving agency has no record of intake."
     },
     {
-      title: "Unacknowledged Handoffs",
-      tag: "SEAM GAP: SENT ≠ RECEIVED",
-      sample: "n=22 observed cases",
-      description:
-        "An investigator or advocate emails a case summary to an adjacent county department. The email is never acknowledged, assigned, or opened.",
-      impact: "The sending agency closes their file under 'referred out,' while the recipient never opens one."
+      title: "Continuity Loss Rate",
+      count: "17 of 21 cross-boundary cases",
+      sample: "n=21 cohort",
+      deck: "County Line Amnesia",
+      triState: "17 Confirmed Gaps · 3 No Gap · 1 Unknown",
+      impact: "Cumulative protective order violations and stalking history vanish at municipal/county boundaries."
     },
     {
-      title: "Conflicting Agency Rules",
-      tag: "IMPOSSIBLE PREREQUISITE",
-      sample: "n=9 observed cases",
-      description:
-        "Housing authority requires survivor to maintain continuous county residence for emergency voucher; safety plan requires immediate relocation out of county.",
-      impact: "Following the safety order forfeits housing; following housing rules creates severe physical peril."
+      title: "Ownerless Matter Rate",
+      count: "9 of 18 multi-agency touchpoints",
+      sample: "n=18 cohort",
+      deck: "Nobody's Decision Ownership",
+      triState: "9 Confirmed Gaps · 6 No Gap · 3 Unknown",
+      impact: "Matter stopped between agencies with no named role or unit assigned to the next milestone."
     },
     {
-      title: "Statutory Waiver Denial",
-      tag: "FICTIONAL PREREQUISITE",
-      sample: "n=18 observed cases",
-      description:
-        "Utility provider or landlord demands a formal police report to waive deposits, ignoring Texas statutes (16 TAC § 25.478 / Prop. Code § 92.016) that permit advocate letters.",
-      impact: "Survivor without police reports is unlawfully turned away."
+      title: "Unreviewed Material Rate",
+      count: "11 of 16 administrative closures",
+      sample: "n=16 cohort",
+      deck: "Accessible ≠ Reviewed",
+      triState: "11 Confirmed Gaps · 3 No Gap · 2 Unknown",
+      impact: "Exhibits presented by participant remained unexamined prior to file archiving without stated cause."
     },
     {
-      title: "Phantom Available Programs",
-      tag: "STALE DIRECTORY DATA",
-      sample: "n=31 observed listings",
-      description:
-        "A 211 directory lists an active emergency travel grant; survivor visits in person only to learn application intake was paused 8 months prior.",
-      impact: "Survivor expends their last $20 of fuel reaching an inactive resource."
+      title: "Referral Loop Rate",
+      count: "5 of 19 navigation pathways",
+      sample: "n=19 cohort",
+      deck: "Circular Runaround (A → B → A)",
+      triState: "5 Confirmed Gaps · 11 No Gap · 3 Unknown",
+      impact: "Police require shelter intake; shelter requires court order; court clerk directs back to police."
     },
     {
-      title: "Interstate / Cross-County Amnesia",
-      tag: "JURISDICTION TRANSFER LOSS",
-      sample: "n=12 observed cases",
-      description:
-        "Survivor moves across county lines to escape stalking. New law enforcement agency treats each subsequent breach as an isolated 'first-time noise disturbance.'",
-      impact: "Cumulative pattern and history of protective order violations vanish at the county line."
+      title: "Disconnected Related Matters",
+      count: "13 of 15 multi-proceeding cases",
+      sample: "n=15 cohort",
+      deck: "Parallel Blind Proceedings",
+      triState: "13 Confirmed Gaps · 1 No Gap · 1 Unknown",
+      impact: "Caseworker or court acts without awareness of active related safety matters in adjacent jurisdiction."
     }
   ];
 
@@ -76,59 +79,69 @@ export function BadMapsSection() {
       <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#971F26]">
-            SECTION 06 · BAD MAPS INTELLIGENCE
+            SECTION 06 · BAD MAPS RESEARCH LAYER
           </span>
-          <span className="coord-tick">[EMPIRICAL RESEARCH DATASET]</span>
+          <span className="coord-tick">[EMPIRICAL MEASUREMENT DATASET]</span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          Bad Maps: Deidentified System Failure Intelligence
+          Bad Maps: Empirical Measurement of Institutional Seams
         </h2>
 
         <p className="text-stone-800 text-base sm:text-lg max-w-3xl leading-relaxed font-sans">
-          When people are repeatedly sent into dead routes, broken referral loops, and conflicting bureaucratic rules, the failure is not individual—it is structural. Bad Maps catalogs recurring seam failures to transform frontline runaround into actionable policy evidence.
+          When people are repeatedly sent into dead routes, broken referral loops, and conflicting bureaucratic rules, the failure is not individual—it is structural. Bad Maps is the empirical research layer measuring where public systems lose continuity across institutional boundaries.
         </p>
 
-        {/* Research Framing Notice */}
-        <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 text-xs font-mono text-stone-700 flex items-center gap-2">
-          <Activity className="w-4 h-4 text-[#971F26] shrink-0" />
-          <span>Gap events and metrics are treated as empirical research material with sample sizes (<em>n=X</em>), not validated public scoring engines.</span>
+        {/* Tri-State Methodology Strip */}
+        <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 text-xs font-mono text-stone-800 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <Activity className="w-4 h-4 text-[#971F26]" />
+            <span className="font-bold uppercase">TRI-STATE EMPIRICAL METHODOLOGY:</span>
+          </div>
+          <div className="flex items-center gap-4 text-[11px]">
+            <span className="text-[#971F26] font-bold">1. CONFIRMED GAP</span>
+            <span className="text-[#2D5A3D] font-bold">2. NO GAP OBSERVED</span>
+            <span className="text-stone-600">3. UNKNOWN / INSUFFICIENT RECORD</span>
+          </div>
         </div>
       </div>
 
-      {/* Failure Patterns Grid */}
+      {/* Observed Metrics Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {failurePatterns.map((pattern, idx) => (
+        {empiricalSamples.map((sample, idx) => (
           <div
             key={idx}
-            className="bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
+            className="bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors font-mono text-xs"
           >
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
                 <span className="font-bold uppercase bg-[#971F26] text-white px-2 py-0.5 rounded">
-                  PATTERN 0{idx + 1}
+                  METRIC 0{idx + 1}
                 </span>
                 <span className="text-stone-600 font-bold">
-                  {pattern.sample}
+                  {sample.sample}
                 </span>
               </div>
 
               <div className="space-y-0.5">
-                <span className="text-[10px] font-mono text-stone-600 font-bold uppercase block">
-                  {pattern.tag}
+                <span className="text-[10px] text-stone-600 font-bold uppercase block">
+                  {sample.deck}
                 </span>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
-                  {pattern.title}
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D] font-sans">
+                  {sample.title}
                 </h3>
+                <span className="text-xs font-bold text-[#971F26] block">
+                  {sample.count}
+                </span>
               </div>
 
-              <p className="text-xs text-stone-800 leading-relaxed font-sans">
-                {pattern.description}
+              <p className="text-xs text-stone-700 leading-relaxed font-sans pt-1">
+                {sample.impact}
               </p>
             </div>
 
-            <div className="p-2.5 bg-[#FDF2F2] rounded border border-[#971F26]/30 text-[11px] font-mono text-[#971F26] leading-tight">
-              <strong>SYSTEM RESULT:</strong> {pattern.impact}
+            <div className="p-2 bg-white rounded border border-stone-300 text-[10px] text-stone-600 leading-tight">
+              <strong>BREAKDOWN:</strong> {sample.triState}
             </div>
           </div>
         ))}
@@ -142,7 +155,7 @@ export function BadMapsSection() {
             ETHICAL &amp; EVIDENTIARY BOUNDARIES FOR BAD MAPS:
           </span>
           <p className="font-sans text-stone-700 leading-relaxed">
-            Bad Maps does <strong>NOT</strong> publish individual survivor records, identify alleged perpetrators, or adjudicate disputed facts. It tracks purely structural failure modes: referral loops, contradictory mandates, unowned handoffs, and stale resource claims.
+            Bad Maps does <strong>NOT</strong> publish individual survivor records, create public dossiers, identify alleged perpetrators, or calculate automated credibility scores. Gaps describe observable administrative conditions (causes include statutory rules, resource limits, and system design), not accusations of staff misconduct.
           </p>
         </div>
       </div>
@@ -150,7 +163,7 @@ export function BadMapsSection() {
       {/* CTA Footer */}
       <div className="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-[#D9D1C4]">
         <span className="text-xs font-mono text-stone-700">
-          HAVE YOU ENCOUNTERED A SYSTEM SEAM FAILURE?
+          EXPLORE COMPLETE 12-ITEM GAP TAXONOMY:
         </span>
         <div className="flex items-center gap-3">
           <Link

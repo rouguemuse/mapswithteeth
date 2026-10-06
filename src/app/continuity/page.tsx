@@ -23,9 +23,11 @@ import {
   GitBranch,
   Check,
   PhoneCall,
-  Activity
+  Activity,
+  Code2
 } from "lucide-react";
 import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
+import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
 import { ResourceMaterialsBlock } from "@/components/safeguards/ResourceMaterialsBlock";
 
 export const metadata = {
@@ -206,25 +208,36 @@ export default function ContinuityStandardPage() {
         </div>
 
         <p className="text-base sm:text-lg text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
-          A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
+          A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six open protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
         </p>
 
-        {/* Governing Principle Banner */}
-        <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
-            GOVERNING PRINCIPLE
-          </span>
-          <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
-            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
-          </p>
+        {/* Dual Goals Banner */}
+        <div className="grid sm:grid-cols-2 gap-3 pt-2">
+          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+              GOVERNING GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+            </p>
+          </div>
+
+          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#1C1D1D] border border-[#D9D1C4] rounded-r-xl space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 block">
+              EXPANDED INSTITUTIONAL GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve enough continuity that a boundary between systems does not automatically become a boundary in accountability.&rdquo;
+            </p>
+          </div>
         </div>
 
-        {/* Two Working Models Callout */}
+        {/* Principal Model & Worked Application Callout */}
         <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-mono">
           <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
             <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
               <FileCheck className="w-4 h-4" />
-              <span>PRIMARY MODEL 01: CONTINUITY RECEIPT</span>
+              <span>PRINCIPAL WORKING MODEL: CONTINUITY RECEIPT</span>
             </div>
             <p className="font-sans text-stone-700 text-[12px]">
               Participant-held cryptographic encounter proof with client-side SHA-256 hashing, segregated material reviews, and next decision-owner logging.
@@ -232,12 +245,12 @@ export default function ContinuityStandardPage() {
           </div>
 
           <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-            <div className="flex items-center gap-2 text-[#1C1D1D] font-bold uppercase">
+            <div className="flex items-center gap-2 text-stone-800 font-bold uppercase">
               <PhoneCall className="w-4 h-4" />
-              <span>PRIMARY MODEL 02: PERSONAL NUMBER CONTINUITY</span>
+              <span>WORKED APPLICATION: PERSONAL NUMBER CONTINUITY</span>
             </div>
             <p className="font-sans text-stone-700 text-[12px]">
-              Separating carrier billing authority from adult communication identity under the Safe Connections Act (47 U.S.C. § 345).
+              A concrete application of the standard separating carrier billing authority from adult communication identity under the Safe Connections Act (47 U.S.C. § 345).
             </p>
           </div>
         </div>
@@ -358,7 +371,10 @@ export default function ContinuityStandardPage() {
         </div>
       </section>
 
-      {/* 3. Interactive Specimen Demo */}
+      {/* 3. Continuity Interchange Specification */}
+      <ContinuityInterchangeSpecComponent />
+
+      {/* 4. Interactive Specimen Demo */}
       <section className="space-y-6">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <div>
@@ -379,7 +395,7 @@ export default function ContinuityStandardPage() {
         <ContinuityContactRecordSpecimen />
       </section>
 
-      {/* 4. Cross-Cutting Safeguards Callout Banner */}
+      {/* 5. Cross-Cutting Safeguards Callout Banner */}
       <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-700 pb-3">
           <div className="flex items-center gap-2 text-amber-300">
@@ -398,7 +414,7 @@ export default function ContinuityStandardPage() {
             Evidence Integrity &amp; Administrative Traceability
           </h3>
           <p className="text-stone-300 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. Explore the 8 cross-cutting safeguards, 9 Review Trace administrative disposition statuses, and locked principles governing evidence interpretation.
+            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. Explore the 8 cross-cutting safeguards, Review Trace administrative disposition statuses, and locked principles governing evidence interpretation.
           </p>
         </div>
 
@@ -413,7 +429,7 @@ export default function ContinuityStandardPage() {
         </div>
       </section>
 
-      {/* 5. Privacy & Due Process Guardrails */}
+      {/* 6. Privacy & Due Process Guardrails */}
       <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4">
         <div className="flex items-center gap-3 border-b border-[#D9D1C4] pb-3">
           <Lock className="w-5 h-5 text-[#971F26]" />
@@ -445,10 +461,10 @@ export default function ContinuityStandardPage() {
         </div>
       </section>
 
-      {/* 6. Policy & Implementation Resources */}
+      {/* 7. Policy & Implementation Resources */}
       <ResourceMaterialsBlock />
 
-      {/* 7. Navigation Footer */}
+      {/* 8. Navigation Footer */}
       <div className="pt-6 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <Link
           href="/the-gap"

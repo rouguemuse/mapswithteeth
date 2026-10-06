@@ -13,7 +13,8 @@ import {
   Layers,
   ArrowDown,
   PhoneCall,
-  Activity
+  Activity,
+  Code2
 } from "lucide-react";
 
 export function HeroTwoSided() {
@@ -35,7 +36,7 @@ export function HeroTwoSided() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#EEE8DD] border border-[#1C1B1A] text-[#1C1B1A] rounded-full text-xs font-mono uppercase tracking-widest font-bold shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#971F26] animate-pulse" />
-                <span>OVERARCHING PUBLIC-INTEREST CONTINUITY FRAMEWORK</span>
+                <span>CROSS-SYSTEM CONTINUITY INFRASTRUCTURE</span>
               </div>
             </div>
 
@@ -52,16 +53,16 @@ export function HeroTwoSided() {
             {/* Primary Explanatory Statement */}
             <div className="space-y-4 text-[#1C1D1A]">
               <p className="text-lg sm:text-xl font-medium leading-relaxed font-sans text-stone-900 max-w-2xl">
-                Maps With Teeth is a portable continuity and accountability layer for people navigating abuse and instability across systems that do not share one case file, one jurisdiction, or one map.
+                Maps With Teeth is a portable continuity and accountability framework for people navigating abuse, crisis, and instability across institutions that do not share one case file, one jurisdiction, or one map.
               </p>
 
-              {/* Governing Principle Block */}
+              {/* Dual Goals Block */}
               <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-md space-y-2">
                 <p className="text-sm sm:text-base font-serif italic text-stone-900 font-semibold">
                   &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
                 </p>
                 <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-stone-700 font-bold">
-                  “People move between systems. Their information and accountability often do not.”
+                  “Preserve enough continuity that a boundary between systems does not automatically become a boundary in accountability.”
                 </p>
               </div>
             </div>
@@ -81,7 +82,7 @@ export function HeroTwoSided() {
                 className="px-6 py-3.5 bg-[#EEE8DD] hover:bg-[#E5DEC9] border-2 border-[#1C1B1A] text-[#1C1D1A] rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-sm"
               >
                 <Layers className="w-4 h-4 text-[#971F26]" />
-                <span>Explore Continuity Models</span>
+                <span>Explore Continuity Standard</span>
               </Link>
 
               <Link
@@ -94,22 +95,22 @@ export function HeroTwoSided() {
             </div>
           </div>
 
-          {/* RIGHT: Two Primary Working Models Overview Card (5 Cols) */}
+          {/* RIGHT: Operational Architecture Card (5 Cols) */}
           <div className="lg:col-span-5">
             <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-7 space-y-5 shadow-md relative bg-grid-diagram">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-3">
                 <span className="text-[11px] font-mono uppercase tracking-widest font-bold text-[#971F26] flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#971F26]" />
-                  TWO PRIMARY WORKING MODELS
+                  OPERATIONAL ARCHITECTURE
                 </span>
                 <span className="text-[10px] font-mono text-stone-600">[SPEC 2026]</span>
               </div>
 
-              {/* Model 1: Continuity Receipt */}
+              {/* Principal Model: Continuity Receipt */}
               <div className="p-4 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg space-y-2 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2 py-0.5 rounded">
-                    MODEL 01 · PARTICIPANT-HELD
+                    PRINCIPAL WORKING MODEL
                   </span>
                   <FileCheck className="w-4 h-4 text-[#971F26]" />
                 </div>
@@ -117,40 +118,45 @@ export function HeroTwoSided() {
                   Continuity Receipt
                 </h3>
                 <p className="text-xs text-stone-800 leading-relaxed font-sans">
-                  Standardized client-side encounter proof documenting what was sent, what was reviewed, and who owns the next action across institutional handoffs.
+                  Standardized client-side encounter proof documenting what was sent, received, reviewed, and who owns the next action across institutional handoffs.
                 </p>
               </div>
 
-              {/* Model 2: Personal Number Continuity */}
-              <div className="p-4 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg space-y-2 shadow-2xs">
+              {/* Supporting Specification: Review Trace */}
+              <div className="p-3.5 bg-[#F5F1E8] border border-stone-300 rounded-lg space-y-1.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase bg-[#1C1D1D] text-white px-2 py-0.5 rounded">
-                    MODEL 02 · STATUTORY AUTONOMY
+                    SUPPORTING SPECIFICATION
                   </span>
-                  <PhoneCall className="w-4 h-4 text-[#1C1D1D]" />
+                  <Activity className="w-3.5 h-3.5 text-stone-700" />
                 </div>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
-                  Personal Number Continuity
-                </h3>
-                <p className="text-xs text-stone-800 leading-relaxed font-sans">
-                  Separating billing authority from adult communication identity under the Safe Connections Act (47 U.S.C. § 345) to preserve 2FA and digital lifelines.
+                <h4 className="font-serif font-bold text-sm text-[#1C1D1D]">
+                  Review Trace
+                </h4>
+                <p className="text-[11px] text-stone-700 font-sans leading-snug">
+                  Standardized administrative vocabulary (Received, Accessible, Reviewed, Unreviewed) accounting for material handling without pre-judging merits.
                 </p>
               </div>
 
-              {/* Review Trace Supporting Specification Notice */}
-              <div className="p-3 bg-white/90 border border-stone-300 rounded text-[11px] font-mono text-stone-700 leading-snug space-y-1">
-                <div className="flex items-center gap-1.5 text-stone-900 font-bold">
-                  <Activity className="w-3.5 h-3.5 text-[#971F26]" />
-                  <span>REVIEW TRACE: AGENCY-SIDE SUPPORT SPECIFICATION</span>
+              {/* Empirical Research Layer: Bad Maps */}
+              <div className="p-3.5 bg-[#F5F1E8] border border-stone-300 rounded-lg space-y-1.5 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono font-bold uppercase bg-stone-700 text-white px-2 py-0.5 rounded">
+                    EMPIRICAL RESEARCH LAYER
+                  </span>
+                  <Layers className="w-3.5 h-3.5 text-stone-700" />
                 </div>
-                <p className="text-[11px] font-sans text-stone-600">
-                  Supporting vocabulary (Received, Reviewed, Unavailable, Unreviewed) enabling institutions to log review completeness without automated risk scoring.
+                <h4 className="font-serif font-bold text-sm text-[#1C1D1D]">
+                  Bad Maps
+                </h4>
+                <p className="text-[11px] text-stone-700 font-sans leading-snug">
+                  Aggregating deidentified seam failure research (n=X) to measure referral loops and lost accountability across jurisdictions.
                 </p>
               </div>
 
               {/* Guardrail Note */}
               <div className="p-3 bg-[#1C1D1D] text-[#F5F1E8] rounded text-[11px] font-mono leading-snug">
-                <span className="font-bold text-amber-300">STRICT ARCHITECTURAL BOUNDARY:</span> Not a case-management platform or centralized dossier. Zero automated credibility scoring or predictive policing.
+                <span className="font-bold text-amber-300">CORE ETHICAL BOUNDARY:</span> Not a case-management platform, CRM, or surveillance database. Zero automated risk or credibility scoring.
               </div>
             </div>
           </div>

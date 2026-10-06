@@ -15,7 +15,8 @@ import {
   FolderArchive,
   RefreshCw,
   Lock,
-  Compass
+  Compass,
+  Activity
 } from "lucide-react";
 
 export function ContinuityStandardSection() {
@@ -27,7 +28,7 @@ export function ContinuityStandardSection() {
       description:
         "When defined indicators exist, authorized personnel should be able to determine whether potentially related matters already exist in another relevant agency or jurisdiction.",
       mechanism:
-        "Acts strictly as a signal to review—NOT a determination that any allegation is true. Prevents blind decision-making without creating public dossiers.",
+        "Acts strictly as a signal to review—NOT a determination that any allegation is true. Links matter existence without merging factual conclusions.",
       icon: Link2
     },
     {
@@ -37,27 +38,27 @@ export function ContinuityStandardSection() {
       description:
         "Structured lifecycle tracking for every interagency handoff to prevent matters from falling into the jurisdictional void.",
       mechanism:
-        "SENT → RECEIVED → ACCEPTED / DECLINED → RESPONSIBILITY ASSIGNED → NEXT ACTION → OUTCOME / RETURN",
+        "SENT → DELIVERY_CONFIRMED → RECEIPT_ACKNOWLEDGED → RESPONSIBILITY_ACCEPTED (referral ≠ successful handoff).",
       icon: RefreshCw
     },
     {
       num: "03",
       title: "CONTINUITY RECEIPT",
-      tagline: "Portable institutional encounter proof.",
+      tagline: "Principal working model: portable encounter proof.",
       description:
-        "A standardized portable receipt containing only the essential metadata needed to carry context forward without having to start from scratch.",
+        "A standardized participant-held receipt containing essential metadata and SHA-256 digests needed to carry context forward across institutional boundaries.",
       mechanism:
-        "Preserves: Agency, Date, Ref #, Reason for contact, Documents provided, Action taken, Destination, Acknowledgment, Next action, Outstanding items.",
+        "Preserves: Agency, Date, Ref #, Submitted materials with SHA-256, Action taken, Review status, Next decision owner.",
       icon: FileText
     },
     {
       num: "04",
       title: "CUMULATIVE REVIEW TRIGGERS",
-      tagline: "Recognizing fragmented patterns across silos.",
+      tagline: "Recognizing fragmented patterns without automated risk scoring.",
       description:
-        "Certain combinations prompt supervisory or multidisciplinary review when repeated contacts across agencies indicate systemic risk.",
+        "Certain combinations prompt human supervisory or multidisciplinary review when repeated contacts across agencies indicate systemic risk.",
       mechanism:
-        "Prompted when fragmented evaluation creates a risk that no single decision-maker possesses the whole picture. (Not a simplistic automated risk score).",
+        "Prompted when fragmented evaluation obscures cross-agency context. (Zero automated risk scoring or credibility ratings).",
       icon: AlertTriangle
     },
     {
@@ -65,9 +66,9 @@ export function ContinuityStandardSection() {
       title: "DECISION OWNERSHIP",
       tagline: "Eliminating unassigned responsibility.",
       description:
-        "At every stage, explicitly identify which institution or authorized person owns the next action.",
+        "At every stage, explicitly identify which institution and role owns the immediate next milestone action.",
       mechanism:
-        "Exposes situations where every agency has referred the matter elsewhere, but no institution has accepted responsibility for the next step.",
+        "Exposes situations where every agency has referred elsewhere, but no institution has accepted responsibility for the next step.",
       icon: Users
     },
     {
@@ -77,7 +78,7 @@ export function ContinuityStandardSection() {
       description:
         "Before a qualifying matter is closed, preserve an administrative record of what was examined and what remained unreviewed.",
       mechanism:
-        "Records: What was reviewed, what was unavailable, what was not reviewed, what related matters were checked, and why the matter was closed.",
+        "Records: What was reviewed, what was unavailable, what was not reviewed with stated cause, and why the matter was closed.",
       icon: FolderArchive
     }
   ];
@@ -98,7 +99,7 @@ export function ContinuityStandardSection() {
         </h2>
 
         <p className="text-stone-800 text-base sm:text-lg max-w-3xl leading-relaxed font-sans">
-          A proposed framework for preventing related matters from disappearing between institutional boundaries. Built on six core protocols that bridge agencies without compromising due process or confidentiality.
+          A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six core protocols that bridge agencies without compromising due process, creating centralized dossiers, or flattening institutional distinctions.
         </p>
       </div>
 

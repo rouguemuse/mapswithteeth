@@ -15,14 +15,17 @@ import {
   Layers,
   FileText,
   Clock,
-  Sparkles
+  Sparkles,
+  Activity,
+  AlertOctagon,
+  FileCheck
 } from "lucide-react";
 
 export function HumanAsIntegrationLayerSection() {
   return (
     <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 space-y-10 shadow-sm bg-grid-diagram select-none font-sans">
       {/* Section Header */}
-      <div className="border-b border-[#D9D1C4] pb-6 space-y-2">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#971F26]">
             SECTION 02 · THE SYSTEMIC BREAKPOINT
@@ -66,13 +69,13 @@ export function HumanAsIntegrationLayerSection() {
               </div>
               <div>
                 <span className="font-bold text-[#1C1D1D] block">POLICE / LAW ENFORCEMENT</span>
-                <span className="text-stone-600 text-[11px]">Generates case number & offense report. Closed as &ldquo;civil matter&rdquo; or referred out.</span>
+                <span className="text-stone-600 text-[11px]">Generates case number &amp; offense report. Closed as &ldquo;civil matter&rdquo; or referred out.</span>
               </div>
             </div>
 
             <div className="flex justify-center text-[#971F26]">
               <span className="text-[10px] uppercase font-bold bg-[#FDF2F2] px-2 py-0.5 border border-[#971F26]/20 rounded">
-                ↓ survivor carries story & files manually
+                ↓ survivor carries story &amp; files manually
               </span>
             </div>
 
@@ -116,7 +119,7 @@ export function HumanAsIntegrationLayerSection() {
                 4
               </div>
               <div>
-                <span className="font-bold text-[#1C1D1D] block">FAMILY & DISTRICT COURTS</span>
+                <span className="font-bold text-[#1C1D1D] block">FAMILY &amp; DISTRICT COURTS</span>
                 <span className="text-stone-600 text-[11px]">Protective order or custody filing. Case files cannot see cross-jurisdictional municipal charges.</span>
               </div>
             </div>
@@ -159,7 +162,7 @@ export function HumanAsIntegrationLayerSection() {
           </div>
 
           <div className="text-xs sm:text-sm font-mono text-stone-900 font-bold uppercase tracking-wider bg-[#EEE8DD] p-3 rounded border border-[#1C1D1D] text-center">
-            CLOSED-LOOP ACCOUNTABILITY & PORTABLE CONTEXT
+            CLOSED-LOOP ACCOUNTABILITY &amp; PORTABLE CONTEXT
           </div>
 
           {/* Networked Architecture Diagram */}
@@ -188,24 +191,20 @@ export function HumanAsIntegrationLayerSection() {
           {/* What the Continuity Layer Actually Records */}
           <div className="space-y-2">
             <span className="text-[11px] font-mono font-bold text-stone-900 uppercase tracking-wider block">
-              WHAT THE CONTINUITY LAYER RECORDS:
+              CONTINUITY OF RESPONSIBILITY QUESTIONS:
             </span>
             <ul className="space-y-1.5 text-xs text-stone-800 font-mono">
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>Where responsibility moved:</strong> Exact agency, division, and point of contact.</span>
+                <span><strong>What was sent:</strong> Verified materials, SHA-256 hashes, and notice records.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>What identifier followed it:</strong> Case number, cause number, or intake tracking ID.</span>
+                <span><strong>What was received:</strong> Custody timestamp confirmed by receiving entity.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>What information was provided:</strong> Documented materials, statements, and verified evidence.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>Referral status:</strong> Whether the receiving agency acknowledged and accepted the referral.</span>
+                <span><strong>What was reviewed:</strong> Specific documents examined under agency authority.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
@@ -213,11 +212,11 @@ export function HumanAsIntegrationLayerSection() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>Related matter alerts:</strong> Signals prompting authorized review without predetermining guilt.</span>
+                <span><strong>Decision ownership:</strong> Explicit institutional role owning the next milestone.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#971F26] font-bold">✓</span>
-                <span><strong>Decision ownership:</strong> Explicit identification of who owns the next required action.</span>
+                <span><strong>Responsibility accepted:</strong> Acknowledgment confirming next-step ownership.</span>
               </li>
             </ul>
           </div>

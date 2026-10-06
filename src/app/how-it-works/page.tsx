@@ -26,13 +26,15 @@ import {
   AlertOctagon,
   Users,
   RefreshCw,
-  Link2
+  Link2,
+  Code2
 } from "lucide-react";
+import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
 
 export const metadata = {
   title: "How Maps With Teeth Works | Public-Interest Continuity Framework",
   description:
-    "System architecture and product model for Maps With Teeth. Two primary working models: Continuity Receipt and Personal Number Continuity, supported by Review Trace and Bad Maps research."
+    "System architecture and product model for Maps With Teeth. Principal model: Continuity Receipt. Supporting specification: Review Trace. Empirical research: Bad Maps."
 };
 
 export default function HowItWorksPage() {
@@ -49,9 +51,9 @@ export default function HowItWorksPage() {
     {
       step: "02",
       name: "Preserve the Path",
-      deck: "Participant-Held Continuity & Communication Autonomy",
-      desc: "Generate client-side Continuity Receipts with cryptographic SHA-256 integrity and execute Personal Number separation under 47 U.S.C. § 345 to carry context and protect digital lifelines across boundaries.",
-      status: "PRIMARY MODEL",
+      deck: "Participant-Held Continuity & Cryptographic Verification",
+      desc: "Generate client-side Continuity Receipts with cryptographic SHA-256 integrity to carry context, presented exhibits, and decision ownership across institutional silos.",
+      status: "PRINCIPAL MODEL",
       icon: FileCheck,
       href: "/continuity"
     },
@@ -59,7 +61,7 @@ export default function HowItWorksPage() {
       step: "03",
       name: "Preserve the Review",
       deck: "Agency-Side Operational Review Trace Specification",
-      desc: "Log standardized administrative handling metadata (Received, Reviewed, Unavailable, Outside Authority, Unreviewed with reason) without pre-judging substantive claim merits or inflating risk.",
+      desc: "Log standardized administrative handling metadata (Received, Accessible, Reviewed, Unreviewed Reason, Unavailable) without pre-judging substantive claim merits or inflating risk.",
       status: "SUPPORTING SPEC",
       icon: Activity,
       href: "/continuity/safeguards#review-trace"
@@ -67,8 +69,8 @@ export default function HowItWorksPage() {
     {
       step: "04",
       name: "Identify the Seam",
-      deck: "Closed-Loop Referrals & Decision-Owner Tracking",
-      desc: "Expose where referrals disappear (Sent ≠ Received), detect circular runaround loops, and explicitly bind decision ownership to prevent the 'nobody's case' administrative failure.",
+      deck: "Closed-Loop Referrals & Responsibility Handoffs",
+      desc: "Expose where referrals disappear (Sent ≠ Received), detect circular runaround loops, and explicitly bind next decision ownership to eliminate the 'nobody's case' failure mode.",
       status: "PROTOTYPE SPEC",
       icon: AlertOctagon,
       href: "/the-gap"
@@ -86,7 +88,7 @@ export default function HowItWorksPage() {
 
   const lockedDistinctions = [
     { left: "referral", right: "successful handoff", note: "Dispatching an email or notice does not confirm receipt, capacity, or acceptance by the recipient." },
-    { left: "receipt", right: "accessibility", note: "Physical or digital receipt inside an agency does not mean investigators or caseworkers can access the file." },
+    { left: "receipt", right: "accessibility", note: "Physical or digital receipt inside an agency does not mean caseworkers can access or open the file." },
     { left: "accessibility", right: "review", note: "Having technical access to an intake record does not establish that anyone substantively examined its contents." },
     { left: "closure", right: "factual resolution", note: "Administrative file closure due to staffing or procedural limits does not resolve the underlying safety crisis." },
     { left: "repetition", right: "independent corroboration", note: "Repeating a single originating narrative across multiple case files does not constitute independent verification." },
@@ -95,37 +97,37 @@ export default function HowItWorksPage() {
     { left: "administrative ownership", right: "factual authority", note: "Routing authority over a file does not establish substantive authority over historical truth." }
   ];
 
-  const supportingCapabilities = [
-    {
-      title: "1. Resource Navigation",
-      role: "Front-end discovery of verified aid, statutory rights, lateral funds, and audited friction constraints.",
-      boundary: "Deterministic rules only; zero generative AI fabrication."
-    },
-    {
-      title: "2. Related-Matter Association",
-      role: "Prompts authorized personnel to check for related filings across silos without merging facts or records.",
-      boundary: "Never creates a centralized public dossier or merges case merits."
-    },
-    {
-      title: "3. Bad Maps Analysis",
-      role: "Catalogs recurring dead routes and circular loops to pressure-test institutional design with empirical sample sizes (n=X).",
-      boundary: "Deidentified structural research; never scores individual people."
-    },
-    {
-      title: "4. Responsibility Mapping",
-      role: "Distinguishes statutory authority, required inputs, handoff rules, and escalation paths across agencies.",
-      boundary: "Maps administrative jurisdiction; does not issue judicial orders."
-    },
-    {
-      title: "5. Policy & Legislative Exports",
-      role: "Generates structured system failure briefs for Sunset reviews, legislative committees, and agency ombudsmen.",
-      boundary: "Structured policy briefs derived from documented procedural gaps."
-    }
+  const crossJurisdictionSilos = [
+    "School & McKinney-Vento Transport",
+    "Municipal Police & County Sheriff",
+    "Child Welfare (CPS / DFPS)",
+    "Family & District Courts",
+    "Protective Order Divisions",
+    "Victim Services & Shelters",
+    "Emergency Housing Authorities",
+    "Civil Rights & Discrimination Intake",
+    "State Administrative Complaints",
+    "Healthcare & Emergency Medicine"
+  ];
+
+  const gapTaxonomyItems = [
+    { name: "Receipt Gap", desc: "Originating entity transmitted referral; recipient has no record of intake." },
+    { name: "Accessibility Gap", desc: "Record resides in agency repository but format/permissions prevent caseworker access." },
+    { name: "Review Gap", desc: "Record was accessible in the file but unexamined prior to disposition." },
+    { name: "Handoff Gap", desc: "Sent referral was never acknowledged, accepted, or declined by destination." },
+    { name: "Ownership Gap", desc: "Matter stopped between agencies with no assigned role owning the next milestone." },
+    { name: "Continuity Gap", desc: "Prior verified history vanished when the person crossed a county or municipal border." },
+    { name: "Evidence / Material Gap", desc: "Key documentary exhibits were presented but omitted from the formal case summary." },
+    { name: "Closure Gap", desc: "Administrative dismissal executed without verifying unexamined safety records." },
+    { name: "Referral Loop", desc: "Circular referral chain (Agency A → Agency B → Agency A) leaving survivor in transit." },
+    { name: "Jurisdiction Gap", desc: "Contradictory agency residency or safety mandates creating impossible prerequisites." },
+    { name: "New-Information Gap", desc: "Newly emerging critical evidence cannot be integrated into a previously closed file." },
+    { name: "Collateral / Source Gap", desc: "Multiple reports derived from a single originating account falsely treated as corroboration." }
   ];
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 select-none font-sans">
-      {/* 1. Header & Governing Principle */}
+      {/* 1. Header & Dual Goals */}
       <div className="border-b border-[#D9D1C4] pb-8 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[#971F26]">
@@ -142,21 +144,70 @@ export default function HowItWorksPage() {
         </h1>
 
         <p className="text-base sm:text-lg text-stone-900 leading-relaxed font-sans font-medium max-w-3xl">
-          Maps With Teeth is an overarching public-interest framework designed to carry context and preserve administrative accountability across fragmented public institutions. It maintains <strong>two primary working models</strong> supported by operational specifications, without expanding into a case-management platform or surveillance tool.
+          Maps With Teeth is an overarching public-interest framework designed to carry context and preserve administrative accountability across fragmented public institutions. It establishes the <strong>Continuity Receipt</strong> as its principal working model, supported by the <strong>Review Trace</strong> operational specification and <strong>Bad Maps</strong> systems research.
         </p>
 
-        {/* Governing Principle Banner */}
-        <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
-            GOVERNING PRINCIPLE
-          </span>
-          <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
-            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
-          </p>
+        {/* Dual Goals Banner */}
+        <div className="grid sm:grid-cols-2 gap-3 pt-2">
+          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+              GOVERNING GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+            </p>
+          </div>
+
+          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#1C1D1D] border border-[#D9D1C4] rounded-r-xl space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 block">
+              EXPANDED INSTITUTIONAL GOAL
+            </span>
+            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve enough continuity that a boundary between systems does not automatically become a boundary in accountability.&rdquo;
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* 2. The 5-Step Architectural Flow */}
+      {/* 2. The Core Public-Interest Question */}
+      <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-700 pb-3">
+          <div className="flex items-center gap-2 text-amber-300 font-mono text-xs font-bold uppercase tracking-widest">
+            <Activity className="w-4 h-4" />
+            <span>THE CORE PUBLIC-INTEREST QUESTION</span>
+          </div>
+          <span className="text-[10px] font-mono text-stone-400">[MWT-ACCOUNTABILITY-ANCHOR]</span>
+        </div>
+
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+          &ldquo;How do we know the handoff actually happened?&rdquo;
+        </h2>
+
+        <p className="text-stone-300 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
+          Texas public systems frequently report that agencies &ldquo;collaborate&rdquo; and &ldquo;refer.&rdquo; Maps With Teeth provides the missing operational proof by asking:
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 font-mono text-xs text-amber-100">
+          <div className="p-3 bg-stone-900 rounded-lg border border-stone-800">
+            <strong className="block text-amber-300">1. What was received?</strong>
+            <span className="text-[11px] text-stone-400 font-sans">Physical or electronic custody confirmed.</span>
+          </div>
+          <div className="p-3 bg-stone-900 rounded-lg border border-stone-800">
+            <strong className="block text-amber-300">2. What was reviewed?</strong>
+            <span className="text-[11px] text-stone-400 font-sans">Substantively examined under authority.</span>
+          </div>
+          <div className="p-3 bg-stone-900 rounded-lg border border-stone-800">
+            <strong className="block text-amber-300">3. What was unresolved?</strong>
+            <span className="text-[11px] text-stone-400 font-sans">Unexamined records &amp; pending needs.</span>
+          </div>
+          <div className="p-3 bg-stone-900 rounded-lg border border-stone-800">
+            <strong className="block text-amber-300">4. Was responsibility accepted?</strong>
+            <span className="text-[11px] text-stone-400 font-sans">Explicit decision ownership confirmed.</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. The 5-Step Architectural Flow */}
       <section className="space-y-6">
         <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
@@ -213,36 +264,36 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 3. The Two Primary Working Models */}
+      {/* 4. Product Hierarchy Breakdown */}
       <section className="space-y-6 pt-4">
-        <div className="border-b border-[#D9D1C4] pb-3 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#971F26] text-white flex items-center justify-center font-mono text-sm font-bold">
-            2M
-          </div>
+        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-              CORE IMPLEMENTATIONS
+              OPERATIONAL STRUCTURE
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              Two Primary Working Models
+              Product Hierarchy &amp; Working Models
             </h2>
           </div>
+          <span className="text-xs font-mono text-stone-600 font-bold uppercase">
+            PRINCIPAL · SUPPORTING · RESEARCH
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Model 1: Continuity Receipt */}
-          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* PRINCIPAL MODEL: Continuity Receipt */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between md:col-span-2">
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
                 <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2.5 py-1 rounded">
-                  WORKING MODEL 01 · PARTICIPANT-HELD
+                  PRINCIPAL WORKING MODEL · PARTICIPANT-HELD
                 </span>
                 <FileCheck className="w-5 h-5 text-[#971F26]" />
               </div>
 
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                  ADMINISTRATIVE CONTINUITY
+                  CROSS-SYSTEM ADMINISTRATIVE CONTINUITY
                 </span>
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
                   Continuity Receipt
@@ -250,13 +301,13 @@ export default function HowItWorksPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-                A standardized participant-held receipt documenting encounter date, institutional entity, exhibits provided with client-side SHA-256 integrity hashes, review disposition statuses, ministerial actions taken, and the assigned next decision owner.
+                The flagship operational mechanism of Maps With Teeth. A participant-held, client-side cryptographic receipt documenting encounter date, institutional entity, presented materials with SHA-256 integrity digests, review disposition statuses, ministerial actions taken, and the assigned next decision owner.
               </p>
 
               <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 font-mono text-xs space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">KEY CHARACTERISTICS:</span>
+                <span className="font-bold text-[#1C1D1D] block">CORE INVARIANTS:</span>
                 <span className="text-stone-700 font-sans block text-[12px]">
-                  • Client-side SHA-256 integrity digest (zero server file storage)<br />
+                  • Participant-held by default (zero server file storage or dossier)<br />
                   • Segregated material review logging (Received vs. Reviewed vs. Unexamined)<br />
                   • 5 mandatory non-implication notices preventing tort claims<br />
                   • Context Before Closure verification before file exit
@@ -275,46 +326,36 @@ export default function HowItWorksPage() {
             </div>
           </div>
 
-          {/* Model 2: Personal Number Continuity */}
+          {/* APPLICATION EXAMPLE: Personal Number Continuity */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
-                <span className="text-[10px] font-mono font-bold uppercase bg-[#1C1D1D] text-white px-2.5 py-1 rounded">
-                  WORKING MODEL 02 · STATUTORY AUTONOMY
+                <span className="text-[10px] font-mono font-bold uppercase bg-stone-700 text-white px-2 py-0.5 rounded">
+                  WORKED APPLICATION EXAMPLE
                 </span>
-                <PhoneCall className="w-5 h-5 text-[#1C1D1D]" />
+                <PhoneCall className="w-4 h-4 text-stone-800" />
               </div>
 
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                  COMMUNICATION IDENTITY SEPARATION
+                  SAFE CONNECTIONS ACT
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
+                <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
                   Personal Number Continuity
                 </h3>
               </div>
 
-              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-                Separating carrier account billing authority from adult communication identity under the federal Safe Connections Act (47 U.S.C. § 345). Protects phone numbers, banking 2FA, and agency contacts without notifying the account holder.
+              <p className="text-xs text-stone-800 leading-relaxed font-sans">
+                A worked implementation example under 47 U.S.C. § 345 showing how a distinction that an administrative system normally collapses—separating carrier billing authority from adult communication identity—can be preserved across boundaries to protect banking 2FA and digital lifelines.
               </p>
-
-              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 font-mono text-xs space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">KEY CHARACTERISTICS:</span>
-                <span className="text-stone-700 font-sans block text-[12px]">
-                  • 47 U.S.C. § 345 line separation notice templates<br />
-                  • Complete protection against account-holder notification<br />
-                  • Preserves vital two-factor auth for benefits, banks &amp; courts<br />
-                  • Independent communication identity separate from billing rights
-                </span>
-              </div>
             </div>
 
             <div className="pt-3 border-t border-[#D9D1C4]">
               <Link
                 href="/other-ways-through#telecom"
-                className="w-full py-2.5 bg-[#1C1D1D] hover:bg-black text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2"
+                className="w-full py-2 bg-[#1C1D1D] hover:bg-black text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2"
               >
-                <span>View Safe Connections Guide</span>
+                <span>Explore Telecom Guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -322,87 +363,105 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 4. Review Trace as Supporting Specification */}
-      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-4 font-mono text-xs shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-3">
-          <div className="flex items-center gap-2 text-stone-900 font-bold uppercase">
-            <Activity className="w-4 h-4 text-[#971F26]" />
-            <span>OPERATIONAL SPECIFICATION · REVIEW TRACE (AGENCY-SIDE SUPPORT)</span>
+      {/* 5. Continuity Interchange Specification (Interactive Component) */}
+      <ContinuityInterchangeSpecComponent />
+
+      {/* 6. Formalizing Cross-Jurisdiction Continuity (Without Merging Facts) */}
+      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
+          <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
+            <Link2 className="w-4 h-4" />
+            <span>CROSS-JURISDICTIONAL BOUNDARIES</span>
           </div>
-          <span className="px-2.5 py-0.5 bg-[#EEE8DD] text-stone-800 border border-stone-400 rounded font-bold">
-            SUPPORTING SPECIFICATION · NOT A THIRD FLAGSHIP PRODUCT
-          </span>
+          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+            Multi-Agency Scope Without Merging Merits
+          </h3>
+          <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
+            Continuity may span multiple agencies, courts, or institutional silos without merging their factual conclusions or pre-determining guilt.
+          </p>
         </div>
 
-        <p className="font-sans text-stone-800 text-xs sm:text-sm leading-relaxed">
-          <strong>Review Trace</strong> is an operational accountability specification that supports the Continuity Receipt. It establishes a standardized administrative vocabulary so institutions can log how identified materials were handled without forcing subjective findings of fact.
-        </p>
+        <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
+            <strong className="text-[#971F26] uppercase block">APPLICABLE INSTITUTIONAL DOMAINS:</strong>
+            <div className="grid grid-cols-2 gap-1.5 text-[11px] text-stone-700 font-sans">
+              {crossJurisdictionSilos.map((silo, idx) => (
+                <div key={idx} className="p-1.5 bg-white rounded border border-stone-200">
+                  • {silo}
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-[11px]">
-          <div className="p-2.5 bg-white rounded border border-stone-300">
-            <strong className="text-[#2D5A3D] block">RECEIVED</strong>
-            <span className="text-stone-600 font-sans">Material logged in intake.</span>
+          <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
+            <strong className="text-[#1C1D1D] uppercase block">RELATED MATTERS EVOLVING RULE:</strong>
+            <p className="text-stone-800 font-sans text-xs leading-relaxed">
+              <strong>Related Matter association means only:</strong> &ldquo;another identified matter may be relevant to continuity.&rdquo;
+            </p>
+            <p className="text-stone-800 font-sans text-xs leading-relaxed">
+              <strong>It must NEVER mean:</strong> &ldquo;another allegation corroborates this allegation.&rdquo;
+            </p>
+            <div className="p-2.5 bg-white rounded border border-stone-300 text-[11px] text-stone-700 space-y-1 font-mono">
+              <div>• association ≠ proof</div>
+              <div>• repetition ≠ independent corroboration</div>
+              <div>• administrative ownership ≠ factual authority</div>
+            </div>
           </div>
-          <div className="p-2.5 bg-white rounded border border-stone-300">
-            <strong className="text-[#1C1D1D] block">REVIEWED</strong>
-            <span className="text-stone-600 font-sans">Substantively examined.</span>
-          </div>
-          <div className="p-2.5 bg-white rounded border border-stone-300">
-            <strong className="text-amber-700 block">UNAVAILABLE</strong>
-            <span className="text-stone-600 font-sans">Held by third party.</span>
-          </div>
-          <div className="p-2.5 bg-white rounded border border-stone-300">
-            <strong className="text-[#971F26] block">UNREVIEWED (REASON)</strong>
-            <span className="text-stone-600 font-sans">Omitted with stated cause.</span>
-          </div>
-        </div>
-
-        <div className="pt-2 flex justify-end">
-          <Link
-            href="/continuity/safeguards#review-trace"
-            className="text-[#971F26] font-bold hover:underline flex items-center gap-1"
-          >
-            <span>Read Complete Review Trace Specification</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
         </div>
       </section>
 
-      {/* 5. Supporting Capabilities */}
+      {/* 7. Bad Maps Measurement Architecture & 12-Item Gap Taxonomy */}
       <section className="space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
-          <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-            Integrated Supporting Capabilities
-          </h2>
+        <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
+              EMPIRICAL RESEARCH LAYER
+            </span>
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
+              Bad Maps Measurement Architecture &amp; Gap Taxonomy
+            </h2>
+          </div>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            NOT STANDALONE PRODUCT PILLARS
+            12 OBSERVABLE ADMINISTRATIVE SEAMS
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {supportingCapabilities.map((cap, idx) => (
+        {/* Methodology Notice */}
+        <div className="p-4 bg-[#F5F1E8] border border-stone-300 rounded-xl space-y-2 text-xs font-mono text-stone-800">
+          <div className="flex items-center justify-between">
+            <strong className="text-[#971F26] uppercase">EMPIRICAL MEASUREMENT SAFEGUARDS (n=X):</strong>
+            <span className="text-stone-600">Sample-Based · Counts Over Unsupported Percentages</span>
+          </div>
+          <p className="font-sans text-stone-700 text-[12px] leading-relaxed">
+            Every published Bad Maps metric supports explicit numerator, denominator, sample size (<em>n=X</em>), defined cohort, observation period, and provenance. Metrics distinguish between <strong>CONFIRMED GAP</strong>, <strong>NO GAP OBSERVED</strong>, and <strong>UNKNOWN / INSUFFICIENT RECORD</strong>. (Unknown is never automatically classified as failure). Gaps describe observable administrative conditions, not misconduct accusations.
+          </p>
+        </div>
+
+        {/* 12-Item Gap Taxonomy Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+          {gapTaxonomyItems.map((g, idx) => (
             <div
               key={idx}
-              className="bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl p-4 space-y-2.5 flex flex-col justify-between shadow-2xs"
+              className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 flex flex-col justify-between shadow-2xs"
             >
-              <div className="space-y-1.5">
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
-                  {cap.title}
-                </h3>
-                <p className="text-xs text-stone-800 font-sans leading-relaxed">
-                  {cap.role}
-                </p>
+              <div className="space-y-1">
+                <div className="flex items-center justify-between border-b border-stone-300 pb-1 text-[10px]">
+                  <span className="font-bold text-[#971F26]">GAP {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
+                  <span className="text-stone-500">[TAXONOMY]</span>
+                </div>
+                <h4 className="font-serif font-bold text-sm text-[#1C1D1D]">
+                  {g.name}
+                </h4>
               </div>
-
-              <div className="p-2 bg-[#F5F1E8] rounded border border-stone-300 text-[11px] font-mono text-stone-700">
-                <strong>BOUNDARY:</strong> {cap.boundary}
-              </div>
+              <p className="text-[11px] text-stone-700 font-sans leading-snug">
+                {g.desc}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 6. Locked Institutional Distinctions Grid */}
+      {/* 8. Locked Institutional Distinctions Grid */}
       <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-md">
         <div className="border-b border-stone-700 pb-4 space-y-1">
           <div className="flex items-center gap-2 text-amber-300 font-mono text-xs font-bold uppercase tracking-widest">
@@ -436,11 +495,11 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 7. Strict Non-Claims & Architectural Guardrails */}
+      {/* 9. Strict Non-Claims & Anti-Surveillance Guardrails */}
       <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 font-mono text-xs">
         <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase border-b border-[#D9D1C4] pb-2">
           <ShieldAlert className="w-4 h-4" />
-          <span>STRICT ARCHITECTURAL BOUNDARIES &amp; RESEARCH PROTOCOLS</span>
+          <span>STRICT ANTI-SURVEILLANCE &amp; LEGAL BOUNDARIES</span>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-3 text-stone-800 font-sans text-xs leading-relaxed">
@@ -455,18 +514,18 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-            <strong className="font-mono text-[#971F26] uppercase block">GAP TAXONOMY AS RESEARCH (n=X):</strong>
-            <p>The 12 gap taxonomy classifications and metrics are empirical pressure-test materials, not validated public statistics, until sufficient observations and formal definitions exist.</p>
+            <strong className="font-mono text-[#971F26] uppercase block">ZERO FACT PRE-DETERMINATION:</strong>
+            <p>A continuity receipt records that an encounter occurred and what documents were presented—it does not certify the substantive truth of any contested allegation.</p>
           </div>
 
           <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-            <strong className="font-mono text-[#971F26] uppercase block">ZERO FACT PRE-DETERMINATION:</strong>
-            <p>A continuity receipt records that an encounter occurred and what documents were presented—it does not certify the substantive truth of any contested allegation.</p>
+            <strong className="font-mono text-[#971F26] uppercase block">NO REPLACEMENT FOR LEGAL AUTHORITY:</strong>
+            <p>The framework preserves administrative relationships and provenance without overriding statutory discretion or judicial proceedings.</p>
           </div>
         </div>
       </section>
 
-      {/* 8. Bottom CTA Block */}
+      {/* 10. Bottom CTA Block */}
       <div className="border-t border-[#D9D1C4] pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono">
         <div className="space-y-1 text-xs">
           <span className="font-bold text-[#1C1D1D] uppercase block">EXPLORE MAPS WITH TEETH</span>
