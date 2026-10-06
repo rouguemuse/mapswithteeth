@@ -1,0 +1,26 @@
+[1.00] Google Account
+[0.82] 11:
+[0.98] Critical security alert
+[1.00] Suspicious activity in your account
+[0.98] If you don't recognize this activity, someone might be using your account 
+[0.97]  Activity done from
+[0.98] Mac OS
+[0.98] Texas, USA
+[0.99] Activity detected
+[0.98] July 30,10:33PM
+[0.99] Archive of Google data requested 
+[0.97] July 30, 10:11PM
+[0.98] Someone tried to change your password
+[0.98] July 30, 9:54 PM
+[0.97]  New sign-in on Mac OS
+[0.99] Do you recognize this activity?
+[0.94] X No, secure account
+[1.00] Yes, it was me
+[1.00] Privacy
+[1.00] Terms
+[0.99] Help
+[1.00] About
+[0.99] 94F
+[1.00] Search
+[0.68] 》
+[0.94] 2:08 PM

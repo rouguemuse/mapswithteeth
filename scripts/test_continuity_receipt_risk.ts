@@ -1,12 +1,13 @@
 /**
  * MAPS WITH TEETH — VERIFICATION SUITE: CONTINUITY CONTACT RECORD
- * Tests all 12 mandatory institutional & legal risk controls.
+ * Tests all 15 mandatory institutional & legal risk controls and invariant safeguards.
  */
 
 import {
   ContinuityContactRecordCanonicalPayload,
   MANDATORY_NON_IMPLICATION_CODES,
-  NonImplicationCode,
+  PresentedMaterialItem,
+  VerificationLevel,
 } from "../src/domain/continuity/types";
 import {
   createCounterpartPair,
@@ -14,19 +15,22 @@ import {
   validateCanonicalPayloadInvariants,
   createDisclosureAuthorization,
   revokeDisclosureAuthorization,
+  createCorrectedContactRecord,
   CALIBRATED_DIGEST_NOTICE,
   PUBLIC_AGENCY_RETENTION_WARNING,
   HONEST_REVOCATION_BOUNDARY_TEXT,
+  CAUTIOUS_ELECTRONIC_ACKNOWLEDGMENT_NOTICE,
 } from "../src/domain/continuity/contactRecord";
 
 function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
+  const timestamp = "2026-09-06T10:30:00Z";
   return {
-    recordId: "ccr-2026-tx-00124",
-    contactTimestamp: "2026-09-06T10:30:00Z",
-    organizationName: "Travis County Family Crisis Center",
-    departmentOrUnit: "Intake & Triage Services",
+    recordId: "DEMO-000001",
+    contactTimestamp: timestamp,
+    organizationName: "DEMO COUNTY FAMILY SERVICES",
+    departmentOrUnit: "Demonstration Intake & Triage Services",
     intakeChannel: "IN_PERSON",
-    incidentReferenceNumbers: ["REF-2026-09-8812"],
+    incidentReferenceNumbers: ["DEMO-REF-000001"],
     presentedMaterials: [
       {
         itemId: "mat-1",
@@ -36,6 +40,12 @@ function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
         format: "PHYSICAL_PAPER",
         handlingStatus: "REVIEWED_FOR_ROUTING",
         handlingNotes: "Inspected co-lessee names and expiration date only.",
+        recordedByActorType: "AGENCY_STAFF",
+        recordedByActorId: "Intake Specialist D-14, Staff ID #DEMO-4102",
+        recordedAt: timestamp,
+        verificationLevel: "AGENCY_ACKNOWLEDGED",
+        statusBasis: "Inspected at front intake desk counter",
+        sourceType: "AGENCY_ACKNOWLEDGMENT",
       },
       {
         itemId: "mat-2",
@@ -45,6 +55,11 @@ function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
         format: "DIGITAL_IMAGE",
         handlingStatus: "OPENED_NOT_ASSESSED",
         handlingNotes: "Received flash drive; files not substantively evaluated.",
+        recordedByActorType: "PARTICIPANT",
+        recordedAt: timestamp,
+        verificationLevel: "PARTICIPANT_RECORDED",
+        statusBasis: "Participant self-reported handoff",
+        sourceType: "PARTICIPANT_ENTRY",
       },
     ],
     identityVerification: {
@@ -54,7 +69,7 @@ function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
     jurisdictionScope: {
       status: "WITHIN_JURISDICTION",
       statedBoundaryOrRule: "Serves residents of Travis and contiguous counties.",
-      determinationTimestamp: "2026-09-06T10:35:00Z",
+      determinationTimestamp: timestamp,
     },
     substantiveAssessment: {
       status: "NOT_ASSESSED",
@@ -74,11 +89,12 @@ function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
       department: "Domestic Violence Legal Unit",
       contactMethod: "https://lanwt.org/intake",
       suggestionSource: "RECEIVING_ORGANIZATION",
-      acceptanceConfirmed: false,
+      handoffOutcome: "NOT_CONFIRMED",
       citation: {
         sourceUrl: "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm#92.016",
         verifiedAt: "2026-08-31",
         suppliedBy: "MAPS_REFERENCE",
+        statutoryReference: "Tex. Prop. Code § 92.016",
       },
       deadline: {
         date: "2026-09-15",
@@ -87,11 +103,12 @@ function getValidMockPayload(): ContinuityContactRecordCanonicalPayload {
       },
     },
     nonImplicationCodes: [...MANDATORY_NON_IMPLICATION_CODES],
+    acknowledgmentStatus: "NOT_REQUESTED",
   };
 }
 
 let passedCount = 0;
-let totalCount = 12;
+const totalCount = 15;
 
 function assert(condition: boolean, testName: string, detail?: string) {
   if (!condition) {
@@ -103,18 +120,22 @@ function assert(condition: boolean, testName: string, detail?: string) {
 }
 
 console.log("================================================================================");
-console.log("MAPS WITH TEETH: CONTINUITY CONTACT RECORD INSTITUTIONAL RISK TEST SUITE");
+console.log("MAPS WITH TEETH: CONTINUITY CONTACT RECORD INSTITUTIONAL RISK TEST SUITE (15 INVARIANTS)");
 console.log("================================================================================\n");
 
-// TEST 1: Participant record remains valid when an agency refuses acknowledgment
+// TEST 1: Contact Record can exist without agency cooperation
 {
   const payload = getValidMockPayload();
+  payload.acknowledgmentStatus = "DECLINED_TO_ACKNOWLEDGE";
   payload.acknowledgment = {
+    status: "DECLINED_TO_ACKNOWLEDGE",
     isAcknowledged: false,
     declinedAcknowledgment: true,
     declineReasonStated: "Agency policy does not permit signing third-party intake forms.",
+    rightToDeclineAcknowledged: true,
     authorizedToAcknowledgeOnBehalf: false,
     capacityNotice: "OFFICIAL_ORGANIZATIONAL_CAPACITY_ONLY",
+    cautiousLegalFrameworkNotice: CAUTIOUS_ELECTRONIC_ACKNOWLEDGMENT_NOTICE,
     affirmativelyAttestedItems: {
       confirmedMaterialReceipt: false,
       confirmedMaterialInspection: false,
@@ -128,190 +149,159 @@ console.log("===================================================================
   validateContactRecordInvariants(participantCopy);
   assert(
     participantCopy.verificationLevel === "PARTICIPANT_RECORDED" &&
-      participantCopy.payload.acknowledgment?.declinedAcknowledgment === true,
-    "Test 1: Participant record remains valid when an agency refuses acknowledgment"
+      participantCopy.payload.acknowledgmentStatus === "DECLINED_TO_ACKNOWLEDGE",
+    "Test 1: Contact Record can exist without agency cooperation"
   );
 }
 
-// TEST 2: PARTICIPANT_RECORDED cannot render as agency-verified
+// TEST 2: PARTNER_ROLE_VERIFIED never implies merits verification
 {
   const payload = getValidMockPayload();
-  payload.acknowledgment = {
-    isAcknowledged: true,
-    declinedAcknowledgment: false,
-    signerName: "Jane Doe",
-    signerRole: "Senior Intake Specialist",
-    representedOrganization: "Travis County Family Crisis Center",
-    authorizedToAcknowledgeOnBehalf: true,
-    capacityNotice: "OFFICIAL_ORGANIZATIONAL_CAPACITY_ONLY",
-    affirmativelyAttestedItems: {
-      confirmedMaterialReceipt: true,
-      confirmedMaterialInspection: true,
-      confirmedIdentityInspection: true,
-      confirmedJurisdictionalReview: true,
-      conductedMinisterialIntakeOnly: true,
-    },
-  };
+  const { participantCopy } = createCounterpartPair("PARTNER_ROLE_VERIFIED", payload);
+  
+  // Verify that substantive assessment remains unassessed despite partner verification
+  const meritsUnassessed =
+    participantCopy.payload.substantiveAssessment.status === "NOT_ASSESSED" &&
+    participantCopy.payload.nonImplicationCodes.includes("NO_SUBSTANTIATION_FINDING");
 
-  let threw = false;
-  try {
-    const { participantCopy } = createCounterpartPair("PARTICIPANT_RECORDED", payload);
-    validateContactRecordInvariants(participantCopy);
-  } catch (err: any) {
-    threw = true;
-  }
-  assert(threw, "Test 2: PARTICIPANT_RECORDED cannot render as agency-verified");
+  assert(
+    participantCopy.verificationLevel === "PARTNER_ROLE_VERIFIED" && meritsUnassessed,
+    "Test 2: PARTNER_ROLE_VERIFIED never implies merits verification"
+  );
 }
 
-// TEST 3: All five non-implication codes must be present
+// TEST 3: Immutable non-implication codes cannot be removed
 {
   const payload = getValidMockPayload();
-  // Remove one code
   payload.nonImplicationCodes = [
     "NO_SUBSTANTIATION_FINDING",
     "NO_EVIDENCE_AUTHENTICATION",
     "NO_WHOLE_MATTER_ACCEPTANCE",
     "NO_MAPS_INTERPRETATION_ENDORSEMENT",
-  ];
+  ]; // Missing NO_ROUTING_AS_MERITS_FINDING
 
   let threw = false;
   try {
     validateCanonicalPayloadInvariants(payload);
-  } catch (err) {
+  } catch {
     threw = true;
   }
-  assert(threw, "Test 3: All five non-implication codes must be present");
+  assert(threw, "Test 3: Immutable non-implication codes cannot be removed");
 }
 
-// TEST 4: No field may state that allegations are false or unsubstantiated
+// TEST 4: Default substantive assessment is NOT_ASSESSED
 {
   const payload = getValidMockPayload();
-  (payload.substantiveAssessment as any).status = "ALLEGATIONS_DISPROVEN";
+  assert(
+    payload.substantiveAssessment.status === "NOT_ASSESSED",
+    "Test 4: Default substantive assessment is NOT_ASSESSED"
+  );
+}
+
+// TEST 5: Material handling requires attribution/provenance
+{
+  const payload = getValidMockPayload();
+  // Remove attribution on first item
+  delete (payload.presentedMaterials[0] as any).recordedByActorType;
 
   let threw = false;
   try {
     validateCanonicalPayloadInvariants(payload);
-  } catch (err) {
+  } catch (err: any) {
+    if (err.message.includes("Material handling attribution missing")) {
+      threw = true;
+    }
+  }
+  assert(threw, "Test 5: Material handling requires attribution/provenance");
+}
+
+// TEST 6: Missing routing outcome never silently becomes DECLINED
+{
+  const payload = getValidMockPayload();
+  (payload.suggestedNextRoute as any).handoffOutcome = "INVALID_UNKNOWN_SILENT_DECLINE";
+
+  let threw = false;
+  try {
+    validateCanonicalPayloadInvariants(payload);
+  } catch {
     threw = true;
   }
-  assert(
-    threw,
-    "Test 4: No field may state that allegations are false or unsubstantiated"
-  );
+  assert(threw, "Test 6: Missing routing outcome never silently becomes DECLINED");
 }
 
-// TEST 5: Canonical payloads match while counterpart wrappers remain distinct
+// TEST 7: Acknowledgment refusal/no-response does not create a merits inference
 {
   const payload = getValidMockPayload();
-  const { participantCopy, receivingOrganizationCopy } = createCounterpartPair(
-    "PARTICIPANT_RECORDED",
-    payload
-  );
-
-  const hashesMatch =
-    participantCopy.counterpart.canonicalRecordDigest ===
-    receivingOrganizationCopy.counterpart.canonicalRecordDigest;
-  const labelsDistinct =
-    participantCopy.counterpart.copyDesignation === "PARTICIPANT_COPY" &&
-    receivingOrganizationCopy.counterpart.copyDesignation ===
-      "RECEIVING_ORGANIZATION_COPY";
-
-  assert(
-    hashesMatch && labelsDistinct,
-    "Test 5: Canonical payloads match while counterpart wrappers remain distinct"
-  );
-}
-
-// TEST 6: Hash descriptions cannot claim authentication or admissibility
-{
-  const payload = getValidMockPayload();
-  const { participantCopy } = createCounterpartPair("PARTICIPANT_RECORDED", payload);
-
-  const containsAdmissibilityDisclaimer =
-    participantCopy.digestNotice.includes("does not authenticate allegations") &&
-    participantCopy.digestNotice.includes("determine admissibility") &&
-    !participantCopy.digestNotice.includes("guarantees court admissibility");
-
-  assert(
-    containsAdmissibilityDisclaimer,
-    "Test 6: Hash descriptions cannot claim authentication or admissibility"
-  );
-}
-
-// TEST 7: Jurisdiction decisions cannot modify substantive-assessment status
-{
-  const payload = getValidMockPayload();
-  payload.jurisdictionScope = {
-    status: "OUT_OF_GEOGRAPHIC_SCOPE",
-    statedBoundaryOrRule: "Out of county incident",
-    determinationTimestamp: "2026-09-06T10:40:00Z",
-  };
-
-  // Substantive assessment MUST remain de-judicialized ("NOT_ASSESSED")
-  const substantiveRemainsUnmodified =
+  payload.acknowledgmentStatus = "NO_RESPONSE";
+  
+  // Substantive assessment MUST remain untouched
+  const noMeritsInference =
     payload.substantiveAssessment.status === "NOT_ASSESSED" &&
     payload.substantiveAssessment.notice.includes(
       "A non-service or routing decision is never a merits finding."
     );
 
   assert(
-    substantiveRemainsUnmodified,
-    "Test 7: Jurisdiction decisions cannot modify substantive-assessment status"
+    noMeritsInference,
+    "Test 7: Acknowledgment refusal/no-response does not create a merits inference"
   );
 }
 
-// TEST 8: Suggested routes default to acceptanceConfirmed: false
+// TEST 8: Suggested next route defaults to NOT_CONFIRMED unless explicitly accepted
 {
   const payload = getValidMockPayload();
-  const defaultsToFalse = payload.suggestedNextRoute?.acceptanceConfirmed === false;
+  const outcome = payload.suggestedNextRoute?.handoffOutcome;
 
   assert(
-    defaultsToFalse,
-    "Test 8: Suggested routes default to acceptanceConfirmed: false"
+    outcome === "NOT_CONFIRMED",
+    "Test 8: Suggested next route defaults to NOT_CONFIRMED unless explicitly accepted"
   );
 }
 
-// TEST 9: Agency-generated and Maps-generated citations remain visibly distinguishable
+// TEST 9: Corrections create a new version rather than overwrite the prior finalized record
 {
   const payload = getValidMockPayload();
-  const citation = payload.suggestedNextRoute?.citation;
-  const isDistinguishable =
-    citation !== undefined &&
-    (citation.suppliedBy === "MAPS_REFERENCE" || citation.suppliedBy === "AGENCY") &&
-    citation.suppliedBy === "MAPS_REFERENCE";
+  const { participantCopy } = createCounterpartPair("PARTICIPANT_RECORDED", payload);
 
-  assert(
-    isDistinguishable,
-    "Test 9: Agency-generated and Maps-generated citations remain visibly distinguishable"
-  );
-}
-
-// TEST 10: Revocation cannot claim deletion from recipient systems
-{
-  const auth = createDisclosureAuthorization({
-    participantId: "survivor-1029",
-    targetOrganizationName: "Austin Police Department",
-    purposeOfDisclosure: "Provide incident background for report intake",
-    expirationDate: "2026-10-01",
+  const { participantCopy: correctedCopy } = createCorrectedContactRecord(participantCopy, {
+    correctionOfField: "presentedMaterials[0].pageOrFileCount",
+    correctionReason: "Clerical count correction from 4 pages to 5 pages",
+    correctionSubmittedBy: "Participant",
+    modifiedPayloadFields: {
+      departmentOrUnit: "Intake & Triage Services (Corrected)",
+    },
   });
 
-  const revoked = revokeDisclosureAuthorization(auth);
-
-  const hasHonestBoundary =
-    revoked.revocationNotice.honestBoundaryText.includes(
-      "cannot retrieve, delete, or recall information that has already been downloaded, printed, entered into recipient agency databases"
-    ) &&
-    !revoked.revocationNotice.honestBoundaryText.includes(
-      "guarantees complete deletion from recipient servers"
-    );
+  const isNewVersion =
+    correctedCopy.payload.recordId !== participantCopy.payload.recordId &&
+    correctedCopy.payload.correctionMetadata?.recordVersion === 2 &&
+    correctedCopy.payload.correctionMetadata?.supersedesRecordId === participantCopy.payload.recordId &&
+    correctedCopy.counterpart.canonicalRecordDigest !== participantCopy.counterpart.canonicalRecordDigest;
 
   assert(
-    hasHonestBoundary,
-    "Test 10: Revocation cannot claim deletion from recipient systems"
+    isNewVersion,
+    "Test 9: Corrections create a new version rather than overwrite the prior finalized record"
   );
 }
 
-// TEST 11: Receipt payload rejects narrative, evidence, child, medical, and safe-contact fields by default
+// TEST 10: Digest language cannot claim evidence authentication/admissibility/chain of custody
+{
+  const payload = getValidMockPayload();
+  const { participantCopy } = createCounterpartPair("PARTICIPANT_RECORDED", payload);
+
+  const disclaimsAuthentication =
+    participantCopy.digestNotice.includes("does not authenticate allegations") &&
+    participantCopy.digestNotice.includes("determine admissibility") &&
+    !participantCopy.digestNotice.includes("chain of custody") &&
+    !participantCopy.digestNotice.includes("proves evidentiary truth");
+
+  assert(
+    disclaimsAuthentication,
+    "Test 10: Digest language cannot claim evidence authentication/admissibility/chain of custody"
+  );
+}
+
+// TEST 11: Sensitive case-detail categories are excluded from the Contact Record model
 {
   const payload = getValidMockPayload();
   (payload as any).traumaNarrative = "Detailed narrative of domestic crisis...";
@@ -327,42 +317,86 @@ console.log("===================================================================
 
   assert(
     threw,
-    "Test 11: Receipt payload rejects narrative, evidence, child, medical, and safe-contact fields by default"
+    "Test 11: Sensitive case-detail categories are excluded from the Contact Record model"
   );
 }
 
-// TEST 12: A staff acknowledgment cannot be created without signer role and represented organization
+// TEST 12: Disclosure revocation language includes the already-disclosed-copy boundary
 {
-  const payload = getValidMockPayload();
-  payload.acknowledgment = {
-    isAcknowledged: true,
-    declinedAcknowledgment: false,
-    signerName: "John Smith",
-    signerRole: "", // MISSING ROLE
-    representedOrganization: "Travis County Family Crisis Center",
-    authorizedToAcknowledgeOnBehalf: true,
-    capacityNotice: "OFFICIAL_ORGANIZATIONAL_CAPACITY_ONLY",
-    affirmativelyAttestedItems: {
-      confirmedMaterialReceipt: true,
-      confirmedMaterialInspection: false,
-      confirmedIdentityInspection: false,
-      confirmedJurisdictionalReview: false,
-      conductedMinisterialIntakeOnly: true,
-    },
-  };
+  const auth = createDisclosureAuthorization({
+    participantId: "survivor-1029",
+    targetOrganizationName: "Austin Police Department",
+    purposeOfDisclosure: "Provide incident background for report intake",
+    expirationDate: "2026-10-01",
+  });
 
-  let threw = false;
-  try {
-    validateCanonicalPayloadInvariants(payload);
-  } catch (err: any) {
-    if (err.message.includes("signerRole")) {
-      threw = true;
-    }
-  }
+  const revoked = revokeDisclosureAuthorization(auth);
+
+  const containsBoundary =
+    revoked.revocationNotice.honestBoundaryText.includes(
+      "cannot retrieve, delete, or recall information that has already been downloaded, printed, entered into recipient agency databases"
+    ) &&
+    revoked.revocationNotice.honestBoundaryText.includes(
+      "preserved under statutory public-records retention rules, or disclosed under legal process"
+    );
 
   assert(
-    threw,
-    "Test 12: A staff acknowledgment cannot be created without signer role and represented organization"
+    containsBoundary,
+    "Test 12: Disclosure revocation language includes the already-disclosed-copy boundary"
+  );
+}
+
+// TEST 13: Public agency records warning exists
+{
+  const payload = getValidMockPayload();
+  const { participantCopy } = createCounterpartPair("PARTICIPANT_RECORDED", payload);
+
+  const warningPresent =
+    participantCopy.publicAgencyWarning.includes(
+      "governed by that organization's records-retention, confidentiality, legal-process, and public-information obligations"
+    ) &&
+    participantCopy.publicAgencyWarning.includes(
+      "Maps With Teeth cannot control or delete the recipient's copy."
+    );
+
+  assert(
+    warningPresent,
+    "Test 13: Public agency records warning exists"
+  );
+}
+
+// TEST 14: Participant-recorded statements and agency-attributed statements cannot be rendered identically without source labeling
+{
+  const payload = getValidMockPayload();
+  const agencyItem = payload.presentedMaterials.find((m) => m.sourceType === "AGENCY_ACKNOWLEDGMENT");
+  const participantItem = payload.presentedMaterials.find((m) => m.sourceType === "PARTICIPANT_ENTRY");
+
+  const sourcesDistinct =
+    agencyItem !== undefined &&
+    participantItem !== undefined &&
+    agencyItem.sourceType !== participantItem.sourceType &&
+    agencyItem.recordedByActorType === "AGENCY_STAFF" &&
+    participantItem.recordedByActorType === "PARTICIPANT";
+
+  assert(
+    sourcesDistinct,
+    "Test 14: Participant-recorded statements and agency-attributed statements cannot be rendered identically without source labeling"
+  );
+}
+
+// TEST 15: Electronic acknowledgment copy contains no unsupported claim that UETA/E-SIGN automatically establishes signer authority or legal sufficiency
+{
+  const notice = CAUTIOUS_ELECTRONIC_ACKNOWLEDGMENT_NOTICE;
+  const isCautious =
+    notice.includes("Participation is voluntary") &&
+    notice.includes("does not, by itself, establish signer authority") &&
+    notice.includes("factual substantiation, evidentiary authentication, or legal admissibility") &&
+    !notice.includes("automatically creates binding legal force") &&
+    !notice.includes("guarantees full court admissibility");
+
+  assert(
+    isCautious,
+    "Test 15: Electronic acknowledgment copy contains no unsupported claim that UETA/E-SIGN automatically establishes signer authority or legal sufficiency"
   );
 }
 

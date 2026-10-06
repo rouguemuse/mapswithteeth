@@ -1,0 +1,14 @@
+[1.00] Maps
+[0.96] 3750 E PalmValleyBlvd
+[0.95] 10:19 PM · Detaills
+[1.00] Maps
+[0.99] Used Maps
+[0.95] 10:19 PM · Details
+[1.00] Maps
+[0.94] 3750 E PalmValley Blvd
+[0.98] 10:19 PM · Details
+[1.00] Search
+[0.99] Searched for google drive
+[0.94] 10:12 PM · Details
+[1.00] Ads
+[0.99] Displayed Gmail ads

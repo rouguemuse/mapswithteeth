@@ -34,7 +34,7 @@ export function ContinuityReceiptModal({ receipt, onClose }: ContinuityReceiptMo
 
   const handleCopy = async () => {
     const plainText = `
-MAPS WITH TEETH — ACTION CONTINUITY RECEIPT
+MAPS WITH TEETH — ACTION CONTINUITY RECORD
 ==================================================
 Resource: ${receipt.resourceName}
 Provider: ${receipt.provider}
@@ -98,7 +98,7 @@ Last Reviewed: ${receipt.sourceReferences.lastReviewed}
             </button>
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#971F26] font-bold block">
-                ACTION CONTINUITY RECEIPT
+                ACTION CONTINUITY RECORD
               </span>
               <h2 className="text-lg sm:text-xl font-serif font-bold text-[#1C1D1D] leading-tight">
                 {receipt.resourceName}

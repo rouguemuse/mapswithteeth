@@ -85,7 +85,7 @@ export default function AboutPage() {
               </span>
               <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Continuity Infrastructure</h3>
               <p className="text-stone-800 font-sans leading-relaxed">
-                Provides survivor-held touchpoint documentation (Continuity Receipts) that preserve context, unreviewed evidence, and next decision-owners across disconnected agency handoffs.
+                Provides survivor-held touchpoint documentation (Continuity Contact Records) that preserve context, unreviewed evidence, and next decision-owners across disconnected agency handoffs.
               </p>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
               Rather than treating the problem as a lack of awareness or another resource-directory problem, Volstad designed Maps With Teeth around a structural question: <strong>what happens to context, responsibility, and next steps when a person has to move between systems that do not share the same map?</strong>
             </p>
             <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-              She has led development of the project’s current prototype, including its <strong>deterministic matching system, 47-record canonical Resource Graph, progressive survivor intake, evidence and source-quality controls, and the broader Bridge continuity model being prepared for a Central Texas founding pilot.</strong>
+              She has led development of the project’s current prototype, including its <strong>deterministic matching system, 47 canonical resource records with documented source provenance and review timestamps, progressive survivor intake, evidence and source-quality controls, and the broader Bridge continuity model being prepared for a Central Texas founding pilot.</strong>
             </p>
             <div className="pt-2 border-t border-[#D9D1C4] text-xs font-mono text-stone-700 italic">
               The project is being developed around privacy-conscious data practices, source transparency, and a public-interest operating model.
@@ -161,13 +161,13 @@ export default function AboutPage() {
             What exists and is testable today?
           </h2>
           <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-            Maps With Teeth is a fully functional software prototype backed by comprehensive test and audit suites:
+            Functional prototype with automated regression, schema, provenance-field, and evidence-structure checks. The system has not undergone independent external security or legal validation.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center font-mono">
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
               <div className="text-2xl font-bold text-[#971F26]">47</div>
               <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Audited Records</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">Primary & program standards</div>
+              <div className="text-[9.5px] text-stone-500 mt-0.5">Documented provenance</div>
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
               <div className="text-2xl font-bold text-[#971F26]">29</div>
@@ -198,12 +198,12 @@ export default function AboutPage() {
             What is next?
           </h2>
           <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-            We are actively designing a <strong>Six-Month Central Texas Pilot</strong> across Travis, Williamson, Hays, and Bastrop counties to field-test:
+            We are actively designing a <strong>Central Texas Continuity Pilot</strong> across Travis, Williamson, Hays, and Bastrop counties to field-test:
           </p>
           <div className="grid gap-3 sm:grid-cols-2 text-xs font-sans">
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
-              <strong className="text-sm font-serif text-[#1C1D1D] block">• Live Bridge Continuity Receipts</strong>
-              <p className="text-stone-800 leading-snug">Testing standardized touchpoint receipt exchange with frontline victim navigators and legal aid advocates.</p>
+              <strong className="text-sm font-serif text-[#1C1D1D] block">• Live Bridge Continuity Contact Records</strong>
+              <p className="text-stone-800 leading-snug">Seeking qualified Central Texas practitioners to pressure-test the proposed Continuity Receipt protocol using synthetic demonstration cases before any live-data pilot.</p>
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
               <strong className="text-sm font-serif text-[#1C1D1D] block">• Survivor Gap Fund ($45,000 Allocation)</strong>
@@ -215,7 +215,7 @@ export default function AboutPage() {
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
               <strong className="text-sm font-serif text-[#1C1D1D] block">• Bad Maps Systems Research</strong>
-              <p className="text-stone-800 leading-snug">Aggregating deidentified referral failure points to provide empirical policy data on statutory non-compliance.</p>
+              <p className="text-stone-800 leading-snug">Aggregating deidentified referral failure points to provide empirical policy data on documented discrepancies between published requirements and reported or observed implementation.</p>
             </div>
           </div>
         </section>

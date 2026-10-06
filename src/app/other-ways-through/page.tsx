@@ -72,7 +72,7 @@ export default function OtherWaysThroughPage() {
   const [sortBy, setSortBy] = useState<string>("relevant");
   const [savedDockets, setSavedDockets] = useState<string[]>([]);
 
-  // Combined verified resource catalog for Other Ways Through
+  // Combined canonical resource catalog for Other Ways Through
   const catalog: Resource[] = useMemo(() => {
     const map = new Map<string, Resource>();
     OTHER_WAYS_THROUGH_RESOURCES.forEach((r) => map.set(r.id, r));

@@ -1,0 +1,54 @@
+Original Message
+Message
+ID
+<SA1P221MB1547EFA2E7309243F2190A81A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+Created
+at:
+Sun, May 24, 2026 at 3:10 PM (Delivered after 2 seconds)
+From:
+blake harris <pluckaduck1984@gmail.com>
+To:
+Jayme Volstad <jaymev02@gmail.com>
+Subject:
+Re:
+SPF:
+PASS with IP 209.85.220.41 Learn more
+DKIM:
+'PASS' with domain gmail.com Learn more
+DMARC:
+'PASS' Learn more
+Download Original
+Copy to clipboard
+Delivered-To: jaymev02@gmail.com
+Received: by 2002:a05:6022:5382:b0:f7:dfe9:32a5 with SMTP id cl2csp2350846lab; Sun, 
+24 May 2026 13:10:48 -0700 (PDT)
+X-Received: by 2002:a17:90b:224e:b0:368:b917:79b9 with SMTP id 98e67ed59e1d1-
+36a67658122mr12256977a91.25.1779653448753; Sun, 24 May 2026 13:10:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779653448; cv=none; d=google.com; s=arc-20240605; 
+b=DRt26u0AkPcXKaxMPYtmZQ1vFOxZJNI8QfimFrqjfVD9gIfAQXG74/gb1lKumnJEu8 
+C96F4NMtwZJg/T+qIbQfYhADOn3z7Vfrqk4MlgrLvuapTDN8zBMbpQsNG+CJIlFMiKiL 
+rnu9CuxEwg5nWIEohlVvd5dhq4uTPhSPlb8Y+4XmDCbGVaBFVHSVm/ljnFjGGOf/LQ1J 
+r04QO1YeCpdNOmNZLEs/QMbysau7NWt1/cy8dGicnB2GjYqAfLtX/Nu0f8MOMv0Cc6/J 
+NY+phey2R0c9xzZMnY5WnZn7Qwpr4ArvQAzS473yO9CoU1cPC3qTuEsqFJZwjkJaEU6k 6xKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-
+20240605; h=mime-version:content-language:accept-language:in-reply-to 
+:references:message-id:date:thread-index:subject:to:from :dkim-signature; 
+bh=OtIgAUHbHeCmKgjCrTrLZjf83/fRFR0n+m9o/1qi5iU=; 
+fh=4HoIlJLQKc9A53N/hgcnWUjRd49O0xB+OVuK/eeB1xA=; 
+b=IhOCy52bYWV31Zn/oawMYr4PEhTV7oR4lhZsqInmuXYmtaW/5P9DA7uDLlEv2BKWrR 
+9fRRvgcQ7utwVC/6Z65UIPvRfOdxmPCoexv4wRdI1SDoTIAgw4Lnpr+nJ3R2hLLj0n6j 
+/o9S7gPUJ7kbxx4M384nxieJzigl3nz8OTleA3iZ1Ghmz7jrYCX3dAzy1rRKdA/IysYZ 
+wDS1zvzR1Q/LjbMzC0xMGHaPYMs35UKhYSOz+2Qi/2enEr11+cJFqCY9vgJlGq48tRwV 
+cFSodb4E2/Wxxf5aTJGlUWXYnV+haV+PsC9nkVYstp3aNJxUGq1U1V08UT2uq7GIXspB eZXA==; 
+dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@gmail.com 
+header.s=20251104 header.b=Ozu9E3tR; spf=pass (google.com: domain of 
+pluckaduck1984@gmail.com designates 209.85.220.41 as permitted sender) 
+smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) 
+header.from=gmail.com; dara=pass header.i=@gmail.com
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41]) by 
+mx.google.com with SMTPS id 98e67ed59e1d1-
+36a72626d13sor3235836a91.10.2026.05.24.13.10.48 for <jaymev02@gmail.com> (Google 
+Transport Security); Sun, 24 May 2026 13:10:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pluckaduck1984@gmail.com designates 

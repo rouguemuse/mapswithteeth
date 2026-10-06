@@ -251,7 +251,7 @@ export default function BridgePage() {
             • Ghost Program Detection
           </span>
           <span className="px-2.5 py-1 bg-[#F5F1E8] border border-[#1C1D1D] rounded">
-            • Statutory Non-Compliance Trends
+            • Discrepancies Between Published Requirements & Implementation
           </span>
         </div>
       </section>
@@ -261,7 +261,7 @@ export default function BridgePage() {
         <div className="space-y-1 text-xs">
           <span className="font-bold text-[#971F26] uppercase block">STAGE 03 CONTINUITY PILOT</span>
           <p className="text-stone-700 font-sans">
-            Currently testing Continuity Receipt protocols with Central Texas navigators.
+            Seeking qualified Central Texas practitioners to pressure-test the proposed Continuity Receipt protocol using synthetic demonstration cases before any live-data pilot.
           </p>
         </div>
 

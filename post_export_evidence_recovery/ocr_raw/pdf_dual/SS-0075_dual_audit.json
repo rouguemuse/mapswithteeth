@@ -1,0 +1,16 @@
+[
+  {
+    "page": 1,
+    "native_chars": 2756,
+    "ocr_chars": 2707,
+    "similarity": 0.902,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 2,
+    "native_chars": 2864,
+    "ocr_chars": 2759,
+    "similarity": 0.88,
+    "agreement": "Agrees"
+  }
+]

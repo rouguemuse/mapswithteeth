@@ -1,0 +1,65 @@
+[
+  {
+    "page": 1,
+    "native_chars": 0,
+    "ocr_chars": 3001,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 2,
+    "native_chars": 0,
+    "ocr_chars": 1656,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 3,
+    "native_chars": 0,
+    "ocr_chars": 1567,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 4,
+    "native_chars": 0,
+    "ocr_chars": 1639,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 5,
+    "native_chars": 0,
+    "ocr_chars": 1214,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 6,
+    "native_chars": 0,
+    "ocr_chars": 1668,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 7,
+    "native_chars": 0,
+    "ocr_chars": 1596,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 8,
+    "native_chars": 0,
+    "ocr_chars": 1503,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 9,
+    "native_chars": 0,
+    "ocr_chars": 1315,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  }
+]

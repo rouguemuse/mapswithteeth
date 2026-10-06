@@ -1,0 +1,42 @@
+bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+b=rEo+dLNLaEEg47J5P2o96ubF4WN5oexXrgo6ckQUgdDv9HM6VN2IBGa7soKog+rTdv 
+U2B5h1ffzbnI2jGSC3IglW/AETz6r9L0oFjrekJZ6ZnTgMA88Zh8sEewsqjYoPQXBfbl 
+fmRrpCgaGBOUkAEBIPiT19XPZPK8sr0jcKA1szIXDVHkjlCVrQWyQz03pSAkb0PuvWBP 
+Oh5niidnxTPH7WRbKbsof8wkcQVg3at1WDUOnEgdKVcB32IwDQhNWbdx/rB0CgNZrJK4 
+Tio+pfl6TZJngECuMcTbVBA2blV19QyhkwsBbFA9dy2DEd3mWHWgNpgxKStALejbaliW IzNQ==
+X-Gm-Message-State: AOJu0YzF59n6/UChoVW/o5lOVtY7FK8LI1FfFzu8EHS3PG+I2Oe+fQOS 
+HrH01iEQ5EKj72v820/xUWEAjG7QpoxynTTxeJJ5u4YD+t1gRS3zcZx4QqWoEQ==
+X-Gm-Gg: Acq92OHdjz7GBiGIgbC7vNv4bOO9bnL8QK7EKpsES1q+9ywgagoYc0ya1zVw0PDZdaD 
+i8LFDyzXpe4wSk+tpUmfN42/imuGmLExGlgzY2zYpxzu7hoaDMSJRoPCsKLYjLQpDoiNfPEHuba 
+KpHCs9SF7GfddkVkzkws/bN0xiq0KMKeXpJcy5wwiEnI1NZuwgGcGbSoBO61HqIqRILGe1S9gL4 
+ByX1c5hlVTwUZqs34RvV3jymEcs7jPtQ8A5/s3TmE0YWxpB+U+6rbZuL141Ar8tole7JIpilVwG 
+PLpGk6KFXlXBROPh0zLnMMv9GrcvsxloAUtSrQ8jEsGE4Tmq26grW6eME9h65kaurgtUgzW/lYI 
+DQb/R1kGKQ6rSeix83Aurr+EbQMdlojk4RJSiTsEplXdyORSfRcKB23pmaNASkqe9XHuXTQABji 
+vtse5W5w1RnNYgU4yq6Xbfyt8mIZfA1Siv/VB4UM+nQsCoIGdPWFlGWnYO0egKb7w5lJzX6bGU4 
+xjEfurCnNfOZLP7cQihCsdC9QFEHRQ=
+X-Received: by 2002:a05:6808:1521:b0:485:1174:4582 with SMTP id 5614622812f47-
+4854a0eb6ebmr7960718b6e.13.1779647298604; Sun, 24 May 2026 11:28:18 -0700 (PDT)
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM ([2603:1036:305:496e::5]) by 
+smtp.gmail.com with ESMTPSA id 586e51a60fabf-43b6350ad6bsm8323697fac.4.2026.05.24.11.28.18 
+for <jaymev02@gmail.com> (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256); Sun, 24 
+May 2026 11:28:18 -0700 (PDT)
+From: blake harris <pluckaduck1984@gmail.com>
+To: Jayme Volstad <jaymev02@gmail.com>
+Subject: Re:
+Thread-Index: AUFSWmQ4TkEJKvSr6+3wjLz4Oc5jiLcynUuD
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Sun, 24 May 2026 18:28:17 +0000
+Message-ID: <SA1P221MB154724E540D64539C18087D5A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+References: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+In-Reply-To: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator: 
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-reactions: allow
+Content-Type: multipart/alternative; 
+boundary="_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_"
+MIME-Version: 1.0

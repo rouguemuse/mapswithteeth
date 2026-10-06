@@ -102,7 +102,7 @@ export interface ContinuityHandoffPackage {
 export type VerificationLevel =
   | "PARTICIPANT_RECORDED"
   | "AGENCY_ACKNOWLEDGED"
-  | "PARTNER_VERIFIED";
+  | "PARTNER_ROLE_VERIFIED";
 
 export type NonImplicationCode =
   | "NO_SUBSTANTIATION_FINDING"
@@ -121,7 +121,7 @@ export const MANDATORY_NON_IMPLICATION_CODES: readonly NonImplicationCode[] = [
 
 export type SubstantiveAssessmentStatus =
   | "NOT_ASSESSED"
-  | "ASSESSMENT_PENDING_OUTSIDE_THIS_RECEIPT"
+  | "ASSESSMENT_PENDING_OUTSIDE_THIS_RECORD"
   | "SEPARATE_OFFICIAL_DECISION_REFERENCED";
 
 export type MaterialHandlingStatus =
@@ -133,6 +133,9 @@ export type MaterialHandlingStatus =
   | "SUBSTANTIVE_REVIEW_OCCURS_SEPARATELY"
   | "STATUS_UNKNOWN";
 
+export type ActorType = "PARTICIPANT" | "AGENCY_STAFF" | "PARTNER_STAFF" | "SYSTEM";
+export type SourceType = "PARTICIPANT_ENTRY" | "AGENCY_ACKNOWLEDGMENT" | "SYSTEM_GENERATED";
+
 export interface PresentedMaterialItem {
   itemId: string;
   label: string;
@@ -141,6 +144,14 @@ export interface PresentedMaterialItem {
   format: "PHYSICAL_PAPER" | "DIGITAL_IMAGE" | "DIGITAL_PDF" | "VERBAL_STATEMENT" | "OTHER";
   handlingStatus: MaterialHandlingStatus;
   handlingNotes?: string;
+
+  // WHAT, WHO, HOW, WHEN Attribution & Provenance
+  recordedByActorType: ActorType;
+  recordedByActorId?: string; // or display attribution
+  recordedAt: string;
+  verificationLevel: VerificationLevel;
+  statusBasis?: string;
+  sourceType: SourceType;
 }
 
 export type IdentityVerificationStatus =
@@ -163,6 +174,16 @@ export interface JurisdictionScopeDetermination {
   determinationTimestamp: string;
 }
 
+export type HandoffOutcomeStatus =
+  | "ACCEPTED"
+  | "DECLINED"
+  | "PENDING"
+  | "NOT_CONFIRMED"
+  | "NOT_APPLICABLE"
+  | "STATUS_UNKNOWN";
+
+export type CitationSource = "AGENCY_SOURCE" | "MAPS_REFERENCE";
+
 export interface SuggestedNextRoute {
   organizationName?: string;
   department?: string;
@@ -171,23 +192,34 @@ export interface SuggestedNextRoute {
     | "RECEIVING_ORGANIZATION"
     | "VERIFIED_RESOURCE_GRAPH"
     | "PARTICIPANT_RECORDED";
-  acceptanceConfirmed: boolean; // defaults to false
+  handoffOutcome: HandoffOutcomeStatus; // defaults to NOT_CONFIRMED
   citation?: {
     sourceUrl: string;
     verifiedAt: string;
-    suppliedBy: "AGENCY" | "MAPS_REFERENCE";
+    suppliedBy: CitationSource;
+    statutoryReference?: string | "NOT_PROVIDED";
   };
   deadline?: {
-    date: string;
+    date: string | "NOT_PROVIDED";
     source: string;
     legalAdviceDisclaimerShown: true;
   };
 }
 
+export type AgencyAcknowledgmentStatus =
+  | "NOT_REQUESTED"
+  | "REQUESTED_PENDING"
+  | "ACKNOWLEDGED"
+  | "DECLINED_TO_ACKNOWLEDGE"
+  | "NO_RESPONSE"
+  | "UNAVAILABLE";
+
 export interface StaffAcknowledgmentBlock {
+  status: AgencyAcknowledgmentStatus;
   isAcknowledged: boolean;
   declinedAcknowledgment: boolean;
   declineReasonStated?: string; // Optional; staff can decline without reason
+  rightToDeclineAcknowledged: true;
   signerName?: string;
   signerRole?: string; // Required if acknowledged
   representedOrganization?: string; // Required if acknowledged
@@ -207,6 +239,7 @@ export interface StaffAcknowledgmentBlock {
     conductedMinisterialIntakeOnly: boolean;
   };
   capacityNotice: "OFFICIAL_ORGANIZATIONAL_CAPACITY_ONLY";
+  cautiousLegalFrameworkNotice: string;
   addendumHistory?: {
     addendumId: string;
     timestamp: string;
@@ -215,6 +248,25 @@ export interface StaffAcknowledgmentBlock {
     authorRole: string;
   }[];
 }
+
+export interface RecordCorrectionMetadata {
+  recordVersion: number;
+  supersedesRecordId?: string;
+  correctionOfField?: string;
+  correctionSubmittedBy?: string;
+  correctionSubmittedAt?: string;
+  correctionReason?: string;
+  priorDigest?: string;
+  newCanonicalDigest?: string;
+}
+
+export type ConfidentialityRegime =
+  | "GENERAL_PRIVACY"
+  | "VAWA_APPLICABLE"
+  | "AGENCY_SPECIFIC"
+  | "LEGAL_AID_PRIVILEGE_SENSITIVE"
+  | "OTHER_RESTRICTED"
+  | "TO_BE_REVIEWED";
 
 export interface CounterpartMetadata {
   canonicalRecordDigest: string;
@@ -268,8 +320,17 @@ export interface ContinuityContactRecordCanonicalPayload {
   // The 5 Inviolable Non-Implication Notices
   nonImplicationCodes: NonImplicationCode[];
 
+  // Agency Acknowledgment status lifecycle
+  acknowledgmentStatus: AgencyAcknowledgmentStatus;
+
   // Staff acknowledgment block (optional; null if participant-recorded only)
   acknowledgment?: StaffAcknowledgmentBlock;
+
+  // Versioning & Corrections
+  correctionMetadata?: RecordCorrectionMetadata;
+
+  // Confidentiality Regime Gate
+  confidentialityRegime?: ConfidentialityRegime;
 }
 
 export interface ContinuityContactRecord {
@@ -310,4 +371,5 @@ export interface ParticipantDisclosureAuthorization {
     revocationMethod?: string;
   };
 }
+
 

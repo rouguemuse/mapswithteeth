@@ -1,0 +1,44 @@
+[
+  {
+    "page": 1,
+    "native_chars": 2623,
+    "ocr_chars": 2328,
+    "similarity": 0.49,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 2,
+    "native_chars": 4084,
+    "ocr_chars": 2977,
+    "similarity": 0.391,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 3,
+    "native_chars": 3668,
+    "ocr_chars": 3142,
+    "similarity": 0.51,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 4,
+    "native_chars": 3781,
+    "ocr_chars": 2898,
+    "similarity": 0.543,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 5,
+    "native_chars": 3672,
+    "ocr_chars": 3007,
+    "similarity": 0.384,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 6,
+    "native_chars": 2178,
+    "ocr_chars": 1866,
+    "similarity": 0.679,
+    "agreement": "Agrees"
+  }
+]

@@ -186,6 +186,9 @@ export function createCounterpartPair(
   return { participantCopy, receivingOrganizationCopy };
 }
 
+export const CAUTIOUS_ELECTRONIC_ACKNOWLEDGMENT_NOTICE =
+  "Electronic acknowledgment functionality is designed with applicable electronic-record and electronic-signature requirements, including Texas UETA and E-SIGN, in mind. Participation is voluntary. The acknowledgment records attributed administrative facts and does not, by itself, establish signer authority, agency acceptance of the underlying matter, factual substantiation, evidentiary authentication, or legal admissibility.";
+
 /**
  * Validates the core institutional and legal invariants of a canonical payload.
  */
@@ -210,6 +213,8 @@ export function validateCanonicalPayloadInvariants(
     "UNSUBSTANTIATED",
     "ALLEGATIONS_PROVEN",
     "ALLEGATIONS_DISPROVEN",
+    "FINDING_OF_FACT",
+    "CHAIN_OF_CUSTODY",
   ];
   for (const term of prohibitedTerms) {
     if (serialized.includes(`"${term}"`)) {
@@ -222,7 +227,7 @@ export function validateCanonicalPayloadInvariants(
   // 3. Substantive assessment status must be de-judicialized
   const validSubstantiveStatuses = [
     "NOT_ASSESSED",
-    "ASSESSMENT_PENDING_OUTSIDE_THIS_RECEIPT",
+    "ASSESSMENT_PENDING_OUTSIDE_THIS_RECORD",
     "SEPARATE_OFFICIAL_DECISION_REFERENCED",
   ];
   if (!validSubstantiveStatuses.includes(payload.substantiveAssessment.status)) {
@@ -253,14 +258,53 @@ export function validateCanonicalPayloadInvariants(
     }
   }
 
-  // 5. Suggested next route defaults: acceptanceConfirmed must be boolean, default false
-  if (payload.suggestedNextRoute) {
-    if (payload.suggestedNextRoute.acceptanceConfirmed === true) {
-      // Allowed only if explicitly documented, but by default must not be true without explicit basis
+  // 5. Material handling requires attribution / provenance
+  if (payload.presentedMaterials && payload.presentedMaterials.length > 0) {
+    for (const mat of payload.presentedMaterials) {
+      if (!mat.recordedByActorType || !mat.recordedAt || !mat.sourceType) {
+        throw new Error(
+          `Material handling attribution missing for item '${mat.itemId}'. Must include recordedByActorType, recordedAt, and sourceType.`
+        );
+      }
     }
   }
 
-  // 6. Acknowledgment block validation:
+  // 6. Suggested next route defaults: handoffOutcome must be valid enum
+  if (payload.suggestedNextRoute) {
+    const validOutcomes = [
+      "ACCEPTED",
+      "DECLINED",
+      "PENDING",
+      "NOT_CONFIRMED",
+      "NOT_APPLICABLE",
+      "STATUS_UNKNOWN",
+    ];
+    if (!validOutcomes.includes(payload.suggestedNextRoute.handoffOutcome)) {
+      throw new Error(
+        `Invalid handoff outcome: ${payload.suggestedNextRoute.handoffOutcome}`
+      );
+    }
+  }
+
+  // 7. Acknowledgment status lifecycle validation
+  const validAckStatuses = [
+    "NOT_REQUESTED",
+    "REQUESTED_PENDING",
+    "ACKNOWLEDGED",
+    "DECLINED_TO_ACKNOWLEDGE",
+    "NO_RESPONSE",
+    "UNAVAILABLE",
+  ];
+  if (
+    payload.acknowledgmentStatus &&
+    !validAckStatuses.includes(payload.acknowledgmentStatus)
+  ) {
+    throw new Error(
+      `Invalid agency acknowledgment status: ${payload.acknowledgmentStatus}`
+    );
+  }
+
+  // 8. Acknowledgment block validation:
   if (payload.acknowledgment && payload.acknowledgment.isAcknowledged) {
     if (!payload.acknowledgment.signerRole || !payload.acknowledgment.signerRole.trim()) {
       throw new Error("Staff acknowledgment requires an official signerRole.");
@@ -274,6 +318,44 @@ export function validateCanonicalPayloadInvariants(
       );
     }
   }
+}
+
+/**
+ * Creates an append-only corrected version of a prior finalized Continuity Contact Record.
+ * Generates a new canonical digest and supersession reference without overwriting the prior record.
+ */
+export function createCorrectedContactRecord(
+  priorRecord: ContinuityContactRecord,
+  correction: {
+    correctionOfField: string;
+    correctionReason: string;
+    correctionSubmittedBy: string;
+    modifiedPayloadFields: Partial<ContinuityContactRecordCanonicalPayload>;
+  }
+): {
+  participantCopy: ContinuityContactRecord;
+  receivingOrganizationCopy: ContinuityContactRecord;
+} {
+  const priorDigest = priorRecord.counterpart.canonicalRecordDigest;
+  const newVersion = (priorRecord.payload.correctionMetadata?.recordVersion || 1) + 1;
+  const correctionTimestamp = new Date().toISOString();
+
+  const updatedPayload: ContinuityContactRecordCanonicalPayload = {
+    ...priorRecord.payload,
+    ...correction.modifiedPayloadFields,
+    recordId: `${priorRecord.payload.recordId}-v${newVersion}`,
+    correctionMetadata: {
+      recordVersion: newVersion,
+      supersedesRecordId: priorRecord.payload.recordId,
+      correctionOfField: correction.correctionOfField,
+      correctionReason: correction.correctionReason,
+      correctionSubmittedBy: correction.correctionSubmittedBy,
+      correctionSubmittedAt: correctionTimestamp,
+      priorDigest,
+    },
+  };
+
+  return createCounterpartPair(priorRecord.verificationLevel, updatedPayload);
 }
 
 /**

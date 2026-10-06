@@ -1,0 +1,433 @@
+--- PAGE 1 ---
+Original Message
+Message
+ID
+<SA1P221MB154724E540D64539C18087D5A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+Created
+at:
+Sun, May 24, 2026 at 1:28 PM (Delivered after 2 seconds)
+From:
+blake harris <pluckaduck1984@gmail.com>
+To:
+Jayme Volstad <jaymev02@gmail.com>
+Subject:
+Re:
+SPF:
+PASS with IP 209.85.220.41 Learn more
+DKIM:
+'PASS' with domain gmail.com Learn more
+DMARC:
+'PASS' Learn more
+Download Original
+Copy to clipboard
+Delivered-To: jaymev02@gmail.com
+Received: by 2002:a05:6022:5382:b0:f7:dfe9:32a5 with SMTP id cl2csp2319622lab; Sun, 24 May 
+2026 11:28:19 -0700 (PDT)
+X-Received: by 2002:a05:6808:5387:b0:47c:b363:63a1 with SMTP id 5614622812f47-
+4854a3b9f54mr6440348b6e.31.1779647299260; Sun, 24 May 2026 11:28:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779647299; cv=none; d=google.com; s=arc-20240605; 
+
+
+--- PAGE 2 ---
+b=BePQb2Pu9IfdVxmMzeVJiYMlyKhswjjdIzeOuWGJeSbHHXMN1kfamnO4QWKcs0UsNz 
+Nmn9BA0cgnYT3gp3dmF5AtyqSUZe115WgysZK6rtFMQ2CWg7FusLndwuRxHd+0BQLKCr 
+itA69UIwGZZ5mSzR6YRDyu97NR2/25CQCYrU4U1CfkljtPxeCEnKNBrK47emamizh9A2 
+tu4e23BuYkK40AyZpnAAvyXVdVwP6i5bIT2WWkl8cKnMcSKg+Zu4dsFZDtr7wb6mOM3p 
+AOexRoQMikPLjsRJ84mUJ5DZuD9p2eJoMeEc3PzH0KJP3THzZIPUfrnp+NE/05DLfTnE Awnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605; 
+h=mime-version:content-language:accept-language:in-reply-to :references:message-
+id:date:thread-index:subject:to:from :dkim-signature; 
+bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+fh=4HoIlJLQKc9A53N/hgcnWUjRd49O0xB+OVuK/eeB1xA=; 
+b=aM3YqHOiLc6mJhQde0xa8SKSFO0MxwlruPDXWbyW/OCFmVUjXTp1iCwdJn8vPLzQK5 
+TMy/1M+lVTPqBMC4sClnUizaxeIpSKSmS3dIZDJq1JV8Q8lhJ3/iOpN9Fnzloz9p0zq/ 
+lY/OG5o3txD5UXQmRwKnZmUxGPT0ETxtm3nK9XzgfQIM/iplYPCRDXBHhzrirXiUIqF8 
+D+ydIAOd76KGiIotAR3Lsrl4J/5107gOGM5pc7W4cAP3dd9MqKyc24FPU+uASo0rNBSr 
+muefODRiSt9MxL/65BaIOamlfjWDobyuHeoIWOb7hOVShnHp+8rctMB2dKTlTP4Etl24 HAUA==; dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@gmail.com 
+header.s=20251104 header.b=I9jEkVEY; spf=pass (google.com: domain of pluckaduck1984@gmail.com 
+designates 209.85.220.41 as permitted sender) smtp.mailfrom=pluckaduck1984@gmail.com; 
+dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass 
+header.i=@gmail.com
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41]) by 
+mx.google.com with SMTPS id 5614622812f47-4855437cf9esor3228143b6e.2.2026.05.24.11.28.19 for 
+<jaymev02@gmail.com> (Google Transport Security); Sun, 24 May 2026 11:28:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pluckaduck1984@gmail.com designates 209.85.220.41 
+as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com; dkim=pass header.i=@gmail.com header.s=20251104 
+header.b=I9jEkVEY; spf=pass (google.com: domain of pluckaduck1984@gmail.com designates 
+209.85.220.41 as permitted sender) smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=pass (p=NONE 
+sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20251104; t=1779647299; 
+x=1780252099; dara=google.com; h=mime-version:content-language:accept-language:in-reply-to 
+:references:message-id:date:thread-index:subject:to:from:from:to:cc :subject:date:message-
+id:reply-to; bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+b=I9jEkVEYk0VMix4umKXjf+UDTLoZ6KcIWt8vO7i/ABAtfzb6zoyeRoX0AT2xj9B516 
+A7TXfbPQyCmyGj0xR1F5UyWrQQpvjFdyk1CcJP3kltqY/ZBkRHWWXi4L1ccvQqt2rSj7 
+DoAzChU/L2bVEv1uzYl8lD0pxFmDas4sjKynn9CZDuBErpmPSOOrHayebuZlITa5V5Bw 
+ZhKSznW7NgueMmnn8MrKVfO4WaiHFaPXve5Cs7DOtXWS9t0F3wAYGi/LFic/9oXh+gPR 
+z0fqha5X99YujPrxS9ZRiIIM+jN+KzbxjplNFOT+6gHIQ9L5waxnvsfGlWxvJOfvF5hw q+iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20251104; 
+t=1779647299; x=1780252099; h=mime-version:content-language:accept-language:in-reply-to 
+:references:message-id:date:thread-index:subject:to:from:x-gm-gg :x-gm-message-
+state:from:to:cc:subject:date:message-id:reply-to; 
+
+
+--- PAGE 3 ---
+bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+b=rEo+dLNLaEEg47J5P2o96ubF4WN5oexXrgo6ckQUgdDv9HM6VN2IBGa7soKog+rTdv 
+U2B5h1ffzbnI2jGSC3IglW/AETz6r9L0oFjrekJZ6ZnTgMA88Zh8sEewsqjYoPQXBfbl 
+fmRrpCgaGBOUkAEBIPiT19XPZPK8sr0jcKA1szIXDVHkjlCVrQWyQz03pSAkb0PuvWBP 
+Oh5niidnxTPH7WRbKbsof8wkcQVg3at1WDUOnEgdKVcB32IwDQhNWbdx/rB0CgNZrJK4 
+Tio+pfl6TZJngECuMcTbVBA2blV19QyhkwsBbFA9dy2DEd3mWHWgNpgxKStALejbaliW IzNQ==
+X-Gm-Message-State: AOJu0YzF59n6/UChoVW/o5lOVtY7FK8LI1FfFzu8EHS3PG+I2Oe+fQOS 
+HrH01iEQ5EKj72v820/xUWEAjG7QpoxynTTxeJJ5u4YD+t1gRS3zcZx4QqWoEQ==
+X-Gm-Gg: Acq92OHdjz7GBiGIgbC7vNv4bOO9bnL8QK7EKpsES1q+9ywgagoYc0ya1zVw0PDZdaD 
+i8LFDyzXpe4wSk+tpUmfN42/imuGmLExGlgzY2zYpxzu7hoaDMSJRoPCsKLYjLQpDoiNfPEHuba 
+KpHCs9SF7GfddkVkzkws/bN0xiq0KMKeXpJcy5wwiEnI1NZuwgGcGbSoBO61HqIqRILGe1S9gL4 
+ByX1c5hlVTwUZqs34RvV3jymEcs7jPtQ8A5/s3TmE0YWxpB+U+6rbZuL141Ar8tole7JIpilVwG 
+PLpGk6KFXlXBROPh0zLnMMv9GrcvsxloAUtSrQ8jEsGE4Tmq26grW6eME9h65kaurgtUgzW/lYI 
+DQb/R1kGKQ6rSeix83Aurr+EbQMdlojk4RJSiTsEplXdyORSfRcKB23pmaNASkqe9XHuXTQABji 
+vtse5W5w1RnNYgU4yq6Xbfyt8mIZfA1Siv/VB4UM+nQsCoIGdPWFlGWnYO0egKb7w5lJzX6bGU4 
+xjEfurCnNfOZLP7cQihCsdC9QFEHRQ=
+X-Received: by 2002:a05:6808:1521:b0:485:1174:4582 with SMTP id 5614622812f47-
+4854a0eb6ebmr7960718b6e.13.1779647298604; Sun, 24 May 2026 11:28:18 -0700 (PDT)
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM ([2603:1036:305:496e::5]) by 
+smtp.gmail.com with ESMTPSA id 586e51a60fabf-43b6350ad6bsm8323697fac.4.2026.05.24.11.28.18 
+for <jaymev02@gmail.com> (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256); Sun, 24 
+May 2026 11:28:18 -0700 (PDT)
+From: blake harris <pluckaduck1984@gmail.com>
+To: Jayme Volstad <jaymev02@gmail.com>
+Subject: Re:
+Thread-Index: AUFSWmQ4TkEJKvSr6+3wjLz4Oc5jiLcynUuD
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Sun, 24 May 2026 18:28:17 +0000
+Message-ID: <SA1P221MB154724E540D64539C18087D5A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+References: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+In-Reply-To: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator: 
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-reactions: allow
+Content-Type: multipart/alternative; 
+boundary="_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_"
+MIME-Version: 1.0
+
+
+--- PAGE 4 ---
+--_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+I can=92t see the damn video all I know is that I don=92t have it but none =
+of it matters. You don=92t do anything wrong anyways, so you=92ve never don=
+e anything.
+With anybody, you didn=92t move in your boyfriend to your apartment that I =
+was paying for you didn=92t I mean there=92s 1 million different things you=
+ had to fill my head with the bullshit that happened with the guy that you =
+moved into with like an idiot because you couldn=92t just talk to me and so=
+ now I=92m stuck having to live that nightmare with you really appreciate t=
+hat I can accuse you of whatever because you don=92t admit to anything and =
+you trying to say that you just take naked
+Pictures of my house hundreds of them to send to People is flat out disgust=
+ing the same way you look at me. It=92s the same way I look at you now so s=
+top texting me stop emailing me. I want my MacBook and I want you to see yo=
+ur son if you don=92t give me a time to come or meet me then I=92m just gon=
+na show up so pick which one you want but I need that computer and I need i=
+t now after that the only time we talk is to get you with Jack I don=92t wa=
+nna hear another word about a video or about anything. You=92re the one who=
+ wanted to make those things you=92re the one who wanted me to do the thing=
+s that I did to you in those you were the one begging me to and then now yo=
+u don=92t feel comfortable about it. What do you think? I never did it once=
+ before now you try to convince me that Guys texting you for blowjobs and t=
+o fuck you are lying like fuck off good luck on paying your rent. If you ju=
+st would=92ve listened and gotten a job there wouldn=92t been a problem now=
+ you can see who your real family is and see what they=92re gonna do for yo=
+u because the only person that=92s ever had drift back ever you have treate=
+d and disrespected more than dog shit on the bottom of your shoe do not cre=
+ate any more problems for me they will be met with swift action and none of=
+ that has anything to do with you personally physically or anything. It is =
+not a threat. I=92m just simply telling you that if you caused me problems,=
+ I will cause you problems so don=92t cause me problems. I=92m either comin=
+g today or I=92m coming tomorrow. Pick a day pick a time and I want to see =
+the inside of the house or you can wait until another day and clean it up b=
+ut before he comes inside that place again I want to see what=92s going on =
+because you have lied to me for two years about what=92s going on in your a=
+partment You have the audacity to talk shit to the person. Who=92s literall=
+y kept you off the streets alive and you never respond to that which means =
+you=92re getting money from somebody else which means you=92re double dippi=
+ng in your fucking me so get back on seeking.com or whatever you gotta do m=
+
+
+--- PAGE 5 ---
+ake some money I found you there the other day just like extra lunch money.=
+com and then there=92s another website that somebody else is running with a=
+ll of our videos and all of our pictures that were saved to the Gold Tooth =
+computer, which is awesome I don=92t have that video. I don=92t have seven =
+videos or 12 or whatever it was and you don=92t keep those remember because=
+ you don=92t like looking at them because I I make you feel uncomfortable i=
+f you don=92t give me a day and time in the next 48 hours then I=92m just g=
+onna show up. I=92ll make sure that when I do because I=92m not gonna come =
+home without you all of this always happens right after I give you everythi=
+ng you need you can=92t seem to understand how trusting you is like trustin=
+g in enemy stop sending these messages to your mom the next one that I see =
+you send her I=92m going to send your entire Google Photos album printed ev=
+ery text message everything I already have it all done because if my parent=
+s have to know get to know so just leave me alone and you get to keep your =
+car keep your apartment you gotta keep everything except my MacBook and you=
+ keep seeing Jack and all adjust the custody agreement. I need to know what=
+ needs to be changed. The video doesn=92t even matter I=92m so disgusted wi=
+th you and the way you treat me and the things that you=92ve done to me tha=
+t it=92s just icing on the cake. There=92s nothing in this world that would=
+ make his friends and there=92s nothing in this world that will stop you fr=
+om being jackson Mom because if there=92s one thing that you=92re good at b=
+eing a mother which I=92m proud of tell me when today or tomorrow, I need t=
+o know
+Blake Harris
+Gold Tooth Tony=92s / Rudyard=92s Pub / 6s & 7s
+Owner / General Manager
+281.797.1396
+________________________________
+From: Jayme Volstad <jaymev02@gmail.com>
+Sent: Sunday, May 24, 2026 8:08:57 AM
+To: blake harris <pluckaduck1984@gmail.com>
+Subject:
+
+
+--- PAGE 6 ---
+You are accusing me of being with someone else over a video that YOU took.
+If I was secretly screwing someone else, why the fuck would I bring them in=
+to your house when you had cameras everywhere and were at one of the most a=
+ngry scary people at that time=85
+It was your video. You took it. You were there.
+How the fuck do u look at a video you personally recorded on ur couch and d=
+ecide someone else took it Where are ur living roommcamera footages? Go fuc=
+king look look at the meta data or the gid damn footage of ur house from th=
+at time
+this is exactly what I=92ve been begging you to stop doing
+Ive asked you a thousand times to stop sending me sexual things. U keep bei=
+ng cruel and humiliating because you cant believe that i have a soul at all
+And use it to justify control over jack, telling me to die, huniliating me,=
+ and threatening me and then you take being beaten and sexually assaulted w=
+hich there are actual fucking police reports for just becajse he Didn=92t g=
+et charged with it doesn=92t mean I didn=92t fucking tell them whenever the=
+y picked him up the last time everything that had happened. I just didn=92t=
+ call them right after I tried to kill myself because I was fucking incapab=
+le of it.
+I am not discussing sexual shit- i dont wanna see or be reminded that i eve=
+r trusted you, dont send me pictures of your ex naked. ur the only Goddamn =
+human i ever made a a video with. Stop violating Lauren by sending me pictu=
+res of her stop fucking sending me videos that I=92ve asked you not to send=
+ me in fact I wish you would fucking delete them. Do not ever talk to me ab=
+out sex again.
+And I swear to God go fucking look at your goddamn video footage. That was =
+your fucking video.
+Tell jack i love him, clearly youre never going to allow a relationship wit=
+h him without doing this.
+--_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_
+Content-Type: text/html; charset="Windows-1252"
+
+
+--- PAGE 7 ---
+Content-Transfer-Encoding: quoted-printable
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+</head>
+<body>
+<div style=3D"font-family: Aptos, -apple-system, HelveticaNeue, sans-serif;=
+font-size: 12pt">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+I can=92t see the damn video all I know is that I don=92t have it but none =
+of it matters. You don=92t do anything wrong anyways, so you=92ve never don=
+e anything.</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+With anybody, you didn=92t move in your boyfriend to your apartment that I =
+was paying for you didn=92t I mean there=92s 1 million different things you=
+ had to fill my head with the bullshit that happened with the guy that you =
+moved into with like an idiot because
+ you couldn=92t just talk to me and so now I=92m stuck having to live that =
+nightmare with you really appreciate that I can accuse you of whatever beca=
+use you don=92t admit to anything and you trying to say that you just take =
+naked&nbsp;</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+Pictures of my house hundreds of them to send to People is flat out disgust=
+ing the same way you look at me. It=92s the same way I look at you now so s=
+top texting me stop emailing me. I want my MacBook and I want you to see yo=
+ur son if you don=92t give me a time
+ to come or meet me then I=92m just gonna show up so pick which one you wan=
+t but I need that computer and I need it now after that the only time we ta=
+lk is to get you with Jack I don=92t wanna hear another word about a video =
+or about anything. You=92re the one who
+
+
+--- PAGE 8 ---
+ wanted to make those things you=92re the one who wanted me to do the thing=
+s that I did to you in those you were the one begging me to and then now yo=
+u don=92t feel comfortable about it. What do you think? I never did it once=
+ before now you try to convince me that
+ Guys texting you for blowjobs and to fuck you are lying like fuck off good=
+ luck on paying your rent. If you just would=92ve listened and gotten a job=
+ there wouldn=92t been a problem now you can see who your real family is an=
+d see what they=92re gonna do for you
+ because the only person that=92s ever had drift back ever you have treated=
+ and disrespected more than dog shit on the bottom of your shoe do not crea=
+te any more problems for me they will be met with swift action and none of =
+that has anything to do with you personally
+ physically or anything. It is not a threat. I=92m just simply telling you =
+that if you caused me problems, I will cause you problems so don=92t cause =
+me problems. I=92m either coming today or I=92m coming tomorrow. Pick a day=
+ pick a time and I want to see the inside
+ of the house or you can wait until another day and clean it up but before =
+he comes inside that place again I want to see what=92s going on because yo=
+u have lied to me for two years about what=92s going on in your apartment Y=
+ou have the audacity to talk shit to
+ the person. Who=92s literally kept you off the streets alive and you never=
+ respond to that which means you=92re getting money from somebody else whic=
+h means you=92re double dipping in your fucking me so get back on seeking.c=
+om or whatever you gotta do make some
+ money I found you there the other day just like extra lunch money.com and =
+then there=92s another website that somebody else is running with all of ou=
+r videos and all of our pictures that were saved to the Gold Tooth computer=
+, which is awesome I don=92t have that
+ video. I don=92t have seven videos or 12 or whatever it was and you don=92=
+t keep those remember because you don=92t like looking at them because I I =
+make you feel uncomfortable if you don=92t give me a day and time in the ne=
+xt 48 hours then I=92m just gonna show up.
+ I=92ll make sure that when I do because I=92m not gonna come home without =
+you all of this always happens right after I give you everything you need y=
+ou can=92t seem to understand how trusting you is like trusting in enemy st=
+op sending these messages to your mom
+ the next one that I see you send her I=92m going to send your entire Googl=
+e Photos album printed every text message everything I already have it all =
+done because if my parents have to know get to know so just leave me alone =
+and you get to keep your car keep
+ your apartment you gotta keep everything except my MacBook and you keep se=
+eing Jack and all adjust the custody agreement. I need to know what needs t=
+o be changed. The video doesn=92t even matter I=92m so disgusted with you a=
+
+
+--- PAGE 9 ---
+nd the way you treat me and the things
+ that you=92ve done to me that it=92s just icing on the cake. There=92s not=
+hing in this world that would make his friends and there=92s nothing in thi=
+s world that will stop you from being jackson Mom because if there=92s one =
+thing that you=92re good at being a mother which
+ I=92m proud of tell me when today or tomorrow, I need to know&nbsp;</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+<br>
+</div>
+</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" style=3D"font-family: Apt=
+os, -apple-system, HelveticaNeue, sans-serif;font-size: 12pt" dir=3D"auto">
+<br>
+</div>
+<div id=3D"ms-outlook-mobile-signature" style=3D"font-family: Aptos, -apple=
+-system, HelveticaNeue, sans-serif;font-size: 12pt">
+<p dir=3D"ltr" style=3D"text-align: left; text-indent: 0px; background-colo=
+r: white; margin: 0px;">
+<span style=3D"font-family: Calibri, sans-serif; font-size: 11pt; color: bl=
+ack;"><b>Blake Harris</b></span></p>
+<p dir=3D"ltr" style=3D"text-align: left; text-indent: 0px; background-colo=
+r: white; margin: 0px;">
+<span style=3D"font-family: Calibri, sans-serif; font-size: 11pt; color: bl=
+ack;"><b>Gold Tooth Tony=92s / Rudyard=92s Pub / 6s &amp; 7s</b></span></p>
+<p dir=3D"ltr" style=3D"text-align: left; text-indent: 0px; background-colo=
+r: white; margin: 0px;">
+<span style=3D"font-family: Calibri, sans-serif; font-size: 11pt; color: bl=
+ack;"><b>Owner / General Manager&nbsp;</b></span></p>
+<p dir=3D"ltr" style=3D"text-align: left; text-indent: 0px; background-colo=
+r: white; margin: 0px;">
+<span style=3D"font-family: Calibri, sans-serif; font-size: 11pt; color: rg=
+b(15, 83, 140);"><b><u>281.797.1396</u></b></span></p>
+<div dir=3D"ltr"><br>
+</div>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+
+
+--- PAGE 10 ---
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Jayme Volstad &lt;jay=
+mev02@gmail.com&gt;<br>
+<b>Sent:</b> Sunday, May 24, 2026 8:08:57 AM<br>
+<b>To:</b> blake harris &lt;pluckaduck1984@gmail.com&gt;<br>
+<b>Subject:</b> </font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"font-size:inherit">
+<div style=3D"font-size:inherit">
+<p dir=3D"auto"><br>
+</p>
+<p dir=3D"auto">You are accusing me of being with someone else over a video=
+ that YOU took.</p>
+<p dir=3D"auto">If I was secretly screwing someone else, why the fuck would=
+ I bring them into your house when you had cameras everywhere and were at o=
+ne of the most angry scary people at that time=85</p>
+<p dir=3D"auto">It was your video. You took it. You were there.&nbsp;</p>
+<p dir=3D"auto"><span style=3D"font-size:inherit">How the fuck do u&nbsp;lo=
+ok at a video you personally recorded on ur
+</span><span style=3D"font-size:inherit">couch and decide someone else took=
+ it&nbsp;Where are ur living roommcamera footages? Go fucking look look at =
+the meta data or the gid damn footage of ur house from that time&nbsp;</spa=
+n></p>
+<p><br>
+</p>
+<p dir=3D"auto">this is exactly what I=92ve been begging you to stop doing<=
+/p>
+<p dir=3D"auto">Ive asked you a thousand times to stop sending me sexual th=
+ings. U keep being cruel and humiliating because you cant believe that i ha=
+ve a soul at all</p>
+<p dir=3D"auto"><br>
+</p>
+<p dir=3D"auto">And use it to justify control over jack, telling me to die,=
+ huniliating me, and threatening me and then you take being beaten and sexu=
+ally assaulted which there are actual fucking police reports for just becaj=
+se he Didn=92t get charged with it doesn=92t
+ mean I didn=92t fucking tell them whenever they picked him up the last tim=
+e everything that had happened. I just didn=92t call them right after I tri=
+ed to kill myself because I was fucking incapable of it.&nbsp;</p>
+<p dir=3D"auto">I am not discussing sexual shit- i dont wanna see or be rem=
+inded that i ever trusted you, dont send me pictures of your ex naked. ur t=
+
+
+--- PAGE 11 ---
+he only&nbsp;<span style=3D"font-size:inherit">Goddamn human i ever made a =
+a video with. Stop violating Lauren by sending
+ me pictures of her stop fucking sending me videos that I=92ve asked you no=
+t to send me in fact I wish you would fucking delete them. Do not ever talk=
+ to me about sex again.&nbsp;</span></p>
+<p dir=3D"auto">And I swear to God go fucking look at your goddamn video fo=
+otage. That was your fucking video.</p>
+<p dir=3D"auto">Tell jack i love him, clearly youre never going to allow a =
+relationship with him without doing this.&nbsp;</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+--_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_--

@@ -1,0 +1,31 @@
+FOCUSEDSUPPLEMENTALLAWENFORCEMENTSUBMISSION
+EXHIBITI-4-VEHICLEREMOVALANDRRPDCONTACTSTATEMENT
+VEHICLEIDENTIFICATION
+Vehicle:
+2014InfinitiQ50
+VIN:
+JN1BV7AP7EM673627
+License plate:Not provided/unknown
+Titleholder:BlakeHarris
+INCIDENTCHRONOLOGY
+August3,2026-approximately7:55p.m.
+Rock, Texas. The driveway at my parents' home was full at the time, and the vehicle was parked in the overflow area provided
+thislocationtoBlakeHarris.
+August4,2026-approximately6:00p.m.
+I returned to checkon thevehicleand discovered it wasgone.Therewas no towing notice,written notice,oradvance
+RRPDContact
+Date/TimeofCall:Notprovided/unknown
+I contacted Round Rock Police to report the removal. A responding officer subsequently contacted Blake Harris by phone. The
+officerrelayedtomethatBlakestated hehadarrangedaprivaterepossessionof thevehicle.Theofficer advised thatthematter
+appeared civil and did not formally attach the connected digital-access evidence to the existing harassment report. Officer name,
+badge number,and CADevent number:Notprovided/unknown.
+CONNECTIONTOPRIORTHREATSANDACCOUNTACTIVITY
+-May 2026: iMessage threat stating"And then ill have the car towed." (Exhibit I-1)
+- June 2026: iMessage threat stating "loss of your apartment and your car" tied to a $250 payment demand (Exhibit I-2)
+Between July 30 and August 4, Google security alerts documented a new Mac OS sign-in associated with Houston, an
+attempted password change,an archive request targeting Maps and Timeline location history,unfamiliar-device Gmail access,
+didnot initiateorrecognizeanyof thisactivity.
+subsequentremovalof thevehiclewerepartofthecontinuingcourseofharassmentandretaliationdocumented inAxonrequest
+2026-07200081.
+Submittedby:JaymeVolstad
+CONFIDENTIAL-LAWENFORCEMENTREVIEW

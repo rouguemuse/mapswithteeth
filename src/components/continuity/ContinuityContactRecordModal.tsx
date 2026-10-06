@@ -168,14 +168,14 @@ export function ContinuityContactRecordModal({
                     2. Agency
                   </button>
                   <button
-                    onClick={() => setActiveTier("PARTNER_VERIFIED")}
+                    onClick={() => setActiveTier("PARTNER_ROLE_VERIFIED")}
                     className={`px-2.5 py-0.5 text-xs font-mono font-bold rounded ${
-                      activeTier === "PARTNER_VERIFIED"
+                      activeTier === "PARTNER_ROLE_VERIFIED"
                         ? "bg-[#1C1D1D] text-white"
                         : "text-stone-700 hover:bg-[#EEE8DD]"
                     }`}
                   >
-                    3. Network
+                    3. Partner Role
                   </button>
                 </div>
               </div>
@@ -325,8 +325,8 @@ export function ContinuityContactRecordModal({
                 <p className="text-[11px] text-stone-700">
                   Department: {payload.suggestedNextRoute.department || "General Intake"} · Source: {payload.suggestedNextRoute.suggestionSource}
                 </p>
-                <div className="text-[10px] font-mono text-stone-500">
-                  Acceptance Confirmed: {payload.suggestedNextRoute.acceptanceConfirmed ? "YES" : "NO (Referral Only)"}
+                <div className="text-[10px] font-mono text-stone-600">
+                  Handoff Outcome: <span className="font-bold">{payload.suggestedNextRoute.handoffOutcome.replace(/_/g, " ")}</span> (Default: NOT CONFIRMED)
                 </div>
               </div>
             )}
@@ -337,11 +337,11 @@ export function ContinuityContactRecordModal({
                 MANDATORY NON-IMPLICATION CODES & STATUTORY DISCLOSURE (MWT-STD-2026-03)
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[9.5px]">
-                <div>• NOT_LEGAL_COUNSEL: Does not establish attorney-client relationship.</div>
-                <div>• NOT_EVIDENTIARY_AUTHENTICATION: Does not certify factual truth of claims.</div>
-                <div>• NOT_ADMISSIBILITY_DETERMINATION: Does not determine court admissibility.</div>
-                <div>• NOT_ASSUMPTION_OF_LIABILITY: Does not assume duty of care or liability.</div>
-                <div>• NOT_MERITS_FINDING: Declination or routing is never a finding on abuse merits.</div>
+                <div>• NO_SUBSTANTIATION_FINDING: Does not determine that allegations are proven.</div>
+                <div>• NO_EVIDENCE_AUTHENTICATION: Does not authenticate documents or metadata.</div>
+                <div>• NO_WHOLE_MATTER_ACCEPTANCE: Does not assume whole-case representation.</div>
+                <div>• NO_MAPS_INTERPRETATION_ENDORSEMENT: Does not adopt MWT legal theories.</div>
+                <div>• NO_ROUTING_AS_MERITS_FINDING: A routing decision is never a merits finding.</div>
               </div>
             </div>
 

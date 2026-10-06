@@ -27,7 +27,7 @@ export function BridgeSection() {
       {/* Visual Referral Chain Example */}
       <div className="p-4 sm:p-6 bg-[#EEE8DD] border border-[#D9D1C4] rounded-xl space-y-3 shadow-2xs">
         <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold block">
-          THE CONTINUITY RECEIPT CHAIN (HOW IT PRESERVES CONTEXT)
+          THE CONTINUITY CONTACT RECORD CHAIN (HOW IT PRESERVES CONTEXT)
         </span>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs text-stone-900">
@@ -38,7 +38,7 @@ export function BridgeSection() {
           </div>
 
           <div className="p-3.5 bg-[#E8F3EB] border border-[#2D5A3D]/40 rounded-md space-y-1 shadow-2xs">
-            <span className="text-[10px] font-mono font-bold text-[#2D5A3D] block uppercase">RECEIPT 01 GENERATED</span>
+            <span className="text-[10px] font-mono font-bold text-[#2D5A3D] block uppercase">RECORD 01 GENERATED</span>
             <p className="font-serif font-bold text-sm text-[#2D5A3D]">Who · When · Ref #</p>
             <p className="text-xs font-sans text-stone-800 leading-snug">Preserves evidence offered & stated decline reason.</p>
           </div>
@@ -50,7 +50,7 @@ export function BridgeSection() {
           </div>
 
           <div className="p-3.5 bg-[#FDF2F2] border border-[#971F26]/40 rounded-md space-y-1 shadow-2xs">
-            <span className="text-[10px] font-mono font-bold text-[#971F26] block uppercase">RECEIPT 02 · ESCALATION</span>
+            <span className="text-[10px] font-mono font-bold text-[#971F26] block uppercase">RECORD 02 · ESCALATION</span>
             <p className="font-serif font-bold text-sm text-[#971F26]">Decision-Owner Flag</p>
             <p className="text-xs font-sans text-stone-900 leading-snug">Flags circular loop. Legal advocate receives complete packet.</p>
           </div>

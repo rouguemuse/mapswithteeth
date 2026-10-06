@@ -1,0 +1,28 @@
+b=BePQb2Pu9IfdVxmMzeVJiYMlyKhswjjdIzeOuWGJeSbHHXMN1kfamnO4QWKcs0UsNz
+itA69UIwGZZ5mSzR6YRDyu97NR2/25CQCYrU4U1Cfk1jtPxeCEnKNBrK47emamizh9A2
+AOexRoQMikPLjsRJ84mUJ5DZuD9p2eJoMeEc3PzH0KJP3THzZIPUfrnp+NE/05DLfTnEAwnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=g0ogle.com; S=arc-20240605;
+id:date:thread-index:subject:to:from :dkim-signature;
+bh=ZAsXGaD4y88w1AiUji12FK6ru31JTGy8fLyZ0W5hJJM=;
+fh=4HoI1JLQKc9A53N/hgcnWUjRd4900xB+0VuK/eeB1xA=;
+b=aM3YqH0iLc6mJhQde0xa8SKSF00Mxw1ruPDXWbyW/0CFmVUjXTp1iCwdJn8vPLzQK5
+1Y/0G5o3txD5UXQmRwKnZmUxGPT0ETxtm3nK9XzgfQIM/ip1YPCRDXBHhzrirXiUIqF8
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@gmail.com
+designates 209.85.220.41 as permitted sender） smtp.mailfrom=pluckaduck1984@gmail.com;
+dmarc=paSs （p=NONE Sp=QUARANTINE dis=NONE）header.from=gmail.com;dara=pasS
+header.i=@gmail.com
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from mail-sor-f41.g0ogle.com (mail-sor-f41.g0ogle.com. [209.85.220.41]） by
+mx.g00gle.com with SMTPS id 5614622812f47-4855437cf9es0r3228143b6e.2.2026.05.24.11.28.19 for
+as permitted sender） client-ip=209.85.220.41;
+Authentication-Results: mx.google.com; dkim=pass header.i=@gmail.com header.s=20251104
+s
+209.85.220.41 as permitted sender） smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=pass （p=NoNE
+Sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20251104; t=1779647299;
+x=1780252099; dara=google.com; h=mime-version:content-language:accept-language:in-reply-to
+id:reply-to; bh=ZAsXGaD4y88w1AiUji12FK6ru31JTGy8fLyZ0W5hJJM=;
+A7TXfbPQyCmyGj0xR1F5UyWrQQpvjFdyk1CcJP3k1tqY/ZBkRHWWXi4L1ccvQqt2rSj7
+ZhKSznW7NgueMmnn8MrKVfO4WaiHFaPXve5Cs7D0tXWS9t0F3wAYGi/LFic/9oXh+gPR
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20251104;
+state:from:to:cc:subject:date:message-id:reply-to;

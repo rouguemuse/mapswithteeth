@@ -121,7 +121,7 @@ function BuildWithUsContent() {
             Pressure-Test Feedback & Expert Review
           </h3>
           <p className="text-stone-800 font-sans leading-relaxed">
-            For frontline survivor advocates, legal aid attorneys, and navigators. Participate in 20–30 minute interviews to critique our intake taxonomy, eligibility rules, and Continuity Receipt format.
+            For frontline survivor advocates, legal aid attorneys, and navigators. Participate in 20–30 minute interviews to critique our intake taxonomy, eligibility rules, and Continuity Contact Record format.
           </p>
         </div>
 

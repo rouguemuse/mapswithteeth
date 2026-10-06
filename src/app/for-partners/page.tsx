@@ -1,710 +1,295 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Compass,
-  ArrowRight,
+  Users,
   ShieldCheck,
-  CheckCircle2,
-  AlertTriangle,
   Scale,
   Building2,
-  Clock,
-  Fingerprint,
-  Layers,
-  Lock,
-  FolderArchive,
   FileCheck,
-  FileText,
-  Users,
-  Search,
-  SlidersHorizontal,
-  XOctagon,
-  Shuffle,
-  ShieldAlert,
+  ArrowRight,
+  Sparkles,
+  Lock,
+  Compass,
+  CheckCircle2,
+  Send,
   HelpCircle,
-  Code2,
-  Terminal,
-  ExternalLink
+  AlertTriangle,
+  Layers,
+  Code2
 } from "lucide-react";
+import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
 
 export default function ForPartnersPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    organization: "",
+    role: "",
+    email: "",
+    interestArea: "Frontline Validation",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const partnerRoles = [
+    {
+      title: "1. Frontline Validation",
+      tagline: "Testing whether data matches ground truth.",
+      description:
+        "Advocates, shelter navigators, social workers, and legal aid staff reviewing our resource friction vectors, barrier criteria, and workaround notes against live daily practice."
+    },
+    {
+      title: "2. Policy Review",
+      tagline: "Evaluating statutory & regulatory feasibility.",
+      description:
+        "Legislative staff, state agency attorneys, and policy analysts auditing our legal interpretations of Texas Property, Family, Labor, and Utility codes and closed-loop standards."
+    },
+    {
+      title: "3. Privacy Review",
+      tagline: "Stress-testing anti-surveillance protocols.",
+      description:
+        "Civil liberties advocates and cryptographic privacy experts verifying that our client-side receipt hashing never creates unintentional surveillance dossiers."
+    },
+    {
+      title: "4. Legal Review",
+      tagline: "Evidentiary & due-process boundaries.",
+      description:
+        "Family law and criminal defense attorneys ensuring that 'linked-matter review' operates strictly as an investigative signal without compromising constitutional due process."
+    },
+    {
+      title: "5. Pilot Design",
+      tagline: "Co-designing Central Texas workflow trials.",
+      description:
+        "County commissioners, municipal leaders, CAC coordinators, and agency directors helping shape trial handoff protocols in Williamson, Travis, Bastrop, Burnet, Hays, and Harris counties."
+    },
+    {
+      title: "6. Referral-Flow Analysis",
+      tagline: "Mapping where referrals succeed or stall.",
+      description:
+        "Agencies sharing deidentified workflow diagrams of their incoming and outgoing referral pipelines to identify structural dead routes."
+    },
+    {
+      title: "7. Systems Research",
+      tagline: "Academic & institutional inquiry.",
+      description:
+        "Scholars and institutional researchers studying interagency amnesia, cross-jurisdictional case tracking, and multidisciplinary child-safety coordination."
+    },
+    {
+      title: "8. Technical Interoperability",
+      tagline: "Engineering open protocols.",
+      description:
+        "Software engineers and security architects testing our client-side JSON-LD schemas, SHA-256 digest validation, and zero-knowledge handoff proofs."
+    },
+    {
+      title: "9. Philanthropic Support",
+      tagline: "Funding open-source public infrastructure.",
+      description:
+        "Foundations and civic tech grantmakers investing in long-term, non-commercial public-interest software and statutory research."
+    }
+  ];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 select-none font-sans">
-      {/* SECTION 1: HERO */}
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 select-none font-sans">
+      {/* 1. Header */}
       <div className="border-b border-[#D9D1C4] pb-8 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EEE8DD] border border-[#1C1D1D] text-[#1C1D1D] rounded-full text-xs font-mono uppercase tracking-widest font-bold shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#971F26] animate-pulse" />
-            <span>IN DEVELOPMENT · CENTRAL TEXAS PILOT DESIGN</span>
+          <div className="flex items-center gap-2 text-[#971F26]">
+            <Users className="w-5 h-5" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+              CALL FOR PARTNERS · OPEN CO-DESIGN (2026)
+            </span>
           </div>
-          <span className="coord-tick">[PARTNER BRIEFING · SPECIFICATION V0]</span>
+          <span className="coord-tick">[STAGE: PROPOSED MODEL · PEER REVIEW]</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
-          A portable continuity and accountability layer for people navigating abuse.
+          We Are Looking for Partners to Pressure-Test the Continuity Model.
         </h1>
 
-        <p className="text-base sm:text-xl text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
-          Maps With Teeth is building infrastructure for people navigating domestic abuse, coercive control, and instability across systems that do not share one case file, one jurisdiction, or one map.
+        <p className="text-base sm:text-lg text-stone-900 leading-relaxed font-sans font-medium max-w-3xl">
+          Maps With Teeth is an open public-interest initiative. We do not pretend to hold all the answers in isolation. We are inviting frontline practitioners, legal scholars, technologists, agency leaders, and funders to challenge, refine, and co-design this infrastructure.
         </p>
 
-        {/* North Star Callout */}
-        <div className="p-4 sm:p-5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-lg font-serif italic text-base sm:text-lg text-[#1C1D1D] shadow-2xs">
-          &ldquo;The survivor should not be the only person holding the whole map.&rdquo;
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap items-center gap-3 pt-2 font-mono">
-          <a
-            href="#pressure-test"
-            className="px-6 py-3 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs transition-all flex items-center gap-2"
-          >
-            <span>Pressure-Test the Model</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-          <Link
-            href="/find-help"
-            className="px-6 py-3 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs transition-colors flex items-center gap-2"
-          >
-            <span>View Working Prototype</span>
-          </Link>
-          <Link
-            href="/how-it-works"
-            className="px-5 py-3 text-stone-700 hover:text-[#1C1D1D] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 hover:underline"
-          >
-            <span>Full Architecture Spec →</span>
-          </Link>
+        {/* Anchor Quotes */}
+        <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-md text-xs font-mono uppercase tracking-wider text-stone-900 font-bold space-y-1">
+          <p>“PEOPLE MOVE BETWEEN SYSTEMS. THEIR INFORMATION AND ACCOUNTABILITY OFTEN DO NOT.”</p>
+          <p className="text-stone-700 font-normal normal-case font-serif italic text-sm">
+            &ldquo;The survivor should not be the only person holding the whole map.&rdquo;
+          </p>
         </div>
       </div>
 
-      {/* SECTION 2: THE SYSTEMIC FAILURE MODE */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm bg-grid-diagram">
-        <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <span className="text-[10px] font-mono text-[#971F26] uppercase font-bold tracking-wider block">
-              DIAGNOSTIC ANALYSIS
-            </span>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-              The Problem: Disconnected Silos & The Endless Runaround Loop
-            </h2>
-          </div>
-          <span className="coord-tick">[RUNAROUND CYCLE: A → B → C → A]</span>
-        </div>
-
-        <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-          When a survivor seeks safety or financial stabilization, they encounter a maze of separate institutions: law enforcement, domestic violence shelters, legal aid, social services, utility providers, and landlords. <strong>None of these systems share records or coordinate handoffs.</strong>
-        </p>
-
-        {/* 4-Step Failure Cycle Visual */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg space-y-1.5 shadow-2xs">
-            <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase block">TOUCHPOINT 01</span>
-            <h3 className="font-serif font-bold text-sm text-[#1C1D1D]">Police / Crisis Desk</h3>
-            <p className="text-stone-800 font-sans leading-snug">
-              Incident logged. Labeled &ldquo;civil dispute.&rdquo; Evidence unreviewed. Advised to call county shelter.
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg space-y-1.5 shadow-2xs">
-            <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase block">TOUCHPOINT 02</span>
-            <h3 className="font-serif font-bold text-sm text-[#1C1D1D]">Shelter / Helpline</h3>
-            <p className="text-stone-800 font-sans leading-snug">
-              Capacity full; barred due to pet or county line. Context lost. Re-referred to legal aid.
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg space-y-1.5 shadow-2xs">
-            <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase block">TOUCHPOINT 03</span>
-            <h3 className="font-serif font-bold text-sm text-[#1C1D1D]">Legal Aid Intake</h3>
-            <p className="text-stone-800 font-sans leading-snug">
-              Intake window closes without police report number. Survivor told to return to Touchpoint 01.
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#FDF2F2] border-2 border-[#971F26] rounded-lg space-y-1.5 flex flex-col justify-between shadow-2xs">
-            <div>
-              <span className="text-[10px] font-mono font-bold text-[#971F26] uppercase block">THE RESULT</span>
-              <h3 className="font-serif font-bold text-sm text-[#971F26]">Context Evaporates</h3>
-              <p className="text-stone-900 font-sans leading-snug">
-                40+ hours spent. Story repeated 5 times. Documents scattered. Zero functioning decision-owner identified.
-              </p>
-            </div>
-            <span className="text-[9.5px] font-mono font-bold text-[#971F26] uppercase bg-white/90 px-2 py-0.5 rounded border border-[#971F26]/30 self-start mt-2">
-              CLOSED ≠ RESOLVED
-            </span>
-          </div>
-        </div>
-
-        <div className="p-4 bg-[#F5F1E8] border border-[#D9D1C4] rounded-lg text-xs font-mono text-stone-800 space-y-1">
-          <strong className="text-[#1C1D1D] uppercase">The Structural Trap:</strong>
-          <p className="font-sans text-stone-700">
-            Every agency records a &ldquo;referral&rdquo; as a completed action in its own database. For the survivor, it is not a handoff—it is starting completely over at zero.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 3: THE HYPOTHESIS */}
-      <section className="space-y-4">
-        <div className="border-b border-[#D9D1C4] pb-3">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-            THE HYPOTHESIS & CORE DESIGN
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-            Minimal Footprint, Independent Continuity
-          </h2>
-        </div>
-
-        <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-          Most institutional reform proposals attempt to build massive centralized government data lakes or unified surveillance registries. In domestic violence and coercive control, centralized databases create profound safety hazards, data breach vectors, and inter-agency bureaucratic paralysis.
-        </p>
-
-        <div className="grid gap-4 sm:grid-cols-3 pt-2 text-xs">
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <h3 className="font-mono font-bold text-xs uppercase text-[#971F26]">1. Survivor-Held Record</h3>
-            <p className="font-sans text-stone-800 leading-relaxed">
-              The continuity layer is owned, held, and controlled by the survivor—not hosted in a centralized state repository. The survivor decides what to disclose, when, and to whom.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <h3 className="font-mono font-bold text-xs uppercase text-[#971F26]">2. Zero PII Verification</h3>
-            <p className="font-sans text-stone-800 leading-relaxed">
-              Qualification logic runs deterministically in the client browser. No personal identifiable information (PII) is stored or tracked across our servers during eligibility evaluation.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <h3 className="font-mono font-bold text-xs uppercase text-[#971F26]">3. Structured Interoperability</h3>
-            <p className="font-sans text-stone-800 leading-relaxed">
-              Standardized touchpoint receipts provide receiving advocates with instant, structured context without requiring bilateral IT integrations between incompatible legacy systems.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: WHAT EXISTS TODAY (VERIFIED BUILT STATE) */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
-        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-[#2D5A3D] text-white rounded text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
-              <span>VERIFIED BUILT TODAY</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-              What Exists and Is Testable Today
-            </h2>
-          </div>
-          <span className="coord-tick">[QA AUDITED · 100% PASSING]</span>
-        </div>
-
-        <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-          Maps With Teeth is not a pitch deck or concept mockup. The core resource intelligence engine, canonical Resource Graph, and intake logic are fully implemented and verified against rigorous automated test suites:
-        </p>
-
-        {/* Verified Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center font-mono">
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-            <div className="text-2xl sm:text-3xl font-bold text-[#971F26]">47</div>
-            <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Audited Records</div>
-            <div className="text-[9.5px] text-stone-500 mt-0.5">Primary statutes & program standards</div>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-            <div className="text-2xl sm:text-3xl font-bold text-[#971F26]">29</div>
-            <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Matching Scenarios</div>
-            <div className="text-[9.5px] text-stone-500 mt-0.5">Automated regression suites</div>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-            <div className="text-2xl sm:text-3xl font-bold text-[#971F26]">158</div>
-            <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Tri-State Tests</div>
-            <div className="text-[9.5px] text-stone-500 mt-0.5">Strict false preservation verified</div>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-            <div className="text-2xl sm:text-3xl font-bold text-[#971F26]">1,070</div>
-            <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Evidence Claims</div>
-            <div className="text-[9.5px] text-stone-500 mt-0.5">0 schema or citation drift</div>
-          </div>
-        </div>
-
-        {/* List of Working Features */}
-        <div className="space-y-2.5 pt-2 text-xs font-sans text-stone-900">
-          <div className="p-3 bg-[#F5F1E8] rounded border border-[#D9D1C4] flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-[#2D5A3D] shrink-0 mt-0.5" />
-            <div>
-              <strong>Texas 254-County Deep Dive:</strong> Direct statutory navigation for lease termination without police reports (Tex. Prop. Code § 92.016), electric deposit waivers (Tex. PUC § 25.478), address confidentiality, and school McKinney-Vento transport.
-            </div>
-          </div>
-
-          <div className="p-3 bg-[#F5F1E8] rounded border border-[#D9D1C4] flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-[#2D5A3D] shrink-0 mt-0.5" />
-            <div>
-              <strong>Lateral Relief & Hardship Catalog:</strong> Verified bypass routes across culinary relief (Southern Smoke, Giving Kitchen), craft artist aid (CERF+), companion animal boarding (RedRover, APA PASS), and federal telecom line separation (47 U.S.C. § 345).
-            </div>
-          </div>
-
-          <div className="p-3 bg-[#F5F1E8] rounded border border-[#D9D1C4] flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-[#2D5A3D] shrink-0 mt-0.5" />
-            <div>
-              <strong>Deterministic Qualification Engine:</strong> Evaluates complex multi-barrier situations without generative hallucination, generating transparent factual audit trails for every recommendation.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: WHAT IS PROPOSED (IN PILOT DESIGN) */}
+      {/* 2. 9 Partner Roles Grid */}
       <section className="space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-amber-800 text-white rounded text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
-              <span>PROPOSED · IN ACTIVE DESIGN</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              What Is Proposed & In Pilot Design
-            </h2>
-          </div>
-          <span className="coord-tick">[CENTRAL TEXAS 6-MONTH PILOT]</span>
-        </div>
-
-        <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-          The following components are fully specified architectural prototypes slated for field testing in our prospective Central Texas pilot cohort:
-        </p>
-
-        <div className="grid gap-4 sm:grid-cols-2 text-xs">
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <div className="flex items-center gap-2 text-[#971F26] font-mono font-bold uppercase">
-              <Shuffle className="w-4 h-4" />
-              <span>Live Bridge Navigation & Receipts</span>
-            </div>
-            <p className="text-stone-800 font-sans leading-relaxed">
-              Standardized touchpoint receipt generation for survivor and advocate encounters, documenting what happened, unreviewed files, stated reasons, and the next responsible decision-owner.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <div className="flex items-center gap-2 text-[#971F26] font-mono font-bold uppercase">
-              <Building2 className="w-4 h-4" />
-              <span>Survivor Gap Fund ($45,000 Model)</span>
-            </div>
-            <p className="text-stone-800 font-sans leading-relaxed">
-              Direct micro-grant fund ($200–$800) under dual-approval controls to instantly dissolve friction barriers (lock changes, storage units, car repairs, pet boarding) that stall stabilization.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <div className="flex items-center gap-2 text-[#971F26] font-mono font-bold uppercase">
-              <FolderArchive className="w-4 h-4" />
-              <span>Survivor Organizer & Originals Vault</span>
-            </div>
-            <p className="text-stone-800 font-sans leading-relaxed">
-              Client-side encrypted timeline builder and SHA-256 evidence hashing tool. Allows survivors to generate scoped export packets for attorneys without exposing unreviewed personal archives.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2 shadow-2xs">
-            <div className="flex items-center gap-2 text-[#971F26] font-mono font-bold uppercase">
-              <AlertTriangle className="w-4 h-4" />
-              <span>Bad Maps (Systemic Intelligence)</span>
-            </div>
-            <p className="text-stone-800 font-sans leading-relaxed">
-              Aggregated, deidentified pattern intelligence mapping where referrals repeatedly break down, identifying ghost programs, defunded hotlines, and frontline statutory non-compliance across counties.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: CONTINUITY VISUAL COMPARISON */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
-        <div className="border-b border-[#D9D1C4] pb-4">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-            WORKFLOW COMPARISON
-          </span>
+        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-            System Comparison: Without Continuity vs. With Maps With Teeth
+            Nine Ways to Collaborate
           </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-sans">
-          {/* Column A: Without Continuity */}
-          <div className="p-5 bg-[#FDF2F2] border-2 border-[#971F26] rounded-xl space-y-4">
-            <div className="border-b border-[#971F26]/30 pb-2">
-              <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">
-                CURRENT REALITY
-              </span>
-              <h3 className="font-serif font-bold text-base text-[#971F26]">
-                Without Continuity Layer
-              </h3>
-            </div>
-            <ul className="space-y-3 text-stone-900 leading-snug">
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#971F26]">✕</span>
-                <span><strong>Story Repeated at Every Desk:</strong> Survivor must re-narrate trauma, re-explain complex timelines, and submit the same documents repeatedly.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#971F26]">✕</span>
-                <span><strong>Evidence Ignored Without Record:</strong> Frontline workers decline to look at evidence (e.g. threat logs), but record the file as &ldquo;insufficient information.&rdquo;</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#971F26]">✕</span>
-                <span><strong>Circular Dead-Ends:</strong> Agency A refers to Agency B, which refers back to Agency A. Neither agency knows the other declined.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#971F26]">✕</span>
-                <span><strong>No Functioning Decision-Owner:</strong> Responsibility dissolves across agency boundaries; no one is accountable for the next step.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column B: With Tested Model */}
-          <div className="p-5 bg-[#E8F3EB] border-2 border-[#2D5A3D] rounded-xl space-y-4">
-            <div className="border-b border-[#2D5A3D]/30 pb-2">
-              <span className="text-[10px] font-mono uppercase font-bold text-[#2D5A3D] block">
-                MAPS WITH TEETH CONTINUITY LAYER
-              </span>
-              <h3 className="font-serif font-bold text-base text-[#2D5A3D]">
-                With Tested Continuity Model
-              </h3>
-            </div>
-            <ul className="space-y-3 text-stone-900 leading-snug">
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#2D5A3D]">✓</span>
-                <span><strong>Portable Continuity Receipt:</strong> Survivor carries a standardized touchpoint receipt documenting dates, agency, officer badge, and CAD/case IDs.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#2D5A3D]">✓</span>
-                <span><strong>Unreviewed Material Documented:</strong> Formally records what was presented vs. what was actually reviewed before case disposition.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#2D5A3D]">✓</span>
-                <span><strong>Actionable Next Hand-off:</strong> Identifies the specific receiving advocate, required documents, and critical statutory deadlines.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[#2D5A3D]">✓</span>
-                <span><strong>Clear Decision Ownership:</strong> Flags referral loops instantly and highlights when no functioning decision-owner exists.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: CONTINUITY RECEIPT SPECIMEN WITH STRICT GUARDRAILS */}
-      <section className="space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-4">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-            CONCRETE ARTIFACT SPECIFICATION
+          <span className="text-xs font-mono text-stone-600 font-bold uppercase">
+            CO-DESIGN ROLES
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-            The Continuity Receipt Specimen
-          </h2>
-          <p className="text-sm sm:text-base text-stone-800 mt-1 leading-relaxed font-sans">
-            Below is the operational specimen of a survivor-held Continuity Receipt generated following an institutional encounter:
-          </p>
         </div>
 
-        {/* Specimen Box */}
-        <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-dashed border-[#1C1D1D] pb-4">
-            <div>
-              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest block font-bold">
-                MAPS WITH TEETH CONTINUITY RECEIPT SPECIMEN · [PROTOTYPE]
-              </span>
-              <span className="font-bold text-base sm:text-lg text-[#1C1D1D] font-mono">
-                RECEIPT ID: CR-2026-TX-08942
-              </span>
-            </div>
-            <span className="px-2.5 py-1 bg-[#E8F3EB] border border-[#2D5A3D] text-[#2D5A3D] font-mono font-bold text-xs rounded-xs">
-              ✓ TOUCHPOINT RECORDED
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
-            {/* Left Column */}
-            <div className="space-y-3.5">
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">1. WHO & JURISDICTION</span>
-                <p className="text-stone-900 font-bold font-sans text-sm">Austin Police Dept · Victim Services Unit</p>
-                <p className="text-stone-700 text-xs font-sans">Officer J. Miller · Badge #4102 · Travis County, TX</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">2. WHEN & CONTACT METHOD</span>
-                <p className="text-stone-900 font-sans text-xs sm:text-sm">August 28, 2026 · 14:15 CST · In-Person Desk Intake</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">3. REFERENCE & IDENTIFIERS</span>
-                <p className="text-stone-900 font-mono font-semibold text-xs">Incident Report #: APD-2026-0828-441</p>
-                <p className="text-stone-600 font-mono text-[11px]">CAD Log #: 26-240-0891 · Desk Log: VSU-88</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">4. MATERIAL RECEIVED / REVIEWED</span>
-                <p className="text-stone-900 font-sans text-xs leading-snug">• 14 threat message screenshots offered (Unreviewed by intake)</p>
-                <p className="text-stone-900 font-sans text-xs leading-snug">• Residential apartment lease agreement (Reviewed)</p>
-                <p className="text-stone-900 font-sans text-xs leading-snug">• Cell carrier billing statement showing account line (Reviewed)</p>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-3.5">
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">5. ACTION TAKEN</span>
-                <p className="text-stone-900 font-bold font-sans text-sm">Action Declined · Labeled &ldquo;Civil Dispute&rdquo;</p>
-                <p className="text-stone-700 text-xs font-sans">No protective order packet initiated; referral given to legal aid.</p>
-              </div>
-
-              <div className="space-y-1 p-3.5 bg-[#EEE8DD] border border-[#D9D1C4] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">6. STATED REASON</span>
-                <p className="text-stone-900 font-sans text-xs">Officer noted cell account in spouse name; advised dispute is civil.</p>
-                <p className="text-[#971F26] text-xs font-sans font-semibold pt-1 border-t border-[#D9D1C4]/60">
-                  Advocate note: Overlooks federal Safe Connections Act (47 U.S.C. § 345) statutory remedy.
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {partnerRoles.map((role, idx) => (
+            <div
+              key={idx}
+              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
+            >
+              <div className="space-y-2">
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
+                  {role.title}
+                </h3>
+                <span className="text-[11px] font-mono text-[#971F26] font-bold block">
+                  {role.tagline}
+                </span>
+                <p className="text-xs text-stone-800 leading-relaxed font-sans">
+                  {role.description}
                 </p>
               </div>
 
-              <div className="space-y-1 p-3.5 bg-[#FDF2F2] border border-[#971F26] rounded-md">
-                <span className="text-[10px] font-mono uppercase font-bold text-[#971F26] block">7. NEXT DECISION-OWNER & ACTION</span>
-                <p className="text-stone-900 font-bold font-sans text-xs sm:text-sm">Legal Aid of NorthWest Texas · Intake Staff</p>
-                <p className="text-stone-800 text-xs font-sans">Action: Direct application for § 92.016 lease termination & line separation.</p>
-                <p className="text-[#971F26] font-bold font-mono text-xs pt-1">Target Action Date: September 4, 2026</p>
+              <div className="pt-2 border-t border-[#D9D1C4] text-[10px] font-mono text-stone-600 uppercase font-bold">
+                OPEN FOR COLLABORATION
               </div>
             </div>
-          </div>
-
-          <div className="border-t border-[#D9D1C4] pt-3 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-stone-600">
-            <span>Prototype Format: Survivor-Controlled Artifact</span>
-            <span>Zero server upload · Exportable as scoped PDF or secure text record</span>
-          </div>
-        </div>
-
-        {/* STRICT DEFENSIBLE GUARDRAILS NOTICE */}
-        <div className="p-4 sm:p-5 bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl text-xs space-y-2 font-mono shadow-2xs">
-          <div className="flex items-center gap-2 font-bold text-[#971F26] uppercase text-xs">
-            <ShieldAlert className="w-4 h-4" />
-            <span>Strict Evidentiary & Legal Guardrails</span>
-          </div>
-          <p className="font-sans leading-relaxed text-stone-900 text-xs sm:text-sm">
-            <strong>What the Continuity Receipt IS and IS NOT:</strong>
-          </p>
-          <ul className="font-sans text-xs text-stone-800 space-y-1 list-disc pl-4">
-            <li><strong>It DOES:</strong> Document the factual occurrence of an administrative touchpoint, agency identifiers, materials presented vs. inspected, stated reasons, and next referral targets.</li>
-            <li><strong>It DOES NOT:</strong> Authenticate case allegations, prove the truth of survivor claims, or serve as judicial verification.</li>
-            <li><strong>It DOES NOT:</strong> Establish a formal evidentiary chain of custody in court or bind any external agency.</li>
-            <li><strong>Purpose:</strong> Serves exclusively as an independent, survivor-held procedural record to prevent information loss, document systemic bottlenecks, and stop endless referral runarounds.</li>
-          </ul>
+          ))}
         </div>
       </section>
 
-      {/* SECTION 8: WHAT WE WANT FROM PROFESSIONALS (PRESSURE-TESTING) */}
-      <section id="pressure-test" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
-        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-              COLLABORATION & FEEDBACK
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              What We Want From Outside Professionals
-            </h2>
-          </div>
-          <span className="coord-tick">[20–30 MINUTE EXPERT INTERVIEWS]</span>
-        </div>
-
-        <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-          We are seeking 20–30 minute pressure-testing conversations with advocates, attorneys, shelter directors, navigators, and systems researchers. We want direct, critical feedback on our model:
+      {/* 3. Transparency & Non-Claim Notice */}
+      <section className="p-5 bg-white border-2 border-[#1C1D1D] rounded-xl space-y-2 font-mono text-xs text-stone-800">
+        <span className="font-bold text-[#971F26] uppercase block">
+          TRANSPARENCY STANDARD ON INSTITUTIONAL PARTNERSHIPS:
+        </span>
+        <p className="font-sans text-stone-700 leading-relaxed">
+          We maintain a strict policy of honesty regarding organizational maturity: we do not claim formal endorsements, pilots, or partnerships with state agencies, courts, or municipal departments until agreements are formally executed. All current artifacts represent independent public-interest research and specifications open for peer review.
         </p>
-
-        <div className="grid gap-3 sm:grid-cols-2 text-xs font-sans">
-          <div className="p-4 bg-[#F5F1E8] border border-[#D9D1C4] rounded-lg space-y-1.5 shadow-2xs">
-            <h4 className="font-mono font-bold text-xs uppercase text-[#971F26] flex items-center gap-1.5">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Taxonomy & Eligibility Accuracy</span>
-            </h4>
-            <p className="text-stone-800 leading-snug">
-              Where does our resource categorization or qualification logic fail to reflect the practical reality of intake in your county or organization?
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border border-[#D9D1C4] rounded-lg space-y-1.5 shadow-2xs">
-            <h4 className="font-mono font-bold text-xs uppercase text-[#971F26] flex items-center gap-1.5">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Missing Lateral Levers</span>
-            </h4>
-            <p className="text-stone-800 leading-snug">
-              What obscure statutory remedies, utility waivers, industry relief funds, or local mutual aid pathways are we currently omitting?
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border border-[#D9D1C4] rounded-lg space-y-1.5 shadow-2xs">
-            <h4 className="font-mono font-bold text-xs uppercase text-[#971F26] flex items-center gap-1.5">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Advocate Workflow Usability</span>
-            </h4>
-            <p className="text-stone-800 leading-snug">
-              How can Continuity Receipts be structured so receiving staff can read and trust them in 60 seconds without creating administrative burden?
-            </p>
-          </div>
-
-          <div className="p-4 bg-[#F5F1E8] border border-[#D9D1C4] rounded-lg space-y-1.5 shadow-2xs">
-            <h4 className="font-mono font-bold text-xs uppercase text-[#971F26] flex items-center gap-1.5">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Risk & Safety Blindspots</span>
-            </h4>
-            <p className="text-stone-800 leading-snug">
-              What digital safety, legal liability, or evidentiary risks must be hardened before this enters pilot testing with Central Texas survivors?
-            </p>
-          </div>
-        </div>
-
-        <div className="pt-2 flex flex-wrap items-center gap-3 font-mono">
-          <Link
-            href="/feedback"
-            className="px-6 py-3 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider shadow-2xs transition-colors flex items-center gap-2"
-          >
-            <span>Submit Strategic Feedback</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            href="/build-with-us"
-            className="px-6 py-3 bg-[#F5F1E8] hover:bg-stone-200 border border-[#1C1D1D] text-[#1C1D1D] rounded-md text-xs font-bold uppercase tracking-wider shadow-2xs transition-colors"
-          >
-            <span>Join Working Coalition Intake</span>
-          </Link>
-        </div>
       </section>
 
-      {/* SECTION 9: FOUNDER & PROJECT DIRECTION */}
-      <section className="space-y-4">
-        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between gap-2">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-              FOUNDER & PROJECT DIRECTOR
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              Founder Background & Project Direction
-            </h2>
-          </div>
-          <span className="coord-tick">[JAYME VOLSTAD · CENTRAL TEXAS]</span>
-        </div>
-
-        <div className="p-6 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-4 shadow-xs">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#D9D1C4] pb-3">
-            <div>
-              <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">Jayme Volstad · Founder & Project Director</h3>
-              <p className="text-xs font-mono text-stone-700">Systems & Operations Design · Public-Interest Infrastructure</p>
-            </div>
-            <div className="text-xs font-mono text-stone-600 bg-[#F5F1E8] px-3 py-1 rounded border border-[#D9D1C4]">
-              Central Texas
-            </div>
-          </div>
-
-          <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-            Maps With Teeth was conceived and built by <strong>Jayme Volstad</strong>, drawing on extensive experience in operations, research, systems design, and direct analysis of how people move through fragmented public and nonprofit systems. Her work is also informed by firsthand navigation of criminal-justice, family-court, victim-service, housing, and public-assistance systems.
-          </p>
-
-          <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-            Rather than treating the problem as a lack of awareness or another resource-directory problem, Volstad designed Maps With Teeth around a structural question: <strong>what happens to context, responsibility, and next steps when a person has to move between systems that do not share the same map?</strong>
-          </p>
-
-          <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
-            She has led development of the project’s current prototype, including its <strong>deterministic matching system, 47-record canonical Resource Graph, progressive survivor intake, evidence and source-quality controls, and the broader Bridge continuity model being prepared for a Central Texas founding pilot.</strong>
-          </p>
-
-          <div className="pt-2 border-t border-[#D9D1C4] text-xs font-mono text-stone-700 italic">
-            The project is being developed around privacy-conscious data practices, source transparency, and a public-interest operating model.
-          </div>
-
-          <div className="grid gap-2 sm:grid-cols-3 pt-2 text-xs font-mono text-stone-800">
-            <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
-              • Pure Deterministic Domain Logic
-            </div>
-            <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
-              • Authoritative Source Citations
-            </div>
-            <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
-              • Zero Centralized Survivor PII
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 10: CLEAR BOUNDARIES & NON-GOALS */}
-      <section className="bg-[#1C1D1D] text-stone-200 border-2 border-stone-800 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
-        <div className="border-b border-stone-700 pb-3">
-          <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-bold block">
-            DEFENSIBLE SCOPE & GOVERNANCE
+      {/* 4. Partner Inquiry Form */}
+      <section id="partner-form" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm">
+        <div className="border-b border-[#D9D1C4] pb-4 space-y-1">
+          <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider">
+            GET IN TOUCH
           </span>
-          <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
-            Clear Boundaries, Institutional Notice & Non-Goals
+          <h2 className="text-2xl font-serif font-bold text-[#1C1D1D]">
+            Start a Collaboration Conversation
           </h2>
-        </div>
-
-        <p className="text-xs sm:text-sm text-stone-300 font-sans leading-relaxed">
-          To maintain absolute trust with survivor-service organizations, legal bodies, and funders, Maps With Teeth operates within strictly defined institutional boundaries:
-        </p>
-
-        <div className="grid gap-3 sm:grid-cols-2 text-xs font-sans text-stone-300">
-          <div className="p-3.5 bg-stone-900 border border-stone-700 rounded-lg space-y-1">
-            <strong className="text-white font-mono uppercase block text-xs">NOT an Emergency Service</strong>
-            <p className="leading-snug text-stone-400">
-              Maps With Teeth is not a 911 dispatch, emergency crisis hotline, or immediate physical rescue organization.
-            </p>
-          </div>
-
-          <div className="p-3.5 bg-stone-900 border border-stone-700 rounded-lg space-y-1">
-            <strong className="text-white font-mono uppercase block text-xs">NOT Legal Counsel</strong>
-            <p className="leading-snug text-stone-400">
-              We provide statutory and resource intelligence. We do not provide licensed legal representation or formal legal advice.
-            </p>
-          </div>
-
-          <div className="p-3.5 bg-stone-900 border border-stone-700 rounded-lg space-y-1">
-            <strong className="text-white font-mono uppercase block text-xs">NOT Law Enforcement or CPS</strong>
-            <p className="leading-snug text-stone-400">
-              We do not report users to law enforcement, child protective agencies, or state welfare surveillance registries.
-            </p>
-          </div>
-
-          <div className="p-3.5 bg-stone-900 border border-stone-700 rounded-lg space-y-1">
-            <strong className="text-white font-mono uppercase block text-xs">NOT an Adjudicative Authority</strong>
-            <p className="leading-snug text-stone-400">
-              We do not judge, evaluate, or authenticate the veracity of survivor allegations. We document administrative touchpoints.
-            </p>
-          </div>
-        </div>
-
-        <div className="pt-2 text-xs font-mono text-stone-400 border-t border-stone-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <span>Maps With Teeth is an independent public-interest initiative in development.</span>
-          <Link href="/about" className="text-red-400 hover:text-red-300 font-bold uppercase underline">
-            Learn More About Governance →
-          </Link>
-        </div>
-      </section>
-
-      {/* FOOTER CTA STRIP */}
-      <div className="border-t border-[#D9D1C4] pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono">
-        <div className="space-y-1 text-xs">
-          <span className="font-bold text-[#971F26] uppercase block">EXPLORE THE WORKING APPLICATION</span>
-          <p className="text-stone-700 font-sans">
-            Ready to test the interactive intake qualification engine or explore verified lateral dockets?
+          <p className="text-stone-700 text-xs sm:text-sm font-sans">
+            Tell us how your organization or expertise relates to cross-system continuity, resource intelligence, or policy analysis.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="/find-help"
-            className="px-5 py-2.5 bg-[#971F26] hover:bg-red-900 text-white rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs transition-colors"
-          >
-            <span>Find a Way Through</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            href="/other-ways-through"
-            className="px-5 py-2.5 bg-[#EEE8DD] hover:bg-stone-200 border-2 border-[#1C1D1D] text-[#1C1D1D] rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
-          >
-            <span>Lateral Relief Catalog</span>
-          </Link>
-        </div>
+        {submitted ? (
+          <div className="p-6 bg-emerald-50 border-2 border-emerald-700 rounded-xl space-y-2 text-center font-mono">
+            <CheckCircle2 className="w-8 h-8 text-emerald-700 mx-auto" />
+            <h3 className="font-bold text-emerald-950 text-base">Inquiry Received</h3>
+            <p className="text-xs text-emerald-800 font-sans">
+              Thank you for reaching out. A research coordinator will follow up within 2 business days.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="font-bold text-stone-800 uppercase block">Your Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="e.g. Sarah Jenkins"
+                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-stone-800 uppercase block">Organization / Agency</label>
+                <input
+                  type="text"
+                  value={formData.organization}
+                  onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                  placeholder="e.g. Travis County Legal Aid / CAC"
+                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="font-bold text-stone-800 uppercase block">Work Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="name@organization.org"
+                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-stone-800 uppercase block">Primary Area of Interest</label>
+                <select
+                  value={formData.interestArea}
+                  onChange={(e) => setFormData({ ...formData, interestArea: e.target.value })}
+                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+                >
+                  <option>Frontline Validation</option>
+                  <option>Policy Review</option>
+                  <option>Privacy Review</option>
+                  <option>Legal Review</option>
+                  <option>Pilot Design</option>
+                  <option>Referral-Flow Analysis</option>
+                  <option>Systems Research</option>
+                  <option>Technical Interoperability</option>
+                  <option>Philanthropic Support</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <label className="font-bold text-stone-800 uppercase block">Message / Context</label>
+              <textarea
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Describe what aspects of the continuity model you would like to pressure-test or collaborate on..."
+                className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="px-6 py-3 bg-[#971F26] hover:bg-[#7A181E] text-white rounded font-bold uppercase tracking-wider flex items-center gap-2 shadow-xs transition-colors"
+            >
+              <Send className="w-3.5 h-3.5" />
+              <span>Submit Partner Inquiry</span>
+            </button>
+          </form>
+        )}
+      </section>
+
+      {/* 5. Navigation Footer */}
+      <div className="pt-6 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+        <Link
+          href="/"
+          className="text-stone-600 hover:text-[#1C1D1D] uppercase font-bold tracking-wider"
+        >
+          ← Return to Overview
+        </Link>
+        <Link
+          href="/policy"
+          className="px-5 py-2.5 bg-[#1C1D1D] hover:bg-black text-white rounded font-bold uppercase tracking-wider"
+        >
+          Explore Policy Lab →
+        </Link>
       </div>
     </div>
   );

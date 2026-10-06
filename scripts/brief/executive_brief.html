@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maps With Teeth — Executive Brief</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 8.5in;
+      height: 11in;
+      margin: 0;
+      padding: 0;
+      background-color: #fbf9f5;
+    }
+    body {
+      padding: 0.35in 0.42in 0.32in 0.42in;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 8.4pt;
+      line-height: 1.28;
+      color: #1c1d1d;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      overflow: hidden;
+    }
+
+    :root {
+      --oxblood: #7b1d22;
+      --oxblood-dark: #581216;
+      --oxblood-light: #9e2830;
+      --charcoal: #1c1d1d;
+      --charcoal-muted: #4a4d4e;
+      --parchment: #f4efe6;
+      --parchment-dark: #eae2d3;
+      --border-rule: #d5ccbe;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      height: 10.33in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2.5px solid var(--oxblood);
+      padding-bottom: 0.09in;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.16in;
+    }
+    .header-logo {
+      width: 0.90in;
+      height: 0.90in;
+      object-fit: contain;
+    }
+    .brand-title {
+      font-size: 18pt;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      color: var(--oxblood-dark);
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+    .brand-tagline {
+      font-size: 9.6pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--charcoal);
+      margin-top: 2px;
+    }
+    .brand-context {
+      font-size: 7.4pt;
+      color: var(--charcoal-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .badge-stage {
+      display: inline-block;
+      background: var(--oxblood);
+      color: #ffffff;
+      font-size: 7pt;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border-radius: 2px;
+      margin-bottom: 3px;
+    }
+    .meta-line {
+      font-size: 7.3pt;
+      color: var(--charcoal-muted);
+      line-height: 1.25;
+    }
+    .meta-line strong {
+      color: var(--charcoal);
+    }
+
+    /* Thesis Banner */
+    .thesis-banner {
+      background: var(--parchment);
+      border-left: 3.5px solid var(--oxblood);
+      border-top: 1px solid var(--border-rule);
+      border-right: 1px solid var(--border-rule);
+      border-bottom: 1px solid var(--border-rule);
+      padding: 0.09in 0.13in;
+      border-radius: 0 2px 2px 0;
+      margin-top: 0.08in;
+    }
+    .thesis-label {
+      font-size: 7.1pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--oxblood);
+      margin-bottom: 2px;
+    }
+    .thesis-text {
+      font-size: 8.7pt;
+      font-weight: 600;
+      line-height: 1.32;
+      color: var(--charcoal);
+    }
+
+    /* Grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 0.16in;
+      flex: 1;
+      margin-top: 0.09in;
+      margin-bottom: 0.08in;
+    }
+
+    .col-left, .col-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sec-title {
+      font-size: 8.1pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--oxblood-dark);
+      border-bottom: 1.5px solid var(--oxblood-light);
+      padding-bottom: 2px;
+      margin-bottom: 3.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sec-title span.sub {
+      font-size: 6.7pt;
+      font-weight: 500;
+      color: var(--charcoal-muted);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* System Loop Comparison */
+    .loop-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.5pt;
+      background: #ffffff;
+      border: 1px solid var(--border-rule);
+    }
+    .loop-table th {
+      text-align: left;
+      padding: 3.5px 6px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 6.9pt;
+    }
+    .loop-table th.today {
+      background: #ede6dc;
+      color: #5c554c;
+      border-bottom: 1px solid var(--border-rule);
+      width: 50%;
+    }
+    .loop-table th.mwt {
+      background: #f7ebea;
+      color: var(--oxblood-dark);
+      border-bottom: 1px solid var(--border-rule);
+      border-left: 1px solid var(--border-rule);
+      width: 50%;
+    }
+    .loop-table td {
+      padding: 4px 6px;
+      vertical-align: top;
+      line-height: 1.22;
+      border-bottom: 1px solid #f0e8dc;
+    }
+    .loop-table td.mwt-col {
+      border-left: 1px solid var(--border-rule);
+      background: #faf7f2;
+      font-weight: 500;
+    }
+    .loop-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Pillars */
+    .pillar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+    }
+    .pillar-item {
+      background: #ffffff;
+      border: 1px solid var(--border-rule);
+      padding: 4px 6.5px;
+      border-radius: 2px;
+    }
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .pillar-name {
+      font-weight: 750;
+      font-size: 7.8pt;
+      color: var(--oxblood-dark);
+    }
+    .pillar-tag {
+      font-size: 6.5pt;
+      color: var(--charcoal-muted);
+      font-weight: 600;
+    }
+    .pillar-desc {
+      font-size: 7.3pt;
+      color: var(--charcoal);
+      line-height: 1.21;
+    }
+
+    /* Canonical Quote */
+    .canonical-quote {
+      background: #231b1c;
+      color: #f7f3ec;
+      padding: 6px 9.5px;
+      border-left: 3.5px solid var(--oxblood-light);
+      border-radius: 0 2px 2px 0;
+      margin: 1px 0;
+    }
+    .canonical-quote p {
+      font-size: 7.6pt;
+      font-weight: 600;
+      line-height: 1.27;
+      font-style: italic;
+    }
+    .canonical-quote .cite {
+      font-size: 6.4pt;
+      color: #cfc5b8;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* Proof vs Pilot */
+    .pvp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.3pt;
+      background: #ffffff;
+      border: 1px solid var(--border-rule);
+    }
+    .pvp-table th {
+      background: var(--parchment-dark);
+      color: var(--charcoal);
+      font-size: 6.9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 6px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-rule);
+    }
+    .pvp-table td {
+      padding: 3px 6px;
+      vertical-align: top;
+      line-height: 1.21;
+      border-bottom: 1px solid #f2ece2;
+    }
+    .pvp-table tr:last-child td {
+      border-bottom: none;
+    }
+    .pvp-table td strong {
+      color: var(--oxblood-dark);
+    }
+
+    /* Budget Table */
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.1pt;
+      background: #ffffff;
+      border: 1px solid var(--border-rule);
+    }
+    .budget-table th {
+      background: var(--parchment-dark);
+      padding: 2.8px 6px;
+      font-size: 6.7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-align: left;
+      border-bottom: 1px solid var(--border-rule);
+    }
+    .budget-table th.num {
+      text-align: right;
+    }
+    .budget-table td {
+      padding: 2.2px 6px;
+      border-bottom: 1px solid #f4ede3;
+      line-height: 1.18;
+    }
+    .budget-table td.num {
+      text-align: right;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 7.2pt;
+      font-weight: 650;
+    }
+    .budget-table tr.total-row td {
+      border-top: 1.8px solid var(--oxblood);
+      background: var(--parchment);
+      font-weight: 800;
+      color: var(--oxblood-dark);
+    }
+
+    /* Metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 6px;
+      font-size: 7.2pt;
+    }
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border-rule);
+      padding: 2.8px 5.5px;
+      border-radius: 2px;
+      line-height: 1.17;
+    }
+    .metric-card .num-label {
+      font-weight: 750;
+      color: var(--oxblood);
+      font-size: 6.8pt;
+    }
+    .metric-card .target {
+      font-weight: 750;
+      color: var(--charcoal);
+    }
+
+    /* Guardrail Warning Box */
+    .guardrail-box {
+      background: #fdf3f2;
+      border: 1.5px solid var(--oxblood-light);
+      padding: 5px 8px;
+      border-radius: 2px;
+    }
+    .guardrail-title {
+      font-size: 7.4pt;
+      font-weight: 800;
+      color: var(--oxblood);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 2px;
+    }
+    .guardrail-text {
+      font-size: 7.1pt;
+      line-height: 1.21;
+      color: #3b191c;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 2px solid var(--oxblood);
+      padding-top: 0.07in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-left {
+      font-size: 7.2pt;
+      color: var(--charcoal-muted);
+      line-height: 1.20;
+    }
+    .footer-left strong {
+      color: var(--charcoal);
+    }
+    .footer-right {
+      text-align: right;
+    }
+    .cta-badge {
+      display: inline-block;
+      background: var(--oxblood-dark);
+      color: #ffffff;
+      font-weight: 750;
+      font-size: 7.4pt;
+      padding: 3.5px 9px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <img src="file:///c:/Users/rougu/Downloads/MAPS WITH TEETH/public/logo.png" alt="Maps With Teeth Logo" class="header-logo" />
+        <div>
+          <div class="brand-title">Maps With Teeth</div>
+          <div class="brand-tagline">Continuity Infrastructure for Institutional Survivor Navigation</div>
+          <div class="brand-context">Executive Brief · Institutional Risk Architecture &amp; Founding Pilot</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="badge-stage">Stage Locked · v1.0.0</div>
+        <div class="meta-line"><strong>Target Raise:</strong> $100,000 (Philanthropic Grant)</div>
+        <div class="meta-line"><strong>Runway / Scope:</strong> 6 Months · 90-Day Pilot Cohort</div>
+        <div class="meta-line"><strong>Fiscal Sponsor:</strong> Seeking 501(c)(3) Partner</div>
+      </div>
+    </header>
+
+    <!-- Thesis Banner -->
+    <div class="thesis-banner">
+      <div class="thesis-label">Core Institutional Thesis</div>
+      <div class="thesis-text">
+        Survivors do not drop out because their cases lack substance. They drop out because institutional friction, repeated retelling, lost paper trails, and unrecorded gatekeeper refusals inflict compounded trauma before formal adjudication ever begins. Maps With Teeth provides immutable, participant-held continuity infrastructure that turns fragmented institutional dead-ends into auditable, accountable records.
+      </div>
+    </div>
+
+    <!-- Main 2-Column Grid -->
+    <div class="grid-2col">
+      <!-- Left Column -->
+      <div class="col-left">
+        
+        <!-- System Loop Comparison -->
+        <div>
+          <div class="sec-title">
+            <span>The System Loop</span>
+            <span class="sub">Institutional Navigation Realities</span>
+          </div>
+          <table class="loop-table">
+            <thead>
+              <tr>
+                <th class="today">Current Fragmented Reality</th>
+                <th class="mwt">With Maps With Teeth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Forced Repetition:</strong> Survivors retell trauma 5–11 times across unlinked legal and advocacy silos.</td>
+                <td class="mwt-col"><strong>Single Digital Bridge:</strong> Client-side cryptographic intake shared securely under participant-controlled consent.</td>
+              </tr>
+              <tr>
+                <td><strong>Untracked Turnaways:</strong> Verbal referrals and desk rejections evaporate with zero record of contact.</td>
+                <td class="mwt-col"><strong>Continuity Contact Record:</strong> Standardized, timestamped contact artifact created regardless of agency cooperation.</td>
+              </tr>
+              <tr>
+                <td><strong>Agency Liability Panic:</strong> Institutions refuse receipts fearing admission of liability or evidence certification.</td>
+                <td class="mwt-col"><strong>Strict Non-Implication:</strong> 5 statutory disclaimers legally decouple proof of contact from merits or liability.</td>
+              </tr>
+              <tr>
+                <td><strong>Opaque Routing:</strong> Dead-end referrals remain hidden; next survivors sent down the exact same hostile routes.</td>
+                <td class="mwt-col"><strong>Resource Graph &amp; Bad Maps:</strong> Institutional friction and refusal patterns surface to guide survivors away from dead ends.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- The Core Model -->
+        <div>
+          <div class="sec-title">
+            <span>The Core Architecture</span>
+            <span class="sub">Three Foundational Pillars</span>
+          </div>
+          <div class="pillar-list">
+            <div class="pillar-item">
+              <div class="pillar-header">
+                <span class="pillar-name">1. The Bridge (Zero-Knowledge Intake)</span>
+                <span class="pillar-tag">Client-Side Cryptography</span>
+              </div>
+              <div class="pillar-desc">
+                Survivor-held, privacy-first intake protocol. Structured disclosures are encrypted in-browser, preventing unauthorized institutional indexing while maintaining granular survivor consent across referrals.
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-header">
+                <span class="pillar-name">2. Continuity Contact Record</span>
+                <span class="pillar-tag">Standardized Contact Spec</span>
+              </div>
+              <div class="pillar-desc">
+                Generates a formal, immutable touchpoint artifact documenting date, actor, and handling status across 3 verification tiers: <em>Participant-Recorded</em>, <em>Agency-Acknowledged</em>, and <em>Partner-Role-Verified</em>.
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-header">
+                <span class="pillar-name">3. Living Resource Graph &amp; Bad Maps</span>
+                <span class="pillar-tag">Accountability Intelligence</span>
+              </div>
+              <div class="pillar-desc">
+                Aggregates verified routing pathways while systematically flagging "Bad Maps"—institutional bottlenecks, unlawful intake requirements, and broken referral loops.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Canonical Legal Architecture Quote -->
+        <div class="canonical-quote">
+          <p>“Agency acknowledgment strengthens a record but is never required for the participant to create, own, preserve, and carry the record forward.”</p>
+          <div class="cite">Core Invariant — Continuity Contact Record Architecture Spec §1.2</div>
+        </div>
+
+        <!-- Built vs Pilot Stage -->
+        <div>
+          <div class="sec-title">
+            <span>Proof vs. Pilot</span>
+            <span class="sub">Production Baseline vs. Deployment Scope</span>
+          </div>
+          <table class="pvp-table">
+            <thead>
+              <tr>
+                <th style="width: 50%;">Built &amp; Verified in Code (Today)</th>
+                <th style="width: 50%;">Pilot Deployment Scope (90 Days)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Domain Engine:</strong> Complete TypeScript architecture with append-only hash chains and strict attribution.</td>
+                <td><strong>Cohort Execution:</strong> Controlled deployment supporting 25 participants across partner agencies.</td>
+              </tr>
+              <tr>
+                <td><strong>15 Invariant Test Suite:</strong> Automated verification proving non-implication, de-judicialization, and zero agency veto.</td>
+                <td><strong>Field Verification:</strong> On-the-ground validation of agency reception and participant retention across real touchpoints.</td>
+              </tr>
+              <tr>
+                <td><strong>Cryptographic Export:</strong> Client-side PDF/JSON generation with Texas UETA / E-SIGN compliant notices.</td>
+                <td><strong>Independent Evaluation:</strong> Objective measurement of dropout reduction and survivor agency metrics.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-right">
+        
+        <!-- Pilot Question -->
+        <div>
+          <div class="sec-title">
+            <span>The Pilot Question</span>
+            <span class="sub">Controlled 90-Day Cohort Hypothesis</span>
+          </div>
+          <p style="font-size: 7.5pt; line-height: 1.27; background: #ffffff; border: 1px solid var(--border-rule); padding: 4.5px 7px; border-radius: 2px;">
+            <strong>Hypothesis:</strong> Equipping 25 survivors with standardized, non-implicative Continuity Contact Records will reduce early-stage institutional drop-off by &gt;50% compared to historical baselines, while generating zero defamation or liability exposure for receiving agencies.
+          </p>
+        </div>
+
+        <!-- Canonical 10-Line Budget Summary -->
+        <div>
+          <div class="sec-title">
+            <span>Funding Allocation</span>
+            <span class="sub">$100,000 Canonical Founding Budget (6 Mo)</span>
+          </div>
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Budget Category / Allocation Focus</th>
+                <th class="num">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Founder / Project Director</td>
+                <td class="num">$36,000</td>
+              </tr>
+              <tr>
+                <td>2. Employer payroll / benefits reserve</td>
+                <td class="num">$5,000</td>
+              </tr>
+              <tr>
+                <td>3. Part-time survivor-services expertise</td>
+                <td class="num">$8,000</td>
+              </tr>
+              <tr>
+                <td>4. Fiscal sponsorship / administration</td>
+                <td class="num">$8,000</td>
+              </tr>
+              <tr>
+                <td>5. Organizer technology + security</td>
+                <td class="num">$10,000</td>
+              </tr>
+              <tr>
+                <td>6. Legal / privacy / insurance / compliance</td>
+                <td class="num">$10,000</td>
+              </tr>
+              <tr>
+                <td>7. Gap Fund</td>
+                <td class="num">$10,000</td>
+              </tr>
+              <tr>
+                <td>8. Evaluation + data systems</td>
+                <td class="num">$5,000</td>
+              </tr>
+              <tr>
+                <td>9. Partner training + outreach</td>
+                <td class="num">$3,000</td>
+              </tr>
+              <tr>
+                <td>10. Operating contingency</td>
+                <td class="num">$5,000</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Total Founding Funding Requirement</strong></td>
+                <td class="num"><strong>$100,000</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 7 Measurement Metrics -->
+        <div>
+          <div class="sec-title">
+            <span>Measurement Framework</span>
+            <span class="sub">7 Quantifiable Pilot Success Metrics</span>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="num-label">1. First-Touch Dropoff</div>
+              <div><span class="target">&lt; 20%</span> vs. ~65% baseline</div>
+            </div>
+            <div class="metric-card">
+              <div class="num-label">2. Record Generation</div>
+              <div><span class="target">100%</span> visits recorded</div>
+            </div>
+            <div class="metric-card">
+              <div class="num-label">3. Agency Engagement</div>
+              <div><span class="target">&gt; 35%</span> voluntary ack rate</div>
+            </div>
+            <div class="metric-card">
+              <div class="num-label">4. Retelling Count</div>
+              <div><span class="target">&gt; 50%</span> drop in trauma retelling</div>
+            </div>
+            <div class="metric-card">
+              <div class="num-label">5. Handoff Resolution</div>
+              <div><span class="target">&lt; 72 hrs</span> median routing conf.</div>
+            </div>
+            <div class="metric-card">
+              <div class="num-label">6. Legal Safety</div>
+              <div><span class="target">0</span> liability claims incurred</div>
+            </div>
+            <div class="metric-card" style="grid-column: span 2;">
+              <div class="num-label">7. Survivor Self-Efficacy &amp; Agency Score</div>
+              <div><span class="target">&gt; 85%</span> report heightened institutional leverage &amp; clarity</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guardrail Box -->
+        <div class="guardrail-box">
+          <div class="guardrail-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+            Built to Document Contact — Not Adjudicate Cases
+          </div>
+          <div class="guardrail-text">
+            Continuity Contact Records document objective contact timestamps, actor identities, and handling statuses. They make no claims regarding evidence authenticity, substantive merit, or agency liability. All records remain survivor-held property under strict client-side encryption.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer & Contact -->
+    <footer class="footer">
+      <div class="footer-left">
+        <div><strong>Maps With Teeth Project</strong> · Codebase, Documentation &amp; Architecture Frozen for Pilot Launch</div>
+        <div>Contact: partnerships@mapswithteeth.org · Open Source under Apache 2.0 / Civic Covenant</div>
+      </div>
+      <div class="footer-right">
+        <div class="cta-badge">Ready for Founding Grant Funding</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

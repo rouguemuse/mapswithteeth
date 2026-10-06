@@ -16,7 +16,7 @@ Maps With Teeth is an investigative intelligence initiative and public-interest 
   - **50 Reconciliation Engine Tests**: Multi-industry clarification and evidence collection verified.
   - **29 Matching Scenario Tests**: Comprehensive deterministic qualification regression suite.
   - **1,070 Semantic QA Assertions**: Zero schema, citation, or evidence drift.
-- **Stage 3 (Continuity Infrastructure)**: Portable continuity infrastructure, survivor-held Continuity Receipts, and scoped export packets (In Active Pilot Design).
+- **Stage 3 (Continuity Infrastructure)**: Portable continuity infrastructure, survivor-held Continuity Contact Records, and scoped export packets (In Active Pilot Design).
 
 ---
 
@@ -30,7 +30,7 @@ The repository is strictly structured into clear domain and architectural layers
 - **`src/data/`**: Canonical structured resource records (`resources/states/tx/`, `resources/national/`), evidence provenance, and taxonomy.
 - **`src/content/`**: Public editorial content, practitioner field notes, and statutory explainers.
 - **`research/`**: Non-public investigative files, candidate leads, and interview notes.
-- **`prototypes/`**: Experimental product prototypes (Continuity Receipts, routing graphs).
+- **`prototypes/`**: Experimental product prototypes (Continuity Contact Records, routing graphs).
 - **`docs/`**: Initiative vision, architecture standards, roadmaps, and decision records.
 - **`archive/`**: Historical records, superseded plans, and deprecated research snapshots.
 

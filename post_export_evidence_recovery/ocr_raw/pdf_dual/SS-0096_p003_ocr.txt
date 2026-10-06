@@ -1,0 +1,30 @@
+bh=ZAsXGaD4y88w1AiUji12FK6ru31JTGy8fLyZ0W5hJJM=;
+b=rEo+dLNLaEEg47J5P2o96ubF4WN5oexXrg06ckQUgdDv9HM6VN2IBGa7soKog+rTdv
+U2B5h1ffzbnI2jGSC3IglW/AETz6r9L0oFjrekJZ6ZnTgMA88Zh8sEewsqjYoPQXBfbl
+X-Gm-MeSSage-State: A0Ju0YzF59n6/UChoVw/o510VtY7FK8LI1FfFzu8EHS3PG+I20e+fQ0S
+i8LFDyzXpe4wSk+tpUmfN42/imuGmLExGlgzY2zYpxzu7hoaDMSJRoPCsKLYjLQpDoiNfPEHuba
+DQb/R1kGKQ6rSeix83Aurr+EbQMdlojk4RJSiTsEplXdyORSfRcKB23pmaNASkqe9XHuXTQABji
+vtse5W5w1RnNYgU4yq6Xbfyt8mIZfA1Siv/VB4UM+nQsCoIGdPWF1GWnY00egKb7w51JzX6bGU4
+xjEfurCnNfOZLP7cQihCsdC9QFEHRQ=
+Return-Path:<pluckaduck1984@gmail.com>
+Smtp.gmail.comwith ESMTPSA id 586e51a60fabf-43b6350ad6bsm8323697fac.4.2026.05.24.11.28.18
+for <jaymev02@gmail.com> (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256); Sun, 24
+May 2026 11:28:18 -0700(PDT)
+From: blake harris <pluckaduck1984@gmail.com>
+To:Jayme Volstad<jaymev02@gmail.com>
+Subject: Re:
+Thread-Index: AUFSWmQ4TkEJKvSr6+3wjLz40c5jiLcynUuD
+X-MS-Exchange-MessageSentRepresentingType:1
+Date: Sun, 24 May 2026 18:28:17 +0000
+MeSSage-ID:<SA1P221MB154724E540D64539C18087D5A00D2@SA1P221MB1547.NAMP221.PR0D.0UTL00K.C0M>
+In-Reply-To:<CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+Accept-Language:en-US
+Content-Language: en-US
+X-MS-HaS-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType:0
+x-ms-reactions: allow
+Content-Type: multipart/alternative;
+boundary="_000_SA1P221MB154724E540D64539C18087D5A00D2SA1P221MB1547NAMP_"
+MIME-Version: 1.0

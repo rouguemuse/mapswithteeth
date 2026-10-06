@@ -1,0 +1,27 @@
+Original Message
+Message
+ID
+<SA1P221MB154724E540D64539C18087D5A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+Created
+at:
+Sun, May 24, 2026 at 1:28 PM (Delivered after 2 seconds)
+From:
+blake harris <pluckaduck1984@gmail.com>
+To:
+Jayme Volstad <jaymev02@gmail.com>
+Subject:
+Re:
+SPF:
+PASS with IP 209.85.220.41 Learn more
+DKIM:
+'PASS' with domain gmail.com Learn more
+DMARC:
+'PASS' Learn more
+Download Original
+Copy to clipboard
+Delivered-To: jaymev02@gmail.com
+Received: by 2002:a05:6022:5382:b0:f7:dfe9:32a5 with SMTP id cl2csp2319622lab; Sun, 24 May 
+2026 11:28:19 -0700 (PDT)
+X-Received: by 2002:a05:6808:5387:b0:47c:b363:63a1 with SMTP id 5614622812f47-
+4854a3b9f54mr6440348b6e.31.1779647299260; Sun, 24 May 2026 11:28:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779647299; cv=none; d=google.com; s=arc-20240605; 

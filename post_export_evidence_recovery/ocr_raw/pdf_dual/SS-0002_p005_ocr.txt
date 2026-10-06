@@ -1,0 +1,47 @@
+FOCUSEDSUPPLEMENTALLAWENFORCEMENTSUBMISSION
+4. Exhibit Index
+Exhibit|Description
+|Source File
+|Type|Purpose
+EX-G-1|GoogleCriticalSecurityAlertSequence
+| securitytwo.png
+| lmage|DocumentssecurityalertsonJuly30
+EX-G-2|GoogleArchiveRequest-Maps/Timeline
+|security3.png
+|Image|Documents stoppedlocationdata archiverequest
+|Image|Accountactivityshowing3750EPalmValleyBlvd
+EX-G-3A|ReadableEnlargementofG-3AddressEntry
+|actactivityuna.png
+|lmage|Enlargedaddressentrycropfordirectreview
+EX-G-4|NewMacOS DeviceSession inHouston
+| DeviceAccessGoogle.png
+|Image|Documentsactivesessionassociatedwith
+Houston
+EX-G-5|GmailAccessedfromUnfamiliarDevice
+| actdetail.png
+|Image|Documentsunfamiliarsign-inJuly30,9:54p.m.
+EX-G-6|Non-AuthorizationNotice and Response
+|NotificationofNotAuthorizedandResponse.png|Image|Noticeofnon-authorization
+and reply
+EX-G-7|VehicleIdentificationRecord
+|AprilFileDOwnload.pdf
+|PDF|ldentifiesInfinitiQ50VINandregistrydetails
+EX-H-1 | Google Account "Line by Line"Admission
+|EXHIBIT_H01_Original_Source.pdf|PDF|Blake's acknowledgment of reviewing
+account
+EX-H-2|ThreatenedDisclosure of GooglePhotos
+|imgoingtosendyourentiregoogledrive.pdf|PDF|Threat toprint and send Google
+PhotosfromPage5
+EX-H-3|Child Encounter withPrivate Google Drive
+|EXHIBIT_Ho3_Original_Source.jpeg|Image|Blake'sclaimsofchildviewingprivate
+photos
+EX-l-1|SpecificTow-TruckThreat
+|EXHIBIT_I01_Tow_Threat_Original_Source.pdf|PDF|Textthreattotowthevehicle
+EX-l-2|Apartment and Car Consequence Threat
+|EXHIBIT_I02_Original_Source.jpg|Image|Threat tying $250 demand to
+car/apartmentloss
+EX-I-3|July 27Vehicle,Jail,Account,Apartment Warning|EXHIBIT_l03_Original_Source.pdf|PDF|Combined threat email preceding
+removal
+EX-I-4|Vehicle Removal and RRPD Contact Statement|EXHIBIT_I04_Statement.md|Text |Statement of removal,dates,and RRPD
+contact
+CONFIDENTIAL-LAWENFORCEMENTREVIEW

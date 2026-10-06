@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ShieldAlert } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldAlert, Compass, Layers, Scale, AlertTriangle, Users, MapPin } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
 export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
@@ -29,13 +29,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     setMoreDropdownOpen(false);
   }, [pathname]);
 
-  // Primary 5 Desktop Navigation items
+  // Primary Two-Sided Infrastructure Navigation items
   const primaryNav = [
     { name: "Find Help", href: "/find-help" },
-    { name: "How It Works", href: "/how-it-works" },
-    { name: "For Partners", href: "/for-partners" },
-    { name: "About", href: "/about" },
-    { name: "Support", href: "/support" },
+    { name: "The Gap", href: "/the-gap" },
+    { name: "Continuity Model", href: "/continuity" },
+    { name: "Policy Lab", href: "/policy" },
+    { name: "Writing", href: "/writing" },
+    { name: "Bad Maps", href: "/bad-maps" },
+    { name: "Partners", href: "/for-partners" },
   ];
 
   const isMoreActive = [
@@ -44,22 +46,25 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     "/ask-us-to-look",
     "/bridge",
     "/how-we-research",
+    "/methodology",
+    "/technical",
+    "/about",
     "/feedback",
-    "/build-with-us",
+    "/support",
     "/safety",
   ].some((href) => pathname === href || pathname.startsWith(href + "/"));
 
   return (
     <header className="bg-[#F5F1E8] text-[#1C1D1D] border-b border-[#D9D1C4] sticky top-0 z-40 backdrop-blur-md bg-opacity-95 select-none font-sans">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-2 md:gap-6">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2 md:gap-4">
           {/* Brand Block */}
           <Link href="/" className="flex items-center shrink-0 py-1 focus:outline-none">
             <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation & Primary CTA */}
-          <div className="hidden lg:flex items-center justify-end flex-1 gap-3 font-mono">
+          <div className="hidden lg:flex items-center justify-end flex-1 gap-2 xl:gap-3 font-mono">
             {/* Top-Level Primary Links */}
             <nav className="flex items-center space-x-1">
               {primaryNav.map((link) => {
@@ -68,7 +73,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                    className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
                       isActive
                         ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-b-2 border-[#971F26]"
                         : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
@@ -85,7 +90,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                   type="button"
                   onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
                   aria-expanded={moreDropdownOpen}
-                  className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 ${
+                  className={`px-2 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 ${
                     isMoreActive || moreDropdownOpen
                       ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold"
                       : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
@@ -103,10 +108,10 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 {moreDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-80 bg-[#F5F1E8] border-2 border-[#26221F] rounded-xl shadow-xl py-3 px-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150 text-left">
                     <div className="grid grid-cols-1 gap-4 font-mono">
-                      {/* Deep Navigation / Specialized Tools */}
+                      {/* Survivor Tools */}
                       <div>
                         <div className="text-[10px] font-bold uppercase tracking-widest text-[#971F26] border-b border-[#D9D1C4] pb-1 mb-2">
-                          Specialized Tools
+                          Survivor Tools
                         </div>
                         <ul className="space-y-1">
                           <li>
@@ -122,7 +127,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/texas"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Texas Deep Dive (254 Counties)
+                              Texas Deep Dive (Statutes & Aid)
                             </Link>
                           </li>
                           <li>
@@ -130,48 +135,56 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/ask-us-to-look"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Ask Us to Look (Intake Engine)
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/bridge"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
-                            >
-                              Bridge (Continuity Receipts)
+                              Ask Us to Look (Intake Review)
                             </Link>
                           </li>
                         </ul>
                       </div>
 
-                      {/* Research & Collaboration */}
+                      {/* Systems & Research */}
                       <div>
                         <div className="text-[10px] font-bold uppercase tracking-widest text-stone-600 border-b border-[#D9D1C4] pb-1 mb-2">
-                          Research & Collaboration
+                          Systems & Evidence
                         </div>
                         <ul className="space-y-1">
                           <li>
                             <Link
-                              href="/how-we-research"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/writing"
+                              className="block px-2 py-1 text-xs text-[#971F26] font-bold hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              How We Research & Verify
+                              Field Notes & Systems Writing
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/feedback"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/continuity/safeguards"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors font-medium"
                             >
-                              Pressure-Test & Feedback
+                              Evidence Integrity &amp; Safeguards
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/build-with-us"
+                              href="/methodology"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Build With Us (Collaborators)
+                              Methodology & Evidence Specs
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/technical"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Technical Architecture & QA
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/about"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              About Maps With Teeth
                             </Link>
                           </li>
                           <li>
@@ -179,7 +192,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/safety"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Digital Safety & Privacy
+                              Digital Safety & Browsing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/support"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Support & Donate
                             </Link>
                           </li>
                         </ul>
@@ -190,13 +211,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               </div>
             </nav>
 
-            {/* Right Action: Pressure-Test CTA */}
-            <Link
-              href="/for-partners"
-              className="px-3.5 py-2 bg-[#971F26] hover:bg-red-900 text-white rounded-md text-xs font-bold uppercase tracking-wider font-mono shadow-2xs transition-all border border-[#971F26] shrink-0"
+            {/* Quick Exit / Safety Trigger */}
+            <button
+              onClick={onOpenSafeBrowsing}
+              className="px-2.5 py-1.5 bg-[#EEE8DD] border border-[#D9D1C4] text-stone-800 hover:text-[#971F26] rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1 shrink-0"
+              aria-label="Open Digital Safety Information"
             >
-              Partner Briefing
-            </Link>
+              <ShieldAlert className="w-3.5 h-3.5 text-[#971F26]" />
+              <span>Safety</span>
+            </button>
           </div>
 
           {/* Compact Mobile Header Bar (<1024px) */}
@@ -232,149 +255,130 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
 
         {/* Persistent Subline Beneath Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between border-t border-[#D9D1C4]/60 py-1 text-[10px] font-mono text-stone-600 tracking-wider">
-          <span>Barrier-first resource intelligence & continuity infrastructure.</span>
-          <span className="text-[#971F26] font-bold">[RESOURCE INTELLIGENCE + BRIDGE CONTINUITY]</span>
+          <span>People move between systems. Their information and accountability often do not.</span>
+          <span className="text-[#971F26] font-bold">[SURVIVOR CONTINUITY + SYSTEM ACCOUNTABILITY]</span>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu (Cleanly Categorized into 3 Functional Groups) */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t-2 border-[#26221F] bg-[#F5F1E8] px-4 pt-3 pb-6 space-y-4 shadow-xl font-mono animate-in fade-in duration-150">
-          {/* Group 1: GET HELP */}
+          {/* Group 1: SURVIVOR NAVIGATION */}
           <div className="space-y-1">
             <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              GET HELP
+              SURVIVOR SIDE · RESOURCE INTELLIGENCE
             </div>
             <Link
               href="/find-help"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/find-help" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              Find a Way Through
+              Find a Way Through (Resource Matcher)
             </Link>
             <Link
               href="/other-ways-through"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/other-ways-through" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
               Other Ways Through (Lateral Aid)
             </Link>
             <Link
               href="/texas"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname.startsWith("/texas") ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Texas Deep Dive (254 Counties)
+              Texas Deep Dive (254 Counties & Statutes)
             </Link>
             <Link
               href="/ask-us-to-look"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/ask-us-to-look" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Ask Us to Look (Intake Engine)
-            </Link>
-            <Link
-              href="/safety"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/safety" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-800 hover:bg-[#EEE8DD]"
-              }`}
-            >
-              Digital Safety & Privacy Guide
+              Ask Us to Look (Intake Review)
             </Link>
           </div>
 
-          {/* Group 2: UNDERSTAND */}
-          <div className="space-y-1 pt-1">
-            <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              UNDERSTAND
+          {/* Group 2: SYSTEMS & CONTINUITY */}
+          <div className="space-y-1">
+            <div className="text-[10px] uppercase font-bold text-stone-700 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
+              SYSTEM SIDE · CONTINUITY & POLICY
             </div>
             <Link
-              href="/how-it-works"
+              href="/the-gap"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/how-it-works" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              How It Works (Full Architecture)
+              The Gap (Why This Matters)
             </Link>
             <Link
-              href="/bridge"
+              href="/continuity"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/bridge" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              Bridge (Continuity Infrastructure)
+              Cross-System Continuity Standard
             </Link>
             <Link
-              href="/how-we-research"
+              href="/continuity/safeguards"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/how-we-research" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              How We Research & Verify
+              Evidence Integrity &amp; Safeguards
+            </Link>
+            <Link
+              href="/policy"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
+            >
+              Texas Policy & Systems Lab
+            </Link>
+            <Link
+              href="/writing"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
+            >
+              Field Notes (Writing & Analysis)
+            </Link>
+            <Link
+              href="/bad-maps"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
+            >
+              Bad Maps (Failure Intelligence)
+            </Link>
+            <Link
+              href="/for-partners"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1.5 text-xs text-[#971F26] font-bold hover:bg-[#EEE8DD] rounded"
+            >
+              Call for Partners (Co-Design)
+            </Link>
+          </div>
+
+          {/* Group 3: ABOUT & SAFETY */}
+          <div className="space-y-1">
+            <div className="text-[10px] uppercase font-bold text-stone-500 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
+              METHODOLOGY & SAFETY
+            </div>
+            <Link
+              href="/methodology"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
+            >
+              Methodology & Evidence Specs
             </Link>
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/about" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              About the Initiative
-            </Link>
-          </div>
-
-          {/* Group 3: PARTICIPATE & GOVERNANCE */}
-          <div className="space-y-1 pt-1">
-            <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              PARTICIPATE & GOVERNANCE
-            </div>
-            <Link
-              href="/for-partners"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/for-partners" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
-            >
-              For Partners & Funders
+              About & Governance
             </Link>
             <Link
-              href="/feedback"
+              href="/safety"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/feedback" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
+              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Pressure-Test & Feedback
-            </Link>
-            <Link
-              href="/build-with-us"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/build-with-us" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
-            >
-              Build With Us (Collaborator Portal)
-            </Link>
-            <Link
-              href="/support"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-1.5 rounded text-xs uppercase tracking-wider transition-colors ${
-                pathname === "/support" ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-l-4 border-[#971F26]" : "text-stone-700 hover:bg-[#EEE8DD]"
-              }`}
-            >
-              Support the Work
+              Digital Safety Guide
             </Link>
           </div>
         </div>

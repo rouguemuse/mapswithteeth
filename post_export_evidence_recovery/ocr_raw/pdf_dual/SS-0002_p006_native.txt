@@ -1,0 +1,11 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+EXHIBIT G-1 - GOOGLE CRITICAL SECURITY ALERT SEQUENCE
+Source File:      securitytwo.png
+Original Path:    03_Original_Unmodified_Files/securitytwo.png
+What it shows:    Critical security alert sequence displayed on July 30, 2026.
+Relevance:
+Documents the blocked password-change attempt, data archive request, and unfamiliar sign-in alerts on July
+30.
+Limitations:
+The screenshot does not independently identify the individual responsible for the activity.

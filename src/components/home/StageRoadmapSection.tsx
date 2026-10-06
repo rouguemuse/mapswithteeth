@@ -19,16 +19,16 @@ export function StageRoadmapSection() {
       ],
     },
     {
-      badge: "TESTING / PILOT",
+      badge: "FIELD VALIDATION",
       badgeStyle: "stamp-alert bg-[#FFFDF5] border-amber-800 text-amber-900",
       icon: FlaskConical,
       iconColor: "text-amber-800",
       title: "Central Texas Field Validation",
-      description: "Active pilot methodologies being pressure-tested with regional stakeholders in Travis, Williamson, Hays, and Bastrop counties.",
+      description: "Field validation methodologies proposed for regional research and stakeholder review in Travis, Williamson, Bastrop, Burnet, and Hays counties.",
       items: [
         "Agency Verification Workflow: Direct outreach to confirm active funding cycles and eliminate ghost listings.",
         "Verified Handoff Testing: Documenting what happens when a participant attempts a referral in practice.",
-        "Central Texas Field Cohort: Working with local advocates, ministerial funds, and legal aid across the 4-county pilot area.",
+        "Central Texas Field Research: Research framework across Travis, Williamson, Bastrop, Burnet, and Hays counties.",
         "Failure-Point Reporting: Cataloging dead-end taxonomy (#NO_FUNDS, #SHELTER_STAY_REQUIRED, #CIVIL_MATTER_REFUSAL).",
       ],
     },
@@ -56,7 +56,7 @@ export function StageRoadmapSection() {
             TRANSPARENCY & METHODOLOGY
           </span>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-            Distinguishing What Is Built, Testing, and Proposed
+            Distinguishing What Is Built, Field Validation, and Proposed
           </h2>
         </div>
         <span className="coord-tick">
@@ -65,7 +65,7 @@ export function StageRoadmapSection() {
       </div>
 
       <p className="text-xs sm:text-sm text-stone-700 max-w-3xl leading-relaxed font-sans">
-        High-stakes systems require complete transparency. We explicitly distinguish between what is already built in this prototype, what is currently being validated in the Central Texas pilot, and what is proposed for future phases.
+        High-stakes systems require complete transparency. We explicitly distinguish between what is already built in this prototype, what is in field validation and pilot design, and what is proposed for future phases.
       </p>
 
       <div className="grid gap-6 md:grid-cols-3">

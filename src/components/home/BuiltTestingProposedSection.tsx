@@ -13,7 +13,7 @@ export function BuiltTestingProposedSection() {
       name: "Resource Intelligence & Statutory Catalog",
       status: "BUILT",
       statusBadge: "bg-[#2D5A3D] text-white",
-      description: "47 canonical verified resource records cross-checked against authoritative statutory texts, agency rules, and official program sources.",
+      description: "47 canonical resource records with documented source provenance and review timestamps cross-checked against authoritative statutory texts, agency rules, and official program sources.",
       deliverables: [
         "Texas 254-county statutory dockets (Tex. Prop. Code § 92.016, PUCT § 25.478)",
         "Lateral relief catalog (culinary, craft artists, companion animal foster)",
@@ -34,14 +34,14 @@ export function BuiltTestingProposedSection() {
     },
     {
       stage: "STAGE 03",
-      name: "Continuity Receipts & Bridge Navigation",
+      name: "Continuity Contact Records & Bridge Navigation",
       status: "PILOT DESIGN",
       statusBadge: "bg-amber-800 text-white",
-      description: "Standardized touchpoint receipt generation for survivor and advocate encounters.",
+      description: "Standardized touchpoint record generation for survivor and advocate encounters.",
       deliverables: [
         "Documents who, when, reference #, unreviewed materials, and stated decline reasons",
         "Flags circular referral runarounds and surfaces next decision-owners",
-        "Decentralized, survivor-held artifact with zero cloud database dependency",
+        "Decentralized, survivor-held artifact operating client-side without required cloud storage dependency",
       ],
     },
     {
@@ -53,15 +53,15 @@ export function BuiltTestingProposedSection() {
       deliverables: [
         "SHA-256 evidence fingerprinting to preserve file provenance",
         "Scoped export packets for legal aid attorneys without exposing full archives",
-        "100% client-side execution with zero cloud storage vulnerabilities",
+        "The current prototype is designed to perform designated participant-facing functions client-side and minimize server-side storage of sensitive participant information. Independent security review is still required.",
       ],
     },
     {
       stage: "STAGE 05",
-      name: "Survivor Gap Fund & 25-Person Pilot",
-      status: "PILOT DESIGN",
+      name: "Proposed Survivor Gap Fund & Micro-Grant Pilot",
+      status: "PROPOSED PILOT",
       statusBadge: "bg-amber-800 text-white",
-      description: "Direct micro-grant fund ($200–$800) under dual-approval controls across a 90-day Central Texas cohort.",
+      description: "Proposed direct micro-grant fund ($200–$800) under dual-approval controls for a planned Central Texas cohort.",
       deliverables: [
         "Rapid barrier dissolution (lock changes, storage units, car repairs, pet boarding)",
         "Fiscal sponsorship and dual-approval fiduciary oversight",
@@ -76,7 +76,7 @@ export function BuiltTestingProposedSection() {
       description: "Aggregated, deidentified pattern intelligence mapping where institutional routes repeatedly break down.",
       deliverables: [
         "Exposing ghost programs and defunded hotlines",
-        "Tracking county-line jurisdictional disputes and statutory non-compliance",
+        "Tracking county-line jurisdictional disputes and documented discrepancies between published requirements and reported or observed implementation",
         "Providing empirical evidence for legislative and administrative reform",
       ],
     },
@@ -93,7 +93,7 @@ export function BuiltTestingProposedSection() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#26221F] tracking-tight leading-tight">
-          What is built, what we&apos;re testing, and what comes next
+          What is built, what is in pilot design, and what comes next
         </h2>
 
         <p className="text-base sm:text-[17px] text-stone-800 max-w-3xl leading-relaxed font-sans font-normal">
@@ -181,7 +181,7 @@ export function BuiltTestingProposedSection() {
               ✓ What Maps With Teeth Is:
             </strong>
             <p className="text-stone-800 leading-snug">
-              Barrier-first resource intelligence, survivor-controlled documentation, continuity receipt infrastructure, referral & handoff intelligence, and public-interest systems gap research.
+              Barrier-first resource intelligence, survivor-controlled documentation, Continuity Contact Record infrastructure, referral & handoff intelligence, and public-interest systems gap research.
             </p>
           </div>
 

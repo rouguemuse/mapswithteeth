@@ -56,7 +56,7 @@ export default function AdminPage() {
 
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
             <div className="px-3 py-1.5 bg-[#EEE8DD] border border-[#1C1D1D] text-[#1C1D1D] font-bold rounded shadow-2xs">
-              <strong>{PUBLIC_RESOURCES.length}</strong> Public Verified Resources
+              <strong>{PUBLIC_RESOURCES.length}</strong> Public Canonical Resources
             </div>
             <div className="px-3 py-1.5 bg-[#EEE8DD] border border-[#1C1D1D] text-stone-700 rounded shadow-2xs">
               <strong>{ALL_RESOURCES.length}</strong> Total Records Audited

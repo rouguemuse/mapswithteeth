@@ -1,0 +1,16 @@
+[
+  {
+    "page": 1,
+    "native_chars": 958,
+    "ocr_chars": 1235,
+    "similarity": 0.596,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 2,
+    "native_chars": 1986,
+    "ocr_chars": 1940,
+    "similarity": 0.832,
+    "agreement": "Agrees"
+  }
+]

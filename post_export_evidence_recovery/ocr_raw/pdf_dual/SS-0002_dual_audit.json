@@ -1,0 +1,268 @@
+[
+  {
+    "page": 1,
+    "native_chars": 356,
+    "ocr_chars": 306,
+    "similarity": 0.467,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 2,
+    "native_chars": 2070,
+    "ocr_chars": 1615,
+    "similarity": 0.721,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 3,
+    "native_chars": 1554,
+    "ocr_chars": 1099,
+    "similarity": 0.521,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 4,
+    "native_chars": 2993,
+    "ocr_chars": 2044,
+    "similarity": 0.254,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 5,
+    "native_chars": 2553,
+    "ocr_chars": 1853,
+    "similarity": 0.159,
+    "agreement": "Discrepancy Detected"
+  },
+  {
+    "page": 6,
+    "native_chars": 543,
+    "ocr_chars": 515,
+    "similarity": 0.702,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 7,
+    "native_chars": 0,
+    "ocr_chars": 482,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 8,
+    "native_chars": 578,
+    "ocr_chars": 553,
+    "similarity": 0.758,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 9,
+    "native_chars": 0,
+    "ocr_chars": 654,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 10,
+    "native_chars": 629,
+    "ocr_chars": 494,
+    "similarity": 0.479,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 11,
+    "native_chars": 0,
+    "ocr_chars": 206,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 12,
+    "native_chars": 650,
+    "ocr_chars": 615,
+    "similarity": 0.667,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 13,
+    "native_chars": 0,
+    "ocr_chars": 133,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 14,
+    "native_chars": 605,
+    "ocr_chars": 473,
+    "similarity": 0.567,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 15,
+    "native_chars": 0,
+    "ocr_chars": 750,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 16,
+    "native_chars": 511,
+    "ocr_chars": 426,
+    "similarity": 0.566,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 17,
+    "native_chars": 0,
+    "ocr_chars": 564,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 18,
+    "native_chars": 599,
+    "ocr_chars": 483,
+    "similarity": 0.558,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 19,
+    "native_chars": 0,
+    "ocr_chars": 2947,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 20,
+    "native_chars": 570,
+    "ocr_chars": 441,
+    "similarity": 0.407,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 21,
+    "native_chars": 0,
+    "ocr_chars": 761,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 22,
+    "native_chars": 705,
+    "ocr_chars": 582,
+    "similarity": 0.605,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 23,
+    "native_chars": 1986,
+    "ocr_chars": 1931,
+    "similarity": 0.803,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 24,
+    "native_chars": 759,
+    "ocr_chars": 647,
+    "similarity": 0.739,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 25,
+    "native_chars": 1570,
+    "ocr_chars": 1164,
+    "similarity": 0.583,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 26,
+    "native_chars": 648,
+    "ocr_chars": 616,
+    "similarity": 0.692,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 27,
+    "native_chars": 0,
+    "ocr_chars": 1145,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 28,
+    "native_chars": 579,
+    "ocr_chars": 548,
+    "similarity": 0.603,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 29,
+    "native_chars": 2755,
+    "ocr_chars": 2708,
+    "similarity": 0.904,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 30,
+    "native_chars": 625,
+    "ocr_chars": 595,
+    "similarity": 0.68,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 31,
+    "native_chars": 1702,
+    "ocr_chars": 1671,
+    "similarity": 0.908,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 32,
+    "native_chars": 595,
+    "ocr_chars": 566,
+    "similarity": 0.676,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 33,
+    "native_chars": 0,
+    "ocr_chars": 1003,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 34,
+    "native_chars": 814,
+    "ocr_chars": 782,
+    "similarity": 0.738,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 35,
+    "native_chars": 1145,
+    "ocr_chars": 877,
+    "similarity": 0.521,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 36,
+    "native_chars": 856,
+    "ocr_chars": 725,
+    "similarity": 0.71,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 37,
+    "native_chars": 2688,
+    "ocr_chars": 1751,
+    "similarity": 0.385,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 38,
+    "native_chars": 1500,
+    "ocr_chars": 1389,
+    "similarity": 0.613,
+    "agreement": "Agrees"
+  }
+]

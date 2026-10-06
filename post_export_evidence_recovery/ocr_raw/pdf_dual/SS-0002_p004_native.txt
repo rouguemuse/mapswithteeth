@@ -1,0 +1,31 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+3. Focused Timeline of Events
+Date/Time            | Event                          | Source                          | Established Fact                                                | To Be Verified
+May 2026             | Tow threat sent                | iMessage - EX-I-1               | Text: "And then illl have the car towed."                       | Sender identity / carrier
+return
+June 2026            | Rental/car threat              | iMessage - EX-I-2               | Text: "loss of your apartment and car"                          | Sender identity / carrier
+return
+July 19, 2026        | Stop request sent              | Email - EX-A7                   | Email requesting written-only contact                           | Recipient receipt
+July 27, 2026        | Lockout/jail/vehicle email     | Email - EX-I-3                  | Apartment closes, entry = burglary, vehicle/jail language       | Recipient
+identity
+July 30, 9:54 PM     | Unfamiliar sign-in             | Google Alert - EX-G-5           | Gmail accessed from unfamiliar device                           | IP and device
+identifiers
+July 30, 10:11 PM    | Password change attempt        | Google Alert - EX-G-1           | Attempted password change blocked by Google                     | IP and
+device session
+July 30, 10:19 PM    | Google activity displaying address | Google Activity - EX-G-3    | Account activity displaying 3750 E Palm Valley Blvd             | IP and
+session source
+July 30, 10:33 PM    | Data archive request           | Google Takeout - EX-G-2         | Request for Maps and Timeline archive (stopped/failed)          | IP and
+session source
+July 30, 10:37 PM    | Mac device session             | Google Alert - EX-G-4           | New Mac OS sign-in from Houston, TX                             | IP and device
+session
+July 31, 12:15 AM    | Stop notice sent               | Email - EX-G-6                  | Email sent detailing unauthorized sign-ins                      | Recipient receipt
+July 31, 5:00 AM     | Accusation response            | Email - EX-G-6                  | Reply stating "never done retribution"                          | Recipient identity
+Aug 3, ~7:55 PM      | Vehicle last seen              | Jayme Volstad statement - Exhibit I-4 | Vehicle in designated overflow parking inside gated community |
+Gate / surveillance records
+Aug 4, ~6:00 PM      | Vehicle discovered missing     | Jayme Volstad statement - Exhibit I-4 | Vehicle absent; no towing notice or communication provided
+| Tow company / dispatch records
+Not provided/unknown | RRPD call made                 | RRPD CAD Log                    | Call placed to report missing vehicle                           | RRPD CAD call
+entry
+Not provided/unknown | Blake repossession claim       | Officer relay                   | Officer relayed Blake stated private repossession arranged      | CAD
+notes / officer contact

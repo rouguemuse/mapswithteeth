@@ -1,0 +1,22 @@
+Partial Email Record Set - 60 of 238
+Page 1
+PARTIAL EMAIL RECORD SET
+60 complete preserved message bodies out of 238 matching Gmail records
+May 1, 2026 through July 30, 2026
+EXTRACTION STATUS - NOT A COMPLETE FULL-BODY EXPORT
+Gmail confirmed 238 matching records across the three addresses. This volume contains 60 complete formatted message records and a 
+validation manifest for the 178 records whose full bodies were not preserved through the connector. A complete evidentiary mailbox 
+export requires the raw Gmail .mbox from Google Takeout.
+Mailbox
+jaymev02@gmail.com
+Addresses searched
+pluckaduck1984@gmail.com; rudzmgmt@hotmail.com; 
+goldtoothtonys@gmail.com
+Record count
+60 complete bodies; 178 manifest-only records
+Source status
+Connected Gmail extraction; not raw .mbox
+Controlling source
+Original Gmail account, raw headers, attachments, and Google 
+Takeout export
+Page 18 of 42

@@ -1,0 +1,20 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+2. Accuracy and Evidentiary Limitations
+To ensure credibility and evidentiary integrity, this supplement is governed by the following technical limits and
+rules of interpretation:
+- Vehicle title remains a civil issue: The Infiniti remained titled in Blake Harris's name. This submission makes
+no claim regarding ownership title or civil repossession legality.
+- No claim that screenshots alone identify Blake: The Google activity and device screenshots record the
+events and device sessions displayed, but do not independently identify the actor. Attribution requires
+technical provider records.
+- Google-reported location is approximate: Google location metadata (e.g. Houston, TX) is estimated from IP
+routing and may differ from physical locations.
+- Google data archive request did not complete: The Takeout logs show that the archive request was stopped
+or failed. No claim is made that personal archive files were successfully downloaded.
+- RRPD's contact with Blake: Officer contact and Blake's statements are reported through what the officer
+relayed to Jayme, subject to verification via dispatch CAD and body-worn camera records.
+- Child/Drive material: Exhibits document Blake's statements claiming child exposure to private Drive files, but
+do not independently establish the physical manner of access.
+- Original files control: Transcripts, crops, and descriptions are review aids only; original source media and
+logs control over all written summaries.

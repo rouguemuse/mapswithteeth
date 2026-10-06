@@ -1,0 +1,84 @@
+FOCUSEDSUPPLEMENTALLAWENFORCEMENTSUBMISSION
+3.FocusedTimeline ofEvents
+Date/Time
+|Event
+|Source
+|Established Fact
+|ToBeVerified
+May 2026
+|Tow threat sent
+|iMessage -EX-1-1
+|Text:"And then illl have the car towed."
+|Senderidentity/carrier
+return
+June2026
+|Rental/carthreat
+|iMessage -EX--2
+|Text:"loss of yourapartment and car"
+|Senderidentity/carrier
+return
+July 19,2026
+|Stoprequest sent
+| Email - EX-A7
+|Email requestingwritten-onlycontact
+|Recipient receipt
+July 27,2026
+ILockout/jail/vehicleemail
+|Email-EX-1-3
+|Apartment closes,entry =burglary,vehicle/jail language
+| Recipient
+identity
+July 30, 9:54 PM
+|Unfamiliar sign-in
+|Google Alert-EX-G-5
+|Gmailaccessedfromunfamiliardevice
+|IP and device
+identifiers
+July 30, 10:11 PM
+1|Password change attempt
+|Google Alert-EX-G-1
+|AttemptedpasswordchangeblockedbyGoogle
+|IP and
+device session
+July 30,10:19 PM|Google activity displaying address|Google Activity-EX-G-3|Account activity displaying 3750 E PalmValley Blvd
+|IP and
+sessionsource
+July 30,10:33 PM |Data archive request
+|GoogleTakeout-EX-G-2
+|RequestforMaps and Timeline archive(stopped/failed)
+|IP and
+sessionsource
+July 30,10:37 PM |Mac device session
+|Google Alert-EX-G-4
+| New Mac OS sign-in from Houston, TX
+|IP and device
+session
+July 31, 12:15 AM
+|Stop notice sent
+|Email-EX-G-6
+|Email sent detailing unauthorized sign-ins
+|Recipient receipt
+July 31,5:00 AM
+|Accusationresponse
+|Email -EX-G-6
+|Reply stating"never done retribution"
+|Recipient identity
+Aug 3,~7:55PM
+|Vehiclelastseen
+|JaymeVolstadstatement-ExhibitI-4|Vehicleindesignatedoverflowparkinginsidegatedcommunity|
+Gate/surveillancerecords
+Aug 4, ~6:00 PM
+1|Vehiclediscoveredmissing
+J|JaymeVolstadstatement-ExhibitI-4|Vehicleabsent;notowingnoticeorcommunicationprovided
+|Towcompany/dispatchrecords
+Notprovided/unknown|RRPDcallmade
+|RRPD CAD Log
+|Callplacedtoreport missingvehicle
+|RRPD CAD call
+entry
+Notprovided/unknown|Blakerepossessionclaim
+|Officer relay
+|OfficerrelayedBlakestatedprivaterepossessionarranged
+|CAD
+notes/officercontact
+CONFIDENTIAL-LAWENFORCEMENTREVIEW

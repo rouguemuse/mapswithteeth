@@ -1,0 +1,15 @@
+[0.98] Reviewpersonal content
+[0.98] Did you recently download your account
+[0.99] content?
+[0.98] ·Done from an unfamiliar device. Details
+[0.99] Activity details
+[0.63] ×
+[0.99] Gmail was accessed from this unfamiliar device in the last 28 days.
+[0.97] If you don't recognize these details, someone else might have used
+[1.00] your account. Follow the recommended steps to limit any damage.
+[0.95]  Unfamiliar device
+[0.97] First access: July 30, 9:54 PM
+[0.98] ·Done from an unfamiliar device. Details
+[0.97] If your emails contained sensitive content like ID papers or banking info,
+[0.93] or authorities.
+[1.00] Drive

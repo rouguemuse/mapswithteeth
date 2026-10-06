@@ -32,7 +32,7 @@ export function ContinuityTransitionSection() {
       step: "03",
       title: "CARRY IT",
       action: "Move context forward without starting from zero.",
-      detail: "Generate portable Continuity Receipts between agencies and counties so critical touchpoint context doesn't vanish with every referral.",
+      detail: "Generate portable Continuity Contact Records between agencies and counties so critical touchpoint context doesn't vanish with every referral.",
       icon: <Shuffle className="w-4 h-4 text-white" />,
       tag: "BRIDGE CONTINUITY",
       link: "/bridge",

@@ -15,22 +15,23 @@ export function Footer() {
               </div>
             </div>
             <p className="text-stone-200 text-xs sm:text-[13.5px] font-sans leading-relaxed">
-              <strong className="text-white">Maps With Teeth:</strong> A portable continuity and accountability layer for people navigating abuse across systems that do not share one case file, one jurisdiction, or one map.
+              <strong className="text-white">Maps With Teeth:</strong> A portable continuity and accountability layer for people navigating abuse and instability across systems that do not share one case file, one jurisdiction, or one map.
             </p>
-            <div className="text-[11px] text-stone-400 font-mono">
-              [INITIATIVE: SURVIVOR CONTINUITY & RESOURCE INTELLIGENCE]
+            <div className="p-3 bg-stone-900 rounded border border-stone-800 text-[11px] text-stone-400 font-mono space-y-1">
+              <p className="text-white font-bold">&ldquo;The survivor should not be the only person holding the whole map.&rdquo;</p>
+              <p>“People move between systems. Their information and accountability often do not.”</p>
             </div>
           </div>
 
-          {/* Column 1: Resource Intelligence */}
+          {/* Column 1: Survivor Side (Resource Intelligence) */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Resource Intelligence
+            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px] border-b border-stone-700 pb-1 text-[#971F26]">
+              Survivor Side
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link href="/find-help" className="text-stone-300 hover:text-white transition-colors">
-                  Find a Way Through
+                <Link href="/find-help" className="text-stone-300 hover:text-white transition-colors font-bold">
+                  Find a Way Through (Matcher)
                 </Link>
               </li>
               <li>
@@ -44,101 +45,117 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/ask-us-to-look" className="text-red-400 hover:underline font-bold">
-                  Ask Us to Look (Intake Engine)
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-we-research" className="text-stone-300 hover:text-white transition-colors">
-                  How We Research & Verify
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 2: Continuity Infrastructure */}
-          <div className="md:col-span-3 space-y-3">
-            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Continuity & Partners
-            </h4>
-            <ul className="space-y-2 text-xs sm:text-[13px]">
-              <li>
-                <Link href="/for-partners" className="text-red-400 hover:text-red-300 font-bold transition-colors">
-                  For Partners & Funders →
-                </Link>
-              </li>
-              <li>
-                <Link href="/bridge" className="text-stone-300 hover:text-white transition-colors">
-                  Bridge (Continuity Receipts)
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-it-works" className="text-stone-300 hover:text-white transition-colors">
-                  How It Works (Full Architecture)
-                </Link>
-              </li>
-              <li>
-                <Link href="/bridge#closure" className="text-stone-300 hover:text-white transition-colors">
-                  Context Before Closure
-                </Link>
-              </li>
-              <li>
-                <Link href="/bridge#bad-maps" className="text-stone-300 hover:text-white transition-colors">
-                  Bad Maps (System Intelligence)
+                <Link href="/ask-us-to-look" className="text-stone-300 hover:text-white transition-colors">
+                  Ask Us to Look (Intake Review)
                 </Link>
               </li>
               <li>
                 <Link href="/safety" className="text-stone-300 hover:text-white transition-colors">
-                  Digital Safety & Privacy
+                  Digital Safety & Private Browsing
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Initiative & Governance */}
-          <div className="md:col-span-2 space-y-3">
-            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px]">
-              Initiative
+          {/* Column 2: System Side (Continuity & Policy) */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px] border-b border-stone-700 pb-1 text-stone-200">
+              System Side
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
+                <Link href="/the-gap" className="text-stone-300 hover:text-white transition-colors font-bold">
+                  The Gap (Why This Matters)
+                </Link>
+              </li>
+              <li>
+                <Link href="/continuity" className="text-stone-300 hover:text-white transition-colors">
+                  Cross-System Continuity Standard
+                </Link>
+              </li>
+              <li>
+                <Link href="/continuity/safeguards" className="text-stone-300 hover:text-white transition-colors font-bold text-amber-200">
+                  Evidence Integrity &amp; Safeguards
+                </Link>
+              </li>
+              <li>
+                <Link href="/policy" className="text-stone-300 hover:text-white transition-colors">
+                  Texas Policy &amp; Systems Lab
+                </Link>
+              </li>
+              <li>
+                <Link href="/bad-maps" className="text-stone-300 hover:text-white transition-colors">
+                  Bad Maps (Failure Intelligence)
+                </Link>
+              </li>
+              <li>
+                <Link href="/for-partners" className="text-red-400 hover:text-red-300 font-bold transition-colors">
+                  Call for Partners & Co-Design →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Evidence & Governance */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="font-bold text-white uppercase tracking-wider text-xs sm:text-[13px] border-b border-stone-700 pb-1 text-stone-400">
+              Evidence & Specs
+            </h4>
+            <ul className="space-y-2 text-xs sm:text-[13px]">
+              <li>
+                <Link href="/writing" className="text-white hover:text-red-400 font-bold transition-colors">
+                  Field Notes & Writing
+                </Link>
+              </li>
+              <li>
+                <Link href="/methodology" className="text-stone-300 hover:text-white transition-colors">
+                  Research Methodology
+                </Link>
+              </li>
+              <li>
+                <Link href="/technical" className="text-stone-300 hover:text-white transition-colors">
+                  Technical QA Suite
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-stone-300 hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/feedback" className="text-stone-300 hover:text-white transition-colors">
-                  Feedback
-                </Link>
-              </li>
-              <li>
-                <Link href="/build-with-us" className="text-stone-300 hover:text-white transition-colors">
-                  Build With Us
+                  About & History
                 </Link>
               </li>
               <li>
                 <Link href="/governance" className="text-stone-300 hover:text-white transition-colors">
-                  Governance
+                  Governance & Ethics
                 </Link>
               </li>
               <li>
                 <Link href="/support" className="text-stone-300 hover:text-white transition-colors">
-                  Support the Work
+                  Support & Donate
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Institutional Disclosure & Legal Notice */}
-        <div className="pt-6 space-y-3 text-xs text-stone-400">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="max-w-3xl leading-relaxed">
-              <strong className="text-stone-300">Institutional Notice:</strong> Maps With Teeth is an independent public-interest initiative in development. It is not currently a 501(c)(3), government agency, emergency 911 service, law-enforcement database, legal-services provider, or substitute for emergency assistance.
+        {/* Legal, Privacy & Non-Claim Disclaimer */}
+        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-stone-400">
+          <div className="space-y-1">
+            <p>
+              &copy; {new Date().getFullYear()} Maps With Teeth. An open public-interest technology and policy initiative.
             </p>
-            <p className="text-[11px] text-stone-400 shrink-0 font-mono">
-              © {new Date().getFullYear()} Maps With Teeth
+            <p className="text-stone-400">
+              Not legal advice · Not an emergency 911 service · Not a centralized allegation dossier.
             </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/safety" className="hover:text-white transition-colors">
+              Safety First
+            </Link>
+            <Link href="/governance" className="hover:text-white transition-colors">
+              Privacy Standards
+            </Link>
+            <Link href="/for-partners" className="hover:text-white transition-colors">
+              Partner Inquiries
+            </Link>
           </div>
         </div>
       </div>

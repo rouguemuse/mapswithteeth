@@ -1,0 +1,68 @@
+209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com; dkim=pass header.i=@gmail.com 
+header.s=20251104 header.b=Ozu9E3tR; spf=pass (google.com: domain of 
+pluckaduck1984@gmail.com designates 209.85.220.41 as permitted sender) 
+smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) 
+header.from=gmail.com; dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20251104; 
+t=1779653448; x=1780258248; dara=google.com; h=mime-version:content-language:accept-
+language:in-reply-to :references:message-id:date:thread-
+index:subject:to:from:from:to:cc :subject:date:message-id:reply-to; 
+bh=OtIgAUHbHeCmKgjCrTrLZjf83/fRFR0n+m9o/1qi5iU=; 
+b=Ozu9E3tRPAPhRLD+5YvRcj0RsAzb2aX2QjDWv617LomUjp0DCsHtKqXFRdN4PAzDNC 
+CEkNP3vyBfuoFZNZNI2sCmzonLHQygV45aG2VhUVfK8a04kGq7y67+uGtYl0fYuib3Il 
+8v3y9blT5JYo2WyGQjFfnhDfSIhix6qAKhnNbbgOiCskNykk/SyGBszDYkQfh1UDUszh 
+hebm7pw63Nhw62rfs+4En7qa7RncoOxlvGDxvRCjs2vJZ8GXc1U+xGIGWPIALryNkY8B 
+Nr5tYH964aMYbLQDrh8FP0QE16HFpbeTUyH+TL72mEFqFVh6Xf96t+cltQUIPYrNrgjO jAKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; 
+s=20251104; t=1779653448; x=1780258248; h=mime-version:content-language:accept-
+language:in-reply-to :references:message-id:date:thread-index:subject:to:from:x-gm-gg 
+:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to; 
+bh=OtIgAUHbHeCmKgjCrTrLZjf83/fRFR0n+m9o/1qi5iU=; 
+b=X09AWK9+pxwCmkm64UBT4YCgTbuqWgnXagsZKCQ8VlCNGFlHx7MiY68/o1Lzp5rf8W 
+0DtaHgzP6CXyV7J2++NP6ZGYnAEuyH6HU0G+iBjsnK7wdphmLsm5CVFuV9kV2iI/Nu7O 
+Vo6MC7lnqTlINAGkFDipiQ34ILwqLZZU2hC+POCJduz2i06P19pGll5Se2eLZWXedz1n 
+3Qd5/6EV8rXJpsmIdlxiORCm84d/zVWF/4iWqZ3IZzjNXSmOYc7DRkx5qpHZycDOMB0w 
+qDsXGJzDoVCzmSaKJKP75DAnhyPZmXgX7Y28kTIekkdmjrO//DRjZEq53BymOWuVryLm +TQQ==
+X-Gm-Message-State: AOJu0YzIWfHtyX4KHVGnvKFgQ0Zfy1WbtMvZbnsmUsaPnKdyiohS2+FI 
+9TpasVoQDESHRa6AgHCmtIRM54Rxh78n4DWYrBYHxDoLDXzXu0gvlDf34OF/0A==
+X-Gm-Gg: Acq92OHJ/izfglmTsb8+xaoViU4tVWxnsNCiUt4jE4gtd0O/JTWbWB6fY+qp6WoEL/W 
+THf3Tdnp0kK+2B0WlfrWW7BWxgoNdozv1AUGXi+UNXiwkUL/JrcTDxMtwYij2PC3XkFqI1asWpC 
+p5uvzwFXiQPoyUNCE8ITeK8zDoKzeWGvhu7q0hEQ60xrVWljVClFxegrjxSnHS0TVPwGWg3SdCY 
+h8KdMzEpUWDPD5/qluXxN73onK7VJ1XHNFEzU20zMflifptFmIWdq1WPNoZhZWp5VN+BE24fKld 
+OWPJS5IGyR5wrd5P/q2SoHn8Qpgy/QhTyqFOf5JRulboKJeg2mzmz2VpAOOM03xTAAE8/KLMrEQ 
+ND5xibsiaR69Mx43UVVFGO5DNBeXICOmHKeC+9G1OxAlNEfvgPOutgfIBXZURZNuiKW6g+xtqx9 
+xGaKB4HBgMWhjLwdwNCueD+qziGBrIxwJFwHnvsk8VxJD80EKt6WPuZKUOqdgbrI2G8y6C4JmN5 
+qMwWoPpUxlu4fXTux1G/E6c39W20GE=
+X-Received: by 2002:a17:90b:2d44:b0:369:7b04:49d1 with SMTP id 98e67ed59e1d1-
+36a674212fdmr10763933a91.1.1779653447953; Sun, 24 May 2026 13:10:47 -0700 (PDT)
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM ([2603:1036:305:496e::5]) by 
+smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-
+36a72c82704sm7847190a91.14.2026.05.24.13.10.47 for <jaymev02@gmail.com> 
+(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256); Sun, 24 May 2026 
+13:10:47 -0700 (PDT)
+From: blake harris <pluckaduck1984@gmail.com>
+To: Jayme Volstad <jaymev02@gmail.com>
+Subject: Re:
+Thread-Index: AUFSWmQ4TkEJKvSr6+3wjLz4Oc5jiLcyu05s
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Sun, 24 May 2026 20:10:46 +0000
+Message-ID: 
+<SA1P221MB1547EFA2E7309243F2190A81A00D2@SA1P221MB1547.NAMP221.PROD.OUTLOOK.COM>
+References: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+In-Reply-To: <CALzSy-2ac8-Fjyoo2VmdQBSkcv7DAZzUei4La83RiWQHohdtdA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator: 
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-reactions: allow
+Content-Type: multipart/alternative; 
+boundary="_000_SA1P221MB1547EFA2E7309243F2190A81A00D2SA1P221MB1547NAMP_"
+MIME-Version: 1.0
+--_000_SA1P221MB1547EFA2E7309243F2190A81A00D2SA1P221MB1547NAMP_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Listen to me you rotten fucking scum dying from the inside out. I didn=92t =

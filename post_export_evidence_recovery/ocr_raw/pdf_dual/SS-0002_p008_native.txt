@@ -1,0 +1,12 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+Source File:      security3.png
+Original Path:    03_Original_Unmodified_Files/security3.png
+What it shows:    Stopped or failed Google Takeout request targeting Maps, Your Places, and Timeline on July
+30.
+Relevance:
+Documents that a location-data archive request was made during the same security-event cluster, several
+days before the vehicle was discovered missing.
+Limitations:
+The request was stopped or failed; does not establish that a completed archive was downloaded or
+transmitted.

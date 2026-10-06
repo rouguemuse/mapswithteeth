@@ -56,7 +56,7 @@ export function ContinuityContactRecordSpecimen() {
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#971F26]">
-              INTERACTIVE PILOT SPECIMEN
+              INTERACTIVE PROTOCOL SPECIMEN
             </span>
             <span className="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-[#D9D1C4] text-stone-700">
               STD: MWT-STD-2026-03
@@ -97,14 +97,14 @@ export function ContinuityContactRecordSpecimen() {
               2. Agency Acknowledged
             </button>
             <button
-              onClick={() => setActiveTier("PARTNER_VERIFIED")}
+              onClick={() => setActiveTier("PARTNER_ROLE_VERIFIED")}
               className={`px-3 py-1 text-xs font-mono font-bold rounded transition-colors ${
-                activeTier === "PARTNER_VERIFIED"
+                activeTier === "PARTNER_ROLE_VERIFIED"
                   ? "bg-[#2D5A3D] text-white"
                   : "text-stone-800 hover:bg-[#EEE8DD]"
               }`}
             >
-              3. Partner Verified
+              3. Partner Role Verified
             </button>
           </div>
         </div>
@@ -124,9 +124,9 @@ export function ContinuityContactRecordSpecimen() {
               <strong>Tier 2 — Agency Acknowledged:</strong> Contains an optional, affirmative acknowledgment block by named agency staff. Confirms <em>only</em> what the staff member explicitly checked. Does not create tort liability or whole-matter representation.
             </p>
           )}
-          {activeTier === "PARTNER_VERIFIED" && (
+          {activeTier === "PARTNER_ROLE_VERIFIED" && (
             <p>
-              <strong>Tier 3 — Partner Verified:</strong> Executed through formally onboarded partner organizations with role-based staff credentials. Governed under institutional data sharing agreements.
+              <strong>Tier 3 — Partner Role Verified:</strong> Maps With Teeth verified that the acknowledgment originated through an onboarded organization and authorized organizational role. <em>Never means that underlying allegations, evidence, or merits were verified.</em>
             </p>
           )}
         </div>
@@ -134,19 +134,24 @@ export function ContinuityContactRecordSpecimen() {
 
       {/* Main Specimen Card */}
       <div className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm relative">
+        {/* Prominent Disclaimer Banner */}
+        <div className="bg-[#FEF3C7] border border-[#D97706] p-3 rounded-lg text-center text-xs font-mono text-[#92400E] font-bold">
+          ⚠ FICTIONAL DEMONSTRATION RECORD — NOT AN OFFICIAL GOVERNMENT DOCUMENT · FOR PROTOCOL TESTING ONLY
+        </div>
+
         {/* Card Header & Counterpart Switcher */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-dashed border-[#1C1D1D] pb-4">
           <div>
             <span className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block font-bold">
-              MAPS WITH TEETH CONTINUITY CONTACT RECORD · [SPECIMEN]
+              MAPS WITH TEETH CONTINUITY CONTACT RECORD · [DEMO SPECIMEN]
             </span>
             <div className="flex items-center gap-2">
               <h2 className="font-bold text-lg sm:text-xl text-[#1C1D1D] font-mono">
-                RECORD ID: CCR-2026-TX-08942
+                RECORD ID: DEMO-000001
               </h2>
             </div>
             <p className="text-xs text-stone-600 font-sans mt-0.5">
-              Contact Timestamp: August 28, 2026 · 14:15 CST · In-Person Desk Intake
+              Contact Timestamp: August 28, 2026 · 14:15 CST · In-Person Desk Intake (Demonstration)
             </p>
           </div>
 
@@ -283,7 +288,7 @@ export function ContinuityContactRecordSpecimen() {
               <div className="bg-white p-2.5 rounded border border-[#D9D1C4] space-y-0.5">
                 <p className="font-bold text-stone-900">Declined Formal Protective Order Intake</p>
                 <p className="text-stone-700 text-[11px]">
-                  Provided statutory referral guide to civil legal aid. Incident logged in CAD #26-240-0891.
+                  Provided statutory referral guide to civil legal aid. Incident logged in CAD #DEMO-CAD-000001.
                 </p>
               </div>
             </div>
@@ -399,14 +404,14 @@ export function ContinuityContactRecordSpecimen() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="p-2.5 bg-white border border-[#D9D1C4] rounded">
                   <span className="text-[9px] font-mono uppercase text-stone-500 block font-bold">Acknowledging Staff</span>
-                  <p className="font-bold text-stone-900">Officer J. Miller</p>
-                  <p className="text-stone-600 text-[11px]">Badge #4102 · Victim Services Liaison</p>
+                  <p className="font-bold text-stone-900">Intake Specialist D-14</p>
+                  <p className="text-stone-600 text-[11px]">Staff ID #DEMO-4102 · Victim Services Liaison</p>
                 </div>
 
                 <div className="p-2.5 bg-white border border-[#D9D1C4] rounded">
                   <span className="text-[9px] font-mono uppercase text-stone-500 block font-bold">Represented Entity</span>
-                  <p className="font-bold text-stone-900">Austin Police Dept</p>
-                  <p className="text-stone-600 text-[11px]">Travis County, Texas</p>
+                  <p className="font-bold text-stone-900">DEMO COUNTY FAMILY SERVICES</p>
+                  <p className="text-stone-600 text-[11px]">Demonstration Intake Division</p>
                 </div>
 
                 <div className="p-2.5 bg-white border border-[#D9D1C4] rounded">
@@ -526,7 +531,7 @@ export function ContinuityContactRecordSpecimen() {
           </div>
 
           <div className="text-[11px] text-stone-600 font-mono pt-1">
-            Authorization ID: auth-ovw-2026-tx88 · Expiration: 30 Days from Execution · Revocable at any time
+            Authorization ID: DEMO-AUTH-000001 · Expiration: 30 Days from Execution · Revocable at any time
           </div>
         </div>
       )}

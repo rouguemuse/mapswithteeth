@@ -1,0 +1,54 @@
+209.85.220.41 as permitted sender）client-ip=209.85.220.41;
+header.s=20251104 header.b=0zu9E3tR; spf=pass （g00gle.com: domain of
+Smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=paSs (p=NONE Sp=QUARANTINE dis=NONE)
+header.from=gmail.com;dara=pass header.i=@gmail.com
+DKIM-Signature:v=1;a=rsa-sha256;c=relaxed/relaxed;d=gmail.com; s=20251104;
+t=1779653448;x=1780258248;dara=g00gle.com; h=mime-version:content-1anguage:accept-
+language:in-reply-to :references:message-id:date:thread-
+bh=OtIgAUHbHeCmKgjCrTrLZjf83/fRFR0n+m9o/1qi5iU=;
+b=Ozu9E3tRPAPhRLD+5YvRcj0RsAzb2aX2QjDWv617LomUjp0DCsHtKqXFRdN4PAzDNC
+CEkNP3vyBfuoFZNZNI2sCmzonLHQygV45aG2VhUVfK8a04kGq7y67+uGtY10fYuib3I1
+8v3y9b1T5JYo2WyGQjFfnhDfSIhix6qAKhnNbbgOiCskNykk/SyGBszDYkQfh1UDUszh
+hebm7pw63Nhw62rfs+4En7qa7Rnco0x1vGDxvRCjs2vJZ8GXc1U+xGIGWPIALryNkY8B
+X-Google-DKIM-Signature:v=1; a=rsa-sha256;c=relaxed/relaxed;d=1e100.net;
+bh=OtIgAUHbHeCmKgjCrTrLZjf83/fRFR0n+m9o/1qi5iU=;
+0DtaHgzP6CXyV7J2++NP6ZGYnAEuyH6HU0G+iBjsnK7wdphmLsm5CVFuV9kV2iI/Nu70
+Vo6MC7lnqT1INAGkFDipiQ34ILwqLZZU2hC+P0CJduz2i06P19pG115Se2eLZWXedz1n
+X-Gm-MesSage-State: AOJuOYzIWfHtyX4KHVGnvKFgQOZfy1WbtMvZbnsmUsaPnKdyiohS2+FI
+9TpasVoQDESHRa6AgHCmtIRM54Rxh78n4DWYrBYHxDoLDXzXu0gv1Df340F/0A==
+X-Gm-Gg: Acq920HJ/izfglmTsb8+xaoViU4tVWxnsNCiUt4jE4gtd00/JTWbWB6fY+qp6WoEL/W
+THf3Tdnp0kK+2B0WlfrWW7BWxgoNdozv1AUGXi+UNXiwkUL/JrcTDxMtwYij2PC3XkFqI1asWpC
+OwPJS5IGyR5wrd5P/q2SoHn8Qpgy/QhTyqF0f5JRu1boKJeg2mzmz2VpA00M03xTAAE8/KLMrEQ
+ND5xibsiaR69Mx43UVVFGO5DNBeXICOmHKeC+9G1OxA1NEfvgPOutgfIBXZURZNuiKW6g+Xtqx9
+xGaKB4HBgMWhjLwdwNCueD+qziGBrIxwJFwHnvsk8VxJD80EKt6WPuZKU0qdgbrI2G8y6C4JmN5
+qMwWoPpUxlu4fXTux1G/E6c39W20GE=
+X-Received:by 2002:a17:90b:2d44:b0:369:7b04:49d1 with SMTP id 98e67ed59e1d1-
+36a674212fdmr10763933a91.1.1779653447953; Sun， 24 May 2026 13:10:47 -0700 (PDT)
+Return-Path:<pluckaduck1984@gmail.com>
+Received:from SA1P221MB1547.NAMP221.PR0D.0UTL00K.C0M （[2603:1036:305:496e::5]） by
+Smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-
+36a72c82704sm7847190a91.14.2026.05.24.13.10.47 for<jaymev02@gmail.com>
+(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256); Sun,24 May 2026
+13:10:47 -0700 (PDT)
+From:blake harris<pluckaduck1984@gmail.com>
+To: Jayme Volstad <jaymev02@gmail.com>
+Subject:Re:
+Thread-Index: AUFSWmQ4TkEJKvSr6+3wjLz40c5jiLcyu05s
+X-MS-Exchange-MessageSentRepresentingType:1
+Date:Sun，24 May 2026 20:10:46 +0000
+Message-ID:
+<SA1P221MB1547EFA2E7309243F2190A81A00D2@SA1P221MB1547.NAMP221.PR0D.0UTL00K.C0M>
+Accept-Language: en-US
+Content-Language:en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType:0
+x-ms-reactions: allow
+Content-Type:multipart/alternative;
+boundary="_000_SA1P221MB1547EFA2E7309243F2190A81A00D2SA1P221MB1547NAMP_"
+MIME-Version: 1.0
+--_000_SA1P221MB1547EFA2E7309243F2190A81A00D2SA1P221MB1547NAMP_
+Content-Type:text/plain; charset="Windows-1252"
+Content-Transfer-Encoding:quoted-printable
+Listen to me you rotten fucking scum dying from the inside out.I didn=92t =

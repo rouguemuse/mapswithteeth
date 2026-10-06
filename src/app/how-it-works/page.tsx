@@ -238,13 +238,13 @@ export default function HowItWorksPage() {
             </div>
           </div>
 
-          {/* Pillar 2: Bridge & Continuity Receipts */}
+          {/* Pillar 2: Bridge & Continuity Contact Records */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs flex flex-col justify-between">
             <div className="space-y-2">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
                 <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
                   <Shuffle className="w-4 h-4" />
-                  <span>2. BRIDGE & CONTINUITY RECEIPTS</span>
+                  <span>2. BRIDGE & CONTINUITY CONTACT RECORDS</span>
                 </div>
                 <StatusBadge type="product" status="PROTOTYPE" label="PROTOTYPE" />
               </div>
@@ -252,7 +252,7 @@ export default function HowItWorksPage() {
                 Carry Context Forward
               </h3>
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-                Standardizes touchpoint records (Who, When, Reference #, What was presented, What happened, Why, and What happens next). When a referral occurs, the receipt ensures the receiving organization knows where the previous agency stopped.
+                Standardizes touchpoint records (Who, When, Reference #, What was presented, What happened, Why, and What happens next). When a referral occurs, the record ensures the receiving organization knows where the previous agency stopped.
               </p>
             </div>
             <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">
@@ -304,7 +304,7 @@ export default function HowItWorksPage() {
                 Expose Where Systems Break
               </h3>
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-                Deidentified and aggregated pattern analysis of recurring referral dead ends, county-line jurisdictional disputes, ghost program listings, and frontline statutory non-compliance. Provides empirical evidence for policy reform.
+                Deidentified and aggregated pattern analysis of recurring referral dead ends, county-line jurisdictional disputes, ghost program listings, and documented discrepancies between published requirements and reported or observed implementation. Provides empirical evidence for policy reform.
               </p>
             </div>
             <div className="pt-3 border-t border-[#D9D1C4] flex items-center justify-between text-xs font-mono">

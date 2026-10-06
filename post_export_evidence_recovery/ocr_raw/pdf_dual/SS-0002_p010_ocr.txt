@@ -1,0 +1,13 @@
+FOCUSEDSUPPLEMENTALLAWENFORCEMENTSUBMISSION
+EXHIBITG-3-GOOGLEACTIVITYDISPLAYINGPARENTS'ADDRESS
+Source File:
+act.png
+Original Path: 03_Original_Unmodified_Files/act.png
+10:19 p.m.
+Relevance:
+Documents account activity displaying the address during the same security-event cluster, several days
+beforethevehiclewasdiscovered missing.
+Limitations:
+Does not independently attribute the activity to Blake Harris.Attribution requires provider session and IP
+records.
+CONFIDENTIAL-LAWENFORCEMENTREVIEW

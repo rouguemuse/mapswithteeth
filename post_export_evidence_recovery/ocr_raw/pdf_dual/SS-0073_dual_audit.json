@@ -1,0 +1,23 @@
+[
+  {
+    "page": 1,
+    "native_chars": 1884,
+    "ocr_chars": 1840,
+    "similarity": 0.823,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 2,
+    "native_chars": 2755,
+    "ocr_chars": 2707,
+    "similarity": 0.907,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 3,
+    "native_chars": 2793,
+    "ocr_chars": 2734,
+    "similarity": 0.823,
+    "agreement": "Agrees"
+  }
+]

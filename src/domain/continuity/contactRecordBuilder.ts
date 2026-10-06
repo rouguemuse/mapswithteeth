@@ -35,6 +35,8 @@ export function buildContinuityContactRecord(
 
   // Default presented materials based on situation if none explicitly provided
   const materials: PresentedMaterialItem[] = options.presentedMaterials || [];
+  const level = options.verificationLevel || "PARTICIPANT_RECORDED";
+
   if (materials.length === 0 && options.situation) {
     if (options.situation.hasAdvocateVerificationLetter === true) {
       materials.push({
@@ -43,6 +45,11 @@ export function buildContinuityContactRecord(
         itemType: "DOCUMENT",
         format: "DIGITAL_PDF",
         handlingStatus: "PRESENTED_NOT_ACCEPTED",
+        recordedByActorType: "PARTICIPANT",
+        recordedAt: timestamp,
+        verificationLevel: level,
+        sourceType: "PARTICIPANT_ENTRY",
+        statusBasis: "Participant self-reported intake submission",
       });
     }
     if (options.situation.hasActiveLeaseInTexas === true) {
@@ -52,6 +59,11 @@ export function buildContinuityContactRecord(
         itemType: "LEASE",
         format: "PHYSICAL_PAPER",
         handlingStatus: "PRESENTED_NOT_ACCEPTED",
+        recordedByActorType: "PARTICIPANT",
+        recordedAt: timestamp,
+        verificationLevel: level,
+        sourceType: "PARTICIPANT_ENTRY",
+        statusBasis: "Participant self-reported intake submission",
       });
     }
     if (options.situation.policeReportFiled === true) {
@@ -61,6 +73,11 @@ export function buildContinuityContactRecord(
         itemType: "INCIDENT_REPORT",
         format: "PHYSICAL_PAPER",
         handlingStatus: "PRESENTED_NOT_ACCEPTED",
+        recordedByActorType: "PARTICIPANT",
+        recordedAt: timestamp,
+        verificationLevel: level,
+        sourceType: "PARTICIPANT_ENTRY",
+        statusBasis: "Participant self-reported intake submission",
       });
     }
   }
@@ -73,6 +90,11 @@ export function buildContinuityContactRecord(
       itemType: "CORRESPONDENCE",
       format: "DIGITAL_PDF",
       handlingStatus: "PRESENTED_NOT_ACCEPTED",
+      recordedByActorType: "PARTICIPANT",
+      recordedAt: timestamp,
+      verificationLevel: level,
+      sourceType: "PARTICIPANT_ENTRY",
+      statusBasis: "Participant self-reported intake submission",
     });
   }
 
@@ -112,14 +134,16 @@ export function buildContinuityContactRecord(
           organizationName: options.suggestedRouteTitle,
           department: "Emergency Resource or Legal Statutory Application",
           suggestionSource: "VERIFIED_RESOURCE_GRAPH",
-          acceptanceConfirmed: false, // Invariant: must default to false
+          handoffOutcome: "NOT_CONFIRMED", // Invariant: must default to NOT_CONFIRMED
         }
       : undefined,
 
     // Mandatory Governance Codes
     nonImplicationCodes: [...MANDATORY_NON_IMPLICATION_CODES],
+
+    // Agency acknowledgment lifecycle status
+    acknowledgmentStatus: "NOT_REQUESTED",
   };
 
-  const level = options.verificationLevel || "PARTICIPANT_RECORDED";
   return createCounterpartPair(level, canonicalPayload);
 }

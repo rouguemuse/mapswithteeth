@@ -1,0 +1,23 @@
+[
+  {
+    "page": 1,
+    "native_chars": 0,
+    "ocr_chars": 1311,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 2,
+    "native_chars": 0,
+    "ocr_chars": 2083,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  },
+  {
+    "page": 3,
+    "native_chars": 0,
+    "ocr_chars": 446,
+    "similarity": 0.0,
+    "agreement": "OCR-Only (Scanned/Raster Content)"
+  }
+]

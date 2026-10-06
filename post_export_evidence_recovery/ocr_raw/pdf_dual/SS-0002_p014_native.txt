@@ -1,0 +1,12 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+EXHIBIT G-4 - NEW MAC OS DEVICE REPORTED IN HOUSTON
+Source File:      DeviceAccessGoogle.png
+Original Path:    03_Original_Unmodified_Files/DeviceAccessGoogle.png
+What it shows:    Mac OS session associated with Houston, TX reported at approximately 10:37 p.m. on July
+30.
+Relevance:
+Documents an active device sign-in from a location associated with Houston during the same security-event
+cluster.
+Limitations:
+Google-reported location is approximate and based on IP routing; does not independently identify the user.

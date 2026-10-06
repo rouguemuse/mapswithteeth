@@ -1,0 +1,28 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+4. Exhibit Index
+Exhibit  | Description                                    | Source File                  | Type  | Purpose
+EX-G-1   | Google Critical Security Alert Sequence        | securitytwo.png              | Image | Documents security alerts on July 30
+EX-G-2   | Google Archive Request - Maps/Timeline         | security3.png                | Image | Documents stopped location data archive request
+EX-G-3   | Google Activity Displaying Parents' Address    | act.png                      | Image | Account activity showing 3750 E Palm Valley Blvd
+EX-G-3A  | Readable Enlargement of G-3 Address Entry      | actactivityuna.png           | Image | Enlarged address entry crop for direct review
+EX-G-4   | New Mac OS Device Session in Houston           | DeviceAccessGoogle.png       | Image | Documents active session associated with
+Houston
+EX-G-5   | Gmail Accessed from Unfamiliar Device          | actdetail.png                | Image | Documents unfamiliar sign-in July 30, 9:54 p.m.
+EX-G-6   | Non-Authorization Notice and Response          | NotificationofNotAuthorizedandResponse.png | Image | Notice of non-authorization
+and reply
+EX-G-7   | Vehicle Identification Record                  | AprilFileDOwnload.pdf        | PDF   | Identifies Infiniti Q50 VIN and registry details
+EX-H-1   | Google Account "Line by Line" Admission        | EXHIBIT_H01_Original_Source.pdf | PDF | Blake's acknowledgment of reviewing
+account
+EX-H-2   | Threatened Disclosure of Google Photos         | imgoingtosendyourentiregoogledrive.pdf | PDF | Threat to print and send Google
+Photos from Page 5
+EX-H-3   | Child Encounter with Private Google Drive      | EXHIBIT_H03_Original_Source.jpeg | Image | Blake's claims of child viewing private
+photos
+EX-H-4   | CPS Reporting Retaliation / Folder Threat      | EXHIBIT_H04_Original_Source.pdf | PDF | Threat to release folder if CPS is called
+EX-I-1   | Specific Tow-Truck Threat                      | EXHIBIT_I01_Tow_Threat_Original_Source.pdf | PDF | Text threat to tow the vehicle
+EX-I-2   | Apartment and Car Consequence Threat           | EXHIBIT_I02_Original_Source.jpg | Image | Threat tying $250 demand to
+car/apartment loss
+EX-I-3   | July 27 Vehicle, Jail, Account, Apartment Warning | EXHIBIT_I03_Original_Source.pdf | PDF | Combined threat email preceding
+removal
+EX-I-4   | Vehicle Removal and RRPD Contact Statement     | EXHIBIT_I04_Statement.md     | Text  | Statement of removal, dates, and RRPD
+contact

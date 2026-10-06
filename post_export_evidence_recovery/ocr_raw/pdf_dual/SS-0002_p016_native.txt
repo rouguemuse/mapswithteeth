@@ -1,0 +1,10 @@
+FOCUSED SUPPLEMENTAL LAW ENFORCEMENT SUBMISSION
+CONFIDENTIAL - LAW ENFORCEMENT REVIEW
+EXHIBIT G-5 - GMAIL ACCESSED FROM UNFAMILIAR DEVICE
+Source File:      actdetail.png
+Original Path:    03_Original_Unmodified_Files/actdetail.png
+What it shows:    Gmail accessed from an unfamiliar device beginning July 30 at approximately 9:54 p.m.
+Relevance:
+Documents the unfamiliar-device Gmail session that opened the July 30 security-event cluster.
+Limitations:
+Does not independently identify the user or device owner.

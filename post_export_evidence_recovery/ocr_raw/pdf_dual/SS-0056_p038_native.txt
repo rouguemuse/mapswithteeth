@@ -1,0 +1,69 @@
+Partial Email Record Set - 60 of 238
+Page 21
+Valida&on manifest for 178 records without preserved full bodies
+The following manifest is reproduced from the extraction file. It identifies matching Gmail records whose full bodies were not preserved by the connector. It is not a 
+substitute for a Google Takeout .mbox export.
+Record accoun&ng
+- **Gmail records matching the query:** 238
+- **Complete formatted records in this file:** 60
+- **Records identified but not fully extracted:** 178
+- **Duplicate formatted message IDs:** 0
+Missing full-body records
+The following Gmail message IDs matched the requested addresses and date range, but their full bodies were clipped by the Gmail connector during bulk retrieval. They 
+are listed here so the gap is explicit and auditable.
+19ef2e3c000a5272
+19ef2e2506df1e98
+19ef2df07836afde
+19ef2db2c3a7f46d
+19ef2d89d54c5357
+19ef2d54eb308660
+19ef2d4e1e329730
+19ef2cc4a4775c96
+19ef2cbdd34d3dfe
+19ef2c96a46b9c18
+19ef2c865e47f7eb
+19ef2c705a50d504
+19ef2c6a80f9e4fb
+19ef2c55eec57bca
+19ef2c47dcc4f660
+19ef2c359a410df1
+19ef1f9ab43ac53e
+19ef1f964dc38194
+19ef1f63679c2cbc
+19ef1f3e8bca4889
+19ef1a4f0f64be9d
+19ef1a1450dde838
+19eef5cdc5d980e1
+19eeeff2b77e6e48
+19eed6ac081b6907
+19eed69515dde139
+19eed3b2332bf051
+19eed38dd71425ad
+19eed38c36fbc20d
+19eec020694f0a6b
+19eec0175b504d08
+19eec00d803bdd99
+19eec008820385e4
+19eec0033c82abfb
+19eebe842fdc3e8c
+19eebe8268fccc77
+19eebd7d6e8e9322
+19eeb887a8df765d
+19eeb855d887d0f9
+19eeb7f3d926acd8
+19eeb7dfdb94df5f
+19eeb75c29066cca
+19eeb6c8a8a0eb10
+19eeb63312a02e5d
+19eeb624ea1ce0f5
+19eeb5fe52b4d56b
+19eeb5dd8a7bdc52
+19eeb5ce3ad3850c
+19eeb5a98eeb45bf
+19eeb1ebf40edf1d
+19eeb1c092a93d31
+19eeb167e117361a
+19eeb1621c7051a9
+19eeb0ecccdb2eaa
+19eeb0775eaa855e
+Page 38 of 42

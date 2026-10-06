@@ -1,0 +1,43 @@
+b=BePQb2Pu9IfdVxmMzeVJiYMlyKhswjjdIzeOuWGJeSbHHXMN1kfamnO4QWKcs0UsNz 
+Nmn9BA0cgnYT3gp3dmF5AtyqSUZe115WgysZK6rtFMQ2CWg7FusLndwuRxHd+0BQLKCr 
+itA69UIwGZZ5mSzR6YRDyu97NR2/25CQCYrU4U1CfkljtPxeCEnKNBrK47emamizh9A2 
+tu4e23BuYkK40AyZpnAAvyXVdVwP6i5bIT2WWkl8cKnMcSKg+Zu4dsFZDtr7wb6mOM3p 
+AOexRoQMikPLjsRJ84mUJ5DZuD9p2eJoMeEc3PzH0KJP3THzZIPUfrnp+NE/05DLfTnE Awnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605; 
+h=mime-version:content-language:accept-language:in-reply-to :references:message-
+id:date:thread-index:subject:to:from :dkim-signature; 
+bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+fh=4HoIlJLQKc9A53N/hgcnWUjRd49O0xB+OVuK/eeB1xA=; 
+b=aM3YqHOiLc6mJhQde0xa8SKSFO0MxwlruPDXWbyW/OCFmVUjXTp1iCwdJn8vPLzQK5 
+TMy/1M+lVTPqBMC4sClnUizaxeIpSKSmS3dIZDJq1JV8Q8lhJ3/iOpN9Fnzloz9p0zq/ 
+lY/OG5o3txD5UXQmRwKnZmUxGPT0ETxtm3nK9XzgfQIM/iplYPCRDXBHhzrirXiUIqF8 
+D+ydIAOd76KGiIotAR3Lsrl4J/5107gOGM5pc7W4cAP3dd9MqKyc24FPU+uASo0rNBSr 
+muefODRiSt9MxL/65BaIOamlfjWDobyuHeoIWOb7hOVShnHp+8rctMB2dKTlTP4Etl24 HAUA==; dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@gmail.com 
+header.s=20251104 header.b=I9jEkVEY; spf=pass (google.com: domain of pluckaduck1984@gmail.com 
+designates 209.85.220.41 as permitted sender) smtp.mailfrom=pluckaduck1984@gmail.com; 
+dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass 
+header.i=@gmail.com
+Return-Path: <pluckaduck1984@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41]) by 
+mx.google.com with SMTPS id 5614622812f47-4855437cf9esor3228143b6e.2.2026.05.24.11.28.19 for 
+<jaymev02@gmail.com> (Google Transport Security); Sun, 24 May 2026 11:28:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pluckaduck1984@gmail.com designates 209.85.220.41 
+as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com; dkim=pass header.i=@gmail.com header.s=20251104 
+header.b=I9jEkVEY; spf=pass (google.com: domain of pluckaduck1984@gmail.com designates 
+209.85.220.41 as permitted sender) smtp.mailfrom=pluckaduck1984@gmail.com; dmarc=pass (p=NONE 
+sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20251104; t=1779647299; 
+x=1780252099; dara=google.com; h=mime-version:content-language:accept-language:in-reply-to 
+:references:message-id:date:thread-index:subject:to:from:from:to:cc :subject:date:message-
+id:reply-to; bh=ZAsXGaD4y88w1AiUjil2FK6ru3lJTGy8fLyZ0W5hJJM=; 
+b=I9jEkVEYk0VMix4umKXjf+UDTLoZ6KcIWt8vO7i/ABAtfzb6zoyeRoX0AT2xj9B516 
+A7TXfbPQyCmyGj0xR1F5UyWrQQpvjFdyk1CcJP3kltqY/ZBkRHWWXi4L1ccvQqt2rSj7 
+DoAzChU/L2bVEv1uzYl8lD0pxFmDas4sjKynn9CZDuBErpmPSOOrHayebuZlITa5V5Bw 
+ZhKSznW7NgueMmnn8MrKVfO4WaiHFaPXve5Cs7DOtXWS9t0F3wAYGi/LFic/9oXh+gPR 
+z0fqha5X99YujPrxS9ZRiIIM+jN+KzbxjplNFOT+6gHIQ9L5waxnvsfGlWxvJOfvF5hw q+iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20251104; 
+t=1779647299; x=1780252099; h=mime-version:content-language:accept-language:in-reply-to 
+:references:message-id:date:thread-index:subject:to:from:x-gm-gg :x-gm-message-
+state:from:to:cc:subject:date:message-id:reply-to; 

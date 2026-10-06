@@ -1,0 +1,310 @@
+[
+  {
+    "page": 1,
+    "native_chars": 1040,
+    "ocr_chars": 1017,
+    "similarity": 0.835,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 2,
+    "native_chars": 632,
+    "ocr_chars": 614,
+    "similarity": 0.855,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 3,
+    "native_chars": 990,
+    "ocr_chars": 956,
+    "similarity": 0.784,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 4,
+    "native_chars": 1052,
+    "ocr_chars": 1025,
+    "similarity": 0.791,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 5,
+    "native_chars": 1088,
+    "ocr_chars": 1055,
+    "similarity": 0.79,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 6,
+    "native_chars": 725,
+    "ocr_chars": 703,
+    "similarity": 0.788,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 7,
+    "native_chars": 916,
+    "ocr_chars": 893,
+    "similarity": 0.828,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 8,
+    "native_chars": 724,
+    "ocr_chars": 699,
+    "similarity": 0.677,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 9,
+    "native_chars": 964,
+    "ocr_chars": 942,
+    "similarity": 0.855,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 10,
+    "native_chars": 966,
+    "ocr_chars": 939,
+    "similarity": 0.789,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 11,
+    "native_chars": 1573,
+    "ocr_chars": 1490,
+    "similarity": 0.803,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 12,
+    "native_chars": 1011,
+    "ocr_chars": 972,
+    "similarity": 0.746,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 13,
+    "native_chars": 1727,
+    "ocr_chars": 1630,
+    "similarity": 0.746,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 14,
+    "native_chars": 542,
+    "ocr_chars": 799,
+    "similarity": 0.505,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 15,
+    "native_chars": 502,
+    "ocr_chars": 485,
+    "similarity": 0.735,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 16,
+    "native_chars": 682,
+    "ocr_chars": 652,
+    "similarity": 0.6,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 17,
+    "native_chars": 853,
+    "ocr_chars": 825,
+    "similarity": 0.808,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 18,
+    "native_chars": 2207,
+    "ocr_chars": 2153,
+    "similarity": 0.803,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 19,
+    "native_chars": 1612,
+    "ocr_chars": 1579,
+    "similarity": 0.848,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 20,
+    "native_chars": 1161,
+    "ocr_chars": 1123,
+    "similarity": 0.701,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 21,
+    "native_chars": 953,
+    "ocr_chars": 929,
+    "similarity": 0.806,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 22,
+    "native_chars": 908,
+    "ocr_chars": 883,
+    "similarity": 0.815,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 23,
+    "native_chars": 1619,
+    "ocr_chars": 1572,
+    "similarity": 0.799,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 24,
+    "native_chars": 2642,
+    "ocr_chars": 2585,
+    "similarity": 0.786,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 25,
+    "native_chars": 1698,
+    "ocr_chars": 1655,
+    "similarity": 0.786,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 26,
+    "native_chars": 913,
+    "ocr_chars": 889,
+    "similarity": 0.857,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 27,
+    "native_chars": 620,
+    "ocr_chars": 716,
+    "similarity": 0.707,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 28,
+    "native_chars": 730,
+    "ocr_chars": 645,
+    "similarity": 0.713,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 29,
+    "native_chars": 245,
+    "ocr_chars": 323,
+    "similarity": 0.593,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 30,
+    "native_chars": 833,
+    "ocr_chars": 809,
+    "similarity": 0.683,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 31,
+    "native_chars": 727,
+    "ocr_chars": 703,
+    "similarity": 0.747,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 32,
+    "native_chars": 800,
+    "ocr_chars": 778,
+    "similarity": 0.8,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 33,
+    "native_chars": 1478,
+    "ocr_chars": 1443,
+    "similarity": 0.808,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 34,
+    "native_chars": 859,
+    "ocr_chars": 840,
+    "similarity": 0.798,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 35,
+    "native_chars": 482,
+    "ocr_chars": 451,
+    "similarity": 0.543,
+    "agreement": "Partial Agreement"
+  },
+  {
+    "page": 36,
+    "native_chars": 842,
+    "ocr_chars": 812,
+    "similarity": 0.76,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 37,
+    "native_chars": 934,
+    "ocr_chars": 895,
+    "similarity": 0.757,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 38,
+    "native_chars": 1678,
+    "ocr_chars": 1633,
+    "similarity": 0.821,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 39,
+    "native_chars": 818,
+    "ocr_chars": 789,
+    "similarity": 0.727,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 40,
+    "native_chars": 1270,
+    "ocr_chars": 1235,
+    "similarity": 0.786,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 41,
+    "native_chars": 642,
+    "ocr_chars": 620,
+    "similarity": 0.73,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 42,
+    "native_chars": 2793,
+    "ocr_chars": 2734,
+    "similarity": 0.823,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 43,
+    "native_chars": 1606,
+    "ocr_chars": 1556,
+    "similarity": 0.763,
+    "agreement": "Agrees"
+  },
+  {
+    "page": 44,
+    "native_chars": 2070,
+    "ocr_chars": 2023,
+    "similarity": 0.827,
+    "agreement": "Agrees"
+  }
+]
