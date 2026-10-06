@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AlertCircle, CheckCircle2, HelpCircle, ShieldAlert, XCircle, PhoneOff } from "lucide-react";
+import { AlertCircle, CheckCircle2, ShieldAlert, XCircle } from "lucide-react";
 
 interface CooperationState {
   id: string;
@@ -14,7 +14,7 @@ interface CooperationState {
   summary: string;
   example: string;
   improperReduction: string;
-  remedialAction: string;
+  proposedResponse: string;
 }
 
 export function BarrierAwareCooperation() {
@@ -29,10 +29,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-red-50",
       badgeBorder: "border-red-300",
       badgeText: "text-red-800",
-      summary: "Participant explicitly states unwillingness to participate after being informed of voluntary or statutory nature of engagement.",
-      example: "Party states directly on recorded call: 'I will not speak with your agency under any circumstances and demand you close this file.'",
-      improperReduction: "Appropriate only when refusal is voluntary, uncoerced, and unambiguous.",
-      remedialAction: "Document exact quote, time, and whether notice of consequences was provided. Do not extrapolate refusal to future hearings or unrelated services."
+      summary: "Participant expressly declines a requested action or communication.",
+      example: "Participant states that they decline the requested interview or document release.",
+      improperReduction: "Do not infer refusal from silence, inability, fear, or an access problem.",
+      proposedResponse: "Record what was declined, when, and the scope of the refusal without extending it to unrelated requests."
     },
     {
       id: "UNAVAILABLE",
@@ -42,10 +42,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-amber-50",
       badgeBorder: "border-amber-300",
       badgeText: "text-amber-800",
-      summary: "Communication attempts resulted in no response, disconnected contact methods, or unverified location.",
-      example: "Phone numbers disconnected, letters returned to sender as undeliverable, no forwarding address on record.",
-      improperReduction: "Must not be coded as 'Refused to cooperate'.",
-      remedialAction: "Audit address history, test secondary communication channels (mail, email, emergency contacts), and log verification dates."
+      summary: "Contact attempts have not yet produced a response or verified communication channel.",
+      example: "Known phone number is disconnected and mailed notice is returned.",
+      improperReduction: "Do not automatically code lack of contact as refusal.",
+      proposedResponse: "Record the attempts and channels used, and keep the reason for non-contact unknown unless established."
     },
     {
       id: "ACCESS_BARRIER",
@@ -55,10 +55,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-blue-50",
       badgeBorder: "border-blue-300",
       badgeText: "text-blue-800",
-      summary: "Structural or logistical impossibility prevents attendance or document submission (e.g. transportation, work shift, caregiving, language).",
-      example: "Parent works non-flexible hourly night shifts without transit access to mandatory 9:00 AM in-person suburban intake clinic.",
-      improperReduction: "Coded by intake worker as 'Failed to attend appointment / non-compliant'.",
-      remedialAction: "Offer asynchronous intake, remote video, translated paperwork, transit vouchers, or after-hours availability."
+      summary: "Participant reports a logistical, technological, language, transportation, document-access, disability, work, or caregiving barrier.",
+      example: "Participant reports being unable to retrieve a requested document or attend at the offered time.",
+      improperReduction: "Do not silently convert an asserted access problem into voluntary noncooperation.",
+      proposedResponse: "Record the asserted barrier and any accommodation, alternative channel, or unresolved access issue."
     },
     {
       id: "SAFETY_BARRIER",
@@ -68,10 +68,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-purple-50",
       badgeBorder: "border-purple-300",
       badgeText: "text-purple-800",
-      summary: "Participant cannot appear, disclose location, or submit materials due to credible fear of retaliatory violence, stalking, or eviction.",
-      example: "Survivor does not attend court building where respondent's armed associates are stationed at entrance.",
-      improperReduction: "Coded as 'Unwilling to assist in investigation'.",
-      remedialAction: "Trigger confidential address protocol (e.g., Texas Address Confidentiality Program), remote testimony, or safety escort."
+      summary: "Participant reports that fear or a safety concern affects appearance, communication, disclosure, or document access. This status records the report; it does not verify the underlying safety condition.",
+      example: "Participant reports that appearing at a location or disclosing an address would create a safety concern.",
+      improperReduction: "Do not treat the label itself as proof of danger or as proof of noncooperation.",
+      proposedResponse: "Record the reported barrier and route any safety assessment through the authority and process that actually governs it."
     },
     {
       id: "PARTIAL_COOPERATION",
@@ -81,10 +81,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-emerald-50",
       badgeBorder: "border-emerald-300",
       badgeText: "text-emerald-800",
-      summary: "Participant provides certain requested information or attends specific sessions while asserting privacy or legal rights regarding others.",
-      example: "Party provides medical releases and child school records but declines to provide personal journal entries without counsel.",
-      improperReduction: "Coded as 'Uncooperative' or 'Defensive posture'.",
-      remedialAction: "Itemize specific records produced vs. specific items withheld. Separate legal assertion of rights from general defiance."
+      summary: "Participant completes some requested actions or provides some requested material while declining, contesting, or being unable to complete others.",
+      example: "Participant provides several requested records but does not provide another requested item.",
+      improperReduction: "Do not collapse a mixed response into a global label such as cooperative or uncooperative.",
+      proposedResponse: "Itemize what was completed, what was not, and the stated or unknown reason for each unresolved item."
     },
     {
       id: "REASON_UNKNOWN",
@@ -94,10 +94,10 @@ export function BarrierAwareCooperation() {
       badgeBg: "bg-stone-100",
       badgeBorder: "border-stone-300",
       badgeText: "text-stone-700",
-      summary: "Absence or non-receipt of information where no diagnostic investigation has yet taken place.",
-      example: "One appointment missed without prior notice; no subsequent contact yet attempted.",
-      improperReduction: "Preemptively labeled as voluntary non-compliance.",
-      remedialAction: "Default status until at least two distinct verification attempts are made across multiple communication modes."
+      summary: "The system does not yet know why a requested action, appearance, or submission did not occur.",
+      example: "An appointment is missed and no reason has yet been established.",
+      improperReduction: "Do not infer motive from an unresolved absence.",
+      proposedResponse: "Preserve the uncertainty until additional information supports a more specific status."
     }
   ];
 
@@ -106,14 +106,14 @@ export function BarrierAwareCooperation() {
   return (
     <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm select-none font-sans">
       <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[#971F26]">
             <ShieldAlert className="w-5 h-5" />
             <span className="text-xs font-mono font-bold uppercase tracking-widest">
               PROPOSED SAFEGUARD · PROTOCOL 04
             </span>
           </div>
-          <span className="coord-tick">[BARRIER-AWARE DISPOSITION]</span>
+          <span className="coord-tick">[BARRIER-AWARE CODING]</span>
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
@@ -130,11 +130,10 @@ export function BarrierAwareCooperation() {
         </div>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl pt-2">
-          When administrative systems collapse all non-appearance or incomplete paperwork into a generic label of <em>&ldquo;uncooperative,&rdquo;</em> structural inequalities and safety threats are weaponized against victims. Administrative traceability requires recording the precise nature of non-engagement.
+          The proposed data-quality safeguard separates what is actually known about participation from assumptions about motive. Each status describes the available administrative information; it does not establish why an underlying event occurred unless that reason has been independently determined.
         </p>
       </div>
 
-      {/* State Selector Buttons */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
         {states.map((st) => (
           <button
@@ -158,14 +157,10 @@ export function BarrierAwareCooperation() {
         ))}
       </div>
 
-      {/* Selected State Inspector Card */}
       <div className="bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-3">
           <div className="flex items-center gap-3">
-            <div
-              className="w-3.5 h-3.5 rounded-full"
-              style={{ backgroundColor: activeState.color }}
-            />
+            <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: activeState.color }} />
             <h4 className="text-lg sm:text-xl font-serif font-bold text-[#1C1D1D]">
               {activeState.title}
             </h4>
@@ -182,16 +177,16 @@ export function BarrierAwareCooperation() {
         <div className="grid md:grid-cols-3 gap-4 pt-2">
           <div className="p-3.5 bg-white rounded-lg border border-stone-300 space-y-1.5">
             <span className="text-[10px] font-mono font-bold text-stone-500 uppercase flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" /> Operational Example
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" /> Illustrative Example
             </span>
             <p className="text-xs font-sans text-stone-800 italic">
-              &ldquo;{activeState.example}&rdquo;
+              {activeState.example}
             </p>
           </div>
 
           <div className="p-3.5 bg-red-50/70 rounded-lg border border-red-200 space-y-1.5">
             <span className="text-[10px] font-mono font-bold text-red-700 uppercase flex items-center gap-1.5">
-              <XCircle className="w-3.5 h-3.5 text-red-600" /> Improper Reductive Coding
+              <XCircle className="w-3.5 h-3.5 text-red-600" /> Inference To Avoid
             </span>
             <p className="text-xs font-sans text-red-950 font-medium">
               {activeState.improperReduction}
@@ -200,19 +195,18 @@ export function BarrierAwareCooperation() {
 
           <div className="p-3.5 bg-emerald-50/70 rounded-lg border border-emerald-200 space-y-1.5">
             <span className="text-[10px] font-mono font-bold text-emerald-700 uppercase flex items-center gap-1.5">
-              <AlertCircle className="w-3.5 h-3.5 text-emerald-600" /> Required Administrative Action
+              <AlertCircle className="w-3.5 h-3.5 text-emerald-600" /> Proposed Trace Response
             </span>
             <p className="text-xs font-sans text-emerald-950">
-              {activeState.remedialAction}
+              {activeState.proposedResponse}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Bottom Summary Bar */}
       <div className="p-3.5 bg-white border border-stone-300 rounded-lg text-xs font-mono text-stone-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-        <span>Administrative rule: An agency cannot penalize a participant for non-appearance without diagnostic verification of accessibility.</span>
-        <span className="text-[#971F26] font-bold">Diagnostic Integrity &gt; Default Penalties</span>
+        <span>Proposed data-quality rule: record the known barrier state without inferring motive.</span>
+        <span className="text-[#971F26] font-bold">Could Not ≠ Would Not</span>
       </div>
     </section>
   );
