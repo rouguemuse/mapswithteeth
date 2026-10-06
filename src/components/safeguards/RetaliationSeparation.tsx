@@ -1,18 +1,18 @@
 import React from "react";
-import { GitBranch, ShieldAlert, AlertTriangle, ArrowRight, CheckCircle2, Split } from "lucide-react";
+import { AlertTriangle, Scale, Split } from "lucide-react";
 
 export function RetaliationSeparation() {
   return (
     <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm select-none font-sans">
       <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Split className="w-5 h-5" />
             <span className="text-xs font-mono font-bold uppercase tracking-widest">
               PROPOSED SAFEGUARD · PROTOCOL 05
             </span>
           </div>
-          <span className="coord-tick">[TWO-TRACK RETALIATION MODEL]</span>
+          <span className="coord-tick">[TWO-TRACK REVIEW]</span>
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
@@ -21,105 +21,81 @@ export function RetaliationSeparation() {
 
         <div className="flex flex-wrap gap-2 pt-1">
           <span className="px-3 py-1 bg-[#1C1D1D] text-amber-200 text-xs font-mono font-bold rounded-full">
-            Evidence of retaliation does not prove the original allegation.
+            Evidence of subsequent conduct does not prove the underlying allegation.
           </span>
           <span className="px-3 py-1 bg-[#971F26] text-white text-xs font-mono font-bold rounded-full">
-            A disputed allegation does not make surrounding conduct disappear.
+            Disagreement with an allegation does not establish retaliation.
+          </span>
+          <span className="px-3 py-1 bg-white border border-stone-400 text-stone-800 text-xs font-mono font-bold rounded-full">
+            A disputed allegation does not make subsequent conduct irrelevant.
           </span>
         </div>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl pt-2">
-          In high-conflict domestic, housing, and child welfare proceedings, systems often make one of two catastrophic errors: they either assume retaliatory acts automatically prove the underlying original charge, or conversely, dismiss severe witness intimidation because the original charge remains unadjudicated. Administrative traceability requires <strong>two strictly segregated analytical tracks</strong>.
+          The proposed safeguard keeps two questions separate: the merits of an underlying allegation or dispute, and the meaning of conduct that occurs afterward. Later conduct may be alleged or potentially relevant as retaliation, interference, intimidation, or lawful responsive action. Its classification should follow evidence and applicable authority, not chronology alone.
         </p>
       </div>
 
-      {/* Two-Track Visual Diagram */}
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Track A: Underlying Allegation */}
         <div className="p-5 bg-[#F5F1E8] border-2 border-stone-400 rounded-xl space-y-4 shadow-2xs">
           <div className="flex items-center justify-between border-b border-stone-300 pb-2">
             <span className="px-2.5 py-1 bg-stone-200 text-stone-800 rounded text-[11px] font-mono font-bold uppercase">
-              TRACK A · SUBSTANTIVE ACTION
+              TRACK A · UNDERLYING MATTER
             </span>
-            <span className="text-[11px] font-mono text-stone-500">ORIGINATING EVENT</span>
+            <span className="text-[11px] font-mono text-stone-500">SEPARATE MERITS REVIEW</span>
           </div>
 
           <h4 className="font-serif font-bold text-lg text-[#1C1D1D]">
-            Underlying Substantive Dispute
+            Underlying Allegation or Dispute
           </h4>
 
           <p className="text-xs font-sans text-stone-700 leading-relaxed">
-            The core historical allegation or legal dispute that initially brought the parties before the institution (e.g. physical assault claim, property damage, lease breach, child neglect report).
+            Evaluate the original allegation, report, filing, or dispute under the authority and evidentiary rules that actually govern it. The later behavior of another participant does not retroactively establish the truth of the original claim.
           </p>
 
-          <div className="space-y-2 text-xs font-mono">
-            <div className="p-2.5 bg-white rounded border border-stone-300 space-y-1">
-              <span className="text-[10px] font-bold text-stone-500 uppercase">EVIDENTIARY CRITERIA</span>
-              <p className="font-sans text-stone-800">
-                Requires direct physical evidence, independent eyewitnesses, medical forensics, or corroborated admissions.
-              </p>
-            </div>
-
-            <div className="p-2.5 bg-white rounded border border-stone-300 space-y-1">
-              <span className="text-[10px] font-bold text-red-600 uppercase">INCORRECT LEAP TO AVOID</span>
-              <p className="font-sans text-stone-800">
-                Assuming Track A is automatically proven merely because the respondent later acted dishonestly, angrily, or aggressively during litigation.
-              </p>
-            </div>
-          </div>
-
-          <div className="p-2.5 bg-stone-100 rounded text-[11px] font-mono text-stone-700 border border-stone-300">
-            <strong>Adjudication Standard:</strong> Evaluated independently on its own merits under applicable evidentiary rules.
+          <div className="p-3 bg-white rounded border border-stone-300 text-xs text-stone-800">
+            <strong className="font-mono text-[10px] uppercase text-stone-500 block mb-1">Review question</strong>
+            What evidence supports, contradicts, contextualizes, or leaves unresolved the original matter?
           </div>
         </div>
 
-        {/* Track B: Retaliation & Administrative Interference */}
         <div className="p-5 bg-[#F5F1E8] border-2 border-[#971F26] rounded-xl space-y-4 shadow-2xs">
           <div className="flex items-center justify-between border-b border-red-200 pb-2">
             <span className="px-2.5 py-1 bg-red-100 text-[#971F26] rounded text-[11px] font-mono font-bold uppercase">
-              TRACK B · COLLATERAL INTERFERENCE
+              TRACK B · SUBSEQUENT CONDUCT
             </span>
-            <span className="text-[11px] font-mono text-red-600 font-bold">INDEPENDENT OFFENSE</span>
+            <span className="text-[11px] font-mono text-red-700 font-bold">SEPARATE CLASSIFICATION</span>
           </div>
 
           <h4 className="font-serif font-bold text-lg text-[#1C1D1D]">
-            Retaliation, Intimidation &amp; Cross-Filing
+            Later Conduct &amp; Claimed Motive
           </h4>
 
           <p className="text-xs font-sans text-stone-700 leading-relaxed">
-            Actions taken after the initial dispute to silence participants, manipulate evidence, retaliate through secondary agencies, or intimidate witnesses (e.g. retaliatory CPS reports, doxxing, key confiscation, protective order violations).
+            Preserve and review subsequent conduct that may be alleged or potentially relevant as retaliation, interference, intimidation, or lawful responsive action. Timing can establish sequence; it does not establish motive or unlawfulness by itself.
           </p>
 
-          <div className="space-y-2 text-xs font-mono">
-            <div className="p-2.5 bg-white rounded border border-stone-300 space-y-1">
-              <span className="text-[10px] font-bold text-stone-500 uppercase">EVIDENTIARY CRITERIA</span>
-              <p className="font-sans text-stone-800">
-                Requires digital audit trails, phone records, subpoenaed cross-filing records, timestamped security footage, or witness statements.
-              </p>
-            </div>
-
-            <div className="p-2.5 bg-white rounded border border-stone-300 space-y-1">
-              <span className="text-[10px] font-bold text-red-600 uppercase">INCORRECT LEAP TO AVOID</span>
-              <p className="font-sans text-stone-800">
-                Ignoring Track B interference or closing safety files because the underlying Track A case was dismissed or lacked physical evidence.
-              </p>
-            </div>
+          <div className="p-3 bg-white rounded border border-stone-300 text-xs text-stone-800 space-y-2">
+            <strong className="font-mono text-[10px] uppercase text-stone-500 block">Lawful responsive conduct remains lawful to pursue</strong>
+            <p>
+              A person remains free to dispute an allegation, provide contrary evidence, retain counsel, file lawful pleadings, make their own reports, seek review, and use lawful administrative or judicial processes.
+            </p>
           </div>
 
-          <div className="p-2.5 bg-red-50 rounded text-[11px] font-mono text-[#971F26] border border-red-200 font-medium">
-            <strong>Adjudication Standard:</strong> Constitutes an independent safety threat and standalone legal/ethical breach regardless of Track A outcome.
+          <div className="p-3 bg-red-50 rounded border border-red-200 text-xs text-red-950">
+            <strong className="font-mono text-[10px] uppercase text-red-700 block mb-1">Review question</strong>
+            Does the later conduct independently warrant review under an applicable safety, administrative, civil, or criminal authority?
           </div>
         </div>
       </div>
 
-      {/* Synthesis Insight Banner */}
       <div className="p-4 bg-white border border-[#1C1D1D] rounded-xl space-y-2">
         <div className="flex items-center gap-2 text-[#971F26]">
           <AlertTriangle className="w-4 h-4" />
-          <span className="text-xs font-mono font-bold uppercase">Administrative Safeguard Requirement</span>
+          <span className="text-xs font-mono font-bold uppercase">Administrative Traceability Rule</span>
         </div>
         <p className="text-xs font-sans text-stone-800 leading-relaxed">
-          Case management software and multi-agency referral protocols must <strong>maintain separate record IDs</strong> for substantive claims and subsequent retaliatory acts. When an agency records a cross-report (e.g. a retaliatory counter-allegation filed 24 hours after a protective order petition), the intake must link the relationship without conflating the evidentiary files.
+          A continuity system may record that two matters are temporally or procedurally related without pre-classifying the later conduct as retaliatory. The relationship, provenance, evidence, disposition, and decision owner should remain separately traceable.
         </p>
       </div>
     </section>
