@@ -52,7 +52,7 @@ export default function AuthorPage() {
           </div>
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold block">
-              FOUNDER & PRINCIPAL INVESTIGATOR
+              FOUNDER / PROJECT DIRECTOR
             </span>
             <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1C1D1D]">
               {author.name}
@@ -74,7 +74,7 @@ export default function AuthorPage() {
               SYSTEMS POSITIONING & PHILOSOPHY
             </span>
             <p className="font-sans text-stone-800 leading-relaxed">
-              Jayme approaches public technology not as marketing software or isolated portals, but as cross-system infrastructure. His research focuses on eliminating the human cost of administrative seams—where individuals in crisis are forced to act as unpaid integration layers between uncoordinated courts, child welfare agencies, law enforcement, and victim services.
+              Jayme approaches public technology as a systems and implementation problem rather than a collection of isolated portals. The work focuses on administrative seams where people can become the manual integration layer between institutions that hold different pieces of the same path.
             </p>
           </div>
         </div>
