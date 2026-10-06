@@ -124,7 +124,7 @@ export default function SafeguardsPage() {
               href="#principles"
               className="px-3 py-1.5 bg-[#1C1D1D] text-[#F5F1E8] rounded-lg hover:bg-stone-800 transition"
             >
-              Seven Locked Principles ↓
+              Evidence Integrity Principles ↓
             </a>
             <a
               href="#review-trace"
@@ -180,7 +180,7 @@ export default function SafeguardsPage() {
 
       {/* Core Body Container */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* Section 1: The 7 Locked Principles */}
+        {/* Section 1: Evidence Integrity Principles */}
         <div id="principles" className="scroll-mt-12">
           <LockedPrinciplesBanner />
         </div>
@@ -195,7 +195,7 @@ export default function SafeguardsPage() {
               Review Trace &amp; Administrative Disposition Logging
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Agencies maintain statutory discretion to evaluate evidence or reach adverse findings. However, administrative legitimacy requires recording what material was presented, whether it was evaluated, and the precise administrative reason if omitted.
+              The proposed Review Trace preserves how identified material was handled without deciding the merits. It records whether material was received, reviewed, unavailable, referred, disputed, derivative, outside authority, or left unreviewed for a stated reason.
             </p>
           </div>
           <ReviewTraceComponent />
@@ -211,7 +211,7 @@ export default function SafeguardsPage() {
               Provenance Before Volume: De-Escalating Echo Loops
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Systems frequently mistake repeated retellings of the same originating statement for independent corroboration. Our provenance engine tracks the root source to distinguish single-origin echo loops from genuine multi-source evidence.
+              Systems can mistake repeated retellings of the same originating statement for independent corroboration. The proposed provenance model preserves source relationships and then evaluates each independent record for its actual claim-specific effect.
             </p>
           </div>
           <ProvenanceVisual />
@@ -227,7 +227,7 @@ export default function SafeguardsPage() {
               Claim-Evidence Separation: De-Judicializing Case Data
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Complex family disputes must never be collapsed into global adult credibility contests. Assertions must be atomized into specific factual propositions with traceable custody.
+              Complex disputes should not be collapsed into global character judgments. The proposed method separates specific claims, sources, provenance, supporting or contradictory material, status, and unresolved questions.
             </p>
           </div>
           <ClaimEvidenceSeparation />
@@ -243,7 +243,7 @@ export default function SafeguardsPage() {
               Barrier-Aware Cooperation Distinction
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              A barrier is not a refusal. Distinguishing between voluntary non-cooperation and structural, logistical, or fear-based access obstacles is essential to preventing retaliatory system closures.
+              A barrier is not a refusal. The proposed statuses distinguish express refusal, unavailability, reported access barriers, reported fear or safety barriers, partial cooperation, and unknown reasons without inferring motive.
             </p>
           </div>
           <BarrierAwareCooperation />
@@ -259,7 +259,7 @@ export default function SafeguardsPage() {
               Retaliation &amp; Interference Separation
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Underlying substantive allegations and subsequent retaliatory intimidation or weaponized cross-filings must be tracked on separate analytical tracks, preventing mutual erasure.
+              Underlying allegations and subsequent conduct should remain on separate analytical tracks. Later conduct may be alleged or potentially relevant as retaliation, interference, intimidation, or lawful responsive action; chronology alone does not classify it.
             </p>
           </div>
           <RetaliationSeparation />
@@ -275,7 +275,7 @@ export default function SafeguardsPage() {
               Controlling-Document Verification for Rights Decisions
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Frontline institutions cannot alter parental custody, deny school release, or exclude individuals based on informal verbal assertions. Every rights-limiting action must trace directly to a verified order and operative clause.
+              For rights-limiting administrative decisions, the proposed safeguard records the authority relied upon, the document or rule reviewed, the provision understood to control, when it was verified, the resulting action, and a correction or review path.
             </p>
           </div>
           <ControllingDocumentVerification />
@@ -291,7 +291,7 @@ export default function SafeguardsPage() {
               Observation vs. Disposition &amp; Demeanor vs. Provenance
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              Trauma-informed administrative rigor requires separating what was objectively seen from subjective character inferences, ensuring emotional demeanor is never substituted for documentary custody.
+              Demeanor, distress, communication style, or generalized credibility impressions should not substitute for review of independently verifiable material. Observation, inference, provenance, and evidentiary effect remain separate.
             </p>
           </div>
           <ObservationVsDisposition />
