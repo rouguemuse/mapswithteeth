@@ -1,0 +1,53 @@
+name: Final Integrity Verification
+
+on:
+  push:
+    branches:
+      - final-integrity-pass
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript validation
+        run: npx tsc --noEmit
+
+      - name: Writing integrity tests
+        run: npm run test:writing
+
+      - name: Receipt-risk tests
+        run: npm run test:receipt-risk
+
+      - name: Matching tests
+        run: npm run test:matching
+
+      - name: Resource audit
+        run: npm run audit:resources
+
+      - name: Evidence audit
+        run: npm run audit:evidence
+
+      - name: Import audit
+        run: npm run audit:imports
+
+      - name: Duplicate-ID audit
+        run: npm run audit:duplicates
+
+      - name: Production build
+        run: npm run build
