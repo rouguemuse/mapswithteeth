@@ -6,7 +6,6 @@ import {
   getExternalArticles,
   getPolicyAndResearchArticles,
   getArticlesByTopic,
-  getRelatedArticles,
 } from "../src/domain/writing/queries";
 import {
   generateArticleCitation,
@@ -27,32 +26,55 @@ console.log("==================================================");
 console.log("MAPS WITH TEETH — EDITORIAL & PUBLICATION LAYER QA");
 console.log("==================================================");
 
-// 1. Total Articles in Registry
-const totalArticles = ARTICLES.length;
-assert(totalArticles >= 5, `Article registry contains at least 5 records (found ${totalArticles})`);
-
-// 2. Draft / Pitch Hold Exclusivity Guard
-const pitchHoldArticles = ARTICLES.filter((a) => a.status === "pitch_hold");
-assert(pitchHoldArticles.length >= 1, "At least one article is explicitly held in PITCH_HOLD status");
+assert(ARTICLES.length === 5, `Registry contains exactly the 5 authorized editorial records (found ${ARTICLES.length})`);
 
 const publicArticles = getPublicArticles();
-const publicSlugs = new Set(publicArticles.map((a) => a.slug));
+assert(publicArticles.length === 1, `Exactly one article is public (found ${publicArticles.length})`);
+assert(
+  publicArticles[0]?.slug === "the-human-becomes-the-integration-layer",
+  "The Human Becomes the Integration Layer is the only public article"
+);
 
-pitchHoldArticles.forEach((ph) => {
-  assert(!publicSlugs.has(ph.slug), `PITCH_HOLD article '${ph.slug}' is NEVER exposed in public articles list`);
-  assert(getArticleBySlug(ph.slug) === null, `getArticleBySlug('${ph.slug}') returns null for PITCH_HOLD article`);
+const drafts = ARTICLES.filter((a) => a.status === "draft");
+const pitchHolds = ARTICLES.filter((a) => a.status === "pitch_hold");
+
+assert(drafts.length === 3, `Three planned pieces remain DRAFT (found ${drafts.length})`);
+assert(pitchHolds.length === 1, `One planned piece remains PITCH_HOLD (found ${pitchHolds.length})`);
+
+[...drafts, ...pitchHolds].forEach((article) => {
+  assert(!getArticleBySlug(article.slug), `Non-public article '${article.slug}' cannot be retrieved publicly`);
+  assert(!article.body, `Non-public article '${article.slug}' has no implementation-generated body copy`);
 });
 
-// 3. Three Publication Origins Supported
-const mwtOriginals = publicArticles.filter((a) => a.publicationOrigin === "maps_with_teeth");
-const externalPubs = publicArticles.filter((a) => a.publicationOrigin === "external");
-const syndicatedPubs = publicArticles.filter((a) => a.publicationOrigin === "syndicated");
+assert(
+  pitchHolds[0]?.slug === "related-does-not-mean-proven",
+  "Related Does Not Mean Proven remains PITCH_HOLD"
+);
 
-assert(mwtOriginals.length > 0, `Maps With Teeth original articles exist (${mwtOriginals.length} found)`);
-assert(externalPubs.length > 0, `External publication records exist (${externalPubs.length} found)`);
-assert(syndicatedPubs.length > 0, `Syndicated / adapted articles exist (${syndicatedPubs.length} found)`);
+assert(getExternalArticles().length === 0, "No fictional external publication records are public");
+assert(
+  !ARTICLES.some((a) => a.publicationOrigin === "external" || a.publicationOrigin === "syndicated"),
+  "Registry contains no fictional external or syndicated records"
+);
+assert(
+  !JSON.stringify(ARTICLES).includes("/example-") && !JSON.stringify(ARTICLES).includes("Tech Policy & Public Systems"),
+  "Registry contains no demo publication URLs or invented outlet names"
+);
 
-// 4. Content Types Validation
+const flagship = getArticleBySlug("the-human-becomes-the-integration-layer");
+assert(!!flagship, "Approved flagship article is publicly retrievable");
+assert(
+  flagship?.body?.startsWith("A person can do everything they are told to do and still disappear between systems.") === true,
+  "Flagship body begins with the approved editorial copy"
+);
+assert(
+  !flagship?.body?.includes("The Architecture of the Administrative Void"),
+  "Implementation-generated substitute article body is removed"
+);
+
+const featured = getFeaturedArticle();
+assert(featured?.slug === flagship?.slug, "Approved flagship article is the featured article");
+
 const validContentTypes = new Set([
   "POLICY_ANALYSIS",
   "SYSTEMS_NOTE",
@@ -62,74 +84,39 @@ const validContentTypes = new Set([
 ]);
 
 ARTICLES.forEach((article) => {
-  assert(
-    validContentTypes.has(article.contentType),
-    `Article '${article.slug}' has valid content type '${article.contentType}'`
-  );
-  assert(article.title.length > 0, `Article '${article.slug}' has non-empty title`);
-  assert(article.dek.length > 0, `Article '${article.slug}' has non-empty dek`);
-  assert(article.readingTime.includes("min read"), `Article '${article.slug}' has reading time`);
+  assert(validContentTypes.has(article.contentType), `Article '${article.slug}' has a valid content type`);
+  assert(article.title.length > 0, `Article '${article.slug}' has a non-empty title`);
+  assert(article.dek.length > 0, `Article '${article.slug}' has a non-empty dek`);
 });
 
-// 5. External Publication Attribution Integrity
-externalPubs.forEach((ext) => {
-  assert(!!ext.externalPublicationName, `External article '${ext.slug}' specifies externalPublicationName`);
-  assert(!!ext.externalPublicationUrl, `External article '${ext.slug}' specifies externalPublicationUrl`);
-  assert(!!ext.abstract, `External article '${ext.slug}' provides an abstract`);
-  
-  const citation = generateArticleCitation(ext);
-  assert(
-    citation.includes(ext.externalPublicationName!),
-    `External citation attributes '${ext.externalPublicationName}' rather than claiming MWT as publisher`
-  );
-});
-
-// 6. Citation Generation Format
-const sampleOriginal = mwtOriginals[0];
-const originalCitation = generateArticleCitation(sampleOriginal);
+const originalCitation = generateArticleCitation(flagship!);
 assert(originalCitation.includes("Jayme Volstad"), "Citation includes author Jayme Volstad");
-assert(originalCitation.includes(sampleOriginal.title), "Citation includes article title");
-assert(originalCitation.includes("Maps With Teeth Field Notes"), "Original citation includes Maps With Teeth Field Notes");
-assert(originalCitation.includes(sampleOriginal.canonicalUrl), "Citation includes canonical URL");
+assert(originalCitation.includes(flagship!.title), "Citation includes flagship title");
+assert(originalCitation.includes("Maps With Teeth Field Notes"), "Citation identifies Maps With Teeth Field Notes");
+assert(originalCitation.includes(flagship!.canonicalUrl), "Citation includes canonical URL");
 
-const bibtex = generateBibtexCitation(sampleOriginal);
-assert(bibtex.startsWith("@article{"), "BibTeX citation generates valid @article structure");
-assert(bibtex.includes("author = {"), "BibTeX includes author field");
+const bibtex = generateBibtexCitation(flagship!);
+assert(bibtex.startsWith("@article{"), "BibTeX citation generates @article structure");
 
-// 7. Author Bio Integrity
 assert(JAYME_VOLSTAD_AUTHOR.name === "Jayme Volstad", "Author is Jayme Volstad");
-assert(JAYME_VOLSTAD_AUTHOR.role === "Founder / Project Director", "Author role is accurate");
+assert(JAYME_VOLSTAD_AUTHOR.role === "Founder / Project Director", "Author role is Founder / Project Director");
 assert(
-  !JAYME_VOLSTAD_AUTHOR.bio.includes("certified") && !JAYME_VOLSTAD_AUTHOR.bio.includes("licensed attorney"),
-  "Author bio avoids inflated credentials"
+  JAYME_VOLSTAD_AUTHOR.selectedPublications.length === 1 &&
+    JAYME_VOLSTAD_AUTHOR.selectedPublications[0]?.title === flagship?.title,
+  "Author profile lists only the genuinely published article"
 );
 
-// 8. Policy & Research Filtering
 const policyAndResearch = getPolicyAndResearchArticles();
-policyAndResearch.forEach((pr) => {
-  assert(
-    pr.contentType === "POLICY_ANALYSIS" || pr.contentType === "RESEARCH_NOTE",
-    `Policy & Research query returns only policy or research notes (found ${pr.contentType})`
-  );
-});
+assert(policyAndResearch.length === 0, "Draft policy analyses are not exposed as published policy writing");
 
-// 9. Topic Filtering
 const continuityArticles = getArticlesByTopic("Continuity");
-assert(continuityArticles.length > 0, "Topic filter for 'Continuity' returns matching articles");
-continuityArticles.forEach((a) => {
-  assert(a.topics.includes("Continuity"), `Article '${a.slug}' contains 'Continuity' topic`);
-});
+assert(continuityArticles.length === 1, "Continuity filter returns only the published flagship article");
 
-// 10. Evidentiary Disclaimers Check
-mwtOriginals
-  .filter((a) => a.contentType === "POLICY_ANALYSIS" || a.contentType === "SYSTEMS_NOTE")
-  .forEach((a) => {
-    assert(
-      a.whatThisArticleDoesNotClaim && a.whatThisArticleDoesNotClaim.length > 0,
-      `Policy/Systems article '${a.slug}' includes 'whatThisArticleDoesNotClaim' guardrail`
-    );
-  });
+assert(
+  flagship?.whatThisArticleDoesNotClaim && flagship.whatThisArticleDoesNotClaim.length > 0,
+  "Flagship systems note includes explicit non-claims guardrails"
+);
 
 console.log("==================================================");
-console.log("SUMMARY: ALL EDITORIAL QA INVARIANTS PASSED (100%)");
+console.log("SUMMARY: EDITORIAL INTEGRITY INVARIANTS PASSED");
 console.log("==================================================");
