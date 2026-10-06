@@ -120,12 +120,18 @@ export function ReviewTraceComponent() {
         </h3>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-          An institution has the lawful authority to disagree with an assertion, find an allegation unproven, or decline a service. <strong>However, it should always be able to account for what it did with material evidence.</strong>
+          An institution may disagree with an assertion, find an allegation unproven, or decline a service under its applicable authority. <strong>The proposed standard asks it to account for what it did with identified material.</strong>
         </p>
 
         {/* Legal Disclaimer Box */}
         <div className="p-3 bg-[#F5F1E8] border border-stone-300 rounded-lg text-xs font-mono text-stone-700">
-          <strong>Notice of Proposed Standard:</strong> The Review Trace taxonomy below represents a proposed Maps With Teeth data-quality design standard for administrative audits. It is not an existing statutory requirement under Texas or federal law.
+          <strong>Notice of Proposed Standard:</strong> The Review Trace taxonomy below consists of <strong>PROPOSED MAPS WITH TEETH ADMINISTRATIVE STATUSES</strong>. They are not existing statutory requirements under Texas or federal law unless an independently cited authority establishes otherwise.
+        </div>
+
+        <div className="p-3 bg-white border border-stone-300 rounded-lg text-xs text-stone-700 space-y-1">
+          <strong className="font-mono text-[10px] uppercase text-[#971F26] block">A Review Trace is not:</strong>
+          <p>a factual finding; a credibility score; proof that material is authentic; an adjudication; or a replacement for an official agency record.</p>
+          <p>It is a proposed administrative trace of how identified material moved through review.</p>
         </div>
       </div>
 
@@ -134,7 +140,7 @@ export function ReviewTraceComponent() {
         {/* Status Buttons List */}
         <div className="lg:col-span-5 space-y-1.5 font-mono text-xs">
           <span className="text-[10px] uppercase font-bold text-stone-600 block mb-1">
-            Proposed Disposition Statuses (Select to Inspect):
+            PROPOSED MAPS WITH TEETH ADMINISTRATIVE STATUSES (Select to Inspect):
           </span>
           {REVIEW_TRACE_STATUSES.map((item) => {
             const isSelected = selectedStatus.code === item.code;
@@ -211,8 +217,8 @@ export function ReviewTraceComponent() {
           </div>
 
           <div className="pt-3 border-t border-[#D9D1C4] text-[11px] font-mono text-stone-600 flex items-center justify-between">
-            <span>Prevents silent omission in case closures</span>
-            <span className="text-[#971F26] font-bold">Traceability &ne; Liability</span>
+            <span>Records administrative handling without deciding merits</span>
+            <span className="text-[#971F26] font-bold">Traceability &ne; Finding</span>
           </div>
         </div>
       </div>
