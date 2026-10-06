@@ -3,29 +3,33 @@ import { getPublicArticles } from "@/domain/writing/queries";
 import { ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mapswithteeth.org";
+  const baseUrl = "https://www.mapswithteeth.org";
   const now = new Date();
 
   // Core static pages
   const staticRoutes = [
     "",
-    "/find-help",
-    "/other-ways-through",
-    "/texas",
-    "/ask-us-to-look",
-    "/the-gap",
-    "/continuity",
-    "/policy",
-    "/bad-maps",
-    "/for-partners",
     "/about",
+    "/ask-us-to-look",
+    "/bad-maps",
+    "/bridge",
+    "/build-with-us",
+    "/continuity",
+    "/continuity/safeguards",
+    "/feedback",
+    "/find-help",
+    "/for-partners",
+    "/governance",
+    "/how-it-works",
     "/how-we-research",
     "/methodology",
-    "/technical",
-    "/governance",
+    "/other-ways-through",
+    "/policy",
     "/safety",
     "/support",
-    "/feedback",
+    "/technical",
+    "/texas",
+    "/the-gap",
     "/writing",
     "/writing/author",
   ].map((route) => ({
