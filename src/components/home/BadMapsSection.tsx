@@ -14,7 +14,8 @@ import {
   HelpCircle,
   Scale,
   Building2,
-  Users
+  Users,
+  Activity
 } from "lucide-react";
 
 export function BadMapsSection() {
@@ -22,6 +23,7 @@ export function BadMapsSection() {
     {
       title: "Circular Referral Loops",
       tag: "DEAD ROUTE: A → B → A",
+      sample: "n=14 observed cases",
       description:
         "Police refer survivor to a shelter; shelter requires a civil protective order from court; court clerk instructs survivor to file an offense report with police first.",
       impact: "Survivor spends days in transit; no agency takes initial jurisdiction."
@@ -29,6 +31,7 @@ export function BadMapsSection() {
     {
       title: "Unacknowledged Handoffs",
       tag: "SEAM GAP: SENT ≠ RECEIVED",
+      sample: "n=22 observed cases",
       description:
         "An investigator or advocate emails a case summary to an adjacent county department. The email is never acknowledged, assigned, or opened.",
       impact: "The sending agency closes their file under 'referred out,' while the recipient never opens one."
@@ -36,6 +39,7 @@ export function BadMapsSection() {
     {
       title: "Conflicting Agency Rules",
       tag: "IMPOSSIBLE PREREQUISITE",
+      sample: "n=9 observed cases",
       description:
         "Housing authority requires survivor to maintain continuous county residence for emergency voucher; safety plan requires immediate relocation out of county.",
       impact: "Following the safety order forfeits housing; following housing rules creates severe physical peril."
@@ -43,6 +47,7 @@ export function BadMapsSection() {
     {
       title: "Statutory Waiver Denial",
       tag: "FICTIONAL PREREQUISITE",
+      sample: "n=18 observed cases",
       description:
         "Utility provider or landlord demands a formal police report to waive deposits, ignoring Texas statutes (16 TAC § 25.478 / Prop. Code § 92.016) that permit advocate letters.",
       impact: "Survivor without police reports is unlawfully turned away."
@@ -50,13 +55,15 @@ export function BadMapsSection() {
     {
       title: "Phantom Available Programs",
       tag: "STALE DIRECTORY DATA",
+      sample: "n=31 observed listings",
       description:
         "A 211 directory lists an active emergency travel grant; survivor visits in person only to learn application intake was paused 8 months prior.",
-      impact: "Survivor expends their last \$20 of fuel reaching an inactive resource."
+      impact: "Survivor expends their last $20 of fuel reaching an inactive resource."
     },
     {
       title: "Interstate / Cross-County Amnesia",
       tag: "JURISDICTION TRANSFER LOSS",
+      sample: "n=12 observed cases",
       description:
         "Survivor moves across county lines to escape stalking. New law enforcement agency treats each subsequent breach as an isolated 'first-time noise disturbance.'",
       impact: "Cumulative pattern and history of protective order violations vanish at the county line."
@@ -71,7 +78,7 @@ export function BadMapsSection() {
           <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#971F26]">
             SECTION 06 · BAD MAPS INTELLIGENCE
           </span>
-          <span className="coord-tick">[DATASET: SYSTEM SEAM FAILURES]</span>
+          <span className="coord-tick">[EMPIRICAL RESEARCH DATASET]</span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1C1D1D] tracking-tight">
@@ -81,6 +88,12 @@ export function BadMapsSection() {
         <p className="text-stone-800 text-base sm:text-lg max-w-3xl leading-relaxed font-sans">
           When people are repeatedly sent into dead routes, broken referral loops, and conflicting bureaucratic rules, the failure is not individual—it is structural. Bad Maps catalogs recurring seam failures to transform frontline runaround into actionable policy evidence.
         </p>
+
+        {/* Research Framing Notice */}
+        <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 text-xs font-mono text-stone-700 flex items-center gap-2">
+          <Activity className="w-4 h-4 text-[#971F26] shrink-0" />
+          <span>Gap events and metrics are treated as empirical research material with sample sizes (<em>n=X</em>), not validated public scoring engines.</span>
+        </div>
       </div>
 
       {/* Failure Patterns Grid */}
@@ -91,18 +104,23 @@ export function BadMapsSection() {
             className="bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
           >
             <div className="space-y-2.5">
-              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
-                <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2 py-0.5 rounded">
+              <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2 font-mono text-[10px]">
+                <span className="font-bold uppercase bg-[#971F26] text-white px-2 py-0.5 rounded">
                   PATTERN 0{idx + 1}
                 </span>
-                <span className="text-[10px] font-mono text-stone-600 font-bold">
-                  {pattern.tag}
+                <span className="text-stone-600 font-bold">
+                  {pattern.sample}
                 </span>
               </div>
 
-              <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
-                {pattern.title}
-              </h3>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-mono text-stone-600 font-bold uppercase block">
+                  {pattern.tag}
+                </span>
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
+                  {pattern.title}
+                </h3>
+              </div>
 
               <p className="text-xs text-stone-800 leading-relaxed font-sans">
                 {pattern.description}
@@ -121,7 +139,7 @@ export function BadMapsSection() {
         <ShieldAlert className="w-5 h-5 text-[#971F26] shrink-0 mt-0.5" />
         <div className="space-y-1 text-xs font-mono text-stone-800">
           <span className="font-bold text-[#971F26] uppercase block">
-            ETHICAL & EVIDENTIARY BOUNDARIES FOR BAD MAPS:
+            ETHICAL &amp; EVIDENTIARY BOUNDARIES FOR BAD MAPS:
           </span>
           <p className="font-sans text-stone-700 leading-relaxed">
             Bad Maps does <strong>NOT</strong> publish individual survivor records, identify alleged perpetrators, or adjudicate disputed facts. It tracks purely structural failure modes: referral loops, contradictory mandates, unowned handoffs, and stale resource claims.

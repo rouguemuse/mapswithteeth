@@ -21,7 +21,9 @@ import {
   Link2,
   Tag,
   GitBranch,
-  Check
+  Check,
+  PhoneCall,
+  Activity
 } from "lucide-react";
 import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
 import { ResourceMaterialsBlock } from "@/components/safeguards/ResourceMaterialsBlock";
@@ -62,7 +64,7 @@ export default function ContinuityStandardPage() {
       minimumRecord:
         "Inquiry made / source checked / result available, unavailable, or not authorized. (Zero substantive allegation text or evidentiary files stored in index).",
       safeguards:
-        "Existence of a related matter establishes no factual conclusion. Access restricted exclusively to authorized personnel with statutory jurisdiction.",
+        "Related matters may be linked to document that multiple proceedings exist, but the system must never merge their factual conclusions or imply corroboration merely because multiple records exist. Access restricted exclusively to authorized personnel with statutory jurisdiction.",
       completionCondition:
         "Review documented or legal inability to review documented.",
       icon: Link2
@@ -108,7 +110,7 @@ export default function ContinuityStandardPage() {
     {
       num: "04",
       title: "CUMULATIVE REVIEW TRIGGERS",
-      tagline: "Recognizing fragmented risk patterns.",
+      tagline: "Recognizing fragmented risk patterns without automated scoring.",
       maturity: "PROPOSED",
       purpose:
         "Identify when isolated incident handling may obscure relevant cumulative context across systems.",
@@ -119,7 +121,7 @@ export default function ContinuityStandardPage() {
       minimumRecord:
         "Encounter count, participating agency types, supervisory review log timestamp, supervisor staff ID, review disposition code.",
       safeguards:
-        "Absolutely not a numerical abuse-risk score. Trigger categories are reviewed directly by human decision-makers and cannot serve as sole basis for coercive action.",
+        "Zero automated abuse-risk scoring or credibility algorithms. Cumulative report counts are never used as risk or credibility metrics. Triggers serve exclusively to prompt human multidisciplinary inquiry.",
       completionCondition:
         "Designated supervisor or multidisciplinary team lead documents that cumulative multi-agency context was formally evaluated.",
       icon: AlertTriangle
@@ -204,18 +206,40 @@ export default function ContinuityStandardPage() {
         </div>
 
         <p className="text-base sm:text-lg text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
-          A proposed framework for preventing related matters from disappearing between institutional boundaries. Built on six protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
+          A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
         </p>
 
-        {/* Draft Notice & Changelog Strip */}
-        <div className="p-4 bg-[#EEE8DD] rounded-lg border border-[#D9D1C4] text-xs font-mono space-y-2 text-stone-800">
-          <div className="flex items-center justify-between border-b border-stone-300 pb-1.5 font-bold">
-            <span className="text-[#971F26] uppercase">DISCUSSION DRAFT STATUS & CHANGELOG</span>
-            <span className="text-stone-600">[RELEASE: OCT 2026]</span>
-          </div>
-          <p className="font-sans text-[12px] leading-relaxed text-stone-700">
-            <strong>v0.1 Changelog:</strong> Initial public-interest baseline specification. Established the 6 segregated touchpoint dimensions, 5 mandatory non-implication notices, client-side SHA-256 integrity hashing, and 6-field module specifications (Purpose, Trigger, Required Action, Minimum Record, Safeguards, Completion Condition).
+        {/* Governing Principle Banner */}
+        <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+            GOVERNING PRINCIPLE
+          </span>
+          <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
+            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
           </p>
+        </div>
+
+        {/* Two Working Models Callout */}
+        <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-mono">
+          <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
+            <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
+              <FileCheck className="w-4 h-4" />
+              <span>PRIMARY MODEL 01: CONTINUITY RECEIPT</span>
+            </div>
+            <p className="font-sans text-stone-700 text-[12px]">
+              Participant-held cryptographic encounter proof with client-side SHA-256 hashing, segregated material reviews, and next decision-owner logging.
+            </p>
+          </div>
+
+          <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
+            <div className="flex items-center gap-2 text-[#1C1D1D] font-bold uppercase">
+              <PhoneCall className="w-4 h-4" />
+              <span>PRIMARY MODEL 02: PERSONAL NUMBER CONTINUITY</span>
+            </div>
+            <p className="font-sans text-stone-700 text-[12px]">
+              Separating carrier billing authority from adult communication identity under the Safe Connections Act (47 U.S.C. § 345).
+            </p>
+          </div>
         </div>
       </div>
 
@@ -271,7 +295,7 @@ export default function ContinuityStandardPage() {
                   {/* 1. Purpose */}
                   <div className="p-3.5 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
                     <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
-                      1. PURPOSE & SEAM DEFICIT ADDRESSED
+                      1. PURPOSE &amp; SEAM DEFICIT ADDRESSED
                     </span>
                     <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
                       {m.purpose}
@@ -311,7 +335,7 @@ export default function ContinuityStandardPage() {
                   {/* 5. Safeguards */}
                   <div className="p-3.5 bg-white rounded-lg border border-[#971F26]/30 space-y-1">
                     <span className="font-mono font-bold text-[#971F26] uppercase block text-[10px]">
-                      5. SAFEGUARDS & DUE PROCESS BOUNDARIES
+                      5. SAFEGUARDS &amp; DUE PROCESS BOUNDARIES
                     </span>
                     <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
                       {m.safeguards}
@@ -374,7 +398,7 @@ export default function ContinuityStandardPage() {
             Evidence Integrity &amp; Administrative Traceability
           </h3>
           <p className="text-stone-300 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. Explore the 8 cross-cutting safeguards, 9 Review Trace administrative disposition statuses, and 7 locked principles governing evidence interpretation.
+            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. Explore the 8 cross-cutting safeguards, 9 Review Trace administrative disposition statuses, and locked principles governing evidence interpretation.
           </p>
         </div>
 
@@ -402,20 +426,20 @@ export default function ContinuityStandardPage() {
           <div className="p-3.5 bg-[#EEE8DD] rounded border border-stone-300 space-y-1">
             <span className="font-bold text-[#971F26] uppercase block">WHAT WE DO NOT DO:</span>
             <ul className="space-y-1 font-sans text-stone-700 text-[11.5px]">
-              <li>• We do not maintain a centralized database of allegations.</li>
-              <li>• We do not perform automated risk scoring of individuals.</li>
-              <li>• We do not make judicial or factual determinations.</li>
-              <li>• We do not publish private survivor or family dossiers.</li>
+              <li>• We do not maintain a centralized database of allegations or dossiers.</li>
+              <li>• We do not perform automated risk scoring or credibility ratings on individuals.</li>
+              <li>• We do not merge factual conclusions across linked proceedings.</li>
+              <li>• We do not substitute software for judicial fact-finding or casework discretion.</li>
             </ul>
           </div>
 
           <div className="p-3.5 bg-[#EEE8DD] rounded border border-stone-300 space-y-1">
             <span className="font-bold text-stone-900 uppercase block">WHAT WE PROVIDE INSTEAD:</span>
             <ul className="space-y-1 font-sans text-stone-700 text-[11.5px]">
-              <li>• Survivor-controlled cryptographic receipts of contacts (SHA-256 digest).</li>
+              <li>• Participant-held cryptographic receipts of contacts (SHA-256 digest).</li>
               <li>• Protocols for closed-loop interagency referral tracking.</li>
-              <li>• Signals prompting authorized personnel to check related files.</li>
-              <li>• Accountability metadata documenting decision ownership.</li>
+              <li>• Prompts for authorized personnel to verify related files without merging facts.</li>
+              <li>• Accountability metadata documenting next decision ownership.</li>
             </ul>
           </div>
         </div>
@@ -424,7 +448,7 @@ export default function ContinuityStandardPage() {
       {/* 6. Policy & Implementation Resources */}
       <ResourceMaterialsBlock />
 
-      {/* 5. Navigation Footer */}
+      {/* 7. Navigation Footer */}
       <div className="pt-6 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <Link
           href="/the-gap"
@@ -442,4 +466,3 @@ export default function ContinuityStandardPage() {
     </div>
   );
 }
-

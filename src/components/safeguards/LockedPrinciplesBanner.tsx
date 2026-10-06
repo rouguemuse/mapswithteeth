@@ -1,5 +1,5 @@
 import React from "react";
-import { BookmarkCheck, Compass } from "lucide-react";
+import { BookmarkCheck, Compass, ShieldCheck } from "lucide-react";
 
 export function LockedPrinciplesBanner() {
   const principles = [
@@ -45,8 +45,20 @@ export function LockedPrinciplesBanner() {
     }
   ];
 
+  const lockedDistinctions = [
+    { left: "referral", right: "successful handoff" },
+    { left: "receipt", right: "accessibility" },
+    { left: "accessibility", right: "review" },
+    { left: "closure", right: "factual resolution" },
+    { left: "repetition", right: "independent corroboration" },
+    { left: "association", right: "proof" },
+    { left: "fear / barrier", right: "refusal" },
+    { left: "administrative ownership", right: "factual authority" }
+  ];
+
   return (
-    <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-md select-none font-sans">
+    <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-8 shadow-md select-none font-sans">
+      {/* Header */}
       <div className="border-b border-stone-700 pb-4 space-y-2">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-amber-300">
@@ -67,8 +79,19 @@ export function LockedPrinciplesBanner() {
         <p className="text-stone-300 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
           These proposed principles constrain how continuity metadata should be interpreted. They are designed to preserve context without converting association, repetition, demeanor, or source independence into automatic conclusions.
         </p>
+
+        {/* Governing Principle Banner */}
+        <div className="p-4 bg-stone-900 border-l-4 border-l-amber-300 border border-stone-800 rounded-r-xl space-y-1 mt-4">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-300 block">
+            GOVERNING PRINCIPLE
+          </span>
+          <p className="text-base sm:text-lg font-serif italic font-bold text-amber-100">
+            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+          </p>
+        </div>
       </div>
 
+      {/* 8 Principles Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {principles.map((p) => (
           <div
@@ -92,6 +115,23 @@ export function LockedPrinciplesBanner() {
             </p>
           </div>
         ))}
+      </div>
+
+      {/* Locked Distinctions Banner */}
+      <div className="p-4 bg-stone-900 border border-stone-800 rounded-xl space-y-3 font-mono text-xs">
+        <div className="flex items-center gap-2 text-amber-300 font-bold uppercase border-b border-stone-800 pb-2">
+          <ShieldCheck className="w-4 h-4" />
+          <span>8 LOCKED INSTITUTIONAL DISTINCTIONS</span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+          {lockedDistinctions.map((d, i) => (
+            <div key={i} className="p-2 bg-stone-950/80 border border-stone-800 rounded">
+              <span className="text-stone-300 font-bold">{d.left}</span>{" "}
+              <span className="text-red-400 font-bold">≠</span>{" "}
+              <span className="text-stone-300 font-bold">{d.right}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

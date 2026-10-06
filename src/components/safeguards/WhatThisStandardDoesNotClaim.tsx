@@ -5,18 +5,18 @@ export function WhatThisStandardDoesNotClaim() {
   const boundaries = [
     {
       num: "01",
-      title: "NOT A SHARED ALLEGATION DATABASE",
-      desc: "Maps With Teeth does not pool, aggregate, or broadcast unvetted allegations across agencies. Information moves only through participant-controlled handoffs or legally authorized inter-agency protocols."
+      title: "NOT A CASE-MANAGEMENT PLATFORM OR DOSSIER",
+      desc: "Maps With Teeth does not pool, aggregate, or broadcast unvetted allegations across agencies. It is not case-management software or a centralized CRM. Information moves only through participant-held receipts or lawful inter-agency protocols."
     },
     {
       num: "02",
       title: "NO AI RISK OR CREDIBILITY SCORING",
-      desc: "The standard strictly forbids automated algorithmic credibility scores, AI risk ratings, predictive policing metrics, or quantitative reliability ratings on individuals."
+      desc: "The standard strictly forbids automated algorithmic credibility scores, AI risk ratings, predictive policing metrics, or quantitative reliability ratings on individuals. Cumulative report counts are never used as risk or credibility metrics."
     },
     {
       num: "03",
-      title: "NO INFRINGEMENT ON STATUTORY DISCRETION",
-      desc: "The framework does not substitute for judicial fact-finding, professional judgment, or agency statutory discretion. It proposes documentation of administrative handling rather than directing case outcomes."
+      title: "RELATED MATTERS DO NOT MERGE FACTS",
+      desc: "Related proceedings may be linked to document that multiple matters exist, but the system must never merge their factual conclusions or imply corroboration merely because multiple records exist."
     },
     {
       num: "04",
@@ -25,18 +25,18 @@ export function WhatThisStandardDoesNotClaim() {
     },
     {
       num: "05",
+      title: "NO INFRINGEMENT ON STATUTORY DISCRETION",
+      desc: "The framework does not substitute for judicial fact-finding, professional judgment, or agency statutory discretion. It proposes documentation of administrative handling rather than directing case outcomes."
+    },
+    {
+      num: "06",
       title: "PROPOSED TARGETS ARE NOT STATUTES",
       desc: "Service targets (such as the proposed 48-hour referral disposition benchmark) are design targets for evaluation pilots, not existing statutory mandates or court deadlines."
     },
     {
-      num: "06",
-      title: "NO UNVERIFIED ACTIVE AGENCY PILOTS",
-      desc: "The project strictly distinguishes between Central Texas field validation research and formal agency adoption. No proposed pilot is described as an active governmental deployment without formal MOUs."
-    },
-    {
       num: "07",
-      title: "NO UNVERIFIED SECURITY ABSOLUTES",
-      desc: "The architecture minimizes server-side data storage and processes sensitive context client-side, but does not claim 'zero vulnerabilities' or bypass mandatory independent security audits."
+      title: "GAP TAXONOMY IS RESEARCH MATERIAL (n=X)",
+      desc: "The 12 gap taxonomy classifications and metrics are empirical research and pressure-test materials, not validated public statistics, until sufficient observations and formal definitions exist."
     },
     {
       num: "08",
