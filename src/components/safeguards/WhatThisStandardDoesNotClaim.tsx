@@ -6,7 +6,7 @@ export function WhatThisStandardDoesNotClaim() {
     {
       num: "01",
       title: "NOT A SHARED ALLEGATION DATABASE",
-      desc: "Maps With Teeth does not pool, aggregate, or broadcast unvetted allegations across agencies. Information moves only via verified participant-controlled handoffs and explicit inter-agency protocols."
+      desc: "Maps With Teeth does not pool, aggregate, or broadcast unvetted allegations across agencies. Information moves only through participant-controlled handoffs or legally authorized inter-agency protocols."
     },
     {
       num: "02",
@@ -16,12 +16,12 @@ export function WhatThisStandardDoesNotClaim() {
     {
       num: "03",
       title: "NO INFRINGEMENT ON STATUTORY DISCRETION",
-      desc: "The framework does not substitute for judicial fact-finding, caseworker clinical judgment, or agency statutory discretion. It ensures administrative actions and omissions are documented, not dictated."
+      desc: "The framework does not substitute for judicial fact-finding, professional judgment, or agency statutory discretion. It proposes documentation of administrative handling rather than directing case outcomes."
     },
     {
       num: "04",
       title: "DOES NOT PRE-VALIDATE CLAIM TRUTH",
-      desc: "Logging a receipt or documenting provenance does not constitute a finding of fact or certification of truth. It records custody, provenance, and receipt metadata so facts can be evaluated."
+      desc: "Logging a receipt, Review Trace status, or provenance does not constitute a finding of fact, authentication decision, or certification of truth. It records administrative handling and source context so material can be evaluated under the applicable process."
     },
     {
       num: "05",
@@ -63,7 +63,7 @@ export function WhatThisStandardDoesNotClaim() {
         </h3>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-          To maintain absolute legal integrity, policy credibility, and survivor trust, the Cross-System Continuity Standard establishes clear, unambiguous boundaries regarding what it does not do.
+          To preserve legal, policy, and due-process boundaries, the proposed Cross-System Continuity Standard states clearly what it does not do.
         </p>
       </div>
 
