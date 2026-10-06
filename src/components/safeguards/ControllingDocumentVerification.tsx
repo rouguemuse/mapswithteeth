@@ -1,51 +1,51 @@
 import React from "react";
-import { FileCheck, ArrowRight, ShieldAlert, FileText, AlertOctagon, CornerDownRight } from "lucide-react";
+import { AlertOctagon, CornerDownRight, FileCheck } from "lucide-react";
 
 export function ControllingDocumentVerification() {
   const steps = [
     {
       num: "01",
-      label: "ASSERTION OF RESTRAINT",
-      desc: "An agency worker, landlord, school administrator, or opposing party asserts a legal limitation on a person's rights or physical presence.",
-      example: "e.g., 'Mother cannot pick up the child from school per the restraining order.'"
+      label: "AUTHORITY RELIED UPON",
+      desc: "Identify the legal, policy, contractual, or administrative authority the institution believes permits or requires the action.",
+      example: "What authority is being enforced?"
     },
     {
       num: "02",
-      label: "CONTROLLING INSTRUMENT",
-      desc: "Identification and retrieval of the specific operative legal document, court order, or statutory provision governing the scenario.",
-      example: "e.g., Temporary Protective Order issued by 425th District Court, Cause #24-0891-FC."
+      label: "DOCUMENT OR RULE REVIEWED",
+      desc: "Identify the actual order, statute, regulation, policy, agreement, or other controlling source that was reviewed.",
+      example: "What document or rule was actually consulted?"
     },
     {
       num: "03",
-      label: "EXACT OPERATIVE CLAUSE",
-      desc: "Verification of the precise text and geographic/custodial scope within the document rather than relying on verbal summaries.",
-      example: "e.g., Clause 4(b) restricts respondent father from school premises; petitioner mother retains unrestricted pickup rights."
+      label: "PROVISION UNDERSTOOD TO CONTROL",
+      desc: "Record the provision the institution understood to authorize the decision, without requiring frontline staff to resolve legal disputes beyond their role.",
+      example: "Which provision was understood to govern this action?"
     },
     {
       num: "04",
-      label: "PROPORTIONATE ACTION",
-      desc: "Execution of administrative or protective conduct strictly limited to the documented legal authority.",
-      example: "e.g., School verifies mother's photo ID and facilitates child release, noting father's exclusion in campus security file."
+      label: "VERIFICATION & ACTION",
+      desc: "Record when the authority was checked, who or what role verified it, and what administrative action resulted.",
+      example: "When was it verified, and what action followed?"
     },
     {
       num: "05",
       label: "NOTICE & CORRECTION PATH",
-      desc: "Immediate provision of written notice and formal administrative/judicial correction pathway to the affected individual.",
-      example: "e.g., Providing written citation to the order and clerk contact if any party disputes custody terms."
+      desc: "Record how an affected person can seek correction, supervisory review, or referral to an authorized legal or policy decision-maker when interpretation is disputed.",
+      example: "What is the review or correction path?"
     }
   ];
 
   return (
     <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm select-none font-sans">
       <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[#971F26]">
             <FileCheck className="w-5 h-5" />
             <span className="text-xs font-mono font-bold uppercase tracking-widest">
               PROPOSED SAFEGUARD · PROTOCOL 06
             </span>
           </div>
-          <span className="coord-tick">[RIGHTS-LIMITING TRACEABILITY]</span>
+          <span className="coord-tick">[RIGHTS-DECISION TRACEABILITY]</span>
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
@@ -59,13 +59,12 @@ export function ControllingDocumentVerification() {
         </div>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl pt-2">
-          One of the most damaging administrative failure modes occurs when frontline staff enforce informal verbal claims (<em>&ldquo;the officer said you can&rsquo;t be here,&rdquo; &ldquo;there is a case open so you have no rights&rdquo;</em>) without ever inspecting the signed court order, lease agreement, or statutory authority. Rights-limiting actions must follow a strict five-stage verification trace.
+          When an institution limits access, participation, custody-related school handling, records access, housing access, or another legal right, the proposed safeguard asks the administrative record to identify the authority actually relied upon. It does not require frontline staff to independently resolve contested legal interpretation; disputed interpretation can be escalated to the role authorized to decide it.
         </p>
       </div>
 
-      {/* 5-Step Verification Flow */}
       <div className="space-y-3">
-        {steps.map((step, idx) => (
+        {steps.map((step) => (
           <div
             key={step.num}
             className="p-4 bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xs"
@@ -88,7 +87,7 @@ export function ControllingDocumentVerification() {
               <CornerDownRight className="w-4 h-4 text-[#971F26] shrink-0 hidden sm:block" />
               <div className="text-xs font-sans text-stone-800">
                 <span className="font-mono font-bold text-stone-500 uppercase text-[10px] block">
-                  TRACE REQUIREMENT &amp; OPERATIONAL CHECK:
+                  TRACE QUESTION:
                 </span>
                 {step.example}
               </div>
@@ -97,14 +96,13 @@ export function ControllingDocumentVerification() {
         ))}
       </div>
 
-      {/* Rule Callout */}
       <div className="p-4 bg-red-50/70 border border-red-200 rounded-xl space-y-2">
         <div className="flex items-center gap-2 text-[#971F26]">
           <AlertOctagon className="w-4 h-4" />
-          <span className="text-xs font-mono font-bold uppercase">Prohibition of Verbal Folklore Restraints</span>
+          <span className="text-xs font-mono font-bold uppercase">Proposed Traceability Boundary</span>
         </div>
         <p className="text-xs font-sans text-red-950 leading-relaxed">
-          No public agency, shelter, housing authority, or educational institution may alter a parent&rsquo;s legal custody, restrict housing access, or prohibit parental contact based solely on verbal assertions, unverified hearsay, or pending unadjudicated referrals. The controlling order and specific clause must be referenced in the administrative log.
+          A third party&apos;s verbal description of an order, statute, rule, or policy should not silently become the institution&apos;s controlling authority. The record should identify what authority was actually reviewed, the provision understood to control, the resulting action, and a correction or review path.
         </p>
       </div>
     </section>
