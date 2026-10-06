@@ -1,30 +1,21 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Shuffle,
   ArrowRight,
   ShieldCheck,
   FileText,
-  CheckCircle2,
   AlertTriangle,
   Scale,
-  Building2,
-  Clock,
-  Fingerprint,
   Layers,
   Lock,
-  Compass,
   FolderArchive,
   FileCheck,
   RefreshCw,
   Users,
   Link2,
-  Tag,
   GitBranch,
-  Check,
   PhoneCall,
-  Activity,
-  Code2
+  ChevronDown
 } from "lucide-react";
 import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
 import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
@@ -38,6 +29,7 @@ export const metadata = {
 
 interface ContinuityModule {
   num: string;
+  slug: string;
   title: string;
   tagline: string;
   maturity: "IMPLEMENTED" | "PROTOTYPE" | "PROPOSED" | "REQUIRES LEGAL REVIEW" | "REQUIRES SECURITY REVIEW";
@@ -54,6 +46,7 @@ export default function ContinuityStandardPage() {
   const modules: ContinuityModule[] = [
     {
       num: "01",
+      slug: "module-01",
       title: "LINKED-MATTER REVIEW",
       tagline: "Related does not mean proven.",
       maturity: "PROPOSED",
@@ -73,6 +66,7 @@ export default function ContinuityStandardPage() {
     },
     {
       num: "02",
+      slug: "module-02",
       title: "CLOSED-LOOP REFERRALS",
       tagline: "A referral should not end at 'sent.'",
       maturity: "PROTOTYPE",
@@ -85,32 +79,34 @@ export default function ContinuityStandardPage() {
       minimumRecord:
         "Sender, recipient, date, reference, received status, acceptance/decline, next owner.",
       safeguards:
-        "Receipt confirms administrative transfer only. Failure to acknowledge within 14 days triggers an automated dead-route alert.",
+        "Receipt confirms administrative transfer only. Proposed pilot workflow: unacknowledged handoffs exceeding the pilot window are flagged as unconfirmed routes for follow-up.",
       completionCondition:
         "Accepted, declined, redirected, or returned with documented decision ownership.",
       icon: RefreshCw
     },
     {
       num: "03",
+      slug: "module-03",
       title: "CONTINUITY RECEIPT",
-      tagline: "Standardized portable encounter proof.",
+      tagline: "Standardized portable encounter record.",
       maturity: "IMPLEMENTED",
       purpose:
         "Preserve the administrative path. Provide the individual with portable proof of their encounter to prevent repetitive retelling of trauma.",
       trigger:
         "Any frontline institutional encounter, desk intake, document submission, or referral interaction.",
       requiredAction:
-        "Generate a client-side cryptographic Continuity Contact Record containing segregated material review statuses, routing decisions, and deadlines.",
+        "Generate a client-side Continuity Contact Record containing segregated material review statuses, routing decisions, and deadlines.",
       minimumRecord:
-        "Record ID (DEMO-000001), encounter date, agency entity, SHA-256 integrity hash, presented material list with per-item review statuses, ministerial action taken, next decision owner.",
+        "Record ID (DEMO-000001), encounter date, agency entity, SHA-256 baseline digest, presented material list with per-item review statuses, ministerial action taken, next decision owner.",
       safeguards:
-        "Participant-held by default during the prototype stage; agency integration is not a prerequisite. 5 mandatory non-implication notices prevent tort liability or merits findings.",
+        "Participant-held by default during the prototype stage; agency integration is not a prerequisite. Non-implication notices explicitly state that the record does not establish tort liability, agency endorsement, or merits findings.",
       completionCondition:
-        "Receipt compiled, SHA-256 cryptographic digest calculated client-side, and exported or printed directly into participant custody.",
+        "Receipt compiled, SHA-256 cryptographic digest calculated client-side for baseline comparison, and exported directly into participant custody.",
       icon: FileText
     },
     {
       num: "04",
+      slug: "module-04",
       title: "CUMULATIVE REVIEW TRIGGERS",
       tagline: "Recognizing fragmented risk patterns without automated scoring.",
       maturity: "PROPOSED",
@@ -119,7 +115,7 @@ export default function ContinuityStandardPage() {
       trigger:
         "Defined trigger categories (e.g. 3 fragmented institutional encounters or declined intakes within 90 days across 2+ jurisdictions).",
       requiredAction:
-        "Mandates human supervisory review or multidisciplinary case conference (CAC, High-Risk Team) before administrative dismissal.",
+        "Prompts human supervisory review or multidisciplinary case conference (CAC, High-Risk Team) before administrative dismissal.",
       minimumRecord:
         "Encounter count, participating agency types, supervisory review log timestamp, supervisor staff ID, review disposition code.",
       safeguards:
@@ -130,6 +126,7 @@ export default function ContinuityStandardPage() {
     },
     {
       num: "05",
+      slug: "module-05",
       title: "DECISION OWNERSHIP",
       tagline: "Eliminating unassigned responsibility.",
       maturity: "PROTOTYPE",
@@ -138,7 +135,7 @@ export default function ContinuityStandardPage() {
       trigger:
         "Dispatched referral, multi-agency investigation, or concurrent court/agency filings.",
       requiredAction:
-        "Explicitly bind a named institution and role as the primary decision owner for the immediate next milestone.",
+        "Explicitly document a named institution and role as the primary decision owner for the immediate next milestone.",
       minimumRecord:
         "Assigned agency identifier, responsible unit/role, primary handler ID, action milestone description, target completion deadline.",
       safeguards:
@@ -149,6 +146,7 @@ export default function ContinuityStandardPage() {
     },
     {
       num: "06",
+      slug: "module-06",
       title: "CONTEXT BEFORE CLOSURE",
       tagline: "Accountability metadata before case exit.",
       maturity: "PROPOSED",
@@ -183,10 +181,18 @@ export default function ContinuityStandardPage() {
     }
   };
 
+  const navSections = [
+    { name: "1. Six Modules", href: "#modules" },
+    { name: "2. Interchange Spec", href: "#interchange-spec" },
+    { name: "3. Specimen Demo", href: "#receipt-specimen" },
+    { name: "4. Safeguard Layer", href: "#safeguards-layer" },
+    { name: "5. Policy Resources", href: "#resources" },
+  ];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 select-none font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
       {/* 1. Header & Version / Discussion Draft Banner */}
-      <div className="border-b border-[#D9D1C4] pb-8 space-y-4">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Layers className="w-5 h-5" />
@@ -210,6 +216,24 @@ export default function ContinuityStandardPage() {
         <p className="text-base sm:text-lg text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
           A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six open protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
         </p>
+
+        {/* Section Navigation Jump Bar */}
+        <nav aria-label="Continuity Page Sections" className="pt-2">
+          <div className="flex flex-wrap items-center gap-2 p-2 bg-[#EEE8DD] border border-stone-300 rounded-xl text-xs font-mono">
+            <span className="font-bold text-stone-600 px-2 uppercase text-[11px]">
+              Sections:
+            </span>
+            {navSections.map((sec) => (
+              <a
+                key={sec.name}
+                href={sec.href}
+                className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-stone-800 hover:text-[#971F26] border border-stone-300 rounded font-medium transition focus:outline-none focus:ring-2 focus:ring-[#971F26]"
+              >
+                {sec.name}
+              </a>
+            ))}
+          </div>
+        </nav>
 
         {/* Dual Goals Banner */}
         <div className="grid sm:grid-cols-2 gap-3 pt-2">
@@ -240,7 +264,7 @@ export default function ContinuityStandardPage() {
               <span>PRINCIPAL WORKING MODEL: CONTINUITY RECEIPT</span>
             </div>
             <p className="font-sans text-stone-700 text-[12px]">
-              Participant-held cryptographic encounter proof with client-side SHA-256 hashing, segregated material reviews, and next decision-owner logging.
+              Participant-held encounter record with client-side SHA-256 baseline digest, segregated material reviews, and logged decision ownership.
             </p>
           </div>
 
@@ -257,7 +281,7 @@ export default function ContinuityStandardPage() {
       </div>
 
       {/* 2. The 6 Modules Deep Dive */}
-      <section className="space-y-6">
+      <section id="modules" className="space-y-6 scroll-mt-24">
         <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
@@ -268,21 +292,22 @@ export default function ContinuityStandardPage() {
             </h2>
           </div>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            6 MANDATORY ATTRIBUTES PER MODULE
+            NAMES &amp; PURPOSES VISIBLE · TECHNICAL ATTRIBUTES EXPANDABLE
           </span>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {modules.map((m) => {
             const Icon = m.icon;
             return (
               <div
                 key={m.num}
-                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-6 shadow-sm"
+                id={m.slug}
+                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-7 space-y-5 shadow-sm scroll-mt-24"
               >
-                {/* Module Header */}
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D9D1C4] pb-4">
-                  <div className="space-y-1">
+                {/* Always-Visible Module Header & Purpose */}
+                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#D9D1C4] pb-4">
+                  <div className="space-y-1.5 flex-1 min-w-[260px]">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-mono font-bold text-[#971F26]">
                         MODULE {m.num}
@@ -291,80 +316,89 @@ export default function ContinuityStandardPage() {
                         {m.maturity}
                       </span>
                     </div>
+
                     <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#1C1D1D]">
                       {m.title}
                     </h3>
+
                     <p className="text-xs font-mono text-[#971F26] font-bold">
                       &ldquo;{m.tagline}&rdquo;
                     </p>
+
+                    <p className="text-stone-800 text-xs sm:text-sm font-sans pt-1 leading-relaxed">
+                      <strong>Purpose:</strong> {m.purpose}
+                    </p>
                   </div>
-                  <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg">
-                    <Icon className="w-6 h-6 text-[#971F26]" />
+
+                  <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg shrink-0">
+                    <Icon className="w-5 h-5 text-[#971F26]" />
                   </div>
                 </div>
 
-                {/* 6 Mandatory Module Attributes Grid */}
-                <div className="grid md:grid-cols-2 gap-4 text-xs">
-                  {/* 1. Purpose */}
-                  <div className="p-3.5 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-                    <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
-                      1. PURPOSE &amp; SEAM DEFICIT ADDRESSED
+                {/* Accessible Single Disclosure for Substantive Technical Attributes */}
+                <details className="group border border-stone-300 rounded-lg bg-[#F5F1E8]">
+                  <summary className="cursor-pointer font-mono font-bold text-xs p-3.5 select-none flex items-center justify-between text-stone-900 hover:text-[#971F26] focus-visible:outline-2 focus-visible:outline-[#971F26] rounded-lg bg-[#F5F1E8] hover:bg-stone-200/60 transition">
+                    <span className="flex items-center gap-2">
+                      <ChevronDown className="w-4 h-4 text-[#971F26] transition-transform duration-200 group-open:rotate-180" />
+                      <span>Substantive Technical Requirements (5 Attributes)</span>
                     </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.purpose}
-                    </p>
-                  </div>
+                    <span className="text-[10px] uppercase tracking-wider text-stone-500 font-normal">
+                      Click to toggle
+                    </span>
+                  </summary>
 
-                  {/* 2. Trigger */}
-                  <div className="p-3.5 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-                    <span className="font-mono font-bold text-[#971F26] uppercase block text-[10px]">
-                      2. INSTITUTIONAL TRIGGER
-                    </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.trigger}
-                    </p>
-                  </div>
+                  <div className="p-4 pt-1 border-t border-stone-200 grid md:grid-cols-2 gap-3 text-xs">
+                    {/* Trigger */}
+                    <div className="p-3 bg-white rounded border border-stone-300 space-y-1">
+                      <span className="font-mono font-bold text-[#971F26] uppercase block text-[10px]">
+                        1. INSTITUTIONAL TRIGGER
+                      </span>
+                      <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
+                        {m.trigger}
+                      </p>
+                    </div>
 
-                  {/* 3. Required Action */}
-                  <div className="p-3.5 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-                    <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
-                      3. MANDATED ACTION / WORKFLOW
-                    </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.requiredAction}
-                    </p>
-                  </div>
+                    {/* Required Action */}
+                    <div className="p-3 bg-white rounded border border-stone-300 space-y-1">
+                      <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
+                        2. MANDATED WORKFLOW
+                      </span>
+                      <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
+                        {m.requiredAction}
+                      </p>
+                    </div>
 
-                  {/* 4. Minimum Record */}
-                  <div className="p-3.5 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-                    <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
-                      4. MINIMUM NECESSARY RECORD
-                    </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.minimumRecord}
-                    </p>
-                  </div>
+                    {/* Minimum Record */}
+                    <div className="p-3 bg-white rounded border border-stone-300 space-y-1">
+                      <span className="font-mono font-bold text-stone-900 uppercase block text-[10px]">
+                        3. MINIMUM NECESSARY RECORD
+                      </span>
+                      <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
+                        {m.minimumRecord}
+                      </p>
+                    </div>
 
-                  {/* 5. Safeguards */}
-                  <div className="p-3.5 bg-white rounded-lg border border-[#971F26]/30 space-y-1">
-                    <span className="font-mono font-bold text-[#971F26] uppercase block text-[10px]">
-                      5. SAFEGUARDS &amp; DUE PROCESS BOUNDARIES
-                    </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.safeguards}
-                    </p>
-                  </div>
+                    {/* Safeguards */}
+                    <div className="p-3 bg-white rounded border border-[#971F26]/30 space-y-1">
+                      <span className="font-mono font-bold text-[#971F26] uppercase block text-[10px]">
+                        4. SAFEGUARDS &amp; DUE PROCESS BOUNDARIES
+                      </span>
+                      <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
+                        {m.safeguards}
+                      </p>
+                    </div>
 
-                  {/* 6. Completion Condition */}
-                  <div className="p-3.5 bg-[#E8F3EB] rounded-lg border border-[#2D5A3D]/40 space-y-1">
-                    <span className="font-mono font-bold text-[#2D5A3D] uppercase block text-[10px]">
-                      6. VERIFIABLE COMPLETION CONDITION
-                    </span>
-                    <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
-                      {m.completionCondition}
-                    </p>
+                    {/* Completion Condition */}
+                    <div className="p-3 bg-[#E8F3EB] rounded border border-[#2D5A3D]/40 space-y-1 md:col-span-2">
+                      <span className="font-mono font-bold text-[#2D5A3D] uppercase block text-[10px]">
+                        5. VERIFIABLE COMPLETION CONDITION
+                      </span>
+                      <p className="font-sans text-stone-800 text-[11.5px] leading-relaxed">
+                        {m.completionCondition}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </details>
               </div>
             );
           })}
@@ -372,10 +406,12 @@ export default function ContinuityStandardPage() {
       </section>
 
       {/* 3. Continuity Interchange Specification */}
-      <ContinuityInterchangeSpecComponent />
+      <div id="interchange-spec" className="scroll-mt-24">
+        <ContinuityInterchangeSpecComponent />
+      </div>
 
       {/* 4. Interactive Specimen Demo */}
-      <section className="space-y-6">
+      <section id="receipt-specimen" className="space-y-6 scroll-mt-24">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <div>
             <span className="text-xs font-mono uppercase text-[#971F26] font-bold tracking-wider block">
@@ -395,13 +431,13 @@ export default function ContinuityStandardPage() {
         <ContinuityContactRecordSpecimen />
       </section>
 
-      {/* 5. Cross-Cutting Safeguards Callout Banner */}
-      <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md">
+      {/* 5. Cross-Cutting Safeguards Callout Banner (Distinct Layer) */}
+      <section id="safeguards-layer" className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md scroll-mt-24">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-700 pb-3">
           <div className="flex items-center gap-2 text-amber-300">
             <Scale className="w-5 h-5" />
             <span className="text-xs font-mono font-bold uppercase tracking-widest">
-              CROSS-CUTTING SAFEGUARDS SPECIFICATION
+              CROSS-CUTTING SAFEGUARDS LAYER (SEPARATE SPECIFICATION)
             </span>
           </div>
           <span className="text-[10px] font-mono text-stone-400 uppercase">
@@ -414,7 +450,7 @@ export default function ContinuityStandardPage() {
             Evidence Integrity &amp; Administrative Traceability
           </h3>
           <p className="text-stone-300 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. Explore the 8 cross-cutting safeguards, Review Trace administrative disposition statuses, and locked principles governing evidence interpretation.
+            Continuity does not mean believing every report, aggregating accusations, or treating repetition as proof. The safeguard layer exists distinctly from the six modules to enforce 8 cross-cutting evidence integrity principles, Review Trace administrative disposition statuses, and provenance boundaries.
           </p>
         </div>
 
@@ -452,7 +488,7 @@ export default function ContinuityStandardPage() {
           <div className="p-3.5 bg-[#EEE8DD] rounded border border-stone-300 space-y-1">
             <span className="font-bold text-stone-900 uppercase block">WHAT WE PROVIDE INSTEAD:</span>
             <ul className="space-y-1 font-sans text-stone-700 text-[11.5px]">
-              <li>• Participant-held cryptographic receipts of contacts (SHA-256 digest).</li>
+              <li>• Participant-held contact records with SHA-256 baseline digest.</li>
               <li>• Protocols for closed-loop interagency referral tracking.</li>
               <li>• Prompts for authorized personnel to verify related files without merging facts.</li>
               <li>• Accountability metadata documenting next decision ownership.</li>
@@ -461,7 +497,7 @@ export default function ContinuityStandardPage() {
         </div>
       </section>
 
-      {/* 7. Policy & Implementation Resources */}
+      {/* 7. Consolidated Policy & Implementation Resources */}
       <ResourceMaterialsBlock />
 
       {/* 8. Navigation Footer */}

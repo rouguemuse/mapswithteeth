@@ -44,11 +44,11 @@ export function ContinuityStandardSection() {
     {
       num: "03",
       title: "CONTINUITY RECEIPT",
-      tagline: "Principal working model: portable encounter proof.",
+      tagline: "Principal working model: portable encounter record.",
       description:
-        "A standardized participant-held receipt containing essential metadata and SHA-256 digests needed to carry context forward across institutional boundaries.",
+        "A standardized participant-held encounter record containing essential metadata and SHA-256 baseline digests needed to carry context forward across institutional boundaries.",
       mechanism:
-        "Preserves: Agency, Date, Ref #, Submitted materials with SHA-256, Action taken, Review status, Next decision owner.",
+        "Preserves: Agency, Date, Ref #, Submitted materials with SHA-256 baseline digests, Action taken, Review status, Next decision owner.",
       icon: FileText
     },
     {

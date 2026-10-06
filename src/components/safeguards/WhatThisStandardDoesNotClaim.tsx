@@ -35,8 +35,8 @@ export function WhatThisStandardDoesNotClaim() {
     },
     {
       num: "07",
-      title: "GAP TAXONOMY IS RESEARCH MATERIAL (n=X)",
-      desc: "The 12 gap taxonomy classifications and metrics are empirical research and pressure-test materials, not validated public statistics, until sufficient observations and formal definitions exist."
+      title: "GAP TAXONOMY IS RESEARCH MATERIAL",
+      desc: "The 12 gap taxonomy classifications and proposed metrics are research and pressure-test frameworks, not population-level validated public statistics."
     },
     {
       num: "08",

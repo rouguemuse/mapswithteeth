@@ -36,3 +36,7 @@ yarn-error.log*
 # local services
 preserve-service/
 
+# generated screenshots and test artifacts
+*.png
+.chrome_temp/
+

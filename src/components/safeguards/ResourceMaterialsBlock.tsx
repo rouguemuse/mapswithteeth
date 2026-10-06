@@ -1,98 +1,65 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, FileText, ShieldCheck } from "lucide-react";
-
-type Material = {
-  title: string;
-  subtitle: string;
-  desc: string;
-  tag: string;
-  status: "AVAILABLE ON SITE" | "RESOURCE IN DEVELOPMENT";
-  href?: string;
-  icon: typeof FileText;
-};
+import { ArrowRight, BookOpen, FileText, ShieldCheck, Clock } from "lucide-react";
 
 export function ResourceMaterialsBlock() {
-  const materials: Material[] = [
+  const availableMaterials = [
     {
       title: "Cross-System Continuity Standard",
-      subtitle: "Six core continuity modules",
-      desc: "The live Maps With Teeth continuity architecture covering linked-matter review, closed-loop referrals, continuity receipts, cumulative review, decision ownership, and context before closure.",
+      subtitle: "Six core continuity modules & data interchange specification",
+      desc: "The open Maps With Teeth continuity architecture covering linked-matter review, closed-loop referrals, continuity contact records, cumulative review, decision ownership, and context before closure.",
       tag: "STANDARD",
-      status: "AVAILABLE ON SITE",
       href: "/continuity",
       icon: ShieldCheck
     },
     {
       title: "Evidence Integrity & Administrative Traceability",
-      subtitle: "Cross-cutting safeguards and Review Trace vocabulary",
-      desc: "The live safeguard layer governing provenance, claim-evidence separation, barrier-aware cooperation, retaliation separation, rights-decision traceability, and observation-versus-disposition boundaries.",
+      subtitle: "8 cross-cutting safeguards & Review Trace vocabulary",
+      desc: "The public safeguard layer governing provenance, claim-evidence separation, barrier-aware cooperation, retaliation separation, rights-decision traceability, and observation-versus-disposition boundaries.",
       tag: "SAFEGUARDS",
-      status: "AVAILABLE ON SITE",
       href: "/continuity/safeguards",
       icon: BookOpen
     },
     {
-      title: "Texas Policy & Sunset Materials",
-      subtitle: "Policy analysis and structural recommendations",
-      desc: "Current policy materials are presented through the Policy & Systems Lab. Downloadable submission packets will be exposed only when final public assets exist in the production repository.",
+      title: "Texas Policy & Systems Lab",
+      subtitle: "Statutory analyses, central Texas pilot projects & administrative reform",
+      desc: "Policy materials covering Texas Property, Family, Labor, and Utility codes alongside statutory and administrative recommendations.",
       tag: "POLICY",
-      status: "AVAILABLE ON SITE",
       href: "/policy",
-      icon: FileText
-    },
-    {
-      title: "Initiative Overview",
-      subtitle: "Central explanation of why Maps With Teeth exists and how the model develops",
-      desc: "Planned public resource. No download is exposed until the final production asset is present.",
-      tag: "OVERVIEW",
-      status: "RESOURCE IN DEVELOPMENT",
-      icon: FileText
-    },
-    {
-      title: "Practitioner Brief",
-      subtitle: "Review Trace & Provenance pressure-test handout",
-      desc: "Planned practitioner-facing resource for structured review conversations. No placeholder download is exposed.",
-      tag: "PRACTITIONER",
-      status: "RESOURCE IN DEVELOPMENT",
-      icon: FileText
-    },
-    {
-      title: "Review Trace v0.1",
-      subtitle: "Proposed administrative trace template",
-      desc: "Planned implementation artifact showing how identified material could be logged without deciding merits. No placeholder download is exposed.",
-      tag: "TEMPLATE",
-      status: "RESOURCE IN DEVELOPMENT",
-      icon: FileText
-    },
-    {
-      title: "Agency Implementation Playbook",
-      subtitle: "Governance, synthetic testing, pilot operations, and stop conditions",
-      desc: "Planned agency-facing implementation resource. No placeholder download is exposed.",
-      tag: "IMPLEMENTATION",
-      status: "RESOURCE IN DEVELOPMENT",
-      icon: FileText
-    },
-    {
-      title: "Evidence Integrity Glossary",
-      subtitle: "Defined terms for provenance, corroboration, barriers, dispositions, and decision ownership",
-      desc: "Planned methodology reference. No placeholder download is exposed.",
-      tag: "GLOSSARY",
-      status: "RESOURCE IN DEVELOPMENT",
-      icon: BookOpen
-    },
-    {
-      title: "Participant / Survivor & Parent Continuity Guide",
-      subtitle: "Informational continuity and documentation guide",
-      desc: "Planned participant-facing informational resource. No placeholder download is exposed.",
-      tag: "GUIDE",
-      status: "RESOURCE IN DEVELOPMENT",
       icon: FileText
     }
   ];
 
+  const inDevelopmentMaterials = [
+    {
+      title: "Initiative Overview",
+      desc: "Central briefing on why Maps With Teeth exists and how the model develops."
+    },
+    {
+      title: "Practitioner Brief",
+      desc: "Review Trace and provenance pressure-test handout for multi-disciplinary teams."
+    },
+    {
+      title: "Review Trace v0.1 Template",
+      desc: "Administrative trace template for logging identified materials without merits pre-judgment."
+    },
+    {
+      title: "Agency Implementation Playbook",
+      desc: "Governance, synthetic testing protocols, pilot operations, and stop conditions."
+    },
+    {
+      title: "Evidence Integrity Glossary",
+      desc: "Defined terms for provenance, corroboration, barrier reporting, and dispositions."
+    },
+    {
+      title: "Participant Continuity Guide",
+      desc: "Survivor-held documentation guide and portable record keeping instructions."
+    }
+  ];
+
   return (
-    <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm select-none font-sans">
+    <section id="resources" className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-8 shadow-sm font-sans scroll-mt-24">
+      {/* Section Header */}
       <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[#971F26]">
@@ -109,59 +76,89 @@ export function ResourceMaterialsBlock() {
         </h3>
 
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-          Live materials link only to resources that currently exist on the site. Planned downloadable guides and implementation documents are labeled in development until a real production asset is present.
+          Live links point exclusively to completed specifications currently published on this site. In-progress documentation is consolidated below with explicit development status.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        {materials.map((mat) => {
-          const IconComponent = mat.icon;
-          const available = mat.status === "AVAILABLE ON SITE" && mat.href;
+      {/* 1. Live Available Resources Grid (3 Cards) */}
+      <div className="space-y-3">
+        <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-700 block">
+          Available on Site
+        </span>
+        <div className="grid md:grid-cols-3 gap-4">
+          {availableMaterials.map((mat) => {
+            const IconComponent = mat.icon;
+            return (
+              <Link
+                key={mat.title}
+                href={mat.href}
+                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 flex flex-col justify-between space-y-3 shadow-2xs hover:shadow-sm hover:border-[#971F26] transition group"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">
+                      {mat.tag}
+                    </span>
+                    <IconComponent className="w-4 h-4 text-[#971F26]" />
+                  </div>
 
-          return (
-            <div
-              key={mat.title}
-              className="p-5 bg-white border border-[#1C1D1D] rounded-xl space-y-3 flex flex-col justify-between shadow-2xs"
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="px-2 py-0.5 bg-[#EEE8DD] text-[#1C1D1D] text-[10px] font-mono font-bold rounded">
-                    {mat.tag}
-                  </span>
-                  <IconComponent className="w-4 h-4 text-stone-500" />
+                  <h4 className="font-serif font-bold text-lg text-[#1C1D1D] group-hover:text-[#971F26] transition">
+                    {mat.title}
+                  </h4>
+
+                  <p className="text-xs text-stone-800 font-sans leading-relaxed">
+                    {mat.desc}
+                  </p>
                 </div>
-                <h4 className="font-serif font-bold text-base text-[#1C1D1D] leading-snug">
-                  {mat.title}
-                </h4>
-                <p className="text-xs font-mono text-stone-600 font-medium">
-                  {mat.subtitle}
-                </p>
-                <p className="text-xs font-sans text-stone-700 leading-relaxed pt-1">
-                  {mat.desc}
-                </p>
-              </div>
 
-              <div className="pt-2 border-t border-stone-200 flex items-center justify-between gap-3">
-                {available ? (
-                  <Link
-                    href={mat.href!}
-                    className="text-xs font-mono font-bold text-[#971F26] hover:underline flex items-center gap-1.5"
-                  >
-                    <span>Explore Resource</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                ) : (
-                  <span className="text-[10.5px] font-mono font-bold text-stone-500 uppercase">
-                    Resource in development
-                  </span>
-                )}
-                <span className={`text-[10px] font-mono font-bold uppercase ${available ? "text-emerald-700" : "text-stone-500"}`}>
-                  {mat.status}
+                <div className="pt-2 border-t border-stone-300 flex items-center justify-between text-xs font-mono font-bold text-[#1C1D1D] group-hover:text-[#971F26]">
+                  <span>View Specification</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 2. Consolidated In-Development Status List */}
+      <div className="bg-[#EEE8DD] border border-stone-300 rounded-xl p-5 space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-2.5">
+          <div className="flex items-center gap-2">
+            <Clock className="w-4 h-4 text-stone-600" />
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-800">
+              Resources in Development (Planned Public Assets)
+            </span>
+          </div>
+          <span className="text-[11px] font-mono text-stone-600">
+            No placeholder downloads exposed
+          </span>
+        </div>
+
+        <p className="text-xs text-stone-700 font-sans leading-relaxed">
+          The following materials are currently undergoing practitioner review and editorial drafting. Downloadable PDF/packet links will be exposed only when final public production assets exist in the repository.
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
+          {inDevelopmentMaterials.map((item) => (
+            <div
+              key={item.title}
+              className="p-3 bg-[#F5F1E8] border border-stone-300 rounded-lg space-y-1"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-serif font-bold text-[#1C1D1D]">
+                  {item.title}
+                </span>
+                <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 font-bold">
+                  DRAFTING
                 </span>
               </div>
+              <p className="text-[11.5px] text-stone-600 font-sans leading-snug">
+                {item.desc}
+              </p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );

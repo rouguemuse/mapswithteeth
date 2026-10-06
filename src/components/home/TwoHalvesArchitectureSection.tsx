@@ -222,8 +222,8 @@ export function TwoHalvesArchitectureSection() {
 
         <div className="grid md:grid-cols-3 gap-4 font-mono text-xs">
           <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 space-y-1">
-            <span className="font-bold text-[#1C1D1D] block">1. PROVENANCE &amp; SHA-256 HASHES:</span>
-            <span className="text-stone-700 font-sans text-[12px] block">Client-side SHA-256 digests verify record authenticity without uploading private survivor files to a central server.</span>
+            <span className="font-bold text-[#1C1D1D] block">1. BASELINE COMPARISON &amp; SHA-256 DIGESTS:</span>
+            <span className="text-stone-700 font-sans text-[12px] block">Client-side SHA-256 digests support verification against a recorded baseline without uploading private survivor files to a central server.</span>
           </div>
 
           <div className="p-3.5 bg-[#F5F1E8] rounded-xl border border-stone-300 space-y-1">
@@ -322,7 +322,7 @@ export function TwoHalvesArchitectureSection() {
               <span className="font-bold text-[#1C1D1D] block">WORKED APPLICATION ATTRIBUTES:</span>
               <span className="text-stone-600 font-sans text-[11px] block">
                 • 47 U.S.C. § 345 statutory line separation notice templates<br />
-                • Zero account-holder notification or data leakage<br />
+                • Line separation without account-holder consent; note carrier processing timing and safety considerations<br />
                 • Preserves vital two-factor auth for benefits, banks &amp; courts
               </span>
             </div>
@@ -394,7 +394,7 @@ export function TwoHalvesArchitectureSection() {
           </div>
           <div className="p-2.5 bg-white rounded border border-stone-300">
             <strong className="block text-[#1C1D1D]">3. Bad Maps Analysis</strong>
-            <span className="text-[10px] text-stone-600 font-sans">Deidentified seam &amp; loop research (n=X)</span>
+            <span className="text-[10px] text-stone-600 font-sans">Deidentified seam &amp; loop research</span>
           </div>
           <div className="p-2.5 bg-white rounded border border-stone-300">
             <strong className="block text-[#1C1D1D]">4. Responsibility Mapping</strong>

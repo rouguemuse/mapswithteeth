@@ -138,3 +138,18 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out forwards;
 }
+
+/* Print styles: Ensure expandable specifications and modules are exposed when printing */
+@media print {
+  details {
+    display: block !important;
+  }
+  details > summary {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  details > div {
+    display: block !important;
+  }
+}
+

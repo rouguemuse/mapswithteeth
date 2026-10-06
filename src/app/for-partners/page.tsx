@@ -9,17 +9,11 @@ import {
   Building2,
   FileCheck,
   ArrowRight,
-  Sparkles,
   Lock,
-  Compass,
   CheckCircle2,
-  Send,
-  HelpCircle,
-  AlertTriangle,
-  Layers,
+  Activity,
   Code2
 } from "lucide-react";
-import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
 
 export default function ForPartnersPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -37,67 +31,88 @@ export default function ForPartnersPage() {
     setSubmitted(true);
   };
 
-  const partnerRoles = [
+  const partnerGroups = [
     {
-      title: "1. Frontline Validation",
-      tagline: "Testing whether data matches ground truth.",
-      description:
-        "Advocates, shelter navigators, social workers, and legal aid staff reviewing our resource friction vectors, barrier criteria, and workaround notes against live daily practice."
+      groupTitle: "1. Frontline & Operational Review",
+      groupDeck: "Ground-truth validation across shelters, intake desks, and navigators.",
+      icon: Users,
+      roles: [
+        {
+          title: "Frontline Practice & Validation",
+          tagline: "Testing whether data matches ground truth.",
+          description:
+            "Advocates, shelter navigators, social workers, and frontline intake staff reviewing our resource friction vectors, barrier criteria, and workaround notes against live daily practice."
+        },
+        {
+          title: "Referral-Flow & Intake Analysis",
+          tagline: "Mapping where referrals succeed or stall.",
+          description:
+            "Agencies sharing deidentified workflow observations of their incoming and outgoing referral pipelines to identify structural dead routes and unacknowledged transfers."
+        },
+        {
+          title: "Pilot Protocol Co-Design",
+          tagline: "Co-designing Central Texas workflow trials.",
+          description:
+            "County commissioners, municipal leaders, CAC coordinators, and agency directors helping shape trial handoff protocols in Williamson, Travis, Bastrop, Burnet, Hays, and Harris counties."
+        }
+      ]
     },
     {
-      title: "2. Policy Review",
-      tagline: "Evaluating statutory & regulatory feasibility.",
-      description:
-        "Legislative staff, state agency attorneys, and policy analysts auditing our legal interpretations of Texas Property, Family, Labor, and Utility codes and closed-loop standards."
+      groupTitle: "2. Legal, Policy & Systems Research",
+      groupDeck: "Statutory audits, constitutional due process, and interagency amnesia.",
+      icon: Scale,
+      roles: [
+        {
+          title: "Policy & Statutory Audits",
+          tagline: "Evaluating statutory & regulatory feasibility.",
+          description:
+            "Legislative staff, state agency attorneys, and policy analysts auditing our legal interpretations of Texas Property, Family, Labor, and Utility codes and closed-loop standards."
+        },
+        {
+          title: "Legal & Due-Process Boundaries",
+          tagline: "Evidentiary & due-process boundaries.",
+          description:
+            "Family law and defense counsel ensuring that 'linked-matter review' operates strictly as an investigative signal without compromising constitutional due process or merging facts."
+        },
+        {
+          title: "Systems Research",
+          tagline: "Academic & institutional inquiry.",
+          description:
+            "Scholars and institutional researchers studying interagency amnesia, cross-jurisdictional case tracking, and multidisciplinary child-safety coordination."
+        }
+      ]
     },
     {
-      title: "3. Privacy Review",
-      tagline: "Stress-testing anti-surveillance protocols.",
-      description:
-        "Civil liberties advocates and cryptographic privacy experts verifying that our client-side receipt hashing never creates unintentional surveillance dossiers."
-    },
-    {
-      title: "4. Legal Review",
-      tagline: "Evidentiary & due-process boundaries.",
-      description:
-        "Family law and criminal defense attorneys ensuring that 'linked-matter review' operates strictly as an investigative signal without compromising constitutional due process."
-    },
-    {
-      title: "5. Pilot Design",
-      tagline: "Co-designing Central Texas workflow trials.",
-      description:
-        "County commissioners, municipal leaders, CAC coordinators, and agency directors helping shape trial handoff protocols in Williamson, Travis, Bastrop, Burnet, Hays, and Harris counties."
-    },
-    {
-      title: "6. Referral-Flow Analysis",
-      tagline: "Mapping where referrals succeed or stall.",
-      description:
-        "Agencies sharing deidentified workflow diagrams of their incoming and outgoing referral pipelines to identify structural dead routes."
-    },
-    {
-      title: "7. Systems Research",
-      tagline: "Academic & institutional inquiry.",
-      description:
-        "Scholars and institutional researchers studying interagency amnesia, cross-jurisdictional case tracking, and multidisciplinary child-safety coordination."
-    },
-    {
-      title: "8. Technical Interoperability",
-      tagline: "Engineering open protocols.",
-      description:
-        "Software engineers and security architects testing our client-side JSON-LD schemas, SHA-256 digest validation, and zero-knowledge handoff proofs."
-    },
-    {
-      title: "9. Philanthropic Support",
-      tagline: "Funding open-source public infrastructure.",
-      description:
-        "Foundations and civic tech grantmakers investing in long-term, non-commercial public-interest software and statutory research."
+      groupTitle: "3. Technical Architecture & Support",
+      groupDeck: "Open protocols, client-side data minimization, and civic funding.",
+      icon: Code2,
+      roles: [
+        {
+          title: "Technical Interoperability",
+          tagline: "Engineering open protocols & schemas.",
+          description:
+            "Software engineers and security architects testing our client-side JSON-LD schemas, SHA-256 baseline digest comparison, and open data interchange protocols."
+        },
+        {
+          title: "Privacy & Anti-Surveillance Review",
+          tagline: "Stress-testing data minimization protocols.",
+          description:
+            "Civil liberties advocates and privacy technologists verifying that client-side record hashing and data minimization protect participant privacy without centralized dossiers."
+        },
+        {
+          title: "Philanthropic Support",
+          tagline: "Funding open-source public infrastructure.",
+          description:
+            "Foundations and civic tech grantmakers investing in long-term, non-commercial public-interest software and statutory research."
+        }
+      ]
     }
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 select-none font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
       {/* 1. Header */}
-      <div className="border-b border-[#D9D1C4] pb-8 space-y-4">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Users className="w-5 h-5" />
@@ -125,40 +140,59 @@ export default function ForPartnersPage() {
         </div>
       </div>
 
-      {/* 2. 9 Partner Roles Grid */}
-      <section className="space-y-6">
+      {/* 2. Organized Partner Roles in 3 Groups */}
+      <section className="space-y-8">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-            Nine Ways to Collaborate
+            Ways to Collaborate
           </h2>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            CO-DESIGN ROLES
+            3 PARTICIPATION GROUPS
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {partnerRoles.map((role, idx) => (
-            <div
-              key={idx}
-              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
-            >
-              <div className="space-y-2">
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
-                  {role.title}
-                </h3>
-                <span className="text-[11px] font-mono text-[#971F26] font-bold block">
-                  {role.tagline}
-                </span>
-                <p className="text-xs text-stone-800 leading-relaxed font-sans">
-                  {role.description}
-                </p>
-              </div>
+        <div className="space-y-8">
+          {partnerGroups.map((group) => {
+            const GroupIcon = group.icon;
+            return (
+              <div key={group.groupTitle} className="space-y-4">
+                <div className="flex items-center gap-2.5 pb-2 border-b border-stone-300">
+                  <GroupIcon className="w-4 h-4 text-[#971F26]" />
+                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1C1D1D]">
+                    {group.groupTitle}
+                  </h3>
+                  <span className="text-xs text-stone-600 font-sans hidden sm:inline">
+                    — {group.groupDeck}
+                  </span>
+                </div>
 
-              <div className="pt-2 border-t border-[#D9D1C4] text-[10px] font-mono text-stone-600 uppercase font-bold">
-                OPEN FOR COLLABORATION
+                <div className="grid md:grid-cols-3 gap-4">
+                  {group.roles.map((role) => (
+                    <div
+                      key={role.title}
+                      className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
+                    >
+                      <div className="space-y-2">
+                        <h4 className="font-serif font-bold text-base text-[#1C1D1D]">
+                          {role.title}
+                        </h4>
+                        <span className="text-[11px] font-mono text-[#971F26] font-bold block">
+                          {role.tagline}
+                        </span>
+                        <p className="text-xs text-stone-800 leading-relaxed font-sans">
+                          {role.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-2 border-t border-[#D9D1C4] text-[10px] font-mono text-stone-600 uppercase font-bold">
+                        OPEN FOR COLLABORATION
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -223,7 +257,19 @@ export default function ForPartnersPage() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="font-bold text-stone-800 uppercase block">Work Email *</label>
+                <label className="font-bold text-stone-800 uppercase block">Professional Role *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.role}
+                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  placeholder="e.g. Managing Attorney / Shelter Director"
+                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-stone-800 uppercase block">Email Address *</label>
                 <input
                   type="email"
                   required
@@ -233,64 +279,47 @@ export default function ForPartnersPage() {
                   className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
                 />
               </div>
-
-              <div className="space-y-1">
-                <label className="font-bold text-stone-800 uppercase block">Primary Area of Interest</label>
-                <select
-                  value={formData.interestArea}
-                  onChange={(e) => setFormData({ ...formData, interestArea: e.target.value })}
-                  className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
-                >
-                  <option>Frontline Validation</option>
-                  <option>Policy Review</option>
-                  <option>Privacy Review</option>
-                  <option>Legal Review</option>
-                  <option>Pilot Design</option>
-                  <option>Referral-Flow Analysis</option>
-                  <option>Systems Research</option>
-                  <option>Technical Interoperability</option>
-                  <option>Philanthropic Support</option>
-                </select>
-              </div>
             </div>
 
             <div className="space-y-1">
-              <label className="font-bold text-stone-800 uppercase block">Message / Context</label>
+              <label className="font-bold text-stone-800 uppercase block">Primary Collaboration Area</label>
+              <select
+                value={formData.interestArea}
+                onChange={(e) => setFormData({ ...formData, interestArea: e.target.value })}
+                className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
+              >
+                <option value="Frontline Validation">Frontline Practice &amp; Validation</option>
+                <option value="Referral-Flow Analysis">Referral-Flow &amp; Intake Analysis</option>
+                <option value="Pilot Design">Pilot Protocol Co-Design</option>
+                <option value="Policy Review">Policy &amp; Statutory Audits</option>
+                <option value="Legal Review">Legal &amp; Due-Process Boundaries</option>
+                <option value="Systems Research">Systems Research</option>
+                <option value="Technical Interoperability">Technical Interoperability</option>
+                <option value="Privacy Review">Privacy &amp; Anti-Surveillance Review</option>
+                <option value="Philanthropic Support">Philanthropic Support</option>
+              </select>
+            </div>
+
+            <div className="space-y-1">
+              <label className="font-bold text-stone-800 uppercase block">Message / Areas of Interest</label>
               <textarea
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Describe what aspects of the continuity model you would like to pressure-test or collaborate on..."
+                placeholder="Share context on what your team is encountering or how you would like to participate..."
                 className="w-full p-2.5 bg-white border border-stone-400 rounded focus:border-[#971F26] focus:outline-none"
               />
             </div>
 
             <button
               type="submit"
-              className="px-6 py-3 bg-[#971F26] hover:bg-[#7A181E] text-white rounded font-bold uppercase tracking-wider flex items-center gap-2 shadow-xs transition-colors"
+              className="px-6 py-3 bg-[#971F26] hover:bg-[#7A181E] text-white rounded font-bold uppercase tracking-wider transition shadow-sm"
             >
-              <Send className="w-3.5 h-3.5" />
-              <span>Submit Partner Inquiry</span>
+              Submit Collaboration Inquiry
             </button>
           </form>
         )}
       </section>
-
-      {/* 5. Navigation Footer */}
-      <div className="pt-6 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-        <Link
-          href="/"
-          className="text-stone-600 hover:text-[#1C1D1D] uppercase font-bold tracking-wider"
-        >
-          ← Return to Overview
-        </Link>
-        <Link
-          href="/policy"
-          className="px-5 py-2.5 bg-[#1C1D1D] hover:bg-black text-white rounded font-bold uppercase tracking-wider"
-        >
-          Explore Policy Lab →
-        </Link>
-      </div>
     </div>
   );
 }

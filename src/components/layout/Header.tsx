@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ShieldAlert, Compass, Layers, Scale, AlertTriangle, Users, MapPin } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldAlert, Compass } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
 export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
@@ -29,22 +29,22 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     setMoreDropdownOpen(false);
   }, [pathname]);
 
-  // Primary Two-Sided Infrastructure Navigation items
+  // Primary Clean Navigation Items (Logical Grouping)
   const primaryNav = [
-    { name: "Find Help", href: "/find-help" },
-    { name: "The Gap", href: "/the-gap" },
-    { name: "Continuity Model", href: "/continuity" },
-    { name: "Policy Lab", href: "/policy" },
+    { name: "Continuity Standard", href: "/continuity" },
+    { name: "Policy & Systems", href: "/policy" },
     { name: "Writing", href: "/writing" },
-    { name: "Bad Maps", href: "/bad-maps" },
     { name: "Partners", href: "/for-partners" },
   ];
 
   const isMoreActive = [
+    "/the-gap",
+    "/bad-maps",
     "/other-ways-through",
     "/texas",
     "/ask-us-to-look",
     "/bridge",
+    "/how-it-works",
     "/how-we-research",
     "/methodology",
     "/technical",
@@ -52,6 +52,9 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     "/feedback",
     "/support",
     "/safety",
+    "/governance",
+    "/continuity/safeguards",
+    "/standard/safeguards"
   ].some((href) => pathname === href || pathname.startsWith(href + "/"));
 
   return (
@@ -63,10 +66,23 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation & Primary CTA */}
-          <div className="hidden lg:flex items-center justify-end flex-1 gap-2 xl:gap-3 font-mono">
-            {/* Top-Level Primary Links */}
-            <nav className="flex items-center space-x-1">
+          {/* Desktop Navigation & Prominent Find Help */}
+          <div className="hidden lg:flex items-center justify-end flex-1 gap-3 xl:gap-4 font-mono">
+            {/* Prominent Find Help Action */}
+            <Link
+              href="/find-help"
+              className={`px-3.5 py-2 rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs border ${
+                pathname === "/find-help" || pathname.startsWith("/find-help/")
+                  ? "bg-[#7A181E] text-white border-[#7A181E]"
+                  : "bg-[#971F26] hover:bg-[#7A181E] text-white border-[#971F26]"
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>Find Help</span>
+            </Link>
+
+            {/* Core Destinations */}
+            <nav className="flex items-center space-x-1" aria-label="Main Navigation">
               {primaryNav.map((link) => {
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                 return (
@@ -84,13 +100,13 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 );
               })}
 
-              {/* More Dropdown */}
+              {/* More Grouped Dropdown */}
               <div className="relative" ref={moreMenuRef}>
                 <button
                   type="button"
                   onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
                   aria-expanded={moreDropdownOpen}
-                  className={`px-2 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 ${
+                  className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#971F26] ${
                     isMoreActive || moreDropdownOpen
                       ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold"
                       : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
@@ -107,13 +123,13 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 {/* Dropdown Menu */}
                 {moreDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-80 bg-[#F5F1E8] border-2 border-[#26221F] rounded-xl shadow-xl py-3 px-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150 text-left">
-                    <div className="grid grid-cols-1 gap-4 font-mono">
-                      {/* Survivor Tools */}
+                    <div className="grid grid-cols-1 gap-3.5 font-mono">
+                      {/* 1. Survivor & Direct Tools */}
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-[#971F26] border-b border-[#D9D1C4] pb-1 mb-2">
-                          Survivor Tools
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-[#971F26] border-b border-[#D9D1C4] pb-1 mb-1.5">
+                          Survivor &amp; Direct Tools
                         </div>
-                        <ul className="space-y-1">
+                        <ul className="space-y-0.5">
                           <li>
                             <Link
                               href="/other-ways-through"
@@ -127,7 +143,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/texas"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Texas Deep Dive (Statutes & Aid)
+                              Texas Deep Dive (254 Counties)
                             </Link>
                           </li>
                           <li>
@@ -138,21 +154,37 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               Ask Us to Look (Intake Review)
                             </Link>
                           </li>
+                          <li>
+                            <Link
+                              href="/bridge"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Bridge Intake Specimen
+                            </Link>
+                          </li>
                         </ul>
                       </div>
 
-                      {/* Systems & Research */}
+                      {/* 2. Systems Research & Safeguards */}
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-stone-600 border-b border-[#D9D1C4] pb-1 mb-2">
-                          Systems & Evidence
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-stone-700 border-b border-[#D9D1C4] pb-1 mb-1.5">
+                          Research &amp; Safeguards
                         </div>
-                        <ul className="space-y-1">
+                        <ul className="space-y-0.5">
                           <li>
                             <Link
-                              href="/writing"
-                              className="block px-2 py-1 text-xs text-[#971F26] font-bold hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/the-gap"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Field Notes & Systems Writing
+                              The Gap (Seam Deficit)
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/bad-maps"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Bad Maps Research
                             </Link>
                           </li>
                           <li>
@@ -165,10 +197,18 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                           </li>
                           <li>
                             <Link
+                              href="/how-it-works"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              How Maps With Teeth Works
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
                               href="/methodology"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Methodology & Evidence Specs
+                              Methodology &amp; Evidence Specs
                             </Link>
                           </li>
                           <li>
@@ -176,9 +216,18 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/technical"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Technical Architecture & QA
+                              Technical Architecture &amp; QA
                             </Link>
                           </li>
+                        </ul>
+                      </div>
+
+                      {/* 3. Project & Governance */}
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-[#D9D1C4] pb-1 mb-1.5">
+                          About &amp; Safety
+                        </div>
+                        <ul className="space-y-0.5">
                           <li>
                             <Link
                               href="/about"
@@ -189,10 +238,18 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                           </li>
                           <li>
                             <Link
+                              href="/governance"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Governance
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
                               href="/safety"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Digital Safety & Browsing
+                              Digital Safety &amp; Browsing
                             </Link>
                           </li>
                           <li>
@@ -200,7 +257,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                               href="/support"
                               className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
                             >
-                              Support & Donate
+                              Support &amp; Donate
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/feedback"
+                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                            >
+                              Feedback
                             </Link>
                           </li>
                         </ul>
@@ -214,7 +279,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             {/* Quick Exit / Safety Trigger */}
             <button
               onClick={onOpenSafeBrowsing}
-              className="px-2.5 py-1.5 bg-[#EEE8DD] border border-[#D9D1C4] text-stone-800 hover:text-[#971F26] rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1 shrink-0"
+              className="px-2.5 py-1.5 bg-[#EEE8DD] border border-[#D9D1C4] text-stone-800 hover:text-[#971F26] hover:border-[#971F26] rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1 shrink-0 transition"
               aria-label="Open Digital Safety Information"
             >
               <ShieldAlert className="w-3.5 h-3.5 text-[#971F26]" />
@@ -227,9 +292,10 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             {/* Quick Find Help Action */}
             <Link
               href="/find-help"
-              className="px-2.5 py-1.5 bg-[#971F26] text-white rounded text-[11px] font-mono font-bold uppercase tracking-wider shadow-2xs shrink-0"
+              className="px-3 py-1.5 bg-[#971F26] text-white rounded text-[11px] font-mono font-bold uppercase tracking-wider shadow-2xs shrink-0 flex items-center gap-1"
             >
-              Find Help
+              <Compass className="w-3 h-3" />
+              <span>Find Help</span>
             </Link>
 
             {/* Quick Exit / Safety Trigger */}
@@ -266,14 +332,14 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           {/* Group 1: SURVIVOR NAVIGATION */}
           <div className="space-y-1">
             <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              SURVIVOR SIDE · RESOURCE INTELLIGENCE
+              SURVIVOR NAVIGATION &amp; TOOLS
             </div>
             <Link
               href="/find-help"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              Find a Way Through (Resource Matcher)
+              Find Help (Reachable Resource Matcher)
             </Link>
             <Link
               href="/other-ways-through"
@@ -287,7 +353,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Texas Deep Dive (254 Counties & Statutes)
+              Texas Deep Dive (254 Counties &amp; Statutes)
             </Link>
             <Link
               href="/ask-us-to-look"
@@ -301,15 +367,8 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           {/* Group 2: SYSTEMS & CONTINUITY */}
           <div className="space-y-1">
             <div className="text-[10px] uppercase font-bold text-stone-700 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              SYSTEM SIDE · CONTINUITY & POLICY
+              SYSTEM SIDE · CONTINUITY &amp; POLICY
             </div>
-            <Link
-              href="/the-gap"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              The Gap (Why This Matters)
-            </Link>
             <Link
               href="/continuity"
               onClick={() => setMobileMenuOpen(false)}
@@ -325,25 +384,32 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               Evidence Integrity &amp; Safeguards
             </Link>
             <Link
+              href="/the-gap"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
+            >
+              The Gap (Seam Deficit)
+            </Link>
+            <Link
               href="/policy"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              Texas Policy & Systems Lab
+              Texas Policy &amp; Systems Lab
             </Link>
             <Link
               href="/writing"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
             >
-              Field Notes (Writing & Analysis)
+              Field Notes (Writing &amp; Analysis)
             </Link>
             <Link
               href="/bad-maps"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
+              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Bad Maps (Failure Intelligence)
+              Bad Maps Research
             </Link>
             <Link
               href="/for-partners"
@@ -357,21 +423,28 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
           {/* Group 3: ABOUT & SAFETY */}
           <div className="space-y-1">
             <div className="text-[10px] uppercase font-bold text-stone-500 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              METHODOLOGY & SAFETY
+              ABOUT, METHODOLOGY &amp; SAFETY
             </div>
+            <Link
+              href="/how-it-works"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
+            >
+              How It Works
+            </Link>
             <Link
               href="/methodology"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              Methodology & Evidence Specs
+              Methodology &amp; Evidence Specs
             </Link>
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
-              About & Governance
+              About Maps With Teeth
             </Link>
             <Link
               href="/safety"
@@ -379,6 +452,13 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
               className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
             >
               Digital Safety Guide
+            </Link>
+            <Link
+              href="/support"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
+            >
+              Support &amp; Donate
             </Link>
           </div>
         </div>

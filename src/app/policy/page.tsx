@@ -163,17 +163,17 @@ export default function PolicyLabPage() {
     {
       dimension: "Survivor Documentation Burden",
       current: "Survivor acts as the sole integration layer, forced to carry paper folders and retell traumatic history at every intake door.",
-      proposed: "Survivor holds portable, client-side cryptographic Continuity Contact Records (SHA-256) with segregated material review proofs."
+      proposed: "Survivor holds portable, client-side Continuity Contact Records with SHA-256 baseline digests and segregated material review logs."
     }
   ];
 
   const pilotMetrics = [
     { metric: "Acknowledgment Rate", question: "Did somebody confirm receipt?", target: "> 95% Rate" },
     { metric: "Time to Acknowledgment", question: "How long before confirmation?", target: "Pilot Target: < 48 Hours (Proposed Benchmark)" },
-    { metric: "Decision-Owner Rate", question: "Is one next responsible actor identifiable?", target: "100% Bound" },
+    { metric: "Decision-Owner Rate", question: "Is one next responsible actor identifiable?", target: "100% Assigned (Design Target)" },
     { metric: "Re-Referral Rate", question: "How often is the participant bounced onward?", target: "Measured & Tracked" },
     { metric: "Repeat-Intake Rate", question: "How often must the same facts be re-entered?", target: "Minimized" },
-    { metric: "Lost-Handoff Rate", question: "How often does no receiving owner emerge?", target: "0% (Alerted at 14d)" },
+    { metric: "Lost-Handoff Rate", question: "How often does no receiving owner emerge?", target: "Target: 0% (Proposed 14d Pilot Flag)" },
   ];
 
   const unresolvedDesignQuestions = [
@@ -184,7 +184,7 @@ export default function PolicyLabPage() {
     },
     {
       title: "Acknowledgment Scope",
-      question: "How to guarantee agency acknowledgment verifies only specifically marked administrative facts, never the participant's broader narrative?",
+      question: "How to ensure agency acknowledgment addresses only specifically marked administrative handling facts, never the participant's broader narrative?",
       rationale: "Protecting frontline intake staff from whole-matter representation liability or pretend evidentiary determinations."
     },
     {
@@ -492,7 +492,7 @@ export default function PolicyLabPage() {
             90-Day Continuity Mechanics Pilot
           </h2>
           <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed">
-            A small, high-feasibility operational pilot. We are not starting with police + DFPS + court + school on day one. Instead, we prove that a single referral pathway can reliably arrive, acknowledge receipt, bind a next decision owner, and avoid loss.
+            A small, high-feasibility operational pilot. We are not starting with police + DFPS + court + school on day one. Instead, we evaluate whether a single referral pathway can reliably arrive, acknowledge receipt, document a next decision owner, and avoid loss.
           </p>
         </div>
 

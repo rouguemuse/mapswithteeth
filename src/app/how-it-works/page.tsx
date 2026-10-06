@@ -51,8 +51,8 @@ export default function HowItWorksPage() {
     {
       step: "02",
       name: "Preserve the Path",
-      deck: "Participant-Held Continuity & Cryptographic Verification",
-      desc: "Generate client-side Continuity Receipts with cryptographic SHA-256 integrity to carry context, presented exhibits, and decision ownership across institutional silos.",
+      deck: "Participant-Held Continuity & Baseline Verification",
+      desc: "Generate client-side Continuity Contact Records with SHA-256 baseline digests to carry context, presented exhibits, and decision ownership across institutional silos.",
       status: "PRINCIPAL MODEL",
       icon: FileCheck,
       href: "/continuity"
@@ -70,7 +70,7 @@ export default function HowItWorksPage() {
       step: "04",
       name: "Identify the Seam",
       deck: "Closed-Loop Referrals & Responsibility Handoffs",
-      desc: "Expose where referrals disappear (Sent ≠ Received), detect circular runaround loops, and explicitly bind next decision ownership to eliminate the 'nobody's case' failure mode.",
+      desc: "Expose where referrals disappear (Sent ≠ Received), detect circular runaround loops, and explicitly document next decision ownership to eliminate the 'nobody's case' failure mode.",
       status: "PROTOTYPE SPEC",
       icon: AlertOctagon,
       href: "/the-gap"
@@ -78,8 +78,8 @@ export default function HowItWorksPage() {
     {
       step: "05",
       name: "Test the Pattern Across Systems",
-      deck: "Bad Maps Empirical Systems Research (n=X)",
-      desc: "Aggregate deidentified structural friction events to pressure-test public administration, inform Sunset reviews, and generate structured legislative and oversight policy briefs.",
+      deck: "Bad Maps Systems Research & Seam Measurement",
+      desc: "Aggregate deidentified structural friction observations to pressure-test public administration, inform Sunset reviews, and generate structured legislative and oversight policy briefs.",
       status: "RESEARCH SPEC",
       icon: Layers,
       href: "/bad-maps"
@@ -429,11 +429,11 @@ export default function HowItWorksPage() {
         {/* Methodology Notice */}
         <div className="p-4 bg-[#F5F1E8] border border-stone-300 rounded-xl space-y-2 text-xs font-mono text-stone-800">
           <div className="flex items-center justify-between">
-            <strong className="text-[#971F26] uppercase">EMPIRICAL MEASUREMENT SAFEGUARDS (n=X):</strong>
+            <strong className="text-[#971F26] uppercase">EMPIRICAL MEASUREMENT SAFEGUARDS:</strong>
             <span className="text-stone-600">Sample-Based · Counts Over Unsupported Percentages</span>
           </div>
           <p className="font-sans text-stone-700 text-[12px] leading-relaxed">
-            Every published Bad Maps metric supports explicit numerator, denominator, sample size (<em>n=X</em>), defined cohort, observation period, and provenance. Metrics distinguish between <strong>CONFIRMED GAP</strong>, <strong>NO GAP OBSERVED</strong>, and <strong>UNKNOWN / INSUFFICIENT RECORD</strong>. (Unknown is never automatically classified as failure). Gaps describe observable administrative conditions, not misconduct accusations.
+            Every published Bad Maps metric requires an explicit numerator, denominator, defined cohort, observation period, and verified provenance. Metrics distinguish between <strong>CONFIRMED GAP</strong>, <strong>NO GAP OBSERVED</strong>, and <strong>UNKNOWN / INSUFFICIENT RECORD</strong>. (Unknown is never automatically classified as failure). Gaps describe observable administrative conditions, not misconduct accusations.
           </p>
         </div>
 

@@ -211,7 +211,7 @@ export default function AboutPage() {
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
               <strong className="text-sm font-serif text-[#1C1D1D] block">• Survivor Organizer & Originals Vault</strong>
-              <p className="text-stone-800 leading-snug">Testing client-side cryptographic hashing (SHA-256) and scoped export packets for legal representation.</p>
+              <p className="text-stone-800 leading-snug">Testing client-side SHA-256 baseline digests and scoped export packets for legal representation.</p>
             </div>
             <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
               <strong className="text-sm font-serif text-[#1C1D1D] block">• Bad Maps Systems Research</strong>

@@ -150,7 +150,7 @@ export function HeroTwoSided() {
                   Bad Maps
                 </h4>
                 <p className="text-[11px] text-stone-700 font-sans leading-snug">
-                  Aggregating deidentified seam failure research (n=X) to measure referral loops and lost accountability across jurisdictions.
+                  Aggregating deidentified seam failure research to measure referral loops and lost accountability across jurisdictions.
                 </p>
               </div>
 

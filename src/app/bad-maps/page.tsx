@@ -25,105 +25,125 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Bad Maps: Empirical System Failure Research & Measurement | Maps With Teeth",
+  title: "Bad Maps: Systems Research & Seam Measurement | Maps With Teeth",
   description:
-    "Deidentified empirical research and measurement architecture on recurring dead routes, circular referral loops, unacknowledged handoffs, and 12 institutional seam failures."
+    "Deidentified empirical measurement architecture for evaluating recurring dead routes, circular referral loops, unacknowledged handoffs, and 12 institutional seam failures."
 };
 
-interface BadMapsMetric {
+interface BadMapsProposedIndicator {
+  num: string;
   name: string;
-  observedCount: string; // e.g. "7 of 23 observable referrals"
-  sampleSize: string; // "n=23"
-  cohort: string;
-  observationPeriod: string;
-  triStateBreakdown: {
-    confirmedGap: number;
-    noGapObserved: number;
-    unknownInsufficient: number;
+  conceptDeck: string;
+  targetCohort: string;
+  measurementCondition: string;
+  formula: string;
+  triStateCriteria: {
+    confirmedGap: string;
+    noGap: string;
+    unknown: string;
   };
-  classificationCriteria: string;
-  sourceProvenance: string;
-  verificationTier: "PARTICIPANT_RECORDED" | "AGENCY_ACKNOWLEDGED" | "PARTNER_ROLE_VERIFIED";
+  provenanceRequirement: string;
 }
 
 export default function BadMapsPage() {
-  const empiricalMetrics: BadMapsMetric[] = [
+  const proposedIndicators: BadMapsProposedIndicator[] = [
     {
+      num: "01",
       name: "Verified Handoff Rate",
-      observedCount: "6 of 24 observable referrals",
-      sampleSize: "n=24",
-      cohort: "Central Texas Inter-Agency Referrals (Law Enforcement → Victim Services/DA)",
-      observationPeriod: "Jan 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 14, noGapObserved: 6, unknownInsufficient: 4 },
-      classificationCriteria: "Receiving entity provided timestamped acknowledgment or accepted next action within 14 days.",
-      sourceProvenance: "Participant Continuity Receipts & Partner Intake Records",
-      verificationTier: "AGENCY_ACKNOWLEDGED"
+      conceptDeck: "Sent ≠ Received / Acknowledged",
+      targetCohort: "Cross-Agency Intake Referrals (e.g. Law Enforcement → Victim Services / Legal Aid)",
+      measurementCondition: "Determines whether a dispatched referral received timestamped intake confirmation or milestone acceptance from the receiving entity.",
+      formula: "Acknowledged Referrals ÷ Total Observable Referrals",
+      triStateCriteria: {
+        confirmedGap: "Sending entity marked file 'referred out' while receiving entity confirms no intake record exists.",
+        noGap: "Receiving entity recorded timestamped receipt and accepted or formally redirected the intake.",
+        unknown: "Transfer outcome unrecorded in one or both systems (never classified as failure)."
+      },
+      provenanceRequirement: "Matched sending transmission log and receiving intake docket."
     },
     {
+      num: "02",
       name: "Continuity Loss Rate",
-      observedCount: "17 of 21 cross-boundary transitions",
-      sampleSize: "n=21",
-      cohort: "Cross-County Relocations & Inter-District Municipal Boundaries",
-      observationPeriod: "Jan 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 17, noGapObserved: 3, unknownInsufficient: 1 },
-      classificationCriteria: "Prior verified protective order or offense history was treated as a first-time isolated incident at new jurisdiction.",
-      sourceProvenance: "Participant Case Files & Multi-County Intake Receipts",
-      verificationTier: "PARTICIPANT_RECORDED"
+      conceptDeck: "County Line & Jurisdictional Amnesia",
+      targetCohort: "Cross-Jurisdiction Transitions (Relocations across municipal/county boundaries)",
+      measurementCondition: "Evaluates whether documented protective orders, active bail conditions, or stalking history carried into the new jurisdiction's initial case file.",
+      formula: "Transitions With Preserved Safety History ÷ Total Observable Transitions",
+      triStateCriteria: {
+        confirmedGap: "Prior verified protective order or offense history was treated as a first-time isolated incident.",
+        noGap: "Receiving jurisdiction formally recorded and acknowledged prior cross-county orders or records.",
+        unknown: "Prior record status was not inquired into or cannot be verified."
+      },
+      provenanceRequirement: "Prior certified order/intake record and subsequent agency initial encounter log."
     },
     {
+      num: "03",
       name: "Ownerless Matter Rate",
-      observedCount: "9 of 18 multi-agency touchpoints",
-      sampleSize: "n=18",
-      cohort: "Concurrent CPS / Law Enforcement / District Court Inquiries",
-      observationPeriod: "Feb 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 9, noGapObserved: 6, unknownInsufficient: 3 },
-      classificationCriteria: "Both sending and receiving agency closed active intake with no named institutional role owning the immediate next milestone.",
-      sourceProvenance: "Case Declination Notices & Multi-Agency Receipts",
-      verificationTier: "PARTNER_ROLE_VERIFIED"
+      conceptDeck: "Unassigned Responsibility Handoffs",
+      targetCohort: "Multi-Agency Inquiries (Concurrent Child Safety / Civil Court / Law Enforcement)",
+      measurementCondition: "Detects transitions where an active matter closed without an explicit, named institutional role assigned to the immediate next action.",
+      formula: "Matters With Assigned Next Milestone ÷ Total Inter-Agency Transitions",
+      triStateCriteria: {
+        confirmedGap: "Both sending and receiving entity closed active intake with no named institutional role owning the next milestone.",
+        noGap: "Explicit decision ownership transferred to a named unit and role with an acknowledged completion window.",
+        unknown: "Internal delegation notes unavailable for administrative audit."
+      },
+      provenanceRequirement: "Formal declination notices, transfer logs, and agency closure metadata."
     },
     {
+      num: "04",
       name: "Referral Loop Rate",
-      observedCount: "5 of 19 frontline navigation journeys",
-      sampleSize: "n=19",
-      cohort: "Emergency Shelter & Civil Protective Order Seekers",
-      observationPeriod: "Jan 2026 – Aug 2026",
-      triStateBreakdown: { confirmedGap: 5, noGapObserved: 11, unknownInsufficient: 3 },
-      classificationCriteria: "Agency A referred to Agency B, which conditioned service on prior action by Agency A, creating circular transit.",
-      sourceProvenance: "Navigator Field Logs & Participant Intake Timelines",
-      verificationTier: "PARTICIPANT_RECORDED"
+      conceptDeck: "Circular Transit (Agency A → Agency B → Agency A)",
+      targetCohort: "Frontline Crisis Navigation (Emergency Shelter & Civil Protective Order Seekers)",
+      measurementCondition: "Measures paths where an individual is redirected back to the originating agency due to conflicting intake prerequisites.",
+      formula: "Circular Loops Detected ÷ Total Navigation Pathways Evaluated",
+      triStateCriteria: {
+        confirmedGap: "Agency A required action from Agency B, while Agency B conditioned assistance on prior action by Agency A.",
+        noGap: "Handoff followed a forward linear path to intake, referral acceptance, or clear written declination.",
+        unknown: "Sequential timeline of agency contacts cannot be reconstructed."
+      },
+      provenanceRequirement: "Timestamped intake receipts and navigator case logs."
     },
     {
+      num: "05",
       name: "Unreviewed Material Rate",
-      observedCount: "11 of 16 administrative closures",
-      sampleSize: "n=16",
-      cohort: "Administrative Dismissals & Screened-Out Family Inquiries",
-      observationPeriod: "Mar 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 11, noGapObserved: 3, unknownInsufficient: 2 },
-      classificationCriteria: "Specific presented digital/documentary exhibits remained unexamined prior to file archiving without stated cause.",
-      sourceProvenance: "Review Trace Logs & Continuity Contact Records",
-      verificationTier: "PARTNER_ROLE_VERIFIED"
+      conceptDeck: "Accessible ≠ Reviewed",
+      targetCohort: "Administrative Closures & Screened-Out Crisis Inquiries",
+      measurementCondition: "Audits the frequency with which documentary or digital exhibits submitted by participants remain unexamined prior to case archiving.",
+      formula: "Cases With Documented Material Review ÷ Total Closures With Submitted Materials",
+      triStateCriteria: {
+        confirmedGap: "Specific presented exhibits remained unopened or unexamined in file prior to closure without stated justification.",
+        noGap: "Review Trace confirms each presented item was examined, determined outside authority, or noted unavailable.",
+        unknown: "Intake record does not itemize materials presented by the participant."
+      },
+      provenanceRequirement: "Participant-held Continuity Contact Record compared against agency administrative closure file."
     },
     {
+      num: "06",
       name: "Disconnected Related-Matter Rate",
-      observedCount: "13 of 15 multi-proceeding cases",
-      sampleSize: "n=15",
-      cohort: "Concurrent Family Law, Protective Order & CPS Inquiries",
-      observationPeriod: "Jan 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 13, noGapObserved: 1, unknownInsufficient: 1 },
-      classificationCriteria: "Decision-maker was unaware of active related proceeding in adjacent county court or agency division.",
-      sourceProvenance: "Court Dockets & Administrative Records",
-      verificationTier: "PARTICIPANT_RECORDED"
+      conceptDeck: "Parallel Blind Proceedings",
+      targetCohort: "Concurrent Legal & Administrative Matters (Family Law, CPS, Protective Orders)",
+      measurementCondition: "Documents how often decision-makers act without administrative awareness of active related proceedings in adjacent divisions.",
+      formula: "Proceedings With Linked-Matter Check ÷ Total Multi-Proceeding Matters",
+      triStateCriteria: {
+        confirmedGap: "Custody or safety order issued without knowledge of an active protective order proceeding in adjacent court.",
+        noGap: "Authorized related-matter inquiry was executed and noted in the administrative file.",
+        unknown: "Cross-system search status was not logged."
+      },
+      provenanceRequirement: "Public court dockets, protective order registries, and administrative records."
     },
     {
+      num: "07",
       name: "Closure With Unresolved Context",
-      observedCount: "8 of 14 case terminations",
-      sampleSize: "n=14",
-      cohort: "Qualifying Domestic Crisis & Safety Filings Closed As 'Resolved'",
-      observationPeriod: "Jan 2026 – Sep 2026",
-      triStateBreakdown: { confirmedGap: 8, noGapObserved: 4, unknownInsufficient: 2 },
-      classificationCriteria: "Administrative file was stamped resolved despite unaddressed jurisdictional safety obstacles.",
-      sourceProvenance: "Pre-Closure Trace Audits & Case Records",
-      verificationTier: "AGENCY_ACKNOWLEDGED"
+      conceptDeck: "Closed ≠ Resolved",
+      targetCohort: "Administrative Dismissals of Qualifying Safety Inquiries",
+      measurementCondition: "Measures whether cases are archived as administratively complete while known safety obstacles or unaddressed files remain pending.",
+      formula: "Closures With Pre-Closure Audit ÷ Total Administrative Dismissals",
+      triStateCriteria: {
+        confirmedGap: "File closed without examining pending cross-jurisdiction records or establishing a safe next route.",
+        noGap: "Pre-closure audit documented process completeness and verified unexamined records before archiving.",
+        unknown: "Closure rationale does not detail whether collateral records were checked."
+      },
+      provenanceRequirement: "Administrative closure checklist and case audit files."
     }
   ];
 
@@ -143,25 +163,25 @@ export default function BadMapsPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 select-none font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 select-none font-sans">
       {/* 1. Header */}
-      <div className="border-b border-[#D9D1C4] pb-8 space-y-4">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[#971F26]">
             <Compass className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              EMPIRICAL SYSTEMS RESEARCH &amp; MEASUREMENT
+              SYSTEMS RESEARCH &amp; SEAM MEASUREMENT
             </span>
           </div>
           <span className="coord-tick">[INDEX REF: BAD-MAPS-ATLAS-2026]</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
-          Bad Maps: Empirical Measurement of Systemic Seams
+          Bad Maps: Empirical Measurement of Institutional Seams
         </h1>
 
         <p className="text-base sm:text-lg text-stone-900 leading-relaxed font-sans font-medium max-w-3xl">
-          When people are repeatedly sent into dead routes, circular loops, and contradictory rules, the failure is not individual—it is structural. Bad Maps is the empirical research layer of Maps With Teeth, measuring observable administrative conditions to transform frontline runaround into rigorous policy evidence.
+          When people are repeatedly sent into dead routes, circular loops, and contradictory rules, the failure is not individual—it is structural. Bad Maps is the systems research layer of Maps With Teeth, defining observable administrative conditions to transform frontline runaround into rigorous policy evidence.
         </p>
 
         {/* Governing Principle & Question Banner */}
@@ -183,13 +203,13 @@ export default function BadMapsPage() {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-2">
           <div className="flex items-center gap-2 text-stone-900 font-bold uppercase">
             <ShieldCheck className="w-4 h-4 text-[#971F26]" />
-            <span>EMPIRICAL MEASUREMENT SAFEGUARDS (n=X)</span>
+            <span>EMPIRICAL MEASUREMENT SAFEGUARDS</span>
           </div>
           <span className="text-stone-600 font-bold">[METHODOLOGY SPECIFICATION]</span>
         </div>
 
         <p className="font-sans text-stone-800 text-xs sm:text-sm leading-relaxed">
-          Bad Maps measures observable administrative conditions without presenting pilot data as population-level absolute truth. Gaps describe institutional friction points—causes may include statutory restrictions, resources, jurisdictional boundaries, or system design. <strong>The existence of a gap does not imply individual staff misconduct.</strong>
+          Bad Maps defines measurable administrative conditions without presenting preliminary pilot concepts as population-level totals. Gaps describe observable institutional friction points—causes may include statutory restrictions, resources, jurisdictional boundaries, or system design. <strong>The existence of a gap does not imply individual staff misconduct.</strong>
         </p>
 
         <div className="grid sm:grid-cols-3 gap-3 pt-2 text-center">
@@ -208,58 +228,73 @@ export default function BadMapsPage() {
         </div>
       </section>
 
-      {/* 3. The 7 Empirical Continuity Metrics */}
+      {/* 3. The 7 Proposed Continuity Measurement Indicators */}
       <section className="space-y-6">
         <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
-              EMPIRICAL METRICS
+              RESEARCH ARCHITECTURE
             </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-              Observed Continuity Indicators (Sample Datasets)
+              Seven Proposed Continuity Measurement Indicators
             </h2>
           </div>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            COUNTS &amp; DEFINED COHORTS
+            PROPOSED PILOT SPECIFICATIONS
           </span>
         </div>
 
+        <p className="text-xs sm:text-sm text-stone-700 font-sans leading-relaxed">
+          The indicators below are proposed measurement protocols designed for evaluation in upcoming Central Texas pilot trials. Each indicator requires a documented denominator, defined cohort, observation window, and verified source provenance.
+        </p>
+
         <div className="space-y-4">
-          {empiricalMetrics.map((m, idx) => (
+          {proposedIndicators.map((m) => (
             <div
-              key={idx}
-              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-3 shadow-2xs font-mono text-xs"
+              key={m.num}
+              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-2xs font-mono text-xs"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-[#971F26]">METRIC 0{idx + 1}</span>
+                  <span className="text-xs font-bold text-[#971F26]">INDICATOR {m.num}</span>
                   <span className="text-stone-400">·</span>
                   <span className="font-serif font-bold text-base text-[#1C1D1D] font-sans">{m.name}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 bg-[#971F26] text-white rounded font-bold text-[11px]">
-                    {m.observedCount} ({m.sampleSize})
+                  <span className="px-2 py-0.5 bg-stone-200 text-stone-800 rounded font-bold text-[10px] border border-stone-400 uppercase">
+                    PROPOSED SPECIFICATION
                   </span>
-                  <span className="px-2 py-0.5 bg-white text-stone-700 border border-stone-300 rounded text-[10px]">
-                    {m.verificationTier}
+                  <span className="text-xs text-stone-600 italic font-sans font-medium">
+                    &ldquo;{m.conceptDeck}&rdquo;
                   </span>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4 font-sans text-xs">
-                <div className="space-y-1 text-stone-800">
-                  <p><strong>Cohort:</strong> {m.cohort}</p>
-                  <p><strong>Period:</strong> {m.observationPeriod}</p>
-                  <p><strong>Provenance:</strong> {m.sourceProvenance}</p>
+                <div className="space-y-2 text-stone-800">
+                  <p><strong>Target Cohort:</strong> {m.targetCohort}</p>
+                  <p><strong>Measurement Condition:</strong> {m.measurementCondition}</p>
+                  <p className="font-mono text-[11px] bg-[#F5F1E8] p-2 rounded border border-stone-300">
+                    <strong>Formula:</strong> {m.formula}
+                  </p>
+                  <p><strong>Provenance Requirement:</strong> {m.provenanceRequirement}</p>
                 </div>
-                <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
-                  <strong className="font-mono text-[10px] text-[#1C1D1D] uppercase block">CLASSIFICATION CRITERIA:</strong>
-                  <p className="text-[11.5px] text-stone-700 leading-relaxed">{m.classificationCriteria}</p>
-                  <div className="pt-1 flex gap-3 text-[10px] font-mono text-stone-600 border-t border-stone-300">
-                    <span className="text-[#971F26] font-bold">Gaps: {m.triStateBreakdown.confirmedGap}</span>
-                    <span className="text-[#2D5A3D] font-bold">No Gap: {m.triStateBreakdown.noGapObserved}</span>
-                    <span>Unknown: {m.triStateBreakdown.unknownInsufficient}</span>
-                  </div>
+
+                <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-2 text-[11.5px]">
+                  <strong className="font-mono text-[10px] text-[#1C1D1D] uppercase block">
+                    TRI-STATE CLASSIFICATION RULES:
+                  </strong>
+                  <ul className="space-y-1.5 text-stone-700">
+                    <li>
+                      <span className="font-bold text-[#971F26] font-mono text-[10px] uppercase">Confirmed Gap:</span> {m.triStateCriteria.confirmedGap}
+                    </li>
+                    <li>
+                      <span className="font-bold text-[#2D5A3D] font-mono text-[10px] uppercase">No Gap:</span> {m.triStateCriteria.noGap}
+                    </li>
+                    <li>
+                      <span className="font-bold text-stone-600 font-mono text-[10px] uppercase">Unknown:</span> {m.triStateCriteria.unknown}
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

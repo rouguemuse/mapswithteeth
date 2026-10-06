@@ -202,7 +202,7 @@ export default function BridgePage() {
               <span>ORIGINALS VAULT</span>
             </div>
             <p className="font-sans text-xs sm:text-sm text-stone-800 leading-relaxed">
-              Preserve original evidence files with filenames and metadata intact. Generates SHA-256 cryptographic fingerprints to prove provenance without altering source materials.
+              Preserve original files with filenames and metadata intact. Generates client-side SHA-256 cryptographic digests allowing files to be checked against a recorded baseline without altering source materials.
             </p>
           </div>
 
