@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const PORT = 9222;
+const PORT = 9333;
 
 async function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -35,13 +35,15 @@ async function capture(url, outPath, width = 1280, height = 800) {
   if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
   const chromeProc = spawn(CHROME_PATH, [
-    '--headless=new',
+    '--headless',
     `--remote-debugging-port=${PORT}`,
     `--user-data-dir=${tempDir}`,
     '--disable-gpu',
     '--no-first-run',
     '--no-default-browser-check',
   ]);
+
+  chromeProc.stderr.on('data', (d) => console.error('Chrome err:', d.toString()));
 
   try {
     let wsUrl = null;
