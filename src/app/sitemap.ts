@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/methodology",
     "/other-ways-through",
     "/policy",
+    "/protection",
     "/safety",
     "/support",
     "/technical",
