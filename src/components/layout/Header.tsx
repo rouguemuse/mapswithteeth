@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ShieldAlert, Compass } from "lucide-react";
+import { Menu, X, ChevronDown, Compass } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
 export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void }) {
@@ -29,7 +29,7 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     setMoreDropdownOpen(false);
   }, [pathname]);
 
-  // Primary Clean Navigation Items (Logical Grouping)
+  // Primary Clean Navigation Items
   const primaryNav = [
     { name: "Continuity Standard", href: "/continuity" },
     { name: "Policy & Systems", href: "/policy" },
@@ -54,15 +54,15 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
     "/safety",
     "/governance",
     "/continuity/safeguards",
-    "/standard/safeguards"
+    "/standard/safeguards",
   ].some((href) => pathname === href || pathname.startsWith(href + "/"));
 
   return (
-    <header className="bg-[#F5F1E8] text-[#1C1D1D] border-b border-[#D9D1C4] sticky top-0 z-40 backdrop-blur-md bg-opacity-95 select-none font-sans">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <header className="bg-mwt-ivory/95 text-mwt-black border-b border-[#E2DACB] sticky top-0 z-40 backdrop-blur-md select-none font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2 md:gap-4">
           {/* Brand Block */}
-          <Link href="/" className="flex items-center shrink-0 py-1 focus:outline-none">
+          <Link href="/" className="flex items-center shrink-0 py-1 focus:outline-none focus:ring-2 focus:ring-mwt-oxblood rounded-xs">
             <Logo size="md" />
           </Link>
 
@@ -71,13 +71,13 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
             {/* Prominent Find Help Action */}
             <Link
               href="/find-help"
-              className={`px-3.5 py-2 rounded-md text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs border ${
+              className={`px-3.5 py-2 rounded-xs text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs border ${
                 pathname === "/find-help" || pathname.startsWith("/find-help/")
-                  ? "bg-[#7A181E] text-white border-[#7A181E]"
-                  : "bg-[#971F26] hover:bg-[#7A181E] text-white border-[#971F26]"
+                  ? "bg-mwt-oxblood-dark text-white border-mwt-oxblood-dark"
+                  : "bg-mwt-oxblood hover:bg-mwt-oxblood-dark text-white border-mwt-oxblood"
               }`}
             >
-              <Compass className="w-3.5 h-3.5" />
+              <Compass className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Find Help</span>
             </Link>
 
@@ -89,10 +89,10 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                    className={`px-2.5 py-1.5 rounded-xs text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
                       isActive
-                        ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold border-b-2 border-[#971F26]"
-                        : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
+                        ? "text-mwt-black bg-mwt-parchment font-bold border-b-2 border-mwt-oxblood"
+                        : "text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/70 font-medium"
                     }`}
                   >
                     {link.name}
@@ -106,34 +106,34 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                   type="button"
                   onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
                   aria-expanded={moreDropdownOpen}
-                  className={`px-2.5 py-1.5 rounded-md text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#971F26] ${
+                  className={`px-2.5 py-1.5 rounded-xs text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-mwt-oxblood ${
                     isMoreActive || moreDropdownOpen
-                      ? "text-[#1C1D1D] bg-[#EEE8DD] font-bold"
-                      : "text-stone-700 hover:text-[#1C1D1D] hover:bg-[#EEE8DD]/70 font-medium"
+                      ? "text-mwt-black bg-mwt-parchment font-bold"
+                      : "text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/70 font-medium"
                   }`}
                 >
                   <span>More</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      moreDropdownOpen ? "rotate-180 text-[#971F26]" : "text-stone-500"
+                      moreDropdownOpen ? "rotate-180 text-mwt-oxblood" : "text-mwt-graphite"
                     }`}
                   />
                 </button>
 
                 {/* Dropdown Menu */}
                 {moreDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-80 bg-[#F5F1E8] border-2 border-[#26221F] rounded-xl shadow-xl py-3 px-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150 text-left">
+                  <div className="absolute right-0 mt-2 w-80 bg-mwt-ivory border-2 border-mwt-black rounded-lg shadow-xl py-3 px-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150 text-left">
                     <div className="grid grid-cols-1 gap-3.5 font-mono">
                       {/* 1. Survivor & Direct Tools */}
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-[#971F26] border-b border-[#D9D1C4] pb-1 mb-1.5">
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-mwt-oxblood border-b border-[#E2DACB] pb-1 mb-1.5">
                           Survivor &amp; Direct Tools
                         </div>
                         <ul className="space-y-0.5">
                           <li>
                             <Link
                               href="/other-ways-through"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
                               Other Ways Through (Lateral Aid)
                             </Link>
@@ -141,131 +141,107 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                           <li>
                             <Link
                               href="/texas"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              Texas Deep Dive (254 Counties)
+                              Texas County Deep Dive
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/ask-us-to-look"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
                               Ask Us to Look (Intake Review)
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/bridge"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/safety"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              Bridge Intake Specimen
+                              Digital Safety Guide
                             </Link>
                           </li>
                         </ul>
                       </div>
 
-                      {/* 2. Systems Research & Safeguards */}
+                      {/* 2. Research & Systems Intelligence */}
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-stone-700 border-b border-[#D9D1C4] pb-1 mb-1.5">
-                          Research &amp; Safeguards
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-mwt-oxblood border-b border-[#E2DACB] pb-1 mb-1.5">
+                          Research &amp; Systems
                         </div>
                         <ul className="space-y-0.5">
                           <li>
                             <Link
                               href="/the-gap"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              The Gap (Seam Deficit)
+                              The Gap (The Seam Deficit)
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/bad-maps"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              Bad Maps Research
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/continuity/safeguards"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors font-medium"
-                            >
-                              Evidence Integrity &amp; Safeguards
+                              Bad Maps (Failure Intelligence)
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/how-it-works"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              How Maps With Teeth Works
+                              How It Works (System Map)
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/methodology"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/continuity/safeguards"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors font-bold"
                             >
-                              Methodology &amp; Evidence Specs
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/technical"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
-                            >
-                              Technical Architecture &amp; QA
+                              Evidence Integrity &amp; Safeguards
                             </Link>
                           </li>
                         </ul>
                       </div>
 
-                      {/* 3. Project & Governance */}
+                      {/* 3. Initiative & About */}
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-[#D9D1C4] pb-1 mb-1.5">
-                          About &amp; Safety
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-mwt-oxblood border-b border-[#E2DACB] pb-1 mb-1.5">
+                          Initiative &amp; Organization
                         </div>
                         <ul className="space-y-0.5">
                           <li>
                             <Link
                               href="/about"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
                               About Maps With Teeth
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/governance"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/methodology"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              Governance
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/safety"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
-                            >
-                              Digital Safety &amp; Browsing
+                              Methodology &amp; Standards
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/support"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
                               Support &amp; Donate
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/feedback"
-                              className="block px-2 py-1 text-xs text-stone-800 hover:text-[#971F26] hover:bg-[#EEE8DD] rounded transition-colors"
+                              href="/governance"
+                              className="block px-2 py-1 text-xs text-mwt-black hover:text-mwt-oxblood hover:bg-mwt-parchment rounded-xs transition-colors"
                             >
-                              Feedback
+                              Governance &amp; Ethics
                             </Link>
                           </li>
                         </ul>
@@ -275,190 +251,70 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
                 )}
               </div>
             </nav>
-
-            {/* Quick Exit / Safety Trigger */}
-            <button
-              onClick={onOpenSafeBrowsing}
-              className="px-2.5 py-1.5 bg-[#EEE8DD] border border-[#D9D1C4] text-stone-800 hover:text-[#971F26] hover:border-[#971F26] rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1 shrink-0 transition"
-              aria-label="Open Digital Safety Information"
-            >
-              <ShieldAlert className="w-3.5 h-3.5 text-[#971F26]" />
-              <span>Safety</span>
-            </button>
           </div>
 
-          {/* Compact Mobile Header Bar (<1024px) */}
-          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2">
-            {/* Quick Find Help Action */}
+          {/* Mobile Actions: Find Help + Menu Toggle */}
+          <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/find-help"
-              className="px-3 py-1.5 bg-[#971F26] text-white rounded text-[11px] font-mono font-bold uppercase tracking-wider shadow-2xs shrink-0 flex items-center gap-1"
+              className="px-3 py-1.5 bg-mwt-oxblood text-white rounded-xs text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-xs"
             >
               <Compass className="w-3 h-3" />
               <span>Find Help</span>
             </Link>
 
-            {/* Quick Exit / Safety Trigger */}
             <button
-              onClick={onOpenSafeBrowsing}
-              className="px-2 py-1.5 bg-[#EEE8DD] border border-[#D9D1C4] text-stone-800 hover:text-[#971F26] rounded text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shrink-0"
-              aria-label="Open Digital Safety Information"
-            >
-              <ShieldAlert className="w-3.5 h-3.5 text-[#971F26]" />
-              <span className="hidden xs:inline">Safety</span>
-            </button>
-
-            {/* Hamburger Menu Toggle */}
-            <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded border border-[#D9D1C4] bg-[#EEE8DD] text-[#1C1D1D] hover:bg-stone-200 focus:outline-none shrink-0"
-              aria-label="Toggle Navigation Menu"
+              className="p-2 text-mwt-black hover:text-mwt-oxblood focus:outline-none focus:ring-2 focus:ring-mwt-oxblood rounded-xs"
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-        </div>
-
-        {/* Persistent Subline Beneath Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-between border-t border-[#D9D1C4]/60 py-1 text-[10px] font-mono text-stone-600 tracking-wider">
-          <span>People move between systems. Their information and accountability often do not.</span>
-          <span className="text-[#971F26] font-bold">[SURVIVOR CONTINUITY + SYSTEM ACCOUNTABILITY]</span>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t-2 border-[#26221F] bg-[#F5F1E8] px-4 pt-3 pb-6 space-y-4 shadow-xl font-mono animate-in fade-in duration-150">
-          {/* Group 1: SURVIVOR NAVIGATION */}
+        <div className="lg:hidden border-t border-[#E2DACB] bg-mwt-ivory px-4 pt-3 pb-6 space-y-4 font-mono text-xs">
           <div className="space-y-1">
-            <div className="text-[10px] uppercase font-bold text-[#971F26] tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              SURVIVOR NAVIGATION &amp; TOOLS
+            <div className="text-[10px] uppercase font-bold text-mwt-oxblood tracking-wider px-2 py-1">
+              Primary Destinations
             </div>
-            <Link
-              href="/find-help"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              Find Help (Reachable Resource Matcher)
-            </Link>
-            <Link
-              href="/other-ways-through"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
+            {primaryNav.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="block px-3 py-2 rounded-xs text-mwt-black hover:bg-mwt-parchment font-semibold"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="space-y-1 pt-2 border-t border-[#E2DACB]">
+            <div className="text-[10px] uppercase font-bold text-mwt-oxblood tracking-wider px-2 py-1">
+              Tools &amp; Systems
+            </div>
+            <Link href="/other-ways-through" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
               Other Ways Through (Lateral Aid)
             </Link>
-            <Link
-              href="/texas"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              Texas Deep Dive (254 Counties &amp; Statutes)
+            <Link href="/bad-maps" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
+              Bad Maps (Failure Intelligence)
             </Link>
-            <Link
-              href="/ask-us-to-look"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              Ask Us to Look (Intake Review)
+            <Link href="/the-gap" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
+              The Seam Deficit
             </Link>
-          </div>
-
-          {/* Group 2: SYSTEMS & CONTINUITY */}
-          <div className="space-y-1">
-            <div className="text-[10px] uppercase font-bold text-stone-700 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              SYSTEM SIDE · CONTINUITY &amp; POLICY
-            </div>
-            <Link
-              href="/continuity"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              Cross-System Continuity Standard
-            </Link>
-            <Link
-              href="/continuity/safeguards"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
+            <Link href="/continuity/safeguards" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
               Evidence Integrity &amp; Safeguards
             </Link>
-            <Link
-              href="/the-gap"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              The Gap (Seam Deficit)
-            </Link>
-            <Link
-              href="/policy"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              Texas Policy &amp; Systems Lab
-            </Link>
-            <Link
-              href="/writing"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#1C1D1D] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              Field Notes (Writing &amp; Analysis)
-            </Link>
-            <Link
-              href="/bad-maps"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              Bad Maps Research
-            </Link>
-            <Link
-              href="/for-partners"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1.5 text-xs text-[#971F26] font-bold hover:bg-[#EEE8DD] rounded"
-            >
-              Call for Partners (Co-Design)
-            </Link>
-          </div>
-
-          {/* Group 3: ABOUT & SAFETY */}
-          <div className="space-y-1">
-            <div className="text-[10px] uppercase font-bold text-stone-500 tracking-widest px-2 pb-1 border-b border-[#D9D1C4]">
-              ABOUT, METHODOLOGY &amp; SAFETY
-            </div>
-            <Link
-              href="/how-it-works"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              How It Works
-            </Link>
-            <Link
-              href="/methodology"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              Methodology &amp; Evidence Specs
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              About Maps With Teeth
-            </Link>
-            <Link
-              href="/safety"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
+            <Link href="/safety" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
               Digital Safety Guide
             </Link>
-            <Link
-              href="/support"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-2 py-1 text-xs text-stone-700 hover:bg-[#EEE8DD] rounded"
-            >
-              Support &amp; Donate
+            <Link href="/about" className="block px-3 py-1.5 text-mwt-graphite hover:text-mwt-black">
+              About &amp; Governance
             </Link>
           </div>
         </div>

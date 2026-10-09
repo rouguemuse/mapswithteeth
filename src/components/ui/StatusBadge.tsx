@@ -1,5 +1,13 @@
 import React from "react";
-import { CheckCircle2, ShieldCheck, Scale, FileText, AlertCircle, AlertTriangle, Clock, FlaskConical, Milestone, Sparkles } from "lucide-react";
+import {
+  CheckCircle2,
+  FileText,
+  AlertTriangle,
+  FlaskConical,
+  Scale,
+  Clock,
+  ShieldCheck,
+} from "lucide-react";
 
 export type ProductStatus =
   | "LIVE"
@@ -33,15 +41,23 @@ export function StatusBadge({
   className = "",
 }: StatusBadgeProps) {
   const norm = (status || "").toUpperCase().replace(/\s+/g, "_");
-  const sizeClasses = size === "sm" ? "text-[9px] sm:text-[10px] py-0.5 px-2" : "text-xs py-1 px-2.5";
+  const sizeClasses =
+    size === "sm"
+      ? "text-[9px] sm:text-[10px] py-0.5 px-2"
+      : "text-xs py-1 px-2.5";
 
   // Product Lifecycle Statuses
-  if (type === "product" || ["LIVE", "ACTIVE_RESEARCH", "PILOT", "PROTOTYPE", "PLANNED"].includes(norm)) {
+  if (
+    type === "product" ||
+    ["LIVE", "ACTIVE_RESEARCH", "PILOT", "PROTOTYPE", "PLANNED"].includes(norm)
+  ) {
     switch (norm) {
       case "LIVE":
         return (
-          <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#E8F3EB] border-[#2D5A3D] text-[#2D5A3D] ${sizeClasses} ${className}`}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2D5A3D]" />
+          <span
+            className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-[#92C6A3] bg-[#E6F1EA] text-[#1F6B38] ${sizeClasses} ${className}`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1F6B38]" />
             <span>{label || "LIVE"}</span>
             {timestamp && <span className="text-stone-600 font-normal">· {timestamp}</span>}
           </span>
@@ -49,109 +65,84 @@ export function StatusBadge({
       case "ACTIVE_RESEARCH":
       case "ACTIVE":
         return (
-          <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#F5F1E8] border-[#1C1D1D] text-[#1C1D1D] ${sizeClasses} ${className}`}>
-            <FlaskConical className="w-3 h-3 text-[#971F26]" />
+          <span
+            className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-mwt-black bg-mwt-ivory text-mwt-black ${sizeClasses} ${className}`}
+          >
+            <FlaskConical className="w-3 h-3 text-mwt-oxblood" />
             <span>{label || "ACTIVE RESEARCH"}</span>
             {timestamp && <span className="text-stone-600 font-normal">· {timestamp}</span>}
           </span>
         );
       case "PILOT":
         return (
-          <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FEF3C7] border-[#D97706] text-[#92400E] ${sizeClasses} ${className}`}>
-            <Milestone className="w-3 h-3 text-[#D97706]" />
-            <span>{label || "PILOT"}</span>
+          <span
+            className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-[#E8B957] bg-[#FEF3D6] text-[#945700] ${sizeClasses} ${className}`}
+          >
+            <Clock className="w-3 h-3" />
+            <span>{label || "PILOT SPECIFICATION"}</span>
             {timestamp && <span className="text-stone-600 font-normal">· {timestamp}</span>}
           </span>
         );
       case "PROTOTYPE":
         return (
-          <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#F5F1E8] border-dashed border-stone-500 text-stone-800 ${sizeClasses} ${className}`}>
-            <Sparkles className="w-3 h-3 text-stone-600" />
-            <span>{label || "PROTOTYPE"}</span>
+          <span
+            className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-[#B5A58E] bg-mwt-parchment text-mwt-black ${sizeClasses} ${className}`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-mwt-oxblood" />
+            <span>{label || "WORKING PROTOTYPE"}</span>
             {timestamp && <span className="text-stone-600 font-normal">· {timestamp}</span>}
           </span>
         );
       case "PLANNED":
       default:
         return (
-          <span className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border bg-[#EEE8DD] border-stone-400 text-stone-600 ${sizeClasses} ${className}`}>
-            <Clock className="w-3 h-3 text-stone-500" />
-            <span>{label || "PLANNED"}</span>
-            {timestamp && <span className="text-stone-600 font-normal">· {timestamp}</span>}
+          <span
+            className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-stone-300 bg-stone-100 text-stone-600 ${sizeClasses} ${className}`}
+          >
+            <span>{label || "PROPOSED REFORM"}</span>
+            {timestamp && <span className="text-stone-500 font-normal">· {timestamp}</span>}
           </span>
         );
     }
   }
 
-  // Research Verification Statuses
+  // Verification Tiers
   switch (norm) {
-    case "ACTIVE_VERIFIED":
     case "DIRECTLY_CONFIRMED":
-    case "AGENCY_CONFIRMED":
       return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#E8F3EB] border-[#2D5A3D] text-[#2D5A3D] ${sizeClasses} ${className}`}>
-          <ShieldCheck className="w-3 h-3 text-[#2D5A3D]" />
-          <span>{label || "ACTIVE · VERIFIED"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        <span
+          className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-[#92C6A3] bg-[#E6F1EA] text-[#1F6B38] ${sizeClasses} ${className}`}
+        >
+          <CheckCircle2 className="w-3 h-3" />
+          <span>{label || "DIRECTLY CONFIRMED"}</span>
         </span>
       );
-    case "ACTIVE_PARTIALLY_VERIFIED":
     case "PRIMARY_SOURCE_VERIFIED":
-    case "OFFICIAL_SOURCE_CHECKED":
-    case "STATUTORY_RIGHT":
       return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#EEE8DD] border-[#1C1D1D] text-[#1C1D1D] ${sizeClasses} ${className}`}>
-          <Scale className="w-3 h-3 text-[#1C1D1D]" />
-          <span>{label || "PARTIALLY VERIFIED"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        <span
+          className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-stone-400 bg-mwt-parchment text-mwt-black ${sizeClasses} ${className}`}
+        >
+          <Scale className="w-3 h-3 text-mwt-oxblood" />
+          <span>{label || "STATUTE VERIFIED"}</span>
+        </span>
+      );
+    case "TEMPORARILY_CLOSED":
+      return (
+        <span
+          className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-[#ECA1A9] bg-[#FBEAEC] text-[#B31B2A] ${sizeClasses} ${className}`}
+        >
+          <AlertTriangle className="w-3 h-3" />
+          <span>{label || "TEMPORARILY PAUSED"}</span>
         </span>
       );
     case "PUBLIC_SOURCE_CHECKED":
-    case "WEB_VERIFIED":
-      return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#F5F1E8] border-stone-600 text-stone-800 ${sizeClasses} ${className}`}>
-          <FileText className="w-3 h-3 text-stone-700" />
-          <span>{label || "PUBLIC SOURCE CHECKED"}{timestamp ? ` · ${timestamp}` : ""}</span>
-        </span>
-      );
-    case "PAUSED":
-    case "TEMPORARILY_CLOSED":
-    case "WAITLIST":
-      return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FDF2F2] border-[#971F26] text-[#971F26] ${sizeClasses} ${className}`}>
-          <AlertCircle className="w-3 h-3 text-[#971F26]" />
-          <span>{label || "PAUSED"}{timestamp ? ` · REOPENS ${timestamp}` : ""}</span>
-        </span>
-      );
-    case "CONDITIONAL":
-      return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FAF5FF] border-[#7E22CE] text-[#7E22CE] ${sizeClasses} ${className}`}>
-          <Scale className="w-3 h-3 text-[#7E22CE]" />
-          <span>{label || "CONDITIONAL ACCESS"}{timestamp ? ` · ${timestamp}` : ""}</span>
-        </span>
-      );
-    case "RESEARCHING":
-    case "ACTIVE_RESEARCH":
-      return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-bold tracking-wider rounded-xs border bg-[#FFFDF5] border-[#D97706] text-[#92400E] ${sizeClasses} ${className}`}>
-          <FlaskConical className="w-3 h-3 text-[#D97706]" />
-          <span>{label || "RESEARCHING"}{timestamp ? ` · ${timestamp}` : ""}</span>
-        </span>
-      );
-    case "FIELD_REPORTED_UNCONFIRMED":
-    case "UNCONFIRMED":
-    case "CALL_TO_CONFIRM":
-      return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border bg-[#FFFDF5] border-amber-800 text-amber-900 ${sizeClasses} ${className}`}>
-          <AlertTriangle className="w-3 h-3 text-amber-800" />
-          <span>{label || "UNCONFIRMED"}{timestamp ? ` · ${timestamp}` : ""}</span>
-        </span>
-      );
-    case "STALE":
-    case "CLOSED":
     default:
       return (
-        <span className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border bg-[#EEE8DD] border-stone-400 text-stone-600 ${sizeClasses} ${className}`}>
-          <Clock className="w-3 h-3 text-stone-500" />
-          <span>{label || "STALE"}{timestamp ? ` · ${timestamp}` : ""}</span>
+        <span
+          className={`inline-flex items-center gap-1 font-mono uppercase font-semibold tracking-wider rounded-xs border border-stone-300 bg-stone-50 text-stone-700 ${sizeClasses} ${className}`}
+        >
+          <FileText className="w-3 h-3" />
+          <span>{label || "PUBLIC RECORD"}</span>
         </span>
       );
   }

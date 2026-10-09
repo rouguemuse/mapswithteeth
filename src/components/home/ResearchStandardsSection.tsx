@@ -11,7 +11,7 @@ export function ResearchStandardsSection() {
       description:
         "Six canonical modules covering linked-matter signals, closed-loop referrals, participant-held receipts, cumulative review triggers, multi-system handoff manifests, and administrative review traces.",
       linkText: "Read 6-Module Standard",
-      href: "/continuity"
+      href: "/continuity",
     },
     {
       label: "EMPIRICAL RESEARCH",
@@ -20,7 +20,7 @@ export function ResearchStandardsSection() {
       description:
         "A proposed audit methodology examining cross-system friction—evaluating verified handoffs, jurisdictional amnesia, circular referral runarounds, and ownerless matters without unverified cohort claims.",
       linkText: "Explore Bad Maps Research",
-      href: "/bad-maps"
+      href: "/bad-maps",
     },
     {
       label: "STATUTORY RESEARCH",
@@ -29,18 +29,18 @@ export function ResearchStandardsSection() {
       description:
         "Analysis of statutory protections and administrative intersections across Texas Property Code § 92.016, PUCT rules, and family safety statutes—clarifying where state law creates existing relief.",
       linkText: "View Policy Research",
-      href: "/policy"
-    }
+      href: "/policy",
+    },
   ];
 
   return (
-    <section id="research" className="space-y-6 scroll-mt-24 font-sans">
-      <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
+    <section id="research" className="space-y-6 scroll-mt-24 font-sans select-none">
+      <div className="border-b border-[#C4B69E] pb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
+          <span className="text-xs font-mono text-mwt-oxblood font-bold uppercase tracking-wider block">
             RESEARCH &amp; STANDARDS · METHODOLOGY
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-mwt-black tracking-tight">
             The underlying methodology
           </h2>
         </div>
@@ -53,31 +53,31 @@ export function ResearchStandardsSection() {
           return (
             <div
               key={c.title}
-              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm"
+              className="bg-mwt-parchment border-2 border-mwt-black rounded-lg p-5 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#971F26]">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-mwt-oxblood">
                     {c.label}
                   </span>
-                  <div className="p-2 bg-[#F5F1E8] border border-stone-300 rounded">
-                    <Icon className="w-4 h-4 text-[#971F26]" />
+                  <div className="p-2 bg-mwt-ivory border border-[#C4B69E] rounded-xs">
+                    <Icon className="w-4 h-4 text-mwt-oxblood" aria-hidden="true" />
                   </div>
                 </div>
 
-                <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1C1D1D]">
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-mwt-black">
                   {c.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                <p className="text-xs sm:text-sm text-mwt-graphite leading-relaxed">
                   {c.description}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-stone-300">
+              <div className="pt-2 border-t border-[#C4B69E]">
                 <Link
                   href={c.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#1C1D1D] hover:text-[#971F26] transition"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-mwt-black hover:text-mwt-oxblood transition"
                 >
                   <span>{c.linkText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />

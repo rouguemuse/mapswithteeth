@@ -1,55 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #F5F1E8;
-  --foreground: #1C1D1D;
+  /* =========================================================================
+     CANONICAL BRAND TOKENS (Maps With Teeth System Lock)
+     ========================================================================= */
+  --mwt-archive-black: #11100F;    /* Primary dark surfaces & ink */
+  --mwt-oxblood: #841F2B;          /* Primary brand accent */
+  --mwt-oxblood-dark: #661620;     /* Deep oxblood for interactive pressed states */
+  --mwt-oxblood-light: #A52B3A;    /* Lighter accent for dark mode contrast */
+  --mwt-parchment: #EEE8DB;        /* Editorial light surfaces */
+  --mwt-reading-ivory: #F8F5EE;    /* Reading-heavy light surfaces */
+  --mwt-aged-stone: #B5A58E;       /* Supporting details, rules, metadata */
+  --mwt-graphite: #4D4944;         /* Secondary surfaces, body secondary */
+
+  /* Semantic Aliases */
+  --background: var(--mwt-reading-ivory);
+  --foreground: var(--mwt-archive-black);
+  --surface-primary: var(--mwt-reading-ivory);
+  --surface-secondary: var(--mwt-parchment);
+  --surface-dark: var(--mwt-archive-black);
+  --surface-accent: var(--mwt-oxblood);
+  --border-subtle: #E2DACB;
+  --border-strong: #C4B69E;
+  --border-dark: #2B2926;
+  --text-muted: var(--mwt-graphite);
+  --text-light-muted: #8E877C;
+  --text-dark-muted: #A39E94;
+
+  /* Functional Status Tokens (strictly separate from brand oxblood) */
+  --status-verified-bg: #E6F1EA;
+  --status-verified-fg: #1F6B38;
+  --status-verified-border: #92C6A3;
+  --status-warning-bg: #FEF3D6;
+  --status-warning-fg: #945700;
+  --status-warning-border: #E8B957;
+  --status-error-bg: #FBEAEC;
+  --status-error-fg: #B31B2A;
+  --status-error-border: #ECA1A9;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Subtle Topographic, Atlas & Cartographic Textures */
+/* =========================================================================
+   ATMOSPHERIC CARTOGRAPHIC TEXTURES (Minimal, meaning-driven)
+   ========================================================================= */
 .bg-topo-atlas {
-  background-image: radial-gradient(rgba(217, 209, 196, 0.25) 1px, transparent 1px), radial-gradient(rgba(217, 209, 196, 0.25) 1px, #F5F1E8 1px);
+  background-image: radial-gradient(rgba(181, 165, 142, 0.28) 1px, transparent 1px), radial-gradient(rgba(181, 165, 142, 0.28) 1px, #F8F5EE 1px);
   background-size: 28px 28px;
   background-position: 0 0, 14px 14px;
 }
 
-/* Global atmospheric page ledger grid (reduced by 50% for subtle atmospheric texture) */
+/* Global atmospheric page ledger grid */
 .bg-grid-ledger {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(217, 209, 196, 0.22) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217, 209, 196, 0.22) 1px, transparent 1px);
+    linear-gradient(to right, rgba(181, 165, 142, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(181, 165, 142, 0.22) 1px, transparent 1px);
 }
 
 /* Global atmospheric atlas grid */
 .bg-grid-atlas {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(217, 209, 196, 0.16) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217, 209, 196, 0.16) 1px, transparent 1px);
+    linear-gradient(to right, rgba(181, 165, 142, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(181, 165, 142, 0.18) 1px, transparent 1px);
 }
 
-/* Crisp analytical diagram & data panel grid (distinctly visible for schematics) */
+/* Crisp analytical diagram & data panel grid */
 .bg-grid-diagram {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(217, 209, 196, 0.45) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217, 209, 196, 0.45) 1px, transparent 1px);
+    linear-gradient(to right, rgba(181, 165, 142, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(181, 165, 142, 0.35) 1px, transparent 1px);
 }
 
-/* Rough Editorial Underline */
+/* =========================================================================
+   TYPOGRAPHIC ACCENTS & DOCUMENTARY ELEMENTS
+   ========================================================================= */
 .underline-rough {
   position: relative;
   display: inline-block;
@@ -62,66 +100,50 @@ body {
   bottom: 2px;
   width: 100%;
   height: 3px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0,4 Q25,1 50,4 T100,4' fill='none' stroke='%23971F26' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0,4 Q25,1 50,4 T100,4' fill='none' stroke='%23841F2B' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
   background-size: 100% 100%;
   pointer-events: none;
 }
 
+/* Coordinate ticks and registration markers */
+.coord-tick {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--mwt-graphite);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 /* Stamped Research Badges */
 .stamp-verified {
-  border: 1.5px dashed #1C1D1D;
-  font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  border: 1px solid var(--status-verified-border);
+  font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   font-size: 0.625rem;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.15rem 0.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background-color: #EEE8DD;
+  background-color: var(--status-verified-bg);
+  color: var(--status-verified-fg);
 }
 
 .stamp-alert {
-  border: 1.5px dashed #971F26;
-  color: #971F26;
-  font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  border: 1px solid var(--status-error-border);
+  color: var(--status-error-fg);
+  font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   font-size: 0.625rem;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.15rem 0.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background-color: #F8EFEF;
-}
-
-/* Field-note Marginalia & Leader Lines */
-.field-annotation {
-  font-family: 'Caveat', 'Kalam', cursive;
-  font-size: 1.125rem;
-  line-height: 1.2;
-  color: #971F26;
-  transform: rotate(-1.5deg);
-}
-
-.field-annotation-dark {
-  font-family: 'Caveat', 'Kalam', cursive;
-  font-size: 1.125rem;
-  line-height: 1.2;
-  color: #1C1D1D;
-  transform: rotate(-1deg);
-}
-
-/* Coordinate ticks and registration markers */
-.coord-tick {
-  font-family: 'Space Mono', 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: #57534E;
-  font-weight: 500;
-  text-transform: uppercase;
+  background-color: var(--status-error-bg);
 }
 
 @keyframes fadeIn {
@@ -139,7 +161,17 @@ body {
   animation: fadeIn 0.2s ease-out forwards;
 }
 
-/* Print styles: Ensure expandable specifications and modules are exposed when printing */
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles: Ensure specifications and modules are exposed when printing */
 @media print {
   details {
     display: block !important;
@@ -152,4 +184,3 @@ body {
     display: block !important;
   }
 }
-

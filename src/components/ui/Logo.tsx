@@ -7,16 +7,25 @@ interface LogoProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   className?: string;
   variant?: "full" | "mark";
+  inverted?: boolean;
 }
 
-export function LogoIcon({ size = 48, className = "" }: { size?: number; className?: string }) {
+export function LogoIcon({
+  size = 48,
+  className = "",
+  inverted = false,
+}: {
+  size?: number;
+  className?: string;
+  inverted?: boolean;
+}) {
   const [error, setError] = useState(false);
 
   if (error) {
     return (
       <div
         style={{ width: size, height: size }}
-        className={`bg-[#971F26] text-white font-serif font-bold rounded flex items-center justify-center text-xs select-none ${className}`}
+        className={`bg-mwt-oxblood text-white font-serif font-bold rounded-xs flex items-center justify-center text-xs select-none ${className}`}
         aria-label="Maps With Teeth"
       >
         MWT
@@ -34,7 +43,9 @@ export function LogoIcon({ size = 48, className = "" }: { size?: number; classNa
         alt="Maps With Teeth Icon"
         width={600}
         height={400}
-        className="object-cover object-left h-full w-auto max-w-none mix-blend-multiply scale-125 origin-left"
+        className={`object-cover object-left h-full w-auto max-w-none scale-125 origin-left ${
+          inverted ? "filter invert hue-rotate-180 brightness-110" : "mix-blend-multiply"
+        }`}
         priority
         unoptimized
         onError={() => setError(true)}
@@ -43,7 +54,12 @@ export function LogoIcon({ size = 48, className = "" }: { size?: number; classNa
   );
 }
 
-export function Logo({ size = "md", className = "", variant = "full" }: LogoProps) {
+export function Logo({
+  size = "md",
+  className = "",
+  variant = "full",
+  inverted = false,
+}: LogoProps) {
   const [error, setError] = useState(false);
 
   const heightClasses = {
@@ -57,11 +73,15 @@ export function Logo({ size = "md", className = "", variant = "full" }: LogoProp
   if (error) {
     return (
       <div className={`flex flex-col justify-center select-none py-1 ${className}`}>
-        <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#1C1B1A] uppercase leading-none">
+        <span
+          className={`font-serif font-bold text-lg sm:text-xl tracking-tight uppercase leading-none ${
+            inverted ? "text-mwt-ivory" : "text-mwt-black"
+          }`}
+        >
           Maps With Teeth
         </span>
-        <span className="font-mono text-[9px] uppercase tracking-widest text-[#7A2026] font-semibold mt-0.5">
-          Barrier-First Resource Intelligence
+        <span className="font-mono text-[9px] uppercase tracking-widest text-mwt-oxblood font-semibold mt-0.5">
+          Civic Systems Continuity
         </span>
       </div>
     );
@@ -71,10 +91,12 @@ export function Logo({ size = "md", className = "", variant = "full" }: LogoProp
     <div className={`flex items-center group select-none ${className}`}>
       <Image
         src="/logo.png"
-        alt="Maps With Teeth — Barrier-First Resource Intelligence"
+        alt="Maps With Teeth — Civic Systems Reform & Resource Intelligence"
         width={800}
         height={450}
-        className={`w-auto ${heightClasses[size]} object-contain mix-blend-multiply group-hover:opacity-95 transition-opacity`}
+        className={`w-auto ${heightClasses[size]} object-contain group-hover:opacity-95 transition-opacity ${
+          inverted ? "filter brightness-125 contrast-125" : "mix-blend-multiply"
+        }`}
         priority
         unoptimized
         onError={() => setError(true)}

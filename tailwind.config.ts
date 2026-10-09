@@ -9,27 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Locked Canonical Brand Palette
+        mwt: {
+          black: "#11100F",       // Archive Black
+          oxblood: "#841F2B",     // Primary Brand Accent
+          "oxblood-dark": "#661620",
+          "oxblood-light": "#A52B3A",
+          parchment: "#EEE8DB",   // Editorial Light Surface
+          ivory: "#F8F5EE",       // Reading Ivory
+          stone: "#B5A58E",       // Aged Stone
+          graphite: "#4D4944",    // Secondary Ink & Muted Text
+        },
+        // Backward compatibility mappings
         brand: {
-          charcoal: "#1C1D1D",      // Primary ink / near-black
-          dark: "#1C1D1D",          // Primary ink alias
-          paper: "#F5F1E8",         // Warm ivory primary paper background
-          "paper-secondary": "#EEE8DD", // Secondary warm paper / dossier surface
-          ivory: "#F5F1E8",         // Warm ivory alias
-          oxblood: "#971F26",       // Signature oxblood accent
-          "oxblood-muted": "#A52A30", // Muted red linework / leader lines
-          border: "#D9D1C4",        // Pale warm gray border / grid rules
-          sand: "#D9D1C4",          // Pale warm gray alias
-          stone: "#78726A",         // Secondary metadata text
-          slate: "#394247",         // Optional data system accent
-          ruby: "#971F26",
-          muted: "#78726A",
+          charcoal: "#11100F",
+          dark: "#11100F",
+          paper: "#F8F5EE",
+          "paper-secondary": "#EEE8DB",
+          ivory: "#F8F5EE",
+          oxblood: "#841F2B",
+          "oxblood-muted": "#A52B3A",
+          border: "#B5A58E",
+          sand: "#EEE8DB",
+          stone: "#4D4944",
+          slate: "#394247",
+          ruby: "#841F2B",
+          muted: "#4D4944",
         },
       },
       fontFamily: {
-        serif: ["'Newsreader'", "'Playfair Display'", "'Georgia'", "'Cambria'", "serif"],
-        mono: ["'Space Mono'", "'JetBrains Mono'", "'Fira Code'", "Menlo", "monospace"],
-        handwriting: ["'Caveat'", "'Kalam'", "'Indie Flower'", "cursive"],
-        sans: ["'Inter'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+        serif: ["'Fraunces'", "'Newsreader'", "'Georgia'", "'Cambria'", "serif"],
+        sans: ["'IBM Plex Sans'", "'Inter'", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "'Space Mono'", "Menlo", "monospace"],
+      },
+      borderRadius: {
+        xs: "2px",
+        sm: "4px",
+        md: "6px",
+        lg: "8px",
+        xl: "12px",
+        "2xl": "16px",
       },
     },
   },
