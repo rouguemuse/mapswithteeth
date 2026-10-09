@@ -18,6 +18,7 @@ import {
   ChevronDown
 } from "lucide-react";
 import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityContactRecordSpecimen";
+import { ContinuityReceiptInteractiveDemo } from "@/components/continuity/ContinuityReceiptInteractiveDemo";
 import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
 import { ResourceMaterialsBlock } from "@/components/safeguards/ResourceMaterialsBlock";
 
@@ -184,9 +185,10 @@ export default function ContinuityStandardPage() {
   const navSections = [
     { name: "1. Six Modules", href: "#modules" },
     { name: "2. Interchange Spec", href: "#interchange-spec" },
-    { name: "3. Specimen Demo", href: "#receipt-specimen" },
-    { name: "4. Safeguard Layer", href: "#safeguards-layer" },
-    { name: "5. Policy Resources", href: "#resources" },
+    { name: "3. 7-Stage Pipeline Demo", href: "#pipeline-demo" },
+    { name: "4. Specimen Demo", href: "#receipt-specimen" },
+    { name: "5. Safeguard Layer", href: "#safeguards-layer" },
+    { name: "6. Policy Resources", href: "#resources" },
   ];
 
   return (
@@ -410,7 +412,12 @@ export default function ContinuityStandardPage() {
         <ContinuityInterchangeSpecComponent />
       </div>
 
-      {/* 4. Interactive Specimen Demo */}
+      {/* 4. Interactive 7-Stage Progression & Stalled Handoff Demo */}
+      <div id="pipeline-demo" className="scroll-mt-24">
+        <ContinuityReceiptInteractiveDemo />
+      </div>
+
+      {/* 5. Interactive Specimen Demo */}
       <section id="receipt-specimen" className="space-y-6 scroll-mt-24">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <div>

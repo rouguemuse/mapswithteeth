@@ -96,6 +96,25 @@ export function ReceiptPracticeSection() {
           </div>
         </div>
 
+        {/* Five Invariant Badges */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-2 border-t border-[#C4B69E] text-center font-mono text-[11px]">
+          <div className="p-2 bg-mwt-parchment rounded-xs border border-[#C4B69E]">
+            <span className="font-bold text-mwt-oxblood block">Received ≠ Reviewed</span>
+          </div>
+          <div className="p-2 bg-mwt-parchment rounded-xs border border-[#C4B69E]">
+            <span className="font-bold text-mwt-oxblood block">Referred ≠ Accepted</span>
+          </div>
+          <div className="p-2 bg-mwt-parchment rounded-xs border border-[#C4B69E]">
+            <span className="font-bold text-mwt-oxblood block">Closed ≠ Resolved</span>
+          </div>
+          <div className="p-2 bg-mwt-parchment rounded-xs border border-[#C4B69E]">
+            <span className="font-bold text-mwt-oxblood block">Contacted ≠ Answered</span>
+          </div>
+          <div className="p-2 bg-mwt-parchment rounded-xs border border-[#C4B69E] col-span-2 sm:col-span-1">
+            <span className="font-bold text-mwt-oxblood block">Reported ≠ Proven</span>
+          </div>
+        </div>
+
         {/* Specimen Notice Footer */}
         <div className="bg-mwt-parchment border-t border-[#C4B69E] px-4 py-2 text-[11px] text-mwt-graphite font-sans flex flex-wrap items-center justify-between gap-1">
           <span>Non-implication notice: Does not establish agency endorsement, tort liability, or judicial fact-finding.</span>
@@ -103,18 +122,27 @@ export function ReceiptPracticeSection() {
         </div>
       </div>
 
-      {/* Direct Link to Working Tool */}
+      {/* Direct Links to Working Tools */}
       <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
         <span className="text-mwt-graphite">
-          Encounter data is compiled client-side in the browser; no private files are stored centrally.
+          Personal and institutional models preserve process facts client-side without storing private case files.
         </span>
-        <Link
-          href="/continuity#receipt-specimen"
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-mwt-black hover:bg-[#2B2724] text-white rounded-xs font-bold uppercase tracking-wider transition focus:outline-none focus:ring-2 focus:ring-mwt-oxblood"
-        >
-          <span>Test Interactive Specimen &amp; Export</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href="/continuity#pipeline-demo"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-mwt-oxblood hover:bg-mwt-oxblood-dark text-white rounded-xs font-bold uppercase tracking-wider transition focus:outline-none focus:ring-2 focus:ring-mwt-oxblood"
+          >
+            <span>Explore 7-Stage Pipeline Demo</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+          <Link
+            href="/continuity#receipt-specimen"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-mwt-black hover:bg-[#2B2724] text-white rounded-xs font-bold uppercase tracking-wider transition focus:outline-none focus:ring-2 focus:ring-mwt-oxblood"
+          >
+            <span>Inspect Specimen Ledger</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </div>
     </section>
   );

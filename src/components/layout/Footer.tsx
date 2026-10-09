@@ -72,6 +72,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/protection" className="text-[#D8D2C6] hover:text-white transition-colors">
+                  Protection Without Continuity
+                </Link>
+              </li>
+              <li>
                 <Link href="/the-gap" className="text-[#D8D2C6] hover:text-white transition-colors">
                   The Seam Deficit
                 </Link>

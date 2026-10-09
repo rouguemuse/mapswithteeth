@@ -32,12 +32,14 @@ export function Header({ onOpenSafeBrowsing }: { onOpenSafeBrowsing: () => void 
   // Primary Clean Navigation Items
   const primaryNav = [
     { name: "Continuity Standard", href: "/continuity" },
+    { name: "Protection & Access", href: "/protection" },
     { name: "Policy & Systems", href: "/policy" },
     { name: "Writing", href: "/writing" },
     { name: "Partners", href: "/for-partners" },
   ];
 
   const isMoreActive = [
+    "/protection",
     "/the-gap",
     "/bad-maps",
     "/other-ways-through",

@@ -21,6 +21,14 @@ export function ResourceMaterialsBlock() {
       icon: BookOpen
     },
     {
+      title: "Protection Without Continuity",
+      subtitle: "Cumulative harm, digital account access & meaningful intervention",
+      desc: "Framework addressing what happens when repeat harms are processed as isolated incidents, separating participant inability from refusal, and digital infrastructure interference.",
+      tag: "PROTECTION",
+      href: "/protection",
+      icon: BookOpen
+    },
+    {
       title: "Texas Policy & Systems Lab",
       subtitle: "When the Human Becomes the Integration Layer & DFPS Sunset Review",
       desc: "Administrative continuity and evidence-traceability reform initiative, statutory analyses (Property, Family, Labor, Utility codes), and pilot evaluation criteria.",

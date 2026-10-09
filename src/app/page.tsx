@@ -2,6 +2,7 @@ import React from "react";
 import { PremiumHero } from "@/components/home/PremiumHero";
 import { BarrierFlowExperience } from "@/components/home/BarrierFlowExperience";
 import { ModelPillarsSection } from "@/components/home/ModelPillarsSection";
+import { FourReformTracksSection } from "@/components/home/FourReformTracksSection";
 import { ReceiptPracticeSection } from "@/components/home/ReceiptPracticeSection";
 import { ResearchStandardsSection } from "@/components/home/ResearchStandardsSection";
 import { ParticipateSection } from "@/components/home/ParticipateSection";
@@ -19,13 +20,16 @@ export default function HomePage() {
         {/* 3. The Model: Three Foundational Pillars (Continuity, Integrity, Accountability) */}
         <ModelPillarsSection />
 
-        {/* 4. See It in Practice: Featured Continuity Receipt Specimen */}
+        {/* 4. Where It Matters: Four Connected Reform Tracks (Administrative Continuity, Protection, Digital Access, Reachability) */}
+        <FourReformTracksSection />
+
+        {/* 5. See It in Practice: Featured Continuity Receipt Specimen & Core Invariants */}
         <ReceiptPracticeSection />
 
-        {/* 5. Research & Standards: Methodology Navigation (Standard, Bad Maps, Policy Lab) */}
+        {/* 6. Research & Standards: Methodology Navigation (Standard, Bad Maps, Policy Lab) */}
         <ResearchStandardsSection />
 
-        {/* 6. Participate: Simplified Dark Movement CTA with Partner Pathways */}
+        {/* 7. Participate: Simplified Dark Movement CTA with Partner Pathways */}
         <ParticipateSection />
       </div>
     </div>
