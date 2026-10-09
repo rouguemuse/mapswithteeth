@@ -1,35 +1,31 @@
 import React from "react";
 import { PremiumHero } from "@/components/home/PremiumHero";
-import { BarrierFlowExperience } from "@/components/home/BarrierFlowExperience";
-import { ModelPillarsSection } from "@/components/home/ModelPillarsSection";
+import { InteractiveProblemSection } from "@/components/home/InteractiveProblemSection";
 import { FourReformTracksSection } from "@/components/home/FourReformTracksSection";
 import { ReceiptPracticeSection } from "@/components/home/ReceiptPracticeSection";
-import { ResearchStandardsSection } from "@/components/home/ResearchStandardsSection";
+import { WorkInPracticeSection } from "@/components/home/WorkInPracticeSection";
 import { ParticipateSection } from "@/components/home/ParticipateSection";
 
 export default function HomePage() {
   return (
     <div className="space-y-12 sm:space-y-16 pb-20 font-sans">
-      {/* 1. Hero: Editorial Movement Opening + Central Texas Pilot Distinct Framing */}
+      {/* 1. Movement Hero: "People shouldn't disappear between systems" */}
       <PremiumHero />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
-        {/* 2. Signature Visual Experience: The Barrier Flow (5-Step Gauntlet vs Alternative) */}
-        <BarrierFlowExperience />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-20">
+        {/* 2. The Problem: One memorable, interactive explanation of how a person becomes the integration layer */}
+        <InteractiveProblemSection />
 
-        {/* 3. The Model: Three Foundational Pillars (Continuity, Integrity, Accountability) */}
-        <ModelPillarsSection />
-
-        {/* 4. Where It Matters: Four Connected Reform Tracks (Administrative Continuity, Protection, Digital Access, Reachability) */}
+        {/* 3. Four Reform Tracks: Concise, beautifully composed introduction to Tracks A, B, C, D */}
         <FourReformTracksSection />
 
-        {/* 5. See It in Practice: Featured Continuity Receipt Specimen & Core Invariants */}
+        {/* 4. Continuity Receipt: One signature visual demonstration with links to interactive prototype */}
         <ReceiptPracticeSection />
 
-        {/* 6. Research & Standards: Methodology Navigation (Standard, Bad Maps, Policy Lab) */}
-        <ResearchStandardsSection />
+        {/* 5. Work in Practice: Central Texas Navigation Pilot & Texas DFPS Sunset Review Proposal */}
+        <WorkInPracticeSection />
 
-        {/* 7. Participate: Simplified Dark Movement CTA with Partner Pathways */}
+        {/* 6. Participation: Clear pathways for research collaboration, practitioner feedback, policy input, and support */}
         <ParticipateSection />
       </div>
     </div>
