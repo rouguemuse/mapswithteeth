@@ -27,9 +27,9 @@ export function ResearchStandardsSection() {
       title: "Texas Policy Lab",
       icon: Scale,
       description:
-        "Analysis of statutory protections and administrative intersections across Texas Property Code § 92.016, PUCT rules, and family safety statutes—clarifying where state law creates existing relief.",
-      linkText: "View Policy Research",
-      href: "/policy",
+        "Administrative continuity proposals and statutory analysis—including our DFPS Sunset reform initiative, 'When the Human Becomes the Integration Layer', and 6 pilot evaluation criteria.",
+      linkText: "View Policy Reform",
+      href: "/policy#integration-layer-reform",
     },
   ];
 

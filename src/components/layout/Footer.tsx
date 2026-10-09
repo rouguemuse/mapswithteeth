@@ -87,6 +87,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/policy#integration-layer-reform" className="text-[#D8D2C6] hover:text-white transition-colors">
+                  Integration Layer Reform
+                </Link>
+              </li>
+              <li>
                 <Link href="/continuity/safeguards" className="text-amber-300 hover:text-amber-200 transition-colors font-bold">
                   Evidence Safeguards
                 </Link>

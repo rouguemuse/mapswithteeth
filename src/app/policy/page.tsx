@@ -31,6 +31,7 @@ import {
 import { getPolicyLabRelatedArticles } from "@/domain/writing/queries";
 import { ArticleCard } from "@/components/writing/ArticleCard";
 import { ResourceMaterialsBlock } from "@/components/safeguards/ResourceMaterialsBlock";
+import { IntegrationLayerReformSection } from "@/components/policy/IntegrationLayerReformSection";
 
 export default function PolicyLabPage() {
   const relatedArticles = getPolicyLabRelatedArticles();
@@ -311,7 +312,10 @@ export default function PolicyLabPage() {
         </div>
       </div>
 
-      {/* 2. The Core Defensible Position: Texas Multidisciplinary Precedents */}
+      {/* 2. Flagship Policy Reform Initiative: When the Human Becomes the Integration Layer */}
+      <IntegrationLayerReformSection />
+
+      {/* 3. The Core Defensible Position: Texas Multidisciplinary Precedents */}
       <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm bg-grid-diagram">
         <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
           <div className="flex items-center gap-2 text-[#971F26]">

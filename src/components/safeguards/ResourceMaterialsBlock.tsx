@@ -22,10 +22,10 @@ export function ResourceMaterialsBlock() {
     },
     {
       title: "Texas Policy & Systems Lab",
-      subtitle: "Statutory analyses, central Texas pilot projects & administrative reform",
-      desc: "Policy materials covering Texas Property, Family, Labor, and Utility codes alongside statutory and administrative recommendations.",
+      subtitle: "When the Human Becomes the Integration Layer & DFPS Sunset Review",
+      desc: "Administrative continuity and evidence-traceability reform initiative, statutory analyses (Property, Family, Labor, Utility codes), and pilot evaluation criteria.",
       tag: "POLICY",
-      href: "/policy",
+      href: "/policy#integration-layer-reform",
       icon: FileText
     }
   ];
