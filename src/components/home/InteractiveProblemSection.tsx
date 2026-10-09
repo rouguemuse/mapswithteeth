@@ -1,260 +1,215 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, RefreshCw, AlertTriangle, ShieldCheck, UserCheck, FileText } from "lucide-react";
+import { ArrowRight, AlertTriangle, ChevronRight, CheckCircle2 } from "lucide-react";
 
 export function InteractiveProblemSection() {
-  const [activeTab, setActiveTab] = useState<"loop" | "contrast">("loop");
-  const [activeStep, setActiveStep] = useState<number>(2); // Default to the handoff stall
+  const [activeStep, setActiveStep] = useState<number>(2); // Default to stage 3: The Seam Void
 
   const stages = [
     {
       num: "01",
-      name: "Reporting",
+      name: "Initial Intake",
       actor: "Person in Crisis",
-      action: "Submits documentation & requests urgent protection",
-      flaw: "Told: 'We only handle the initial report. Contact Agency B for housing.'",
-      humanBurden: "Person must independently identify and travel to Agency B."
+      action: "Submits evidence and requests critical safety protections.",
+      flaw: "Agency logs intake locally, but shares no structured receipt with the individual.",
+      burden: "The applicant assumes the system now holds their record; in reality, no outside agency knows it exists."
     },
     {
       num: "02",
       name: "Outbound Referral",
       actor: "Agency A (Sender)",
-      action: "Transmits electronic referral slip and closes intake",
-      flaw: "Status marked 'Complete / Referred Out' with zero receipt confirmation.",
-      humanBurden: "Person assumes Agency B has their file; in reality, no one is assigned."
+      action: "Issues an unconfirmed referral slip and closes internal case file.",
+      flaw: "Status is marked 'Completed / Referred Out' with zero verification of transmission.",
+      burden: "Agency A counts this as successful disposition. The person is left to transit the void alone."
     },
     {
       num: "03",
-      name: "The Seam Stall",
-      actor: "The Institutional Void",
-      action: "Referral sits in unmonitored inbox; capacity queue closed",
-      flaw: "Neither agency tracks whether the file was opened, reviewed, or dropped.",
-      humanBurden: "THE HUMAN BECOMES THE INTEGRATION LAYER: Forced to coordinate agencies that do not speak."
+      name: "The Seam Void",
+      actor: "The Disconnected Gap",
+      action: "Referral sits in unmonitored inbox; capacity queue quietly closed.",
+      flaw: "Neither agency tracks whether the file was opened, assigned, or dropped.",
+      burden: "THE HUMAN BECOMES THE INTEGRATION LAYER: Forced to physically carry the burden of disconnected systems."
     },
     {
       num: "04",
       name: "The Repeat Intake",
       actor: "Agency B (Receiver)",
-      action: "Demands fresh documentation and original testimony from scratch",
+      action: "Demands fresh documentation and original testimony from scratch.",
       flaw: "Prior statements, exhibits, and urgency flags are completely invisible.",
-      humanBurden: "Person forced to retell trauma and reconstruct timeline from memory."
+      burden: "Person forced to retell trauma and reconstruct timeline from memory."
     },
     {
       num: "05",
-      name: "The Circular Runaround",
+      name: "The Circular Lockout",
       actor: "Agency B → Agency A",
-      action: "Conditions aid on a verification form only issued by Agency A",
+      action: "Conditions aid on a verification form only issued by Agency A.",
       flaw: "Agency A states their file is closed and cannot issue post-intake verifications.",
-      humanBurden: "Person abandoned in circular loop; system logs them as 'failed to complete intake'."
+      burden: "Person abandoned in circular loop; system logs them as 'failed to complete intake'."
     }
   ];
 
   return (
-    <section id="problem" className="bg-mwt-parchment border-2 border-mwt-black rounded-xl p-6 sm:p-10 space-y-8 font-sans shadow-sm scroll-mt-24 select-none">
-      {/* 1. Header */}
-      <div className="border-b border-[#C4B69E] pb-6 space-y-3">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest font-bold text-mwt-oxblood bg-mwt-ivory px-2.5 py-1 rounded-xs border border-[#C4B69E]">
-            THE PROBLEM · THE SEAM DEFICIT
+    <section id="problem" className="relative font-sans select-none scroll-mt-24">
+      
+      {/* Editorial Headline Spread - Full-Bleed Architectural Moment */}
+      <div className="border-b-2 border-[#11100F] pb-8 mb-12">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#841F2B] font-bold">
+            <span>§ 01 · THE ADMINISTRATIVE SEAM DEFICIT</span>
+          </div>
+          <span className="font-mono text-xs text-[#4D4944] uppercase tracking-wider">
+            [TAXONOMY: 12 INSTITUTIONAL SEAM FAILURES]
           </span>
-          <span className="coord-tick">[WHEN INSTITUTIONS LOSE CONTEXT]</span>
         </div>
 
-        <h2 className="text-2xl sm:text-4xl font-serif font-bold text-mwt-black tracking-tight leading-tight">
-          When institutions lose context, <br />
-          <span className="text-mwt-oxblood italic">the human carries the consequences.</span>
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-[#11100F] tracking-tight leading-[1.08] max-w-4xl">
+          When institutions drop context, <br />
+          <span className="text-[#841F2B] italic">the human carries the burden.</span>
         </h2>
 
-        <p className="text-mwt-graphite text-base sm:text-lg max-w-3xl leading-relaxed font-sans">
-          A person reports a concern, provides documentation, or seeks assistance. An agency acknowledges receiving it. Responsibility moves between offices, workers, or jurisdictions. Each agency completes its own administrative step while the underlying need remains unresolved.
+        <p className="mt-4 text-lg sm:text-xl text-[#4D4944] font-serif max-w-3xl leading-relaxed">
+          Across public safety, housing, civil courts, and healthcare, disconnected software databases treat human beings as physical couriers of their own trauma and evidentiary files.
         </p>
       </div>
 
-      {/* 2. Interactive Switcher */}
-      <div className="flex border-b border-[#C4B69E] gap-2 overflow-x-auto text-xs font-mono">
-        <button
-          onClick={() => setActiveTab("loop")}
-          className={`px-4 py-2 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
-            activeTab === "loop"
-              ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-ivory"
-              : "border-transparent text-mwt-graphite hover:text-mwt-black"
-          }`}
-        >
-          1. The 5-Stage Seam Breakdown
-        </button>
-        <button
-          onClick={() => setActiveTab("contrast")}
-          className={`px-4 py-2 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
-            activeTab === "contrast"
-              ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-ivory"
-              : "border-transparent text-mwt-graphite hover:text-mwt-black"
-          }`}
-        >
-          2. Administrative Metric vs. Lived Reality
-        </button>
-      </div>
+      {/* Asymmetric Visual Composition: Authentic Seam Tangle Artwork + The 5-Stage Interactive Pipeline */}
+      <div className="grid lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Left Column: Visual Manifestation of the Broken Seam (5 Cols) */}
+        <div className="lg:col-span-5 bg-[#11100F] text-[#F8F5EE] border-2 border-[#11100F] p-6 rounded-xs shadow-xl space-y-6">
+          <div className="flex items-center justify-between border-b border-[#2B2926] pb-3 text-[10px] font-mono uppercase text-[#A39E94]">
+            <span className="text-[#E85D6B] font-bold">EXHIBIT A · THE RESOURCE LOOP HELL</span>
+            <span>FORENSIC VISUALIZATION</span>
+          </div>
 
-      {/* TAB 1: 5-Stage Interactive Breakdown */}
-      {activeTab === "loop" && (
-        <div className="space-y-6">
-          {/* Timeline Step Selectors */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 font-mono text-xs">
+          {/* Authentic Concept Art: The Resource Loop Hell Tangle */}
+          <div className="relative bg-[#171615] border border-[#332E29] rounded-xs p-3 overflow-hidden group">
+            <div className="relative h-56 sm:h-64 w-full">
+              <Image
+                src="/images/art/motif_seam_tangle_loop.png"
+                alt="Original Maps With Teeth Forensic Diagram: The Resource Loop Hell"
+                fill
+                className="object-contain filter contrast-125 group-hover:scale-105 transition-transform duration-500"
+                unoptimized
+              />
+            </div>
+            <div className="mt-2 text-center font-mono text-[10px] text-[#A39E94]">
+              &ldquo;It&apos;s not that help doesn&apos;t exist. It&apos;s that it&apos;s impossible to reach.&rdquo;
+            </div>
+          </div>
+
+          <div className="space-y-3 pt-2">
+            <h4 className="font-serif font-bold text-lg text-white">
+              The Fiction of the Outbound Referral
+            </h4>
+            <p className="text-xs sm:text-sm text-[#D8D2C6] leading-relaxed font-sans">
+              Public service directories catalogue agencies as if referral arrows represented guaranteed transit. In empirical practice, an unconfirmed referral is indistinguishable from an administrative drop.
+            </p>
+          </div>
+
+          <div className="pt-3 border-t border-[#2B2926] flex items-center justify-between font-mono text-[11px]">
+            <span className="text-[#A39E94]">MEASURED FAILURE RATE:</span>
+            <span className="text-[#E85D6B] font-bold">INDICATOR 04 (CIRCULAR LOOP)</span>
+          </div>
+        </div>
+
+        {/* Right Column: Interactive 5-Stage Seam Pipeline (7 Cols) */}
+        <div className="lg:col-span-7 space-y-4">
+          
+          {/* Stage Selector Tabs */}
+          <div className="grid grid-cols-5 gap-1.5 font-mono text-xs">
             {stages.map((stage, idx) => {
               const isActive = activeStep === idx;
-              const isStall = idx === 2;
+              const isVoid = idx === 2;
               return (
                 <button
                   key={stage.num}
-                  type="button"
                   onClick={() => setActiveStep(idx)}
-                  className={`p-3 rounded-xs border-2 text-left transition-all flex flex-col justify-between ${
+                  className={`p-3 text-left border-2 transition-all rounded-xs flex flex-col justify-between ${
                     isActive
-                      ? "bg-mwt-black text-white border-mwt-black shadow-xs"
-                      : isStall
-                      ? "bg-red-50 text-mwt-oxblood border-mwt-oxblood/60 hover:bg-red-100"
-                      : "bg-mwt-ivory text-mwt-black border-[#C4B69E] hover:bg-white"
+                      ? isVoid 
+                        ? "bg-[#841F2B] text-white border-[#841F2B] shadow-md"
+                        : "bg-[#11100F] text-white border-[#11100F] shadow-md"
+                      : "bg-[#EEE8DB] text-[#4D4944] border-[#C4B69E] hover:border-[#11100F]"
                   }`}
                 >
-                  <div className="flex items-center justify-between text-[10px] font-bold">
-                    <span>STEP {stage.num}</span>
-                    {isStall && <span className="text-[9px] uppercase font-bold text-mwt-oxblood">CRITICAL SEAM</span>}
-                  </div>
-                  <span className="font-serif font-bold text-sm mt-1">{stage.name}</span>
+                  <span className={`text-[10px] font-bold block ${isActive ? "text-white" : "text-[#841F2B]"}`}>
+                    {stage.num}
+                  </span>
+                  <span className="font-serif font-bold text-xs truncate mt-1">
+                    {stage.name}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active Step Card */}
-          <div className="bg-mwt-ivory border-2 border-mwt-black rounded-lg p-6 sm:p-8 space-y-5 shadow-xs">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#C4B69E] pb-3">
-              <div className="space-y-0.5">
-                <span className="text-[10px] font-mono uppercase font-bold text-mwt-oxblood block">
-                  STAGE {stages[activeStep].num} · ACTOR: {stages[activeStep].actor}
+          {/* Active Stage Detailed Breakdown Panel */}
+          <div className="bg-[#EEE8DB] border-2 border-[#11100F] p-6 sm:p-8 rounded-xs shadow-md space-y-6">
+            
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#C4B69E] pb-4">
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold text-[#841F2B] block tracking-wider">
+                  STAGE {stages[activeStep].num} · {stages[activeStep].actor}
                 </span>
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-mwt-black">
+                <h3 className="text-2xl font-serif font-bold text-[#11100F]">
                   {stages[activeStep].name}
                 </h3>
               </div>
-              <span className="text-xs font-mono font-bold bg-mwt-parchment px-2.5 py-1 rounded-xs border border-[#C4B69E] text-mwt-black">
-                {activeStep === 2 ? "THE DISAPPEARANCE SEAM" : "DISCONNECTED INSTITUTIONAL STEP"}
-              </span>
+              {activeStep === 2 && (
+                <span className="bg-[#841F2B] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded-xs uppercase tracking-wider">
+                  CRITICAL SEAM FAILURE
+                </span>
+              )}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 text-xs sm:text-sm">
-              <div className="p-4 bg-white rounded-xs border border-[#C4B69E] space-y-2 font-sans">
-                <span className="text-[10px] font-mono uppercase font-bold text-mwt-graphite block">
-                  WHAT THE AGENCY DOES:
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="p-4 bg-[#F8F5EE] border border-[#C4B69E] rounded-xs space-y-2">
+                <span className="text-[10px] font-mono uppercase text-[#4D4944] font-bold block">
+                  WHAT THE AGENCY SYSTEM DOES:
                 </span>
-                <p className="text-mwt-black leading-relaxed font-semibold">
+                <p className="text-xs sm:text-sm text-[#11100F] font-sans leading-relaxed">
                   {stages[activeStep].action}
                 </p>
-                <p className="text-mwt-graphite text-xs pt-1 border-t border-stone-200">
-                  <strong className="text-mwt-oxblood">The Flaw:</strong> {stages[activeStep].flaw}
-                </p>
+                <div className="pt-2 text-[11px] font-mono text-[#841F2B] font-semibold border-t border-[#E2DACB]">
+                  Flaw: {stages[activeStep].flaw}
+                </div>
               </div>
 
-              <div className="p-4 bg-red-50/80 rounded-xs border-2 border-mwt-oxblood space-y-2 font-sans">
-                <span className="text-[10px] font-mono uppercase font-bold text-mwt-oxblood block">
-                  WHERE THE HUMAN BECOMES THE INTEGRATION LAYER:
+              <div className="p-4 bg-[#11100F] text-[#F8F5EE] border border-[#11100F] rounded-xs space-y-2">
+                <span className="text-[10px] font-mono uppercase text-[#E85D6B] font-bold block">
+                  THE HUMAN COST (UNCOMPENSATED BURDEN):
                 </span>
-                <p className="text-stone-900 leading-relaxed font-semibold">
-                  {stages[activeStep].humanBurden}
-                </p>
-                <p className="text-xs text-stone-700 pt-1 border-t border-red-200 font-mono">
-                  Preserved across the Maps With Teeth Continuity Standard.
+                <p className="text-xs sm:text-sm text-[#E5DFC8] font-sans leading-relaxed">
+                  {stages[activeStep].burden}
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      )}
 
-      {/* TAB 2: Contrast View */}
-      {activeTab === "contrast" && (
-        <div className="grid md:grid-cols-2 gap-6 text-xs sm:text-sm font-sans">
-          {/* Institutional Metric */}
-          <div className="bg-mwt-ivory border-2 border-mwt-black rounded-lg p-6 space-y-4">
-            <div className="border-b border-[#C4B69E] pb-2 flex items-center justify-between">
-              <span className="font-mono text-xs font-bold uppercase text-mwt-graphite">
-                The Administrative View
-              </span>
-              <span className="px-2 py-0.5 bg-stone-200 text-stone-800 text-[10px] font-mono font-bold uppercase rounded-xs">
-                FILE: CLOSED
-              </span>
+            {/* Bottom Callout & Action */}
+            <div className="pt-4 border-t border-[#C4B69E] flex flex-wrap items-center justify-between gap-4">
+              <div className="text-xs text-[#4D4944] font-mono">
+                <span>REFORM PRESCRIPTION: </span>
+                <strong className="text-[#11100F]">MANDATORY REVIEW TRACE &amp; CANONICAL RECEIPTS</strong>
+              </div>
+              <Link
+                href="/continuity"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-[#841F2B] hover:text-[#11100F] transition"
+              >
+                <span>Read the Full Seam Standard</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
-            <ul className="space-y-2.5 font-mono text-xs text-mwt-black">
-              <li className="flex items-start gap-2">
-                <span className="text-stone-400">•</span>
-                <span><strong>Record:</strong> Outbound referral marked &quot;Sent / Complete&quot;</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-stone-400">•</span>
-                <span><strong>Metric:</strong> Intake volume counted toward monthly quota</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-stone-400">•</span>
-                <span><strong>Liability:</strong> Responsibility terminated at outbound transmission</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-stone-400">•</span>
-                <span><strong>Outcome:</strong> System registers process compliance</span>
-              </li>
-            </ul>
-            <p className="text-xs text-mwt-graphite italic border-t border-[#C4B69E] pt-3">
-              Every participating department meets its statutory checklist while the person falls through the seam.
-            </p>
+
           </div>
 
-          {/* Lived Reality */}
-          <div className="bg-red-50/70 border-2 border-mwt-oxblood rounded-lg p-6 space-y-4">
-            <div className="border-b border-red-200 pb-2 flex items-center justify-between">
-              <span className="font-mono text-xs font-bold uppercase text-mwt-oxblood">
-                The Lived Human Reality
-              </span>
-              <span className="px-2 py-0.5 bg-mwt-oxblood text-white text-[10px] font-mono font-bold uppercase rounded-xs">
-                OUTCOME: ABANDONED
-              </span>
-            </div>
-            <ul className="space-y-2.5 font-mono text-xs text-stone-900">
-              <li className="flex items-start gap-2">
-                <span className="text-mwt-oxblood">•</span>
-                <span><strong>Handoff:</strong> Receiving agency has no record of the file</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-mwt-oxblood">•</span>
-                <span><strong>Experience:</strong> Must re-prove trauma at every intake door</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-mwt-oxblood">•</span>
-                <span><strong>Responsibility:</strong> No single entity owns the next milestone</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-mwt-oxblood">•</span>
-                <span><strong>Result:</strong> Individual is logged as &quot;non-compliant&quot;</span>
-              </li>
-            </ul>
-            <p className="text-xs text-stone-800 italic border-t border-red-200 pt-3">
-              The person becomes the integration layer between agencies that do not communicate.
-            </p>
-          </div>
         </div>
-      )}
 
-      {/* Footer Banner */}
-      <div className="p-4 bg-mwt-black text-white rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-        <span className="text-mwt-aged-stone">
-          OUR MISSION: Prevent people from disappearing between institutional seams.
-        </span>
-        <Link
-          href="/the-gap"
-          className="text-white hover:text-mwt-oxblood-light font-bold uppercase tracking-wider inline-flex items-center gap-1"
-        >
-          <span>Read The Seam Deficit Analysis →</span>
-        </Link>
       </div>
+
     </section>
   );
 }
