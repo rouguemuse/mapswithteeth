@@ -33,77 +33,127 @@ export default function ForPartnersPage() {
 
   const partnerGroups = [
     {
-      groupTitle: "1. Frontline & Operational Review",
-      groupDeck: "Ground-truth validation across shelters, intake desks, and navigators.",
+      groupTitle: "1. Policymakers & Legislative Staff",
+      groupDeck: "Statutory mechanisms, Sunset recommendations, and administrative oversight.",
+      icon: Scale,
+      roles: [
+        {
+          title: "Statutory Drafting & Policy Audits",
+          tagline: "Evaluating statutory and regulatory feasibility.",
+          description:
+            "Legislative staff and state agency counsel auditing proposed language for pre-closure checks, referral acknowledgment mandates, and cross-agency liaison roles under Texas Family, Government, and Property codes."
+        },
+        {
+          title: "Sunset Advisory Review Alignment",
+          tagline: "Formulating performance and continuity metrics.",
+          description:
+            "Oversight analysts aligning proposed closed-loop indicators and review trace requirements with upcoming Texas Sunset reviews (such as the 2026–2027 DFPS review)."
+        },
+        {
+          title: "Interlocal Pilot Structuring",
+          tagline: "Structuring multi-agency trial authority.",
+          description:
+            "County commissioners and municipal attorneys exploring interlocal cooperation agreements (Tex. Gov't Code § 791) to test referral traceability without expanding tort liability."
+        }
+      ]
+    },
+    {
+      groupTitle: "2. Casework Practitioners & Intake Navigators",
+      groupDeck: "Ground-truth validation across shelters, crisis desks, and frontline navigation.",
       icon: Users,
       roles: [
         {
-          title: "Frontline Practice & Validation",
-          tagline: "Testing whether data matches ground truth.",
+          title: "Frontline Feasibility Testing",
+          tagline: "Testing whether protocols match ground truth.",
           description:
-            "Advocates, shelter navigators, social workers, and frontline intake staff reviewing our resource friction vectors, barrier criteria, and workaround notes against live daily practice."
+            "Advocates, caseworkers, and shelter navigators reviewing our resource friction vectors, barrier-aware cooperation categories, and operational handoff notes against live daily practice."
         },
         {
           title: "Referral-Flow & Intake Analysis",
           tagline: "Mapping where referrals succeed or stall.",
           description:
-            "Agencies sharing deidentified workflow observations of their incoming and outgoing referral pipelines to identify structural dead routes and unacknowledged transfers."
+            "Intake directors sharing deidentified workflow observations to identify circular referral loops, unacknowledged transfers, and unassigned next decision ownership."
         },
         {
-          title: "Pilot Protocol Co-Design",
-          tagline: "Co-designing Central Texas workflow trials.",
+          title: "Pilot Workflow Co-Design",
+          tagline: "Co-designing Central Texas trials.",
           description:
-            "County commissioners, municipal leaders, CAC coordinators, and agency directors helping shape trial handoff protocols in Williamson, Travis, Bastrop, Burnet, Hays, and Harris counties."
+            "CAC coordinators, family violence advocates, and agency supervisors helping shape realistic trial protocols across Williamson, Travis, Bastrop, Burnet, and Hays counties."
         }
       ]
     },
     {
-      groupTitle: "2. Legal, Policy & Systems Research",
-      groupDeck: "Statutory audits, constitutional due process, and interagency amnesia.",
-      icon: Scale,
+      groupTitle: "3. Legal Aid Counsel & Defense Bar",
+      groupDeck: "Constitutional due process, evidentiary boundaries, and confidentiality protections.",
+      icon: ShieldCheck,
       roles: [
         {
-          title: "Policy & Statutory Audits",
-          tagline: "Evaluating statutory & regulatory feasibility.",
+          title: "Due-Process & Evidentiary Safeguards",
+          tagline: "Preventing fact-merging and improper inferences.",
           description:
-            "Legislative staff, state agency attorneys, and policy analysts auditing our legal interpretations of Texas Property, Family, Labor, and Utility codes and closed-loop standards."
+            "Family law and criminal defense counsel ensuring that 'linked-matter review' operates strictly as an administrative signal without compromising constitutional due process, pre-judging guilt, or conflating repetition with corroboration."
         },
         {
-          title: "Legal & Due-Process Boundaries",
-          tagline: "Evidentiary & due-process boundaries.",
+          title: "Controlling-Document Verification",
+          tagline: "Verifying actual legal authority and operative language.",
           description:
-            "Family law and defense counsel ensuring that 'linked-matter review' operates strictly as an investigative signal without compromising constitutional due process or merging facts."
+            "Attorneys pressure-testing the 5-step verification methodology to ensure administrative actions are traceable to the actual governing orders and statutes being enforced."
         },
         {
-          title: "Systems Research",
-          tagline: "Academic & institutional inquiry.",
+          title: "VAWA & Privacy Confidentiality",
+          tagline: "Defending statutory non-disclosure standards.",
           description:
-            "Scholars and institutional researchers studying interagency amnesia, cross-jurisdictional case tracking, and multidisciplinary child-safety coordination."
+            "Victim-rights advocates ensuring full compliance with 34 U.S.C. § 12291(b)(2), HIPAA, and state confidentiality privileges, guaranteeing zero unauthorized data disclosure."
         }
       ]
     },
     {
-      groupTitle: "3. Technical Architecture & Support",
-      groupDeck: "Open protocols, client-side data minimization, and civic funding.",
+      groupTitle: "4. Systems & Academic Researchers",
+      groupDeck: "Empirical seam measurement, gap taxonomy, and public administration research.",
+      icon: Activity,
+      roles: [
+        {
+          title: "Seam Taxonomy & Hypothesis Testing",
+          tagline: "Testing cross-system continuity hypotheses.",
+          description:
+            "Scholars and public policy researchers evaluating our 12 seam failures and proposed indicators (Verified Handoff Rate, Continuity Loss Rate, Ownerless Matter Rate, Referral Loop Rate)."
+        },
+        {
+          title: "Multi-Agency Coordination Studies",
+          tagline: "Investigating institutional amnesia.",
+          description:
+            "Institutional researchers examining how information and responsibility fragment across child welfare, criminal justice, civil courts, and municipal housing."
+        },
+        {
+          title: "Evidentiary Integrity Methodology",
+          tagline: "Auditing provenance and claim separation models.",
+          description:
+            "Data scientists and epistemologists reviewing our claim-evidence separation schema and deterministic evaluation algorithms."
+        }
+      ]
+    },
+    {
+      groupTitle: "5. Philanthropic Funders & Civic Collaborators",
+      groupDeck: "Non-commercial civic infrastructure, independent audits, and pilot expansion.",
       icon: Code2,
       roles: [
         {
-          title: "Technical Interoperability",
-          tagline: "Engineering open protocols & schemas.",
+          title: "Open-Source Civic Infrastructure",
+          tagline: "Investing in public-interest systems reform.",
           description:
-            "Software engineers and security architects testing our client-side JSON-LD schemas, SHA-256 baseline digest comparison, and open data interchange protocols."
+            "Foundations and philanthropic partners funding long-term, non-commercial public infrastructure that eliminates vendor lock-in and commercial surveillance incentives."
         },
         {
-          title: "Privacy & Anti-Surveillance Review",
-          tagline: "Stress-testing data minimization protocols.",
+          title: "Independent Security & Legal Audits",
+          tagline: "External validation of client-side architecture.",
           description:
-            "Civil liberties advocates and privacy technologists verifying that client-side record hashing and data minimization protect participant privacy without centralized dossiers."
+            "Grantmakers supporting formal third-party penetration testing, cryptographic verification, and external legal review before any live pilot deployment."
         },
         {
-          title: "Philanthropic Support",
-          tagline: "Funding open-source public infrastructure.",
+          title: "Central Texas Pilot Support",
+          tagline: "Catalyzing regional implementation.",
           description:
-            "Foundations and civic tech grantmakers investing in long-term, non-commercial public-interest software and statutory research."
+            "Civic partners supporting synthetic-data workflow trials, frontline practitioner training, and empirical evaluation in Central Texas."
         }
       ]
     }
@@ -147,7 +197,7 @@ export default function ForPartnersPage() {
             Ways to Collaborate
           </h2>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            3 PARTICIPATION GROUPS
+            5 STAKEHOLDER TRACKS
           </span>
         </div>
 

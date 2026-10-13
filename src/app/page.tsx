@@ -2,8 +2,10 @@ import React from "react";
 import { PremiumHero } from "@/components/home/PremiumHero";
 import { InteractiveProblemSection } from "@/components/home/InteractiveProblemSection";
 import { FourReformTracksSection } from "@/components/home/FourReformTracksSection";
+import { MethodologyIntegritySection } from "@/components/home/MethodologyIntegritySection";
 import { ReceiptPracticeSection } from "@/components/home/ReceiptPracticeSection";
 import { WorkInPracticeSection } from "@/components/home/WorkInPracticeSection";
+import { StrategicQuestionsSection } from "@/components/home/StrategicQuestionsSection";
 import { ParticipateSection } from "@/components/home/ParticipateSection";
 
 export default function HomePage() {
@@ -35,13 +37,19 @@ export default function HomePage() {
         {/* 3. Four Reform Tracks: Disciplined Editorial Layout with Fine Cartographic Symbols */}
         <FourReformTracksSection />
 
-        {/* 4. Continuity Receipt: Physical Archival Specimen as an Object */}
+        {/* 4. Methodology & Evidence Integrity Safeguards: Review Trace 9-Status Model */}
+        <MethodologyIntegritySection />
+
+        {/* 5. Continuity Receipt: Physical Archival Specimen as an Object */}
         <ReceiptPracticeSection />
 
-        {/* 5. Work in Practice: Dual Frontline Pilot & DFPS Sunset Review Architecture */}
+        {/* 6. Work in Practice: Dual Frontline Pilot & DFPS Sunset Review Architecture */}
         <WorkInPracticeSection />
 
-        {/* 6. Participation: Archival Institute Dispatch & Open Field Review */}
+        {/* 7. Strategic Standard: The Five Questions Answered */}
+        <StrategicQuestionsSection />
+
+        {/* 8. Participation: Archival Institute Dispatch & Open Field Review */}
         <ParticipateSection />
       </div>
     </div>

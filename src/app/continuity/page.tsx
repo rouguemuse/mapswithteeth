@@ -280,6 +280,87 @@ export default function ContinuityStandardPage() {
             </p>
           </div>
         </div>
+
+        {/* The Eight Interlocking Methodology Concepts */}
+        <div className="pt-4 space-y-4">
+          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
+            <span className="text-xs font-mono uppercase font-bold text-[#971F26]">
+              CORE METHODOLOGY · EIGHT FOUNDATIONAL DISCIPLINES
+            </span>
+            <Link
+              href="/continuity/safeguards"
+              className="text-[11px] font-mono text-[#971F26] hover:underline font-bold uppercase"
+            >
+              Inspect Complete Safeguard Suite →
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">01 · RECEIPT</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Continuity Receipt</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Participant-held record of institutional acknowledgment, review, referral, disposition, and unresolved matters without centralized surveillance.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">02 · TRACE</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Review Trace (9 Statuses)</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Structured progression of how information moves through review processes, distinguishing received from reviewed, outside authority, or unreviewed with reason.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">03 · PROVENANCE</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Evidence Integrity</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Separating observed facts from interpretations, allegations, and official findings, anchoring every record to immutable source provenance.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">04 · COOPERATION</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Barrier-Aware Cooperation</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Strict model distinguishing unwillingness to cooperate from practical, safety-related, disability, transportation, or resource barriers.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">05 · TWO-TRACK</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Retaliation Separation</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Documenting interference and retaliation concerns independently from underlying allegations, without presuming substantiation of either.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">06 · AUTHORITY</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Controlling Documents</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Verifying the actual language, authority, applicability, and interpretation of orders and statutes before rights-limiting actions occur.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">07 · BOUNDARY</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Observation vs. Disposition</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Keeping what a reviewer observed, what the evidence supports, and what formal administrative decision was issued strictly distinct.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">08 · RESTRAINT</span>
+              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Demeanor vs. Provenance</h4>
+              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                Preventing an individual&apos;s presentation, trauma response, or perceived demeanor from replacing examination of underlying evidence.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 2. The 6 Modules Deep Dive */}

@@ -61,41 +61,51 @@ export function PremiumHero() {
               </h1>
 
               <p className="text-xl sm:text-2xl text-[#E5DFC8] font-serif leading-relaxed pt-2">
-                Maps With Teeth examines the unmapped voids between institutions, courts, and technologies—developing practical mechanisms for evidence traceability, survivor continuity, and institutional handoffs.
+                A public-interest systems initiative focused on cross-system continuity, evidence integrity, and institutional accountability.
               </p>
             </div>
 
             {/* The Paradox Reality Box */}
             <div className="p-5 sm:p-6 bg-[#171615]/95 border-l-4 border-[#841F2B] border-y border-r border-[#2C2825] rounded-xs space-y-3 backdrop-blur-sm shadow-xl">
               <div className="flex items-center justify-between text-xs font-mono text-[#E85D6B] font-bold uppercase tracking-wider">
-                <span>THE PARADOX OF PUBLIC ASSISTANCE</span>
-                <span>[REALITY CHECK]</span>
+                <span>PROCEDURAL ACTIVITY VS. ACCOUNTABLE CONTINUITY</span>
+                <span>[SYSTEMIC REALITY]</span>
               </div>
               <div className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
                 Help exists. <span className="text-stone-400 font-normal">Access has conditions.</span>
               </div>
               <p className="text-sm sm:text-base text-[#D4CDBE] font-sans leading-relaxed">
-                Services can exist on paper yet remain practically unreachable due to geographic locks, unconfirmed referrals, waitlists, and documentation hurdles. A directory listing is not a route.
+                Institutions—child protection, family violence response, law enforcement, courts, schools, and oversight bodies—may each complete their individual procedures while critical information, unresolved risks, and responsibility disappear between them.
               </p>
+              <div className="pt-2 border-t border-[#2C2825] text-xs font-mono text-[#A39E94]">
+                The initiative does not presume that every allegation is substantiated or that every adverse outcome proves misconduct. We establish what was received, reviewed, considered, referred, decided, and left unresolved.
+              </div>
             </div>
 
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4 pt-1">
               <Link
-                href="/find-help"
+                href="/continuity"
                 className="px-6 py-3.5 bg-[#841F2B] hover:bg-[#661620] text-white rounded-xs text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2.5 shadow-md hover:shadow-lg transition-all border border-[#9E2837] focus:outline-none focus:ring-2 focus:ring-white"
               >
                 <Compass className="w-4 h-4 text-white" />
-                <span>Find Help (Central Texas Pilot)</span>
+                <span>Explore Continuity Standard</span>
               </Link>
 
-              <a
-                href="#problem"
+              <Link
+                href="/continuity/safeguards"
                 className="px-6 py-3.5 bg-[#1F1C1A]/90 hover:bg-[#2B2724] border border-[#3E3A35] text-[#F8F5EE] rounded-xs text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-xs focus:outline-none focus:ring-2 focus:ring-[#841F2B]"
               >
-                <span>Inspect The Seam Deficit</span>
-                <ArrowDown className="w-4 h-4 text-[#E85D6B]" />
-              </a>
+                <span>Evidence Integrity &amp; Safeguards</span>
+                <ArrowRight className="w-4 h-4 text-[#E85D6B]" />
+              </Link>
+
+              <Link
+                href="/find-help"
+                className="px-4 py-3 bg-transparent hover:bg-white/5 border border-stone-700 text-stone-300 rounded-xs text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 transition-colors"
+              >
+                <span>Central Texas Pilot Tool →</span>
+              </Link>
             </div>
 
             {/* Invariant Trust Tags */}
@@ -106,11 +116,11 @@ export function PremiumHero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#3FA662]" />
-                <span>Client-Side Cryptographic Receipts</span>
+                <span>No Algorithmic Risk or Credibility Scoring</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#3FA662]" />
-                <span>Independent Public-Interest Research</span>
+                <span>Participant-Held Continuity Receipts</span>
               </span>
             </div>
 

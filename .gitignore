@@ -39,4 +39,6 @@ preserve-service/
 # generated screenshots and test artifacts
 *.png
 .chrome_temp/
+test-results/
+poker-engine/
 

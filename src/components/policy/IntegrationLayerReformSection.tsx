@@ -17,7 +17,9 @@ import {
   Lock,
   Compass,
   Building2,
-  ChevronRight
+  ChevronRight,
+  Users,
+  RefreshCw
 } from "lucide-react";
 
 export function IntegrationLayerReformSection() {
@@ -26,53 +28,73 @@ export function IntegrationLayerReformSection() {
   const mechanisms = [
     {
       num: "01",
-      title: "Review Trace",
-      subtitle: "Distinguish evidence being received from evidence being reviewed",
+      title: "Linked-Case & Related-Record Review",
+      subtitle: "Subject to lawful access and statutory privacy",
       description:
-        "For specifically identified, potentially material information, preserve an authorized record of its handling and disposition without requiring the information to determine the outcome.",
+        "Determine whether an authorized related-matter inquiry is permitted and appropriate under existing statutory data-exchange provisions, without merging factual conclusions or presuming corroboration.",
       operationalNote:
-        "Creates a clear evidentiary boundary between physical intake and authorized evaluation, recording explicit handling states (reviewed, disputed, derivative, unreviewed with reason) rather than silent disappearance.",
-      icon: Eye
-    },
-    {
-      num: "02",
-      title: "Closed-Loop Handoffs",
-      subtitle: "A referral should not be considered complete merely because it was sent",
-      description:
-        "Document whether the receiving entity acknowledged it, accepted or declined responsibility, and identified the next action.",
-      operationalNote:
-        "Prevents the administrative seam where sending agencies log 'referred out' while receiving agencies have zero active record, leaving the participant trapped in limbo.",
+        "Prompts authorized officers to verify whether parallel matters exist across municipal, county, or agency boundaries, without transmitting unvetted allegation text into outside files.",
       icon: GitBranch
     },
     {
-      num: "03",
-      title: "Complaint Trace",
-      subtitle: "Make administrative complaints traceable from receipt to disposition",
+      num: "02",
+      title: "Pre-Closure Context Checks",
+      subtitle: "Verify process completeness before administrative exit",
       description:
-        "Preserve assignment, review scope, response, correction pathways, and formal redirection when another office has responsibility.",
+        "Complete a standardized pre-closure audit recording whether identified related matters were examined, referred elsewhere, or deemed unreviewed with explicit reason prior to file closure.",
       operationalNote:
-        "Establishes a transparent audit chain for grievances, preventing inquiries from being dismissed without an assigned reviewer or formal jurisdictional transfer.",
-      icon: FileText
+        "Prevents premature case dismissals where files close without verifying whether critical records were held elsewhere. Tracks process completeness without forcing substantive merits findings.",
+      icon: FileCheck
+    },
+    {
+      num: "03",
+      title: "Designated Cross-Agency Liaison Roles",
+      subtitle: "Eliminating unassigned responsibility at system seams",
+      description:
+        "Designate clear administrative liaison responsibilities and named institutional decision-owners for the immediate next milestone at every inter-agency transition.",
+      operationalNote:
+        "Eliminates the 'nobody's case' failure mode. Re-assignment requires explicit bilateral handoff confirmation between designated roles, protecting frontline workers through role-based assignment.",
+      icon: Users
     },
     {
       num: "04",
-      title: "Accountability Finding Trace",
-      subtitle: "Connect challenged actions to responsible roles and governing authority",
+      title: "Referral Acknowledgment & Traceability",
+      subtitle: "A referral must not end at 'sent'",
       description:
-        "Create an institutional record connecting challenged actions to responsible roles, governing authority, review findings, and corrective steps while protecting confidential personnel information.",
+        "Require receiving entities to execute timestamped electronic acknowledgment, indicating whether responsibility is accepted, declined, redirected, or pending.",
       operationalNote:
-        "Preserves answerability for public institutional actions without exposing protected personnel files or creating unreviewable administrative silos.",
-      icon: ShieldCheck
+        "Binds transmission timestamp and recipient identifier. Proposes an evaluation pilot service target of receiving acknowledgment within 48 hours (a proposed pilot design benchmark, not an existing statutory requirement).",
+      icon: RefreshCw
     },
     {
       num: "05",
-      title: "Threshold Consistency Review",
-      subtitle: "Evaluate explainably consistent treatment across comparable matters",
+      title: "Cumulative-Pattern Review",
+      subtitle: "Rather than exclusively isolated incident review",
       description:
-        "Evaluate whether comparable categories of information receive explainably consistent treatment across similar matters. Different circumstances may justify different outcomes; the framework demands that meaningful differences have reviewable reasons.",
+        "Trigger human supervisory or multidisciplinary case conferences (extending CAC or High-Risk Team models) when multiple fragmented encounters occur within a defined timeframe.",
       operationalNote:
-        "Does not force rigid or automated algorithmic uniformity. Instead, it ensures administrative discretion is supported by reviewable, articulate reasons.",
+        "Prevents escalating harm from being atomized into unrelated minor incidents. Cumulative report counts serve exclusively to prompt human inquiry; they are strictly forbidden from being used as automated risk or credibility scores.",
       icon: Scale
+    },
+    {
+      num: "06",
+      title: "Appropriate Information Exchange",
+      subtitle: "Bounded exchange with strict privacy & due-process safeguards",
+      description:
+        "Ensure data exchange is bounded strictly to minimum-necessary administrative metadata under established legal authorities, preserving confidentiality and due process.",
+      operationalNote:
+        "Adheres strictly to VAWA confidentiality (34 U.S.C. § 12291), FERPA, HIPAA, and Texas state privacy rules. Strictly prohibits centralized surveillance dossiers or public registries.",
+      icon: Lock
+    },
+    {
+      num: "07",
+      title: "Documentation of Considered Information",
+      subtitle: "Review Trace and recorded omission rationales",
+      description:
+        "Record what was received, what was actually reviewed, what was determined outside authority, and the explicit rationale if material was set aside.",
+      operationalNote:
+        "Implements the 9-status Review Trace standard. Distinguishes what a reviewer observed from institutional disposition, preventing silent disappearance of critical records.",
+      icon: Eye
     }
   ];
 
@@ -234,7 +256,7 @@ export function IntegrationLayerReformSection() {
               : "border-transparent text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/60"
           }`}
         >
-          5 Core Mechanisms
+          7 Core Proposals
         </button>
         <button
           onClick={() => setActiveTab("safeguards")}
@@ -269,18 +291,18 @@ export function IntegrationLayerReformSection() {
       </div>
 
       {/* 3. Tab Contents */}
-      {/* TAB 1: 5 CORE MECHANISMS */}
+      {/* TAB 1: 7 CORE PROPOSALS */}
       {activeTab === "mechanisms" && (
         <div className="space-y-6">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase text-mwt-oxblood font-bold tracking-wider block">
-              SYSTEMIC ARCHITECTURE
+              SYSTEMIC ARCHITECTURE &amp; STATUTORY DIRECTION
             </span>
             <h3 className="text-2xl font-serif font-bold text-mwt-black">
-              Five Core Reform Mechanisms
+              Seven Core Policy Proposals
             </h3>
-            <p className="text-xs sm:text-sm text-mwt-graphite max-w-2xl">
-              Concrete administrative mechanisms ensuring evidence handling, handoffs, complaints, findings, and thresholds remain reviewable.
+            <p className="text-xs sm:text-sm text-mwt-graphite max-w-3xl leading-relaxed">
+              Concrete administrative proposals addressing linked matters, pre-closure audits, cross-agency liaison roles, closed-loop referrals, cumulative review, bounded data exchange, and Review Trace documentation.
             </p>
           </div>
 
@@ -345,6 +367,64 @@ export function IntegrationLayerReformSection() {
                   <span>Review Safeguards Standard</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Distinction Inventory Block */}
+          <div className="bg-[#1C1D1D] text-[#F8F5EE] border-2 border-[#1C1D1D] rounded-xl p-6 sm:p-8 space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-700 pb-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-300">
+                METHODOLOGICAL INTEGRITY · FOUR-TIER DISTINCTION INVENTORY
+              </span>
+              <span className="text-[10px] font-mono text-stone-400 uppercase">
+                [LEGAL VS. IMPLEMENTED VS. PROPOSED]
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-stone-300 font-sans leading-relaxed">
+              To protect credibility and avoid overstating authority, Maps With Teeth strictly demarcates where current statutory law ends, what software currently executes, and what remains a policy proposal for future evaluation:
+            </p>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-sans">
+              <div className="p-4 bg-stone-900 border border-stone-700 rounded-lg space-y-2">
+                <span className="text-[10px] font-mono font-bold uppercase text-emerald-400 block">
+                  TIER 1 · EXISTING LAW
+                </span>
+                <h4 className="font-serif font-bold text-sm text-white">Current Legal Authorities</h4>
+                <p className="text-stone-300 leading-relaxed text-[11.5px]">
+                  Established Texas statutes authorizing joint LE/DFPS protocols (§ 261.301), CAC multidisciplinary team MOUs (§§ 264.403, 264.406), family violence records (CCP Art. 5), lease termination (§ 92.016), and federal VAWA non-disclosure.
+                </p>
+              </div>
+
+              <div className="p-4 bg-stone-900 border border-stone-700 rounded-lg space-y-2">
+                <span className="text-[10px] font-mono font-bold uppercase text-blue-400 block">
+                  TIER 2 · IMPLEMENTED CODE
+                </span>
+                <h4 className="font-serif font-bold text-sm text-white">Tested Software Mechanisms</h4>
+                <p className="text-stone-300 leading-relaxed text-[11.5px]">
+                  Functional, testable algorithms in this repository: client-side deterministic fact matcher (158 tri-state tests), cryptographic SHA-256 receipt generation, and zero-PII data minimization engines.
+                </p>
+              </div>
+
+              <div className="p-4 bg-stone-900 border border-stone-700 rounded-lg space-y-2">
+                <span className="text-[10px] font-mono font-bold uppercase text-amber-300 block">
+                  TIER 3 · PROPOSED POLICY
+                </span>
+                <h4 className="font-serif font-bold text-sm text-white">Discussion Proposals</h4>
+                <p className="text-stone-300 leading-relaxed text-[11.5px]">
+                  The 7 systemic proposals above (e.g. pre-closure checks, cross-agency liaison mandates, closed-loop tracking). These are discussion drafts and legislative recommendations awaiting adoption, not current statutory duties.
+                </p>
+              </div>
+
+              <div className="p-4 bg-stone-900 border border-stone-700 rounded-lg space-y-2">
+                <span className="text-[10px] font-mono font-bold uppercase text-purple-400 block">
+                  TIER 4 · PILOT TARGETS
+                </span>
+                <h4 className="font-serif font-bold text-sm text-white">Evaluation Benchmarks</h4>
+                <p className="text-stone-300 leading-relaxed text-[11.5px]">
+                  Design targets (such as receiving referral acknowledgment within 48 hours). These are trial evaluation benchmarks for controlled pilots—not validated population-level statistics or legal deadlines.
+                </p>
               </div>
             </div>
           </div>
