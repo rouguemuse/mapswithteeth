@@ -83,7 +83,7 @@ export function IntegrationLayerReformSection() {
       description:
         "Ensure data exchange is bounded strictly to minimum-necessary administrative metadata under established legal authorities, preserving confidentiality and due process.",
       operationalNote:
-        "Adheres strictly to VAWA confidentiality (34 U.S.C. § 12291), FERPA, HIPAA, and Texas state privacy rules. Strictly prohibits centralized surveillance dossiers or public registries.",
+        "Adheres strictly to applicable confidentiality boundaries (including 34 U.S.C. § 12291 VAWA non-disclosure, FERPA, and Texas statutory privileges). Strictly prohibits centralized surveillance dossiers or public registries.",
       icon: Lock
     },
     {

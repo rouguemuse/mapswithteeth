@@ -75,7 +75,7 @@ export const PILOT_CONFIG: PilotConfig = {
       name: "Organizer technology + security",
       amount: 10000,
       percentage: 10,
-      description: "Zero-knowledge client-side encryption infrastructure, privacy-preserving hosting, automated test pipelines, and SOC2/HIPAA security controls.",
+      description: "Zero-knowledge client-side encryption infrastructure, privacy-preserving static hosting, automated test pipelines, and security-hardened environments.",
       deliverables: [
         "End-to-end client-side encryption key management and secure ephemeral storage",
         "Automated regression pipeline, staleness monitoring, and zero-tracking deployment",

@@ -195,7 +195,44 @@ export default function TheGapPage() {
         </div>
       </section>
 
-      {/* 4. Navigation & Next Step CTAs */}
+      {/* 4. Emerging Oversight Breakdown Patterns Callout */}
+      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm font-sans">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-3">
+          <div className="flex items-center gap-2 text-[#971F26]">
+            <AlertTriangle className="w-5 h-5" />
+            <span className="text-xs font-mono font-bold uppercase tracking-widest">
+              SYSTEMIC OVERSIGHT ANALYSIS
+            </span>
+          </div>
+          <span className="coord-tick">[6 BREAKDOWN PATTERNS]</span>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
+            Beyond Disconnected Silos: The Six Oversight Breakdown Mechanisms
+          </h3>
+          <p className="text-stone-800 text-sm font-sans leading-relaxed max-w-3xl">
+            Recent oversight filings and administrative review analyses reveal that information loss does not occur solely during frontline intakes. It also occurs through <strong>false participation declinations</strong>, <strong>rapid post-acknowledgment closures without evidence review</strong>, <strong>post-closure supplemental evidence ingestion gaps</strong>, and <strong>unmetered complaint review backlogs</strong>.
+          </p>
+        </div>
+
+        <div className="pt-2 flex flex-wrap gap-3">
+          <Link
+            href="/policy#oversight-patterns"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#1C1D1D] text-white text-xs font-mono font-bold uppercase rounded hover:bg-black transition"
+          >
+            <span>Inspect Oversight Patterns →</span>
+          </Link>
+          <Link
+            href="/policy#synthetic-applications"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#971F26] text-white text-xs font-mono font-bold uppercase rounded hover:bg-[#7A181E] transition"
+          >
+            <span>View 4 Synthetic Applications →</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* 5. Navigation & Next Step CTAs */}
       <div className="pt-6 border-t border-[#D9D1C4] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <Link
           href="/"

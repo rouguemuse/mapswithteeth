@@ -103,7 +103,7 @@ export default function ForPartnersPage() {
           title: "VAWA & Privacy Confidentiality",
           tagline: "Defending statutory non-disclosure standards.",
           description:
-            "Victim-rights advocates ensuring full compliance with 34 U.S.C. § 12291(b)(2), HIPAA, and state confidentiality privileges, guaranteeing zero unauthorized data disclosure."
+            "Victim-rights advocates ensuring compliance with applicable federal and state non-disclosure boundaries (including 34 U.S.C. § 12291(b)(2) VAWA confidentiality and statutory privileges), guaranteeing zero unauthorized data disclosure."
         }
       ]
     },

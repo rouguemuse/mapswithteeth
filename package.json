@@ -18,6 +18,7 @@
     "test:tristate": "npx tsx scripts/test_tristate_matrix.ts",
     "test:receipt-risk": "npx tsx scripts/test_continuity_receipt_risk.ts",
     "test:continuity": "npx tsx scripts/test_continuity_receipt_risk.ts",
+    "test:policy-engagement": "npx tsx scripts/test_policy_engagement_integrity.ts",
     "test:writing": "npx tsx scripts/test_writing_editorial_layer.ts",
     "poker": "node poker-engine/advisor.js",
     "poker:web": "node poker-engine/server.js"
