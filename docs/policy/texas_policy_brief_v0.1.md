@@ -97,9 +97,9 @@ Texas does not need one omnibus bill to capture immediate administrative value:
 
 ---
 
-## 5. TIMELINESS: DFPS SUNSET REVIEW (NOVEMBER 2026)
+## 5. TIMELINESS: DFPS SUNSET REVIEW (DECEMBER 2026)
 
-The Department of Family and Protective Services (DFPS) is currently undergoing Sunset Review with public testimony scheduled for **November 18, 2026**.
+The Department of Family and Protective Services (DFPS) is currently undergoing Sunset Review, with the commission meeting tentatively rescheduled for **December 2–3, 2026** (rescheduled from November 18–19). Individual witness appearance or testimony is not confirmed.
 
 The Texas Sunset Advisory Commission and legislative leadership have an immediate opportunity to integrate closed-loop referral accountability and context-before-closure audit requirements into Sunset statutory directives, establishing baseline continuity without expanding agency headcount or creating centralized surveillance databases.
 

@@ -48,6 +48,9 @@ export function SyntheticApplicationsDemo() {
         <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
           Four concrete, synthetic demonstrations showing how participant-held Continuity Receipts and agency-side Review Traces prevent information and responsibility from evaporating at institutional seams.
         </p>
+        <p className="text-stone-600 text-xs font-mono leading-relaxed bg-[#F5F1E8] border border-stone-300 p-2.5 rounded-lg">
+          <strong>NOTICE ON EVALUATION STANDARDS:</strong> Fictional demonstration data (0% live PII). All workflows, review trace statuses, and referral targets (including the 48-hour pilot acknowledgment benchmark) represent the initiative's proposed evaluation standard, not current statutory or agency requirements.
+        </p>
       </div>
 
       {/* Scenario Selector Tabs */}

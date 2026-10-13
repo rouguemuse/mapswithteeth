@@ -26,13 +26,13 @@ export const policyEngagementRecords: PolicyEngagementRecord[] = [
     dateDrafted: "October 2026",
     dateSubmitted: "October 2026",
     status: "SUBMITTED",
-    statusDetails: "Submitted via official Texas Sunset Advisory Commission input portal for the 2026–2027 review cycle.",
-    verifiedOutcome: "Submission successfully delivered. DFPS Self-Evaluation Report published; Sunset Commission Staff Report pending publication; public testimony tentatively scheduled for November 18–19, 2026. No institutional endorsement or adoption claimed.",
+    statusDetails: "Prepared and submitted via the official Texas Sunset Advisory Commission public input portal for the 2026–2027 review cycle.",
+    verifiedOutcome: "Public input submission delivered via official portal. DFPS Self-Evaluation Report published; Sunset Commission Staff Report pending publication; commission meeting tentatively rescheduled for December 2–3, 2026 (formerly November 18–19). Witness appearance or testimony is not confirmed. No institutional endorsement or adoption claimed.",
     sourceCitation: "Maps With Teeth Policy Docket POL-001 (October 2026); Texas Sunset Advisory Commission Agency Review Docket 2026–27.",
     officialReferenceUrl: "https://www.sunset.texas.gov/reviews-and-reports/agencies/department-family-and-protective-services",
     confidentialityBoundary: "Public policy input. Excludes private identifying case records, child information, and unverified allegations. Structured purely around procedural and quality-assurance mechanics.",
     keyProposals: [
-      "Mandate closed-loop referral acknowledgment metrics (48-hour pilot target) across DFPS interagency handoffs.",
+      "Mandate closed-loop referral acknowledgment metrics (proposed 48-hour pilot target) across DFPS interagency handoffs.",
       "Implement a standardized pre-closure administrative checklist verifying what related records were examined before case termination.",
       "Establish human supervisory cumulative-contact reviews for households with three or more fragmented intakes within 90 days.",
       "Pilot a 90-day closed-loop referral mechanics trial using 100% synthetic demonstration data."
@@ -48,11 +48,11 @@ export const policyEngagementRecords: PolicyEngagementRecord[] = [
     dateDrafted: "October 2026",
     dateSubmitted: "October 2026",
     status: "SUBMITTED",
-    statusDetails: "Filed through sunset.texas.gov/input-form alongside POL-001 structural submission.",
-    verifiedOutcome: "Portal submission logged. Confirmed procedural compliance: under 25MB, zero private case study attachments, zero requests for Sunset to adjudicate individual cases.",
+    statusDetails: "Internal procedural checklist and form text prepared to complete the portal submission at sunset.texas.gov/input-form alongside POL-001.",
+    verifiedOutcome: "Portal submission completed in October 2026. Confirmed procedural compliance: under 25MB, zero private case attachments, zero requests for Sunset to adjudicate individual cases. Individual testimony is not confirmed.",
     sourceCitation: "Maps With Teeth Submission Docket POL-001A (October 2026).",
     officialReferenceUrl: "https://www.sunset.texas.gov/input-form",
-    confidentialityBoundary: "Strict internal and public compliance checklist prohibiting attachment of unredacted private evidence or active litigation records.",
+    confidentialityBoundary: "Internal procedural checklist prohibiting inclusion of unredacted private evidence or active litigation records.",
     keyProposals: [
       "Distinguishes procedural quality assurance from individual case adjudication.",
       "Requests Sunset staff examine whether DFPS has uniform, auditable ways to record handling of identified material.",
@@ -69,13 +69,13 @@ export const policyEngagementRecords: PolicyEngagementRecord[] = [
     dateDrafted: "August 8, 2026",
     dateSubmitted: "August 8, 2026 (Followed up Sept 2, 2026; Supplemented Oct 4, 2026)",
     status: "UNDER_REVIEW",
-    statusDetails: "Receipt confirmed by DFPS OCA on September 3, 2026, stating complaint had been received, was under review, and a written response would be provided.",
-    verifiedOutcome: "Receipt acknowledged and logged under review by OCA staff on September 3, 2026. Supplemented on October 4, 2026 with objective school attendance records and custody orders. Substantive written findings or corrective determinations remain UNRESOLVED_OR_UNKNOWN as of October 2026.",
-    sourceCitation: "DFPS Office of Consumer Affairs Complaint Docket, Cases 50745830, 51103422, 51119962 (Texas DFPS Administrative Review 2026).",
-    confidentialityBoundary: "Administrative process records. All child identifying names, private party details, and unredacted sensitive exhibits are redacted from public presentation. Presented solely as systemic process analysis.",
+    statusDetails: "Internal correspondence records receipt by DFPS OCA on September 3, 2026, stating the inquiry was received and under review. Follow-up records provided in October 2026.",
+    verifiedOutcome: "Receipt acknowledged in internal correspondence on September 3, 2026. No public agency finding or formal docket determination has been published. Substantive administrative outcome remains UNRESOLVED_OR_UNKNOWN as of October 2026.",
+    sourceCitation: "DFPS Office of Consumer Affairs Administrative Inquiries & Supervisory Review Correspondence (2026). Specific docket numbers and family identifiers redacted for privacy.",
+    confidentialityBoundary: "Administrative process records. All child identifying names, private party details, docket numbers, and sensitive exhibits are strictly excluded. Presented solely as systemic process analysis.",
     keyProposals: [
       "Audit why an agency closure notice asserted participant 'declined to participate' when participant never declined and safety concerns involved another household.",
-      "Examine why a case was closed with 'no basis for intervention' 48 hours after investigator explicitly acknowledged receipt of audio evidence, with no record evidence was reviewed.",
+      "Examine why an intake was closed with 'no basis for intervention' shortly after investigator confirmed receipt of evidence, with no record evidence was reviewed.",
       "Establish enforceable standards for ingesting objective supplemental records (custody orders, school attendance logs) arriving post-closure.",
       "Address the absence of binding timelines or closed-loop supervisory requirements in internal consumer affairs reviews."
     ]
@@ -114,7 +114,7 @@ export const policyEngagementRecords: PolicyEngagementRecord[] = [
     confidentialityBoundary: "Strictly requires Phase 1 to operate on 100% synthetic demonstration data with 0% live survivor PII.",
     keyProposals: [
       "Evaluate narrow single-referral pathway across 2–3 participating community organizations.",
-      "Audit 4 core metrics: Acknowledgment Rate (>95%), Time to Acknowledgment (<48h pilot target), Decision-Owner Rate (100%), and Lost-Handoff Rate (0%).",
+      "Audit 4 core metrics: Acknowledgment Rate (>95%), Time to Acknowledgment (<48h proposed pilot target), Decision-Owner Rate (100%), and Lost-Handoff Rate (0%).",
       "Provide reproducible open-source audit logs verifying referral status transitions without centralized data lakes."
     ]
   }
@@ -138,11 +138,11 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "Administrative Mischaracterization & False Declination",
     tagline: "Form notices misrepresenting participant engagement or location of risk",
     observedEvent:
-      "A reporting parent requests safety evaluation regarding conditions in a co-parent's home. The agency issues a form closure letter stating the reporting parent was 'offered and declined' voluntary services, and closes the case citing 'no concerns in your home.'",
+      "A reporting party contacts an investigative intake unit requesting evaluation of safety concerns occurring in a separate household. The agency issues a standardized intake disposition notice asserting that the reporting party was offered and declined voluntary diversion services, and closes the file citing an absence of safety concerns in the reporting party's residence, without examining the separate location where the risk was alleged.",
     administrativeResponse:
-      "The case is categorized as 'Declined Voluntary Services' and closed administratively with zero ongoing investigation, despite the reporting party never declining and the reported danger residing in an entirely separate residence.",
+      "The case is categorized under a voluntary-service declination code and closed administratively with zero ongoing investigation, despite the reporting party never declining and the reported danger residing in an entirely separate residence.",
     workingHypothesis:
-      "Casework triage systems incentivize fast closure of alternative response queues. When contact attempts encounter scheduling friction or communication hurdles, systems default to form declination codes rather than recording actual participation facts.",
+      "Casework triage systems incentivize fast clearance of alternative response queues. When contact attempts encounter scheduling friction or communication hurdles, intake software defaults to form declination codes rather than recording actual participation facts.",
     proposedReform:
       "Enforce the Barrier-Aware Cooperation model. Require explicit participant signature or timestamped verification for any recorded 'declination', and require intake notices to specify which physical household was assessed for safety.",
     relevantModules: ["Module 06: Context Before Closure", "Module 03: Continuity Receipt"],
@@ -154,11 +154,11 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "Rapid Post-Acknowledgment Closure Without Evidence Review",
     tagline: "Confirming receipt of material evidence followed immediately by form closure",
     observedEvent:
-      "A participant provides material evidence (such as an audio recording of a child pickup incident or photographic safety documentation) to an assigned investigator. The investigator confirms receipt on Day N. Two calendar days later, the agency issues a form closure notice stating 'no basis for intervention.'",
+      "A participant submits third-party documentary or recorded evidence to an intake worker, who acknowledges receipt. Shortly thereafter, the agency issues a standardized form disposition notice concluding that no basis for intervention exists, without documenting whether the submitted materials were reviewed, transcribed, or evaluated in the safety assessment.",
     administrativeResponse:
-      "The agency closes the investigation without transcribing the audio, uploading it to the permanent file, or documenting whether the assigned investigator listened to it prior to supervisor sign-off.",
+      "The agency closes the inquiry without transcribing or indexing the evidence, uploading it to the permanent file, or documenting whether the assigned investigator substantively examined it prior to supervisor sign-off.",
     workingHypothesis:
-      "High caseworker caseloads create pressure to clear intake dockets before monthly statutory deadlines. Incoming exhibits that arrive near a planned closure window are formally received but practically bypassed.",
+      "High caseworker caseloads create pressure to clear intake dockets before monthly reporting deadlines. Incoming exhibits that arrive near a planned closure window are formally received but practically bypassed.",
     proposedReform:
       "Implement the 9-Status Review Trace. An agency cannot finalize disposition until every specifically acknowledged evidentiary item is explicitly marked as REVIEWED, NOT_MATERIAL_REASON_RECORDED, or OUTSIDE_AUTHORITY with a supervisor-signed rationale.",
     relevantModules: ["Module 06: Context Before Closure", "Module 07: Considered Information Documentation"],
@@ -170,7 +170,7 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "Post-Closure Supplemental Evidence Ingestion Gap",
     tagline: "Objective documents arriving after closure enter administrative purgatory",
     observedEvent:
-      "After an agency issues a closure notice, official third-party records arrive (e.g., certified family court custody orders, official school attendance records documenting chronic absenteeism, or supplemental law enforcement incident reports).",
+      "Following an administrative closure, official third-party documentation arrives (such as certified judicial orders, institutional attendance records, or parallel law enforcement offense reports) that was unavailable during the initial intake period.",
     administrativeResponse:
       "The agency informs the participant that 'the case is closed' and directs them to make an entirely new intake report, treating the new documentary evidence as an isolated event rather than context for prior closures.",
     workingHypothesis:
@@ -186,9 +186,9 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "The Oversight Black Hole: Unenforceable Review Timelines",
     tagline: "Administrative complaint bodies acknowledging reviews with zero closed-loop tracking",
     observedEvent:
-      "A participant files a formal complaint with an internal agency oversight division (e.g., Office of Consumer Affairs). The oversight office sends an automated or standard email confirming receipt and stating the matter is 'under review.' Months pass with zero substantive findings, during which frontline agencies continue making decisions based on the uncorrected file.",
+      "A participant files a formal inquiry or grievance with an internal agency oversight division. The oversight office sends a standard acknowledgment confirming receipt and stating the matter is 'under review.' Months pass with zero substantive written findings, during which frontline agencies continue making decisions based on uncorrected files.",
     administrativeResponse:
-      "The complaint sits in an unmetered administrative backlog. No binding statutory deadline compels a written disposition, and no notice is dispatched to frontline workers halting reliance on disputed records.",
+      "The inquiry sits in an unmetered administrative backlog. No binding statutory deadline compels a written disposition, and no notice is dispatched to frontline workers halting reliance on disputed records.",
     workingHypothesis:
       "Internal oversight offices lack statutory enforcement teeth and closed-loop handoff infrastructure. They operate as customer-service grievance logs rather than evidentiary review layers.",
     proposedReform:
@@ -202,7 +202,7 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "Process Friction & Witness Fear Mislabeled as Non-Cooperation",
     tagline: "Retaliatory communication loss or fear converted into evidence against the victim",
     observedEvent:
-      "Following a safety report, a reported perpetrator shuts off the reporting parent's cellular service, disrupts internet access, or directly threatens a material witness. When caseworkers attempt contact, the call drops or the witness declines to speak out of terror.",
+      "Following a report, external interference occurs—such as utility or cellular service termination by an adverse party, sudden loss of contact access, or direct witness intimidation. When an investigator attempts follow-up contact, the communication fails or a fearful witness hesitates to speak.",
     administrativeResponse:
       "The caseworker logs 'Participant failed to respond / uncooperative' and recommends closing the case or making an adverse parenting finding based on 'unwillingness to engage.'",
     workingHypothesis:
@@ -218,7 +218,7 @@ export const oversightFailurePatterns: OversightFailurePattern[] = [
     name: "Successive Disconnected Closures vs. Cumulative Pattern Review",
     tagline: "Evaluating repeated reports across 12 months as isolated single-event snapshots",
     observedEvent:
-      "Over an 18-month period, three separate reports are filed involving the same child: an incident involving substance exposure, an incident involving school pickup failure, and an incident involving explicit media access.",
+      "Over a multi-month period, multiple distinct intakes involving the same household or individuals are evaluated by different intake units—for example, separate reports concerning supervisory lapses, environmental hazards, or child welfare flags. Each report is evaluated in isolation as a low-level incident.",
     administrativeResponse:
       "Each report is assigned to a different worker, evaluated solely on whether the single immediate incident meets statutory removal thresholds, and closed as 'no basis for intervention.' No worker reviews the composite timeline.",
     workingHypothesis:

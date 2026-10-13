@@ -1,7 +1,7 @@
 # MEMORANDUM: SYSTEMIC CONTINUITY RECOMMENDATIONS FOR DFPS SUNSET REVIEW
 **To**: Members & Staff, Texas Sunset Advisory Commission  
 **From**: Maps With Teeth Public-Interest Systems Research  
-**Date**: October 2026 (For November 18, 2026 Public Hearing)  
+**Date**: October 2026 (For December 2–3, 2026 Commission Meeting; Rescheduled from November 18–19)  
 **Subject**: Interagency Continuity, Closed-Loop Referral Tracking, and Context-Before-Closure Practices at the Department of Family and Protective Services (DFPS)  
 
 ---

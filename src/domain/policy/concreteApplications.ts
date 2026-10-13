@@ -5,7 +5,8 @@
  * and Review Traces document complex institutional failure patterns.
  * 
  * Invariants:
- * - 100% Synthetic / Fictional Demonstration Data (Zero real-world PII or active case numbers).
+ * - 100% Synthetic / Fictional Demonstration Data (Zero real-world PII, case numbers, or live identities).
+ * - All proposed statuses, workflows, and 48-hour benchmarks represent the initiative's proposed evaluation standard, not current statutory or agency requirements.
  * - Calibrated non-claims and non-implication notices attached to each scenario.
  */
 
@@ -100,16 +101,16 @@ export const CONCRETE_APPLICATION_SCENARIOS: ConcreteApplicationScenario[] = [
     scenarioCode: "SYNTH-APP-03",
     title: "Scenario C: Supplemental Evidence Arriving After Administrative Closure",
     failurePattern: "Post-Closure Ingestion Barrier / Administrative Lockout",
-    narrativeOverview: "Child Protective Services issues a standardized closure letter stating 'unable to determine safety risk due to lack of independent collateral witnesses.' Three days after closure, the reporter obtains certified school attendance records and an authenticated audio recording from a direct family witness explaining why fear prevented initial participation.",
+    narrativeOverview: "An investigative intake agency issues a standardized closure letter stating 'unable to determine safety risk due to lack of independent corroborating witnesses.' Shortly after closure, the reporter obtains certified institutional records and corroborating statements explaining why communication barriers prevented earlier participation.",
     conventionalSystemBehavior: "Agency portal informs reporter that the case is 'CLOSED.' Reporter is told they must dial the crisis intake line and file a brand-new report from scratch, erasing the prior investigative docket and treating the new submission as an isolated rumor.",
     continuityReceiptApplication: {
       receiptId: "REC-SYNTH-2026-003",
-      issuingParty: "Department of Family & Protective Services (Post-Closure Addendum Protocol)",
+      issuingParty: "Investigative Intake Agency (Post-Closure Addendum Protocol Demonstration)",
       verifiedMetadataLogged: [
-        "Original Docket: Case #51119962 (Closed July 16, 2026)",
+        "Original Docket: Synthetic Intake #SYNTH-CW-9021 (Closed July 16, 2026)",
         "Supplemental Ingestion: Version 2 Record created July 19, 2026",
-        "Material 1: Certified School Attendance Record (Absence Log)",
-        "Material 2: Witness Statement Audio (Authenticated direct witness)",
+        "Material 1: Certified Institutional Records (Absence Log)",
+        "Material 2: Direct Witness Statement (Documenting communication barrier)",
         "Witness barrier logged: Fear / Threat of Retaliation (not refusal)"
       ],
       nonImplicationNotices: [

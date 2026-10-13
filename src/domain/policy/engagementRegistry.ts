@@ -68,10 +68,10 @@ export const TEXAS_POLICY_ENGAGEMENT_REGISTRY: PolicyEngagementRecord[] = [
     trackingCode: "POL-001A",
     title: "DFPS Sunset Public Input Form Submission & Structural Policy Memo",
     targetBody: "Texas Sunset Advisory Commission Staff & Commission Members",
-    targetReviewCycle: "Texas DFPS 2026–2027 Sunset Review (Public Hearing Scheduled Nov 18–19, 2026)",
+    targetReviewCycle: "Texas DFPS 2026–2027 Sunset Review (Commission Meeting Rescheduled to Dec 2–3, 2026)",
     submissionDate: "October 2026",
     trackingStatus: "SUBMITTED",
-    statusVerificationBasis: "Submitted via Texas Sunset Advisory Commission official public input portal (sunset.texas.gov/input-form) prior to the published staff report and November 2026 hearing.",
+    statusVerificationBasis: "Submitted via Texas Sunset Advisory Commission official public input portal (sunset.texas.gov/input-form) prior to the published staff report and December 2026 meeting.",
     publicSummary: "Formal structural policy input requesting Sunset staff examine administrative continuity, closed-loop referral tracking, and context-before-closure practices across Department of Family and Protective Services (DFPS) system boundaries.",
     statutoryFocus: [
       "Tex. Fam. Code § 261.301 (Investigation of Report)",
@@ -84,7 +84,7 @@ export const TEXAS_POLICY_ENGAGEMENT_REGISTRY: PolicyEngagementRecord[] = [
       "Cumulative multi-contact thresholds: Mandatory human supervisory review when 3+ fragmented reports or intake declinations occur regarding the same household across 90 days (strictly non-algorithmic)",
       "Low-risk 90-day synthetic pilot: Multi-partner stress test using synthetic test cases rather than live client PII"
     ],
-    verifiedOutcomes: "Public comments and structural memorandum submitted to the Sunset Advisory Commission. Commission staff report pending publication as of October 2026 review; public testimony docketed for November 18–19, 2026.",
+    verifiedOutcomes: "Public comments and structural memorandum submitted to the Sunset Advisory Commission. Commission staff report pending publication as of October 2026 review; commission meeting tentatively rescheduled for December 2–3, 2026. Individual witness appearance or testimony is not confirmed.",
     safeguardNotice: "Formal public input submission. Submitted as independent structural policy input; not an official Sunset staff recommendation or agency-approved directive.",
     officialSourceUrls: [
       { label: "Texas Sunset Advisory Commission Input Portal", url: "https://www.sunset.texas.gov/input-form" },
@@ -99,7 +99,7 @@ export const TEXAS_POLICY_ENGAGEMENT_REGISTRY: PolicyEngagementRecord[] = [
     targetReviewCycle: "DFPS Administrative Oversight Review Cycle (Fall 2026)",
     submissionDate: "September–October 2026",
     trackingStatus: "UNDER_REVIEW_EXPLICITLY_CONFIRMED",
-    statusVerificationBasis: "Written receipt confirmed by DFPS Office of Consumer Affairs on September 3, 2026, confirming complaint under review with substantive response pending. Supplemental factual and attendance records associated October 4, 2026. Substantive administrative outcome remains pending / unreceived.",
+    statusVerificationBasis: "Internal correspondence records receipt by DFPS Office of Consumer Affairs on September 3, 2026, stating inquiry was received and under review. Supplemental records associated October 4, 2026. Substantive administrative outcome remains pending / unreceived. No public finding or formal agency docket disposition exists.",
     publicSummary: "Administrative oversight inquiry examining systemic procedures for how DFPS logs, preserves, and reviews identified documentary evidence, direct witness routes, and related school/custody records prior to case disposition and administrative closure.",
     statutoryFocus: [
       "40 TAC Chapter 700 (Child Protective Services Administrative Rules)",
@@ -112,7 +112,7 @@ export const TEXAS_POLICY_ENGAGEMENT_REGISTRY: PolicyEngagementRecord[] = [
       "Written supervisory response standard: Written complaints must receive written answers identifying what was reviewed and what governing authority applied rather than treating unexpected oral callbacks as case resolution",
       "Cumulative cross-case review rather than isolated consecutive closures"
     ],
-    verifiedOutcomes: "Formal written acknowledgment of complaint receipt received from OCA; substantive closure or findings report remains pending / unknown. Tracking status is explicitly locked to confirmed review, with substantive outcome marked UNRESOLVED_OR_UNKNOWN until official written response is issued.",
+    verifiedOutcomes: "Formal written acknowledgment of complaint receipt documented in internal correspondence; substantive closure or findings report remains pending / unknown. Tracking status is explicitly locked to confirmed review, with substantive outcome marked UNRESOLVED_OR_UNKNOWN until official written response is issued.",
     safeguardNotice: "Oversight complaint tracking record. Does not disclose private party identities, sealed court docket numbers, or minors' identifying information. Evaluates administrative process reliability and answerability."
   }
 ];

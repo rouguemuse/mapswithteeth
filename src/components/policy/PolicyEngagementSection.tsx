@@ -363,6 +363,9 @@ export function PolicyEngagementSection() {
             <p className="text-xs sm:text-sm text-stone-700">
               Examining how client-side Continuity Receipts and nine-status Review Traces make process failures visible across four synthetic scenarios.
             </p>
+            <p className="text-[11px] font-mono text-stone-600 bg-[#EEE8DD] border border-stone-300 p-2 rounded-lg">
+              <strong>EVALUATION STANDARDS NOTICE:</strong> Strictly fictional demonstration data (0% live PII). All workflows, review trace codes, and referral targets (such as the 48-hour pilot acknowledgment target) reflect the initiative&apos;s proposed evaluation framework, not existing statutory mandates or current agency operating standards.
+            </p>
           </div>
 
           <div className="space-y-3">
