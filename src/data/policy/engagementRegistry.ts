@@ -27,7 +27,7 @@ export const policyEngagementRecords: PolicyEngagementRecord[] = [
     dateSubmitted: "October 2026",
     status: "SUBMITTED",
     statusDetails: "Prepared and submitted via the official Texas Sunset Advisory Commission public input portal for the 2026–2027 review cycle.",
-    verifiedOutcome: "Public input submission delivered via official portal. DFPS Self-Evaluation Report published; Sunset Commission Staff Report pending publication; commission meeting tentatively rescheduled for December 2–3, 2026 (formerly November 18–19). Witness appearance or testimony is not confirmed. No institutional endorsement or adoption claimed.",
+    verifiedOutcome: "Public input submission delivered via official portal (sunset.texas.gov/input-form). DFPS Self-Evaluation Report published (Oct 2025); Sunset Commission Staff Report pending publication; per official Sunset notice, the tentative November 18–19 commission meeting has been rescheduled for December 2–3, 2026. Witness appearance or testimony is not confirmed. No institutional endorsement or adoption claimed.",
     sourceCitation: "Maps With Teeth Policy Docket POL-001 (October 2026); Texas Sunset Advisory Commission Agency Review Docket 2026–27.",
     officialReferenceUrl: "https://www.sunset.texas.gov/reviews-and-reports/agencies/department-family-and-protective-services",
     confidentialityBoundary: "Public policy input. Excludes private identifying case records, child information, and unverified allegations. Structured purely around procedural and quality-assurance mechanics.",

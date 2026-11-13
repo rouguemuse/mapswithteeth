@@ -25,7 +25,7 @@ export function ReceiptPracticeSection() {
       </div>
 
       <p className="text-lg text-[#4D4944] font-serif max-w-3xl leading-relaxed">
-        A Continuity Receipt gives the participant a client-side, portable record of an administrative encounter. It documents what was presented, the current acknowledgment status, and who owns the next milestone—without asserting legal authority, deciding claim merits, or binding an agency.
+        <strong>Model A (Continuity Receipt)</strong> gives the participant a minimal, client-side record of an administrative encounter—preserving (1) what was received, (2) what was actually reviewed, (3) what action occurred, (4) what was referred elsewhere, (5) what fell outside authority, (6) what remains unresolved, and (7) who owns the next step. It connects to the agency-side <strong>Review Trace (AGY-003 specimen)</strong> and Evidence Integrity safeguards, and is not a truth engine, allegation database, or automated credibility assessment.
       </p>
 
       {/* Artifact Presentation: Treated as an authentic physical object on an archival desk */}
@@ -34,7 +34,7 @@ export function ReceiptPracticeSection() {
         {/* Left Column: Physical Receipt Artifact with Shadow & Texture (7 Cols) */}
         <div className="lg:col-span-7 bg-[#E8E2D5] border-2 border-[#11100F] p-4 sm:p-6 rounded-xs shadow-2xl relative group">
           <div className="flex items-center justify-between pb-3 border-b border-[#C4B69E] font-mono text-[10px] text-[#4D4944] uppercase">
-            <span className="font-bold text-[#841F2B]">SPECIMEN ARCHIVE #CR-2026-0814</span>
+            <span className="font-bold text-[#841F2B]">SPECIMEN ARCHIVE #CR-2026-0814 · PAIRED WITH AGY-003</span>
             <span>PORTABLE CANONICAL RECORD</span>
           </div>
 
@@ -53,7 +53,7 @@ export function ReceiptPracticeSection() {
           </div>
 
           <div className="mt-3 flex items-center justify-between font-mono text-[10px] text-[#4D4944]">
-            <span>CANONICAL SHA-256 DIGEST VERIFIED</span>
+            <span>CLIENT-SIDE SHA-256 BASELINE RECORDED</span>
             <span className="text-[#841F2B] font-bold">ZERO SURVEILLANCE RISK</span>
           </div>
         </div>
@@ -72,28 +72,28 @@ export function ReceiptPracticeSection() {
             </h3>
 
             <p className="text-xs sm:text-sm text-[#D8D2C6] leading-relaxed font-sans">
-              Unlike government databases that aggregate sensitive personal histories into vulnerable centralized files, a Continuity Receipt lives on the client device.
+              Unlike government databases that aggregate sensitive personal histories into vulnerable centralized files, a Continuity Receipt lives on the client device and pairs with the agency-side Review Trace.
             </p>
 
             <div className="space-y-3 pt-2 text-xs font-sans">
               <div className="p-3 bg-[#1A1817] border border-[#2B2926] rounded-xs space-y-1">
                 <strong className="text-white font-mono block">1. Non-Implication Boundaries:</strong>
                 <span className="text-[#A39E94]">
-                  Explicitly states that receiving or routing an intake never constitutes a merits determination or legal admissibility finding.
+                  Submission is not proof of review, a referral is not proof of assistance, and administrative closure is not factual resolution. Receiving or routing an intake never constitutes a merits determination.
                 </span>
               </div>
 
               <div className="p-3 bg-[#1A1817] border border-[#2B2926] rounded-xs space-y-1">
-                <strong className="text-white font-mono block">2. Tamper-Evident SHA-256 Digest:</strong>
+                <strong className="text-white font-mono block">2. Calibrated SHA-256 Baseline Digest:</strong>
                 <span className="text-[#A39E94]">
-                  Cryptographically proves that an exhibit was present at the timestamped moment without disclosing private allegations.
+                  Records a client-side cryptographic digest to support change detection against a recorded baseline. Does not independently establish authenticity, authorship, timestamp truth, or agency receipt.
                 </span>
               </div>
 
               <div className="p-3 bg-[#1A1817] border border-[#2B2926] rounded-xs space-y-1">
-                <strong className="text-white font-mono block">3. Milestone Transfer Ownership:</strong>
+                <strong className="text-white font-mono block">3. Milestone Transfer &amp; Review Trace (AGY-003):</strong>
                 <span className="text-[#A39E94]">
-                  Identifies the exact unit and target completion window for the subsequent institutional action.
+                  Identifies the exact unit and target completion window for the next institutional action while linking to the 9-status agency Review Trace.
                 </span>
               </div>
             </div>

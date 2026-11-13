@@ -80,32 +80,53 @@ export function MethodologyIntegritySection() {
       <div className="border-b-2 border-[#11100F] pb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <span className="text-xs font-mono text-[#841F2B] font-bold uppercase tracking-widest block mb-2">
-            § 03 · METHODOLOGY &amp; EVIDENCE INTEGRITY
+            § 03 · METHODOLOGY &amp; EVIDENCE INTEGRITY (DESIGNED &amp; DEVELOPING SAFEGUARDS)
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#11100F] tracking-tight">
             The Evidence Integrity Safeguards
           </h2>
         </div>
         <span className="font-mono text-xs text-[#4D4944] uppercase tracking-wider">
-          [ARCHITECTURAL RESTRAINT &amp; DUE PROCESS]
+          [DESIGNED SPECIFICATIONS · REQUIRING INDEPENDENT VALIDATION]
         </span>
       </div>
 
       <p className="text-lg text-[#4D4944] font-serif max-w-3xl leading-relaxed">
-        Maps With Teeth does not pool allegations or automate credibility scoring. Our methodology rests on six explicit disciplines designed to preserve institutional truth, protect due process, and prevent administrative flattening.
+        Maps With Teeth does not pool allegations or automate credibility scoring. Our methodology rests on designed and developing safeguards—including the <strong>9-status Review Trace</strong>, <strong>6-stage Claim-Evidence Separation</strong>, <strong>6-state Barrier-Aware Cooperation</strong>, and <strong>separate tracks for underlying allegations and subsequent retaliation/interference</strong>—built to preserve institutional truth, protect due process, and prevent administrative flattening.
       </p>
 
-      {/* Governing Principle Callout */}
-      <div className="p-5 bg-[#11100F] text-[#F8F5EE] border-l-4 border-[#841F2B] rounded-xs space-y-2 shadow-lg">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold block">
-          GOVERNING PRINCIPLE OF RESTRAINT
-        </span>
-        <p className="font-serif italic text-lg sm:text-xl text-white leading-relaxed">
-          &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
-        </p>
-        <p className="text-xs font-mono text-[#A39E94] pt-1">
-          Related does not mean proven · Repeated does not mean corroborated · Demeanor is not provenance · Could not is not would not.
-        </p>
+      {/* Governing Principle & Process-Induced Distortion Callout */}
+      <div className="p-6 bg-[#11100F] text-[#F8F5EE] border-l-4 border-[#841F2B] rounded-xs space-y-4 shadow-lg">
+        <div className="space-y-1">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold block">
+            GOVERNING PRINCIPLE OF RESTRAINT &amp; PROCESS-INDUCED DISTORTION
+          </span>
+          <p className="font-serif italic text-lg sm:text-xl text-white leading-relaxed">
+            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+          </p>
+          <p className="text-xs sm:text-sm font-sans text-[#D4CDBE] leading-relaxed pt-1">
+            <strong>Process-Induced Distortion:</strong> Institutional friction—such as unannounced callback drops, repeated trauma retellings across disconnected desks, safety-driven reluctance, or shared-phone interception—can produce delay, withdrawal, or distress that is subsequently interpreted negatively by the institution without accounting for the administrative barriers that caused it.
+          </p>
+        </div>
+
+        {/* 10 Non-Collapsible Distinctions */}
+        <div className="pt-3 border-t border-[#2C2825] space-y-2">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-[#E85D6B] font-bold block">
+            TEN PRESERVED ADMINISTRATIVE &amp; EVIDENTIARY DISTINCTIONS:
+          </span>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px] font-mono text-[#E5DFC8]">
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Allegation ≠ Evidence</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Repetition ≠ Corroboration</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Submission ≠ Review</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Notice ≠ Proof</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Inability ≠ Refusal</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Response ≠ Consent</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Ownership ≠ Authority</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Referral ≠ Assistance</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Observation ≠ Disposition</span>
+            <span className="bg-[#1A1817] border border-[#2C2825] px-2.5 py-1.5 rounded-xs">Closure ≠ Exoneration</span>
+          </div>
+        </div>
       </div>
 
       {/* Interactive Review Trace Specimen Highlight */}

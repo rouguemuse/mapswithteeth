@@ -76,15 +76,15 @@ export function FunderScenarioActiveBanner({
         <div className="p-2.5 bg-[#F5F1E8] rounded border border-[#D9D1C4]/80 flex flex-col justify-between">
           <div>
             <span className="font-mono font-bold text-[10px] uppercase text-stone-600 block">
-              Tested Authority & Gap Fund
+              Tested Statutory &amp; Program Authorities
             </span>
             <p className="text-xs font-mono font-bold text-[#1C1D1D] mt-0.5">
               {scenario.statutoryCitationsTested.join(" · ")}
             </p>
           </div>
           <div className="pt-1.5 border-t border-[#D9D1C4]/60 flex items-center justify-between text-[11px] font-mono">
-            <span className="text-stone-600">Gap Fund Slice:</span>
-            <span className="text-[#971F26] font-bold">{scenario.gapFundEligibleAmount}</span>
+            <span className="text-stone-600">Jurisdiction Scope:</span>
+            <span className="text-[#971F26] font-bold">{scenario.location.county} County, {scenario.location.state}</span>
           </div>
         </div>
       </div>

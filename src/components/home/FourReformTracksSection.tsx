@@ -1,57 +1,74 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, RefreshCw, ShieldAlert, Smartphone, Compass } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { ArchivalCaseStudyGallery } from "./ArchivalCaseStudyGallery";
 
 export function FourReformTracksSection() {
   const tracks = [
     {
-      num: "TRACK A",
-      code: "MWT-TRK-01",
-      title: "Administrative Continuity",
-      lead: "Received ≠ Reviewed · Referred ≠ Accepted",
+      num: "MODEL A · PRIMARY WORKING MODEL",
+      code: "MWT-MOD-A",
+      title: "Continuity Receipt & Review Trace",
+      lead: "Submission ≠ Review · Referral ≠ Assistance · Closure ≠ Resolution",
       description:
-        "Standardized institutional handoffs, explicit milestone ownership, Review Trace disposition logging, and closed-loop referrals that prevent matters from evaporating into bureaucratic seams.",
-      linkText: "Explore Continuity Standard",
+        "A minimal, participant-held record of the administrative path paired with an agency-side 9-status Review Trace (AGY-003 specimen) and Evidence Integrity safeguards. It is not a truth engine, allegation database, or automated credibility assessment.",
+      details: [
+        "Preserves 7 path elements: (1) What was received, (2) What was actually reviewed, (3) What action occurred, (4) What was referred elsewhere, (5) What fell outside authority, (6) What remains unresolved, (7) Who owns the next step.",
+        "Client-side cryptographic baseline digest supports change detection without claiming evidentiary authentication or agency receipt.",
+      ],
+      linkText: "Explore Model A & Continuity Standard",
       href: "/continuity",
-      iconSrc: "/images/art/motif_hands_bridging_perfect.png",
-      badge: "CORE SPECIFICATION",
+      iconSrc: "/images/case-study/raw_art_stitched_map_seams_4x3.jpg",
+      badge: "IMPLEMENTED PROTOTYPE & SPEC",
     },
     {
-      num: "TRACK B",
-      code: "MWT-TRK-02",
-      title: "Protection Without Continuity",
-      lead: "Pattern-Aware Review & Cumulative Harm",
+      num: "MODEL B · PRIMARY WORKING MODEL",
+      code: "MWT-MOD-B",
+      title: "Personal Number Continuity",
+      lead: "Shared-Account Billing Authority ≠ Adult Communication Identity",
       description:
-        "Addressing what happens when repeat domestic violence, stalking, and harassment are processed as disconnected incidents—distinguishing participant inability from refusal without pre-judging merits.",
-      linkText: "Explore Protection Reform",
-      href: "/protection",
-      iconSrc: "/images/art/motif_human_silhouette_clean.png",
-      badge: "CROSS-JURISDICTION",
-    },
-    {
-      num: "TRACK C",
-      code: "MWT-TRK-03",
-      title: "Digital Access & Control",
-      lead: "Account Hijacking & Infrastructure Seams",
-      description:
-        "Protecting against communication cutoff, phone/carrier line interference, credential theft, and digital harassment that lock survivors out of hearings, benefits, and emergency assistance.",
-      linkText: "View Digital Safeguards",
+        "Addresses the structural harm caused by conflating shared-account billing authority with control over another adult's mobile number—which anchors employment, banking, healthcare, schools, government services, 2FA authentication, account recovery, and personal communication.",
+      details: [
+        "Explicitly distinguishes 6 dimensions: (1) Billing responsibility, (2) Authenticated adult line-user identity, (3) Number continuity & transfer, (4) Communication & security controls, (5) Device ownership, (6) Device debt & contractual obligations.",
+        "Clear boundaries: A payer does not have to continue paying another adult's bill, legitimate debts do not disappear, and existing survivor protections (e.g., 47 U.S.C. § 345) do not cover every circumstance.",
+      ],
+      linkText: "Examine Model B: Personal Number Continuity",
       href: "/protection#digital",
-      iconSrc: "/images/art/motif_compass.png",
-      badge: "INFRASTRUCTURE",
+      iconSrc: "/images/case-study/raw_art_telecom_signal_knot_4x3.jpg",
+      badge: "POLICY RESEARCH & PROPOSED ARCHITECTURE",
     },
     {
-      num: "TRACK D",
-      code: "MWT-TRK-04",
-      title: "Resource Reachability",
-      lead: "A directory is not a route.",
+      num: "APPLIED TRACK · PROTECTION & POLICY",
+      code: "MWT-TRK-02",
+      title: "Protection Without Continuity & Texas Sunset Lab",
+      lead: "Pattern-Aware Review · Linked-Case Checks · Accountable Handoffs",
       description:
-        "Our active Central Texas pilot audits whether help is actually reachable given waitlists, transit locks, lease termination statutes (Tex. Prop. Code § 92.016), and utility waivers.",
+        "Applies the Continuity Standard to child-protection and domestic-violence seams, including submitted structural recommendations for the Texas DFPS 2026–2027 Sunset review (distinguishing submitted input from adopted policy).",
+      details: [
+        "Addresses linked-case review, pre-closure related-case checks, non-algorithmic cumulative-pattern review (3+ contacts in 90 days), designated responsibility, and preservation of review/decision history.",
+        "Distinguishes participant inability, fear, or access barriers from willful refusal without pre-judging merits.",
+      ],
+      linkText: "Explore Protection & Sunset Policy Lab",
+      href: "/policy",
+      iconSrc: "/images/case-study/raw_art_radial_city_crimson_thread.jpg",
+      badge: "SUBMITTED SUNSET INPUT & BRIEF v0.1",
+    },
+    {
+      num: "APPLIED TRACK · EMPIRICAL FIELD LAYER",
+      code: "MWT-TRK-04",
+      title: "Resource Reachability & Bad Maps",
+      lead: "A directory is not a route · Missing vs. Inaccessible vs. Defeated",
+      description:
+        "Our active Central Texas pilot audits whether published help is actually reachable given waitlists, residency gates, transit locks, lease termination statutes (Tex. Prop. Code § 92.016), and utility waivers.",
+      details: [
+        "47 canonical resources audited across 470 material semantic claim vectors and 1,070 detailed provenance QA assertions.",
+        "Feeds empirical reachability failures into the 8-question System Change Map to identify the smallest effective intervention.",
+      ],
       linkText: "Launch Barrier Matcher",
       href: "/find-help",
-      iconSrc: "/images/art/motif_texas_route.png",
-      badge: "ACTIVE PILOT",
+      iconSrc: "/images/case-study/raw_art_urban_grid_crimson_route.jpg",
+      badge: "ACTIVE EMPIRICAL PILOT (47 RESOURCES)",
     },
   ];
 
@@ -62,27 +79,36 @@ export function FourReformTracksSection() {
       <div className="border-b-2 border-[#11100F] pb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <span className="text-xs font-mono text-[#841F2B] font-bold uppercase tracking-widest block mb-2">
-            § 02 · ARCHITECTURAL REFORM AGENDA
+            § 02 · PRIMARY WORKING MODELS &amp; APPLIED REFORM TRACKS
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#11100F] tracking-tight">
-            The Four Pillars of Continuity Reform
+            Two Primary Working Models. Four Applied Tracks.
           </h2>
         </div>
         <span className="font-mono text-xs text-[#4D4944] uppercase tracking-wider">
-          [CONNECTED REFORM INFRASTRUCTURE]
+          [CONNECTED CONTINUITY ARCHITECTURE]
         </span>
       </div>
 
-      <p className="text-lg text-[#4D4944] font-serif max-w-3xl leading-relaxed">
-        Maps With Teeth organizes its intervention into four interconnected tracks. Each track addresses a specific seam where accountability, information, or human agency fractures.
-      </p>
+      {/* Unifying Principle Callout */}
+      <div className="p-6 bg-[#11100F] text-[#F8F5EE] border-l-4 border-[#841F2B] rounded-xs space-y-2 shadow-lg">
+        <span className="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold block">
+          UNIFYING PRINCIPLE ACROSS MODEL A (CONTINUITY RECEIPT) &amp; MODEL B (PERSONAL NUMBER CONTINUITY)
+        </span>
+        <p className="font-serif italic text-lg sm:text-2xl text-white leading-relaxed">
+          &ldquo;These two models demonstrate the same underlying principle in different environments: a change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
+        </p>
+        <p className="text-xs font-mono text-[#A39E94] pt-1">
+          Model A preserves the administrative path across institutional handoffs · Model B preserves adult communication identity when shared-account billing arrangements change (presented as policy research &amp; proposed architecture, not an enacted entitlement or implemented carrier standard).
+        </p>
+      </div>
 
       {/* Asymmetric Alternating Grid with Authentic Visual Motifs */}
-      <div className="grid md:grid-cols-2 gap-8 pt-4">
+      <div className="grid md:grid-cols-2 gap-8 pt-2">
         {tracks.map((track) => {
           return (
             <div
-              key={track.num}
+              key={track.code}
               className="bg-[#EEE8DB] border-2 border-[#11100F] p-6 sm:p-8 rounded-xs shadow-md flex flex-col justify-between space-y-6 group hover:border-[#841F2B] transition-all"
             >
               <div className="space-y-4">
@@ -103,13 +129,13 @@ export function FourReformTracksSection() {
                     </span>
                   </div>
 
-                  {/* Motif Thumbnail */}
-                  <div className="relative w-20 h-14 bg-[#11100F] border border-[#332E29] rounded-xs overflow-hidden shrink-0 p-1 shadow-inner">
+                  {/* 4:3 Woodcut Cartography Motif Thumbnail */}
+                  <div className="relative w-28 h-20 bg-[#11100F] border-2 border-[#11100F] rounded-xs overflow-hidden shrink-0 shadow-md">
                     <Image
                       src={track.iconSrc}
                       alt={track.title}
                       fill
-                      className="object-contain"
+                      className="object-cover"
                       unoptimized
                     />
                   </div>
@@ -125,6 +151,14 @@ export function FourReformTracksSection() {
                   <p className="text-sm text-[#4D4944] font-sans leading-relaxed pt-1">
                     {track.description}
                   </p>
+                  <ul className="space-y-1.5 pt-2 border-t border-[#C4B69E]/60 text-xs text-[#11100F] font-sans leading-relaxed">
+                    {track.details.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-[#841F2B] font-bold">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
               </div>
@@ -143,6 +177,11 @@ export function FourReformTracksSection() {
             </div>
           );
         })}
+      </div>
+
+      {/* Interactive 4:3 Case Study Folios & Before/After Slider */}
+      <div className="pt-6">
+        <ArchivalCaseStudyGallery />
       </div>
 
     </section>

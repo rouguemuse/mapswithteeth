@@ -651,7 +651,7 @@ export default function PolicyLabPage() {
               TEXAS SUNSET TIMELINESS (DFPS REVIEW 2026–2027)
             </span>
             <p className="font-sans text-stone-800 leading-relaxed">
-              DFPS is currently under review by the Texas Sunset Advisory Commission, with the commission meeting tentatively rescheduled for <strong>December 2–3, 2026</strong> (rescheduled from November 18–19). Maps With Teeth has formulated systemic public input focused on closed-loop referral accountability and context-before-closure audits; individual witness appearance or testimony is not confirmed.
+              DFPS is currently under review by the Texas Sunset Advisory Commission. Per the Commission&apos;s official schedule notice, the tentative November 18–19 Sunset meeting has been rescheduled for <strong>December 2–3, 2026</strong> (Public Hearing on December 2; Decision Meeting on December 3), with the DFPS Self-Evaluation Report published (Oct 2025) and the Sunset Staff Report pending publication. Maps With Teeth has submitted independent public input via the official Sunset input portal focused on closed-loop referral accountability and context-before-closure audits; individual witness appearance or testimony is not confirmed, and no institutional adoption is claimed.
             </p>
           </div>
         </div>

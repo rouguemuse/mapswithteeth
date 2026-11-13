@@ -95,7 +95,7 @@ export function WorkInPracticeSection() {
             
             <div className="flex items-center justify-between border-b border-[#C4B69E] pb-3">
               <span className="text-[10px] font-mono font-bold uppercase bg-[#11100F] text-white px-2.5 py-1 rounded-xs">
-                APPLICATION 02 · POLICY &amp; REFORM PROPOSAL
+                APPLICATION 02 · SUBMITTED SUNSET RECOMMENDATIONS
               </span>
               <span className="text-xs font-mono font-bold text-[#4D4944] flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5 text-[#841F2B]" />
@@ -105,13 +105,13 @@ export function WorkInPracticeSection() {
 
             <div className="space-y-2">
               <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#11100F]">
-                Texas DFPS Sunset Reform Initiative
+                Texas DFPS Sunset &amp; Policy Lab
               </h3>
               <p className="text-xs font-mono uppercase font-bold text-[#841F2B]">
                 &ldquo;When the human becomes the integration layer.&rdquo;
               </p>
               <p className="text-sm text-[#4D4944] leading-relaxed font-sans pt-1">
-                An independent structural reform proposal formulated for the Texas Sunset Advisory Commission&apos;s evaluation of the Department of Family and Protective Services. Proposes five core mechanisms: Review Trace, Closed-Loop Handoffs, Complaint Trace, Accountability Finding Trace, and Threshold Consistency Review.
+                Independent structural reform recommendations submitted to the Texas Sunset Advisory Commission&apos;s evaluation of the Department of Family and Protective Services (POL-001A, Oct 2026). Focuses on five operational mechanisms: <strong>linked-case review</strong>, <strong>pre-closure related-case checks</strong>, <strong>non-algorithmic cumulative-pattern review</strong>, <strong>designated responsibility and accountable handoffs</strong>, and <strong>preservation of review and decision history</strong>.
               </p>
             </div>
 
@@ -127,9 +127,9 @@ export function WorkInPracticeSection() {
                 />
               </div>
               <div className="font-mono text-xs space-y-1">
-                <span className="text-[#841F2B] font-bold block uppercase text-[10px]">STATUTORY COMPLIANCE</span>
+                <span className="text-[#841F2B] font-bold block uppercase text-[10px]">SUBMITTED INPUT ≠ ADOPTED POLICY</span>
                 <span className="text-[#4D4944] text-[11px] block">
-                  Preserves strict boundaries against centralized dossiers &amp; automated child scoring.
+                  Strictly distinguishes submitted public-interest recommendations from enacted statutes or agency-adopted rules.
                 </span>
               </div>
             </div>

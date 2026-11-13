@@ -3,9 +3,9 @@ import "./globals.css";
 import { ClientLayout } from "@/components/layout/ClientLayout";
 
 const SITE_URL = "https://www.mapswithteeth.org";
-const SITE_TITLE = "Maps With Teeth | Survivor Continuity & Resource Intelligence";
+const SITE_TITLE = "Maps With Teeth | Public-Interest Systems Research & Accountability Initiative";
 const SITE_DESCRIPTION =
-  "A portable continuity and accountability layer for people navigating abuse across disconnected legal, housing, and social support systems.";
+  "An independent public-interest systems research and accountability initiative examining where responsibility, evidence, identity, or access disappears across institutional boundaries.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

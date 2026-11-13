@@ -162,6 +162,94 @@ export default function ProtectionPage() {
         ))}
       </div>
 
+      {/* 2B. Model B: Personal Number Continuity (Primary Working Model) */}
+      <section id="digital" className="bg-mwt-parchment border-2 border-mwt-black rounded-xl p-6 sm:p-8 space-y-6 shadow-sm scroll-mt-24">
+        <div className="border-b border-[#C4B69E] pb-4 flex flex-wrap items-center justify-between gap-2">
+          <div className="space-y-1">
+            <span className="text-xs font-mono font-bold uppercase text-mwt-oxblood tracking-widest block">
+              MODEL B · PRIMARY WORKING MODEL (POLICY RESEARCH &amp; PROPOSED ARCHITECTURE)
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-mwt-black">
+              Personal Number Continuity
+            </h2>
+          </div>
+          <span className="px-2.5 py-1 bg-mwt-black text-white font-mono text-[10px] font-bold uppercase rounded-xs">
+            NOT AN ENACTED ENTITLEMENT OR IMPLEMENTED CARRIER STANDARD
+          </span>
+        </div>
+
+        <div className="space-y-3 text-xs sm:text-sm text-mwt-black font-sans leading-relaxed">
+          <p className="font-serif italic text-base sm:text-lg text-mwt-oxblood font-bold">
+            &ldquo;A change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
+          </p>
+          <p>
+            <strong>The Structural Problem:</strong> Consumer telecommunications and digital ecosystems routinely conflate <strong>shared-account billing authority</strong> with <strong>control over another adult&apos;s communication identity</strong>. Today, an adult&apos;s mobile phone number is not merely a billing line—it is a foundational civic and digital identifier connecting employment, banking, healthcare, children&apos;s schools, government services, two-factor authentication (2FA), account recovery, and personal communication. When a primary account holder can unilaterally suspend, monitor, or refuse to release another adult&apos;s number, billing structure becomes an instrument of administrative erasure and coercive control.
+          </p>
+        </div>
+
+        {/* 6 Separated Dimensions Matrix */}
+        <div className="space-y-2">
+          <span className="font-mono text-xs font-bold uppercase text-mwt-black block">
+            SIX DIMENSIONS SEPARATED BY THE PERSONAL NUMBER CONTINUITY MODEL:
+          </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-sans">
+            {[
+              {
+                num: "01",
+                title: "Billing Responsibility",
+                desc: "Who pays for current or future monthly carrier service charges."
+              },
+              {
+                num: "02",
+                title: "Authenticated Adult Line-User Identity",
+                desc: "The actual adult human whose daily life, 2FA tokens, and institutional contacts are bound to the number."
+              },
+              {
+                num: "03",
+                title: "Number Continuity & Transfer",
+                desc: "The ability of the authenticated adult line user to port or separate their existing telephone number to an independent account."
+              },
+              {
+                num: "04",
+                title: "Communication & Security Controls",
+                desc: "Control over call/text logs, location visibility, SIM/eSIM changes, and account recovery PINs."
+              },
+              {
+                num: "05",
+                title: "Device Ownership",
+                desc: "Physical and legal title to the mobile handset hardware itself."
+              },
+              {
+                num: "06",
+                title: "Device Debt & Contractual Obligations",
+                desc: "Installment plan balances, equipment financing agreements, and prior contractual liabilities."
+              }
+            ].map((dim) => (
+              <div key={dim.num} className="p-3.5 bg-mwt-ivory border border-mwt-black rounded-lg space-y-1">
+                <span className="font-mono text-[10px] font-bold text-mwt-oxblood uppercase block">
+                  DIMENSION {dim.num}
+                </span>
+                <h3 className="font-serif font-bold text-sm text-mwt-black">{dim.title}</h3>
+                <p className="text-mwt-graphite leading-snug text-xs">{dim.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Explicit Legal, Financial & Statutory Caveats */}
+        <div className="p-4 bg-mwt-ivory border-l-4 border-mwt-oxblood border border-mwt-black rounded-r-lg space-y-2 text-xs font-sans">
+          <span className="font-mono font-bold text-mwt-oxblood uppercase block text-[11px]">
+            EXPLICIT FINANCIAL, CONTRACTUAL &amp; STATUTORY BOUNDARIES:
+          </span>
+          <ul className="space-y-1 text-mwt-black leading-relaxed">
+            <li>• <strong>No Forced Third-Party Payment:</strong> Separating communication identity from billing authority does <em>not</em> mean a payer is required to continue paying another adult&apos;s phone bill.</li>
+            <li>• <strong>Legitimate Debts Do Not Disappear:</strong> Valid device installment agreements and contractual obligations are allocated transparently under applicable law rather than magically erased.</li>
+            <li>• <strong>Limits of Existing Survivor Protections:</strong> While federal protections such as the Safe Connections Act (47 U.S.C. § 345; 47 CFR § 64.6402) establish important line-separation rights for covered survivors, they do not cover every circumstance and are frequently defeated in practice by documentation hurdles, carrier portal design, or authentication lockouts.</li>
+            <li>• <strong>Development Status:</strong> Personal Number Continuity is presented as <strong>policy research and proposed architecture</strong>, not an enacted general entitlement or an implemented carrier standard.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* 3. Interactive Four-Track Navigation Tabs */}
       <div className="space-y-6">
         <div className="flex border-b border-[#C4B69E] gap-2 overflow-x-auto text-xs font-mono">

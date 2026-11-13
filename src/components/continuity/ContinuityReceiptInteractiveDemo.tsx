@@ -187,10 +187,10 @@ export function ContinuityReceiptInteractiveDemo() {
       nextActor: "Participant (Self-Custody)",
       actorRole: "Permanent Record Retention",
       milestoneWindow: "Case closed administratively",
-      statusBadge: "RESOLVED · VERIFIED END-TO-END",
+      statusBadge: "RESOLVED · RECORDED END-TO-END",
       statusBadgeColor: "bg-emerald-900 text-white",
       operationalNarrative:
-        "The process is finalized. The participant retains an immutable client-side receipt with verifiable timestamps, proving every step occurred without ever needing to re-tell their story from scratch."
+        "The process is finalized. The participant retains a structured client-side receipt with recorded baseline timestamps and handling statuses—preserving the administrative path so they do not have to re-tell their story from scratch (while recognizing that a client-side digest supports change detection against a recorded baseline rather than independent evidentiary authentication)."
     }
   };
 

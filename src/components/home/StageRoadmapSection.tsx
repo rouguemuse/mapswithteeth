@@ -42,7 +42,7 @@ export function StageRoadmapSection() {
       items: [
         "Survivor-Controlled Continuity: Encrypted, client-side resource porting that never exposes private data.",
         "Cross-County & Multi-State Expansion: Replicating Texas gold-standard deep statutory dives in additional states.",
-        "Survivor Gap Fund: Administered flexible fund to cover non-traditional micro-bottlenecks ($40 gas, lock rekeying, pet deposits).",
+        "Interlocal & Sunset Continuity Evaluation: 90-day synthetic workflow stress-tests under the Texas Interlocal Cooperation Act (Tex. Gov't Code Ch. 791).",
         "Frontline Caseworker Integrations: Secure tools to assist labor representatives and advocates with rapid resource matching.",
       ],
     },

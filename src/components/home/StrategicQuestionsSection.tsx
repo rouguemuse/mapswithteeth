@@ -153,6 +153,146 @@ export function StrategicQuestionsSection() {
         })}
       </div>
 
+      {/* System Change Map: 8 Diagnostic Questions & 3 Failure Modes */}
+      <div className="bg-[#EEE8DB] border-2 border-[#11100F] p-6 sm:p-8 rounded-xs space-y-6 shadow-md mt-8">
+        <div className="border-b border-[#C4B69E] pb-4 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span className="text-[10px] font-mono uppercase font-bold text-[#841F2B] block tracking-wider">
+              DIAGNOSTIC METHODOLOGY · THE SYSTEM CHANGE MAP
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#11100F]">
+              Eight Diagnostic Questions Before Any Intervention
+            </h3>
+          </div>
+          <Link
+            href="/how-it-works"
+            className="text-xs font-mono font-bold text-[#841F2B] hover:text-[#11100F] uppercase underline underline-offset-4"
+          >
+            Inspect Full System Change Map →
+          </Link>
+        </div>
+
+        <p className="text-sm text-[#4D4944] font-sans leading-relaxed">
+          Sometimes the right answer is improving an existing system rather than inventing something new. Before proposing a tool, rule, or statute, Maps With Teeth evaluates every institutional boundary against eight diagnostic questions:
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
+          {[
+            "1. What already exists?",
+            "2. What is legally required or permitted?",
+            "3. What technical and operational capabilities exist?",
+            "4. What actually happens in practice?",
+            "5. Who can realistically access the existing remedy?",
+            "6. Where is responsibility, evidence, identity, or access lost?",
+            "7. Is the failure legal, technical, procedural, administrative, accessibility-related, or an enforcement issue?",
+            "8. What is the smallest effective intervention?",
+          ].map((dq, i) => (
+            <div key={i} className="p-3 bg-[#F8F5EE] border border-[#C4B69E] rounded-xs text-[#11100F] font-bold leading-snug">
+              {dq}
+            </div>
+          ))}
+        </div>
+
+        {/* Three-Part Protection Failure Distinction */}
+        <div className="grid md:grid-cols-3 gap-4 pt-2">
+          <div className="p-4 bg-[#11100F] text-[#F8F5EE] rounded-xs space-y-1">
+            <span className="font-mono text-[10px] text-amber-300 font-bold uppercase block">FAILURE MODE 01</span>
+            <h4 className="font-serif font-bold text-base text-white">Missing Protection</h4>
+            <p className="text-xs text-[#D4CDBE] font-sans leading-relaxed">
+              Something does not exist in statute, agency rule, or institutional infrastructure.
+            </p>
+          </div>
+          <div className="p-4 bg-[#11100F] text-[#F8F5EE] rounded-xs space-y-1">
+            <span className="font-mono text-[10px] text-amber-300 font-bold uppercase block">FAILURE MODE 02</span>
+            <h4 className="font-serif font-bold text-base text-white">Inaccessible Protection</h4>
+            <p className="text-xs text-[#D4CDBE] font-sans leading-relaxed">
+              Something exists on paper, but cannot realistically be reached due to waitlists, cost, documentation gates, or accessibility barriers.
+            </p>
+          </div>
+          <div className="p-4 bg-[#11100F] text-[#F8F5EE] rounded-xs space-y-1">
+            <span className="font-mono text-[10px] text-amber-300 font-bold uppercase block">FAILURE MODE 03</span>
+            <h4 className="font-serif font-bold text-base text-white">Defeated Protection</h4>
+            <p className="text-xs text-[#D4CDBE] font-sans leading-relaxed">
+              Something exists and could function, but the surrounding administrative or technical architecture prevents it from working as intended.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Concise Current Work (3 Buckets) & Six-Month Fellowship Objectives */}
+      <div className="grid lg:grid-cols-12 gap-6 pt-4">
+        {/* Current Work Status */}
+        <div className="lg:col-span-7 bg-[#F8F5EE] border-2 border-[#11100F] p-6 sm:p-7 rounded-xs space-y-4 shadow-sm">
+          <div className="border-b border-[#C4B69E] pb-3 flex items-center justify-between">
+            <span className="font-mono text-xs font-bold uppercase text-[#841F2B]">
+              CURRENT WORK &amp; DEVELOPMENT STATUS
+            </span>
+            <span className="font-mono text-[10px] text-[#4D4944] uppercase">[EPISTEMIC TRANSPARENCY]</span>
+          </div>
+
+          <div className="space-y-3 text-xs font-sans">
+            <div className="p-3.5 bg-[#EEE8DB] border border-[#C4B69E] rounded-xs space-y-1">
+              <strong className="font-mono text-[11px] uppercase text-[#11100F] block">
+                1. Developed or Documented (Verifiable in Repository):
+              </strong>
+              <p className="text-[#4D4944] leading-relaxed">
+                47 audited Central Texas resources (470 material claim vectors / 1,070 provenance QA assertions); client-side Continuity Receipt prototype &amp; 15-invariant test suite; 9-status Review Trace &amp; AGY-003 specimen; designed Evidence Integrity safeguards; submitted Texas DFPS Sunset public input (POL-001A) and Policy Brief v0.1; flagship systems note.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DB] border border-[#C4B69E] rounded-xs space-y-1">
+              <strong className="font-mono text-[11px] uppercase text-[#841F2B] block">
+                2. In Development:
+              </strong>
+              <p className="text-[#4D4944] leading-relaxed">
+                Comparative Personal Number Continuity policy and technical specification (6-dimension separation model); expanded System Change Map diagnostic case studies; bilateral inter-agency handoff simulation workflows; additional editorial field notes.
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-[#EEE8DB] border border-[#C4B69E] rounded-xs space-y-1">
+              <strong className="font-mono text-[11px] uppercase text-[#4D4944] block">
+                3. Requiring Independent Validation:
+              </strong>
+              <p className="text-[#4D4944] leading-relaxed">
+                External legal and statutory review; privacy, confidentiality, and due-process audit; compensated accessibility and survivor usability testing; adversarial threat modeling; frontline practitioner critique; real-world institutional feasibility evaluation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Six-Month Fellowship Objectives */}
+        <div className="lg:col-span-5 bg-[#11100F] text-[#F8F5EE] border-2 border-[#11100F] p-6 sm:p-7 rounded-xs space-y-4 shadow-md flex flex-col justify-between">
+          <div className="space-y-3">
+            <div className="border-b border-[#2C2825] pb-3 flex items-center justify-between">
+              <span className="font-mono text-xs font-bold uppercase text-amber-300">
+                SIX-MONTH FELLOWSHIP OBJECTIVES
+              </span>
+              <span className="font-mono text-[10px] text-[#A39E94]">[NEXT PHASE]</span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-[#E5DFC8] font-serif leading-relaxed">
+              Moving Maps With Teeth from founder-developed models toward independently scrutinized, adaptable public-interest specifications:
+            </p>
+
+            <ul className="space-y-1.5 text-xs text-[#D4CDBE] font-sans leading-snug">
+              <li>• Pressure-test the Continuity Receipt &amp; Review Trace</li>
+              <li>• Refine Evidence Integrity safeguards</li>
+              <li>• Develop the comparative Personal Number Continuity policy model</li>
+              <li>• Obtain compensated accessibility &amp; practitioner feedback where feasible</li>
+              <li>• Test synthetic and adversarial scenarios before any live case use</li>
+              <li>• Identify privacy, governance, due-process, and implementation risks</li>
+              <li>• Refine the System Change Map</li>
+              <li>• Publish findings, limitations, and failure modes</li>
+              <li>• Develop a bounded blueprint for one ethical research or validation partnership</li>
+            </ul>
+          </div>
+
+          <div className="pt-3 border-t border-[#2C2825] text-[11px] font-mono text-[#A39E94]">
+            <strong>Restraint Notice:</strong> Fellowship objectives represent planned validation and research milestones—not completed external audits or promised institutional deployment.
+          </div>
+        </div>
+      </div>
+
       {/* Cross-Link Bar to Policy Lab */}
       <div className="pt-4 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <Link
@@ -162,10 +302,10 @@ export function StrategicQuestionsSection() {
           <span>Review Full Texas Policy Brief &amp; Sunset Submission Memo →</span>
         </Link>
         <Link
-          href="/for-partners"
+          href="/about"
           className="inline-flex items-center gap-1.5 text-[#11100F] hover:text-[#841F2B] font-bold uppercase transition"
         >
-          <span>Explore Partner Co-Design Opportunities →</span>
+          <span>Inspect Full Project Mission, Status &amp; Fellowship Roadmap →</span>
         </Link>
       </div>
     </section>

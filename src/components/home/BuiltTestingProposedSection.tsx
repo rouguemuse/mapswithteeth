@@ -58,14 +58,14 @@ export function BuiltTestingProposedSection() {
     },
     {
       stage: "STAGE 05",
-      name: "Proposed Survivor Gap Fund & Micro-Grant Pilot",
-      status: "PROPOSED PILOT",
+      name: "Review Trace & Evidentiary Safeguards Specification",
+      status: "PILOT DESIGN",
       statusBadge: "bg-amber-800 text-white",
-      description: "Proposed direct micro-grant fund ($200–$800) under dual-approval controls for a planned Central Texas cohort.",
+      description: "Agency-side 9-status administrative disposition vocabulary and cross-cutting safeguards separating provenance from allegation volume.",
       deliverables: [
-        "Rapid barrier dissolution (lock changes, storage units, car repairs, pet boarding)",
-        "Fiscal sponsorship and dual-approval fiduciary oversight",
-        "Empirical barrier-removal cost efficiency tracking",
+        "9-status Review Trace specification and AGY-003 synthetic multi-agency specimen",
+        "6-stage Claim-Evidence Separation and 6-state Barrier-Aware Cooperation models",
+        "Requires independent legal, privacy, and practitioner validation before live deployment",
       ],
     },
     {

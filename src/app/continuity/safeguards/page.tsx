@@ -115,11 +115,41 @@ export default function SafeguardsPage() {
           </p>
 
           <p className="text-stone-700 text-base sm:text-lg font-sans max-w-3xl leading-relaxed">
-            Multi-agency continuity does not mean believing every report without scrutiny, aggregating unverified accusations into a central dossier, or treating repeated hearsay as independent proof. It means preserving enough <strong>provenance, chain-of-custody, and decision metadata</strong> to know what material existed, what was reviewed, what was not, why, and who owned the next action.
+            Multi-agency continuity does not mean believing every report without scrutiny, aggregating unverified accusations into a central dossier, or treating repeated hearsay as independent proof. These <strong>designed and developing safeguards</strong> preserve enough provenance and decision metadata to know what material existed, what was reviewed, what was not, why, and who owned the next action—while requiring independent legal, privacy, and practitioner validation before live agency deployment.
           </p>
 
+          {/* Process-Induced Distortion & 10 Distinctions Banner */}
+          <div className="p-4 sm:p-5 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-3">
+            <div className="space-y-1">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#971F26] block">
+                SAFEGUARD FOCUS · PROCESS-INDUCED DISTORTION
+              </span>
+              <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+                <strong>Process-induced distortion</strong> occurs when institutional friction—such as unannounced callback drops, repeated trauma retellings across disconnected desks, safety-driven reluctance, or shared-phone interception—produces behavior (delay, withdrawal, distress, or missed contact) that is subsequently interpreted negatively without accounting for the administrative barriers that caused it.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-[#D9D1C4] flex flex-wrap gap-1.5 text-[11px] font-mono text-[#1C1D1D]">
+              {[
+                "Allegation ≠ Evidence",
+                "Repetition ≠ Independent Corroboration",
+                "Submission ≠ Review",
+                "Notice ≠ Proof",
+                "Inability ≠ Refusal",
+                "Response ≠ Consent",
+                "Ownership ≠ Authority",
+                "Referral ≠ Successful Assistance",
+                "Observation ≠ Disposition",
+                "Administrative Closure ≠ Factual Exoneration",
+              ].map((dist, idx) => (
+                <span key={idx} className="px-2 py-0.5 bg-[#F5F1E8] border border-stone-300 rounded font-bold">
+                  {dist}
+                </span>
+              ))}
+            </div>
+          </div>
+
           {/* Quick Nav Anchors */}
-          <div className="flex flex-wrap gap-2 pt-4 text-xs font-mono">
+          <div className="flex flex-wrap gap-2 pt-2 text-xs font-mono">
             <a
               href="#principles"
               className="px-3 py-1.5 bg-[#1C1D1D] text-[#F5F1E8] rounded-lg hover:bg-stone-800 transition"
@@ -237,13 +267,13 @@ export default function SafeguardsPage() {
         <div id="cooperation" className="scroll-mt-12 space-y-4">
           <div className="space-y-1">
             <span className="text-xs font-mono font-bold text-[#971F26] uppercase tracking-wider">
-              SAFEGUARD PROTOCOL 04
+              SAFEGUARD PROTOCOL 04 · PREVENTING PROCESS-INDUCED DISTORTION
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
               Barrier-Aware Cooperation Distinction
             </h2>
             <p className="text-stone-700 text-sm sm:text-base font-sans max-w-3xl">
-              A barrier is not a refusal. The proposed statuses distinguish express refusal, unavailability, reported access barriers, reported fear or safety barriers, partial cooperation, and unknown reasons without inferring motive.
+              A barrier is not a refusal. The proposed 6-state taxonomy distinguishes express refusal, unavailability, reported access barriers, reported fear or safety barriers, partial cooperation, and unknown reasons without inferring motive—preventing institutional friction from producing behavior that is later interpreted negatively.
             </p>
           </div>
           <BarrierAwareCooperation />

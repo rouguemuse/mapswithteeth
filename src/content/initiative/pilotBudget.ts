@@ -97,10 +97,10 @@ export const PILOT_CONFIG: PilotConfig = {
       name: "Gap Fund",
       amount: 10000,
       percentage: 10,
-      description: "Direct flexible barrier-removal funding administered under strict dual-approval controls to eliminate critical bottlenecks (locks, pet deposits, transport).",
+      description: "Planned, unfunded, and not operational allocation within the proposed $100,000 founding budget, contingent on formal 501(c)(3) fiscal sponsorship and dual-approval fiduciary controls. No public application or direct financial assistance program is active.",
       deliverables: [
-        "Targeted $400–$800 micro-grants for essential escape and stabilization bottlenecks",
-        "Strict non-arbitrary fiduciary documentation administered through fiscal sponsor",
+        "Planned, unfunded, and non-operational $10,000 founding budget allocation (no public applications or disbursements)",
+        "Strict dual-approval fiduciary documentation required through a formal 501(c)(3) fiscal sponsor prior to any future activation",
       ],
     },
     {

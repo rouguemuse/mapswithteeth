@@ -180,7 +180,7 @@ export function FunderBenchmarkToolbar({
                 </p>
                 <div className="pt-2 flex flex-wrap gap-1 font-mono text-[10px]">
                   <span className="px-1.5 py-0.5 bg-[#E8F3EB] text-[#2D5A3D] font-bold rounded">
-                    Gap Fund Estimate: {currentScenario.gapFundEligibleAmount}
+                    Verified Routes Matched: {currentScenario.expectedMatchedHighlights.length} Statutory &amp; Program Pathways
                   </span>
                 </div>
               </div>

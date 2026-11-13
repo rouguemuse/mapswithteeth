@@ -258,26 +258,46 @@ export default function ContinuityStandardPage() {
           </div>
         </div>
 
-        {/* Principal Model & Worked Application Callout */}
-        <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-mono">
-          <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-            <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
-              <FileCheck className="w-4 h-4" />
-              <span>PRINCIPAL WORKING MODEL: CONTINUITY RECEIPT</span>
-            </div>
-            <p className="font-sans text-stone-700 text-[12px]">
-              Participant-held encounter record with client-side SHA-256 baseline digest, segregated material reviews, and logged decision ownership.
+        {/* Two Primary Working Models & Unifying Principle Callout */}
+        <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-3 mt-2">
+          <div className="border-b border-stone-700 pb-2">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-300 block">
+              TWO PRIMARY WORKING MODELS · ONE UNIFYING PRINCIPLE
+            </span>
+            <p className="text-xs sm:text-sm font-serif italic text-white pt-0.5">
+              &ldquo;These two models demonstrate the same underlying principle in different environments: a change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
             </p>
           </div>
 
-          <div className="p-4 bg-[#F5F1E8] rounded-lg border border-stone-300 space-y-1">
-            <div className="flex items-center gap-2 text-stone-800 font-bold uppercase">
-              <PhoneCall className="w-4 h-4" />
-              <span>WORKED APPLICATION: PERSONAL NUMBER CONTINUITY</span>
+          <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div className="p-4 bg-[#F5F1E8] text-[#1C1D1D] rounded-lg border border-stone-300 space-y-1.5">
+              <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
+                <FileCheck className="w-4 h-4" />
+                <span>MODEL A: CONTINUITY RECEIPT &amp; REVIEW TRACE</span>
+              </div>
+              <p className="font-sans text-stone-800 text-[12px] leading-relaxed">
+                Minimal, participant-held record of the administrative path preserving: (1) What was received, (2) What was actually reviewed, (3) What action occurred, (4) What was referred elsewhere, (5) What fell outside authority, (6) What remains unresolved, and (7) Who owns the next step. Pairs with the agency-side 9-status Review Trace (AGY-003 specimen) and Evidence Integrity safeguards.
+              </p>
+              <p className="font-sans text-stone-600 text-[11px] pt-1 border-t border-stone-300">
+                <strong>Boundaries:</strong> Not a truth engine, allegation database, or automated credibility score. Submission ≠ review; referral ≠ assistance; administrative closure ≠ factual resolution. Client-side SHA-256 digest supports change detection against a recorded baseline, not independent authentication.
+              </p>
             </div>
-            <p className="font-sans text-stone-700 text-[12px]">
-              A concrete application of the standard separating carrier billing authority from adult communication identity under the Safe Connections Act (47 U.S.C. § 345).
-            </p>
+
+            <div className="p-4 bg-[#F5F1E8] text-[#1C1D1D] rounded-lg border border-stone-300 space-y-1.5">
+              <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
+                <PhoneCall className="w-4 h-4" />
+                <span>MODEL B: PERSONAL NUMBER CONTINUITY</span>
+              </div>
+              <p className="font-sans text-stone-800 text-[12px] leading-relaxed">
+                Addresses the harm of conflating shared-account billing authority with control over another adult&apos;s communication identity. Distinguishes: (1) Billing responsibility, (2) Authenticated adult line-user identity, (3) Number continuity and transfer, (4) Communication and security controls, (5) Device ownership, and (6) Device debt and contractual obligations.
+              </p>
+              <p className="font-sans text-stone-600 text-[11px] pt-1 border-t border-stone-300">
+                <strong>Boundaries:</strong> A payer does not have to continue paying another adult&apos;s bill, legitimate debts do not disappear, and existing survivor protections (e.g., 47 U.S.C. § 345) do not cover every circumstance. Presented as policy research &amp; proposed architecture, not an enacted entitlement.{" "}
+                <Link href="/protection#digital" className="text-[#971F26] font-bold underline">
+                  Inspect Model B →
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
 

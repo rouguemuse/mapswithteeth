@@ -551,7 +551,7 @@ export function IntegrationLayerReformSection() {
                   STATUTORY REFORM WINDOW
                 </span>
                 <p className="text-mwt-black leading-relaxed">
-                  DFPS is currently under review by the Texas Sunset Advisory Commission. Maps With Teeth submits this structural framework as an independent proposal addressing administrative handoffs, closure integrity, and evidence preservation.
+                  DFPS is currently under review by the Texas Sunset Advisory Commission (commission meeting rescheduled for <strong>December 2–3, 2026</strong> from the tentative November 18–19 dates; DFPS Oct 2025 Self-Evaluation Report published; Sunset Staff Report pending publication). Maps With Teeth submitted this structural framework via the official public input portal as an independent proposal addressing administrative handoffs, closure integrity, and evidence preservation; witness testimony is not confirmed.
                 </p>
               </div>
             </div>

@@ -25,10 +25,10 @@ export function PremiumHero() {
       <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
         <div className="relative w-full h-full">
           <Image
-            src="/images/art/mwt_hero_montage.jpg"
+            src="/images/case-study/raw_art_courthouse_cartography_collage.jpg"
             alt="Maps With Teeth Architectural Photomontage — Classical Courthouse, Radial Cartography, and Broken Red Continuity Route"
             fill
-            className="object-cover object-right-top opacity-90 filter contrast-105 brightness-95"
+            className="object-cover object-right-top opacity-92 filter contrast-105 brightness-95"
             priority
             unoptimized
           />
@@ -48,7 +48,7 @@ export function PremiumHero() {
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#1A1817]/90 border border-[#3E3A35] rounded-xs text-xs font-mono uppercase tracking-widest text-[#E5DFC8] backdrop-blur-xs">
               <span className="w-2 h-2 rounded-full bg-[#841F2B] animate-pulse" />
-              <span>CIVIC SYSTEMS REFORM &amp; CONTINUITY</span>
+              <span>INDEPENDENT PUBLIC-INTEREST SYSTEMS RESEARCH &amp; ACCOUNTABILITY INITIATIVE</span>
             </div>
 
             {/* Monumental Headline */}
@@ -60,25 +60,25 @@ export function PremiumHero() {
                 </span>
               </h1>
 
-              <p className="text-xl sm:text-2xl text-[#E5DFC8] font-serif leading-relaxed pt-2">
-                A public-interest systems initiative focused on cross-system continuity, evidence integrity, and institutional accountability.
+              <p className="text-lg sm:text-xl text-[#E5DFC8] font-serif leading-relaxed pt-2">
+                &ldquo;People should not lose rights, safety, identity, evidence, or access simply because administrative systems divide authority differently than human lives do.&rdquo;
               </p>
             </div>
 
             {/* The Paradox Reality Box */}
             <div className="p-5 sm:p-6 bg-[#171615]/95 border-l-4 border-[#841F2B] border-y border-r border-[#2C2825] rounded-xs space-y-3 backdrop-blur-sm shadow-xl">
               <div className="flex items-center justify-between text-xs font-mono text-[#E85D6B] font-bold uppercase tracking-wider">
-                <span>PROCEDURAL ACTIVITY VS. ACCOUNTABLE CONTINUITY</span>
-                <span>[SYSTEMIC REALITY]</span>
+                <span>SYSTEMS DIAGNOSTIC &amp; ACCOUNTABILITY FRAMEWORK</span>
+                <span>[CORE PREMISE]</span>
               </div>
               <div className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
-                Help exists. <span className="text-stone-400 font-normal">Access has conditions.</span>
+                Help exists. <span className="text-stone-400 font-normal">Access and continuity have conditions.</span>
               </div>
               <p className="text-sm sm:text-base text-[#D4CDBE] font-sans leading-relaxed">
-                Institutions—child protection, family violence response, law enforcement, courts, schools, and oversight bodies—may each complete their individual procedures while critical information, unresolved risks, and responsibility disappear between them.
+                Maps With Teeth is an independent public-interest systems research and accountability initiative—not exclusively a domestic-violence resource navigator, child-protection campaign, telecom project, or software product. Those are concrete research and reform applications within a broader diagnostic method: investigating what already exists, what institutions are required or permitted to do, what happens in practice, where responsibility or human distinctions disappear, and which intervention addresses the actual failure.
               </p>
               <div className="pt-2 border-t border-[#2C2825] text-xs font-mono text-[#A39E94]">
-                The initiative does not presume that every allegation is substantiated or that every adverse outcome proves misconduct. We establish what was received, reviewed, considered, referred, decided, and left unresolved.
+                Grounded in collective liberation, institutional power analysis, accessibility, accountability, strict data minimization, and participant autonomy. We do not presume that every allegation is substantiated or that every adverse outcome proves misconduct—we preserve what was received, reviewed, referred, decided, and left unresolved.
               </div>
             </div>
 
@@ -89,22 +89,22 @@ export function PremiumHero() {
                 className="px-6 py-3.5 bg-[#841F2B] hover:bg-[#661620] text-white rounded-xs text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2.5 shadow-md hover:shadow-lg transition-all border border-[#9E2837] focus:outline-none focus:ring-2 focus:ring-white"
               >
                 <Compass className="w-4 h-4 text-white" />
-                <span>Explore Continuity Standard</span>
+                <span>Model A: Continuity Receipt</span>
               </Link>
 
               <Link
-                href="/continuity/safeguards"
+                href="/protection#digital"
                 className="px-6 py-3.5 bg-[#1F1C1A]/90 hover:bg-[#2B2724] border border-[#3E3A35] text-[#F8F5EE] rounded-xs text-xs sm:text-sm font-bold uppercase tracking-wider font-mono flex items-center gap-2 transition-all shadow-xs focus:outline-none focus:ring-2 focus:ring-[#841F2B]"
               >
-                <span>Evidence Integrity &amp; Safeguards</span>
+                <span>Model B: Personal Number Continuity</span>
                 <ArrowRight className="w-4 h-4 text-[#E85D6B]" />
               </Link>
 
               <Link
-                href="/find-help"
+                href="/how-it-works"
                 className="px-4 py-3 bg-transparent hover:bg-white/5 border border-stone-700 text-stone-300 rounded-xs text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 transition-colors"
               >
-                <span>Central Texas Pilot Tool →</span>
+                <span>System Change Map (8 Questions) →</span>
               </Link>
             </div>
 
@@ -120,7 +120,7 @@ export function PremiumHero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#3FA662]" />
-                <span>Participant-Held Continuity Receipts</span>
+                <span>Two Working Models: Continuity Receipt &amp; Personal Number Continuity</span>
               </span>
             </div>
 

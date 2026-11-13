@@ -87,14 +87,16 @@ export default function HowItWorksPage() {
   ];
 
   const lockedDistinctions = [
-    { left: "referral", right: "successful handoff", note: "Dispatching an email or notice does not confirm receipt, capacity, or acceptance by the recipient." },
-    { left: "receipt", right: "accessibility", note: "Physical or digital receipt inside an agency does not mean caseworkers can access or open the file." },
-    { left: "accessibility", right: "review", note: "Having technical access to an intake record does not establish that anyone substantively examined its contents." },
-    { left: "closure", right: "factual resolution", note: "Administrative file closure due to staffing or procedural limits does not resolve the underlying safety crisis." },
+    { left: "allegation", right: "evidence", note: "Unverified assertions never automatically elevate into substantiated facts." },
     { left: "repetition", right: "independent corroboration", note: "Repeating a single originating narrative across multiple case files does not constitute independent verification." },
-    { left: "association", right: "proof", note: "Linking related proceedings documents that multiple matters exist; it does not predetermine factual guilt or liability." },
-    { left: "fear / barrier", right: "refusal", note: "Logistical hurdles, transportation deficits, trauma, or safety fears must never be recoded as voluntary non-cooperation." },
-    { left: "administrative ownership", right: "factual authority", note: "Routing authority over a file does not establish substantive authority over historical truth." }
+    { left: "submission", right: "review", note: "Physical or digital receipt inside an agency does not establish that anyone substantively examined its contents." },
+    { left: "notice", right: "proof", note: "Issuing an administrative notice or contact record does not substantiate underlying merits." },
+    { left: "inability / barrier", right: "refusal", note: "Logistical hurdles, transportation deficits, phone cutoffs, trauma, or safety fears must never be recoded as willful refusal." },
+    { left: "response", right: "consent", note: "Complying with an administrative intake demand does not constitute broad waiver of privacy or autonomy." },
+    { left: "ownership", right: "authority", note: "Holding a routing task or paying a shared phone bill does not confer factual or communication-identity authority." },
+    { left: "referral", right: "successful assistance", note: "Dispatching an email or reading a phone number aloud does not confirm receipt, capacity, or completed help." },
+    { left: "observation", right: "disposition", note: "Logging an intake encounter or frontline observation is distinct from a formal legal or administrative ruling." },
+    { left: "administrative closure", right: "factual exoneration", note: "Closing a file due to scope, capacity, or procedural limits does not resolve or disprove the underlying concern." }
   ];
 
   const crossJurisdictionSilos = [
@@ -133,22 +135,31 @@ export default function HowItWorksPage() {
           <div className="flex items-center gap-2 text-[#971F26]">
             <Compass className="w-5 h-5" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
-              OVERARCHING PUBLIC-INTEREST FRAMEWORK
+              SYSTEM CHANGE MAP &amp; CONTINUITY ARCHITECTURE
             </span>
           </div>
           <span className="coord-tick">[FULL SYSTEM SPECIFICATION]</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight">
-          How Maps With Teeth Works
+          How Maps With Teeth Works (The System Change Map)
         </h1>
 
         <p className="text-base sm:text-lg text-stone-900 leading-relaxed font-sans font-medium max-w-3xl">
-          Maps With Teeth is an overarching public-interest framework designed to carry context and preserve administrative accountability across fragmented public institutions. It establishes the <strong>Continuity Receipt</strong> as its principal working model, supported by the <strong>Review Trace</strong> operational specification and <strong>Bad Maps</strong> systems research.
+          Maps With Teeth is an <strong>independent public-interest systems research and accountability initiative</strong>. Rather than assuming every failure requires a new software platform, it applies an eight-question diagnostic method to determine where responsibility, evidence, identity, or access disappears across institutional boundaries—and advances two primary working models: <strong>Model A (Continuity Receipt &amp; Review Trace)</strong> and <strong>Model B (Personal Number Continuity)</strong>.
         </p>
 
-        {/* Dual Goals Banner */}
-        <div className="grid sm:grid-cols-2 gap-3 pt-2">
+        {/* Central Premise & Dual Goals Banner */}
+        <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-1">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-300 block">
+            CENTRAL PREMISE
+          </span>
+          <p className="text-sm sm:text-base font-serif italic text-white">
+            &ldquo;People should not lose rights, safety, identity, evidence, or access simply because administrative systems divide authority differently than human lives do.&rdquo;
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-3 pt-1">
           <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
               GOVERNING GOAL
@@ -168,6 +179,67 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </div>
+
+      {/* 1B. The Broader Diagnostic Method: 8 Questions & 3 Failure Modes */}
+      <section id="system-change-map" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+        <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase text-[#971F26] tracking-wider block">
+              DIAGNOSTIC METHODOLOGY · SYSTEM CHANGE MAP
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+              Eight Diagnostic Questions Before Any Intervention
+            </h2>
+          </div>
+          <span className="coord-tick">[DIAGNOSTIC FIRST · INTERVENTION SECOND]</span>
+        </div>
+
+        <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+          Sometimes the right answer is improving an existing system, not inventing something new. Across child protection, domestic violence response, telecommunications, courts, housing, and administrative oversight, Maps With Teeth evaluates every institutional seam through eight questions:
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
+          {[
+            "1. What already exists?",
+            "2. What is legally required or permitted?",
+            "3. What technical and operational capabilities exist?",
+            "4. What actually happens in practice?",
+            "5. Who can realistically access the existing remedy?",
+            "6. Where is responsibility, evidence, identity, or access lost?",
+            "7. Is the failure legal, technical, procedural, administrative, accessibility-related, or an enforcement issue?",
+            "8. What is the smallest effective intervention?",
+          ].map((q, idx) => (
+            <div key={idx} className="p-3.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl font-bold text-[#1C1D1D] leading-snug">
+              {q}
+            </div>
+          ))}
+        </div>
+
+        {/* Three-Part Protection Failure Distinction */}
+        <div className="grid md:grid-cols-3 gap-4 pt-2 text-xs font-sans">
+          <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-1.5">
+            <span className="font-mono text-[10px] font-bold uppercase text-amber-300 block">DIAGNOSTIC CLASS 01</span>
+            <h3 className="font-serif font-bold text-base text-white">Missing Protection</h3>
+            <p className="text-stone-300 leading-relaxed">
+              Something does not exist at all in statute, agency operating procedure, or technical infrastructure.
+            </p>
+          </div>
+          <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-1.5">
+            <span className="font-mono text-[10px] font-bold uppercase text-amber-300 block">DIAGNOSTIC CLASS 02</span>
+            <h3 className="font-serif font-bold text-base text-white">Inaccessible Protection</h3>
+            <p className="text-stone-300 leading-relaxed">
+              Something exists on paper, but cannot realistically be reached due to waitlists, cost, residency gates, or accessibility barriers.
+            </p>
+          </div>
+          <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-1.5">
+            <span className="font-mono text-[10px] font-bold uppercase text-amber-300 block">DIAGNOSTIC CLASS 03</span>
+            <h3 className="font-serif font-bold text-base text-white">Defeated Protection</h3>
+            <p className="text-stone-300 leading-relaxed">
+              Something exists and could function, but the surrounding administrative or technical architecture prevents it from working as intended—often producing <strong>process-induced distortion</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* 2. The Core Public-Interest Question */}
       <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md">
@@ -264,36 +336,40 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 4. Product Hierarchy Breakdown */}
+      {/* 4. Two Primary Working Models Breakdown */}
       <section className="space-y-6 pt-4">
-        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
+        <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold block">
-              OPERATIONAL STRUCTURE
+              OPERATIONAL STRUCTURE · TWO PRIMARY WORKING MODELS
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-              Product Hierarchy &amp; Working Models
+              Two Primary Working Models. One Unifying Principle.
             </h2>
           </div>
           <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            PRINCIPAL · SUPPORTING · RESEARCH
+            MODEL A (ADMINISTRATIVE PATH) · MODEL B (COMMUNICATION IDENTITY)
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* PRINCIPAL MODEL: Continuity Receipt */}
-          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between md:col-span-2">
+        <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl font-serif italic text-sm sm:text-base">
+          &ldquo;These two models demonstrate the same underlying principle in different environments: a change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* MODEL A: Continuity Receipt */}
+          <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
                 <span className="text-[10px] font-mono font-bold uppercase bg-[#971F26] text-white px-2.5 py-1 rounded">
-                  PRINCIPAL WORKING MODEL · PARTICIPANT-HELD
+                  MODEL A · PRIMARY WORKING MODEL
                 </span>
                 <FileCheck className="w-5 h-5 text-[#971F26]" />
               </div>
 
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                  CROSS-SYSTEM ADMINISTRATIVE CONTINUITY
+                  PARTICIPANT-HELD ADMINISTRATIVE PATH + REVIEW TRACE
                 </span>
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
                   Continuity Receipt
@@ -301,16 +377,14 @@ export default function HowItWorksPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
-                The flagship operational mechanism of Maps With Teeth. A participant-held, client-side cryptographic receipt documenting encounter date, institutional entity, presented materials with SHA-256 integrity digests, review disposition statuses, ministerial actions taken, and the assigned next decision owner.
+                A minimal, participant-held record of the administrative path paired with the agency-side 9-status Review Trace (AGY-003 specimen) and Evidence Integrity safeguards. It is not a truth engine, allegation database, or automated credibility assessment.
               </p>
 
               <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 font-mono text-xs space-y-1">
-                <span className="font-bold text-[#1C1D1D] block">CORE INVARIANTS:</span>
-                <span className="text-stone-700 font-sans block text-[12px]">
-                  • Participant-held by default (zero server file storage or dossier)<br />
-                  • Segregated material review logging (Received vs. Reviewed vs. Unexamined)<br />
-                  • 5 mandatory non-implication notices preventing tort claims<br />
-                  • Context Before Closure verification before file exit
+                <span className="font-bold text-[#1C1D1D] block">PRESERVES 7 PATH ELEMENTS:</span>
+                <span className="text-stone-700 font-sans block text-[12px] leading-relaxed">
+                  (1) What was received · (2) What was actually reviewed · (3) What action occurred · (4) What was referred elsewhere · (5) What fell outside authority · (6) What remains unresolved · (7) Who owns the next step.<br />
+                  <strong>Boundaries:</strong> Submission ≠ review; referral ≠ assistance; closure ≠ resolution. Client-side SHA-256 digest supports change detection against a recorded baseline, not independent authentication.
                 </span>
               </div>
             </div>
@@ -320,42 +394,50 @@ export default function HowItWorksPage() {
                 href="/continuity"
                 className="w-full py-2.5 bg-[#971F26] hover:bg-[#7A181E] text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2"
               >
-                <span>View Continuity Standard Spec</span>
+                <span>View Model A: Continuity Standard Spec</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
-          {/* APPLICATION EXAMPLE: Personal Number Continuity */}
+          {/* MODEL B: Personal Number Continuity */}
           <div className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-6 space-y-4 shadow-sm flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
-                <span className="text-[10px] font-mono font-bold uppercase bg-stone-700 text-white px-2 py-0.5 rounded">
-                  WORKED APPLICATION EXAMPLE
+                <span className="text-[10px] font-mono font-bold uppercase bg-[#1C1D1D] text-white px-2.5 py-1 rounded">
+                  MODEL B · PRIMARY WORKING MODEL
                 </span>
-                <PhoneCall className="w-4 h-4 text-stone-800" />
+                <PhoneCall className="w-5 h-5 text-[#971F26]" />
               </div>
 
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-stone-600 font-bold">
-                  SAFE CONNECTIONS ACT
+                  DECOUPLING BILLING AUTHORITY FROM COMMUNICATION IDENTITY
                 </span>
-                <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
                   Personal Number Continuity
                 </h3>
               </div>
 
-              <p className="text-xs text-stone-800 leading-relaxed font-sans">
-                A worked implementation example under 47 U.S.C. § 345 showing how a distinction that an administrative system normally collapses—separating carrier billing authority from adult communication identity—can be preserved across boundaries to protect banking 2FA and digital lifelines.
+              <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans">
+                Addresses the structural harm caused by conflating shared-account billing authority with control over another adult&apos;s mobile number—which connects employment, banking, healthcare, schools, government services, 2FA authentication, account recovery, and personal communication.
               </p>
+
+              <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 font-mono text-xs space-y-1">
+                <span className="font-bold text-[#1C1D1D] block">SEPARATES 6 DISTINCT DIMENSIONS:</span>
+                <span className="text-stone-700 font-sans block text-[12px] leading-relaxed">
+                  (1) Billing responsibility · (2) Authenticated adult line-user identity · (3) Number continuity &amp; transfer · (4) Communication &amp; security controls · (5) Device ownership · (6) Device debt &amp; contractual obligations.<br />
+                  <strong>Boundaries:</strong> A payer does not have to continue paying another adult&apos;s bill; legitimate debts do not disappear; existing survivor protections do not cover every circumstance. Policy research &amp; proposed architecture (not an enacted entitlement).
+                </span>
+              </div>
             </div>
 
             <div className="pt-3 border-t border-[#D9D1C4]">
               <Link
-                href="/other-ways-through#telecom"
-                className="w-full py-2 bg-[#1C1D1D] hover:bg-black text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2"
+                href="/protection#digital"
+                className="w-full py-2.5 bg-[#1C1D1D] hover:bg-black text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2"
               >
-                <span>Explore Telecom Guide</span>
+                <span>Examine Model B: Personal Number Continuity</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

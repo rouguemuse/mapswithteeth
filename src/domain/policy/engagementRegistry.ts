@@ -84,7 +84,7 @@ export const TEXAS_POLICY_ENGAGEMENT_REGISTRY: PolicyEngagementRecord[] = [
       "Cumulative multi-contact thresholds: Mandatory human supervisory review when 3+ fragmented reports or intake declinations occur regarding the same household across 90 days (strictly non-algorithmic)",
       "Low-risk 90-day synthetic pilot: Multi-partner stress test using synthetic test cases rather than live client PII"
     ],
-    verifiedOutcomes: "Public comments and structural memorandum submitted to the Sunset Advisory Commission. Commission staff report pending publication as of October 2026 review; commission meeting tentatively rescheduled for December 2–3, 2026. Individual witness appearance or testimony is not confirmed.",
+    verifiedOutcomes: "Public comments and structural memorandum submitted to the Sunset Advisory Commission via official portal. DFPS Self-Evaluation Report published (Oct 2025); Commission staff report pending publication; per official Sunset notice, the tentative November 18–19 commission meeting has been rescheduled for December 2–3, 2026. Individual witness appearance or testimony is not confirmed.",
     safeguardNotice: "Formal public input submission. Submitted as independent structural policy input; not an official Sunset staff recommendation or agency-approved directive.",
     officialSourceUrls: [
       { label: "Texas Sunset Advisory Commission Input Portal", url: "https://www.sunset.texas.gov/input-form" },

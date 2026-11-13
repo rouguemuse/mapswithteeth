@@ -66,7 +66,7 @@ export default function SupportPage() {
             ✓ Payroll, HR, and legal compliance oversight
           </div>
           <div className="p-3 bg-[#F5F1E8] rounded border border-[#D9D1C4]">
-            ✓ Dual-approval controls for the Survivor Gap Fund
+            ✓ Dual-approval fiduciary controls for restricted research and proposed pilot funds
           </div>
         </div>
       </section>
@@ -76,25 +76,25 @@ export default function SupportPage() {
         <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold block">
-              RESEARCH REQUIREMENTS & BUDGET SPECIFICATION
+              PLANNED FOUNDING BUDGET DISCLOSURE (PLANNED · UNFUNDED · NOT OPERATIONAL)
             </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-              What a Fully Funded Six-Month Central Texas Pilot Requires (${PILOT_CONFIG.totalTarget.toLocaleString()})
+              Proposed Six-Month Founding Budget Specification (${PILOT_CONFIG.totalTarget.toLocaleString()})
             </h2>
           </div>
           <div className="px-3 py-1.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded text-xs font-mono text-[#1C1D1D] font-bold shadow-2xs">
-            Cohort Capacity: ~{PILOT_CONFIG.cohortSize} Participants
+            Planned Pilot Scope: ~{PILOT_CONFIG.cohortSize} Cases
           </div>
         </div>
 
         <p className="text-sm text-stone-800 leading-relaxed font-sans">
-          Operating across Travis, Williamson, Hays, and Bastrop counties, the six-month pilot pairs field-tested Bridge Navigation with our Survivor Gap Fund to demonstrate barrier-removal cost efficiency compared to fragmented legacy systems.
+          This financial disclosure sets out the proposed ${PILOT_CONFIG.totalTarget.toLocaleString()} six-month founding budget across Travis, Williamson, Hays, and Bastrop counties. All line items below—including the planned $10,000 Gap Fund allocation—are <strong>planned, unfunded, and not operational</strong>. Maps With Teeth focuses on cross-system continuity and accountability research and does not operate a public financial-assistance program or accept assistance applications.
         </p>
 
         {/* Budget Categories Breakdown */}
         <div className="space-y-3">
           <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1C1D1D] font-mono">
-            Transparent Allocation Breakdown:
+            Planned Founding Budget Allocation Breakdown (Unfunded &amp; Non-Operational):
           </h3>
 
           <div className="space-y-3">

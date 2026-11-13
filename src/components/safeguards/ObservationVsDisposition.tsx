@@ -37,7 +37,7 @@ export function ObservationVsDisposition() {
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-          Observation vs. Disposition &amp; Demeanor vs. Provenance
+          Separating Direct Observation from Case Disposition &amp; Record Provenance
         </h3>
 
         <div className="flex flex-wrap gap-2 pt-1">

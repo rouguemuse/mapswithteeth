@@ -16,7 +16,7 @@ export function RetaliationSeparation() {
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-          Retaliation &amp; Interference Separation
+          Two-Track Review: Underlying Merits vs. Subsequent Conduct
         </h3>
 
         <div className="flex flex-wrap gap-2 pt-1">
