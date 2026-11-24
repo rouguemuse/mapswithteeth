@@ -1,19 +1,37 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { PILOT_CONFIG } from "@/content/initiative/pilotBudget";
 import { Shield, Building2, DollarSign, ArrowRight, Heart, Info, CheckCircle2, Scale } from "lucide-react";
 import { StripeDonationModule } from "@/components/support/StripeDonationModule";
 import { SupportInquiryForm } from "@/components/support/SupportInquiryForm";
 
+export const metadata: Metadata = {
+  title: "Support & Founding Budget Specification ($100,000 Six-Month Pilot)",
+  description:
+    "Review the Maps With Teeth planned $100,000 six-month founding budget specification, fiscal sponsorship governance disclosures, repository-verified deliverables, and institutional funder inquiry.",
+  alternates: {
+    canonical: "/support",
+  },
+  openGraph: {
+    title: "Support & Founding Budget Specification | Maps With Teeth",
+    description:
+      "Planned $100,000 six-month Central Texas founding budget specification, fiduciary disclosures, and institutional support inquiry.",
+    url: "https://www.mapswithteeth.org/support",
+    siteName: "Maps With Teeth",
+    type: "website",
+  },
+};
+
 export default function SupportPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-14 select-none font-sans">
       {/* Editorial Header */}
-      <div className="border-b border-[#D9D1C4] pb-6 space-y-2">
+      <div className="border-b border-[#D9D1C4] pb-6 space-y-3">
         <div className="flex items-center gap-2 text-[#971F26] mb-1">
           <Heart className="w-5 h-5 text-[#971F26]" />
           <span className="text-xs sm:text-[13px] font-mono font-bold tracking-wider uppercase">
-            CONTRIBUTIONS & RESEARCH SUSTAINABILITY
+            CONTRIBUTIONS &amp; RESEARCH SUSTAINABILITY
           </span>
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
@@ -22,6 +40,17 @@ export default function SupportPage() {
         <p className="text-base sm:text-[17px] text-stone-900 leading-relaxed font-sans font-medium">
           Maps With Teeth is an independent public-interest initiative in development. Contributions help fund primary-source resource verification, field research across Texas counties, digital infrastructure, and the development of tools designed to make fragmented systems easier to navigate.
         </p>
+
+        {/* Epistemic Distinction Summary for Funders (Priority 3) */}
+        <div className="mwt-callout-urgent space-y-2 text-xs font-sans">
+          <span className="font-mono text-[10.5px] font-bold uppercase text-[#971F26] block">
+            FUNDER CREDIBILITY &amp; SCOPE DISTINCTION:
+          </span>
+          <p className="text-stone-800 leading-relaxed">
+            <strong>Implemented in Repository Today:</strong> 47 source-audited Texas resource records (1,070 internal provenance QA assertions), client-side deterministic matcher (158 internal tri-state test checks), Continuity Receipt prototype (15/15 risk invariant tests), and submitted Texas DFPS Sunset review input (<code>POL-001A</code>).{" "}
+            <strong>Planned &amp; Unfunded:</strong> The $100,000 six-month validation budget below (including the planned, non-operational $10,000 Gap Fund), formal 501(c)(3) fiscal sponsorship activation, and external real-world outcome validation.
+          </p>
+        </div>
       </div>
 
       {/* Stripe Donation & Sustaining Membership Module */}

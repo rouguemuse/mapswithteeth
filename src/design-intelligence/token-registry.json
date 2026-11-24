@@ -1,0 +1,216 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "library": {
+    "name": "Original Editorial & Civic Design Architecture Corpus",
+    "version": "3.0.0",
+    "updatedAt": "2026-11-22",
+    "ipAndGovernanceNotice": "All tokens, container rules, and implementation recipes in this registry are original first-principles specifications developed for high-density editorial, statutory, and trauma-informed public-interest systems. No third-party trademarked names, proprietary brand assets, or redistributed external stylesheets are claimed or bundled. Any commercial offering remains strictly separate from Maps With Teeth's public-interest civic work.",
+    "organizationModel": "DUAL_INDEX (1. By Architectural Archetype -> 2. By Validated Container & UX Pattern)"
+  },
+  "archetypes": {
+    "archival-monograph": {
+      "id": "archival-monograph",
+      "name": "Archival Monograph & Evidentiary Ledger",
+      "domain": "Investigative Systems Research & Public-Interest Accountability",
+      "principle": "High-contrast nocturnal ink (#0E0D0C) paired with warm reading ivory (#F8F5EE), crimson seal rules (#971F26), and strictly decoupled semantic evidentiary states.",
+      "tokens": {
+        "color": {
+          "ink": "#0E0D0C",
+          "archive-black": "#11100F",
+          "charcoal": "#1C1A17",
+          "paper": "#F8F5EE",
+          "paper-warm": "#F5EFE2",
+          "paper-muted": "#E8DEC8",
+          "parchment": "#EEE8DB",
+          "crimson-seal": "#971F26",
+          "institutional-red": "#841F2B",
+          "signal-red": "#C82832",
+          "signal-red-bright": "#D83B44",
+          "verified-bg": "#E6F1EA",
+          "verified-fg": "#1F6B38",
+          "warning-bg": "#FEF3D6",
+          "warning-fg": "#945700",
+          "error-bg": "#FBEAEC",
+          "error-fg": "#B31B2A"
+        },
+        "typography": {
+          "display": "'Playfair Display', 'Fraunces', Georgia, serif",
+          "body": "'IBM Plex Sans', sans-serif",
+          "mono": "'IBM Plex Mono', monospace",
+          "measure-editorial": "66ch",
+          "measure-quote": "56ch"
+        }
+      }
+    },
+    "swiss-hairline-editorial": {
+      "id": "swiss-hairline-editorial",
+      "name": "Swiss Hairline Editorial Grid",
+      "domain": "Long-Form Investigative Journalism & Multi-Column Monographs",
+      "principle": "Eliminates 4-sided card boxes in favor of gallery-white canvas (#FDFCFA), 1px vertical column hairlines, oversized serif index numerals, and underline-only tab bars.",
+      "tokens": {
+        "color": {
+          "canvas-gallery": "#FDFCFA",
+          "ink-editorial": "#111111",
+          "scarlet-accent": "#D02028",
+          "rule-hairline": "#E5E5E0"
+        },
+        "gridAndTabs": {
+          "card-border": "0px",
+          "column-divider": "1px solid #E5E5E0",
+          "quote-border-y": "1px solid rgba(17, 17, 17, 0.20)",
+          "tab-active-underline": "2px solid #D02028"
+        }
+      }
+    },
+    "tonal-gallery-monograph": {
+      "id": "tonal-gallery-monograph",
+      "name": "Borderless Tonal Gallery",
+      "domain": "Low-Friction Reading & Tonal Surface Separation",
+      "principle": "Replaces drawn borders with subtle tonal surface shifts (#F6F4EF canvas -> #FDFBF7 cards -> #ECE8DF recessed wells), lighter 400/500 serif weights, and rounded pill controls.",
+      "tokens": {
+        "color": {
+          "canvas-limestone": "#F6F4EF",
+          "surface-card": "#FDFBF7",
+          "surface-well": "#ECE8DF",
+          "oxblood-italic": "#8C2D2B",
+          "ink-warm": "#1E1D1B"
+        },
+        "surfaces": {
+          "card-border": "0px",
+          "card-radius": "16px",
+          "card-shadow": "0 2px 12px rgba(30, 29, 27, 0.03)",
+          "pill-radius": "9999px"
+        }
+      }
+    },
+    "technical-field-instrument": {
+      "id": "technical-field-instrument",
+      "name": "Tactile Technical Specification & Field Manual",
+      "domain": "Protocol Schemas, Cryptographic Receipts & Statutory Registers",
+      "principle": "Cool technical paper (#EFEFE9), 1px dashed specification dividers, tabular-numeral alignment, and tactile switch controls with semantic status dots.",
+      "tokens": {
+        "color": {
+          "canvas-tech": "#EFEFE9",
+          "well-tech": "#E4E4DC",
+          "ink-tech": "#181817",
+          "signal-accent": "#E03C26",
+          "status-active-green": "#16A34A"
+        },
+        "specMetrics": {
+          "font-variant-numeric": "tabular-nums slashed-zero",
+          "rule-dashed": "1px dashed #A8A89E",
+          "switch-active-shadow": "0 2px 0 #181817",
+          "status-dot-size": "6px"
+        }
+      }
+    },
+    "trauma-informed-civic": {
+      "id": "trauma-informed-civic",
+      "name": "Trauma-Informed Civic & Statutory Clarity",
+      "domain": "Public Service Eligibility, Legal Remedies & Crisis Navigation",
+      "principle": "Maximizes comprehension under stress: replaces 4-sided warning boxes with borderless left-rule editorial margin notes, enforces 44px–48px minimum touch targets, and maintains high-visibility focus rings.",
+      "tokens": {
+        "interaction": {
+          "touch-target-min": "44px",
+          "touch-target-comfortable": "48px",
+          "focus-ring-color": "#D83B44",
+          "focus-ring-width": "3px",
+          "focus-ring-offset": "2px"
+        },
+        "callout": {
+          "border-left-standard": "3px solid #971F26",
+          "border-left-urgent": "4px solid #971F26",
+          "outer-box-border": "0px",
+          "bg-subtle": "rgba(238, 232, 219, 0.55)",
+          "padding": "0.875rem 1.25rem"
+        }
+      }
+    },
+    "floating-exhibit-essay": {
+      "id": "floating-exhibit-essay",
+      "name": "Open-Canvas Essay with Floating Specimen Sheets",
+      "domain": "Interactive Data Essays & Document Walkthroughs",
+      "principle": "Narrative prose sits directly on warm parchment (#F9F6F0) with zero outer wrapper box; interactive specimens float as shadow-lifted white sheets with docked provenance footers.",
+      "tokens": {
+        "color": {
+          "canvas-essay": "#F9F6F0",
+          "sheet-floating": "#FFFFFF",
+          "folder-tab-bar": "#F2ECE1",
+          "provenance-footer-bg": "#ECE6DA",
+          "frame-border": "#C4B69E"
+        },
+        "elevation": {
+          "outer-section-border": "0px",
+          "floating-sheet-shadow": "0 10px 30px -5px rgba(23, 21, 19, 0.08)",
+          "floating-sheet-border": "1px solid #E6DFD3",
+          "docked-footer-border-top": "1px solid #C4B69E"
+        }
+      }
+    }
+  },
+  "patternsByPurpose": {
+    "shared-wall-bento-grid": {
+      "id": "shared-wall-bento-grid",
+      "title": "Pattern 01: Shared-1px-Wall Relational Grid",
+      "derivedFromArchetypes": ["archival-monograph", "swiss-hairline-editorial"],
+      "problemSolved": "Eliminates parallel double-borders between adjacent cards by placing cells inside a 1px gap grid where the container background forms the shared 1px hairline wall.",
+      "cssVariables": {
+        "--pattern-shared-grid-bg": "#D8D0C0",
+        "--pattern-shared-grid-gap": "1px",
+        "--pattern-shared-cell-bg": "#FAF8F3",
+        "--pattern-shared-cell-padding": "0.875rem"
+      }
+    },
+    "three-weight-horizontal-rule-hierarchy": {
+      "id": "three-weight-horizontal-rule-hierarchy",
+      "title": "Pattern 02: Three-Weight Horizontal Rule Hierarchy",
+      "derivedFromArchetypes": ["swiss-hairline-editorial", "technical-field-instrument"],
+      "problemSolved": "Encodes 3 levels of data hierarchy without vertical side borders: 3px solid top section anchor, 1px solid sub-table header, and 1px dotted data row dividers.",
+      "cssVariables": {
+        "--pattern-rule-major-top": "3px solid #11100F",
+        "--pattern-rule-subhead": "1px solid #11100F",
+        "--pattern-rule-row-dotted": "1px dotted #C4B69E",
+        "--pattern-side-border": "0px"
+      }
+    },
+    "docked-provenance-exhibit-frame": {
+      "id": "docked-provenance-exhibit-frame",
+      "title": "Pattern 03: Single Exhibit Frame with Docked Provenance Footer",
+      "derivedFromArchetypes": ["floating-exhibit-essay", "archival-monograph"],
+      "problemSolved": "Prevents separate floating disclaimer or citation boxes below cards by docking statutory authority and verification status into a muted bottom footer strip of the exhibit frame.",
+      "cssVariables": {
+        "--pattern-exhibit-border": "1px solid #C4B69E",
+        "--pattern-exhibit-body-bg": "#FAF8F3",
+        "--pattern-exhibit-footer-bg": "#ECE6DA",
+        "--pattern-exhibit-footer-border-top": "1px solid #C4B69E"
+      }
+    },
+    "left-rule-editorial-callout": {
+      "id": "left-rule-editorial-callout",
+      "title": "Pattern 04: Borderless Left-Rule Editorial Margin Callout",
+      "derivedFromArchetypes": ["trauma-informed-civic", "archival-monograph"],
+      "problemSolved": "Replaces 4-sided warning cages and heavy dark disclaimer slabs with a borderless 3px–4px left rule and subtle parchment tint.",
+      "cssVariables": {
+        "--pattern-callout-border": "0px",
+        "--pattern-callout-border-left": "4px solid #971F26",
+        "--pattern-callout-bg": "rgba(238, 232, 219, 0.55)",
+        "--pattern-callout-padding": "0.875rem 1.25rem"
+      }
+    },
+    "recessed-segmented-disclosure-track": {
+      "id": "recessed-segmented-disclosure-track",
+      "title": "Pattern 05: Recessed Segmented Disclosure Track",
+      "derivedFromArchetypes": ["tonal-gallery-monograph", "floating-exhibit-essay"],
+      "problemSolved": "Replaces clusters of 3–5 heavy bordered tab buttons with a single recessed track and a floating ivory active pill.",
+      "cssVariables": {
+        "--pattern-tab-track-bg": "#E4DDD0",
+        "--pattern-tab-track-padding": "4px",
+        "--pattern-tab-track-radius": "6px",
+        "--pattern-tab-active-bg": "#FAF8F3",
+        "--pattern-tab-active-fg": "#11100F",
+        "--pattern-tab-active-shadow": "0 1px 3px rgba(17,16,15,0.14)",
+        "--pattern-tab-inactive-fg": "#57514A"
+      }
+    }
+  }
+}

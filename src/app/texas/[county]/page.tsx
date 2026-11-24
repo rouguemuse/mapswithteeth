@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCountyBySlug, ALL_TEXAS_COUNTIES } from "@/data/texasCounties";
@@ -13,6 +14,47 @@ export function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ county: string }>;
+}): Promise<Metadata> {
+  const { county: countySlug } = await params;
+  const county = getCountyBySlug(countySlug);
+
+  if (!county) {
+    return {
+      title: "County Not Found",
+      description: "The requested Texas county field profile could not be found.",
+    };
+  }
+
+  const canonicalPath = `/texas/${county.slug}`;
+  const canonicalUrl = `https://www.mapswithteeth.org${canonicalPath}`;
+  const title = `${county.name}, Texas Field Intelligence & Verified Emergency Routes (${county.seat})`;
+  const description = `Barrier-first field intelligence for ${county.name}, Texas (${county.majorCities.join(", ")}). Verified crisis shelter (${county.emergencyShelterPartner}), legal aid (${county.legalAidProvider}), local utility waivers, and discretionary micro-aid funds.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: `${title} | Maps With Teeth`,
+      description,
+      url: canonicalUrl,
+      siteName: "Maps With Teeth",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Maps With Teeth`,
+      description,
+    },
+  };
+}
+
 export default async function CountyPage({ params }: { params: Promise<{ county: string }> }) {
   const { county: countySlug } = await params;
   const county = getCountyBySlug(countySlug);
@@ -25,8 +67,56 @@ export default async function CountyPage({ params }: { params: Promise<{ county:
     (r) => r.county && r.county.toLowerCase() === county.name.replace(" County", "").toLowerCase()
   );
 
+  const canonicalUrl = `https://www.mapswithteeth.org/texas/${county.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: `Field Intelligence: ${county.name}, Texas`,
+        description: `Barrier-first resource and statutory route intelligence for ${county.name} (${county.majorCities.join(", ")}).`,
+        isPartOf: {
+          "@id": "https://www.mapswithteeth.org/#website",
+        },
+        spatialCoverage: {
+          "@type": "AdministrativeArea",
+          name: `${county.name}, Texas`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.mapswithteeth.org",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Texas Field Intelligence",
+            item: "https://www.mapswithteeth.org/texas",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: county.name,
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 select-none font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back Link */}
       <div>
         <Link

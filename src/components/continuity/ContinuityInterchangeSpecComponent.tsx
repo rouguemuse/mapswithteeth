@@ -111,17 +111,17 @@ export function ContinuityInterchangeSpecComponent() {
           <span className="text-[11px] text-[#971F26] font-bold">referral ≠ successful handoff</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2 font-mono text-xs">
-          {responsibilitySequence.map((item, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 font-mono text-xs">
+          {responsibilitySequence.map((item) => (
             <div
               key={item.step}
-              className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg space-y-1 flex flex-col justify-between shadow-2xs relative"
+              className="p-2.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg space-y-1 flex flex-col justify-between shadow-2xs relative"
             >
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 <span className="text-[10px] font-bold text-[#971F26] block">STEP {item.step}</span>
-                <span className="font-bold text-[#1C1D1D] text-[11px] block leading-tight">{item.q}</span>
+                <span className="font-bold text-[#1C1D1D] text-[10.5px] block leading-tight">{item.q}</span>
               </div>
-              <p className="text-[10px] text-stone-600 font-sans leading-snug pt-1">
+              <p className="text-[10px] text-stone-600 font-sans leading-snug pt-0.5">
                 {item.desc}
               </p>
             </div>
@@ -130,33 +130,46 @@ export function ContinuityInterchangeSpecComponent() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-[#D9D1C4] flex gap-2 font-mono text-xs">
+      <div
+        role="tablist"
+        aria-label="Continuity Interchange Specification Tabs"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 p-1.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg font-mono text-xs"
+      >
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "fields"}
           onClick={() => setActiveTab("fields")}
-          className={`pb-2 px-3 border-b-2 font-bold transition-colors ${
+          className={`py-2 px-3 rounded text-left font-bold transition-colors cursor-pointer ${
             activeTab === "fields"
-              ? "border-[#971F26] text-[#971F26]"
-              : "border-transparent text-stone-600 hover:text-[#1C1D1D]"
+              ? "bg-[#971F26] text-white"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
-          1. Schema Fields
+          1. Schema Fields (9)
         </button>
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "lifecycle"}
           onClick={() => setActiveTab("lifecycle")}
-          className={`pb-2 px-3 border-b-2 font-bold transition-colors ${
+          className={`py-2 px-3 rounded text-left font-bold transition-colors cursor-pointer ${
             activeTab === "lifecycle"
-              ? "border-[#971F26] text-[#971F26]"
-              : "border-transparent text-stone-600 hover:text-[#1C1D1D]"
+              ? "bg-[#971F26] text-white"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
           2. Handoff &amp; Review Statuses
         </button>
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "json"}
           onClick={() => setActiveTab("json")}
-          className={`pb-2 px-3 border-b-2 font-bold transition-colors ${
+          className={`py-2 px-3 rounded text-left font-bold transition-colors cursor-pointer ${
             activeTab === "json"
-              ? "border-[#971F26] text-[#971F26]"
-              : "border-transparent text-stone-600 hover:text-[#1C1D1D]"
+              ? "bg-[#971F26] text-white"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
           3. JSON Payload Specimen

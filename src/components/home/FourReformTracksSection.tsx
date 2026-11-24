@@ -1,189 +1,180 @@
+"use client";
+
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ArchivalCaseStudyGallery } from "./ArchivalCaseStudyGallery";
 
 export function FourReformTracksSection() {
-  const tracks = [
+  const dimensions = [
     {
-      num: "MODEL A · PRIMARY WORKING MODEL",
-      code: "MWT-MOD-A",
-      title: "Continuity Receipt & Review Trace",
-      lead: "Submission ≠ Review · Referral ≠ Assistance · Closure ≠ Resolution",
-      description:
-        "A minimal, participant-held record of the administrative path paired with an agency-side 9-status Review Trace (AGY-003 specimen) and Evidence Integrity safeguards. It is not a truth engine, allegation database, or automated credibility assessment.",
-      details: [
-        "Preserves 7 path elements: (1) What was received, (2) What was actually reviewed, (3) What action occurred, (4) What was referred elsewhere, (5) What fell outside authority, (6) What remains unresolved, (7) Who owns the next step.",
-        "Client-side cryptographic baseline digest supports change detection without claiming evidentiary authentication or agency receipt.",
-      ],
-      linkText: "Explore Model A & Continuity Standard",
-      href: "/continuity",
-      iconSrc: "/images/case-study/raw_art_stitched_map_seams_4x3.jpg",
-      badge: "IMPLEMENTED PROTOTYPE & SPEC",
+      idx: "DIM 01",
+      name: "Billing Responsibility",
+      text: "Who pays monthly service charges going forward.",
     },
     {
-      num: "MODEL B · PRIMARY WORKING MODEL",
-      code: "MWT-MOD-B",
-      title: "Personal Number Continuity",
-      lead: "Shared-Account Billing Authority ≠ Adult Communication Identity",
-      description:
-        "Addresses the structural harm caused by conflating shared-account billing authority with control over another adult's mobile number—which anchors employment, banking, healthcare, schools, government services, 2FA authentication, account recovery, and personal communication.",
-      details: [
-        "Explicitly distinguishes 6 dimensions: (1) Billing responsibility, (2) Authenticated adult line-user identity, (3) Number continuity & transfer, (4) Communication & security controls, (5) Device ownership, (6) Device debt & contractual obligations.",
-        "Clear boundaries: A payer does not have to continue paying another adult's bill, legitimate debts do not disappear, and existing survivor protections (e.g., 47 U.S.C. § 345) do not cover every circumstance.",
-      ],
-      linkText: "Examine Model B: Personal Number Continuity",
-      href: "/protection#digital",
-      iconSrc: "/images/case-study/raw_art_telecom_signal_knot_4x3.jpg",
-      badge: "POLICY RESEARCH & PROPOSED ARCHITECTURE",
+      idx: "DIM 02",
+      name: "Adult Line-User Identity",
+      text: "The human whose 2FA, work, & callbacks use the number.",
     },
     {
-      num: "APPLIED TRACK · PROTECTION & POLICY",
-      code: "MWT-TRK-02",
-      title: "Protection Without Continuity & Texas Sunset Lab",
-      lead: "Pattern-Aware Review · Linked-Case Checks · Accountable Handoffs",
-      description:
-        "Applies the Continuity Standard to child-protection and domestic-violence seams, including submitted structural recommendations for the Texas DFPS 2026–2027 Sunset review (distinguishing submitted input from adopted policy).",
-      details: [
-        "Addresses linked-case review, pre-closure related-case checks, non-algorithmic cumulative-pattern review (3+ contacts in 90 days), designated responsibility, and preservation of review/decision history.",
-        "Distinguishes participant inability, fear, or access barriers from willful refusal without pre-judging merits.",
-      ],
-      linkText: "Explore Protection & Sunset Policy Lab",
-      href: "/policy",
-      iconSrc: "/images/case-study/raw_art_radial_city_crimson_thread.jpg",
-      badge: "SUBMITTED SUNSET INPUT & BRIEF v0.1",
+      idx: "DIM 03",
+      name: "Number Continuity",
+      text: "Porting or separating the number to an independent line.",
     },
     {
-      num: "APPLIED TRACK · EMPIRICAL FIELD LAYER",
-      code: "MWT-TRK-04",
-      title: "Resource Reachability & Bad Maps",
-      lead: "A directory is not a route · Missing vs. Inaccessible vs. Defeated",
-      description:
-        "Our active Central Texas pilot audits whether published help is actually reachable given waitlists, residency gates, transit locks, lease termination statutes (Tex. Prop. Code § 92.016), and utility waivers.",
-      details: [
-        "47 canonical resources audited across 470 material semantic claim vectors and 1,070 detailed provenance QA assertions.",
-        "Feeds empirical reachability failures into the 8-question System Change Map to identify the smallest effective intervention.",
-      ],
-      linkText: "Launch Barrier Matcher",
-      href: "/find-help",
-      iconSrc: "/images/case-study/raw_art_urban_grid_crimson_route.jpg",
-      badge: "ACTIVE EMPIRICAL PILOT (47 RESOURCES)",
+      idx: "DIM 04",
+      name: "Security Controls",
+      text: "Isolating call logs, location, SIM swaps, & recovery PINs.",
+    },
+    {
+      idx: "DIM 05",
+      name: "Device Ownership",
+      text: "Physical possession and title to the handset hardware.",
+    },
+    {
+      idx: "DIM 06",
+      name: "Contractual Debt",
+      text: "Installment & balance rules allocated without trapping identity.",
     },
   ];
 
   return (
-    <section id="reform-tracks" className="space-y-8 scroll-mt-24 font-sans select-none">
-      
-      {/* Editorial Header */}
-      <div className="border-b-2 border-[#11100F] pb-6 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <span className="text-xs font-mono text-[#841F2B] font-bold uppercase tracking-widest block mb-2">
-            § 02 · PRIMARY WORKING MODELS &amp; APPLIED REFORM TRACKS
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#11100F] tracking-tight">
-            Two Primary Working Models. Four Applied Tracks.
-          </h2>
-        </div>
-        <span className="font-mono text-xs text-[#4D4944] uppercase tracking-wider">
-          [CONNECTED CONTINUITY ARCHITECTURE]
-        </span>
-      </div>
-
-      {/* Unifying Principle Callout */}
-      <div className="p-6 bg-[#11100F] text-[#F8F5EE] border-l-4 border-[#841F2B] rounded-xs space-y-2 shadow-lg">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold block">
-          UNIFYING PRINCIPLE ACROSS MODEL A (CONTINUITY RECEIPT) &amp; MODEL B (PERSONAL NUMBER CONTINUITY)
-        </span>
-        <p className="font-serif italic text-lg sm:text-2xl text-white leading-relaxed">
-          &ldquo;These two models demonstrate the same underlying principle in different environments: a change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
-        </p>
-        <p className="text-xs font-mono text-[#A39E94] pt-1">
-          Model A preserves the administrative path across institutional handoffs · Model B preserves adult communication identity when shared-account billing arrangements change (presented as policy research &amp; proposed architecture, not an enacted entitlement or implemented carrier standard).
-        </p>
-      </div>
-
-      {/* Asymmetric Alternating Grid with Authentic Visual Motifs */}
-      <div className="grid md:grid-cols-2 gap-8 pt-2">
-        {tracks.map((track) => {
-          return (
-            <div
-              key={track.code}
-              className="bg-[#EEE8DB] border-2 border-[#11100F] p-6 sm:p-8 rounded-xs shadow-md flex flex-col justify-between space-y-6 group hover:border-[#841F2B] transition-all"
-            >
-              <div className="space-y-4">
-                
-                {/* Header Strip with Track Code and Visual Motif */}
-                <div className="flex items-start justify-between border-b border-[#C4B69E] pb-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-mono font-bold text-[#841F2B] uppercase">
-                        {track.num}
-                      </span>
-                      <span className="text-[10px] font-mono text-[#4D4944]">
-                        [{track.code}]
-                      </span>
-                    </div>
-                    <span className="bg-[#11100F] text-white text-[9px] font-mono uppercase px-2 py-0.5 rounded-xs font-bold">
-                      {track.badge}
-                    </span>
-                  </div>
-
-                  {/* 4:3 Woodcut Cartography Motif Thumbnail */}
-                  <div className="relative w-28 h-20 bg-[#11100F] border-2 border-[#11100F] rounded-xs overflow-hidden shrink-0 shadow-md">
-                    <Image
-                      src={track.iconSrc}
-                      alt={track.title}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="font-serif font-bold text-2xl text-[#11100F] group-hover:text-[#841F2B] transition-colors">
-                    {track.title}
-                  </h3>
-                  <p className="text-xs font-mono font-bold uppercase text-[#841F2B]">
-                    {track.lead}
-                  </p>
-                  <p className="text-sm text-[#4D4944] font-sans leading-relaxed pt-1">
-                    {track.description}
-                  </p>
-                  <ul className="space-y-1.5 pt-2 border-t border-[#C4B69E]/60 text-xs text-[#11100F] font-sans leading-relaxed">
-                    {track.details.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#841F2B] font-bold">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-
-              {/* Action Link */}
-              <div className="pt-4 border-t border-[#C4B69E]">
-                <Link
-                  href={track.href}
-                  className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#11100F] group-hover:text-[#841F2B] transition"
-                >
-                  <span>{track.linkText}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
+    <section id="tracks" className="scroll-mt-36 lg:scroll-mt-28 font-sans select-none">
+      {/* FOLIO 03 EDITORIAL CHAPTER: PERSONAL NUMBER CONTINUITY (MODEL B) */}
+      <div className="mwt-folio-frame shadow-2xl">
+        <div className="border-2 border-mwt-charcoal overflow-hidden bg-mwt-ink text-mwt-paper-display">
+          {/* Nocturnal Woodcut Entanglement Knot to Signal Line Canvas */}
+          <div className="relative p-5 sm:p-9 lg:p-11 overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <Image
+                src="/images/case-study/raw_art_telecom_signal_knot_4x3.jpg"
+                alt="Nocturnal Woodcut Cartography: Entangled Billing Knot Resolving into Clean Crimson Signal Line"
+                fill
+                className="object-cover object-center opacity-90"
+                loading="eager"
+                unoptimized
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle at 24% 26%, rgba(14, 13, 12, 0.95) 0%, rgba(14, 13, 12, 0.84) 38%, rgba(14, 13, 12, 0.28) 76%)",
+                }}
+              />
             </div>
-          );
-        })}
-      </div>
 
-      {/* Interactive 4:3 Case Study Folios & Before/After Slider */}
-      <div className="pt-6">
-        <ArchivalCaseStudyGallery />
-      </div>
+            <div className="relative z-10 space-y-6">
+              {/* Top Row: Kicker, Title, Quote & Non-Entitlement Boundary Badge */}
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5">
+                <div className="max-w-3xl space-y-3.5">
+                  <span className="mwt-kicker text-mwt-signal-bright block">
+                    FOLIO 03 · PRIMARY WORKING MODEL B (POLICY RESEARCH &amp; ARCHITECTURE)
+                  </span>
 
+                  <h2 className="mwt-chapter-title text-mwt-paper-display">
+                    Personal Number
+                    <br />
+                    Continuity
+                  </h2>
+
+                  <p className="mwt-quote-rule text-mwt-paper-muted">
+                    &ldquo;A change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
+                  </p>
+
+                  <p className="text-xs sm:text-[15px] leading-[1.6] text-[rgba(232,222,200,0.88)] max-w-[65ch] font-sans">
+                    Consumer wireless carriers routinely conflate <strong>shared-account billing authority</strong> with <strong>control over another adult’s communication identity</strong>. When a primary bill payer can unilaterally suspend service, inspect call logs, or block portability, billing structure becomes an instrument of administrative erasure—severing 2FA recovery, employment, healthcare, school alerts, and court callbacks overnight.
+                  </p>
+                </div>
+
+                {/* Non-Entitlement Architectural Boundary Badge (Left-Rule Callout) */}
+                <div className="mwt-callout-dark font-mono text-[10px] sm:text-[10.5px] tracking-[0.12em] uppercase shrink-0 self-start">
+                  <div className="text-mwt-signal-bright font-bold">
+                    ARCHITECTURAL BOUNDARY
+                  </div>
+                  <div className="text-mwt-paper-display font-semibold mt-0.5">
+                    PROPOSED POLICY &amp; TECH MODEL
+                  </div>
+                  <div className="text-[#C8BFA8] text-[9.5px] mt-0.5">
+                    NOT AN ENACTED CARRIER ENTITLEMENT
+                  </div>
+                </div>
+              </div>
+
+              {/* Spatial Cartographic Callouts: The Entanglement Knot vs. The Separated Continuity Line */}
+              <div className="grid md:grid-cols-2 gap-4 pt-1">
+                <div className="bg-[rgba(14,13,12,0.82)] border-l-[3px] border-l-mwt-signal-red pl-4 py-3 pr-3 space-y-1.5">
+                  <div className="font-mono text-[10px] text-mwt-signal-bright font-bold tracking-[0.12em] uppercase">
+                    THE ENTANGLEMENT KNOT · CURRENT CARRIER DEFAULT
+                  </div>
+                  <h3 className="font-display text-base sm:text-lg font-extrabold text-mwt-paper-display">
+                    Shared-Account Billing Control
+                  </h3>
+                  <p className="text-xs leading-[1.45] text-[#D5CBB8] font-sans">
+                    Primary account holder controls line suspension, call/text logs, SIM swaps, and porting PINs—trapping the adult line user inside an account they do not control.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(14,13,12,0.82)] border-l-[3px] border-l-[#4ADE80] pl-4 py-3 pr-3 space-y-1.5">
+                  <div className="font-mono text-[10px] text-[#4ADE80] font-bold tracking-[0.12em] uppercase">
+                    THE SEPARATED CONTINUITY LINE · PROPOSED STANDARD
+                  </div>
+                  <h3 className="font-display text-base sm:text-lg font-extrabold text-mwt-paper-display">
+                    Portable Adult Civic Identity
+                  </h3>
+                  <p className="text-xs leading-[1.45] text-[#D5CBB8] font-sans">
+                    Bridges <strong>47 U.S.C. § 345</strong> (Safe Connections Act) &amp; <strong>Tex. Fam. Code Ch. 93</strong>: no forced third-party bill payment, and valid device debts remain governed by contract law.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Deck: 6 Separated Dimensions (Compact 2-Col Mobile / 6-Col Desktop) */}
+          <div className="bg-[rgba(14,13,12,0.96)] border-t-2 border-mwt-signal-red px-5 sm:px-9 lg:px-11 py-5 space-y-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <span className="font-mono text-[10.5px] sm:text-[11px] font-bold text-mwt-signal-bright tracking-[0.12em] uppercase">
+                SIX DIMENSIONS SEPARATED BY THE PERSONAL NUMBER CONTINUITY ARCHITECTURE
+              </span>
+              <span className="font-mono text-[10px] text-mwt-paper-muted uppercase">
+                [NO FORCED THIRD-PARTY PAYMENT · LEGITIMATE DEBTS DO NOT DISAPPEAR]
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 pt-1">
+              {dimensions.map((dim) => (
+                <div
+                  key={dim.idx}
+                  className="border-l-2 border-[rgba(232,222,200,0.3)] pl-3 space-y-0.5"
+                >
+                  <div className="font-mono text-[10px] font-bold text-mwt-signal-bright tracking-[0.12em]">
+                    {dim.idx}
+                  </div>
+                  <h4 className="font-display text-xs sm:text-sm font-extrabold text-mwt-paper-display leading-tight">
+                    {dim.name}
+                  </h4>
+                  <p className="text-[11px] leading-[1.35] text-[#C8BFA8] font-sans">
+                    {dim.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-3 border-t border-[rgba(232,222,200,0.16)] flex flex-wrap items-center justify-between gap-3">
+              <span className="font-mono text-[10.5px] text-[#C8BFA8]">
+                Presented as policy research and proposed architecture—not an enacted general entitlement or carrier standard.
+              </span>
+              <Link
+                href="/protection#digital"
+                className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-mwt-signal-bright hover:text-white transition"
+              >
+                <span>Inspect Full Personal Number Continuity Model</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

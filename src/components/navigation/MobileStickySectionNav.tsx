@@ -3,91 +3,87 @@
 import React, { useState, useEffect } from "react";
 import { Compass, ChevronUp, X, ChevronRight, Layers } from "lucide-react";
 
-interface SectionItem {
+export interface SectionItem {
   id: string;
   number: string;
   label: string;
   sublabel: string;
 }
 
-const SECTIONS: SectionItem[] = [
+const DEFAULT_HOME_SECTIONS: SectionItem[] = [
   {
-    id: "solve-problems",
+    id: "distinction-inventory",
     number: "01",
-    label: "What Are You Solving?",
-    sublabel: "Immediate user-centered problem entry",
+    label: "Law vs. Code vs. Proposal",
+    sublabel: "Four-tier distinction inventory",
   },
   {
-    id: "build-a-way",
+    id: "problem",
     number: "02",
-    label: "Build a Way Through",
-    sublabel: "Interactive 3-step pathway stack generator",
+    label: "The Seam Problem",
+    sublabel: "When the human becomes the integration layer",
   },
   {
-    id: "the-teeth",
+    id: "practice",
     number: "03",
-    label: "The Teeth (Barriers)",
-    sublabel: "What actually blocks access in public systems",
+    label: "Model A · Continuity Receipt",
+    sublabel: "Participant-held record & 9-status Review Trace",
   },
   {
-    id: "comparison",
+    id: "tracks",
     number: "04",
-    label: "Directory vs. Maps With Teeth",
-    sublabel: "How information & constraints are handled",
+    label: "Model B · Number Continuity",
+    sublabel: "Separating billing authority from adult identity",
   },
   {
-    id: "texas-lateral",
+    id: "methodology-safeguards",
     number: "05",
-    label: "Texas & Lateral Aid",
-    sublabel: "254 counties & non-obvious relief funds",
+    label: "Evidence Safeguards",
+    sublabel: "10 distinctions & 8 integrity protocols",
   },
   {
-    id: "continuity",
+    id: "work-in-practice",
     number: "06",
-    label: "Between the Doors",
-    sublabel: "Continuity layer & portable receipts",
+    label: "Applications & Adoption",
+    sublabel: "Central TX Matcher & Dec 2–3, 2026 Sunset Brief",
   },
   {
-    id: "how-we-know",
+    id: "strategic-standard",
     number: "07",
-    label: "How We Verify",
-    sublabel: "5-tier evidence architecture & source transparency",
+    label: "System Change Map & Roadmap",
+    sublabel: "5 core inquiries, 8 diagnostic questions & fellowship",
   },
   {
-    id: "roadmap",
+    id: "participate",
     number: "08",
-    label: "What Is Built & Roadmap",
-    sublabel: "Testable today vs. in active development",
-  },
-  {
-    id: "support-feedback",
-    number: "09",
-    label: "Participate & Support",
-    sublabel: "Pressure-test model & fund the pilot",
+    label: "Participate & Review",
+    sublabel: "Open public-interest field review pathways",
   },
 ];
 
-export function MobileStickySectionNav() {
+export function MobileStickySectionNav({
+  sections = DEFAULT_HOME_SECTIONS,
+}: {
+  sections?: SectionItem[];
+}) {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show when scrolled past 350px
-      if (window.scrollY > 350) {
+      if (window.scrollY > 360) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
         setIsOpen(false);
       }
 
-      // Detect current section in view
-      const scrollPosition = window.scrollY + 200;
-      for (let i = SECTIONS.length - 1; i >= 0; i--) {
-        const el = document.getElementById(SECTIONS[i].id);
+      const scrollPosition = window.scrollY + 220;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i].id);
         if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(SECTIONS[i].id);
+          setActiveSection(sections[i].id);
           break;
         }
       }
@@ -95,13 +91,13 @@ export function MobileStickySectionNav() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sections]);
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -70; // Header offset
+      const yOffset = -130;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -116,101 +112,107 @@ export function MobileStickySectionNav() {
 
   return (
     <>
-      {/* Floating Bottom Action Bar on Mobile/Tablet */}
-      <div className="fixed bottom-4 left-0 right-0 z-40 px-4 flex items-center justify-between pointer-events-none lg:hidden animate-in fade-in slide-in-from-bottom-3 duration-200">
-        {/* Jump Menu Trigger Pill */}
+      {/* Compact Floating Action Bar on Mobile/Tablet */}
+      <div className="fixed bottom-3 left-0 right-0 z-40 px-3 flex items-center justify-between pointer-events-none lg:hidden">
         <button
+          type="button"
           onClick={() => setIsOpen(true)}
-          className="pointer-events-auto flex items-center gap-2 px-3.5 py-2 bg-[#26221F] text-[#F5F1E8] rounded-full shadow-xl border border-[#D9D1C4]/40 text-xs font-mono font-bold tracking-wider hover:bg-black active:scale-95 transition-all"
+          aria-expanded={isOpen}
           aria-label="Open page section navigation"
+          className="pointer-events-auto flex items-center gap-2 px-3 py-2 bg-mwt-ink text-mwt-paper-display rounded-xs shadow-xl border border-mwt-paper-muted/40 text-[11px] font-mono font-bold uppercase tracking-wider hover:bg-black active:scale-95 transition-all cursor-pointer"
         >
-          <Compass className="w-3.5 h-3.5 text-[#E07A5F]" />
-          <span>On this page</span>
-          <span className="text-[10px] text-[#D9D1C4] bg-[#38332E] px-1.5 py-0.5 rounded-full font-normal">
-            {SECTIONS.find((s) => s.id === activeSection)?.number || "▾"}
+          <Compass className="w-3.5 h-3.5 text-mwt-signal-bright" aria-hidden="true" />
+          <span>Sections</span>
+          <span className="text-[10px] text-mwt-paper-muted bg-mwt-charcoal px-1.5 py-0.5 rounded-xs font-normal">
+            {sections.find((s) => s.id === activeSection)?.number || "01–08"}
           </span>
         </button>
 
-        {/* Floating Back to Top Button */}
         <button
+          type="button"
           onClick={scrollToTop}
-          className="pointer-events-auto p-2.5 bg-[#F5F1E8] text-[#26221F] rounded-full shadow-lg border border-[#D9D1C4] hover:bg-white active:scale-95 transition-all"
           aria-label="Scroll to top of page"
+          className="pointer-events-auto p-2 bg-mwt-paper text-mwt-black rounded-xs shadow-lg border border-mwt-black hover:bg-white active:scale-95 transition-all cursor-pointer"
         >
-          <ChevronUp className="w-4 h-4" />
+          <ChevronUp className="w-4 h-4" aria-hidden="true" />
         </button>
       </div>
 
       {/* Bottom Sheet Drawer Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-neutral-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-          {/* Backdrop click to dismiss */}
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Page section navigation"
+          className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/65 backdrop-blur-xs"
+        >
           <div className="flex-1" onClick={() => setIsOpen(false)} />
 
-          {/* Drawer Content */}
-          <div className="bg-[#F5F1E8] border-t-2 border-[#26221F] rounded-t-2xl max-h-[80vh] flex flex-col shadow-2xl animate-in slide-in-from-bottom duration-250 font-mono">
-            {/* Header */}
-            <div className="p-4 border-b border-[#D9D1C4] flex items-center justify-between bg-[#EEE8DD] rounded-t-2xl">
+          <div className="bg-mwt-paper border-t-2 border-mwt-black max-h-[78vh] flex flex-col shadow-2xl font-mono">
+            <div className="p-3.5 border-b border-mwt-border-paper flex items-center justify-between bg-mwt-paper-muted">
               <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-[#971F26]" />
-                <span className="text-xs font-bold uppercase tracking-widest text-[#1C1D1D]">
-                  On This Page · Jump to Section
+                <Layers className="w-4 h-4 text-mwt-crimson-seal" aria-hidden="true" />
+                <span className="text-xs font-bold uppercase tracking-widest text-mwt-black">
+                  Jump to Chapter
                 </span>
               </div>
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded bg-[#F5F1E8] text-stone-700 hover:text-black border border-[#D9D1C4]"
+                className="p-1.5 rounded-xs bg-mwt-paper text-mwt-black hover:text-mwt-crimson-seal border border-mwt-black/30 cursor-pointer"
                 aria-label="Close section navigation"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
-            {/* Section List */}
-            <div className="overflow-y-auto p-3 space-y-1.5 divide-y divide-[#D9D1C4]/40">
-              {SECTIONS.map((section) => {
+            <div className="overflow-y-auto p-2.5 space-y-1 divide-y divide-mwt-border-paper/60">
+              {sections.map((section) => {
                 const isActive = activeSection === section.id;
                 return (
                   <button
                     key={section.id}
+                    type="button"
                     onClick={() => scrollToSection(section.id)}
-                    className={`w-full text-left p-2.5 rounded-lg flex items-start gap-3 transition-colors ${
+                    className={`w-full text-left p-2.5 rounded-xs flex items-start gap-3 transition-colors cursor-pointer ${
                       isActive
-                        ? "bg-[#EEE8DD] border-l-4 border-[#971F26] text-[#1C1D1D]"
-                        : "hover:bg-[#EEE8DD]/60 text-stone-800"
+                        ? "bg-mwt-paper-muted border-l-4 border-mwt-crimson-seal text-mwt-black"
+                        : "hover:bg-mwt-paper-warm text-mwt-black"
                     }`}
                   >
                     <span
-                      className={`text-xs font-bold font-mono px-1.5 py-0.5 rounded ${
+                      className={`text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-xs shrink-0 ${
                         isActive
-                          ? "bg-[#971F26] text-white"
-                          : "bg-[#D9D1C4] text-stone-800"
+                          ? "bg-mwt-crimson-seal text-white"
+                          : "bg-mwt-paper-muted text-mwt-black border border-mwt-black/20"
                       }`}
                     >
                       {section.number}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs font-bold text-stone-900 truncate">
+                      <div className="text-xs font-bold text-mwt-black truncate">
                         {section.label}
                       </div>
-                      <div className="text-[11px] text-stone-600 font-sans line-clamp-1">
+                      <div className="text-[11px] text-mwt-graphite font-sans truncate">
                         {section.sublabel}
                       </div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-stone-400 shrink-0 self-center" />
+                    <ChevronRight className="w-4 h-4 text-mwt-graphite shrink-0 self-center" aria-hidden="true" />
                   </button>
                 );
               })}
             </div>
 
-            {/* Footer with Quick Top Action */}
-            <div className="p-3 border-t border-[#D9D1C4] bg-[#EEE8DD] flex items-center justify-between">
-              <span className="text-[10px] text-stone-600">Maps With Teeth · Navigation</span>
+            <div className="p-3 border-t border-mwt-border-paper bg-mwt-paper-muted flex items-center justify-between">
+              <span className="text-[10px] text-mwt-graphite uppercase">
+                Maps With Teeth · Chapter Index
+              </span>
               <button
+                type="button"
                 onClick={scrollToTop}
-                className="text-xs text-[#971F26] font-bold hover:underline inline-flex items-center gap-1"
+                className="text-xs text-mwt-crimson-seal font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
               >
-                <ChevronUp className="w-3.5 h-3.5" />
+                <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Back to Top</span>
               </button>
             </div>

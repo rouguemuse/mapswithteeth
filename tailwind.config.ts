@@ -9,26 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Locked Canonical Brand Palette
+        // Canonical Monograph & Brand Token Layer (1:1 with src/styles/tokens.css)
         mwt: {
-          black: "#11100F",       // Archive Black
-          oxblood: "#841F2B",     // Primary Brand Accent
-          "oxblood-dark": "#661620",
-          "oxblood-light": "#A52B3A",
-          parchment: "#EEE8DB",   // Editorial Light Surface
-          ivory: "#F8F5EE",       // Reading Ivory
-          stone: "#B5A58E",       // Aged Stone
-          graphite: "#4D4944",    // Secondary Ink & Muted Text
+          ink: "#0E0D0C",                // var(--mwt-ink)
+          black: "#11100F",              // var(--mwt-archive-black)
+          charcoal: "#1C1A17",           // var(--mwt-charcoal)
+          "charcoal-elevated": "#24211E",// var(--mwt-charcoal-elevated)
+          paper: "#F8F5EE",              // var(--mwt-paper)
+          "paper-warm": "#F5EFE2",       // var(--mwt-paper-warm)
+          "paper-display": "#F2ECE1",    // var(--mwt-paper-display)
+          "paper-muted": "#E8DEC8",      // var(--mwt-paper-muted)
+          parchment: "#EEE8DB",          // var(--mwt-parchment)
+          ivory: "#F8F5EE",              // var(--mwt-paper)
+          stone: "#B5A58E",              // var(--mwt-aged-stone)
+          graphite: "#4D4944",           // var(--mwt-graphite)
+          "institutional-red": "#841F2B",// var(--mwt-institutional-red)
+          "crimson-seal": "#971F26",     // var(--mwt-crimson-seal)
+          "signal-red": "#C82832",       // var(--mwt-signal-red)
+          "signal-bright": "#D83B44",    // var(--mwt-signal-red-bright)
+          oxblood: "#841F2B",            // var(--mwt-institutional-red)
+          "oxblood-dark": "#661620",     // var(--mwt-institutional-red-deep)
+          "oxblood-light": "#D83B44",    // var(--mwt-signal-red-bright)
+          "text-secondary": "#2C2825",   // var(--mwt-text-secondary)
+          "border-paper": "#C4B69E",     // var(--mwt-border-paper)
+          "border-subtle": "#E2DACB",    // var(--mwt-border-subtle)
         },
         // Backward compatibility mappings
         brand: {
           charcoal: "#11100F",
-          dark: "#11100F",
+          dark: "#0E0D0C",
           paper: "#F8F5EE",
-          "paper-secondary": "#EEE8DB",
+          "paper-secondary": "#E8DEC8",
           ivory: "#F8F5EE",
           oxblood: "#841F2B",
-          "oxblood-muted": "#A52B3A",
+          "oxblood-muted": "#D83B44",
           border: "#B5A58E",
           sand: "#EEE8DB",
           stone: "#4D4944",
@@ -38,17 +52,19 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["'Fraunces'", "'Newsreader'", "'Georgia'", "'Cambria'", "serif"],
+        display: ["'Playfair Display'", "'Fraunces'", "'Georgia'", "serif"],
+        serif: ["'Playfair Display'", "'Fraunces'", "'Newsreader'", "'Georgia'", "serif"],
+        editorial: ["'Fraunces'", "'Playfair Display'", "'Georgia'", "serif"],
         sans: ["'IBM Plex Sans'", "'Inter'", "system-ui", "-apple-system", "sans-serif"],
         mono: ["'IBM Plex Mono'", "'Space Mono'", "Menlo", "monospace"],
       },
       borderRadius: {
         xs: "2px",
-        sm: "4px",
-        md: "6px",
-        lg: "8px",
-        xl: "12px",
-        "2xl": "16px",
+        sm: "2px",
+        md: "4px",
+        lg: "4px",
+        xl: "4px",
+        "2xl": "6px",
       },
     },
   },

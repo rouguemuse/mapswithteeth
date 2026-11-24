@@ -38,7 +38,8 @@ preserve-service/
 
 # generated screenshots and test artifacts
 *.png
-!public/images/case-study/*.png
+!public/*.png
+!public/images/**/*.png
 .chrome_temp/
 test-results/
 poker-engine/

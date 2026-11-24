@@ -1,0 +1,157 @@
+/* ============================================================================
+   MAPS WITH TEETH — CANONICAL DESIGN TOKENS (v2.1 Editorial Monograph Alignment)
+   Source of Truth: Editorial Slide Deck (Folios 00–04) & Brand System v2.0
+   ============================================================================ */
+
+:root {
+  /* --------------------------------------------------------------------------
+     1. COLOR TOKENS — Ink, Charcoal, Paper, Muted Paper, Reds & Semantic States
+     -------------------------------------------------------------------------- */
+  /* Ink & Charcoal (Dark Surfaces & Typography) */
+  --mwt-ink: #0E0D0C;                  /* Deepest nocturnal canvas (Folio 00, 02, 03) */
+  --mwt-archive-black: #11100F;        /* Primary dark surface & primary ink */
+  --mwt-charcoal: #1C1A17;             /* Elevated dark surface & structural border */
+  --mwt-charcoal-elevated: #24211E;    /* Secondary dark container / hover surface */
+  --mwt-graphite: #4D4944;             /* Muted ink on light surfaces */
+
+  /* Paper & Muted Paper (Light Surfaces & Light-on-Dark Typography) */
+  --mwt-paper: #F8F5EE;                /* Reading ivory page canvas */
+  --mwt-paper-warm: #F5EFE2;           /* Elevated monograph card surface (Folio 04) */
+  --mwt-paper-display: #F2ECE1;        /* High-contrast display ink on dark canvas */
+  --mwt-paper-muted: #E8DEC8;          /* Archival folio frame & muted parchment mat */
+  --mwt-parchment: #EEE8DB;            /* Secondary light editorial surface */
+  --mwt-aged-stone: #B5A58E;           /* Cartographic rules, ticks & muted dividers */
+
+  /* Institutional Red & Signal Red */
+  --mwt-institutional-red: #841F2B;    /* Canonical brand oxblood */
+  --mwt-institutional-red-deep: #661620; /* Interactive active/hover state */
+  --mwt-crimson-seal: #971F26;         /* Folio seal, light-surface rule & badge accent */
+  --mwt-signal-red: #C82832;           /* Cartographic route line & directional rule */
+  --mwt-signal-red-bright: #D83B44;    /* Folio kicker & italic display highlight on dark */
+  --mwt-oxblood: var(--mwt-institutional-red);
+  --mwt-oxblood-dark: var(--mwt-institutional-red-deep);
+  --mwt-oxblood-light: var(--mwt-signal-red-bright);
+  --mwt-reading-ivory: var(--mwt-paper);
+
+  /* Text Hierarchy */
+  --mwt-text-primary: #11100F;
+  --mwt-text-secondary: #2C2825;
+  --mwt-text-muted: #4D4944;
+  --mwt-text-on-dark: #F2ECE1;
+  --mwt-text-on-dark-secondary: #E2D7C3;
+  --mwt-text-on-dark-muted: #C8BFA8;
+
+  /* Borders & Hairline Rules */
+  --mwt-border-hairline: rgba(17, 16, 15, 0.22);
+  --mwt-border-subtle: #E2DACB;
+  --mwt-border-paper: #C4B69E;
+  --mwt-border-strong: #11100F;
+  --mwt-border-dark: #2B2926;
+  --mwt-border-dark-hairline: rgba(232, 222, 200, 0.18);
+  --mwt-border-dark-strong: rgba(232, 222, 200, 0.36);
+
+  /* Semantic Evidentiary States (Strictly decoupled from brand reds) */
+  --status-verified-bg: #E6F1EA;
+  --status-verified-fg: #1F6B38;
+  --status-verified-border: #92C6A3;
+  --status-verified-on-dark: #4ADE80;
+
+  --status-warning-bg: #FEF3D6;
+  --status-warning-fg: #945700;
+  --status-warning-border: #E8B957;
+  --status-warning-on-dark: #FBBF24;
+
+  --status-error-bg: #FBEAEC;
+  --status-error-fg: #B31B2A;
+  --status-error-border: #ECA1A9;
+  --status-error-on-dark: #F87171;
+
+  /* Legacy Semantic Aliases (Backward Compatibility) */
+  --background: var(--mwt-paper);
+  --foreground: var(--mwt-archive-black);
+  --surface-primary: var(--mwt-paper);
+  --surface-secondary: var(--mwt-parchment);
+  --surface-dark: var(--mwt-ink);
+  --surface-accent: var(--mwt-institutional-red);
+  --border-subtle: var(--mwt-border-subtle);
+  --border-strong: var(--mwt-border-paper);
+  --border-dark: var(--mwt-border-dark);
+  --text-muted: var(--mwt-text-muted);
+  --text-light-muted: #8E877C;
+  --text-dark-muted: var(--mwt-text-on-dark-muted);
+
+  /* --------------------------------------------------------------------------
+     2. TYPOGRAPHY TOKENS — Font Families sampled from Slide Deck & Codebase
+     -------------------------------------------------------------------------- */
+  --font-display: 'Playfair Display', 'Fraunces', Georgia, serif;
+  --font-editorial: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', Menlo, Consolas, monospace;
+
+  /* --------------------------------------------------------------------------
+     3. TYPE SCALE, LINE HEIGHTS, WEIGHTS, TRACKING & LINE LENGTHS
+     -------------------------------------------------------------------------- */
+  --type-display-hero: clamp(2.65rem, 4.8vw + 1rem, 5.125rem); /* 42px -> 82px (Folio 00) */
+  --leading-display-hero: 0.96;
+  --tracking-display-hero: -0.025em;
+
+  --type-chapter-title: clamp(2rem, 3.1vw + 0.75rem, 3.5rem); /* 32px -> 56px (Folios 01-04) */
+  --leading-chapter-title: 1.02;
+  --tracking-chapter-title: -0.02em;
+
+  --type-editorial-heading: clamp(1.35rem, 1.6vw + 0.6rem, 2rem); /* 21.6px -> 32px */
+  --leading-editorial-heading: 1.15;
+
+  --type-editorial-quote: clamp(1.1rem, 0.9vw + 0.8rem, 1.375rem); /* 17.6px -> 22px */
+  --leading-editorial-quote: 1.44;
+
+  --type-body-lg: 1.0625rem;  /* 17px */
+  --leading-body-lg: 1.62;
+
+  --type-body: 0.9375rem;     /* 15px */
+  --leading-body: 1.6;
+
+  --type-caption: 0.78125rem; /* 12.5px */
+  --leading-caption: 1.45;
+
+  --type-folio-label: 0.71875rem; /* 11.5px (Folio 00-04 kicker) */
+  --tracking-folio-label: 0.18em;
+
+  --type-annotation: 0.65625rem;  /* 10.5px (Coordinate ticks & table headers) */
+  --tracking-annotation: 0.13em;
+
+  /* Readable Line Lengths */
+  --measure-headline: 18ch;
+  --measure-quote: 56ch;
+  --measure-editorial: 66ch;
+  --measure-caption: 46ch;
+
+  /* --------------------------------------------------------------------------
+     4. LAYOUT, DETAILS & MOTION TOKENS
+     -------------------------------------------------------------------------- */
+  --chapter-max-width: 84rem; /* 1344px */
+  --chapter-gutter-x: clamp(1rem, 3.5vw, 3rem);
+  --chapter-space-y: clamp(3.5rem, 6.5vw, 6.5rem);
+  --folio-mat-padding: clamp(0.625rem, 1.25vw, 1.125rem);
+
+  --radius-minimal: 2px;
+  --rule-hairline: 1px;
+  --rule-structural: 1.5px;
+  --rule-accent: 3px;
+  --rule-seal: 4px;
+
+  /* GOV.UK + FT Editorial Left-Rule Callout Tokens (De-Weighted Margin Notes) */
+  --callout-rule-width: 3px;
+  --callout-rule-urgent-width: 4px;
+  --callout-rule-color: var(--mwt-crimson-seal);
+  --callout-rule-ink: var(--mwt-archive-black);
+  --callout-bg-light: rgba(232, 222, 200, 0.36);
+  --callout-bg-subtle: rgba(238, 232, 219, 0.55);
+  --callout-bg-dark: rgba(232, 222, 200, 0.05);
+  --callout-padding-x: 1.125rem;
+  --callout-padding-y: 0.75rem;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-subtle: 180ms;
+  --duration-chapter: 280ms;
+}

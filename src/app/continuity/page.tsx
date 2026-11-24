@@ -21,11 +21,23 @@ import { ContinuityContactRecordSpecimen } from "@/components/bridge/ContinuityC
 import { ContinuityReceiptInteractiveDemo } from "@/components/continuity/ContinuityReceiptInteractiveDemo";
 import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
 import { ResourceMaterialsBlock } from "@/components/safeguards/ResourceMaterialsBlock";
+import { EditorialDisclosure } from "@/components/shared/EditorialDisclosure";
 
 export const metadata = {
-  title: "Cross-System Continuity Standard v0.1 | Maps With Teeth",
+  title: "Cross-System Continuity Standard v0.1",
   description:
-    "Cross-System Continuity Standard Version 0.1 — Discussion Draft (October 2026). A 6-module open protocol for preventing related child-safety, family violence, and legal matters from disappearing between institutional boundaries."
+    "Cross-System Continuity Standard Version 0.1 — Discussion Draft (October 2026). A 6-module open protocol for preventing related child-safety, family violence, and legal matters from disappearing between institutional boundaries.",
+  alternates: {
+    canonical: "/continuity",
+  },
+  openGraph: {
+    title: "Cross-System Continuity Standard v0.1 | Maps With Teeth",
+    description:
+      "Cross-System Continuity Standard Version 0.1 — Discussion Draft (October 2026). A 6-module open protocol for preventing related matters from disappearing between institutional boundaries.",
+    url: "https://www.mapswithteeth.org/continuity",
+    siteName: "Maps With Teeth",
+    type: "website",
+  },
 };
 
 interface ContinuityModule {
@@ -192,13 +204,13 @@ export default function ContinuityStandardPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 select-none font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-10 sm:space-y-12 select-none font-sans overflow-x-hidden">
       {/* 1. Header & Version / Discussion Draft Banner */}
-      <div className="border-b border-[#D9D1C4] pb-6 space-y-4">
+      <div className="border-b-2 border-mwt-black pb-6 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-[#971F26]">
+          <div className="flex items-center gap-2 text-mwt-crimson-seal">
             <Layers className="w-5 h-5" />
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+            <span className="mwt-kicker">
               CROSS-SYSTEM CONTINUITY STANDARD · SPECIFICATION
             </span>
           </div>
@@ -206,30 +218,30 @@ export default function ContinuityStandardPage() {
         </div>
 
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EEE8DD] border border-[#1C1B1A] text-[#1C1B1A] rounded text-xs font-mono font-bold uppercase">
-            <GitBranch className="w-3.5 h-3.5 text-[#971F26]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-mwt-paper-muted border border-mwt-black text-mwt-black rounded-xs text-xs font-mono font-bold uppercase">
+            <GitBranch className="w-3.5 h-3.5 text-mwt-crimson-seal" />
             <span>Version 0.1 — Discussion Draft (October 2026)</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1C1D1D] tracking-tight leading-tight">
+          <h1 className="mwt-chapter-title text-mwt-black">
             Cross-System Continuity Standard
           </h1>
         </div>
 
-        <p className="text-base sm:text-lg text-stone-900 max-w-3xl leading-relaxed font-sans font-medium">
+        <p className="text-base sm:text-lg text-mwt-text-secondary max-w-3xl leading-relaxed font-sans font-medium">
           A proposed public-interest framework for preventing related matters from disappearing between institutional boundaries. Built on six open protocols designed to bridge agencies without creating centralized surveillance dossiers or infringing due process.
         </p>
 
         {/* Section Navigation Jump Bar */}
         <nav aria-label="Continuity Page Sections" className="pt-2">
-          <div className="flex flex-wrap items-center gap-2 p-2 bg-[#EEE8DD] border border-stone-300 rounded-xl text-xs font-mono">
-            <span className="font-bold text-stone-600 px-2 uppercase text-[11px]">
+          <div className="flex flex-wrap items-center gap-2 p-2 bg-mwt-paper-muted border border-mwt-border-paper rounded-xs text-xs font-mono">
+            <span className="font-bold text-mwt-graphite px-2 uppercase text-[11px]">
               Sections:
             </span>
             {navSections.map((sec) => (
               <a
                 key={sec.name}
                 href={sec.href}
-                className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-stone-800 hover:text-[#971F26] border border-stone-300 rounded font-medium transition focus:outline-none focus:ring-2 focus:ring-[#971F26]"
+                className="px-2.5 py-1 bg-mwt-paper hover:bg-white text-mwt-black hover:text-mwt-crimson-seal border border-mwt-border-paper rounded-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-mwt-crimson-seal"
               >
                 {sec.name}
               </a>
@@ -239,152 +251,159 @@ export default function ContinuityStandardPage() {
 
         {/* Dual Goals Banner */}
         <div className="grid sm:grid-cols-2 gap-3 pt-2">
-          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+          <div className="p-3.5 bg-mwt-paper-muted border-l-4 border-l-mwt-crimson-seal border border-mwt-border-paper rounded-xs space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-mwt-crimson-seal block">
               GOVERNING GOAL
             </span>
-            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+            <p className="text-sm font-display italic font-bold text-mwt-black">
               &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
             </p>
           </div>
 
-          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#1C1D1D] border border-[#D9D1C4] rounded-r-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 block">
+          <div className="p-3.5 bg-mwt-paper-muted border-l-4 border-l-mwt-black border border-mwt-border-paper rounded-xs space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-mwt-graphite block">
               EXPANDED INSTITUTIONAL GOAL
             </span>
-            <p className="text-sm font-serif italic font-bold text-[#1C1D1D]">
+            <p className="text-sm font-display italic font-bold text-mwt-black">
               &ldquo;Preserve enough continuity that a boundary between systems does not automatically become a boundary in accountability.&rdquo;
             </p>
           </div>
         </div>
 
-        {/* Two Primary Working Models & Unifying Principle Callout */}
-        <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-3 mt-2">
-          <div className="border-b border-stone-700 pb-2">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-300 block">
+        {/* Two Primary Working Models & Unifying Principle (Concise Summary Bar) */}
+        <div className="p-4 mwt-dark-surface rounded-xs space-y-2.5 mt-1">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-mwt-charcoal pb-2">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#FBBF24]">
               TWO PRIMARY WORKING MODELS · ONE UNIFYING PRINCIPLE
             </span>
-            <p className="text-xs sm:text-sm font-serif italic text-white pt-0.5">
-              &ldquo;These two models demonstrate the same underlying principle in different environments: a change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
-            </p>
+            <span className="text-[10px] font-mono text-mwt-paper-muted">
+              SUBMISSION ≠ REVIEW · REFERRAL ≠ ASSISTANCE · CLOSURE ≠ RESOLUTION
+            </span>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
-            <div className="p-4 bg-[#F5F1E8] text-[#1C1D1D] rounded-lg border border-stone-300 space-y-1.5">
-              <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
-                <FileCheck className="w-4 h-4" />
-                <span>MODEL A: CONTINUITY RECEIPT &amp; REVIEW TRACE</span>
+          <div className="grid sm:grid-cols-2 gap-3 text-xs">
+            <div className="p-3 bg-[#171614] border border-mwt-charcoal rounded-xs space-y-1">
+              <div className="flex items-center justify-between gap-2 text-mwt-signal-bright font-mono text-[10.5px] font-bold uppercase">
+                <span className="flex items-center gap-1.5">
+                  <FileCheck className="w-3.5 h-3.5" />
+                  <span>MODEL A · CONTINUITY RECEIPT &amp; TRACE</span>
+                </span>
+                <a href="#receipt-specimen" className="underline text-white hover:text-mwt-signal-bright">
+                  Specimen ↓
+                </a>
               </div>
-              <p className="font-sans text-stone-800 text-[12px] leading-relaxed">
-                Minimal, participant-held record of the administrative path preserving: (1) What was received, (2) What was actually reviewed, (3) What action occurred, (4) What was referred elsewhere, (5) What fell outside authority, (6) What remains unresolved, and (7) Who owns the next step. Pairs with the agency-side 9-status Review Trace (AGY-003 specimen) and Evidence Integrity safeguards.
-              </p>
-              <p className="font-sans text-stone-600 text-[11px] pt-1 border-t border-stone-300">
-                <strong>Boundaries:</strong> Not a truth engine, allegation database, or automated credibility score. Submission ≠ review; referral ≠ assistance; administrative closure ≠ factual resolution. Client-side SHA-256 digest supports change detection against a recorded baseline, not independent authentication.
+              <p className="font-sans text-[#D5CBB8] text-[11.5px] leading-snug">
+                Participant-held 7-field administrative path record (SHA-256 baseline digest for change detection, not authentication) paired with the agency-side 9-status Review Trace (AGY-003).
               </p>
             </div>
 
-            <div className="p-4 bg-[#F5F1E8] text-[#1C1D1D] rounded-lg border border-stone-300 space-y-1.5">
-              <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase">
-                <PhoneCall className="w-4 h-4" />
-                <span>MODEL B: PERSONAL NUMBER CONTINUITY</span>
-              </div>
-              <p className="font-sans text-stone-800 text-[12px] leading-relaxed">
-                Addresses the harm of conflating shared-account billing authority with control over another adult&apos;s communication identity. Distinguishes: (1) Billing responsibility, (2) Authenticated adult line-user identity, (3) Number continuity and transfer, (4) Communication and security controls, (5) Device ownership, and (6) Device debt and contractual obligations.
-              </p>
-              <p className="font-sans text-stone-600 text-[11px] pt-1 border-t border-stone-300">
-                <strong>Boundaries:</strong> A payer does not have to continue paying another adult&apos;s bill, legitimate debts do not disappear, and existing survivor protections (e.g., 47 U.S.C. § 345) do not cover every circumstance. Presented as policy research &amp; proposed architecture, not an enacted entitlement.{" "}
-                <Link href="/protection#digital" className="text-[#971F26] font-bold underline">
+            <div className="p-3 bg-[#171614] border border-mwt-charcoal rounded-xs space-y-1">
+              <div className="flex items-center justify-between gap-2 text-[#4ADE80] font-mono text-[10.5px] font-bold uppercase">
+                <span className="flex items-center gap-1.5">
+                  <PhoneCall className="w-3.5 h-3.5" />
+                  <span>MODEL B · PERSONAL NUMBER CONTINUITY</span>
+                </span>
+                <Link href="/protection#digital" className="underline text-white hover:text-[#4ADE80]">
                   Inspect Model B →
                 </Link>
+              </div>
+              <p className="font-sans text-[#D5CBB8] text-[11.5px] leading-snug">
+                Separates shared-account billing authority from adult communication identity across 6 dimensions (no forced third-party bill payment; legitimate debts remain; proposed policy model).
               </p>
             </div>
           </div>
         </div>
 
-        {/* The Eight Interlocking Methodology Concepts */}
-        <div className="pt-4 space-y-4">
-          <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-2">
-            <span className="text-xs font-mono uppercase font-bold text-[#971F26]">
-              CORE METHODOLOGY · EIGHT FOUNDATIONAL DISCIPLINES
-            </span>
-            <Link
-              href="/continuity/safeguards"
-              className="text-[11px] font-mono text-[#971F26] hover:underline font-bold uppercase"
-            >
-              Inspect Complete Safeguard Suite →
-            </Link>
-          </div>
+        {/* The Eight Interlocking Methodology Concepts (Level 2 Progressive Disclosure) */}
+        <div className="pt-2">
+          <EditorialDisclosure
+            kicker="LEVEL 2 · CORE METHODOLOGY"
+            title="Inspect the Eight Foundational Continuity & Evidentiary Disciplines"
+            summary="Overview of the 8 interlocking disciplines (Continuity Receipt, 9-Status Review Trace, Evidence Integrity, Barrier-Aware Cooperation, Two-Track Retaliation Separation, Controlling Documents, Observation vs. Disposition, and Demeanor vs. Provenance)."
+            badge="8 DISCIPLINES"
+            variant="light"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-end">
+                <Link
+                  href="/continuity/safeguards"
+                  className="text-[11px] font-mono text-[#971F26] hover:underline font-bold uppercase"
+                >
+                  Inspect Complete Safeguard Suite →
+                </Link>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">01 · RECEIPT</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Continuity Receipt</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Participant-held record of institutional acknowledgment, review, referral, disposition, and unresolved matters without centralized surveillance.
+                  </p>
+                </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">01 · RECEIPT</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Continuity Receipt</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Participant-held record of institutional acknowledgment, review, referral, disposition, and unresolved matters without centralized surveillance.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">02 · TRACE</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Review Trace (9 Statuses)</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Structured progression of how information moves through review processes, distinguishing received from reviewed, outside authority, or unreviewed with reason.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">02 · TRACE</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Review Trace (9 Statuses)</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Structured progression of how information moves through review processes, distinguishing received from reviewed, outside authority, or unreviewed with reason.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">03 · PROVENANCE</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Evidence Integrity</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Separating observed facts from interpretations, allegations, and official findings, anchoring every record to immutable source provenance.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">03 · PROVENANCE</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Evidence Integrity</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Separating observed facts from interpretations, allegations, and official findings, anchoring every record to immutable source provenance.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">04 · COOPERATION</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Barrier-Aware Cooperation</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Strict model distinguishing unwillingness to cooperate from practical, safety-related, disability, transportation, or resource barriers.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">04 · COOPERATION</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Barrier-Aware Cooperation</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Strict model distinguishing unwillingness to cooperate from practical, safety-related, disability, transportation, or resource barriers.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">05 · TWO-TRACK</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Retaliation Separation</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Documenting interference and retaliation concerns independently from underlying allegations, without presuming substantiation of either.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">05 · TWO-TRACK</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Retaliation Separation</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Documenting interference and retaliation concerns independently from underlying allegations, without presuming substantiation of either.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">06 · AUTHORITY</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Controlling Documents</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Verifying the actual language, authority, applicability, and interpretation of orders and statutes before rights-limiting actions occur.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">06 · AUTHORITY</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Controlling Documents</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Verifying the actual language, authority, applicability, and interpretation of orders and statutes before rights-limiting actions occur.
-              </p>
-            </div>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">07 · BOUNDARY</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Observation vs. Disposition</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Keeping what a reviewer observed, what the evidence supports, and what formal administrative decision was issued strictly distinct.
+                  </p>
+                </div>
 
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">07 · BOUNDARY</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Observation vs. Disposition</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Keeping what a reviewer observed, what the evidence supports, and what formal administrative decision was issued strictly distinct.
-              </p>
+                <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
+                  <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">08 · RESTRAINT</span>
+                  <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Demeanor vs. Provenance</h4>
+                  <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
+                    Preventing an individual&apos;s presentation, trauma response, or perceived demeanor from replacing examination of underlying evidence.
+                  </p>
+                </div>
+              </div>
             </div>
-
-            <div className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1">
-              <span className="font-mono text-[10px] text-[#971F26] font-bold uppercase block">08 · RESTRAINT</span>
-              <h4 className="font-serif font-bold text-[#1C1D1D] text-sm">Demeanor vs. Provenance</h4>
-              <p className="text-stone-800 font-sans text-[11.5px] leading-snug">
-                Preventing an individual&apos;s presentation, trauma response, or perceived demeanor from replacing examination of underlying evidence.
-              </p>
-            </div>
-          </div>
+          </EditorialDisclosure>
         </div>
       </div>
 
       {/* 2. The 6 Modules Deep Dive */}
-      <section id="modules" className="space-y-6 scroll-mt-24">
+      <section id="modules" className="space-y-5 scroll-mt-36 lg:scroll-mt-28">
         <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
@@ -399,18 +418,18 @@ export default function ContinuityStandardPage() {
           </span>
         </div>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {modules.map((m) => {
             const Icon = m.icon;
             return (
               <div
                 key={m.num}
                 id={m.slug}
-                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-7 space-y-5 shadow-sm scroll-mt-24"
+                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-4 sm:p-5 space-y-3.5 shadow-sm scroll-mt-36 lg:scroll-mt-28 flex flex-col justify-between"
               >
                 {/* Always-Visible Module Header & Purpose */}
-                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#D9D1C4] pb-4">
-                  <div className="space-y-1.5 flex-1 min-w-[260px]">
+                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#D9D1C4] pb-3">
+                  <div className="space-y-1 flex-1 min-w-0 sm:min-w-[200px]">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-mono font-bold text-[#971F26]">
                         MODULE {m.num}
@@ -420,7 +439,7 @@ export default function ContinuityStandardPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#1C1D1D]">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1C1D1D]">
                       {m.title}
                     </h3>
 
@@ -428,13 +447,13 @@ export default function ContinuityStandardPage() {
                       &ldquo;{m.tagline}&rdquo;
                     </p>
 
-                    <p className="text-stone-800 text-xs sm:text-sm font-sans pt-1 leading-relaxed">
+                    <p className="text-stone-800 text-xs font-sans pt-0.5 leading-relaxed">
                       <strong>Purpose:</strong> {m.purpose}
                     </p>
                   </div>
 
-                  <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg shrink-0">
-                    <Icon className="w-5 h-5 text-[#971F26]" />
+                  <div className="p-2.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg shrink-0">
+                    <Icon className="w-4 h-4 text-[#971F26]" />
                   </div>
                 </div>
 
@@ -509,17 +528,17 @@ export default function ContinuityStandardPage() {
       </section>
 
       {/* 3. Continuity Interchange Specification */}
-      <div id="interchange-spec" className="scroll-mt-24">
+      <div id="interchange-spec" className="scroll-mt-36 lg:scroll-mt-28">
         <ContinuityInterchangeSpecComponent />
       </div>
 
       {/* 4. Interactive 7-Stage Progression & Stalled Handoff Demo */}
-      <div id="pipeline-demo" className="scroll-mt-24">
+      <div id="pipeline-demo" className="scroll-mt-36 lg:scroll-mt-28">
         <ContinuityReceiptInteractiveDemo />
       </div>
 
       {/* 5. Interactive Specimen Demo */}
-      <section id="receipt-specimen" className="space-y-6 scroll-mt-24">
+      <section id="receipt-specimen" className="space-y-6 scroll-mt-36 lg:scroll-mt-28">
         <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
           <div>
             <span className="text-xs font-mono uppercase text-[#971F26] font-bold tracking-wider block">
@@ -540,7 +559,7 @@ export default function ContinuityStandardPage() {
       </section>
 
       {/* 5. Cross-Cutting Safeguards Callout Banner (Distinct Layer) */}
-      <section id="safeguards-layer" className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md scroll-mt-24">
+      <section id="safeguards-layer" className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 shadow-md scroll-mt-36 lg:scroll-mt-28">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-700 pb-3">
           <div className="flex items-center gap-2 text-amber-300">
             <Scale className="w-5 h-5" />
@@ -573,9 +592,9 @@ export default function ContinuityStandardPage() {
         </div>
       </section>
 
-      {/* 6. Privacy & Due Process Guardrails */}
-      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4">
-        <div className="flex items-center gap-3 border-b border-[#D9D1C4] pb-3">
+      {/* 6. Privacy & Due Process Guardrails (GOV.UK Left-Rule Editorial Callout) */}
+      <section className="mwt-callout-urgent space-y-4">
+        <div className="flex items-center gap-3 border-b border-[#D9D1C4] pb-2.5">
           <Lock className="w-5 h-5 text-[#971F26]" />
           <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1C1D1D]">
             Anti-Surveillance &amp; Evidentiary Guardrails
@@ -583,7 +602,7 @@ export default function ContinuityStandardPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono text-stone-800">
-          <div className="p-3.5 bg-[#EEE8DD] rounded border border-stone-300 space-y-1">
+          <div className="pl-3.5 py-2 border-l-2 border-[#971F26] bg-white/60 space-y-1">
             <span className="font-bold text-[#971F26] uppercase block">WHAT WE DO NOT DO:</span>
             <ul className="space-y-1 font-sans text-stone-700 text-[11.5px]">
               <li>• We do not maintain a centralized database of allegations or dossiers.</li>
@@ -593,7 +612,7 @@ export default function ContinuityStandardPage() {
             </ul>
           </div>
 
-          <div className="p-3.5 bg-[#EEE8DD] rounded border border-stone-300 space-y-1">
+          <div className="pl-3.5 py-2 border-l-2 border-[#1C1D1D] bg-white/60 space-y-1">
             <span className="font-bold text-stone-900 uppercase block">WHAT WE PROVIDE INSTEAD:</span>
             <ul className="space-y-1 font-sans text-stone-700 text-[11.5px]">
               <li>• Participant-held contact records with SHA-256 baseline digest.</li>

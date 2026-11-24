@@ -30,11 +30,23 @@ import {
   Code2
 } from "lucide-react";
 import { ContinuityInterchangeSpecComponent } from "@/components/continuity/ContinuityInterchangeSpecComponent";
+import { EditorialDisclosure } from "@/components/shared/EditorialDisclosure";
 
 export const metadata = {
-  title: "How Maps With Teeth Works | Public-Interest Continuity Framework",
+  title: "How Maps With Teeth Works: Public-Interest Continuity Framework",
   description:
-    "System architecture and product model for Maps With Teeth. Principal model: Continuity Receipt. Supporting specification: Review Trace. Empirical research: Bad Maps."
+    "System architecture and product model for Maps With Teeth. Principal model: Continuity Receipt. Supporting specification: Review Trace. Empirical research: Bad Maps.",
+  alternates: {
+    canonical: "/how-it-works",
+  },
+  openGraph: {
+    title: "How Maps With Teeth Works | Maps With Teeth",
+    description:
+      "System architecture and 8-question diagnostic method for Maps With Teeth: Continuity Receipt, Review Trace, and Bad Maps.",
+    url: "https://www.mapswithteeth.org/how-it-works",
+    siteName: "Maps With Teeth",
+    type: "website",
+  },
 };
 
 export default function HowItWorksPage() {
@@ -149,18 +161,18 @@ export default function HowItWorksPage() {
           Maps With Teeth is an <strong>independent public-interest systems research and accountability initiative</strong>. Rather than assuming every failure requires a new software platform, it applies an eight-question diagnostic method to determine where responsibility, evidence, identity, or access disappears across institutional boundaries—and advances two primary working models: <strong>Model A (Continuity Receipt &amp; Review Trace)</strong> and <strong>Model B (Personal Number Continuity)</strong>.
         </p>
 
-        {/* Central Premise & Dual Goals Banner */}
-        <div className="p-4 bg-[#1C1D1D] text-[#F5F1E8] rounded-xl space-y-1">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-300 block">
+        {/* Central Premise & Dual Goals Banner (GOV.UK Left-Rule Editorial Callouts) */}
+        <div className="mwt-callout-urgent space-y-1">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
             CENTRAL PREMISE
           </span>
-          <p className="text-sm sm:text-base font-serif italic text-white">
+          <p className="text-sm sm:text-base font-serif italic font-bold text-[#1C1D1D]">
             &ldquo;People should not lose rights, safety, identity, evidence, or access simply because administrative systems divide authority differently than human lives do.&rdquo;
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-3 pt-1">
-          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-1">
+          <div className="mwt-callout-editorial space-y-1">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
               GOVERNING GOAL
             </span>
@@ -169,7 +181,7 @@ export default function HowItWorksPage() {
             </p>
           </div>
 
-          <div className="p-3.5 bg-[#EEE8DD] border-l-4 border-l-[#1C1D1D] border border-[#D9D1C4] rounded-r-xl space-y-1">
+          <div className="mwt-callout-ink space-y-1">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 block">
               EXPANDED INSTITUTIONAL GOAL
             </span>
@@ -181,7 +193,7 @@ export default function HowItWorksPage() {
       </div>
 
       {/* 1B. The Broader Diagnostic Method: 8 Questions & 3 Failure Modes */}
-      <section id="system-change-map" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+      <section id="system-change-map" className="scroll-mt-36 lg:scroll-mt-28 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-5 sm:p-8 space-y-5 shadow-sm">
         <div className="border-b border-[#D9D1C4] pb-4 flex flex-wrap items-center justify-between gap-2">
           <div>
             <span className="text-xs font-mono font-bold uppercase text-[#971F26] tracking-wider block">
@@ -198,7 +210,7 @@ export default function HowItWorksPage() {
           Sometimes the right answer is improving an existing system, not inventing something new. Across child protection, domestic violence response, telecommunications, courts, housing, and administrative oversight, Maps With Teeth evaluates every institutional seam through eight questions:
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
+        <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 text-[11.5px] sm:text-xs font-mono">
           {[
             "1. What already exists?",
             "2. What is legally required or permitted?",
@@ -209,7 +221,7 @@ export default function HowItWorksPage() {
             "7. Is the failure legal, technical, procedural, administrative, accessibility-related, or an enforcement issue?",
             "8. What is the smallest effective intervention?",
           ].map((q, idx) => (
-            <div key={idx} className="p-3.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl font-bold text-[#1C1D1D] leading-snug">
+            <div key={idx} className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-xl font-bold text-[#1C1D1D] leading-snug">
               {q}
             </div>
           ))}
@@ -445,162 +457,141 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 5. Continuity Interchange Specification (Interactive Component) */}
-      <ContinuityInterchangeSpecComponent />
+      {/* 5–8. Level 2 Guided Disclosures for Technical Interchange Spec, Cross-Jurisdiction Scope, 12-Item Gap Taxonomy & 10 Locked Distinctions */}
+      <div className="space-y-4">
+        <EditorialDisclosure
+          kicker="LEVEL 2 · INTERCHANGE SPECIFICATION"
+          title="Inspect the Continuity Interchange Schema & 7-Step Responsibility Sequence"
+          summary="Portable administrative schema (continuity_id, material_manifest[], handoff_status, review_status, next_decision_owner) and JSON payload specimen."
+          badge="MWT-INTERCHANGE-V0.1"
+          variant="light"
+        >
+          <ContinuityInterchangeSpecComponent />
+        </EditorialDisclosure>
 
-      {/* 6. Formalizing Cross-Jurisdiction Continuity (Without Merging Facts) */}
-      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
-          <div className="flex items-center gap-2 text-[#971F26] font-mono text-xs font-bold uppercase">
-            <Link2 className="w-4 h-4" />
-            <span>CROSS-JURISDICTIONAL BOUNDARIES</span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
-            Multi-Agency Scope Without Merging Merits
-          </h3>
-          <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
-            Continuity may span multiple agencies, courts, or institutional silos without merging their factual conclusions or pre-determining guilt.
-          </p>
-        </div>
+        <EditorialDisclosure
+          kicker="LEVEL 2 · CROSS-JURISDICTIONAL SCOPE & EMPIRICAL GAP TAXONOMY"
+          title="Inspect Multi-Agency Scope (10 Domains) & the 12-Item Bad Maps Gap Taxonomy"
+          summary="Applicable institutional silos, Related Matters association rules, and the 12 observable administrative seam definitions."
+          badge="12 SEAM DEFINITIONS"
+          variant="light"
+        >
+          <div className="space-y-6">
+            <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
+              <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
+                <strong className="text-[#971F26] uppercase block">APPLICABLE INSTITUTIONAL DOMAINS:</strong>
+                <div className="grid grid-cols-2 gap-1.5 text-[11px] text-stone-700 font-sans">
+                  {crossJurisdictionSilos.map((silo, idx) => (
+                    <div key={idx} className="p-1.5 bg-white rounded border border-stone-200">
+                      • {silo}
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
-          <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
-            <strong className="text-[#971F26] uppercase block">APPLICABLE INSTITUTIONAL DOMAINS:</strong>
-            <div className="grid grid-cols-2 gap-1.5 text-[11px] text-stone-700 font-sans">
-              {crossJurisdictionSilos.map((silo, idx) => (
-                <div key={idx} className="p-1.5 bg-white rounded border border-stone-200">
-                  • {silo}
+              <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
+                <strong className="text-[#1C1D1D] uppercase block">RELATED MATTERS EVOLVING RULE:</strong>
+                <p className="text-stone-800 font-sans text-xs leading-relaxed">
+                  <strong>Related Matter association means only:</strong> &ldquo;another identified matter may be relevant to continuity.&rdquo;
+                </p>
+                <p className="text-stone-800 font-sans text-xs leading-relaxed">
+                  <strong>It must NEVER mean:</strong> &ldquo;another allegation corroborates this allegation.&rdquo;
+                </p>
+                <div className="p-2.5 bg-white rounded border border-stone-300 text-[11px] text-stone-700 space-y-1 font-mono">
+                  <div>• association ≠ proof</div>
+                  <div>• repetition ≠ independent corroboration</div>
+                  <div>• administrative ownership ≠ factual authority</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-3.5 bg-[#F5F1E8] border border-stone-300 rounded-xl space-y-1.5 text-xs font-mono text-stone-800">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <strong className="text-[#971F26] uppercase">EMPIRICAL MEASUREMENT SAFEGUARDS:</strong>
+                <Link href="/bad-maps" className="text-[#971F26] underline font-bold">
+                  Inspect Full Bad Maps Spec →
+                </Link>
+              </div>
+              <p className="font-sans text-stone-700 text-[12px] leading-relaxed">
+                Every published Bad Maps metric requires an explicit numerator, denominator, defined cohort, observation period, and verified provenance. Metrics distinguish between <strong>CONFIRMED GAP</strong>, <strong>NO GAP OBSERVED</strong>, and <strong>UNKNOWN / INSUFFICIENT RECORD</strong>.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+              {gapTaxonomyItems.map((g, idx) => (
+                <div
+                  key={idx}
+                  className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 flex flex-col justify-between shadow-2xs"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between border-b border-stone-300 pb-1 text-[10px]">
+                      <span className="font-bold text-[#971F26]">GAP {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
+                      <span className="text-stone-500">[TAXONOMY]</span>
+                    </div>
+                    <h4 className="font-serif font-bold text-sm text-[#1C1D1D]">
+                      {g.name}
+                    </h4>
+                  </div>
+                  <p className="text-[11px] text-stone-700 font-sans leading-snug">
+                    {g.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
+        </EditorialDisclosure>
 
-          <div className="p-4 bg-[#EEE8DD] rounded-xl border border-stone-300 space-y-2">
-            <strong className="text-[#1C1D1D] uppercase block">RELATED MATTERS EVOLVING RULE:</strong>
-            <p className="text-stone-800 font-sans text-xs leading-relaxed">
-              <strong>Related Matter association means only:</strong> &ldquo;another identified matter may be relevant to continuity.&rdquo;
-            </p>
-            <p className="text-stone-800 font-sans text-xs leading-relaxed">
-              <strong>It must NEVER mean:</strong> &ldquo;another allegation corroborates this allegation.&rdquo;
-            </p>
-            <div className="p-2.5 bg-white rounded border border-stone-300 text-[11px] text-stone-700 space-y-1 font-mono">
-              <div>• association ≠ proof</div>
-              <div>• repetition ≠ independent corroboration</div>
-              <div>• administrative ownership ≠ factual authority</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Bad Maps Measurement Architecture & 12-Item Gap Taxonomy */}
-      <section className="space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <span className="text-xs font-mono text-[#971F26] font-bold uppercase tracking-wider block">
-              EMPIRICAL RESEARCH LAYER
-            </span>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
-              Bad Maps Measurement Architecture &amp; Gap Taxonomy
-            </h2>
-          </div>
-          <span className="text-xs font-mono text-stone-600 font-bold uppercase">
-            12 OBSERVABLE ADMINISTRATIVE SEAMS
-          </span>
-        </div>
-
-        {/* Methodology Notice */}
-        <div className="p-4 bg-[#F5F1E8] border border-stone-300 rounded-xl space-y-2 text-xs font-mono text-stone-800">
-          <div className="flex items-center justify-between">
-            <strong className="text-[#971F26] uppercase">EMPIRICAL MEASUREMENT SAFEGUARDS:</strong>
-            <span className="text-stone-600">Sample-Based · Counts Over Unsupported Percentages</span>
-          </div>
-          <p className="font-sans text-stone-700 text-[12px] leading-relaxed">
-            Every published Bad Maps metric requires an explicit numerator, denominator, defined cohort, observation period, and verified provenance. Metrics distinguish between <strong>CONFIRMED GAP</strong>, <strong>NO GAP OBSERVED</strong>, and <strong>UNKNOWN / INSUFFICIENT RECORD</strong>. (Unknown is never automatically classified as failure). Gaps describe observable administrative conditions, not misconduct accusations.
-          </p>
-        </div>
-
-        {/* 12-Item Gap Taxonomy Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
-          {gapTaxonomyItems.map((g, idx) => (
-            <div
-              key={idx}
-              className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded-xl space-y-1.5 flex flex-col justify-between shadow-2xs"
-            >
-              <div className="space-y-1">
-                <div className="flex items-center justify-between border-b border-stone-300 pb-1 text-[10px]">
-                  <span className="font-bold text-[#971F26]">GAP {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
-                  <span className="text-stone-500">[TAXONOMY]</span>
+        <EditorialDisclosure
+          kicker="LEVEL 2 · LOCKED INSTITUTIONAL DISTINCTIONS"
+          title="Inspect the 10 Locked Non-Equivalence Distinctions"
+          summary="Formal definitions preventing the conflation of allegation with evidence, repetition with corroboration, submission with review, or barrier with refusal."
+          badge="10 DISTINCTIONS"
+          variant="dark"
+        >
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
+            {lockedDistinctions.map((d, i) => (
+              <div
+                key={i}
+                className="p-3.5 bg-stone-900 border border-stone-700 rounded-xl space-y-1.5 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-amber-300 font-bold block text-[13px] leading-snug">
+                    {d.left} <span className="text-red-400">≠</span> {d.right}
+                  </span>
                 </div>
-                <h4 className="font-serif font-bold text-sm text-[#1C1D1D]">
-                  {g.name}
-                </h4>
+                <p className="text-stone-400 text-[11px] font-sans leading-relaxed">
+                  {d.note}
+                </p>
               </div>
-              <p className="text-[11px] text-stone-700 font-sans leading-snug">
-                {g.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 8. Locked Institutional Distinctions Grid */}
-      <section className="bg-[#1C1D1D] text-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-6 shadow-md">
-        <div className="border-b border-stone-700 pb-4 space-y-1">
-          <div className="flex items-center gap-2 text-amber-300 font-mono text-xs font-bold uppercase tracking-widest">
-            <ShieldCheck className="w-4 h-4" />
-            <span>INSTITUTIONAL DISTINCTIONS</span>
+            ))}
           </div>
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-            Locked Institutional Distinctions
-          </h3>
-          <p className="text-stone-300 text-xs sm:text-sm font-sans">
-            Administrative systems frequently conflate these concepts. Maps With Teeth enforces strict separation between them.
-          </p>
-        </div>
+        </EditorialDisclosure>
+      </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
-          {lockedDistinctions.map((d, i) => (
-            <div
-              key={i}
-              className="p-3.5 bg-stone-900 border border-stone-700 rounded-xl space-y-1.5 flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-amber-300 font-bold block text-[13px] leading-snug">
-                  {d.left} <span className="text-red-400">≠</span> {d.right}
-                </span>
-              </div>
-              <p className="text-stone-400 text-[11px] font-sans leading-relaxed">
-                {d.note}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 9. Strict Non-Claims & Anti-Surveillance Guardrails */}
-      <section className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 font-mono text-xs">
+      {/* 9. Strict Non-Claims & Anti-Surveillance Guardrails (GOV.UK Left-Rule Callouts) */}
+      <section className="mwt-callout-urgent space-y-4 font-mono text-xs">
         <div className="flex items-center gap-2 text-[#971F26] font-bold uppercase border-b border-[#D9D1C4] pb-2">
           <ShieldAlert className="w-4 h-4" />
           <span>STRICT ANTI-SURVEILLANCE &amp; LEGAL BOUNDARIES</span>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-3 text-stone-800 font-sans text-xs leading-relaxed">
-          <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
+          <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/60 space-y-1">
             <strong className="font-mono text-[#971F26] uppercase block">NO CASE MANAGEMENT OR DOSSIERS:</strong>
             <p>Maps With Teeth is not a caseworker ticketing platform, CRM, or shared government surveillance system. It issues participant-held receipts and publishes structural research.</p>
           </div>
 
-          <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
+          <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/60 space-y-1">
             <strong className="font-mono text-[#971F26] uppercase block">NO CUMULATIVE RISK SCORING:</strong>
             <p>Related matters may be linked to prompt authorized inquiries, but the system must never merge factual conclusions or calculate automated credibility or danger scores.</p>
           </div>
 
-          <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
+          <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/60 space-y-1">
             <strong className="font-mono text-[#971F26] uppercase block">ZERO FACT PRE-DETERMINATION:</strong>
             <p>A continuity receipt records that an encounter occurred and what documents were presented—it does not certify the substantive truth of any contested allegation.</p>
           </div>
 
-          <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-1">
+          <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/60 space-y-1">
             <strong className="font-mono text-[#971F26] uppercase block">NO REPLACEMENT FOR LEGAL AUTHORITY:</strong>
             <p>The framework preserves administrative relationships and provenance without overriding statutory discretion or judicial proceedings.</p>
           </div>

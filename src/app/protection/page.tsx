@@ -97,11 +97,11 @@ export default function ProtectionPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 select-none font-sans">
       {/* 1. Header & Overarching Framing */}
-      <div className="border-b border-[#C4B69E] pb-8 space-y-4">
+      <div className="border-b-2 border-mwt-black pb-8 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-mwt-oxblood">
+          <div className="flex items-center gap-2 text-mwt-crimson-seal">
             <ShieldAlert className="w-5 h-5 shrink-0" aria-hidden="true" />
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">
+            <span className="mwt-kicker">
               PROTECTION WITHOUT CONTINUITY · SYSTEMS RESEARCH
             </span>
           </div>
@@ -109,53 +109,66 @@ export default function ProtectionPage() {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-mwt-black tracking-tight leading-tight">
+          <h1 className="mwt-chapter-title text-mwt-black">
             Protection Without Continuity
           </h1>
-          <p className="text-sm sm:text-base font-mono uppercase tracking-wider text-mwt-oxblood font-bold">
+          <p className="text-sm sm:text-base font-mono uppercase tracking-wider text-mwt-crimson-seal font-bold">
             Cumulative Harm, Disconnected Incidents &amp; Digital Vulnerability
           </p>
         </div>
 
-        <p className="text-base sm:text-lg text-mwt-graphite font-serif italic max-w-3xl leading-relaxed">
+        <p className="mwt-quote-rule text-mwt-graphite">
           &ldquo;What happens when repeated harm is processed as disconnected incidents, and no institution has responsibility for the cumulative protection problem?&rdquo;
         </p>
 
-        {/* Emergency Non-Claim Safety Banner */}
-        <div className="p-4 bg-mwt-ivory rounded-lg border-2 border-mwt-black space-y-2 font-mono text-xs">
-          <div className="flex items-center gap-2 text-mwt-oxblood font-bold uppercase">
+        {/* Emergency Non-Claim Safety Banner (GOV.UK Urgent Left-Rule Callout) */}
+        <div className="mwt-callout-urgent space-y-2 font-mono text-xs">
+          <div className="flex items-center gap-2 text-mwt-crimson-seal font-bold uppercase">
             <AlertTriangle className="w-4 h-4 shrink-0" />
             <span>CRITICAL SAFETY &amp; OPERATIONAL BOUNDARIES</span>
           </div>
           <p className="font-sans text-mwt-black text-xs sm:text-sm leading-relaxed">
             Maps With Teeth is a <strong>research and civic systems reform initiative</strong>. We do not provide emergency intervention, crisis hotline services, 911 dispatch, legal representation, or direct physical protection. If you are in immediate danger, please contact local emergency services or the National Domestic Violence Hotline (1-800-799-SAFE / text &apos;START&apos; to 88788).
           </p>
-          <div className="pt-1 flex items-center gap-3 font-mono text-[11px] text-mwt-graphite">
-            <span>• No promise of automatic safety</span>
-            <span>• Quick Exit available via escape key or site banner</span>
+          <div className="pt-1 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-mwt-graphite">
+            <span>• No promise of automatic safety · Quick Exit via Escape key</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#digital"
+                className="text-mwt-crimson-seal hover:text-mwt-black font-bold underline uppercase"
+              >
+                Jump to Model B ↓
+              </a>
+              <a
+                href="#protection-tabs"
+                className="text-mwt-black hover:text-mwt-crimson-seal font-bold underline uppercase"
+              >
+                4 Protection Tracks ↓
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 2. Three Foundational Seam Inquiries */}
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 gap-4">
         {coreQuestions.map((item, idx) => (
           <div
             key={idx}
-            className="bg-mwt-parchment border-2 border-mwt-black rounded-lg p-5 flex flex-col justify-between space-y-4 shadow-sm"
+            className="mwt-ledger-card-light p-4 sm:p-5 flex flex-col justify-between space-y-3 shadow-sm"
           >
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-mwt-oxblood">
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-mwt-crimson-seal">
                 SEAM INQUIRY 0{idx + 1}
               </span>
-              <h3 className="font-serif font-bold text-base sm:text-lg text-mwt-black leading-snug">
+              <h3 className="font-display font-extrabold text-base sm:text-lg text-mwt-black leading-snug">
                 {item.title}
               </h3>
               <p className="text-xs font-mono font-semibold text-mwt-black italic leading-tight">
                 &ldquo;{item.q}&rdquo;
               </p>
             </div>
-            <p className="text-xs text-mwt-graphite leading-relaxed border-t border-[#C4B69E] pt-3 font-sans">
+            <p className="text-xs text-mwt-graphite leading-relaxed border-t border-mwt-border-paper pt-2.5 font-sans">
               {item.desc}
             </p>
           </div>
@@ -163,23 +176,23 @@ export default function ProtectionPage() {
       </div>
 
       {/* 2B. Model B: Personal Number Continuity (Primary Working Model) */}
-      <section id="digital" className="bg-mwt-parchment border-2 border-mwt-black rounded-xl p-6 sm:p-8 space-y-6 shadow-sm scroll-mt-24">
-        <div className="border-b border-[#C4B69E] pb-4 flex flex-wrap items-center justify-between gap-2">
+      <section id="digital" className="mwt-light-surface rounded-xs p-5 sm:p-8 space-y-5 shadow-md scroll-mt-36 lg:scroll-mt-28">
+        <div className="border-b-[1.5px] border-mwt-black pb-4 flex flex-wrap items-center justify-between gap-2">
           <div className="space-y-1">
-            <span className="text-xs font-mono font-bold uppercase text-mwt-oxblood tracking-widest block">
-              MODEL B · PRIMARY WORKING MODEL (POLICY RESEARCH &amp; PROPOSED ARCHITECTURE)
+            <span className="mwt-kicker text-mwt-crimson-seal block">
+              FOLIO 03 · MODEL B · PRIMARY WORKING MODEL (POLICY RESEARCH &amp; PROPOSED ARCHITECTURE)
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-mwt-black">
+            <h2 className="mwt-chapter-title text-mwt-black">
               Personal Number Continuity
             </h2>
           </div>
-          <span className="px-2.5 py-1 bg-mwt-black text-white font-mono text-[10px] font-bold uppercase rounded-xs">
+          <span className="px-2.5 py-1 bg-mwt-ink text-mwt-paper-muted font-mono text-[10px] font-bold uppercase rounded-xs">
             NOT AN ENACTED ENTITLEMENT OR IMPLEMENTED CARRIER STANDARD
           </span>
         </div>
 
         <div className="space-y-3 text-xs sm:text-sm text-mwt-black font-sans leading-relaxed">
-          <p className="font-serif italic text-base sm:text-lg text-mwt-oxblood font-bold">
+          <p className="mwt-quote-rule text-mwt-crimson-seal font-bold">
             &ldquo;A change in administrative or financial authority should not automatically erase an individual’s continuity.&rdquo;
           </p>
           <p>
@@ -225,11 +238,11 @@ export default function ProtectionPage() {
                 desc: "Installment plan balances, equipment financing agreements, and prior contractual liabilities."
               }
             ].map((dim) => (
-              <div key={dim.num} className="p-3.5 bg-mwt-ivory border border-mwt-black rounded-lg space-y-1">
-                <span className="font-mono text-[10px] font-bold text-mwt-oxblood uppercase block">
+              <div key={dim.num} className="p-3.5 mwt-ledger-card-light space-y-1">
+                <span className="font-mono text-[10px] font-bold text-mwt-crimson-seal uppercase block">
                   DIMENSION {dim.num}
                 </span>
-                <h3 className="font-serif font-bold text-sm text-mwt-black">{dim.title}</h3>
+                <h3 className="font-display font-extrabold text-sm text-mwt-black">{dim.title}</h3>
                 <p className="text-mwt-graphite leading-snug text-xs">{dim.desc}</p>
               </div>
             ))}
@@ -237,8 +250,8 @@ export default function ProtectionPage() {
         </div>
 
         {/* Explicit Legal, Financial & Statutory Caveats */}
-        <div className="p-4 bg-mwt-ivory border-l-4 border-mwt-oxblood border border-mwt-black rounded-r-lg space-y-2 text-xs font-sans">
-          <span className="font-mono font-bold text-mwt-oxblood uppercase block text-[11px]">
+        <div className="p-4 mwt-evidence-panel space-y-2 text-xs font-sans">
+          <span className="font-mono font-bold text-mwt-crimson-seal uppercase block text-[11px]">
             EXPLICIT FINANCIAL, CONTRACTUAL &amp; STATUTORY BOUNDARIES:
           </span>
           <ul className="space-y-1 text-mwt-black leading-relaxed">
@@ -251,47 +264,63 @@ export default function ProtectionPage() {
       </section>
 
       {/* 3. Interactive Four-Track Navigation Tabs */}
-      <div className="space-y-6">
-        <div className="flex border-b border-[#C4B69E] gap-2 overflow-x-auto text-xs font-mono">
+      <div id="protection-tabs" className="space-y-6 scroll-mt-36 lg:scroll-mt-28">
+        <div
+          role="tablist"
+          aria-label="Protection Without Continuity Tabs"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1.5 bg-mwt-parchment border border-mwt-black rounded-lg text-xs font-mono"
+        >
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "patterns"}
             onClick={() => setActiveTab("patterns")}
-            className={`px-4 py-2.5 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-left font-bold uppercase tracking-wider transition-all rounded cursor-pointer ${
               activeTab === "patterns"
-                ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-parchment"
-                : "border-transparent text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/60"
+                ? "bg-mwt-oxblood text-white shadow-xs"
+                : "text-mwt-black hover:bg-mwt-ivory"
             }`}
           >
             1. Pattern-Aware Review
           </button>
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "digital"}
             onClick={() => setActiveTab("digital")}
-            className={`px-4 py-2.5 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-left font-bold uppercase tracking-wider transition-all rounded cursor-pointer ${
               activeTab === "digital"
-                ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-parchment"
-                : "border-transparent text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/60"
+                ? "bg-mwt-oxblood text-white shadow-xs"
+                : "text-mwt-black hover:bg-mwt-ivory"
             }`}
           >
-            2. Digital Access &amp; Account Control
+            2. Digital Access &amp; Control
           </button>
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "barriers"}
             onClick={() => setActiveTab("barriers")}
-            className={`px-4 py-2.5 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-left font-bold uppercase tracking-wider transition-all rounded cursor-pointer ${
               activeTab === "barriers"
-                ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-parchment"
-                : "border-transparent text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/60"
+                ? "bg-mwt-oxblood text-white shadow-xs"
+                : "text-mwt-black hover:bg-mwt-ivory"
             }`}
           >
             3. Inability vs. Refusal
           </button>
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "intervention"}
             onClick={() => setActiveTab("intervention")}
-            className={`px-4 py-2.5 font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-left font-bold uppercase tracking-wider transition-all rounded cursor-pointer ${
               activeTab === "intervention"
-                ? "border-mwt-oxblood text-mwt-oxblood bg-mwt-parchment"
-                : "border-transparent text-mwt-graphite hover:text-mwt-black hover:bg-mwt-parchment/60"
+                ? "bg-mwt-oxblood text-white shadow-xs"
+                : "text-mwt-black hover:bg-mwt-ivory"
             }`}
           >
-            4. Meaningful Intervention Standard
+            4. Meaningful Intervention
           </button>
         </div>
 

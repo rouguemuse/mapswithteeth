@@ -168,6 +168,7 @@ export function ArchivalCaseStudyGallery() {
             alt={activeFolio.title}
             fill
             className="object-contain"
+            loading="eager"
             unoptimized
           />
         )}
@@ -178,12 +179,13 @@ export function ArchivalCaseStudyGallery() {
             alt={`${activeFolio.title} — Raw Woodcut Cartography`}
             fill
             className="object-cover"
+            loading="eager"
             unoptimized
           />
         )}
 
         {viewMode === "slider" && (
-          <div className="relative w-full h-full select-none">
+          <div className="absolute inset-0 select-none">
             {/* AFTER (Full Layer underneath: New 4:3 Archival Cartographic Monograph Plate) */}
             <div className="absolute inset-0">
               <Image
@@ -191,6 +193,7 @@ export function ArchivalCaseStudyGallery() {
                 alt={`After: ${activeFolio.title}`}
                 fill
                 className="object-cover"
+                loading="eager"
                 unoptimized
               />
               <span className="absolute top-4 right-4 z-10 px-3 py-1 bg-[#971F26] text-white font-mono text-xs font-bold uppercase tracking-wider border border-[#E8DEC8] shadow">
@@ -208,6 +211,7 @@ export function ArchivalCaseStudyGallery() {
                 alt={`Before: Raw Cartographic Canvas`}
                 fill
                 className="object-cover"
+                loading="eager"
                 unoptimized
               />
               <span className="absolute top-4 left-4 z-10 px-3 py-1 bg-[#11100F]/90 text-[#E8DEC8] font-mono text-xs font-bold uppercase tracking-wider border border-[#E8DEC8] shadow">

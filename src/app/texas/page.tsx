@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { TEXAS_RESOURCES } from "@/data/resources/states/tx";
 import { TexasStatutesAccordion } from "@/components/texas/TexasStatutesAccordion";
@@ -17,6 +18,23 @@ import {
   FileSearch,
   Check
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Texas Field Intelligence & Statutory Routes: Central Texas Pilot & 254 Counties",
+  description:
+    "Primary-source-verified Texas statutory protections (Tex. Prop. Code § 92.016, 16 TAC § 25.478, Tex. Code Crim. Proc. Ch. 56B) and county-level barrier intelligence across Travis, Williamson, Bastrop, Hays, and Harris counties.",
+  alternates: {
+    canonical: "/texas",
+  },
+  openGraph: {
+    title: "Texas Field Intelligence & Statutory Routes | Maps With Teeth",
+    description:
+      "Primary-source-verified Texas statutory protections and county-level barrier intelligence across Travis, Williamson, Bastrop, Hays, and Harris counties.",
+    url: "https://www.mapswithteeth.org/texas",
+    siteName: "Maps With Teeth",
+    type: "website",
+  },
+};
 
 export default function TexasPage() {
   const statewideResources = TEXAS_RESOURCES.filter((r) => r.scope === "TEXAS_STATEWIDE");

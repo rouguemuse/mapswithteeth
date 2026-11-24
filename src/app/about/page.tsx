@@ -21,6 +21,8 @@ import {
 import { FoundingBoardSection } from "@/components/governance/FoundingBoardSection";
 import { ArchivalCaseStudyGallery } from "@/components/home/ArchivalCaseStudyGallery";
 import { GeneralContactModal } from "@/components/contact/GeneralContactModal";
+import { FourTierDistinctionInventory } from "@/components/shared/FourTierDistinctionInventory";
+import { EditorialDisclosure } from "@/components/shared/EditorialDisclosure";
 
 export default function AboutPage() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -48,8 +50,8 @@ export default function AboutPage() {
           An independent public-interest systems research and accountability initiative examining where responsibility, evidence, identity, or access disappears across institutional boundaries.
         </p>
 
-        {/* Central Premise Callout */}
-        <div className="p-4 sm:p-5 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-lg space-y-1 shadow-2xs">
+        {/* Central Premise Callout (GOV.UK Left-Rule Margin Note) */}
+        <div className="mwt-callout-urgent space-y-1">
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
             CENTRAL PREMISE
           </span>
@@ -57,12 +59,55 @@ export default function AboutPage() {
             &ldquo;People should not lose rights, safety, identity, evidence, or access simply because administrative systems divide authority differently than human lives do.&rdquo;
           </p>
         </div>
+
+        {/* About Page Section Jump Bar */}
+        <nav aria-label="About Page Sections" className="pt-1">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 p-2 bg-[#EEE8DD] border border-[#D9D1C4] rounded-lg text-[11px] sm:text-xs font-mono">
+            <span className="font-bold text-stone-700 px-1.5 uppercase">Jump to:</span>
+            <a
+              href="#about-models"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              01. Models A &amp; B
+            </a>
+            <a
+              href="#about-diagnostic"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              02. 8-Step Method
+            </a>
+            <a
+              href="#about-founder"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              03. Founder
+            </a>
+            <a
+              href="#about-distinction-inventory"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              04. 4-Tier Status
+            </a>
+            <a
+              href="#case-study-folios"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              05. 4:3 Folios &amp; Slider
+            </a>
+            <a
+              href="#about-governance"
+              className="px-2.5 py-1 bg-[#F5F1E8] hover:bg-white text-[#1C1D1D] hover:text-[#971F26] border border-[#D9D1C4] rounded font-bold transition"
+            >
+              06. Founding Board
+            </a>
+          </div>
+        </nav>
       </div>
 
       {/* 2. The Core Answers */}
       <div className="space-y-12">
         {/* Question 1: What is Maps With Teeth? */}
-        <section className="space-y-4">
+        <section id="about-models" className="space-y-4 scroll-mt-36 lg:scroll-mt-28">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
               01 · INITIATIVE POSITIONING, NORMATIVE GROUNDING &amp; TWO WORKING MODELS
@@ -124,7 +169,7 @@ export default function AboutPage() {
         </section>
 
         {/* Question 2: Diagnostic Method (System Change Map) */}
-        <section className="space-y-4">
+        <section id="about-diagnostic" className="space-y-4 scroll-mt-36 lg:scroll-mt-28">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
               02 · THE DIAGNOSTIC METHOD (SYSTEM CHANGE MAP)
@@ -136,27 +181,27 @@ export default function AboutPage() {
           <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
             Sometimes the right answer is improving an existing system, not inventing something new. Before proposing a software tool, administrative rule, or statutory reform, Maps With Teeth applies an eight-question diagnostic method across institutional seams:
           </p>
-          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4 text-xs font-mono text-[#1C1D1D]">
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">1. What already exists?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">2. What is legally required or permitted?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">3. What technical &amp; operational capabilities exist?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">4. What actually happens in practice?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">5. Who can realistically access the existing remedy?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">6. Where is responsibility, evidence, identity, or access lost?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">7. Is the failure legal, technical, procedural, administrative, accessibility-related, or an enforcement issue?</div>
-            <div className="p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">8. What is the smallest effective intervention?</div>
+          <div className="grid gap-2 grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 text-[11.5px] sm:text-xs font-mono text-[#1C1D1D]">
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">1. What already exists?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">2. What is legally required or permitted?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">3. What technical &amp; operational capabilities exist?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">4. What actually happens in practice?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">5. Who can realistically access the existing remedy?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">6. Where is responsibility, evidence, identity, or access lost?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">7. Is the failure legal, technical, procedural, administrative, accessibility-related, or an enforcement issue?</div>
+            <div className="p-2.5 sm:p-3 bg-[#EEE8DD] border border-[#1C1D1D] rounded">8. What is the smallest effective intervention?</div>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-3 text-xs font-sans pt-2">
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
+            <div className="p-3.5 sm:p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
               <strong className="font-mono text-[11px] uppercase text-[#971F26] block">1. Missing Protection</strong>
               <p className="text-stone-800 leading-snug">Something does not exist at all in statute, rule, or institutional workflow.</p>
             </div>
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
+            <div className="p-3.5 sm:p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
               <strong className="font-mono text-[11px] uppercase text-[#971F26] block">2. Inaccessible Protection</strong>
               <p className="text-stone-800 leading-snug">Something exists on paper, but cannot realistically be reached due to waitlists, cost, documentation gates, or accessibility barriers.</p>
             </div>
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
+            <div className="p-3.5 sm:p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs space-y-1">
               <strong className="font-mono text-[11px] uppercase text-[#971F26] block">3. Defeated Protection</strong>
               <p className="text-stone-800 leading-snug">Something exists and could function, but the surrounding administrative or technical architecture prevents it from working as intended (inducing <strong>process-induced distortion</strong>).</p>
             </div>
@@ -164,7 +209,7 @@ export default function AboutPage() {
         </section>
 
         {/* Question 3: Who built it? */}
-        <section className="space-y-4">
+        <section id="about-founder" className="space-y-4 scroll-mt-36 lg:scroll-mt-28">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
               03 · FOUNDER &amp; PROJECT DIRECTION
@@ -193,7 +238,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Question 4: Current Work (3-Bucket Breakdown) */}
+        {/* Question 4: Current Work (4-Tier Inventory + 3-Bucket Breakdown) */}
         <section className="space-y-4">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
@@ -204,75 +249,62 @@ export default function AboutPage() {
             What is developed, in development, and requiring independent validation?
           </h2>
           <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-            To maintain strict epistemic honesty, Maps With Teeth separates repository-verifiable artifacts from models in active development and safeguards requiring external scrutiny:
+            To maintain strict epistemic honesty, Maps With Teeth separates existing statutory authority and repository-verifiable code from proposed policies, pilot targets, and safeguards requiring external scrutiny:
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center font-mono">
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-              <div className="text-2xl font-bold text-[#971F26]">47</div>
-              <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Audited Resources</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">Central Texas directory</div>
-            </div>
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-              <div className="text-2xl font-bold text-[#971F26]">470 / 1,070</div>
-              <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Claims / QA Checks</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">470 vectors · 1,070 QA assertions</div>
-            </div>
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-              <div className="text-2xl font-bold text-[#971F26]">158</div>
-              <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Tri-State Tests</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">Deterministic matcher QA</div>
-            </div>
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg shadow-2xs">
-              <div className="text-2xl font-bold text-[#971F26]">15</div>
-              <div className="text-[11px] text-stone-700 font-bold uppercase mt-1">Receipt Invariants</div>
-              <div className="text-[9.5px] text-stone-500 mt-0.5">Automated risk-control tests</div>
-            </div>
-          </div>
+          <FourTierDistinctionInventory id="about-distinction-inventory" compact />
 
-          <div className="grid md:grid-cols-3 gap-4 text-xs font-sans pt-2">
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
-              <span className="font-mono text-[10px] font-bold uppercase text-[#2D5A3D] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
-                BUCKET 1 · DEVELOPED OR DOCUMENTED
-              </span>
-              <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Verifiable in Repository</h3>
-              <ul className="space-y-1.5 text-stone-800 leading-relaxed">
-                <li>• Client-side Continuity Receipt prototype &amp; 15-invariant risk test suite</li>
-                <li>• 9-status Review Trace specification &amp; AGY-003 synthetic specimen</li>
-                <li>• Designed Evidence Integrity safeguards (6-stage Claim-Evidence Separation, 6-state Barrier-Aware Cooperation, 2-track Retaliation Separation)</li>
-                <li>• 47 audited Central Texas resource records (470 material claim vectors / 1,070 provenance QA assertions)</li>
-                <li>• Submitted Texas DFPS Sunset public input (POL-001A) &amp; Policy Brief v0.1</li>
-                <li>• Flagship systems note (<em>The Human Becomes the Integration Layer</em>)</li>
-              </ul>
-            </div>
+          <EditorialDisclosure
+            kicker="LEVEL 2 · THREE-BUCKET DEVELOPMENT AUDIT"
+            title="Inspect the 3-Bucket Repository Audit (Developed, In Development, Requiring Validation)"
+            summary="Detailed itemization of repository-verifiable artifacts, specifications in active refinement, and external legal/privacy/practitioner validation requirements."
+            badge="3 EPISTEMIC BUCKETS"
+            variant="light"
+          >
+            <div className="grid md:grid-cols-3 gap-4 text-xs font-sans">
+              <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
+                <span className="font-mono text-[10px] font-bold uppercase text-[#2D5A3D] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
+                  BUCKET 1 · DEVELOPED OR DOCUMENTED
+                </span>
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Verifiable in Repository</h3>
+                <ul className="space-y-1.5 text-stone-800 leading-relaxed">
+                  <li>• Client-side Continuity Receipt prototype &amp; 15-invariant risk test suite</li>
+                  <li>• 9-status Review Trace specification &amp; AGY-003 synthetic specimen</li>
+                  <li>• Designed Evidence Integrity safeguards (6-stage Claim-Evidence Separation, 6-state Barrier-Aware Cooperation, 2-track Retaliation Separation)</li>
+                  <li>• 47 audited Central Texas resource records (470 material claim vectors / 1,070 provenance QA assertions)</li>
+                  <li>• Submitted Texas DFPS Sunset public input (POL-001A) &amp; Policy Brief v0.1</li>
+                  <li>• Flagship systems note (<em>The Human Becomes the Integration Layer</em>)</li>
+                </ul>
+              </div>
 
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
-              <span className="font-mono text-[10px] font-bold uppercase text-[#8F5A0A] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
-                BUCKET 2 · IN DEVELOPMENT
-              </span>
-              <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Active Refinement</h3>
-              <ul className="space-y-1.5 text-stone-800 leading-relaxed">
-                <li>• Comparative Personal Number Continuity policy and technical architecture (6-dimension separation model)</li>
-                <li>• Expanded System Change Map diagnostic case studies across legal, telecom, and administrative seams</li>
-                <li>• Bilateral inter-agency handoff simulation workflows using synthetic data</li>
-                <li>• Additional editorial field notes and statutory comparisons</li>
-              </ul>
-            </div>
+              <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
+                <span className="font-mono text-[10px] font-bold uppercase text-[#8F5A0A] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
+                  BUCKET 2 · IN DEVELOPMENT
+                </span>
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">Active Refinement</h3>
+                <ul className="space-y-1.5 text-stone-800 leading-relaxed">
+                  <li>• Comparative Personal Number Continuity policy and technical architecture (6-dimension separation model)</li>
+                  <li>• Expanded System Change Map diagnostic case studies across legal, telecom, and administrative seams</li>
+                  <li>• Bilateral inter-agency handoff simulation workflows using synthetic data</li>
+                  <li>• Additional editorial field notes and statutory comparisons</li>
+                </ul>
+              </div>
 
-            <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
-              <span className="font-mono text-[10px] font-bold uppercase text-[#971F26] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
-                BUCKET 3 · REQUIRING INDEPENDENT VALIDATION
-              </span>
-              <h3 className="font-serif font-bold text-base text-[#1C1D1D]">External Scrutiny Needed</h3>
-              <ul className="space-y-1.5 text-stone-800 leading-relaxed">
-                <li>• Independent legal, statutory, and public-records review</li>
-                <li>• Privacy, confidentiality, and due-process assessment</li>
-                <li>• Compensated accessibility and survivor usability testing</li>
-                <li>• Adversarial evaluation and abuse-case threat modeling</li>
-                <li>• Frontline practitioner critique and real-world institutional feasibility evaluation</li>
-              </ul>
+              <div className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl space-y-2">
+                <span className="font-mono text-[10px] font-bold uppercase text-[#971F26] bg-white px-2 py-0.5 rounded border border-stone-300 inline-block">
+                  BUCKET 3 · REQUIRING INDEPENDENT VALIDATION
+                </span>
+                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">External Scrutiny Needed</h3>
+                <ul className="space-y-1.5 text-stone-800 leading-relaxed">
+                  <li>• Independent legal, statutory, and public-records review</li>
+                  <li>• Privacy, confidentiality, and due-process assessment</li>
+                  <li>• Compensated accessibility and survivor usability testing</li>
+                  <li>• Adversarial evaluation and abuse-case threat modeling</li>
+                  <li>• Frontline practitioner critique and real-world institutional feasibility evaluation</li>
+                </ul>
+              </div>
             </div>
-          </div>
+          </EditorialDisclosure>
         </section>
 
         {/* Question 5: Six-Month Fellowship Objectives */}
@@ -286,79 +318,89 @@ export default function AboutPage() {
             What are the six-month fellowship objectives?
           </h2>
           <p className="text-sm sm:text-base text-stone-800 leading-relaxed font-sans">
-            The six-month fellowship phase is designed to move Maps With Teeth from <strong>founder-developed models toward independently scrutinized, adaptable public-interest specifications</strong>:
+            The six-month fellowship phase is designed to move Maps With Teeth from <strong>founder-developed models toward independently scrutinized, adaptable public-interest specifications</strong>.
           </p>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-xs font-sans">
-            {[
-              {
-                title: "1. Pressure-Test Continuity Models",
-                desc: "Rigorously stress-test the Continuity Receipt and 9-status Review Trace against realistic procedural edge cases."
-              },
-              {
-                title: "2. Refine Evidence Safeguards",
-                desc: "Harden Claim-Evidence Separation, Barrier-Aware Cooperation, and process-induced distortion safeguards."
-              },
-              {
-                title: "3. Personal Number Continuity Model",
-                desc: "Develop the comparative Personal Number Continuity policy and technical specification across the 6 separated dimensions."
-              },
-              {
-                title: "4. Compensated Accessibility & Practitioner Feedback",
-                desc: "Obtain compensated accessibility reviews and relevant frontline practitioner critique where feasible."
-              },
-              {
-                title: "5. Synthetic & Adversarial Testing",
-                desc: "Evaluate synthetic and adversarial abuse/retaliation scenarios strictly before any live case use."
-              },
-              {
-                title: "6. Privacy, Governance & Due-Process Audit",
-                desc: "Identify privacy, public-records, governance, due-process, and institutional implementation risks."
-              },
-              {
-                title: "7. Refine the System Change Map",
-                desc: "Expand the 8-question diagnostic framework distinguishing missing, inaccessible, and defeated protections."
-              },
-              {
-                title: "8. Publish Findings & Failure Modes",
-                desc: "Openly publish research findings, architectural limitations, negative results, and identified failure modes."
-              },
-              {
-                title: "9. Ethical Validation Blueprint",
-                desc: "Develop a bounded blueprint for one ethical research or validation partnership using non-PII synthetic protocols."
-              }
-            ].map((obj, idx) => (
-              <div key={idx} className="p-4 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
-                <strong className="text-sm font-serif text-[#1C1D1D] block">{obj.title}</strong>
-                <p className="text-stone-800 leading-snug">{obj.desc}</p>
-              </div>
-            ))}
+
+          <div className="mwt-callout-editorial font-mono text-[11px] text-stone-800">
+            <strong className="text-[#971F26]">FELLOWSHIP SCOPE NOTICE:</strong> These nine objectives define planned six-month research, refinement, and validation work. They are not presented as already completed, nor does the initiative promise formal institutional adoption or widespread live deployment during the fellowship window.
           </div>
-          <div className="p-3 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg font-mono text-[11px] text-stone-700">
-            <strong>FELLOWSHIP SCOPE NOTICE:</strong> These nine objectives define planned six-month research, refinement, and validation work. They are not presented as already completed, nor does the initiative promise formal institutional adoption or widespread live deployment during the fellowship window.
-          </div>
+
+          <EditorialDisclosure
+            kicker="LEVEL 2 · FELLOWSHIP MILESTONES"
+            title="Inspect All 9 Six-Month Fellowship Validation & Research Objectives"
+            summary="Pressure-testing Continuity Receipt & Review Trace, refining Evidence Safeguards, Personal Number Continuity specification, compensated accessibility feedback, synthetic adversarial testing, privacy/due-process audit, System Change Map, open publication of failure modes, and ethical validation blueprint."
+            badge="9 OBJECTIVES"
+            variant="light"
+          >
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-xs font-sans">
+              {[
+                {
+                  title: "1. Pressure-Test Continuity Models",
+                  desc: "Rigorously stress-test the Continuity Receipt and 9-status Review Trace against realistic procedural edge cases."
+                },
+                {
+                  title: "2. Refine Evidence Safeguards",
+                  desc: "Harden Claim-Evidence Separation, Barrier-Aware Cooperation, and process-induced distortion safeguards."
+                },
+                {
+                  title: "3. Personal Number Continuity Model",
+                  desc: "Develop the comparative Personal Number Continuity policy and technical specification across the 6 separated dimensions."
+                },
+                {
+                  title: "4. Compensated Accessibility & Practitioner Feedback",
+                  desc: "Obtain compensated accessibility reviews and relevant frontline practitioner critique where feasible."
+                },
+                {
+                  title: "5. Synthetic & Adversarial Testing",
+                  desc: "Evaluate synthetic and adversarial abuse/retaliation scenarios strictly before any live case use."
+                },
+                {
+                  title: "6. Privacy, Governance & Due-Process Audit",
+                  desc: "Identify privacy, public-records, governance, due-process, and institutional implementation risks."
+                },
+                {
+                  title: "7. Refine the System Change Map",
+                  desc: "Expand the 8-question diagnostic framework distinguishing missing, inaccessible, and defeated protections."
+                },
+                {
+                  title: "8. Publish Findings & Failure Modes",
+                  desc: "Openly publish research findings, architectural limitations, negative results, and identified failure modes."
+                },
+                {
+                  title: "9. Ethical Validation Blueprint",
+                  desc: "Develop a bounded blueprint for one ethical research or validation partnership using non-PII synthetic protocols."
+                }
+              ].map((obj, idx) => (
+                <div key={idx} className="p-3.5 bg-[#EEE8DD] border border-[#1C1D1D] rounded-lg space-y-1 shadow-2xs">
+                  <strong className="text-sm font-serif text-[#1C1D1D] block">{obj.title}</strong>
+                  <p className="text-stone-800 leading-snug">{obj.desc}</p>
+                </div>
+              ))}
+            </div>
+          </EditorialDisclosure>
         </section>
 
-        {/* Question 6: What are our boundaries? */}
+        {/* Question 6: What are our boundaries? (GOV.UK Left-Rule Editorial Callout) */}
         <section className="space-y-4">
           <div className="flex items-center gap-2 border-b border-[#D9D1C4] pb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#971F26] font-bold">
-              06 · INSTITUTIONAL BOUNDARIES & NON-CLAIMS
+              06 · INSTITUTIONAL BOUNDARIES &amp; NON-CLAIMS
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
             What are our boundaries?
           </h2>
-          <div className="p-5 bg-[#1C1D1D] text-stone-200 border-2 border-stone-800 rounded-xl space-y-4 shadow-xs">
-            <p className="text-xs sm:text-sm text-stone-300 font-sans leading-relaxed">
+          <div className="mwt-callout-urgent space-y-4">
+            <p className="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
               Maps With Teeth strictly maintains clear institutional non-claims and operational boundaries:
             </p>
-            <div className="grid gap-2 sm:grid-cols-2 text-xs font-mono">
-              <div className="p-2.5 bg-stone-900 rounded border border-stone-700">✕ NOT an Allegation-Reporting Platform</div>
-              <div className="p-2.5 bg-stone-900 rounded border border-stone-700">✕ NOT a Replacement for Agency Investigation</div>
-              <div className="p-2.5 bg-stone-900 rounded border border-stone-700">✕ NOT an Automated Credibility or Risk Engine</div>
-              <div className="p-2.5 bg-stone-900 rounded border border-stone-700">✕ NOT Legal Representation or Court Adjudication</div>
+            <div className="grid gap-2.5 sm:grid-cols-2 text-xs font-mono text-[#1C1D1D] font-bold">
+              <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/70">✕ NOT an Allegation-Reporting Platform</div>
+              <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/70">✕ NOT a Replacement for Agency Investigation</div>
+              <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/70">✕ NOT an Automated Credibility or Risk Engine</div>
+              <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/70">✕ NOT Legal Representation or Court Adjudication</div>
             </div>
-            <div className="text-[11px] text-stone-400 font-mono pt-2 border-t border-stone-700/80 space-y-1">
+            <div className="text-[11px] text-stone-700 font-mono pt-2 border-t border-[#D9D1C4] space-y-1">
               <p>• Zero centralized surveillance dossiers · Zero central database storage for client-side receipt builder.</p>
               <p>• Documentation alone does not guarantee intervention or improved outcomes; it establishes an auditable administrative record.</p>
             </div>
@@ -428,7 +470,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Governance & Founding Board Section */}
-      <section className="pt-4">
+      <section id="about-governance" className="pt-4 scroll-mt-36 lg:scroll-mt-28">
         <FoundingBoardSection />
       </section>
 

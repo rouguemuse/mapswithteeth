@@ -66,9 +66,9 @@ export function ResourceMaterialsBlock() {
   ];
 
   return (
-    <section id="resources" className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-8 shadow-sm font-sans scroll-mt-24">
+    <section id="resources" className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-5 sm:p-8 space-y-6 shadow-sm font-sans scroll-mt-36 lg:scroll-mt-28">
       {/* Section Header */}
-      <div className="border-b border-[#D9D1C4] pb-4 space-y-2">
+      <div className="border-b border-[#D9D1C4] pb-3.5 space-y-1.5">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[#971F26]">
             <FileText className="w-5 h-5" />
@@ -79,30 +79,30 @@ export function ResourceMaterialsBlock() {
           <span className="coord-tick">[RESOURCE STATUS IS EXPLICIT]</span>
         </div>
 
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
+        <h3 className="text-xl sm:text-3xl font-serif font-bold text-[#1C1D1D]">
           Policy &amp; Implementation Resources
         </h3>
 
-        <p className="text-stone-800 text-sm sm:text-base font-sans leading-relaxed max-w-3xl">
+        <p className="text-stone-800 text-xs sm:text-sm font-sans leading-relaxed max-w-3xl">
           Live links point exclusively to completed specifications currently published on this site. In-progress documentation is consolidated below with explicit development status.
         </p>
       </div>
 
-      {/* 1. Live Available Resources Grid (3 Cards) */}
-      <div className="space-y-3">
+      {/* 1. Live Available Resources Grid (2x2 on sm, 4 across on lg) */}
+      <div className="space-y-2.5">
         <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-700 block">
-          Available on Site
+          Available on Site (4 Live Specifications)
         </span>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {availableMaterials.map((mat) => {
             const IconComponent = mat.icon;
             return (
               <Link
                 key={mat.title}
                 href={mat.href}
-                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 flex flex-col justify-between space-y-3 shadow-2xs hover:shadow-sm hover:border-[#971F26] transition group"
+                className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-4 flex flex-col justify-between space-y-2.5 shadow-2xs hover:shadow-sm hover:border-[#971F26] transition group"
               >
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">
                       {mat.tag}
@@ -110,16 +110,16 @@ export function ResourceMaterialsBlock() {
                     <IconComponent className="w-4 h-4 text-[#971F26]" />
                   </div>
 
-                  <h4 className="font-serif font-bold text-lg text-[#1C1D1D] group-hover:text-[#971F26] transition">
+                  <h4 className="font-serif font-bold text-base text-[#1C1D1D] group-hover:text-[#971F26] transition leading-snug">
                     {mat.title}
                   </h4>
 
-                  <p className="text-xs text-stone-800 font-sans leading-relaxed">
+                  <p className="text-xs text-stone-800 font-sans leading-snug">
                     {mat.desc}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-stone-300 flex items-center justify-between text-xs font-mono font-bold text-[#1C1D1D] group-hover:text-[#971F26]">
+                <div className="pt-2 border-t border-stone-300 flex items-center justify-between text-[11px] font-mono font-bold text-[#1C1D1D] group-hover:text-[#971F26]">
                   <span>View Specification</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
                 </div>
@@ -129,45 +129,52 @@ export function ResourceMaterialsBlock() {
         </div>
       </div>
 
-      {/* 2. Consolidated In-Development Status List */}
-      <div className="bg-[#EEE8DD] border border-stone-300 rounded-xl p-5 space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-2.5">
+      {/* 2. Consolidated In-Development Status List (Expandable Disclosure) */}
+      <details className="group bg-[#EEE8DD] border border-stone-300 rounded-xl overflow-hidden">
+        <summary className="cursor-pointer p-4 flex flex-wrap items-center justify-between gap-2 select-none hover:bg-stone-200/50 transition">
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-stone-600" />
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-800">
-              Resources in Development (Planned Public Assets)
+            <Clock className="w-4 h-4 text-[#971F26]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-900">
+              Resources in Development (6 Planned Public Assets — Drafting)
             </span>
           </div>
-          <span className="text-[11px] font-mono text-stone-600">
-            No placeholder downloads exposed
-          </span>
-        </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10.5px] font-mono text-stone-600 bg-[#F5F1E8] px-2 py-0.5 rounded border border-stone-300">
+              No placeholder downloads exposed
+            </span>
+            <span className="text-xs font-mono font-bold text-[#971F26] group-open:rotate-180 transition-transform">
+              ▾
+            </span>
+          </div>
+        </summary>
 
-        <p className="text-xs text-stone-700 font-sans leading-relaxed">
-          The following materials are currently undergoing practitioner review and editorial drafting. Downloadable PDF/packet links will be exposed only when final public production assets exist in the repository.
-        </p>
+        <div className="p-4 pt-2 border-t border-stone-300 space-y-3">
+          <p className="text-xs text-stone-700 font-sans leading-relaxed">
+            The following materials are currently undergoing practitioner review and editorial drafting. Downloadable PDF/packet links will be exposed only when final public production assets exist in the repository.
+          </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
-          {inDevelopmentMaterials.map((item) => (
-            <div
-              key={item.title}
-              className="p-3 bg-[#F5F1E8] border border-stone-300 rounded-lg space-y-1"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-serif font-bold text-[#1C1D1D]">
-                  {item.title}
-                </span>
-                <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 font-bold">
-                  DRAFTING
-                </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+            {inDevelopmentMaterials.map((item) => (
+              <div
+                key={item.title}
+                className="p-3 bg-[#F5F1E8] border border-stone-300 rounded-lg space-y-1"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-serif font-bold text-[#1C1D1D]">
+                    {item.title}
+                  </span>
+                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 font-bold">
+                    DRAFTING
+                  </span>
+                </div>
+                <p className="text-[11.5px] text-stone-600 font-sans leading-snug">
+                  {item.desc}
+                </p>
               </div>
-              <p className="text-[11.5px] text-stone-600 font-sans leading-snug">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </details>
     </section>
   );
 }

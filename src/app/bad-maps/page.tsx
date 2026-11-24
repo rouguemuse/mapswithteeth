@@ -25,9 +25,20 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Bad Maps: Systems Research & Seam Measurement | Maps With Teeth",
+  title: "Bad Maps: Systems Research & Seam Measurement",
   description:
-    "Deidentified empirical measurement architecture for evaluating recurring dead routes, circular referral loops, unacknowledged handoffs, and 12 institutional seam failures."
+    "Deidentified empirical measurement architecture for evaluating recurring dead routes, circular referral loops, unacknowledged handoffs, and 12 institutional seam failures.",
+  alternates: {
+    canonical: "/bad-maps",
+  },
+  openGraph: {
+    title: "Bad Maps: Empirical Measurement of Institutional Seams | Maps With Teeth",
+    description:
+      "Deidentified empirical measurement architecture for evaluating recurring dead routes, circular referral loops, unacknowledged handoffs, and 12 institutional seam failures.",
+    url: "https://www.mapswithteeth.org/bad-maps",
+    siteName: "Maps With Teeth",
+    type: "website",
+  },
 };
 
 interface BadMapsProposedIndicator {
@@ -184,23 +195,40 @@ export default function BadMapsPage() {
           When people are repeatedly sent into dead routes, circular loops, and contradictory rules, the failure is not individual—it is structural. Bad Maps is the systems research layer of Maps With Teeth, defining observable administrative conditions to transform frontline runaround into rigorous policy evidence.
         </p>
 
-        {/* Governing Principle & Question Banner */}
-        <div className="p-4 bg-[#EEE8DD] border-l-4 border-l-[#971F26] border border-[#D9D1C4] rounded-r-xl space-y-2">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
-            GOVERNING PRINCIPLE &amp; INQUIRY
-          </span>
-          <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
-            &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
-          </p>
-          <p className="text-xs font-mono text-stone-700">
-            <strong>Core Research Question:</strong> &ldquo;How do we know the handoff actually happened?&rdquo;
-          </p>
+        {/* Governing Principle & Question Banner + Quick Action Bar (GOV.UK Left-Rule Callout) */}
+        <div className="mwt-callout-urgent flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#971F26] block">
+              GOVERNING PRINCIPLE &amp; INQUIRY
+            </span>
+            <p className="text-base sm:text-lg font-serif italic font-bold text-[#1C1D1D]">
+              &ldquo;Preserve the human distinction the administrative system accidentally flattened.&rdquo;
+            </p>
+            <p className="text-xs font-mono text-stone-700">
+              <strong>Core Research Question:</strong> &ldquo;How do we know the handoff actually happened?&rdquo;
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 shrink-0 font-mono text-xs">
+            <a
+              href="#gap-taxonomy"
+              className="px-3 py-2 bg-[#F5F1E8] hover:bg-white border border-[#1C1D1D] text-[#1C1D1D] rounded font-bold uppercase"
+            >
+              12 Gap Taxonomy ↓
+            </a>
+            <Link
+              href="/feedback"
+              className="px-3.5 py-2 bg-[#971F26] hover:bg-[#7A181E] text-white rounded font-bold uppercase flex items-center gap-1.5"
+            >
+              <Send className="w-3 h-3" />
+              <span>Submit System Gap</span>
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* 2. Measurement Safeguards & Tri-State Classification Notice */}
-      <section className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-8 space-y-4 font-mono text-xs">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300 pb-2">
+      {/* 2. Measurement Safeguards & Tri-State Classification Notice (De-Weighted Left-Rule Callout) */}
+      <section className="mwt-callout-ink space-y-4 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-300/70 pb-2">
           <div className="flex items-center gap-2 text-stone-900 font-bold uppercase">
             <ShieldCheck className="w-4 h-4 text-[#971F26]" />
             <span>EMPIRICAL MEASUREMENT SAFEGUARDS</span>
@@ -212,17 +240,17 @@ export default function BadMapsPage() {
           Bad Maps defines measurable administrative conditions without presenting preliminary pilot concepts as population-level totals. Gaps describe observable institutional friction points—causes may include statutory restrictions, resources, jurisdictional boundaries, or system design. <strong>The existence of a gap does not imply individual staff misconduct.</strong>
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-3 pt-2 text-center">
-          <div className="p-3 bg-white rounded-lg border border-[#971F26]/40 space-y-1">
-            <strong className="text-[#971F26] block text-sm">CONFIRMED GAP</strong>
+        <div className="grid sm:grid-cols-3 gap-3 pt-1 text-left">
+          <div className="pl-3 py-1.5 border-l-2 border-[#971F26] bg-white/70 space-y-0.5">
+            <strong className="text-[#971F26] block text-xs">CONFIRMED GAP</strong>
             <span className="text-[11px] text-stone-600 font-sans block">Verified documentary proof that a handoff, review, or ownership failed.</span>
           </div>
-          <div className="p-3 bg-white rounded-lg border border-[#2D5A3D]/40 space-y-1">
-            <strong className="text-[#2D5A3D] block text-sm">NO GAP OBSERVED</strong>
+          <div className="pl-3 py-1.5 border-l-2 border-[#2D5A3D] bg-white/70 space-y-0.5">
+            <strong className="text-[#2D5A3D] block text-xs">NO GAP OBSERVED</strong>
             <span className="text-[11px] text-stone-600 font-sans block">Verifiable continuity record confirms receipt, review, or accepted ownership.</span>
           </div>
-          <div className="p-3 bg-white rounded-lg border border-stone-400 space-y-1">
-            <strong className="text-stone-700 block text-sm">UNKNOWN / INSUFFICIENT</strong>
+          <div className="pl-3 py-1.5 border-l-2 border-stone-500 bg-white/70 space-y-0.5">
+            <strong className="text-stone-700 block text-xs">UNKNOWN / INSUFFICIENT</strong>
             <span className="text-[11px] text-stone-600 font-sans block">Insufficient record. <em>Unknown is never automatically counted as a failure.</em></span>
           </div>
         </div>
@@ -248,11 +276,11 @@ export default function BadMapsPage() {
           The indicators below are proposed measurement protocols designed for evaluation in upcoming Central Texas pilot trials. Each indicator requires a documented denominator, defined cohort, observation window, and verified source provenance.
         </p>
 
-        <div className="space-y-4">
-          {proposedIndicators.map((m) => (
+        <div className="space-y-3.5">
+          {proposedIndicators.map((m, idx) => (
             <div
               key={m.num}
-              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-2xs font-mono text-xs"
+              className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-xl p-4 sm:p-5 space-y-3 shadow-2xs font-mono text-xs"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D9D1C4] pb-2">
                 <div className="flex items-center gap-2">
@@ -260,7 +288,7 @@ export default function BadMapsPage() {
                   <span className="text-stone-400">·</span>
                   <span className="font-serif font-bold text-base text-[#1C1D1D] font-sans">{m.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2 py-0.5 bg-stone-200 text-stone-800 rounded font-bold text-[10px] border border-stone-400 uppercase">
                     PROPOSED SPECIFICATION
                   </span>
@@ -270,20 +298,20 @@ export default function BadMapsPage() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4 font-sans text-xs">
-                <div className="space-y-2 text-stone-800">
-                  <p><strong>Target Cohort:</strong> {m.targetCohort}</p>
-                  <p><strong>Measurement Condition:</strong> {m.measurementCondition}</p>
-                  <p className="font-mono text-[11px] bg-[#F5F1E8] p-2 rounded border border-stone-300">
-                    <strong>Formula:</strong> {m.formula}
-                  </p>
-                  <p><strong>Provenance Requirement:</strong> {m.provenanceRequirement}</p>
-                </div>
+              <div className="space-y-1.5 font-sans text-xs text-stone-800">
+                <p><strong>Target Cohort:</strong> {m.targetCohort}</p>
+                <p><strong>Measurement Condition:</strong> {m.measurementCondition}</p>
+                <p className="font-mono text-[11px] bg-[#F5F1E8] p-2 rounded border border-stone-300">
+                  <strong>Formula:</strong> {m.formula}
+                </p>
+              </div>
 
-                <div className="p-3 bg-[#F5F1E8] rounded border border-stone-300 space-y-2 text-[11.5px]">
-                  <strong className="font-mono text-[10px] text-[#1C1D1D] uppercase block">
-                    TRI-STATE CLASSIFICATION RULES:
-                  </strong>
+              <details open={idx === 0} className="group border border-stone-300 rounded-lg bg-[#F5F1E8]">
+                <summary className="cursor-pointer font-mono font-bold text-[11px] px-3.5 py-2.5 select-none flex items-center justify-between text-stone-900 hover:text-[#971F26]">
+                  <span>Tri-State Classification Rules &amp; Provenance Requirement</span>
+                  <span className="text-[10px] uppercase text-stone-500 group-open:rotate-180 transition-transform">▾</span>
+                </summary>
+                <div className="px-3.5 pb-3.5 pt-2 border-t border-stone-200 space-y-2 font-sans text-[11.5px]">
                   <ul className="space-y-1.5 text-stone-700">
                     <li>
                       <span className="font-bold text-[#971F26] font-mono text-[10px] uppercase">Confirmed Gap:</span> {m.triStateCriteria.confirmedGap}
@@ -295,16 +323,19 @@ export default function BadMapsPage() {
                       <span className="font-bold text-stone-600 font-mono text-[10px] uppercase">Unknown:</span> {m.triStateCriteria.unknown}
                     </li>
                   </ul>
+                  <p className="pt-1 border-t border-stone-200 text-stone-800">
+                    <strong>Provenance Requirement:</strong> {m.provenanceRequirement}
+                  </p>
                 </div>
-              </div>
+              </details>
             </div>
           ))}
         </div>
       </section>
 
       {/* 4. Complete 12-Item Gap Taxonomy */}
-      <section className="space-y-6">
-        <div className="border-b border-[#D9D1C4] pb-3 flex items-center justify-between">
+      <section id="gap-taxonomy" className="space-y-5 scroll-mt-36 lg:scroll-mt-28">
+        <div className="border-b border-[#D9D1C4] pb-3 flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1C1D1D]">
             The 12-Item System Gap Taxonomy
           </h2>
@@ -313,21 +344,21 @@ export default function BadMapsPage() {
           </span>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-3 gap-3">
           {gapTaxonomy.map((g) => (
             <div
               key={g.num}
-              className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-4 space-y-2 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
+              className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-3.5 space-y-1.5 flex flex-col justify-between shadow-2xs hover:border-[#971F26] transition-colors"
             >
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <div className="flex items-center justify-between border-b border-[#D9D1C4] pb-1 font-mono text-[10px]">
                   <span className="font-bold text-[#971F26] uppercase">GAP {g.num}</span>
-                  <span className="text-stone-600 font-bold">{g.deck}</span>
+                  <span className="text-stone-600 font-bold truncate ml-1">{g.deck}</span>
                 </div>
-                <h3 className="font-serif font-bold text-base text-[#1C1D1D]">
+                <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C1D1D] leading-snug">
                   {g.name}
                 </h3>
-                <p className="text-xs text-stone-800 font-sans leading-relaxed">
+                <p className="text-[11.5px] sm:text-xs text-stone-800 font-sans leading-snug">
                   {g.desc}
                 </p>
               </div>
@@ -336,9 +367,9 @@ export default function BadMapsPage() {
         </div>
       </section>
 
-      {/* 5. Evidentiary Guardrails */}
-      <section className="p-6 bg-white border-2 border-[#1C1D1D] rounded-2xl space-y-3">
-        <div className="flex items-center gap-3 border-b border-stone-200 pb-2">
+      {/* 5. Evidentiary Guardrails (GOV.UK Left-Rule Editorial Callout) */}
+      <section className="mwt-callout-urgent space-y-2">
+        <div className="flex items-center gap-2.5">
           <ShieldAlert className="w-5 h-5 text-[#971F26]" />
           <h3 className="font-serif font-bold text-lg text-[#1C1D1D]">
             Ethical &amp; Evidentiary Boundaries for Bad Maps

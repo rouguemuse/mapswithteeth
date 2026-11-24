@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1C1B1A",
+  themeColor: "#0E0D0C",
 };
 
 export default function RootLayout({
@@ -83,9 +83,62 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const rootJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "Maps With Teeth",
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo-full.png`,
+        description: SITE_DESCRIPTION,
+        founder: {
+          "@type": "Person",
+          name: "Jayme Volstad",
+          jobTitle: "Founder & Project Director",
+          url: `${SITE_URL}/writing/author`,
+        },
+        areaServed: {
+          "@type": "AdministrativeArea",
+          name: "Texas",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: "Maps With Teeth",
+        description: SITE_DESCRIPTION,
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="en">
-      <body className="bg-[#F5F1E8] text-[#1C1D1D] flex flex-col min-h-screen antialiased selection:bg-brand-ruby selection:text-white">
+      <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-K45FVDG7"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+`,
+          }}
+        />
+      </head>
+      <body className="bg-mwt-paper text-mwt-black flex flex-col min-h-screen antialiased selection:bg-mwt-oxblood selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootJsonLd) }}
+        />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

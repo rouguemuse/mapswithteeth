@@ -198,14 +198,14 @@ export function FoundingBoardSection({ defaultExpanded = false }: { defaultExpan
       </div>
 
       {/* Target Competencies Grid */}
-      <div className="space-y-3 pt-2">
+      <div className="space-y-2.5 pt-2">
         <h4 className="text-xs font-mono uppercase tracking-widest text-[#971F26] font-bold">
-          Key Focus Areas & Desired Perspectives:
+          Key Focus Areas &amp; Desired Perspectives:
         </h4>
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-2 grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4">
           {TARGET_COMPETENCIES.map((c, i) => (
-            <div key={i} className="p-3 bg-[#F5F1E8] rounded-md border border-[#1C1D1D] space-y-1 shadow-2xs">
-              <span className="text-[11px] font-bold text-[#1C1D1D] block font-mono">[{c.area}]</span>
+            <div key={i} className="p-2.5 sm:p-3 bg-[#F5F1E8] rounded-md border border-[#1C1D1D] space-y-1 shadow-2xs">
+              <span className="text-[10.5px] sm:text-[11px] font-bold text-[#1C1D1D] block font-mono leading-tight">[{c.area}]</span>
               <p className="text-[10px] text-stone-700 leading-snug font-sans">{c.description}</p>
             </div>
           ))}

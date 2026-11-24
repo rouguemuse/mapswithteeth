@@ -54,12 +54,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   }
 
   const isExternal = article.publicationOrigin === "external";
-  const canonicalUrl = article.canonicalUrl || `https://mapswithteeth.org/writing/${article.slug}`;
+  const canonicalUrl = `https://www.mapswithteeth.org/writing/${article.slug}`;
 
   return {
-    title: `${article.title} | Maps With Teeth Field Notes`,
+    title: `${article.title} — Field Notes`,
     description: article.dek,
-    authors: [{ name: article.author || "Jayme Volstad", url: "https://mapswithteeth.org/writing/author" }],
+    authors: [{ name: article.author || "Jayme Volstad", url: "https://www.mapswithteeth.org/writing/author" }],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -93,27 +93,55 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const isExternal = article.publicationOrigin === "external";
   const isSyndicated = article.publicationOrigin === "syndicated";
   const relatedArticles = getRelatedArticles(article, 3);
+  const canonicalUrl = `https://www.mapswithteeth.org/writing/${article.slug}`;
 
-  // Schema.org Article JSON-LD
+  // Schema.org Article + BreadcrumbList JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": article.contentType === "POLICY_ANALYSIS" ? "TechArticle" : "Article",
-    headline: article.title,
-    description: article.dek,
-    author: {
-      "@type": "Person",
-      name: article.author || "Jayme Volstad",
-      url: "https://mapswithteeth.org/writing/author",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: isExternal && article.externalPublicationName ? article.externalPublicationName : "Maps With Teeth",
-      url: isExternal && article.externalPublicationUrl ? article.externalPublicationUrl : "https://mapswithteeth.org",
-    },
-    datePublished: article.publicationDate,
-    dateModified: article.lastUpdated || article.publicationDate,
-    mainEntityOfPage: article.canonicalUrl,
-    keywords: article.topics.join(", "),
+    "@graph": [
+      {
+        "@type": article.contentType === "POLICY_ANALYSIS" ? "TechArticle" : "Article",
+        headline: article.title,
+        description: article.dek,
+        author: {
+          "@type": "Person",
+          name: article.author || "Jayme Volstad",
+          url: "https://www.mapswithteeth.org/writing/author",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: isExternal && article.externalPublicationName ? article.externalPublicationName : "Maps With Teeth",
+          url: isExternal && article.externalPublicationUrl ? article.externalPublicationUrl : "https://www.mapswithteeth.org",
+        },
+        datePublished: article.publicationDate,
+        dateModified: article.lastUpdated || article.publicationDate,
+        mainEntityOfPage: canonicalUrl,
+        keywords: article.topics.join(", "),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.mapswithteeth.org",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Field Notes & Writing",
+            item: "https://www.mapswithteeth.org/writing",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: article.title,
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (

@@ -82,10 +82,13 @@ function getStatusBadge(status: EngagementTrackingStatus) {
 
 export function PolicyEngagementSection() {
   const [activeTab, setActiveTab] = useState<"records" | "patterns" | "scenarios">("records");
+  const [expandedRecordId, setExpandedRecordId] = useState<string>(
+    TEXAS_POLICY_ENGAGEMENT_REGISTRY[0]?.engagementId || "eng-sunset-dfps-2026"
+  );
   const [expandedScenarioId, setExpandedScenarioId] = useState<string>("app-synth-01");
 
   return (
-    <section id="policy-engagement" className="bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-6 sm:p-10 space-y-8 shadow-sm font-sans">
+    <section id="policy-engagement" className="scroll-mt-36 lg:scroll-mt-28 bg-[#EEE8DD] border-2 border-[#1C1D1D] rounded-2xl p-5 sm:p-10 space-y-6 sm:space-y-8 shadow-sm font-sans">
       {/* Section Header */}
       <div className="border-b border-[#D9D1C4] pb-5 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -121,63 +124,96 @@ export function PolicyEngagementSection() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-[#C4B69E] gap-2 overflow-x-auto text-xs font-mono">
+      <div
+        role="tablist"
+        aria-label="Policy Engagement Tabs"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 p-1.5 bg-[#F5F1E8] border border-[#1C1D1D] rounded-lg text-xs font-mono"
+      >
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "records"}
           onClick={() => setActiveTab("records")}
-          className={`px-4 py-2 font-bold uppercase transition-colors whitespace-nowrap border-b-2 ${
+          className={`px-3 py-2 text-left font-bold uppercase transition-colors rounded cursor-pointer ${
             activeTab === "records"
-              ? "border-[#971F26] text-[#971F26] bg-[#F5F1E8]"
-              : "border-transparent text-stone-600 hover:text-stone-900"
+              ? "bg-[#971F26] text-white shadow-xs"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
-          1. Traceable Engagement Records (3)
+          1. Engagement Records (3)
         </button>
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "patterns"}
           onClick={() => setActiveTab("patterns")}
-          className={`px-4 py-2 font-bold uppercase transition-colors whitespace-nowrap border-b-2 ${
+          className={`px-3 py-2 text-left font-bold uppercase transition-colors rounded cursor-pointer ${
             activeTab === "patterns"
-              ? "border-[#971F26] text-[#971F26] bg-[#F5F1E8]"
-              : "border-transparent text-stone-600 hover:text-stone-900"
+              ? "bg-[#971F26] text-white shadow-xs"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
           2. Oversight Failure Mechanisms (5)
         </button>
         <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "scenarios"}
           onClick={() => setActiveTab("scenarios")}
-          className={`px-4 py-2 font-bold uppercase transition-colors whitespace-nowrap border-b-2 ${
+          className={`px-3 py-2 text-left font-bold uppercase transition-colors rounded cursor-pointer ${
             activeTab === "scenarios"
-              ? "border-[#971F26] text-[#971F26] bg-[#F5F1E8]"
-              : "border-transparent text-stone-600 hover:text-stone-900"
+              ? "bg-[#971F26] text-white shadow-xs"
+              : "text-stone-700 hover:bg-[#EEE8DD]"
           }`}
         >
-          3. Concrete Application Scenarios (4)
+          3. Concrete Scenarios (4)
         </button>
       </div>
 
       {/* TAB 1: ENGAGEMENT RECORDS */}
       {activeTab === "records" && (
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
-              Formal Submissions &amp; Administrative Tracking
-            </h3>
-            <p className="text-xs sm:text-sm text-stone-700">
-              Each submission maintains a verifiable provenance status from draft through acknowledged outcome.
-            </p>
+        <div className="space-y-5">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <div className="space-y-1">
+              <h3 className="text-xl font-serif font-bold text-[#1C1D1D]">
+                Formal Submissions &amp; Administrative Tracking
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-700">
+                Each submission maintains a verifiable provenance status from draft through acknowledged outcome. Select any record below to inspect its full proposals and statutory anchors.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() =>
+                setExpandedRecordId((prev) => (prev === "ALL" ? TEXAS_POLICY_ENGAGEMENT_REGISTRY[0]?.engagementId || "" : "ALL"))
+              }
+              className="px-3 py-1.5 bg-[#F5F1E8] hover:bg-white border border-[#1C1D1D] rounded text-[11px] font-mono font-bold uppercase text-[#1C1D1D] cursor-pointer"
+            >
+              {expandedRecordId === "ALL" ? "Collapse Secondary Records" : "Expand All 3 Records"}
+            </button>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3.5">
             {TEXAS_POLICY_ENGAGEMENT_REGISTRY.map((record) => {
               const badge = getStatusBadge(record.trackingStatus);
               const BadgeIcon = badge.icon;
+              const isExpanded =
+                expandedRecordId === "ALL" || expandedRecordId === record.engagementId;
               return (
                 <div
                   key={record.engagementId}
-                  className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl p-5 sm:p-6 space-y-4 shadow-2xs"
+                  className="bg-[#F5F1E8] border-2 border-[#1C1D1D] rounded-xl overflow-hidden shadow-2xs"
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#D9D1C4] pb-3">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    aria-expanded={isExpanded}
+                    onClick={() =>
+                      setExpandedRecordId(isExpanded && expandedRecordId !== "ALL" ? "" : record.engagementId)
+                    }
+                    className="w-full p-4 sm:p-5 text-left flex flex-wrap items-start justify-between gap-3 hover:bg-stone-100/70 transition cursor-pointer"
+                  >
+                    <div className="space-y-1 flex-1 min-w-[220px]">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="px-2 py-0.5 bg-[#1C1D1D] text-white font-mono text-[11px] font-bold rounded">
                           {record.trackingCode}
                         </span>
@@ -185,102 +221,122 @@ export function PolicyEngagementSection() {
                           {record.targetReviewCycle}
                         </span>
                       </div>
-                      <h4 className="text-lg sm:text-xl font-serif font-bold text-[#1C1D1D]">
+                      <h4 className="text-base sm:text-xl font-serif font-bold text-[#1C1D1D]">
                         {record.title}
                       </h4>
                       <p className="text-xs font-mono text-stone-700">
-                        Target Body: <strong>{record.targetBody}</strong> {record.submissionDate && `· Submitted: ${record.submissionDate}`}
+                        Target Body: <strong>{record.targetBody}</strong>{" "}
+                        {record.submissionDate && `· Submitted: ${record.submissionDate}`}
                       </p>
                     </div>
 
-                    <div className={`px-3 py-1.5 border rounded-lg flex items-center gap-1.5 font-mono text-xs font-bold ${badge.className}`}>
-                      <BadgeIcon className="w-3.5 h-3.5" />
-                      <span>{badge.label}</span>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <div
+                        className={`px-2.5 py-1 border rounded-lg flex items-center gap-1.5 font-mono text-[11px] font-bold ${badge.className}`}
+                      >
+                        <BadgeIcon className="w-3.5 h-3.5" />
+                        <span>{badge.label}</span>
+                      </div>
+                      <span className="p-1.5 text-stone-700 bg-[#EEE8DD] border border-stone-300 rounded">
+                        {isExpanded ? (
+                          <ChevronUp className="w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
+                      </span>
                     </div>
-                  </div>
+                  </button>
 
-                  <div className="grid md:grid-cols-12 gap-4 text-xs font-sans">
-                    <div className="md:col-span-7 space-y-3">
-                      <div>
-                        <span className="font-mono text-[10px] font-bold text-[#971F26] uppercase block">
-                          SUMMARY OF STRUCTURAL INPUT:
-                        </span>
-                        <p className="text-stone-800 leading-relaxed pt-0.5">
-                          {record.publicSummary}
-                        </p>
-                      </div>
-
-                      <div>
-                        <span className="font-mono text-[10px] font-bold text-stone-600 uppercase block">
-                          KEY PROPOSALS:
-                        </span>
-                        <ul className="list-disc pl-4 space-y-1 pt-1 text-stone-800">
-                          {record.keyProposals.map((prop, idx) => (
-                            <li key={idx}>{prop}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-5 bg-white p-4 rounded-lg border border-stone-300 space-y-3">
-                      <div>
-                        <span className="font-mono text-[10px] font-bold text-stone-600 uppercase block">
-                          VERIFIED STATUS BASIS:
-                        </span>
-                        <p className="text-stone-800 leading-snug pt-0.5">
-                          {record.statusVerificationBasis}
-                        </p>
-                      </div>
-
-                      <div>
-                        <span className="font-mono text-[10px] font-bold text-[#2D5A3D] uppercase block">
-                          DOCUMENTED OUTCOME / NEXT STEP:
-                        </span>
-                        <p className="text-stone-800 leading-snug pt-0.5 font-medium">
-                          {record.verifiedOutcomes}
-                        </p>
-                      </div>
-
-                      <div>
-                        <span className="font-mono text-[10px] font-bold text-stone-500 uppercase block">
-                          STATUTORY ANCHORS:
-                        </span>
-                        <div className="flex flex-wrap gap-1 pt-1 font-mono text-[10.5px]">
-                          {record.statutoryFocus.map((stat, idx) => (
-                            <span key={idx} className="bg-stone-100 px-1.5 py-0.5 border border-stone-300 rounded text-stone-700">
-                              {stat}
+                  {isExpanded && (
+                    <div className="p-4 sm:p-6 pt-3 border-t border-[#D9D1C4] space-y-4 bg-[#F5F1E8]">
+                      <div className="grid md:grid-cols-12 gap-4 text-xs font-sans">
+                        <div className="md:col-span-7 space-y-3">
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-[#971F26] uppercase block">
+                              SUMMARY OF STRUCTURAL INPUT:
                             </span>
-                          ))}
-                        </div>
-                      </div>
+                            <p className="text-stone-800 leading-relaxed pt-0.5">
+                              {record.publicSummary}
+                            </p>
+                          </div>
 
-                      {record.officialSourceUrls && record.officialSourceUrls.length > 0 && (
-                        <div className="pt-1 border-t border-stone-200">
-                          <span className="font-mono text-[10px] font-bold text-stone-500 uppercase block mb-1">
-                            OFFICIAL REFERENCES:
-                          </span>
-                          <div className="space-y-1">
-                            {record.officialSourceUrls.map((link, idx) => (
-                              <a
-                                key={idx}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-[#971F26] hover:underline font-mono text-[11px]"
-                              >
-                                <span>{link.label}</span>
-                                <ExternalLink className="w-3 h-3" />
-                              </a>
-                            ))}
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-stone-600 uppercase block">
+                              KEY PROPOSALS:
+                            </span>
+                            <ul className="list-disc pl-4 space-y-1 pt-1 text-stone-800">
+                              {record.keyProposals.map((prop, idx) => (
+                                <li key={idx}>{prop}</li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="p-2.5 bg-[#EEE8DD] border border-stone-300 rounded font-mono text-[11px] text-stone-600">
-                    <span className="font-bold text-stone-700">Safeguard Boundary:</span> {record.safeguardNotice}
-                  </div>
+                        <div className="md:col-span-5 bg-white p-4 rounded-lg border border-stone-300 space-y-3">
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-stone-600 uppercase block">
+                              VERIFIED STATUS BASIS:
+                            </span>
+                            <p className="text-stone-800 leading-snug pt-0.5">
+                              {record.statusVerificationBasis}
+                            </p>
+                          </div>
+
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-[#2D5A3D] uppercase block">
+                              DOCUMENTED OUTCOME / NEXT STEP:
+                            </span>
+                            <p className="text-stone-800 leading-snug pt-0.5 font-medium">
+                              {record.verifiedOutcomes}
+                            </p>
+                          </div>
+
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-stone-500 uppercase block">
+                              STATUTORY ANCHORS:
+                            </span>
+                            <div className="flex flex-wrap gap-1 pt-1 font-mono text-[10.5px]">
+                              {record.statutoryFocus.map((stat, idx) => (
+                                <span
+                                  key={idx}
+                                  className="bg-stone-100 px-1.5 py-0.5 border border-stone-300 rounded text-stone-700"
+                                >
+                                  {stat}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          {record.officialSourceUrls && record.officialSourceUrls.length > 0 && (
+                            <div className="pt-1 border-t border-stone-200">
+                              <span className="font-mono text-[10px] font-bold text-stone-500 uppercase block mb-1">
+                                OFFICIAL REFERENCES:
+                              </span>
+                              <div className="space-y-1">
+                                {record.officialSourceUrls.map((link, idx) => (
+                                  <a
+                                    key={idx}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-[#971F26] hover:underline font-mono text-[11px]"
+                                  >
+                                    <span>{link.label}</span>
+                                    <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="p-2.5 bg-[#EEE8DD] border border-stone-300 rounded font-mono text-[11px] text-stone-600">
+                        <span className="font-bold text-stone-700">Safeguard Boundary:</span>{" "}
+                        {record.safeguardNotice}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}

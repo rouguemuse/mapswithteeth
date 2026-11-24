@@ -1,108 +1,113 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Users, FileText, Scale, ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function ParticipateSection() {
   const pathways = [
     {
-      title: "Partner With Us",
-      deck: "Frontline advocates, legal aid counsel, and pilot agencies testing referral models.",
-      href: "/for-partners",
-      code: "ROLE 01",
+      title: "Find Reachable Help",
+      deck: "Immediate, accessible Texas resource & statutory remedy navigation with zero personal-data collection.",
+      href: "/find-help",
+      code: "JOURNEY 01 · SEEKING HELP",
     },
     {
-      title: "Field Notes & Writing",
-      deck: "Read our flagship analysis: 'The Human Becomes the Integration Layer.'",
-      href: "/writing",
-      code: "ROLE 02",
-    },
-    {
-      title: "Texas Policy Lab",
-      deck: "Review statutory frameworks across Property, Family, and Utility codes.",
+      title: "Policy & Evidence Lab",
+      deck: "Inspect primary-source evidence, methodology, statutory citations, limitations, and submitted Sunset proposals.",
       href: "/policy",
-      code: "ROLE 03",
+      code: "JOURNEY 02 · RESEARCH & POLICY",
     },
     {
-      title: "Evidence Safeguards",
-      deck: "Explore the 8 core integrity safeguards and non-implication principles.",
-      href: "/continuity/safeguards",
-      code: "ROLE 04",
+      title: "Partners & Co-Design",
+      deck: "Review proposed pilot scope, repository-verifiable work, governance boundaries, and submit a collaboration inquiry.",
+      href: "/for-partners",
+      code: "JOURNEY 03 · INSTITUTIONAL PARTNERS",
+    },
+    {
+      title: "Founding Budget & Support",
+      deck: "Inspect the planned $100,000 six-month founding budget specification, fiscal sponsorship status, and funder inquiry.",
+      href: "/support",
+      code: "JOURNEY 03B · FUNDERS & DAFS",
     },
   ];
 
   return (
     <section
       id="participate"
-      className="bg-[#11100F] text-[#F8F5EE] border-4 border-[#11100F] p-8 sm:p-12 lg:p-16 space-y-10 shadow-2xl select-none font-sans scroll-mt-24 relative overflow-hidden"
+      className="mwt-folio-frame shadow-2xl select-none font-sans scroll-mt-36 lg:scroll-mt-28"
     >
-      {/* Background Accent Grid */}
-      <div className="absolute inset-0 opacity-10 bg-grid-ledger pointer-events-none" />
+      <div className="mwt-dark-surface p-5 sm:p-10 lg:p-12 space-y-6 relative overflow-hidden">
+        {/* Subtle Cartographic Hairline Grid */}
+        <div className="absolute inset-0 mwt-carto-hairs pointer-events-none" />
 
-      {/* Header */}
-      <div className="border-b border-[#2B2926] pb-8 space-y-4 relative z-10">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#E85D6B] bg-white/10 px-3 py-1 rounded-xs">
-            PARTICIPATE · COLLABORATION &amp; FIELD REVIEW
-          </span>
-          <span className="font-mono text-xs text-[#A39E94]">[OPEN PUBLIC-INTEREST ARCHIVE]</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-white tracking-tight">
-          Pressure-test the continuity framework.
-        </h2>
-
-        <p className="text-[#D8D2C6] text-base sm:text-lg max-w-3xl leading-relaxed font-sans">
-          Maps With Teeth is an open public-interest initiative. We do not operate as a government agency or legal representation service. We invite frontline navigators, caseworkers, legal aid attorneys, and civic researchers to challenge, audit, and refine our schemas.
-        </p>
-      </div>
-
-      {/* Pathways Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-        {pathways.map((item) => {
-          return (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group bg-[#1A1817] border border-[#332E29] hover:border-[#841F2B] p-6 rounded-xs transition-all flex flex-col justify-between space-y-4 hover:shadow-lg"
-            >
-              <div className="space-y-3">
-                <span className="font-mono text-[10px] text-[#E85D6B] font-bold block">
-                  [{item.code}]
-                </span>
-                <h3 className="font-serif font-bold text-xl text-white group-hover:text-[#E85D6B] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#A39E94] leading-relaxed font-sans">
-                  {item.deck}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-[#262320] flex items-center justify-between text-xs font-mono text-[#E5DFC8] group-hover:text-[#E85D6B]">
-                <span>ENGAGE</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Closing Editorial Compass Horizon */}
-      <div className="pt-6 border-t border-[#2B2926] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#A39E94] relative z-10">
-        <div className="flex items-center gap-3">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white/10 shrink-0">
-            <Image
-              src="/images/art/motif_compass.png"
-              alt="Compass Rose"
-              fill
-              className="object-contain"
-              unoptimized
-            />
+        {/* Header */}
+        <div className="border-b border-mwt-charcoal pb-4 space-y-2 relative z-10">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="mwt-kicker text-mwt-signal-bright">
+              PARTICIPATE · COLLABORATION &amp; FIELD REVIEW
+            </span>
+            <span className="mwt-coord-tag">[OPEN PUBLIC-INTEREST ARCHIVE]</span>
           </div>
-          <span>&ldquo;People shouldn&apos;t have to become an expert in broken systems just to find help.&rdquo;</span>
+
+          <h2 className="mwt-chapter-title text-mwt-paper-display">
+            Pressure-test the continuity framework.
+          </h2>
+
+          <p className="text-[#D5CBB8] text-xs sm:text-base max-w-[65ch] leading-relaxed font-sans">
+            Maps With Teeth is an open public-interest initiative. We do not operate as a government agency or legal representation service. We invite frontline navigators, caseworkers, legal aid attorneys, and civic researchers to challenge, audit, and refine our schemas.
+          </p>
         </div>
-        <div className="text-[#E85D6B] font-bold">
-          MWT-SPEC-2026-V1.0
+
+        {/* Pathways Grid (2x2 on >=360px mobile, 4 across on lg) */}
+        <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 relative z-10">
+          {pathways.map((item) => {
+            return (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group mwt-ledger-card-dark p-3.5 sm:p-5 transition-all flex flex-col justify-between space-y-3 hover:border-mwt-signal-bright"
+              >
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] text-mwt-signal-bright font-bold block tracking-[0.14em]">
+                    [{item.code}]
+                  </span>
+                  <h3 className="font-display font-extrabold text-base sm:text-xl text-mwt-paper-display group-hover:text-white transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-[11.5px] sm:text-xs text-[#C8BFA8] leading-snug font-sans">
+                    {item.deck}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-[rgba(232,222,200,0.14)] flex items-center justify-between text-[11px] font-mono text-mwt-paper-muted group-hover:text-mwt-signal-bright">
+                  <span>ENGAGE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Closing Editorial Compass Horizon */}
+        <div className="pt-4 border-t border-mwt-charcoal flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] sm:text-xs text-[#C8BFA8] relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden bg-white/10 shrink-0">
+              <Image
+                src="/images/art/motif_compass.png"
+                alt="Compass Rose"
+                fill
+                className="object-contain"
+                loading="eager"
+                unoptimized
+              />
+            </div>
+            <span>
+              &ldquo;People shouldn&apos;t have to become an expert in broken systems just to find help.&rdquo;
+            </span>
+          </div>
+          <div className="text-mwt-signal-bright font-bold tracking-[0.14em]">
+            MWT-SPEC-2026-V2.1
+          </div>
         </div>
       </div>
     </section>

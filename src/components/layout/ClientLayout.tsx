@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Script from "next/script";
 import { SafetyBanner } from "./SafetyBanner";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -12,20 +11,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Google Analytics */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-Q33EE72XJM"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-Q33EE72XJM');
-        `}
-      </Script>
-
       <SafetyBanner onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
       <Header onOpenSafeBrowsing={() => setSafeBrowsingOpen(true)} />
       <main className="flex-grow">{children}</main>
